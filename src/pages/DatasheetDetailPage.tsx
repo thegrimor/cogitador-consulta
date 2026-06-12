@@ -225,13 +225,14 @@ function AbilitiesBlock({
 
 export function DatasheetDetailPage() {
   const { datasheetId } = useParams<{ datasheetId: string }>()
-  const { factions, datasheets, stratagems, datasheetStratagems } = useGameDataContext()
+  const { factions, datasheets, stratagems, detachments } = useGameDataContext()
   const navigate = useNavigate()
 
   const ds = datasheets.find(d => d.id === datasheetId)
   const [activeModel, setActiveModel] = useState(0)
   const [compositionOpen, setCompositionOpen] = useState(false)
   const [strataOpen, setStrataOpen] = useState(false)
+  const [selectedDetachmentId, setSelectedDetachmentId] = useState<string | null>(null)
   const [genericAbilsOpen, setGenericAbilsOpen] = useState(false)
 
   if (!ds) {
@@ -248,8 +249,11 @@ export function DatasheetDetailPage() {
   const rangedWeapons = ds.weapons.filter(w => w.range.toLowerCase() !== 'melee')
   const meleeWeapons = ds.weapons.filter(w => w.range.toLowerCase() === 'melee')
 
-  const linkedStratagemIds = datasheetStratagems[ds.id] ?? []
-  const linkedStratagems = stratagems.filter(s => linkedStratagemIds.includes(s.id))
+  const factionDetachments = detachments.filter(d => d.factionId === ds.factionId)
+  const activeDetachmentId = selectedDetachmentId ?? factionDetachments[0]?.id ?? null
+  const visibleStrats = activeDetachmentId
+    ? stratagems.filter(s => s.detachmentId === activeDetachmentId)
+    : []
 
   // Leaders
   const leaderHead = ds.leaderHead
@@ -405,42 +409,78 @@ export function DatasheetDetailPage() {
         </div>
       )}
 
-      {/* Stratagemas */}
-      {linkedStratagems.length > 0 && (
+      {/* Estratagemas por destacamento */}
+      {factionDetachments.length > 0 && (
         <div className="border border-rim-bright mb-3">
           <button
             onClick={() => setStrataOpen(o => !o)}
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
           >
             <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
-              Estratagemas ({linkedStratagems.length})
+              Estratagemas
             </span>
             <span className="text-[9px] font-mono text-parchment-dim">
               {strataOpen ? '▲' : '▼'}
             </span>
           </button>
           {strataOpen && (
-            <div className="divide-y divide-rim-bright">
-              {linkedStratagems.map(s => (
-                <div key={s.id} className="px-3 py-2 bg-surface-2">
-                  <div className="flex items-baseline gap-2 mb-0.5">
-                    <span className="text-[9px] font-display uppercase tracking-widest text-parchment">
-                      {s.name}
-                    </span>
-                    <span className="text-[8px] font-mono border border-crimson-bright/60 text-crimson-bright px-1 py-px">
-                      {s.cpCost} PC
-                    </span>
-                    <span className="text-[7px] font-mono uppercase text-parchment-dim">
-                      {s.phase}
-                    </span>
-                  </div>
-                  <p
-                    className="wh-html text-[9px] font-mono text-parchment-dim leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: s.description }}
-                  />
-                </div>
-              ))}
-            </div>
+            <>
+              {/* Selector de destacamento */}
+              <div className="flex flex-wrap gap-1 px-3 py-2 bg-surface-3 border-t border-rim-bright">
+                {factionDetachments.map(det => (
+                  <button
+                    key={det.id}
+                    onClick={() => setSelectedDetachmentId(det.id)}
+                    className={`text-[7px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors ${
+                      activeDetachmentId === det.id
+                        ? 'border-crimson-bright text-parchment bg-crimson/10'
+                        : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
+                    }`}
+                  >
+                    {det.name}
+                  </button>
+                ))}
+              </div>
+              {/* Lista de estratas */}
+              <div className="divide-y divide-rim-bright">
+                {visibleStrats.length === 0 ? (
+                  <p className="text-[8px] font-mono text-parchment-dim text-center py-4 uppercase tracking-widest">
+                    Sin estratagemas
+                  </p>
+                ) : (
+                  visibleStrats.map(s => (
+                    <div key={s.id} className="px-3 py-2.5 bg-surface-2">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <span className="text-[9px] font-display uppercase tracking-widest text-parchment leading-tight">
+                          {s.name}
+                        </span>
+                        <span className="shrink-0 text-[8px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
+                          {s.cpCost}CP
+                        </span>
+                      </div>
+                      {(s.turn || s.phase) && (
+                        <div className="flex gap-3 mb-1">
+                          {s.turn && (
+                            <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
+                              Turno: <span className="text-parchment">{s.turn}</span>
+                            </span>
+                          )}
+                          {s.phase && (
+                            <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
+                              Fase: <span className="text-parchment">{s.phase}</span>
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      <p
+                        className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: s.description }}
+                      />
+                    </div>
+                  ))
+                )}
+              </div>
+            </>
           )}
         </div>
       )}
