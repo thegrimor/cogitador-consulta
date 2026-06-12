@@ -4,7 +4,7 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import { getRuleDescription, WEAPON_RULES } from '@/core/constants/weaponRules'
-import type { Weapon, ModelProfile } from '@/types'
+import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -152,6 +152,75 @@ function ModelStats({ model }: { model: ModelProfile }) {
   )
 }
 
+// ── Bloque de habilidades ─────────────────────────────────────────────────────
+
+function AbilRow({ ab }: { ab: Ability }) {
+  return (
+    <div className="px-3 py-2 bg-surface-2">
+      {ab.model && (
+        <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim block mb-0.5">
+          [{ab.model}]
+        </span>
+      )}
+      <p className="wh-html text-[9px] font-mono text-parchment leading-relaxed">
+        <strong className="font-display uppercase tracking-wide text-[8px] text-crimson-bright">
+          {ab.name}
+        </strong>
+        {ab.description ? (
+          <>
+            <span className="text-parchment-dim">: </span>
+            <span dangerouslySetInnerHTML={{ __html: ab.description }} />
+          </>
+        ) : null}
+      </p>
+    </div>
+  )
+}
+
+function AbilitiesBlock({
+  abilities,
+  genericOpen,
+  onToggleGeneric,
+}: {
+  abilities: Ability[]
+  genericOpen: boolean
+  onToggleGeneric: () => void
+}) {
+  const unitAbils = abilities.filter(a => a.type === 'Datasheet')
+  const genericAbils = abilities.filter(a => a.type !== 'Datasheet')
+
+  return (
+    <div className="border border-rim-bright mb-3">
+      <SectionHeader title="Habilidades" />
+      {unitAbils.length > 0 && (
+        <div className="divide-y divide-rim-bright">
+          {unitAbils.map((ab, i) => <AbilRow key={i} ab={ab} />)}
+        </div>
+      )}
+      {genericAbils.length > 0 && (
+        <>
+          <button
+            onClick={onToggleGeneric}
+            className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 border-t border-rim-bright hover:bg-surface-4 transition-colors"
+          >
+            <span className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
+              Genéricas / Facción ({genericAbils.length})
+            </span>
+            <span className="text-[8px] font-mono text-parchment-dim">
+              {genericOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {genericOpen && (
+            <div className="divide-y divide-rim-bright">
+              {genericAbils.map((ab, i) => <AbilRow key={i} ab={ab} />)}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  )
+}
+
 // ── Página principal ──────────────────────────────────────────────────────────
 
 export function DatasheetDetailPage() {
@@ -163,6 +232,7 @@ export function DatasheetDetailPage() {
   const [activeModel, setActiveModel] = useState(0)
   const [compositionOpen, setCompositionOpen] = useState(false)
   const [strataOpen, setStrataOpen] = useState(false)
+  const [genericAbilsOpen, setGenericAbilsOpen] = useState(false)
 
   if (!ds) {
     return (
@@ -258,31 +328,11 @@ export function DatasheetDetailPage() {
 
       {/* Habilidades */}
       {ds.abilities.length > 0 && (
-        <div className="border border-rim-bright mb-3">
-          <SectionHeader title="Habilidades" />
-          <div className="divide-y divide-rim-bright">
-            {ds.abilities.map((ab, i) => (
-              <div key={i} className="px-3 py-2 bg-surface-2">
-                {ab.model && (
-                  <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim block mb-0.5">
-                    [{ab.model}]
-                  </span>
-                )}
-                <p className="wh-html text-[9px] font-mono text-parchment leading-relaxed">
-                  <strong className="font-display uppercase tracking-wide text-[8px] text-crimson-bright">
-                    {ab.name}
-                  </strong>
-                  {ab.description ? (
-                    <>
-                      <span className="text-parchment-dim">: </span>
-                      <span dangerouslySetInnerHTML={{ __html: ab.description }} />
-                    </>
-                  ) : null}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <AbilitiesBlock
+          abilities={ds.abilities}
+          genericOpen={genericAbilsOpen}
+          onToggleGeneric={() => setGenericAbilsOpen(o => !o)}
+        />
       )}
 
       {/* Líderes — puede liderar */}
