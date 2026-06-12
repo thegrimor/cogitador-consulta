@@ -1,0 +1,428 @@
+import { useState } from 'react'
+import { useParams, NavLink, useNavigate } from 'react-router-dom'
+import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
+import { datasheetPath } from '@/core/constants/routes'
+import { RuleTooltip } from '@/shared/components/RuleTooltip'
+import { getRuleDescription, WEAPON_RULES } from '@/core/constants/weaponRules'
+import type { Weapon, ModelProfile } from '@/types'
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+
+function SectionHeader({ title }: { title: string }) {
+  return (
+    <div className="px-3 py-1.5 bg-surface-3 border-b border-rim-bright">
+      <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+        {title}
+      </span>
+    </div>
+  )
+}
+
+// ── Weapon badges con tooltip ─────────────────────────────────────────────────
+
+interface BadgeProps { label: string }
+
+function RuleBadge({ label }: BadgeProps) {
+  const desc = getRuleDescription(label)
+  const badge = (
+    <span className="inline-block text-[7px] font-mono uppercase tracking-wide border border-gold/50 text-gold px-1 py-px leading-none">
+      {label}
+    </span>
+  )
+  if (!desc) return badge
+  return <RuleTooltip name={label} description={desc}>{badge}</RuleTooltip>
+}
+
+function WeaponTypeBadge({ type }: { type: string }) {
+  const desc = WEAPON_RULES[type] ?? getRuleDescription(type)
+  const badge = (
+    <span className="inline-block text-[7px] font-mono uppercase tracking-wide border border-parchment-dim/40 text-parchment-dim px-1 py-px leading-none">
+      {type}
+    </span>
+  )
+  if (!desc) return badge
+  return <RuleTooltip name={type} description={desc}>{badge}</RuleTooltip>
+}
+
+function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
+  const badges: React.ReactNode[] = []
+
+  if (weapon.isTorrent) badges.push(<RuleBadge key="torrent" label="Torrent" />)
+  if (weapon.isBlast) badges.push(<RuleBadge key="blast" label="Blast" />)
+  if (weapon.isDevastatingWounds) badges.push(<RuleBadge key="dev" label="Devastating Wounds" />)
+  if (weapon.isLethalHits) badges.push(<RuleBadge key="lethal" label="Lethal Hits" />)
+  if (weapon.isHeavy) badges.push(<RuleBadge key="heavy" label="Heavy" />)
+  if (weapon.isTwinLinked) badges.push(<RuleBadge key="twin" label="Twin-linked" />)
+  if (weapon.isMelta) badges.push(<RuleBadge key="melta" label={`Melta ${weapon.meltaValue}`} />)
+  if (weapon.sustainedHitsValue > 0) badges.push(<RuleBadge key="sus" label={`Sustained Hits ${weapon.sustainedHitsValue}`} />)
+  weapon.antiEntries.forEach((a, i) =>
+    badges.push(<RuleBadge key={`anti-${i}`} label={`Anti-${a.keyword} ${a.threshold}+`} />),
+  )
+
+  return badges.length > 0 ? (
+    <span className="flex flex-wrap gap-0.5">{badges}</span>
+  ) : null
+}
+
+// ── Tabla de armas ────────────────────────────────────────────────────────────
+
+function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) {
+  if (weapons.length === 0) return null
+
+  return (
+    <div className="border border-rim-bright">
+      <SectionHeader title={title} />
+      <div className="overflow-x-auto">
+        <table className="w-full text-[9px] font-mono">
+          <thead>
+            <tr className="bg-surface-3 border-b border-rim-bright text-parchment-dim uppercase tracking-widest">
+              <th className="text-left px-3 py-1.5 font-normal">Nombre</th>
+              <th className="text-center px-2 py-1.5 font-normal whitespace-nowrap">Rango</th>
+              <th className="text-center px-2 py-1.5 font-normal">A</th>
+              <th className="text-center px-2 py-1.5 font-normal">HA/HP</th>
+              <th className="text-center px-2 py-1.5 font-normal">F</th>
+              <th className="text-center px-2 py-1.5 font-normal">AP</th>
+              <th className="text-center px-2 py-1.5 font-normal">D</th>
+              <th className="text-left px-3 py-1.5 font-normal">Habilidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            {weapons.map((w, i) => (
+              <tr
+                key={w.line}
+                className={`border-b border-rim-bright last:border-b-0 ${i % 2 === 0 ? 'bg-surface-2' : 'bg-surface-3/50'}`}
+              >
+                <td className="px-3 py-1.5 text-parchment whitespace-nowrap">
+                  <span className="font-display uppercase tracking-wide text-[8px]">{w.name}</span>
+                  {w.type && (
+                    <span className="ml-2">
+                      <WeaponTypeBadge type={w.type} />
+                    </span>
+                  )}
+                </td>
+                <td className="text-center px-2 py-1.5 text-parchment-dim">{w.range}</td>
+                <td className="text-center px-2 py-1.5 text-parchment">{w.A}</td>
+                <td className="text-center px-2 py-1.5 text-parchment">{w.bsWs}</td>
+                <td className="text-center px-2 py-1.5 text-parchment">{w.S}</td>
+                <td className="text-center px-2 py-1.5 text-parchment">{w.AP}</td>
+                <td className="text-center px-2 py-1.5 text-parchment">{w.D}</td>
+                <td className="px-3 py-1.5">
+                  <WeaponSpecialBadges weapon={w} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
+// ── Stats en cajas ────────────────────────────────────────────────────────────
+
+function StatBox({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex flex-col items-center border border-rim-bright bg-surface-2 px-3 py-1.5 min-w-[40px]">
+      <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">{label}</span>
+      <span
+        className="text-[15px] font-display text-parchment leading-tight mt-0.5"
+        style={{ textShadow: 'var(--color-crimson) 0 0 8px' }}
+      >
+        {value}
+      </span>
+    </div>
+  )
+}
+
+function ModelStats({ model }: { model: ModelProfile }) {
+  return (
+    <div className="flex flex-wrap gap-px px-3 py-2 bg-surface-3">
+      <StatBox label="M" value={model.M} />
+      <StatBox label="T" value={String(model.T)} />
+      <StatBox label="SV" value={model.Sv} />
+      {model.invSv && <StatBox label="INV" value={model.invSv} />}
+      <StatBox label="W" value={String(model.W)} />
+      <StatBox label="LD" value={model.Ld} />
+      <StatBox label="OC" value={String(model.OC)} />
+      {model.baseSize && (
+        <StatBox label="Base" value={model.baseSize} />
+      )}
+    </div>
+  )
+}
+
+// ── Página principal ──────────────────────────────────────────────────────────
+
+export function DatasheetDetailPage() {
+  const { datasheetId } = useParams<{ datasheetId: string }>()
+  const { factions, datasheets, stratagems, datasheetStratagems } = useGameDataContext()
+  const navigate = useNavigate()
+
+  const ds = datasheets.find(d => d.id === datasheetId)
+  const [activeModel, setActiveModel] = useState(0)
+  const [compositionOpen, setCompositionOpen] = useState(false)
+  const [strataOpen, setStrataOpen] = useState(false)
+
+  if (!ds) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <p className="text-[9px] font-mono text-parchment-dim uppercase tracking-widest">
+          Unidad no encontrada
+        </p>
+      </div>
+    )
+  }
+
+  const faction = factions.find(f => f.id === ds.factionId)
+  const rangedWeapons = ds.weapons.filter(w => w.range.toLowerCase() !== 'melee')
+  const meleeWeapons = ds.weapons.filter(w => w.range.toLowerCase() === 'melee')
+
+  const linkedStratagemIds = datasheetStratagems[ds.id] ?? []
+  const linkedStratagems = stratagems.filter(s => linkedStratagemIds.includes(s.id))
+
+  // Leaders
+  const leaderHead = ds.leaderHead
+    .map(id => datasheets.find(d => d.id === id))
+    .filter(Boolean)
+  const leaderFooter = ds.leaderFooter
+    .map(id => datasheets.find(d => d.id === id))
+    .filter(Boolean)
+
+  const currentModel = ds.models[activeModel] ?? ds.models[0]
+
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-6">
+      {/* Back */}
+      <button
+        onClick={() => navigate(-1)}
+        className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+      >
+        ← {faction?.name ?? 'Volver'}
+      </button>
+
+      {/* Header */}
+      <div className="border border-rim-bright mb-3">
+        <div className="bg-crimson px-3 py-2 flex items-baseline justify-between gap-2">
+          <h1 className="text-[14px] font-display uppercase tracking-[2px] text-parchment leading-tight">
+            {ds.name}
+          </h1>
+          <span className="text-[8px] font-mono uppercase tracking-widest text-parchment/70 shrink-0">
+            {ds.role}
+          </span>
+        </div>
+        {ds.factionKeywords.length > 0 && (
+          <div className="px-3 py-1 bg-surface-3 border-t border-rim-bright">
+            <span className="text-[8px] font-mono uppercase tracking-widest text-gold">
+              {ds.factionKeywords.join(' · ')}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Stats */}
+      <div className="border border-rim-bright mb-3">
+        {ds.models.length > 1 && (
+          <div className="flex border-b border-rim-bright">
+            {ds.models.map((m, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveModel(i)}
+                className={`text-[8px] font-mono uppercase tracking-widest px-3 py-1.5 border-r border-rim-bright transition-colors ${
+                  i === activeModel
+                    ? 'bg-crimson/20 text-parchment'
+                    : 'bg-surface-3 text-parchment-dim hover:text-parchment'
+                }`}
+              >
+                {m.name || `Perfil ${i + 1}`}
+              </button>
+            ))}
+          </div>
+        )}
+        {currentModel && <ModelStats model={currentModel} />}
+      </div>
+
+      {/* Armas ranged */}
+      {rangedWeapons.length > 0 && (
+        <div className="mb-3">
+          <WeaponsTable weapons={rangedWeapons} title="Armas a Distancia" />
+        </div>
+      )}
+
+      {/* Armas melee */}
+      {meleeWeapons.length > 0 && (
+        <div className="mb-3">
+          <WeaponsTable weapons={meleeWeapons} title="Armas de Combate" />
+        </div>
+      )}
+
+      {/* Habilidades */}
+      {ds.abilities.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <SectionHeader title="Habilidades" />
+          <div className="divide-y divide-rim-bright">
+            {ds.abilities.map((ab, i) => (
+              <div key={i} className="px-3 py-2 bg-surface-2">
+                {ab.model && (
+                  <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim block mb-0.5">
+                    [{ab.model}]
+                  </span>
+                )}
+                <p className="text-[9px] font-mono text-parchment leading-relaxed">
+                  <strong className="font-display uppercase tracking-wide text-[8px] text-crimson-bright">
+                    {ab.name}
+                  </strong>
+                  {ab.description ? (
+                    <>
+                      <span className="text-parchment-dim">: </span>
+                      <span dangerouslySetInnerHTML={{ __html: ab.description }} />
+                    </>
+                  ) : null}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Líderes — puede liderar */}
+      {leaderHead.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <SectionHeader title="Puede Liderar" />
+          <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
+            {leaderHead.map(led => led && (
+              <NavLink
+                key={led.id}
+                to={datasheetPath(led.id)}
+                className="text-[9px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
+              >
+                {led.name}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Líderes — puede ser liderado por */}
+      {leaderFooter.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <SectionHeader title="Puede Ser Liderado Por" />
+          <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
+            {leaderFooter.map(leader => leader && (
+              <NavLink
+                key={leader.id}
+                to={datasheetPath(leader.id)}
+                className="text-[9px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
+              >
+                {leader.name}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Composición + Loadout */}
+      {(ds.unitComposition.length > 0 || ds.loadout) && (
+        <div className="border border-rim-bright mb-3">
+          <button
+            onClick={() => setCompositionOpen(o => !o)}
+            className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
+          >
+            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+              Composición y Equipo
+            </span>
+            <span className="text-[9px] font-mono text-parchment-dim">
+              {compositionOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {compositionOpen && (
+            <div className="px-3 py-2 bg-surface-2 space-y-1">
+              {ds.unitComposition.map((line, i) => (
+                <p
+                  key={i}
+                  className="text-[9px] font-mono text-parchment-dim"
+                  dangerouslySetInnerHTML={{ __html: line }}
+                />
+              ))}
+              {ds.loadout && (
+                <p
+                  className="text-[9px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                  dangerouslySetInnerHTML={{ __html: ds.loadout }}
+                />
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Stratagemas */}
+      {linkedStratagems.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <button
+            onClick={() => setStrataOpen(o => !o)}
+            className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
+          >
+            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+              Estratagemas ({linkedStratagems.length})
+            </span>
+            <span className="text-[9px] font-mono text-parchment-dim">
+              {strataOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {strataOpen && (
+            <div className="divide-y divide-rim-bright">
+              {linkedStratagems.map(s => (
+                <div key={s.id} className="px-3 py-2 bg-surface-2">
+                  <div className="flex items-baseline gap-2 mb-0.5">
+                    <span className="text-[9px] font-display uppercase tracking-widest text-parchment">
+                      {s.name}
+                    </span>
+                    <span className="text-[8px] font-mono border border-crimson-bright/60 text-crimson-bright px-1 py-px">
+                      {s.cpCost} PC
+                    </span>
+                    <span className="text-[7px] font-mono uppercase text-parchment-dim">
+                      {s.phase}
+                    </span>
+                  </div>
+                  <p
+                    className="text-[9px] font-mono text-parchment-dim leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: s.description }}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Daño */}
+      {ds.damagedW > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
+          <div className="px-3 py-2 bg-surface-2">
+            <p
+              className="text-[9px] font-mono text-parchment-dim leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: ds.damagedDescription }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Keywords */}
+      <div className="border border-rim-bright bg-surface-2 px-3 py-2 space-y-1">
+        {ds.factionKeywords.length > 0 && (
+          <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
+            <span className="text-gold mr-1">Palabras Clave de Facción:</span>
+            {ds.factionKeywords.join(', ')}
+          </p>
+        )}
+        {ds.keywords.length > 0 && (
+          <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
+            <span className="text-parchment mr-1">Palabras Clave:</span>
+            {ds.keywords.join(', ')}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
