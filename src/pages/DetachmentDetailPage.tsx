@@ -67,14 +67,14 @@ export function DetachmentDetailPage() {
                     {ab.name}
                   </p>
                   {ab.legend && (
-                    <p className="text-[8px] font-mono text-parchment-dim italic mb-1.5 leading-relaxed">
-                      {ab.legend}
-                    </p>
+                    <p className="wh-html text-[8px] font-mono text-parchment-dim italic mb-1.5 leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: ab.legend }}
+                    />
                   )}
                   {ab.description && (
-                    <p className="text-[8px] font-mono text-parchment leading-relaxed">
-                      {ab.description}
-                    </p>
+                    <p className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: ab.description }}
+                    />
                   )}
                 </div>
               ))}
@@ -119,9 +119,9 @@ export function DetachmentDetailPage() {
                     )}
                   </div>
                   {/* Description */}
-                  <p className="text-[8px] font-mono text-parchment leading-relaxed">
-                    {s.description}
-                  </p>
+                  <p className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: s.description }}
+                  />
                 </div>
               ))}
             </div>

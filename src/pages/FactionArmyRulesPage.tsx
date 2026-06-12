@@ -54,14 +54,14 @@ export function FactionArmyRulesPage() {
                 {rule.name}
               </p>
               {rule.legend && (
-                <p className="text-[8px] font-mono text-parchment-dim italic mb-2 leading-relaxed">
-                  {rule.legend}
-                </p>
+                <p className="wh-html text-[8px] font-mono text-parchment-dim italic mb-2 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: rule.legend }}
+                />
               )}
               {rule.description && (
-                <p className="text-[9px] font-mono text-parchment leading-relaxed">
-                  {rule.description}
-                </p>
+                <p className="wh-html text-[9px] font-mono text-parchment leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: rule.description }}
+                />
               )}
             </div>
           ))}
