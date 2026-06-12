@@ -2,6 +2,7 @@ export const ROUTES = {
   HOME: '/',
   CATALOG: '/catalog',
   FACTION: '/catalog/factions/:factionId',
+  FACTION_DATASHEETS: '/catalog/factions/:factionId/datasheets',
   FACTION_DETACHMENTS: '/catalog/factions/:factionId/detachments',
   FACTION_ARMY_RULES: '/catalog/factions/:factionId/army-rules',
   DATASHEET: '/catalog/datasheets/:datasheetId',
@@ -13,6 +14,10 @@ export const ROUTES = {
 
 export function factionPath(id: string) {
   return `/catalog/factions/${id}`
+}
+
+export function factionDatasheetsPath(id: string) {
+  return `/catalog/factions/${id}/datasheets`
 }
 
 export function factionDetachmentsPath(id: string) {
