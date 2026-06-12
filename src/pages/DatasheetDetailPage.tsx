@@ -268,7 +268,7 @@ export function DatasheetDetailPage() {
                     [{ab.model}]
                   </span>
                 )}
-                <p className="text-[9px] font-mono text-parchment leading-relaxed">
+                <p className="wh-html text-[9px] font-mono text-parchment leading-relaxed">
                   <strong className="font-display uppercase tracking-wide text-[8px] text-crimson-bright">
                     {ab.name}
                   </strong>
@@ -340,7 +340,7 @@ export function DatasheetDetailPage() {
               {ds.unitComposition.map((line, i) => (
                 <p
                   key={i}
-                  className="text-[9px] font-mono text-parchment-dim"
+                  className="wh-html text-[9px] font-mono text-parchment-dim"
                   dangerouslySetInnerHTML={{ __html: line }}
                 />
               ))}
@@ -385,7 +385,7 @@ export function DatasheetDetailPage() {
                     </span>
                   </div>
                   <p
-                    className="text-[9px] font-mono text-parchment-dim leading-relaxed"
+                    className="wh-html text-[9px] font-mono text-parchment-dim leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: s.description }}
                   />
                 </div>
@@ -401,7 +401,7 @@ export function DatasheetDetailPage() {
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
             <p
-              className="text-[9px] font-mono text-parchment-dim leading-relaxed"
+              className="wh-html text-[9px] font-mono text-parchment-dim leading-relaxed"
               dangerouslySetInnerHTML={{ __html: ds.damagedDescription }}
             />
           </div>
