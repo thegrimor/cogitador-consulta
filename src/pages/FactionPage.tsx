@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { datasheetPath } from '@/core/constants/routes'
+import { datasheetPath, detachmentPath } from '@/core/constants/routes'
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -152,16 +152,23 @@ export function FactionPage() {
           <SectionHeader title={`Destacamentos (${factionDetachments.length})`} />
           <div className="flex flex-col gap-px">
             {factionDetachments.map(det => (
-              <div key={det.id} className="bg-surface-2 border border-rim-bright px-3 py-2.5">
-                <p className="text-[9px] font-display uppercase tracking-widest text-parchment">
-                  {det.name}
-                </p>
-                {det.legend && (
-                  <p className="text-[8px] font-mono text-parchment-dim mt-1 italic leading-relaxed">
-                    {det.legend}
+              <NavLink
+                key={det.id}
+                to={detachmentPath(det.id)}
+                className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
+              >
+                <div className="min-w-0">
+                  <p className="text-[9px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+                    {det.name}
                   </p>
-                )}
-              </div>
+                  {det.legend && (
+                    <p className="text-[8px] font-mono text-parchment-dim mt-1 italic leading-relaxed line-clamp-1">
+                      {det.legend}
+                    </p>
+                  )}
+                </div>
+                <span className="text-[9px] font-mono text-parchment-dim shrink-0 ml-3">›</span>
+              </NavLink>
             ))}
           </div>
         </section>
