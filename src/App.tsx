@@ -5,6 +5,8 @@ import { CatalogPage } from '@/pages/CatalogPage'
 import { FactionPage } from '@/pages/FactionPage'
 import { DatasheetDetailPage } from '@/pages/DatasheetDetailPage'
 import { DetachmentDetailPage } from '@/pages/DetachmentDetailPage'
+import { FactionDetachmentsPage } from '@/pages/FactionDetachmentsPage'
+import { FactionArmyRulesPage } from '@/pages/FactionArmyRulesPage'
 import { RosterListPage } from '@/pages/RosterListPage'
 
 const router = createBrowserRouter([
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <CatalogPage /> },
           { path: 'factions/:factionId', element: <FactionPage /> },
+          { path: 'factions/:factionId/detachments', element: <FactionDetachmentsPage /> },
+          { path: 'factions/:factionId/army-rules', element: <FactionArmyRulesPage /> },
           { path: 'datasheets/:datasheetId', element: <DatasheetDetailPage /> },
           { path: 'detachments/:detachmentId', element: <DetachmentDetailPage /> },
         ],
