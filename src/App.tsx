@@ -4,6 +4,7 @@ import { AppShell } from '@/shared/components/AppShell'
 import { CatalogPage } from '@/pages/CatalogPage'
 import { FactionPage } from '@/pages/FactionPage'
 import { DatasheetDetailPage } from '@/pages/DatasheetDetailPage'
+import { DetachmentDetailPage } from '@/pages/DetachmentDetailPage'
 import { RosterListPage } from '@/pages/RosterListPage'
 
 const router = createBrowserRouter([
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
           { index: true, element: <CatalogPage /> },
           { path: 'factions/:factionId', element: <FactionPage /> },
           { path: 'datasheets/:datasheetId', element: <DatasheetDetailPage /> },
+          { path: 'detachments/:detachmentId', element: <DetachmentDetailPage /> },
         ],
       },
       {
