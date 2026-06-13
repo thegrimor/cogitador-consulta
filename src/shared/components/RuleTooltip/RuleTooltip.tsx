@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 interface Props {
   name: string
@@ -6,29 +7,63 @@ interface Props {
   children: React.ReactNode
 }
 
+interface Pos { top: number; left: number; above: boolean }
+
 export function RuleTooltip({ name, description, children }: Props) {
-  const [visible, setVisible] = useState(false)
+  const [pos, setPos] = useState<Pos | null>(null)
   const ref = useRef<HTMLSpanElement>(null)
+  const TOOLTIP_W = 240
+  const TOOLTIP_APPROX_H = 80
+
+  function show() {
+    if (!ref.current) return
+    const r = ref.current.getBoundingClientRect()
+    const spaceAbove = r.top
+    const above = spaceAbove >= TOOLTIP_APPROX_H + 8
+    const rawLeft = r.left + r.width / 2 - TOOLTIP_W / 2
+    const left = Math.max(8, Math.min(rawLeft, window.innerWidth - TOOLTIP_W - 8))
+    const top = above ? r.top - 6 : r.bottom + 6
+    setPos({ top, left, above })
+  }
+
+  function hide() {
+    setPos(null)
+  }
+
+  useEffect(() => {
+    if (!pos) return
+    const onScroll = () => setPos(null)
+    window.addEventListener('scroll', onScroll, { passive: true, capture: true })
+    return () => window.removeEventListener('scroll', onScroll, true)
+  }, [!!pos])
 
   return (
     <span
       ref={ref}
-      className="relative inline-block"
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
+      className="relative inline-block cursor-help"
+      onMouseEnter={show}
+      onMouseLeave={hide}
     >
       {children}
-      {visible && (
-        <span className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-1.5 w-56 pointer-events-none">
-          <span className="block bg-surface-4 border border-rim-bright px-2.5 py-2 text-left shadow-lg">
+      {pos && createPortal(
+        <span
+          className="fixed z-[9999] pointer-events-none"
+          style={{ top: pos.top, left: pos.left, width: TOOLTIP_W }}
+        >
+          <span
+            className="block bg-surface-4 border border-rim-bright px-2.5 py-2 text-left shadow-xl"
+            style={{ transform: pos.above ? 'translateY(-100%)' : 'none' }}
+          >
             <span className="block text-[9px] font-display uppercase tracking-widest text-crimson-bright mb-1">
               {name}
             </span>
-            <span className="wh-html block text-[9px] font-mono text-parchment-dim leading-relaxed"
+            <span
+              className="wh-html block text-[9px] font-mono text-parchment-dim leading-relaxed"
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </span>
-        </span>
+        </span>,
+        document.body,
       )}
     </span>
   )
