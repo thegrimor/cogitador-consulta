@@ -5,7 +5,7 @@ import { factionPath, datasheetPath } from '@/core/constants/routes'
 
 export function FactionDatasheetsPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, datasheets } = useGameDataContext()
+  const { factions, datasheets, pointsCostMap } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
@@ -101,27 +101,38 @@ export function FactionDatasheetsPage() {
                     {ds.name}
                   </span>
                 </div>
-                {primary && (
-                  <div className="flex items-center gap-px shrink-0 ml-3">
-                    {[
-                      { label: 'T', value: String(primary.T) },
-                      { label: 'SV', value: primary.Sv },
-                      { label: 'W', value: String(primary.W) },
-                    ].map(stat => (
-                      <div
-                        key={stat.label}
-                        className="flex flex-col items-center bg-surface-3 border border-rim-bright px-1.5 py-0.5 min-w-[28px]"
-                      >
-                        <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">
-                          {stat.label}
-                        </span>
-                        <span className="text-[9px] font-display text-parchment leading-none mt-0.5">
-                          {stat.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                <div className="flex items-center gap-px shrink-0 ml-3">
+                  {(() => {
+                    const costs = pointsCostMap[ds.id]
+                    if (costs?.length) {
+                      const minPts = Math.min(...costs.map(c => c.points))
+                      return (
+                        <div className="flex flex-col items-center bg-surface-3 border border-gold/40 px-1.5 py-0.5 min-w-[36px]">
+                          <span className="text-[7px] font-mono uppercase text-gold/70 leading-none">pts</span>
+                          <span className="text-[9px] font-display text-gold leading-none mt-0.5">{minPts}</span>
+                        </div>
+                      )
+                    }
+                    return null
+                  })()}
+                  {primary && [
+                    { label: 'T', value: String(primary.T) },
+                    { label: 'SV', value: primary.Sv },
+                    { label: 'W', value: String(primary.W) },
+                  ].map(stat => (
+                    <div
+                      key={stat.label}
+                      className="flex flex-col items-center bg-surface-3 border border-rim-bright px-1.5 py-0.5 min-w-[28px]"
+                    >
+                      <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">
+                        {stat.label}
+                      </span>
+                      <span className="text-[9px] font-display text-parchment leading-none mt-0.5">
+                        {stat.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </NavLink>
             )
           })}

@@ -7,6 +7,7 @@ export const ROUTES = {
   FACTION_ARMY_RULES: '/catalog/factions/:factionId/army-rules',
   DATASHEET: '/catalog/datasheets/:datasheetId',
   DETACHMENT: '/catalog/detachments/:detachmentId',
+  CORE_RULES: '/core-rules',
   ROSTER: '/roster',
   ROSTER_NEW: '/roster/new',
   ROSTER_EDIT: '/roster/:rosterId',

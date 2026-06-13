@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react'
 import Papa from 'papaparse'
 import type {
   GameData, Faction, Detachment, DetachmentAbility, Stratagem, Datasheet,
-  ModelProfile, Weapon, Ability, AntiEntry,
+  ModelProfile, Weapon, Ability, AntiEntry, Enhancement, UnitOption, Source, CoreRule,
+  PointsCost,
   RawFaction, RawDatasheet, RawDatasheetModel, RawDatasheetWargear,
   RawDatasheetAbility, RawAbility, RawDetachment, RawDetachmentAbility,
   RawStratagem, RawDatasheetStratagem, RawDatasheetKeyword, RawDatasheetUnitComposition,
+  RawModelCost, RawDatasheetLeader, RawEnhancement, RawDatasheetEnhancement,
+  RawDatasheetOption, RawDatasheetDetachmentAbility, RawSource, RawCoreRule,
 } from '@/types'
 
 function parseCsvRaw(text: string): Record<string, string>[] {
@@ -189,6 +192,7 @@ function enrichDatasheet(
     id: raw.id,
     name: raw.name,
     factionId: raw.faction_id,
+    sourceId: raw.source_id || '',
     role: raw.role,
     legend: raw.legend,
     loadout: raw.loadout,
@@ -222,6 +226,15 @@ const CSV_FILES = [
   'Datasheets_stratagems',
   'Datasheets_keywords',
   'Datasheets_unit_composition',
+  'Datasheets_models_cost',
+  'Datasheets_leader',
+  'Enhancements',
+  'Datasheets_enhancements',
+  'Datasheets_options',
+  'Datasheets_detachment_abilities',
+  'Source',
+  'Last_update',
+  'CoreRules',
 ]
 
 export function useGameData(): GameData {
@@ -233,6 +246,20 @@ export function useGameData(): GameData {
     stratagems: [],
     datasheetStratagems: {},
     abilitiesMap: {},
+    armyRulesByFaction: {},
+    pointsCosts: [],
+    pointsCostMap: {},
+    leaderMap: {},
+    attachedMap: {},
+    enhancements: [],
+    datasheetEnhancements: {},
+    datasheetOptions: {},
+    datasheetDetachmentAbilities: {},
+    sources: [],
+    sourceMap: {},
+    lastUpdate: '',
+    coreRules: [],
+    coreRulesMap: {},
     loading: true,
     error: null,
   })
@@ -253,61 +280,208 @@ export function useGameData(): GameData {
         if (cancelled) return
 
         const rows = texts.map(parseCsvRaw)
-        const rawFactions       = rows[0]  as unknown as RawFaction[]
-        const rawDatasheets     = rows[1]  as unknown as RawDatasheet[]
-        const rawModels         = rows[2]  as unknown as RawDatasheetModel[]
-        const rawWargear        = rows[3]  as unknown as RawDatasheetWargear[]
-        const rawDsAbilities    = rows[4]  as unknown as RawDatasheetAbility[]
-        const rawAbilities      = rows[5]  as unknown as RawAbility[]
-        const rawDetachments    = rows[6]  as unknown as RawDetachment[]
-        const rawDetachAbils    = rows[7]  as unknown as RawDetachmentAbility[]
-        const rawStratagems     = rows[8]  as unknown as RawStratagem[]
-        const rawDsStratagems   = rows[9]  as unknown as RawDatasheetStratagem[]
-        const rawKeywords       = rows[10] as unknown as RawDatasheetKeyword[]
-        const rawCompositions   = rows[11] as unknown as RawDatasheetUnitComposition[]
+        const rawFactions                  = rows[0]  as unknown as RawFaction[]
+        const rawDatasheets                = rows[1]  as unknown as RawDatasheet[]
+        const rawModels                    = rows[2]  as unknown as RawDatasheetModel[]
+        const rawWargear                   = rows[3]  as unknown as RawDatasheetWargear[]
+        const rawDsAbilities               = rows[4]  as unknown as RawDatasheetAbility[]
+        const rawAbilities                 = rows[5]  as unknown as RawAbility[]
+        const rawDetachments               = rows[6]  as unknown as RawDetachment[]
+        const rawDetachAbils               = rows[7]  as unknown as RawDetachmentAbility[]
+        const rawStratagems                = rows[8]  as unknown as RawStratagem[]
+        const rawDsStratagems              = rows[9]  as unknown as RawDatasheetStratagem[]
+        const rawKeywords                  = rows[10] as unknown as RawDatasheetKeyword[]
+        const rawCompositions              = rows[11] as unknown as RawDatasheetUnitComposition[]
+        const rawModelCosts                = rows[12] as unknown as RawModelCost[]
+        const rawLeaders                   = rows[13] as unknown as RawDatasheetLeader[]
+        const rawEnhancements              = rows[14] as unknown as RawEnhancement[]
+        const rawDsEnhancements            = rows[15] as unknown as RawDatasheetEnhancement[]
+        const rawDsOptions                 = rows[16] as unknown as RawDatasheetOption[]
+        const rawDsDetachAbils             = rows[17] as unknown as RawDatasheetDetachmentAbility[]
+        const rawSources                   = rows[18] as unknown as RawSource[]
+        const rawLastUpdate                = rows[19] as unknown as { last_update: string }[]
+        const rawCoreRules                 = rows[20] as unknown as RawCoreRule[]
 
+        // ── abilitiesMap (last-write-wins per id, used for datasheet ability lookup) ──
         const abilitiesMap: Record<string, RawAbility> = {}
         rawAbilities.forEach(a => { abilitiesMap[a.id] = a })
 
+        // ── armyRulesByFaction: derived from Datasheets_abilities type=Faction ──
+        const datasheetFactionMap: Record<string, string> = {}
+        rawDatasheets.forEach(ds => { datasheetFactionMap[ds.id] = ds.faction_id })
+
+        const armyRulesByFaction: Record<string, RawAbility[]> = {}
+        const seenByFaction: Record<string, Set<string>> = {}
+        rawDsAbilities
+          .filter(a => a.type === 'Faction' && a.ability_id)
+          .forEach(a => {
+            const factionId = datasheetFactionMap[a.datasheet_id]
+            if (!factionId) return
+            if (!seenByFaction[factionId]) {
+              seenByFaction[factionId] = new Set()
+              armyRulesByFaction[factionId] = []
+            }
+            if (!seenByFaction[factionId].has(a.ability_id)) {
+              seenByFaction[factionId].add(a.ability_id)
+              const ability = abilitiesMap[a.ability_id]
+              if (ability) armyRulesByFaction[factionId].push(ability)
+            }
+          })
+
+        // ── group helpers ─────────────────────────────────────────────────────
         const modelsByDs   = groupBy(rawModels, 'datasheet_id')
         const wargearByDs  = groupBy(rawWargear, 'datasheet_id')
         const abilsByDs    = groupBy(rawDsAbilities, 'datasheet_id')
         const keywordsByDs = groupBy(rawKeywords, 'datasheet_id')
         const compByDs     = groupBy(rawCompositions, 'datasheet_id')
 
+        // ── datasheetStratagems ───────────────────────────────────────────────
         const datasheetStratagems: Record<string, string[]> = {}
         rawDsStratagems.forEach(row => {
           if (!datasheetStratagems[row.datasheet_id]) datasheetStratagems[row.datasheet_id] = []
           datasheetStratagems[row.datasheet_id].push(row.stratagem_id)
         })
 
+        // ── datasheets ────────────────────────────────────────────────────────
         const datasheets = rawDatasheets.map(ds =>
           enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap),
         )
 
+        // ── factions ──────────────────────────────────────────────────────────
         const factions: Faction[] = [...rawFactions]
           .sort((a, b) => a.name.localeCompare(b.name))
           .map(f => ({ id: f.id, name: f.name }))
 
+        // ── detachments ───────────────────────────────────────────────────────
         const detachments: Detachment[] = rawDetachments.map(d => ({
           id: d.id, factionId: d.faction_id, name: d.name, legend: d.legend,
         }))
 
+        // ── detachmentAbilities ───────────────────────────────────────────────
         const detachmentAbilities: DetachmentAbility[] = rawDetachAbils.map(da => ({
           id: da.id, detachmentId: da.detachment_id, name: da.name,
           description: da.description, legend: da.legend,
         }))
 
+        // ── stratagems ────────────────────────────────────────────────────────
         const stratagems: Stratagem[] = rawStratagems.map(s => ({
           id: s.id, name: s.name, factionId: s.faction_id, detachmentId: s.detachment_id,
           cpCost: parseInt(s.cp_cost) || 1, type: s.type, turn: s.turn,
           phase: s.phase, description: s.description,
         }))
 
+        // ── points costs ──────────────────────────────────────────────────────
+        const pointsCosts: PointsCost[] = rawModelCosts.map(r => ({
+          datasheetId: r.datasheet_id,
+          description: r.description,
+          points: parseInt(r.cost) || 0,
+        }))
+        const pointsCostMap: Record<string, PointsCost[]> = {}
+        pointsCosts.forEach(p => {
+          if (!pointsCostMap[p.datasheetId]) pointsCostMap[p.datasheetId] = []
+          pointsCostMap[p.datasheetId].push(p)
+        })
+
+        // ── leader maps ───────────────────────────────────────────────────────
+        const leaderMap: Record<string, string[]> = {}
+        const attachedMap: Record<string, string[]> = {}
+        rawLeaders.forEach(r => {
+          if (!leaderMap[r.leader_id]) leaderMap[r.leader_id] = []
+          leaderMap[r.leader_id].push(r.attached_id)
+          if (!attachedMap[r.attached_id]) attachedMap[r.attached_id] = []
+          attachedMap[r.attached_id].push(r.leader_id)
+        })
+
+        // ── enhancements ──────────────────────────────────────────────────────
+        const enhancements: Enhancement[] = rawEnhancements.map(e => ({
+          id: e.id,
+          factionId: e.faction_id,
+          name: e.name,
+          cost: parseInt(e.cost) || 0,
+          detachmentId: e.detachment_id,
+          detachmentName: e.detachment,
+          legend: e.legend,
+          description: e.description,
+        }))
+        const datasheetEnhancements: Record<string, string[]> = {}
+        rawDsEnhancements.forEach(r => {
+          if (!datasheetEnhancements[r.datasheet_id]) datasheetEnhancements[r.datasheet_id] = []
+          datasheetEnhancements[r.datasheet_id].push(r.enhancement_id)
+        })
+
+        // ── datasheetOptions ──────────────────────────────────────────────────
+        const datasheetOptions: Record<string, UnitOption[]> = {}
+        rawDsOptions.forEach(r => {
+          if (!datasheetOptions[r.datasheet_id]) datasheetOptions[r.datasheet_id] = []
+          datasheetOptions[r.datasheet_id].push({
+            line: parseInt(r.line) || 0,
+            button: r.button,
+            description: r.description,
+          })
+        })
+
+        // ── datasheetDetachmentAbilities ──────────────────────────────────────
+        const datasheetDetachmentAbilities: Record<string, string[]> = {}
+        rawDsDetachAbils.forEach(r => {
+          if (!datasheetDetachmentAbilities[r.datasheet_id]) datasheetDetachmentAbilities[r.datasheet_id] = []
+          datasheetDetachmentAbilities[r.datasheet_id].push(r.detachment_ability_id)
+        })
+
+        // ── sources ───────────────────────────────────────────────────────────
+        const sources: Source[] = rawSources.map(s => ({
+          id: s.id,
+          name: s.name,
+          type: s.type,
+          edition: parseInt(s.edition) || 10,
+          version: s.version,
+          errataDate: s.errata_date,
+          errataLink: s.errata_link,
+        }))
+        const sourceMap: Record<string, Source> = {}
+        sources.forEach(s => { sourceMap[s.id] = s })
+
+        // ── lastUpdate ────────────────────────────────────────────────────────
+        const lastUpdate = rawLastUpdate[0]?.last_update ?? ''
+
+        // ── coreRules ─────────────────────────────────────────────────────────
+        const coreRules: CoreRule[] = rawCoreRules.map(r => ({
+          id: r.id,
+          name: r.name,
+          category: r.category as CoreRule['category'],
+          summary: r.summary,
+          description: r.description,
+        }))
+
+        // Also fold in Core unit abilities from Abilities.csv (faction_id empty)
+        rawAbilities
+          .filter(a => !a.faction_id)
+          .forEach(a => {
+            coreRules.push({
+              id: a.id,
+              name: a.name,
+              category: 'unit_ability',
+              summary: '',
+              description: a.description,
+            })
+          })
+
+        const coreRulesMap: Record<string, CoreRule> = {}
+        coreRules.forEach(r => {
+          coreRulesMap[r.name.toLowerCase()] = r
+        })
+
         if (!cancelled) {
           setState({
             factions, datasheets, detachments, detachmentAbilities,
-            stratagems, datasheetStratagems, abilitiesMap,
+            stratagems, datasheetStratagems, abilitiesMap, armyRulesByFaction,
+            pointsCosts, pointsCostMap,
+            leaderMap, attachedMap,
+            enhancements, datasheetEnhancements,
+            datasheetOptions,
+            datasheetDetachmentAbilities,
+            sources, sourceMap,
+            lastUpdate,
+            coreRules, coreRulesMap,
             loading: false, error: null,
           })
         }

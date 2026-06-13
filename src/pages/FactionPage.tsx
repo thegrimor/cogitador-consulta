@@ -23,13 +23,13 @@ function NavTile({ to, label, meta }: { to: string; label: string; meta: string 
 
 export function FactionPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, datasheets, detachments, abilitiesMap } = useGameDataContext()
+  const { factions, datasheets, detachments, armyRulesByFaction } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
   const sheetCount = datasheets.filter(d => d.factionId === factionId && !d.isVirtual).length
   const detachmentCount = detachments.filter(d => d.factionId === factionId).length
-  const armyRuleCount = Object.values(abilitiesMap).filter(a => a.faction_id === factionId).length
+  const armyRuleCount = (armyRulesByFaction[factionId ?? ''] ?? []).length
 
   if (!faction) {
     return (

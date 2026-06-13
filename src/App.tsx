@@ -9,6 +9,7 @@ import { FactionDatasheetsPage } from '@/pages/FactionDatasheetsPage'
 import { FactionDetachmentsPage } from '@/pages/FactionDetachmentsPage'
 import { FactionArmyRulesPage } from '@/pages/FactionArmyRulesPage'
 import { RosterListPage } from '@/pages/RosterListPage'
+import { CoreRulesPage } from '@/pages/CoreRulesPage'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
           { path: 'detachments/:detachmentId', element: <DetachmentDetailPage /> },
         ],
       },
+      { path: 'core-rules', element: <CoreRulesPage /> },
       {
         path: 'roster',
         children: [
