@@ -353,9 +353,11 @@ export function useGameData(): GameData {
           .map(f => ({ id: f.id, name: f.name }))
 
         // ── detachments ───────────────────────────────────────────────────────
-        const detachments: Detachment[] = rawDetachments.map(d => ({
-          id: d.id, factionId: d.faction_id, name: d.name, legend: d.legend,
-        }))
+        const detachments: Detachment[] = rawDetachments
+          .filter(d => d.type === '')
+          .map(d => ({
+            id: d.id, factionId: d.faction_id, name: d.name, legend: d.legend, type: d.type,
+          }))
 
         // ── detachmentAbilities ───────────────────────────────────────────────
         const detachmentAbilities: DetachmentAbility[] = rawDetachAbils.map(da => ({

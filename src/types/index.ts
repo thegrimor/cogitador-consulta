@@ -194,6 +194,7 @@ export interface Detachment {
   factionId: string
   name: string
   legend: string
+  type: string
 }
 
 export interface DetachmentAbility {
