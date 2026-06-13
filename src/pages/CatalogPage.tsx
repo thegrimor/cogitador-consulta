@@ -40,9 +40,6 @@ export function CatalogPage() {
                 <p className="text-[10px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment leading-tight">
                   {faction.name}
                 </p>
-                <p className="text-[8px] font-mono uppercase tracking-[2px] text-parchment-dim mt-1">
-                  {faction.id}
-                </p>
               </div>
             </NavLink>
           ))}
