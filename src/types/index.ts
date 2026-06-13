@@ -124,6 +124,64 @@ export interface RawDatasheetUnitComposition {
   description: string
 }
 
+export interface RawModelCost {
+  datasheet_id: string
+  line: string
+  description: string
+  cost: string
+}
+
+export interface RawDatasheetLeader {
+  leader_id: string
+  attached_id: string
+}
+
+export interface RawEnhancement {
+  faction_id: string
+  id: string
+  name: string
+  cost: string
+  detachment: string
+  detachment_id: string
+  legend: string
+  description: string
+}
+
+export interface RawDatasheetEnhancement {
+  datasheet_id: string
+  enhancement_id: string
+}
+
+export interface RawDatasheetOption {
+  datasheet_id: string
+  line: string
+  button: string
+  description: string
+}
+
+export interface RawDatasheetDetachmentAbility {
+  datasheet_id: string
+  detachment_ability_id: string
+}
+
+export interface RawSource {
+  id: string
+  name: string
+  type: string
+  edition: string
+  version: string
+  errata_date: string
+  errata_link: string
+}
+
+export interface RawCoreRule {
+  id: string
+  name: string
+  category: string
+  summary: string
+  description: string
+}
+
 // ── Domain types ───────────────────────────────────────────────────────────────
 
 export interface Faction {
@@ -212,6 +270,7 @@ export interface Datasheet {
   id: string
   name: string
   factionId: string
+  sourceId: string
   role: string
   legend: string
   loadout: string
@@ -239,6 +298,19 @@ export interface GameData {
   stratagems: Stratagem[]
   datasheetStratagems: Record<string, string[]>
   abilitiesMap: Record<string, RawAbility>
+  pointsCosts: PointsCost[]
+  pointsCostMap: Record<string, PointsCost[]>
+  leaderMap: Record<string, string[]>
+  attachedMap: Record<string, string[]>
+  enhancements: Enhancement[]
+  datasheetEnhancements: Record<string, string[]>
+  datasheetOptions: Record<string, UnitOption[]>
+  datasheetDetachmentAbilities: Record<string, string[]>
+  sources: Source[]
+  sourceMap: Record<string, Source>
+  lastUpdate: string
+  coreRules: CoreRule[]
+  coreRulesMap: Record<string, CoreRule>
   loading: boolean
   error: string | null
 }
@@ -266,6 +338,43 @@ export interface RosterList {
 
 export interface PointsCost {
   datasheetId: string
-  modelCount: number
+  description: string
   points: number
+}
+
+export interface Enhancement {
+  id: string
+  factionId: string
+  name: string
+  cost: number
+  detachmentId: string
+  detachmentName: string
+  legend: string
+  description: string
+}
+
+export interface UnitOption {
+  line: number
+  button: string
+  description: string
+}
+
+export interface Source {
+  id: string
+  name: string
+  type: string
+  edition: number
+  version: string
+  errataDate: string
+  errataLink: string
+}
+
+export type CoreRuleCategory = 'weapon_ability' | 'unit_ability' | 'concept' | 'phase'
+
+export interface CoreRule {
+  id: string
+  name: string
+  category: CoreRuleCategory
+  summary: string
+  description: string
 }

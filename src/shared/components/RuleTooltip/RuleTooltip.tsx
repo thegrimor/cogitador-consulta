@@ -1,19 +1,21 @@
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { Link } from 'react-router-dom'
 
 interface Props {
   name: string
   description: string
+  ruleId?: string
   children: React.ReactNode
 }
 
 interface Pos { top: number; left: number; above: boolean }
 
-export function RuleTooltip({ name, description, children }: Props) {
+export function RuleTooltip({ name, description, ruleId, children }: Props) {
   const [pos, setPos] = useState<Pos | null>(null)
   const ref = useRef<HTMLSpanElement>(null)
-  const TOOLTIP_W = 240
-  const TOOLTIP_APPROX_H = 80
+  const TOOLTIP_W = 260
+  const TOOLTIP_APPROX_H = 100
 
   function show() {
     if (!ref.current) return
@@ -37,6 +39,10 @@ export function RuleTooltip({ name, description, children }: Props) {
     return () => window.removeEventListener('scroll', onScroll, true)
   }, [!!pos])
 
+  const coreRulesLink = ruleId
+    ? `/core-rules#rule-${ruleId}`
+    : `/core-rules#rule-${name.toLowerCase().replace(/\s+/g, '-')}`
+
   return (
     <span
       ref={ref}
@@ -54,8 +60,17 @@ export function RuleTooltip({ name, description, children }: Props) {
             className="block bg-surface-4 border border-rim-bright px-2.5 py-2 text-left shadow-xl"
             style={{ transform: pos.above ? 'translateY(-100%)' : 'none' }}
           >
-            <span className="block text-[9px] font-display uppercase tracking-widest text-crimson-bright mb-1">
-              {name}
+            <span className="flex items-baseline justify-between gap-2 mb-1">
+              <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+                {name}
+              </span>
+              <Link
+                to={coreRulesLink}
+                className="pointer-events-auto text-[7px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
+                onClick={() => setPos(null)}
+              >
+                Ver regla →
+              </Link>
             </span>
             <span
               className="wh-html block text-[9px] font-mono text-parchment-dim leading-relaxed"

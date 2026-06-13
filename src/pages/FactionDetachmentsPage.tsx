@@ -4,7 +4,7 @@ import { factionPath, detachmentPath } from '@/core/constants/routes'
 
 export function FactionDetachmentsPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, detachments, detachmentAbilities, stratagems } = useGameDataContext()
+  const { factions, detachments, detachmentAbilities, stratagems, enhancements } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
@@ -48,6 +48,7 @@ export function FactionDetachmentsPage() {
           {factionDetachments.map(det => {
             const abilCount = detachmentAbilities.filter(a => a.detachmentId === det.id).length
             const stratCount = stratagems.filter(s => s.detachmentId === det.id).length
+            const enhCount = enhancements.filter(e => e.detachmentId === det.id).length
             return (
               <NavLink
                 key={det.id}
@@ -66,7 +67,12 @@ export function FactionDetachmentsPage() {
                   <div className="flex gap-3">
                     {abilCount > 0 && (
                       <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
-                        {abilCount} mejora{abilCount !== 1 ? 's' : ''}
+                        {abilCount} habilidad{abilCount !== 1 ? 'es' : ''}
+                      </span>
+                    )}
+                    {enhCount > 0 && (
+                      <span className="text-[7px] font-mono uppercase tracking-widest text-gold/70">
+                        {enhCount} mejora{enhCount !== 1 ? 's' : ''}
                       </span>
                     )}
                     {stratCount > 0 && (

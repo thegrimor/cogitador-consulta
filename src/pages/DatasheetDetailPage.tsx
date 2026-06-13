@@ -3,11 +3,9 @@ import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
-import { getRuleDescription } from '@/core/constants/weaponRules'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
-
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -19,21 +17,26 @@ function SectionHeader({ title }: { title: string }) {
   )
 }
 
-// ── Weapon badges con tooltip ─────────────────────────────────────────────────
+// ── Weapon badges con tooltip desde CoreRules ─────────────────────────────────
 
-interface BadgeProps { label: string }
+interface BadgeProps { label: string; ruleKey?: string }
 
-function RuleBadge({ label }: BadgeProps) {
-  const desc = getRuleDescription(label)
+function RuleBadge({ label, ruleKey }: BadgeProps) {
+  const { coreRulesMap } = useGameDataContext()
+  const key = (ruleKey ?? label).toLowerCase()
+  const rule = coreRulesMap[key] ?? Object.values(coreRulesMap).find(r => key.startsWith(r.name.toLowerCase()))
   const badge = (
     <span className="inline-block text-[7px] font-mono uppercase tracking-wide border border-gold/50 text-gold px-1 py-px leading-none">
       {label}
     </span>
   )
-  if (!desc) return badge
-  return <RuleTooltip name={label} description={desc}>{badge}</RuleTooltip>
+  if (!rule) return badge
+  return (
+    <RuleTooltip name={label} description={rule.description} ruleId={rule.id}>
+      {badge}
+    </RuleTooltip>
+  )
 }
-
 
 function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
   const badges: React.ReactNode[] = []
@@ -44,10 +47,10 @@ function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
   if (weapon.isLethalHits) badges.push(<RuleBadge key="lethal" label="Lethal Hits" />)
   if (weapon.isHeavy) badges.push(<RuleBadge key="heavy" label="Heavy" />)
   if (weapon.isTwinLinked) badges.push(<RuleBadge key="twin" label="Twin-linked" />)
-  if (weapon.isMelta) badges.push(<RuleBadge key="melta" label={`Melta ${weapon.meltaValue}`} />)
-  if (weapon.sustainedHitsValue > 0) badges.push(<RuleBadge key="sus" label={`Sustained Hits ${weapon.sustainedHitsValue}`} />)
+  if (weapon.isMelta) badges.push(<RuleBadge key="melta" label={`Melta ${weapon.meltaValue}`} ruleKey="melta" />)
+  if (weapon.sustainedHitsValue > 0) badges.push(<RuleBadge key="sus" label={`Sustained Hits ${weapon.sustainedHitsValue}`} ruleKey="sustained hits" />)
   weapon.antiEntries.forEach((a, i) =>
-    badges.push(<RuleBadge key={`anti-${i}`} label={`Anti-${a.keyword} ${a.threshold}+`} />),
+    badges.push(<RuleBadge key={`anti-${i}`} label={`Anti-${a.keyword} ${a.threshold}+`} ruleKey="anti" />),
   )
 
   return badges.length > 0 ? (
@@ -210,12 +213,18 @@ function AbilitiesBlock({
 
 export function DatasheetDetailPage() {
   const { datasheetId } = useParams<{ datasheetId: string }>()
-  const { factions, datasheets, stratagems, detachments } = useGameDataContext()
+  const {
+    factions, datasheets, stratagems, detachments,
+    pointsCostMap, leaderMap, attachedMap,
+    datasheetOptions, datasheetDetachmentAbilities, detachmentAbilities,
+    sourceMap,
+  } = useGameDataContext()
   const navigate = useNavigate()
 
   const ds = datasheets.find(d => d.id === datasheetId)
   const [activeModel, setActiveModel] = useState(0)
   const [compositionOpen, setCompositionOpen] = useState(false)
+  const [optionsOpen, setOptionsOpen] = useState(false)
   const [strataOpen, setStrataOpen] = useState(false)
   const [selectedDetachmentId, setSelectedDetachmentId] = useState<string | null>(null)
   const [genericAbilsOpen, setGenericAbilsOpen] = useState(false)
@@ -240,13 +249,26 @@ export function DatasheetDetailPage() {
     ? stratagems.filter(s => s.detachmentId === activeDetachmentId)
     : []
 
-  // Leaders
-  const leaderHead = ds.leaderHead
-    .map(id => datasheets.find(d => d.id === id))
+  // Leaders — from relational CSV (with fallback to old split fields)
+  const leaderHeadIds = leaderMap[ds.id]?.length ? leaderMap[ds.id] : ds.leaderHead
+  const leaderFooterIds = attachedMap[ds.id]?.length ? attachedMap[ds.id] : ds.leaderFooter
+  const leaderHead = leaderHeadIds.map(id => datasheets.find(d => d.id === id)).filter(Boolean)
+  const leaderFooter = leaderFooterIds.map(id => datasheets.find(d => d.id === id)).filter(Boolean)
+
+  // Points
+  const pointsCosts = pointsCostMap[ds.id] ?? []
+
+  // Wargear options
+  const options = datasheetOptions[ds.id] ?? []
+
+  // Detachment abilities specific to this unit
+  const unitDetachAbilIds = datasheetDetachmentAbilities[ds.id] ?? []
+  const unitDetachAbils = unitDetachAbilIds
+    .map(id => detachmentAbilities.find(a => a.id === id))
     .filter(Boolean)
-  const leaderFooter = ds.leaderFooter
-    .map(id => datasheets.find(d => d.id === id))
-    .filter(Boolean)
+
+  // Source
+  const source = ds.sourceId ? sourceMap[ds.sourceId] : undefined
 
   const currentModel = ds.models[activeModel] ?? ds.models[0]
 
@@ -271,13 +293,46 @@ export function DatasheetDetailPage() {
           </span>
         </div>
         {ds.factionKeywords.length > 0 && (
-          <div className="px-3 py-1 bg-surface-3 border-t border-rim-bright">
+          <div className="px-3 py-1 bg-surface-3 border-t border-rim-bright flex items-center justify-between gap-2">
             <span className="text-[8px] font-mono uppercase tracking-widest text-gold">
               {ds.factionKeywords.join(' · ')}
             </span>
+            {source && (
+              <a
+                href={source.errataLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright transition-colors shrink-0"
+              >
+                {source.name} v{source.version}
+              </a>
+            )}
           </div>
         )}
       </div>
+
+      {/* Points */}
+      {pointsCosts.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <SectionHeader title="Coste en Puntos" />
+          <div className="flex flex-wrap gap-px px-3 py-2 bg-surface-2">
+            {pointsCosts.map((p, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center border border-rim-bright bg-surface-3 px-3 py-1.5 min-w-[60px]"
+              >
+                <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">
+                  {p.description}
+                </span>
+                <span className="text-[13px] font-display text-gold leading-tight mt-0.5">
+                  {p.points}
+                </span>
+                <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">pts</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Stats */}
       <div className="border border-rim-bright mb-3">
@@ -322,6 +377,28 @@ export function DatasheetDetailPage() {
           genericOpen={genericAbilsOpen}
           onToggleGeneric={() => setGenericAbilsOpen(o => !o)}
         />
+      )}
+
+      {/* Habilidades de destacamento específicas de esta unidad */}
+      {unitDetachAbils.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <SectionHeader title="Habilidades de Destacamento" />
+          <div className="divide-y divide-rim-bright">
+            {unitDetachAbils.map(ab => ab && (
+              <div key={ab.id} className="px-3 py-2 bg-surface-2">
+                <p className="text-[9px] font-display uppercase tracking-widest text-parchment mb-0.5">
+                  {ab.name}
+                </p>
+                {ab.description && (
+                  <p
+                    className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: ab.description }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       )}
 
       {/* Líderes — puede liderar */}
@@ -394,6 +471,38 @@ export function DatasheetDetailPage() {
         </div>
       )}
 
+      {/* Opciones de equipo */}
+      {options.length > 0 && (
+        <div className="border border-rim-bright mb-3">
+          <button
+            onClick={() => setOptionsOpen(o => !o)}
+            className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
+          >
+            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+              Opciones de Equipo ({options.length})
+            </span>
+            <span className="text-[9px] font-mono text-parchment-dim">
+              {optionsOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {optionsOpen && (
+            <div className="px-3 py-2 bg-surface-2 space-y-1">
+              {options.map((opt, i) => (
+                <div key={i} className="flex gap-2 items-start">
+                  <span className="text-[9px] font-mono text-crimson-bright shrink-0 mt-px">
+                    {opt.button}
+                  </span>
+                  <p
+                    className="wh-html text-[9px] font-mono text-parchment-dim leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: opt.description }}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Estratagemas por destacamento */}
       {factionDetachments.length > 0 && (
         <div className="border border-rim-bright mb-3">
@@ -410,7 +519,6 @@ export function DatasheetDetailPage() {
           </button>
           {strataOpen && (
             <>
-              {/* Selector de destacamento */}
               <div className="flex flex-wrap gap-1 px-3 py-2 bg-surface-3 border-t border-rim-bright">
                 {factionDetachments.map(det => (
                   <button
@@ -426,7 +534,6 @@ export function DatasheetDetailPage() {
                   </button>
                 ))}
               </div>
-              {/* Lista de estratas */}
               <div className="divide-y divide-rim-bright">
                 {visibleStrats.length === 0 ? (
                   <p className="text-[8px] font-mono text-parchment-dim text-center py-4 uppercase tracking-widest">
