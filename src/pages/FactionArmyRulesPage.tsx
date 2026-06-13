@@ -4,11 +4,11 @@ import { factionPath } from '@/core/constants/routes'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, abilitiesMap } = useGameDataContext()
+  const { factions, armyRulesByFaction } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const armyRules = Object.values(abilitiesMap).filter(a => a.faction_id === factionId)
+  const armyRules = armyRulesByFaction[factionId ?? ''] ?? []
 
   if (!faction) {
     return (

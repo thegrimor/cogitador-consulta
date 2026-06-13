@@ -223,7 +223,7 @@ export function DatasheetDetailPage() {
 
   const ds = datasheets.find(d => d.id === datasheetId)
   const [activeModel, setActiveModel] = useState(0)
-  const [compositionOpen, setCompositionOpen] = useState(false)
+  const [compositionOpen, setCompositionOpen] = useState(true)
   const [optionsOpen, setOptionsOpen] = useState(false)
   const [strataOpen, setStrataOpen] = useState(false)
   const [selectedDetachmentId, setSelectedDetachmentId] = useState<string | null>(null)
@@ -310,29 +310,6 @@ export function DatasheetDetailPage() {
           </div>
         )}
       </div>
-
-      {/* Points */}
-      {pointsCosts.length > 0 && (
-        <div className="border border-rim-bright mb-3">
-          <SectionHeader title="Coste en Puntos" />
-          <div className="flex flex-wrap gap-px px-3 py-2 bg-surface-2">
-            {pointsCosts.map((p, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center border border-rim-bright bg-surface-3 px-3 py-1.5 min-w-[60px]"
-              >
-                <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">
-                  {p.description}
-                </span>
-                <span className="text-[13px] font-display text-gold leading-tight mt-0.5">
-                  {p.points}
-                </span>
-                <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">pts</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Stats */}
       <div className="border border-rim-bright mb-3">
@@ -465,6 +442,19 @@ export function DatasheetDetailPage() {
                   className="text-[9px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
                   dangerouslySetInnerHTML={{ __html: ds.loadout }}
                 />
+              )}
+              {pointsCosts.length > 0 && (
+                <div className="flex flex-wrap gap-px pt-2 mt-1 border-t border-rim-bright">
+                  {pointsCosts.map((p, i) => (
+                    <div
+                      key={i}
+                      className="flex items-baseline gap-1 border border-rim-bright bg-surface-3 px-2 py-1"
+                    >
+                      <span className="text-[8px] font-mono text-parchment-dim">{p.description}:</span>
+                      <span className="text-[10px] font-display text-gold">{p.points} pts</span>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
           )}

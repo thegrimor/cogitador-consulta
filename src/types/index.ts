@@ -298,6 +298,7 @@ export interface GameData {
   stratagems: Stratagem[]
   datasheetStratagems: Record<string, string[]>
   abilitiesMap: Record<string, RawAbility>
+  armyRulesByFaction: Record<string, RawAbility[]>
   pointsCosts: PointsCost[]
   pointsCostMap: Record<string, PointsCost[]>
   leaderMap: Record<string, string[]>
