@@ -126,12 +126,18 @@ function ModelStats({ model }: { model: ModelProfile }) {
       <StatBox label="M" value={model.M} />
       <StatBox label="T" value={String(model.T)} />
       <StatBox label="SV" value={model.Sv} />
-      {model.invSv && <StatBox label="INV" value={model.invSv} />}
+      {model.invSv && (
+        model.invSvDescr
+          ? <RuleTooltip name="Salvamento Invulnerable" description={model.invSvDescr}><span><StatBox label="INV" value={model.invSv} /></span></RuleTooltip>
+          : <StatBox label="INV" value={model.invSv} />
+      )}
       <StatBox label="W" value={String(model.W)} />
       <StatBox label="LD" value={model.Ld} />
       <StatBox label="OC" value={String(model.OC)} />
       {model.baseSize && (
-        <StatBox label="Base" value={model.baseSize} />
+        model.baseSizeDescr
+          ? <RuleTooltip name="Tamaño de Base" description={model.baseSizeDescr}><span><StatBox label="Base" value={model.baseSize} /></span></RuleTooltip>
+          : <StatBox label="Base" value={model.baseSize} />
       )}
     </div>
   )
@@ -360,8 +366,8 @@ export function DatasheetDetailPage() {
         </div>
       )}
 
-      {/* Composición + Loadout */}
-      {(ds.unitComposition.length > 0 || ds.loadout) && (
+      {/* Composición + Loadout + Transport */}
+      {(ds.unitComposition.length > 0 || ds.loadout || ds.transport) && (
         <div className="border border-rim-bright mb-3">
           <button
             onClick={() => setCompositionOpen(o => !o)}
@@ -385,8 +391,14 @@ export function DatasheetDetailPage() {
               ))}
               {ds.loadout && (
                 <p
-                  className="text-[9px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                  className="wh-html text-[9px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
                   dangerouslySetInnerHTML={{ __html: ds.loadout }}
+                />
+              )}
+              {ds.transport && (
+                <p
+                  className="wh-html text-[9px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                  dangerouslySetInnerHTML={{ __html: `<b>Transporte:</b> ${ds.transport}` }}
                 />
               )}
             </div>

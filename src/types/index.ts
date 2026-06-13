@@ -153,10 +153,12 @@ export interface ModelProfile {
   T: number
   Sv: string
   invSv: string
+  invSvDescr: string
   W: number
   Ld: string
   OC: number
   baseSize: string
+  baseSizeDescr: string
 }
 
 export interface AntiEntry {
@@ -215,6 +217,7 @@ export interface Datasheet {
   role: string
   legend: string
   loadout: string
+  transport: string
   isVirtual: boolean
   leaderHead: string[]
   leaderFooter: string[]

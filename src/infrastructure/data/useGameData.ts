@@ -127,10 +127,12 @@ function parseModel(raw: RawDatasheetModel): ModelProfile {
     T: parseInt(raw.T) || 0,
     Sv: raw.Sv,
     invSv: raw.inv_sv || '',
+    invSvDescr: raw.inv_sv_descr || '',
     W: parseInt(raw.W) || 0,
     Ld: raw.Ld,
     OC: parseInt(raw.OC) || 0,
     baseSize: raw.base_size,
+    baseSizeDescr: raw.base_size_descr || '',
   }
 }
 
@@ -162,6 +164,7 @@ function enrichDatasheet(
     .map(parseModel)
 
   const weapons = (wargearByDs[raw.id] ?? [])
+    .filter(w => w.name?.trim())
     .sort((a, b) => parseInt(a.line) - parseInt(b.line))
     .map(parseWeapon)
 
@@ -171,12 +174,16 @@ function enrichDatasheet(
     .filter((a): a is Ability => a !== null)
 
   const kwRows = keywordsByDs[raw.id] ?? []
-  const keywords = kwRows
-    .filter(k => k.is_faction_keyword !== 'true' && k.is_faction_keyword !== '1')
-    .map(k => k.keyword)
-  const factionKeywords = kwRows
-    .filter(k => k.is_faction_keyword === 'true' || k.is_faction_keyword === '1')
-    .map(k => k.keyword)
+  const keywords = [...new Set(
+    kwRows
+      .filter(k => k.is_faction_keyword !== 'true' && k.is_faction_keyword !== '1' && k.keyword?.trim())
+      .map(k => k.keyword),
+  )]
+  const factionKeywords = [...new Set(
+    kwRows
+      .filter(k => (k.is_faction_keyword === 'true' || k.is_faction_keyword === '1') && k.keyword?.trim())
+      .map(k => k.keyword),
+  )]
 
   const unitComposition = (compByDs[raw.id] ?? [])
     .sort((a, b) => parseInt(a.line) - parseInt(b.line))
@@ -192,6 +199,7 @@ function enrichDatasheet(
     role: raw.role,
     legend: raw.legend,
     loadout: raw.loadout,
+    transport: raw.transport || '',
     isVirtual: raw.virtual === 'true' || raw.virtual === '1',
     leaderHead: splitIds(raw.leader_head),
     leaderFooter: splitIds(raw.leader_footer),
