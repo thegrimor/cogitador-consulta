@@ -49,9 +49,9 @@ export function DetachmentDetailPage() {
           {det.name}
         </h1>
         {det.legend && (
-          <p className="text-[8px] font-mono text-parchment-dim italic mt-1 leading-relaxed max-w-2xl">
-            {det.legend}
-          </p>
+          <p className="wh-html text-[8px] font-mono text-parchment-dim italic mt-1 leading-relaxed max-w-2xl"
+            dangerouslySetInnerHTML={{ __html: det.legend }}
+          />
         )}
       </div>
 

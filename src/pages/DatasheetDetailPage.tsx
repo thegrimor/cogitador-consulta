@@ -3,7 +3,7 @@ import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
-import { getRuleDescription, WEAPON_RULES } from '@/core/constants/weaponRules'
+import { getRuleDescription } from '@/core/constants/weaponRules'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ──────────────────────────────────────────────────────────────────

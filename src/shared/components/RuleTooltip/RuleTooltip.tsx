@@ -24,9 +24,9 @@ export function RuleTooltip({ name, description, children }: Props) {
             <span className="block text-[9px] font-display uppercase tracking-widest text-crimson-bright mb-1">
               {name}
             </span>
-            <span className="block text-[9px] font-mono text-parchment-dim leading-relaxed">
-              {description}
-            </span>
+            <span className="wh-html block text-[9px] font-mono text-parchment-dim leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           </span>
         </span>
       )}

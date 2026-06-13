@@ -51,9 +51,9 @@ export function WeaponCard({ weapon }: Props) {
       )}
 
       {weapon.description && (
-        <p className="text-[9px] font-mono text-parchment-dim/60 mt-1 leading-relaxed">
-          {weapon.description}
-        </p>
+        <p className="wh-html text-[9px] font-mono text-parchment-dim/60 mt-1 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: weapon.description }}
+        />
       )}
     </div>
   )
