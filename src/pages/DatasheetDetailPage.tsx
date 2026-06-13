@@ -3,7 +3,7 @@ import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
-import { getRuleDescription, WEAPON_RULES } from '@/core/constants/weaponRules'
+import { getRuleDescription } from '@/core/constants/weaponRules'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -34,16 +34,6 @@ function RuleBadge({ label }: BadgeProps) {
   return <RuleTooltip name={label} description={desc}>{badge}</RuleTooltip>
 }
 
-function WeaponTypeBadge({ type }: { type: string }) {
-  const desc = WEAPON_RULES[type] ?? getRuleDescription(type)
-  const badge = (
-    <span className="inline-block text-[7px] font-mono uppercase tracking-wide border border-parchment-dim/40 text-parchment-dim px-1 py-px leading-none">
-      {type}
-    </span>
-  )
-  if (!desc) return badge
-  return <RuleTooltip name={type} description={desc}>{badge}</RuleTooltip>
-}
 
 function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
   const badges: React.ReactNode[] = []
@@ -95,11 +85,6 @@ function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) 
               >
                 <td className="px-3 py-1.5 text-parchment whitespace-nowrap">
                   <span className="font-display uppercase tracking-wide text-[8px]">{w.name}</span>
-                  {w.type && (
-                    <span className="ml-2">
-                      <WeaponTypeBadge type={w.type} />
-                    </span>
-                  )}
                 </td>
                 <td className="text-center px-2 py-1.5 text-parchment-dim">{w.range}</td>
                 <td className="text-center px-2 py-1.5 text-parchment">{w.A}</td>

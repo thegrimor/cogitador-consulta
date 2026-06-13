@@ -59,9 +59,9 @@ export function FactionDetachmentsPage() {
                     {det.name}
                   </p>
                   {det.legend && (
-                    <p className="text-[8px] font-mono text-parchment-dim italic leading-relaxed line-clamp-2 mb-2">
-                      {det.legend}
-                    </p>
+                    <p className="wh-html text-[8px] font-mono text-parchment-dim italic leading-relaxed line-clamp-2 mb-2"
+                      dangerouslySetInnerHTML={{ __html: det.legend }}
+                    />
                   )}
                   <div className="flex gap-3">
                     {abilCount > 0 && (
