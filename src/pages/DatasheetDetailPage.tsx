@@ -228,6 +228,7 @@ export function DatasheetDetailPage() {
   const [strataOpen, setStrataOpen] = useState(false)
   const [selectedDetachmentId, setSelectedDetachmentId] = useState<string | null>(null)
   const [genericAbilsOpen, setGenericAbilsOpen] = useState(false)
+  const [detachAbilsOpen, setDetachAbilsOpen] = useState(false)
 
   if (!ds) {
     return (
@@ -359,22 +360,34 @@ export function DatasheetDetailPage() {
       {/* Habilidades de destacamento específicas de esta unidad */}
       {unitDetachAbils.length > 0 && (
         <div className="border border-rim-bright mb-3">
-          <SectionHeader title="Habilidades de Destacamento" />
-          <div className="divide-y divide-rim-bright">
-            {unitDetachAbils.map(ab => ab && (
-              <div key={ab.id} className="px-3 py-2 bg-surface-2">
-                <p className="text-[9px] font-display uppercase tracking-widest text-parchment mb-0.5">
-                  {ab.name}
-                </p>
-                {ab.description && (
-                  <p
-                    className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: ab.description }}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+          <button
+            onClick={() => setDetachAbilsOpen(o => !o)}
+            className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
+          >
+            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+              Habilidades de Destacamento ({unitDetachAbils.length})
+            </span>
+            <span className="text-[8px] font-mono text-parchment-dim">
+              {detachAbilsOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {detachAbilsOpen && (
+            <div className="divide-y divide-rim-bright">
+              {unitDetachAbils.map(ab => ab && (
+                <div key={ab.id} className="px-3 py-2 bg-surface-2">
+                  <p className="text-[9px] font-display uppercase tracking-widest text-parchment mb-0.5">
+                    {ab.name}
+                  </p>
+                  {ab.description && (
+                    <p
+                      className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: ab.description }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
