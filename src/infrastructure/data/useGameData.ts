@@ -246,6 +246,7 @@ export function useGameData(): GameData {
     stratagems: [],
     datasheetStratagems: {},
     abilitiesMap: {},
+    armyRulesByFaction: {},
     pointsCosts: [],
     pointsCostMap: {},
     leaderMap: {},
@@ -301,9 +302,31 @@ export function useGameData(): GameData {
         const rawLastUpdate                = rows[19] as unknown as { last_update: string }[]
         const rawCoreRules                 = rows[20] as unknown as RawCoreRule[]
 
-        // ── abilitiesMap ──────────────────────────────────────────────────────
+        // ── abilitiesMap (last-write-wins per id, used for datasheet ability lookup) ──
         const abilitiesMap: Record<string, RawAbility> = {}
         rawAbilities.forEach(a => { abilitiesMap[a.id] = a })
+
+        // ── armyRulesByFaction: derived from Datasheets_abilities type=Faction ──
+        const datasheetFactionMap: Record<string, string> = {}
+        rawDatasheets.forEach(ds => { datasheetFactionMap[ds.id] = ds.faction_id })
+
+        const armyRulesByFaction: Record<string, RawAbility[]> = {}
+        const seenByFaction: Record<string, Set<string>> = {}
+        rawDsAbilities
+          .filter(a => a.type === 'Faction' && a.ability_id)
+          .forEach(a => {
+            const factionId = datasheetFactionMap[a.datasheet_id]
+            if (!factionId) return
+            if (!seenByFaction[factionId]) {
+              seenByFaction[factionId] = new Set()
+              armyRulesByFaction[factionId] = []
+            }
+            if (!seenByFaction[factionId].has(a.ability_id)) {
+              seenByFaction[factionId].add(a.ability_id)
+              const ability = abilitiesMap[a.ability_id]
+              if (ability) armyRulesByFaction[factionId].push(ability)
+            }
+          })
 
         // ── group helpers ─────────────────────────────────────────────────────
         const modelsByDs   = groupBy(rawModels, 'datasheet_id')
@@ -450,7 +473,7 @@ export function useGameData(): GameData {
         if (!cancelled) {
           setState({
             factions, datasheets, detachments, detachmentAbilities,
-            stratagems, datasheetStratagems, abilitiesMap,
+            stratagems, datasheetStratagems, abilitiesMap, armyRulesByFaction,
             pointsCosts, pointsCostMap,
             leaderMap, attachedMap,
             enhancements, datasheetEnhancements,
