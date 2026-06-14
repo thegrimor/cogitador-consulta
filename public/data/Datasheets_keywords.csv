@@ -3556,6 +3556,7 @@
 000000884|Smoke||false|
 000000884|Venerable Land Raider||false|
 000000884|Vehicle||false|
+000000884|Frame||false|
 000000889|Astra Militarum||true|
 000000889|Infantry||false|
 000000889|Primaris Psyker||false|
@@ -5270,6 +5271,7 @@
 000001449|Dawneagle Jetbike||false|
 000001449|Fly||false|
 000001449|Shield-Captain||false|
+000001449|Frame||false|
 000001450|Adeptus Custodes||true|
 000001450|Custodian Wardens||false|
 000001450|Imperium||false|
@@ -5284,6 +5286,7 @@
 000001454|Imperium||false|
 000001454|Mounted||false|
 000001454|Fly||false|
+000001454|Frame||false|
 000001455|Legiones Daemonica||true|
 000001455|Character||false|
 000001455|Shadow Legion||false|
@@ -6640,6 +6643,7 @@
 000002524|Transport||false|
 000002524|Rhino||false|
 000002524|Vehicle||false|
+000002524|Frame||false|
 000002525|Genestealer Cults||true|
 000002525|Infantry||false|
 000002525|Reductus Saboteur||false|
