@@ -325,6 +325,8 @@ export interface RosterEntry {
   modelCount: number
   pointsCost: number | null
   customName?: string
+  selectedOptions?: Record<number, string>
+  enhancementId?: string
 }
 
 export interface RosterList {
@@ -332,8 +334,8 @@ export interface RosterList {
   name: string
   factionId: string
   detachmentId: string | null
+  pointsLimit: number
   entries: RosterEntry[]
-  totalPoints: number | null
   createdAt: string
   updatedAt: string
 }
