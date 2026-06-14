@@ -1,4 +1,4 @@
-﻿id|faction_id|name|legend|type|
+id|faction_id|name|legend|type|
 000000765|AC|Shield Host|||
 000000861|AC|Talons Of The Emperor|||
 000000862|AC|Null Maiden Vigil|||
@@ -277,3 +277,5 @@
 000001166|AdM|Cohort Acquisitus|<b>ADAPTED SKITARII HUNTERS IDENTIFY AND ELIMINATE TARGETS IN THE QUEST FOR KNOWLEDGE</b>||
 000001167|AdM|Lords of the Forge|<b>SENIOR CYBER-CLERGY AND TECHNOHIERARCHS MARSHAL THE MACHINE GOD'S DEVOUT</b>||
 000001168|AdM|Luminen Auto-choir|<b>ELECTRO-PRIESTS HARNESS THE MOTIVE FORCE WITH ECSTATIC EMPOWERING CHANTS</b>||
+000001060|TYR|Ambush Predators|<p class="ShowFluff legend">Slinking vanguard organisms hunt their hapless prey, striking unerringly from the shadows. The Hive Mind's ambush specialists are perfectly adapted to hunt and slay the leaders of their prey, moving with supernatural silence to envelop and overwhelm any who dare stand before them.</p>||
+000001061|TYR|Talons of the Norn Queen|<p class="ShowFluff legend">When the agent-beasts of the Norn Queens prowl, deeds of direst consequence are afoot. The Norn Emissaries and Assimilators are the most fearsome of the Hive Mind's directed killing organisms, possessed of singular intelligence and purpose as they pursue their devastating imperatives across the battlefield.</p>||
