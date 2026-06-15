@@ -454,9 +454,11 @@ export function useGameData(): GameData {
           description: r.description,
         }))
 
-        // Also fold in Core unit abilities from Abilities.csv (faction_id empty)
+        // Also fold in Core unit abilities from Abilities.csv (faction_id empty),
+        // skipping any whose name is already covered by CoreRules.csv entries above.
+        const coreRuleNameSet = new Set(coreRules.map(r => r.name.toLowerCase()))
         rawAbilities
-          .filter(a => !a.faction_id)
+          .filter(a => !a.faction_id && !coreRuleNameSet.has(a.name.toLowerCase()))
           .forEach(a => {
             coreRules.push({
               id: a.id,

@@ -8,6 +8,8 @@ export const ROUTES = {
   DATASHEET: '/catalog/datasheets/:datasheetId',
   DETACHMENT: '/catalog/detachments/:detachmentId',
   CORE_RULES: '/core-rules',
+  CORE_RULES_PHASES: '/core-rules/phases',
+  CORE_RULES_PHASE_DETAIL: '/core-rules/phases/:phaseId',
   ROSTER: '/roster',
   ROSTER_NEW: '/roster/new',
   ROSTER_EDIT: '/roster/:rosterId',
@@ -39,4 +41,8 @@ export function detachmentPath(id: string) {
 
 export function rosterEditPath(id: string) {
   return `/roster/${id}`
+}
+
+export function corePhasePath(id: string) {
+  return `/core-rules/phases/${id}`
 }
