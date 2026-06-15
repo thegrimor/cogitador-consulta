@@ -14,10 +14,19 @@ interface Pos { top: number; left: number; above: boolean }
 export function RuleTooltip({ name, description, ruleId, children }: Props) {
   const [pos, setPos] = useState<Pos | null>(null)
   const ref = useRef<HTMLSpanElement>(null)
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const TOOLTIP_W = 260
   const TOOLTIP_APPROX_H = 100
 
+  function cancelHide() {
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current)
+      hideTimer.current = null
+    }
+  }
+
   function show() {
+    cancelHide()
     if (!ref.current) return
     const r = ref.current.getBoundingClientRect()
     const spaceAbove = r.top
@@ -29,7 +38,10 @@ export function RuleTooltip({ name, description, ruleId, children }: Props) {
   }
 
   function hide() {
-    setPos(null)
+    hideTimer.current = setTimeout(() => {
+      setPos(null)
+      hideTimer.current = null
+    }, 150)
   }
 
   useEffect(() => {
@@ -53,8 +65,10 @@ export function RuleTooltip({ name, description, ruleId, children }: Props) {
       {children}
       {pos && createPortal(
         <span
-          className="fixed z-[9999] pointer-events-none"
+          className="fixed z-[9999] pointer-events-auto"
           style={{ top: pos.top, left: pos.left, width: TOOLTIP_W }}
+          onMouseEnter={cancelHide}
+          onMouseLeave={hide}
         >
           <span
             className="block bg-surface-4 border border-rim-bright px-2.5 py-2 text-left shadow-xl"
@@ -66,7 +80,7 @@ export function RuleTooltip({ name, description, ruleId, children }: Props) {
               </span>
               <Link
                 to={coreRulesLink}
-                className="pointer-events-auto text-[7px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
+                className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
                 onClick={() => setPos(null)}
               >
                 Ver regla →

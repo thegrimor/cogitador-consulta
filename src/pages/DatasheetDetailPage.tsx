@@ -41,14 +41,25 @@ function RuleBadge({ label, ruleKey }: BadgeProps) {
 function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
   const badges: React.ReactNode[] = []
 
+  if (weapon.isPistol) badges.push(<RuleBadge key="pistol" label="Pistol" />)
+  if (weapon.isAssault) badges.push(<RuleBadge key="assault" label="Assault" />)
+  if (weapon.rapidFireValue) badges.push(<RuleBadge key="rf" label={`Rapid Fire ${weapon.rapidFireValue}`} ruleKey="rapid fire" />)
+  if (weapon.isHeavy) badges.push(<RuleBadge key="heavy" label="Heavy" />)
+  if (weapon.isIndirectFire) badges.push(<RuleBadge key="indirect" label="Indirect Fire" />)
   if (weapon.isTorrent) badges.push(<RuleBadge key="torrent" label="Torrent" />)
   if (weapon.isBlast) badges.push(<RuleBadge key="blast" label="Blast" />)
+  if (weapon.isIgnoresCover) badges.push(<RuleBadge key="ignores" label="Ignores Cover" />)
   if (weapon.isDevastatingWounds) badges.push(<RuleBadge key="dev" label="Devastating Wounds" />)
   if (weapon.isLethalHits) badges.push(<RuleBadge key="lethal" label="Lethal Hits" />)
-  if (weapon.isHeavy) badges.push(<RuleBadge key="heavy" label="Heavy" />)
   if (weapon.isTwinLinked) badges.push(<RuleBadge key="twin" label="Twin-linked" />)
   if (weapon.isMelta) badges.push(<RuleBadge key="melta" label={`Melta ${weapon.meltaValue}`} ruleKey="melta" />)
   if (weapon.sustainedHitsValue > 0) badges.push(<RuleBadge key="sus" label={`Sustained Hits ${weapon.sustainedHitsValue}`} ruleKey="sustained hits" />)
+  if (weapon.isHazardous) badges.push(<RuleBadge key="haz" label="Hazardous" />)
+  if (weapon.isPsychic) badges.push(<RuleBadge key="psy" label="Psychic" />)
+  if (weapon.isPrecision) badges.push(<RuleBadge key="prec" label="Precision" />)
+  if (weapon.isExtraAttacks) badges.push(<RuleBadge key="extra" label="Extra Attacks" />)
+  if (weapon.isLance) badges.push(<RuleBadge key="lance" label="Lance" />)
+  if (weapon.isOneShot) badges.push(<RuleBadge key="one" label="One Shot" />)
   weapon.antiEntries.forEach((a, i) =>
     badges.push(<RuleBadge key={`anti-${i}`} label={`Anti-${a.keyword} ${a.threshold}+`} ruleKey="anti" />),
   )
@@ -70,7 +81,7 @@ function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) 
         <table className="w-full text-[9px] font-mono">
           <thead>
             <tr className="bg-surface-3 border-b border-rim-bright text-parchment-dim uppercase tracking-widest">
-              <th className="text-left px-3 py-1.5 font-normal">Nombre</th>
+              <th className="hidden sm:table-cell text-left px-3 py-1.5 font-normal">Nombre</th>
               <th className="text-center px-2 py-1.5 font-normal whitespace-nowrap">Rango</th>
               <th className="text-center px-2 py-1.5 font-normal">A</th>
               <th className="text-center px-2 py-1.5 font-normal">HA/HP</th>
@@ -86,16 +97,21 @@ function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) 
                 key={w.line}
                 className={`border-b border-rim-bright last:border-b-0 ${i % 2 === 0 ? 'bg-surface-2' : 'bg-surface-3/50'}`}
               >
-                <td className="px-3 py-1.5 text-parchment whitespace-nowrap">
+                <td className="hidden sm:table-cell px-3 py-1.5 text-parchment whitespace-nowrap">
                   <span className="font-display uppercase tracking-wide text-[8px]">{w.name}</span>
                 </td>
-                <td className="text-center px-2 py-1.5 text-parchment-dim">{w.range}</td>
-                <td className="text-center px-2 py-1.5 text-parchment">{w.A}</td>
-                <td className="text-center px-2 py-1.5 text-parchment">{w.bsWs}</td>
-                <td className="text-center px-2 py-1.5 text-parchment">{w.S}</td>
-                <td className="text-center px-2 py-1.5 text-parchment">{w.AP}</td>
-                <td className="text-center px-2 py-1.5 text-parchment">{w.D}</td>
-                <td className="px-3 py-1.5">
+                <td className="sm:hidden px-2 py-1 text-parchment" colSpan={7}>
+                  <span className="font-display uppercase tracking-wide text-[8px] block mb-0.5">{w.name}</span>
+                  <span className="text-parchment-dim text-[7px]">{w.range} · {w.A} · {w.bsWs} · F{w.S} · AP{w.AP} · D{w.D}</span>
+                  <span className="block mt-0.5"><WeaponSpecialBadges weapon={w} /></span>
+                </td>
+                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment-dim">{w.range}</td>
+                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.A}</td>
+                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.bsWs}</td>
+                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.S}</td>
+                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.AP}</td>
+                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.D}</td>
+                <td className="hidden sm:table-cell px-3 py-1.5">
                   <WeaponSpecialBadges weapon={w} />
                 </td>
               </tr>
@@ -594,20 +610,14 @@ export function DatasheetDetailPage() {
       )}
 
       {/* Keywords */}
-      <div className="border border-rim-bright bg-surface-2 px-3 py-2 space-y-1">
-        {ds.factionKeywords.length > 0 && (
-          <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
-            <span className="text-gold mr-1">Palabras Clave de Facción:</span>
-            {ds.factionKeywords.join(', ')}
-          </p>
-        )}
-        {ds.keywords.length > 0 && (
+      {ds.keywords.length > 0 && (
+        <div className="border border-rim-bright bg-surface-2 px-3 py-2">
           <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
             <span className="text-parchment mr-1">Palabras Clave:</span>
             {ds.keywords.join(', ')}
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -75,6 +75,11 @@ function parseUnitCompositionRange(lines: string[]): { min: number; max: number 
   return { min: Math.max(1, totalMin), max: Math.max(1, totalMax) }
 }
 
+function parseRapidFire(desc: string): string {
+  const m = desc.match(/rapid fire (\d+|d\d+(?:[+\-]\d+)?)/i)
+  return m ? m[1].toUpperCase() : ''
+}
+
 function parseSustainedHits(desc: string): number {
   const m = desc.match(/sustained hits (\d+|d\d+)/i)
   if (!m) return 0
@@ -97,7 +102,6 @@ function parseAntiEntries(desc: string): AntiEntry[] {
 
 function parseWeapon(raw: RawDatasheetWargear): Weapon {
   const desc = (raw.description ?? '').toLowerCase()
-  const type = raw.type ?? ''
   return {
     line: parseInt(raw.line) || 0,
     name: raw.name,
@@ -113,12 +117,23 @@ function parseWeapon(raw: RawDatasheetWargear): Weapon {
     isBlast: desc.includes('blast'),
     isDevastatingWounds: desc.includes('devastating wounds'),
     isLethalHits: desc.includes('lethal hits'),
-    isHeavy: /\bheavy\b/i.test(type),
+    isHeavy: /\bheavy\b/.test(desc),
     isTwinLinked: desc.includes('twin-linked'),
     isMelta: /\bmelta\s+\d+/i.test(desc),
     meltaValue: parseInt(desc.match(/\bmelta\s+(\d+)/i)?.[1] ?? '0') || 0,
     sustainedHitsValue: parseSustainedHits(desc),
     antiEntries: parseAntiEntries(desc),
+    isIgnoresCover: desc.includes('ignores cover'),
+    isHazardous: desc.includes('hazardous'),
+    isAssault: /\bassault\b/.test(desc),
+    isPistol: /\bpistol\b/.test(desc),
+    isPsychic: /\bpsychic\b/.test(desc),
+    isPrecision: desc.includes('precision'),
+    isOneShot: desc.includes('one shot'),
+    isIndirectFire: desc.includes('indirect fire'),
+    isExtraAttacks: desc.includes('extra attacks'),
+    isLance: /\blance\b/.test(desc),
+    rapidFireValue: parseRapidFire(desc),
   }
 }
 
