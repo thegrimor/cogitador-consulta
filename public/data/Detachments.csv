@@ -62,7 +62,7 @@ id|faction_id|name|legend|type|
 000000917|AS|Penitents and Pilgrims|<b>The Ecclesiarchy’s priests travel huge distances in service to the God-Emperor, often to visit holy shrines or take part in Wars of Faith. The penitents and pilgrims who comprise their travelling flocks are zealously devoted to the faith, and relish the opportunity to prove their faith in battle.</b>|Boarding Actions|
 000001003|AS|Champions of Faith|<p class="ShowFluff legend">The Adepta Sororitas assemble their most skilled and pious warriors when a truly vital mission must be completed. Whether they muster in the marshalling cloisters of a holy shrine, aboard a dropship thundering through hostile skies, or even upon the open field of war amidst fountaining explosions and heaped corpses, these hand-picked champions of the Imperial Creed halt long enough to kneel as one and pray to the God-Emperor. Only once they have sworn irrevocable oaths to the Master of Mankind, promising they will die before failing him, do the Battle Sisters advance. Bound by the promises they have made and sure in the knowledge that they are the finest exemplars of their order, these Champions of Faith stride out with unshakeable purpose and fiercely focused determination to prevail no matter the cost.</p>||
 000000779|CD|Daemonic Incursion|||
-000000953|CD|Daemonic Incursion|<b>Warp travel is fraught with perils, the greatest of which is a breach of the voidship’s Geller fields. In but the beat of a mortal heart, scores of infernal entities manifest aboard the doomed ship, shrieking with predatory glee as they fall upon their victims.</b>|Boarding Actions|
+000000953|CD|Daemonic Incursion (11th)|<b>Warp travel is fraught with perils, the greatest of which is a breach of the voidship’s Geller fields. In but the beat of a mortal heart, scores of infernal entities manifest aboard the doomed ship, shrieking with predatory glee as they fall upon their victims.</b>|Boarding Actions|
 000000954|CD|Infernal Onslaught|<b>Whether it be aboard the echoing corridors of a space hulk, storming through the gothic confines of a loyalist warship, or spilling from the warp into a xenos vessel, such close-quarters violence draws the daemons of Khorne in great number.</b>|Boarding Actions|
 000000955|CD|Rotten and Rusted|<b>The daemons of the Plague God Nurgle slither through enemy voidships like seeping corruption given malevolent form. Their very touch breeds foulness, tendrils of rust spreading across bulkheads as the bodies of their slain foes squirm with pestilential vermin.</b>|Boarding Actions|
 000000956|CD|Dread Carnival|<b>Lithe and graceful, the daemons of Slaanesh cavort across the decks of enemy voidships, bombarding their victims’ senses with hypnotic dances and soporific aromas before butchering them in the most outlandishly gory fashion imaginable.</b>|Boarding Actions|
@@ -252,7 +252,7 @@ id|faction_id|name|legend|type|
 000000973|TYR|Tyranid Attack|<b>Amidst the dark of the void, the alien horror of the Tyranids is rendered all the more terrifying. Whether swarming forth to defend their own bio-ships or stalking their prey through the decks of voidships or star forts, the hunting swarms leave none alive.</b>|Boarding Actions|
 000000974|TYR|Boarding Swarm|<b>When Tyranid hive ships latch onto prey vessels, they unleash tailored swarms of swift vanguard organisms whose purpose is to sow terror amongst the defenders and strike for vital targets such as the enginarium and command bridge.</b>|Boarding Actions|
 000000975|TYR|Biotide|<b>Whether responding to attacks by hostile boarding parties or spilling into an already-breached prey vessel, these unceasing waves of warrior organisms overrun their victims like a multiplying virus.</b>|Boarding Actions|
-000000979|TYR|Infestation Swarm|<b>Many doomed voidships have been infested by Genestealers, their corridors and crawlways transformed into the hunting grounds and brood-lairs of monstrous vanguard organisms. Such infestations prove nightmarishly deadly to any unwise enough to board these apparent derelicts.</b>|Boarding Actions|
+000000979|TYR|Infestation Swarm (11th)|<b>Many doomed voidships have been infested by Genestealers, their corridors and crawlways transformed into the hunting grounds and brood-lairs of monstrous vanguard organisms. Such infestations prove nightmarishly deadly to any unwise enough to board these apparent derelicts.</b>|Boarding Actions|
 000000982|TYR|Warrior Bioform Onslaught|<p class="ShowFluff legend">None of the synapse-beasts comprising the hive fleets are more prevalent than Tyranid Warriors. Lethal killing machines in their own right, these bioforms serve not only as instruments of destruction but as relay nodes through which the will of the Hive Mind transmits. Armed with an array of devastating weaponised biomorphs, broods of Tyranid Warriors and other bioforms slaughter their way through any resistance and open a path for hordes of Hormagaunts and Termagants to pour in to obliterate all remaining resistance.</p>||
 000001057|TYR|Subterranean Assault|<p class="ShowFluff legend">When the hive fleet’s organisms descend, no place is truly safe from their wrath. As the lands swarm and writhe, and the skies are clouded with winged monstrosities, other foes advance unseen below. Mawlocs, Raveners and Trygons burst from the ground to emerge in the midst of clustered defenders, scything apart and devouring screaming victims before they can raise their weapons in defence, sowing crippling fear and confusion through those that witness the unexpected violence.</p>||
 000000777|WE|Berzerker Warband|<p class="ShowFluff legend">Comprised of insane transhuman fanatics, monstrous possessed and other horrific killers, World Eaters warbands confront their foes head-on, relying predominantly upon aggression to turn the tide of battle in their favour; this is not to say that they are devoid of tactical and strategic acumen, however. As screaming hordes of Khorne Berzerkers crash into the enemy, armoured vehicles, Daemon Engines and mortal cultists follow the assault, moving swiftly to outflank and envelop foes or seizing key battlefield positions to repel desperate counterattacks. Whether breaking a siege, defending the site of a twisted ritual or simply seeking to annihilate a chosen enemy, World Eater’s warbands are more than capable of adapting their battle plans to the task at hand, so long as blood is spilt and skulls claimed in the name of the Blood God.</p>||
@@ -285,3 +285,40 @@ id|faction_id|name|legend|type|
 000001172|NEC|Skyshroud Spearhead|<p class="ShowFluff legend">Like a plague from ancient myth, murderous grav-skimming Necron swarms fill the skies.</p>||
 000001173|NEC|The Phaeron's Armoury|<p class="ShowFluff legend">War engines are unleashed from within the tomb world's royal armoury to crush the foe.</p>||
 000001175|TAU|Advanced Acquisition Cadre|<p class="ShowFluff legend">T’au infiltration specialists deploy to seize a vital location ahead of a major strike.</p>||
+000001212|SM|Fulguris Task Force|<b>ANTI-GRAV SPEEDERS HIT THE FOE WITH THUNDEROUS FIREPOWER AT DEADLY VELOCITIES</b>||
+000001176|SM|Subversion Assets|<b>STEALTHY BATTLE-BROTHERS AND NEOPHYTES ELIMINATE THE FOE'S LURKING THREATS</b>||
+000001177|SM|Marshal's Household|<b>WARRIOR-KNIGHTS – EACH A CHAMPION OF MARTIAL FAITH – STRIKE WITH UNCOMPROMISING FERVOUR</b>||
+000001178|SM|The Living Miracle|<b>THE MANIFESTATION OF THE GOD-EMPEROR'S WILL IS BLESSED WITH VISIONS OF EXCEPTIONAL DEEDS</b>||
+000001179|SM|Legacy of Grace|<b>THE LORDS OF THE BLOOD ANGELS BLAZE BRIGHT WITH NOBILITY DURING THE DARKEST OF BATTLES</b>||
+000001180|SM|Encarmine Speartip|<b>THE CHAPTER'S GOLDEN-ARMOURED ELITE PLUNGE INTO FOE LIKE A SPEAR CAST FROM THE HEAVENS</b>||
+000001181|SM|Wrath of the Doomed|<b>THE DEATH COMPANY BRING THEIR FOES A DOOM THAT IS BLOODY AND SUPERNATURALLY SWIFT</b>||
+000001182|SM|Dark Age Arsenal|<b>MANY ARE THE SECRETS OF PLASMA WEAPONRY THAT THE DARK ANGELS HARBOUR</b>||
+000001183|SM|Darkflight Pursuit|<b>BLACKARMOURED COMBAT CRAFT HUNT THEIR PREY UPON WINGS OF DARK FURY</b>||
+000001184|SM|Interrogation Conclave|<b>MASTERS OF PRECISION EXCRUCIATION LEAD THE DARK ANGELS IN CONDEMNATORY STRIKES</b>||
+000001185|GK|Argent Assault|<b>THE GREATEST CHAMPIONS OF THE GREY KNIGHTS SEEK OUT THEIR DEADLIEST FOES FOR PURGATION</b>||
+000001186|GK|Fires of Purgation|<b>PURGATION SQUADS LEAD THEIR BRETHREN TO PURIFY THE BATTLEFIELD THROUGH FEROCIOUS FIREPOWER</b>||
+000001187|GK|Immaterial Interdiction|<b>GREY KNIGHTS INTERCEPTORS LEAP THROUGH THE WARP TO MEET AND TURN BACK EACH NEW ENEMY PUSH</b>||
+000001188|SM|Legends of Saga and Song|<b>LED BY WOLF GUARD ELITES, THE SPACE WOLVES BATTLE SEEMINGLY IMPOSSIBLE ODDS AND PREVAIL</b>||
+000001189|SM|Veterans of the Fang|<b>PACKS OF GREY HUNTERS LEAD THEIR BATTLE-BROTHERS TO WAR, DRAWING ON CENTURIES OF EXPERIENCE</b>||
+000001190|AE|Fateful Performance|<b>ACROBATIC KILLERS OF THE HARLEQUINS MASQUES STRIKE WITH SPEED, SKILL AND MURDEROUS GRACE</b>||
+000001191|AE|Path of the Outcast|<b>STALKING SNIPERS AND RAPTORIAL HUNTERS UNLEASH DEATH AND FEAR FROM AFAR</b>||
+000001192|AE|Twilight Flickers|<b>SHADEWREATHED HARLEQUINS SURGE FORWARD, AS SWIFT AND UNSTOPPABLE AS PHANTASMS</b>||
+000001193|DRU|Exhibition of Slaughter|<b>MURDEROUS ARTISTES OF THE WYCH CULTS EXHIBIT THE FULL REACH OF THEIR TALENTS</b>||
+000001194|DRU|Kabalite Agonysts|<b>KABALITES AND THEIR VENAL ALLIES SKILFULLY REAP AN ABUNDANCE OF SUFFERING</b>||
+000001195|DRU|Tools of Torment|<b>HORRIFIC AND TORTUROUS CREATIONS OF THE HAEMONCULI INFLICT GRUESOME AGONIES</b>||
+000001196|GC|Heroes of the Uprising|<b>CHAMPIONS OF THE GENESTEALER CULT LEAD THE UPRISING WITH UNHOLY CHARISMA AND ALIEN FEROCITY</b>||
+000001197|GC|Purestrain Broodswarm|<b>PURESTRAIN BROODS ARE UNLEASHED EN MASSE TO TEAR THE HEART FROM THE ENEMY ARMY</b>||
+000001198|GC|Xenocult Masses|<b>MASSED BROODS OF NEOPHYTE HYBRIDS USE GUERRILLA TACTICS TO UNDERMINE THEIR ENEMIES</b>||
+000001199|ORK|Rollin' Deff|<b>LIKE AN AVALANCHE OF RIVETED METAL, HEAVILY ARMED TANKS AND RIGS PLOUGH TOWARDS THE FOE</b>||
+000001200|CD|Cavalcade of Chaos|<b>FELL DAEMONIC CAVALRY HOSTS SWEEP DOWN UPON THE FOE AND SHATTER THEIR LINES</b>||
+000001201|CD|Lords of the Warp|<b>CHAMPIONS OF THE RUINOUS POWERS ERUPT FROM THE WARP WITH THEIR CURSED RETINUES IN TOW</b>||
+000001202|CD|Warptide|<b>POURING THROUGH A RIFT IN REALITY, A TIDE OF DAEMONIC WARRIORS FLOODS THE BATTLEFIELD</b>||
+000001203|QT|Bastions of Tyranny|<b>KNIGHTS TYRANT CRUELLY DEMONSTRATE THEIR ARROGANT SCORN FOR THE WEAK IN TAINTED SALVOES</b>||
+000001204|QT|Hunting Warpack|<b>WAR DOGS ROOT OUT PREY AND SOW RUINATION ON HIGH-SPEED HUNTS</b>||
+000001205|CSM|Devotees of Destruction|<b>REJOICING, THESE WARRIORS UNLEASH INFERNAL FIREPOWER IN THE NAME OF THE DARK GODS</b>||
+000001206|CSM|Murdertalon Raiders|<b>VICIOUS PACKS OF RAPTORS AND WARP TALONS DESCEND UPON THEIR TERRIFIED PREY</b>||
+000001207|TS|Ritual of Regeneration|<b>THE THOUSAND SONS UNLEASH AN ANCIENT AND FORBIDDEN RITE OF UNHOLY LIFE UNBOUND</b>||
+000001208|TS|Sekhetar Cohort|<b>SEKHETAR ROBOTS MARCH OUT LIKE PUPPETS MOVED BY THE STRINGS OF THEIR SORCEROUS MASTERS</b>||
+000001209|TS|Servants of Change|<b>THE CHANGE-TWISTED HOSTS OF TZEENTCH ARE UNLEASHED, THEIR VERY PRESENCE DISTORTING REALITY</b>||
+000001210|QI|Dominus Foebreakers|<b>THE FOE QUAIL IN THE SHADOW OF TOWERING DOMINUS-CLASS KNIGHTS CONQUERING THE BATTLEFIELD</b>||
+000001211|QI|Throne-bonded Outriders|<b>ARMIGERS STRIDE OUT LIKE THE HUNTING HOUNDS OF THEIR MIGHTY NOBLE MASTERS</b>||

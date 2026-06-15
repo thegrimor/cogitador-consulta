@@ -244,6 +244,17 @@ export interface Weapon {
   meltaValue: number
   sustainedHitsValue: number
   antiEntries: AntiEntry[]
+  isIgnoresCover: boolean
+  isHazardous: boolean
+  isAssault: boolean
+  isPistol: boolean
+  isPsychic: boolean
+  isPrecision: boolean
+  isOneShot: boolean
+  isIndirectFire: boolean
+  isExtraAttacks: boolean
+  isLance: boolean
+  rapidFireValue: string
 }
 
 export type CombatType = 'ranged' | 'melee' | 'any'
