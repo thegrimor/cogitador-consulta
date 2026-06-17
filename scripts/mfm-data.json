@@ -497,35 +497,43 @@
     "detachments": [
       {
         "name": "ARMY OF FAITH",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BRINGERS OF FLAME",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "CHAMPIONS OF FAITH",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "CHORUS OF CONDEMNATION",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "HALLOWED MARTYRS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "PENITENT HOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SACRED CHAMPIONS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SANCTIFIED ORATORS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -1161,39 +1169,48 @@
     "detachments": [
       {
         "name": "AURIC CHAMPIONS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "LIONS OF THE EMPEROR",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "MIGHT OF THE MORITOI",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "NULL MAIDEN VIGIL",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "SHIELD HOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "SILENT HUNTERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "SOLAR SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "TALONS OF THE EMPEROR",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "THARANATOI HAMMERBLOW",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       }
     ],
     "enhancements": [
@@ -1871,43 +1888,53 @@
     "detachments": [
       {
         "name": "COHORT ACQUISITUS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "COHORT CYBERNETICA",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "DATA-PSALM CONCLAVE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "ERADICATION COHORT",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "EXPLORATOR MANIPLE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HALOSCREED BATTLE CLADE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LORDS OF THE FORGE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "LUMINEN AUTO-CHOIR",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "RAD-ZONE CORPS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SKITARII HUNTER COHORT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       }
     ],
     "enhancements": [
@@ -3131,63 +3158,78 @@
     "detachments": [
       {
         "name": "ARMOURED WARHOST",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "ASPECT HOST",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "CORSAIR COTERIE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "DEVOTED OF YNNEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ELDRITCH RAIDERS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "FATEFUL PERFORMANCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GHOSTS OF THE WEBWAY",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GUARDIAN BATTLEHOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "PATH OF THE OUTCAST",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "SEER COUNCIL",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SERPENT’S BROOD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "SPIRIT CONCLAVE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "TWILIGHT FLICKERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "WARHOST",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "WINDRIDER HOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       }
     ],
     "enhancements": [
@@ -4473,47 +4515,58 @@
     "detachments": [
       {
         "name": "ABHUMAN AUXILIARIES",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED INFANTRY",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BRIDGEHEAD STRIKE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "COMBINED ARMS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "DESIGNATION FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "GRIZZLED COMPANY",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HAMMER OF THE EMPEROR",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "MECHANISED ASSAULT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "RECON ELEMENT",
-        "dp": 3
+        "dp": 3,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "SIEGE REGIMENT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "STEEL HAMMER",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -6055,79 +6108,98 @@
     "detachments": [
       {
         "name": "ANVIL SIEGE FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED SPEARTIP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BASTION TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CERAMITE SENTINELS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "COMPANIONS OF VEHEMENCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FIRESTORM ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FULGURIS TASK FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GLADIUS TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "GODHAMMER ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "HEADHUNTER TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "IRONSTORM SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "MARSHAL'S HOUSEHOLD",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ORBITAL ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "STORMLANCE TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SUBVERSION ASSETS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "THE LIVING MIRACLE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "VANGUARD SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "VINDICATION TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "WRATHFUL PROCESSION",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       }
     ],
     "enhancements": [
@@ -7903,95 +7975,118 @@
     "detachments": [
       {
         "name": "1ST COMPANY TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ANGELIC INHERITORS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ANVIL SIEGE FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED SPEARTIP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BASTION TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CERAMITE SENTINELS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ENCARMINE SPEARTIP",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "FIRESTORM ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FULGURIS TASK FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GLADIUS TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEADHUNTER TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "IRONSTORM SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LEGACY OF GRACE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "LIBERATOR ASSAULT GROUP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "LIBRARIUS CONCLAVE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "ORBITAL ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "RAGE-CURSED ONSLAUGHT",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "STORMLANCE TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SUBVERSION ASSETS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "THE ANGELIC HOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "THE LOST BRETHREN",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "VANGUARD SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "WRATH OF THE DOOMED",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -9127,39 +9222,48 @@
     "detachments": [
       {
         "name": "BLOOD LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "CAVALCADE OF CHAOS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "DAEMONIC INCURSION",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "LEGION OF EXCESS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "LORDS OF THE WARP",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "PLAGUE LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SCINTILLATING LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SHADOW LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "WARPTIDE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       }
     ],
     "enhancements": [
@@ -9569,35 +9673,43 @@
     "detachments": [
       {
         "name": "BASTIONS OF TYRANNY",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "HELHUNT LANCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "HOUNDPACK LANCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "HUNTING WARPACK",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "ICONOCLAST FIEFDOM",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "INFERNAL LANCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LORDS OF DREAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "TRAITORIS LANCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -10531,71 +10643,88 @@
     "detachments": [
       {
         "name": "CABAL OF CHAOS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "CHAOS CULT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "CREATIONS OF BILE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "CULT OF THE ARKIFANE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "DECEPTORS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "DEVOTEES OF DESTRUCTION",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "DREAD TALONS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "FELLHAMMER SIEGE-HOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "HURON’S MARAUDERS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "MURDERTALON RAIDERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "NIGHTMARE HUNT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "PACTBOUND ZEALOTS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "RENEGADE RAIDERS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "RENEGADE WARBAND",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SOULFORGED WARPACK",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "VETERANS OF THE LONG WAR",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "WARPSTRIKE CHAMPIONS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       }
     ],
     "enhancements": [
@@ -12380,95 +12509,118 @@
     "detachments": [
       {
         "name": "1ST COMPANY TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ANVIL SIEGE FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED SPEARTIP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BASTION TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CERAMITE SENTINELS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "COMPANY OF HUNTERS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "DARK AGE ARSENAL",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "DARKFLIGHT PURSUIT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "FIRESTORM ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FULGURIS TASK FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GLADIUS TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEADHUNTER TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "INNER CIRCLE TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "INTERROGATION CONCLAVE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "IRONSTORM SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LIBRARIUS CONCLAVE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "LION’S BLADE TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "ORBITAL ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "STORMLANCE TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SUBVERSION ASSETS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "UNFORGIVEN TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "VANGUARD SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "WRATH OF THE ROCK",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       }
     ],
     "enhancements": [
@@ -13366,39 +13518,48 @@
     "detachments": [
       {
         "name": "CHAMPIONS OF CONTAGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CONTAGION ENGINES",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "DEATH LORD’S CHOSEN",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "FLYBLOWN HOST",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "MORTARION’S HAMMER",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "PARAGONS OF PUTRESCENCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SHAMBLEROT VECTORIUM",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "TALLYBAND SUMMONERS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "VIRULENT VECTORIUM",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       }
     ],
     "enhancements": [
@@ -14874,67 +15035,83 @@
     "detachments": [
       {
         "name": "1ST COMPANY TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ANVIL SIEGE FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED SPEARTIP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BASTION TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BLACK SPEAR TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "CERAMITE SENTINELS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "FIRESTORM ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FULGURIS TASK FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GLADIUS TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEADHUNTER TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "IRONSTORM SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LIBRARIUS CONCLAVE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "ORBITAL ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "STORMLANCE TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SUBVERSION ASSETS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "VANGUARD SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       }
     ],
     "enhancements": [
@@ -15554,39 +15731,48 @@
     "detachments": [
       {
         "name": "COVENITE COTERIE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "EXHIBITION OF SLAUGHTER",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "KABALITE AGONYSTS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "KABALITE CARTEL",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "REALSPACE RAIDERS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "REAPER’S WAGER",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "SKYSPLINTER ASSAULT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "SPECTACLE OF SPITE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "TOOLS OF TORMENT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       }
     ],
     "enhancements": [
@@ -16074,43 +16260,53 @@
     "detachments": [
       {
         "name": "CARNIVAL OF EXCESS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "COTERIE OF THE CONCEITED",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "COURT OF THE PHOENICIAN",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "ELEGANT BRUTES",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "FRENZIED HOST",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "MERCURIAL HOST",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "PEERLESS BLADESMEN",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "RAPID EVISCERATION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SLAANESH’S CHOSEN",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "SPECTACLE OF SLAUGHTER",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -16636,39 +16832,48 @@
     "detachments": [
       {
         "name": "BIOSANCTIC BROODSURGE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BROOD BROTHERS AUXILIA",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "FINAL DAY",
-        "dp": 2
+        "dp": 2,
+        "disposition": ""
       },
       {
         "name": "HEROES OF THE UPRISING",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "HOST OF ASCENSION",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "OUTLANDER CLAW",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "PURESTRAIN BROODSWARM",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "XENOCREED CONGREGATION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "XENOCULT MASSES",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       }
     ],
     "enhancements": [
@@ -17210,39 +17415,48 @@
     "detachments": [
       {
         "name": "ARGENT ASSAULT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "AUGURIUM TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "BANISHERS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "BROTHERHOOD STRIKE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FIRES OF PURGATION",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "HALLOWED CONCLAVE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "IMMATERIAL INTERDICTION",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SANCTIC SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "WARPBANE TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -18236,23 +18450,28 @@
     "detachments": [
       {
         "name": "IMPERIALIS FLEET",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "ORDO HERETICUS, PURGATION FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "ORDO MALLEUS, DAEMON HUNTERS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ORDO XENOS, ALIEN HUNTERS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "VEILED BLADE ELIMINATION FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "RECONNAISSANCE"
       }
     ],
     "enhancements": [
@@ -18656,35 +18875,43 @@
     "detachments": [
       {
         "name": "DOMINUS FOEBREAKERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FREEBLADE COMPANY",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "GATE WARDEN LANCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "QUESTOR FORGEPACT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "QUESTORIS COMPANIONS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SPEARHEAD-AT-ARMS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "THRONE-BONDED OUTRIDERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "VALOURSTRIKE LANCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -19142,43 +19369,53 @@
     "detachments": [
       {
         "name": "ARMOURED TRAILBLAZERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "BRANDFAST OATHBAND",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "DÊLVE ASSAULT SHIFT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FARSEEKERS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "HEARTHBAND",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEARTHFYRE ARSENAL",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEARTHGUARD COVENANT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "MERCENARY OATHBAND",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "NEEDGAÂRD OATHBAND",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "PERSECUTION PROSPECT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       }
     ],
     "enhancements": [
@@ -20128,51 +20365,63 @@
     "detachments": [
       {
         "name": "ANNIHILATION LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "AWAKENED DYNASTY",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CANOPTEK COURT",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CRYPTEK CONCLAVE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "CURSED LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "HAND OF THE DYNASTY",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "HYPERCRYPT LEGION",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "OBEISANCE PHALANX",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "PANTHEON OF WOE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "SKYSHROUD SPEARHEAD",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "STARSHATTER ARSENAL",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "THE PHAERON'S ARMOURY",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       }
     ],
     "enhancements": [
@@ -21234,51 +21483,63 @@
     "detachments": [
       {
         "name": "BLITZ BRIGADE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "BULLY BOYZ",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "DA BIG HUNT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "DREAD MOB",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FREEBOOTER KREW",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "GREEN TIDE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "KULT OF SPEED",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "MORE DAKKA!",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "ROLLIN' DEFF",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SPEEDWAAAGH!",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "TAKTIKAL BRIGADE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "WAR HORDE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       }
     ],
     "enhancements": [
@@ -22997,91 +23258,113 @@
     "detachments": [
       {
         "name": "1ST COMPANY TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ANVIL SIEGE FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED SPEARTIP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BASTION TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BLADE OF ULTRAMAR",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "CERAMITE SENTINELS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "EMPEROR’S SHIELD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "FIRESTORM ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FORGEFATHER’S SEEKERS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FULGURIS TASK FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GLADIUS TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HAMMER OF AVERNII",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEADHUNTER TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "IRONSTORM SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LIBRARIUS CONCLAVE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "ORBITAL ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "RECLAMATION FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SHADOWMARK TALON",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SPEARPOINT TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "STORMLANCE TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SUBVERSION ASSETS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "VANGUARD SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       }
     ],
     "enhancements": [
@@ -24993,91 +25276,113 @@
     "detachments": [
       {
         "name": "1ST COMPANY TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "ANVIL SIEGE FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "ARMOURED SPEARTIP",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "BASTION TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CERAMITE SENTINELS",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "CHAMPIONS OF FENRIS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FIRESTORM ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "FULGURIS TASK FORCE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "GLADIUS TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEADHUNTER TASK FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "IRONSTORM SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "LEGENDS OF SAGA AND SONG",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "LIBRARIUS CONCLAVE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "ORBITAL ASSAULT FORCE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SAGA OF THE BEASTSLAYER",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "SAGA OF THE BOLD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SAGA OF THE GREAT WOLF",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SAGA OF THE HUNTER",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "STORMLANCE TASK FORCE",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SUBVERSION ASSETS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "VANGUARD SPEARHEAD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "VETERANS OF THE FANG",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       }
     ],
     "enhancements": [
@@ -26051,31 +26356,38 @@
     "detachments": [
       {
         "name": "ADVANCED ACQUISITION CADRE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "AUXILIARY CADRE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "EXPERIMENTAL PROTOTYPE CADRE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "KAUYON",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "KROOT HUNTING PACK",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "MONT’KA",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "RETALIATION CADRE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -26713,39 +27025,48 @@
     "detachments": [
       {
         "name": "CHANGEHOST OF DECEIT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "GRAND COVEN",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "HEXWARP THRALLBAND",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "RITUAL OF REGENERATION",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "RUBRICAE PHALANX",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SEKHETAR COHORT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "SERVANTS OF CHANGE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "WARPFORGED CABAL",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "WARPMELD PACT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       }
     ],
     "enhancements": [
@@ -27710,43 +28031,53 @@
     "detachments": [
       {
         "name": "AMBUSH PREDATORS",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "ASSIMILATION SWARM",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "CRUSHER STAMPEDE",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "INVASION FLEET",
-        "dp": 3
+        "dp": 3,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "SUBTERRANEAN ASSAULT",
-        "dp": 3
+        "dp": 3,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "SYNAPTIC NEXUS",
-        "dp": 2
+        "dp": 2,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "TALONS OF THE NORN QUEEN",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "UNENDING SWARM",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "VANGUARD ONSLAUGHT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "WARRIOR BIOFORM ONSLAUGHT",
-        "dp": 1
+        "dp": 1,
+        "disposition": "TAKE AND HOLD"
       }
     ],
     "enhancements": [
@@ -28334,35 +28665,43 @@
     "detachments": [
       {
         "name": "BERZERKER WARBAND",
-        "dp": 3
+        "dp": 3,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "BRAZEN ENGINES",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "BUTCHERS OF KHORNE",
-        "dp": 1
+        "dp": 1,
+        "disposition": "DISRUPTION"
       },
       {
         "name": "CULT OF BLOOD",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PRIORITY ASSETS"
       },
       {
         "name": "GORETRACK ONSLAUGHT",
-        "dp": 2
+        "dp": 2,
+        "disposition": "TAKE AND HOLD"
       },
       {
         "name": "KHORNE DAEMONKIN",
-        "dp": 2
+        "dp": 2,
+        "disposition": "RECONNAISSANCE"
       },
       {
         "name": "POSSESSED SLAUGHTERBAND",
-        "dp": 2
+        "dp": 2,
+        "disposition": "PURGE THE FOE"
       },
       {
         "name": "VESSELS OF WRATH",
-        "dp": 1
+        "dp": 1,
+        "disposition": "PRIORITY ASSETS"
       }
     ],
     "enhancements": [

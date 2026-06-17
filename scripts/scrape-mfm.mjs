@@ -174,8 +174,18 @@ function parseUnits(payload, costMap) {
   return units.filter(u => u.costSections.some(s => s.costs.length > 0));
 }
 
+// The 5 official 10th-edition battle dispositions shown on the MFM
+const DISPOSITIONS = new Set([
+  'TAKE AND HOLD',
+  'PURGE THE FOE',
+  'DISRUPTION',
+  'RECONNAISSANCE',
+  'PRIORITY ASSETS',
+]);
+
 /**
- * Parse detachments with their DP cost from RSC payload.
+ * Parse detachments with their DP cost and battle disposition from RSC payload.
+ * Text-children sequence: DETACHMENT_NAME → XDP → DISPOSITION
  */
 function parseDetachments(payload) {
   const detachments = [];
@@ -186,11 +196,15 @@ function parseDetachments(payload) {
     textChildren.push(m[1]);
   }
 
-  // Find sequences: UPPERCASE_NAME followed by "XDP"
   for (let i = 0; i < textChildren.length - 1; i++) {
     const dpMatch = textChildren[i + 1]?.match(/^(\d+)DP$/);
     if (dpMatch && textChildren[i].length > 2 && textChildren[i] === textChildren[i].toUpperCase()) {
-      detachments.push({ name: textChildren[i], dp: parseInt(dpMatch[1], 10) });
+      const disposition = DISPOSITIONS.has(textChildren[i + 2]) ? textChildren[i + 2] : '';
+      detachments.push({
+        name: textChildren[i],
+        dp: parseInt(dpMatch[1], 10),
+        disposition,
+      });
     }
   }
 
