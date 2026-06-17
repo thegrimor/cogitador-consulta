@@ -80,6 +80,8 @@ export interface RawDetachment {
   name: string
   legend: string
   type: string
+  disposition: string
+  dp: string
 }
 
 export interface RawDetachmentAbility {
@@ -195,6 +197,8 @@ export interface Detachment {
   name: string
   legend: string
   type: string
+  disposition: string
+  dp: number
 }
 
 export interface DetachmentAbility {

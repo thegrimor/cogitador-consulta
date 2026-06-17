@@ -371,7 +371,13 @@ export function useGameData(): GameData {
         const detachments: Detachment[] = rawDetachments
           .filter(d => d.type === '')
           .map(d => ({
-            id: d.id, factionId: d.faction_id, name: d.name, legend: d.legend, type: d.type,
+            id: d.id,
+            factionId: d.faction_id,
+            name: d.name,
+            legend: d.legend,
+            type: d.type,
+            disposition: d.disposition ?? '',
+            dp: parseInt(d.dp ?? '0', 10) || 0,
           }))
 
         // ── detachmentAbilities ───────────────────────────────────────────────

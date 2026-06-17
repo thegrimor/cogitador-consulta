@@ -46,11 +46,25 @@ export function DetachmentDetailPage() {
           ← {faction?.name ?? 'Ejército'}
         </button>
         <div className="h-1 bg-crimson mb-2" />
-        <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
-          {det.name}
-        </h1>
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
+            {det.name}
+          </h1>
+          {det.dp > 0 && (
+            <span className="text-[10px] font-mono font-bold border border-crimson/70 text-crimson-bright px-2 py-0.5 leading-none shrink-0">
+              {det.dp} DP
+            </span>
+          )}
+        </div>
+        {det.disposition && (
+          <div className="mt-1.5 mb-1">
+            <span className="text-[7px] font-mono uppercase tracking-[2px] text-parchment-dim border border-rim-bright px-2 py-0.5 leading-none">
+              {det.disposition}
+            </span>
+          </div>
+        )}
         {det.legend && (
-          <p className="wh-html text-[8px] font-mono text-parchment-dim italic mt-1 leading-relaxed max-w-2xl"
+          <p className="wh-html text-[8px] font-mono text-parchment-dim italic mt-2 leading-relaxed max-w-2xl"
             dangerouslySetInnerHTML={{ __html: det.legend }}
           />
         )}

@@ -55,10 +55,23 @@ export function FactionDetachmentsPage() {
                 to={detachmentPath(det.id)}
                 className="group bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-3 transition-colors flex items-start justify-between gap-3"
               >
-                <div className="min-w-0">
-                  <p className="text-[10px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment mb-1">
-                    {det.name}
-                  </p>
+                <div className="min-w-0 flex-1">
+                  {/* Name row */}
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <p className="text-[10px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+                      {det.name}
+                    </p>
+                    {det.dp > 0 && (
+                      <span className="text-[7px] font-mono font-bold border border-crimson/60 text-crimson-bright px-1.5 py-px leading-none shrink-0">
+                        {det.dp} DP
+                      </span>
+                    )}
+                    {det.disposition && (
+                      <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim border border-rim-bright px-1.5 py-px leading-none shrink-0">
+                        {det.disposition}
+                      </span>
+                    )}
+                  </div>
                   {det.legend && (
                     <p className="wh-html text-[8px] font-mono text-parchment-dim italic leading-relaxed line-clamp-2 mb-2"
                       dangerouslySetInnerHTML={{ __html: det.legend }}
