@@ -24,7 +24,7 @@ export function FactionDatasheetsPage() {
   if (!faction) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-[9px] font-mono text-parchment-dim uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim uppercase tracking-widest">
           Facción no encontrada
         </p>
       </div>
@@ -37,15 +37,15 @@ export function FactionDatasheetsPage() {
       <div className="mb-6">
         <button
           onClick={() => navigate(factionPath(factionId!))}
-          className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+          className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
           ← {faction.name}
         </button>
         <div className="h-1 bg-crimson mb-2" />
-        <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
+        <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           Datasheets
         </h1>
-        <p className="text-[8px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
+        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
           {faction.name} · {factionSheets.length} unidades
         </p>
       </div>
@@ -56,7 +56,7 @@ export function FactionDatasheetsPage() {
           <button
             key={role}
             onClick={() => setActiveRole(role)}
-            className={`text-[8px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
+            className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
               activeRole === role
                 ? 'border-crimson-bright text-parchment bg-crimson/10'
                 : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
@@ -74,13 +74,13 @@ export function FactionDatasheetsPage() {
           placeholder="Buscar unidad…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full bg-surface-3 border border-rim-bright text-parchment text-[10px] font-mono px-3 py-2 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
+          className="w-full bg-surface-3 border border-rim-bright text-parchment text-[13px] font-mono px-3 py-2 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
         />
       </div>
 
       {/* Lista */}
       {filtered.length === 0 ? (
-        <p className="text-[9px] font-mono text-parchment-dim text-center py-8 uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim text-center py-8 uppercase tracking-widest">
           Sin resultados
         </p>
       ) : (
@@ -94,10 +94,10 @@ export function FactionDatasheetsPage() {
                 className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="text-[8px] font-mono uppercase tracking-[2px] text-parchment-dim shrink-0 w-20">
+                  <span className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim shrink-0 w-20">
                     {ds.role}
                   </span>
-                  <span className="text-[10px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment truncate">
+                  <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment truncate">
                     {ds.name}
                   </span>
                 </div>
@@ -108,8 +108,8 @@ export function FactionDatasheetsPage() {
                       const minPts = Math.min(...costs.map(c => c.points))
                       return (
                         <div className="flex flex-col items-center bg-surface-3 border border-gold/40 px-1.5 py-0.5 min-w-[36px]">
-                          <span className="text-[7px] font-mono uppercase text-gold/70 leading-none">pts</span>
-                          <span className="text-[9px] font-display text-gold leading-none mt-0.5">{minPts}</span>
+                          <span className="text-[10px] font-mono uppercase text-gold/70 leading-none">pts</span>
+                          <span className="text-[12px] font-display text-gold leading-none mt-0.5">{minPts}</span>
                         </div>
                       )
                     }
@@ -124,10 +124,10 @@ export function FactionDatasheetsPage() {
                       key={stat.label}
                       className="flex flex-col items-center bg-surface-3 border border-rim-bright px-1.5 py-0.5 min-w-[28px]"
                     >
-                      <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">
+                      <span className="text-[10px] font-mono uppercase text-parchment-dim leading-none">
                         {stat.label}
                       </span>
-                      <span className="text-[9px] font-display text-parchment leading-none mt-0.5">
+                      <span className="text-[12px] font-display text-parchment leading-none mt-0.5">
                         {stat.value}
                       </span>
                     </div>

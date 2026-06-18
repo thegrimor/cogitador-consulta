@@ -8,7 +8,7 @@ interface Props {
 function StatCell({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="flex flex-col items-center border border-rim-bright bg-surface-3 px-2 py-1.5 min-w-[40px]">
-      <span className="text-[8px] font-display uppercase tracking-[2px] text-gold leading-none mb-0.5">
+      <span className="text-[11px] font-display uppercase tracking-[2px] text-gold leading-none mb-0.5">
         {label}
       </span>
       <span
@@ -34,7 +34,7 @@ export function StatsBar({ models }: Props) {
             <button
               key={i}
               onClick={() => setSelectedIndex(i)}
-              className={`text-[9px] font-mono px-2 py-0.5 border transition-colors ${
+              className={`text-[12px] font-mono px-2 py-0.5 border transition-colors ${
                 i === selectedIndex
                   ? 'border-gold text-gold bg-gold/10'
                   : 'border-rim-bright text-parchment-dim hover:border-gold/50 hover:text-parchment'

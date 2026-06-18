@@ -13,7 +13,7 @@ export function FactionArmyRulesPage() {
   if (!faction) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-[9px] font-mono text-parchment-dim uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim uppercase tracking-widest">
           Facción no encontrada
         </p>
       </div>
@@ -26,21 +26,21 @@ export function FactionArmyRulesPage() {
       <div className="mb-6">
         <button
           onClick={() => navigate(factionPath(factionId!))}
-          className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+          className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
           ← {faction.name}
         </button>
         <div className="h-1 bg-crimson mb-2" />
-        <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
+        <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           Regla de Ejército
         </h1>
-        <p className="text-[8px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
+        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
           {faction.name}
         </p>
       </div>
 
       {armyRules.length === 0 ? (
-        <p className="text-[9px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
           Sin reglas de ejército
         </p>
       ) : (
@@ -50,16 +50,16 @@ export function FactionArmyRulesPage() {
               key={rule.id}
               className="bg-surface-2 border border-rim-bright border-l-2 border-l-crimson px-4 py-4"
             >
-              <p className="text-[11px] font-display uppercase tracking-widest text-parchment mb-1.5">
+              <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
                 {rule.name}
               </p>
               {rule.legend && (
-                <p className="wh-html text-[8px] font-mono text-parchment-dim italic mb-2 leading-relaxed"
+                <p className="wh-html text-[11px] font-mono text-parchment-dim italic mb-2 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: rule.legend }}
                 />
               )}
               {rule.description && (
-                <p className="wh-html text-[9px] font-mono text-parchment leading-relaxed"
+                <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: rule.description }}
                 />
               )}

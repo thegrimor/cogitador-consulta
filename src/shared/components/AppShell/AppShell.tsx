@@ -16,7 +16,7 @@ export function AppShell() {
   return (
     <div className="min-h-screen bg-surface-1 text-parchment">
       <header className="sticky top-0 z-20 border-b border-rim-bright bg-surface-2 flex items-center px-4 h-10 gap-4">
-        <span className="text-[9px] font-display uppercase tracking-[3px] text-crimson-bright shrink-0 select-none">
+        <span className="text-[12px] font-display uppercase tracking-[3px] text-crimson-bright shrink-0 select-none">
           Cogitador
         </span>
         <NavBar />

@@ -5,7 +5,7 @@ export function LoadingScreen() {
         <div className="text-4xl font-display text-crimson-bright mb-4 animate-pulse-mech">
           ⚙
         </div>
-        <p className="text-[10px] font-display uppercase tracking-[4px] text-gold animate-pulse">
+        <p className="text-[13px] font-display uppercase tracking-[4px] text-gold animate-pulse">
           Inicializando Cogitador…
         </p>
       </div>

@@ -10,7 +10,7 @@ import type { Weapon, ModelProfile, Ability } from '@/types'
 function SectionHeader({ title }: { title: string }) {
   return (
     <div className="px-3 py-1.5 bg-surface-3 border-b border-rim-bright">
-      <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+      <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
         {title}
       </span>
     </div>
@@ -26,7 +26,7 @@ function RuleBadge({ label, ruleKey }: BadgeProps) {
   const key = (ruleKey ?? label).toLowerCase()
   const rule = coreRulesMap[key] ?? Object.values(coreRulesMap).find(r => key.startsWith(r.name.toLowerCase()))
   const badge = (
-    <span className="inline-block text-[7px] font-mono uppercase tracking-wide border border-gold/50 text-gold px-1 py-px leading-none">
+    <span className="inline-block text-[10px] font-mono uppercase tracking-wide border border-gold/50 text-gold px-1 py-px leading-none">
       {label}
     </span>
   )
@@ -78,7 +78,7 @@ function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) 
     <div className="border border-rim-bright">
       <SectionHeader title={title} />
       <div className="overflow-x-auto">
-        <table className="w-full text-[9px] font-mono">
+        <table className="w-full text-[12px] font-mono">
           <thead>
             <tr className="bg-surface-3 border-b border-rim-bright text-parchment-dim uppercase tracking-widest">
               <th className="hidden sm:table-cell text-left px-3 py-1.5 font-normal">Nombre</th>
@@ -98,11 +98,11 @@ function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) 
                 className={`border-b border-rim-bright last:border-b-0 ${i % 2 === 0 ? 'bg-surface-2' : 'bg-surface-3/50'}`}
               >
                 <td className="hidden sm:table-cell px-3 py-1.5 text-parchment whitespace-nowrap">
-                  <span className="font-display uppercase tracking-wide text-[8px]">{w.name}</span>
+                  <span className="font-display uppercase tracking-wide text-[11px]">{w.name}</span>
                 </td>
                 <td className="sm:hidden px-2 py-1 text-parchment" colSpan={7}>
-                  <span className="font-display uppercase tracking-wide text-[8px] block mb-0.5">{w.name}</span>
-                  <span className="text-parchment-dim text-[7px]">{w.range} · {w.A} · {w.bsWs} · F{w.S} · AP{w.AP} · D{w.D}</span>
+                  <span className="font-display uppercase tracking-wide text-[11px] block mb-0.5">{w.name}</span>
+                  <span className="text-parchment-dim text-[10px]">{w.range} · {w.A} · {w.bsWs} · F{w.S} · AP{w.AP} · D{w.D}</span>
                   <span className="block mt-0.5"><WeaponSpecialBadges weapon={w} /></span>
                 </td>
                 <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment-dim">{w.range}</td>
@@ -128,9 +128,9 @@ function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) 
 function StatBox({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col items-center border border-rim-bright bg-surface-2 px-3 py-1.5 min-w-[40px]">
-      <span className="text-[7px] font-mono uppercase text-parchment-dim leading-none">{label}</span>
+      <span className="text-[10px] font-mono uppercase text-parchment-dim leading-none">{label}</span>
       <span
-        className="text-[15px] font-display text-parchment leading-tight mt-0.5"
+        className="text-[18px] font-display text-parchment leading-tight mt-0.5"
         style={{ textShadow: 'var(--color-crimson) 0 0 8px' }}
       >
         {value}
@@ -162,12 +162,12 @@ function AbilRow({ ab }: { ab: Ability }) {
   return (
     <div className="px-3 py-2 bg-surface-2">
       {ab.model && (
-        <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim block mb-0.5">
+        <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim block mb-0.5">
           [{ab.model}]
         </span>
       )}
-      <p className="wh-html text-[9px] font-mono text-parchment leading-relaxed">
-        <strong className="font-display uppercase tracking-wide text-[8px] text-crimson-bright">
+      <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed">
+        <strong className="font-display uppercase tracking-wide text-[11px] text-crimson-bright">
           {ab.name}
         </strong>
         {ab.description ? (
@@ -207,10 +207,10 @@ function AbilitiesBlock({
             onClick={onToggleGeneric}
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 border-t border-rim-bright hover:bg-surface-4 transition-colors"
           >
-            <span className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">
               Genéricas / Facción ({genericAbils.length})
             </span>
-            <span className="text-[8px] font-mono text-parchment-dim">
+            <span className="text-[11px] font-mono text-parchment-dim">
               {genericOpen ? '▲' : '▼'}
             </span>
           </button>
@@ -249,7 +249,7 @@ export function DatasheetDetailPage() {
   if (!ds) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-[9px] font-mono text-parchment-dim uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim uppercase tracking-widest">
           Unidad no encontrada
         </p>
       </div>
@@ -294,7 +294,7 @@ export function DatasheetDetailPage() {
       {/* Back */}
       <button
         onClick={() => navigate(-1)}
-        className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+        className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
       >
         ← {faction?.name ?? 'Volver'}
       </button>
@@ -302,16 +302,16 @@ export function DatasheetDetailPage() {
       {/* Header */}
       <div className="border border-rim-bright mb-3">
         <div className="bg-crimson px-3 py-2 flex items-baseline justify-between gap-2">
-          <h1 className="text-[14px] font-display uppercase tracking-[2px] text-parchment leading-tight">
+          <h1 className="text-[17px] font-display uppercase tracking-[2px] text-parchment leading-tight">
             {ds.name}
           </h1>
-          <span className="text-[8px] font-mono uppercase tracking-widest text-parchment/70 shrink-0">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-parchment/70 shrink-0">
             {ds.role}
           </span>
         </div>
         {ds.factionKeywords.length > 0 && (
           <div className="px-3 py-1 bg-surface-3 border-t border-rim-bright flex items-center justify-between gap-2">
-            <span className="text-[8px] font-mono uppercase tracking-widest text-gold">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-gold">
               {ds.factionKeywords.join(' · ')}
             </span>
             {source && (
@@ -319,7 +319,7 @@ export function DatasheetDetailPage() {
                 href={source.errataLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright transition-colors shrink-0"
+                className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright transition-colors shrink-0"
               >
                 {source.name} v{source.version}
               </a>
@@ -336,7 +336,7 @@ export function DatasheetDetailPage() {
               <button
                 key={i}
                 onClick={() => setActiveModel(i)}
-                className={`text-[8px] font-mono uppercase tracking-widest px-3 py-1.5 border-r border-rim-bright transition-colors ${
+                className={`text-[11px] font-mono uppercase tracking-widest px-3 py-1.5 border-r border-rim-bright transition-colors ${
                   i === activeModel
                     ? 'bg-crimson/20 text-parchment'
                     : 'bg-surface-3 text-parchment-dim hover:text-parchment'
@@ -380,10 +380,10 @@ export function DatasheetDetailPage() {
             onClick={() => setDetachAbilsOpen(o => !o)}
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
           >
-            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+            <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
               Habilidades de Destacamento ({unitDetachAbils.length})
             </span>
-            <span className="text-[8px] font-mono text-parchment-dim">
+            <span className="text-[11px] font-mono text-parchment-dim">
               {detachAbilsOpen ? '▲' : '▼'}
             </span>
           </button>
@@ -391,12 +391,12 @@ export function DatasheetDetailPage() {
             <div className="divide-y divide-rim-bright">
               {unitDetachAbils.map(ab => ab && (
                 <div key={ab.id} className="px-3 py-2 bg-surface-2">
-                  <p className="text-[9px] font-display uppercase tracking-widest text-parchment mb-0.5">
+                  <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
                   {ab.description && (
                     <p
-                      className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                      className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
                       dangerouslySetInnerHTML={{ __html: ab.description }}
                     />
                   )}
@@ -416,7 +416,7 @@ export function DatasheetDetailPage() {
               <NavLink
                 key={led.id}
                 to={datasheetPath(led.id)}
-                className="text-[9px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
+                className="text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
               >
                 {led.name}
               </NavLink>
@@ -434,7 +434,7 @@ export function DatasheetDetailPage() {
               <NavLink
                 key={leader.id}
                 to={datasheetPath(leader.id)}
-                className="text-[9px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
+                className="text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
               >
                 {leader.name}
               </NavLink>
@@ -450,10 +450,10 @@ export function DatasheetDetailPage() {
             onClick={() => setCompositionOpen(o => !o)}
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
           >
-            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+            <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
               Composición y Equipo
             </span>
-            <span className="text-[9px] font-mono text-parchment-dim">
+            <span className="text-[12px] font-mono text-parchment-dim">
               {compositionOpen ? '▲' : '▼'}
             </span>
           </button>
@@ -462,13 +462,13 @@ export function DatasheetDetailPage() {
               {ds.unitComposition.map((line, i) => (
                 <p
                   key={i}
-                  className="wh-html text-[9px] font-mono text-parchment-dim"
+                  className="wh-html text-[12px] font-mono text-parchment-dim"
                   dangerouslySetInnerHTML={{ __html: line }}
                 />
               ))}
               {ds.loadout && (
                 <p
-                  className="text-[9px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                  className="text-[12px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
                   dangerouslySetInnerHTML={{ __html: ds.loadout }}
                 />
               )}
@@ -479,8 +479,8 @@ export function DatasheetDetailPage() {
                       key={i}
                       className="flex items-baseline gap-1 border border-rim-bright bg-surface-3 px-2 py-1"
                     >
-                      <span className="text-[8px] font-mono text-parchment-dim">{p.description}:</span>
-                      <span className="text-[10px] font-display text-gold">{p.points} pts</span>
+                      <span className="text-[11px] font-mono text-parchment-dim">{p.description}:</span>
+                      <span className="text-[13px] font-display text-gold">{p.points} pts</span>
                     </div>
                   ))}
                 </div>
@@ -497,10 +497,10 @@ export function DatasheetDetailPage() {
             onClick={() => setOptionsOpen(o => !o)}
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
           >
-            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+            <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
               Opciones de Equipo ({options.length})
             </span>
-            <span className="text-[9px] font-mono text-parchment-dim">
+            <span className="text-[12px] font-mono text-parchment-dim">
               {optionsOpen ? '▲' : '▼'}
             </span>
           </button>
@@ -508,11 +508,11 @@ export function DatasheetDetailPage() {
             <div className="px-3 py-2 bg-surface-2 space-y-1">
               {options.map((opt, i) => (
                 <div key={i} className="flex gap-2 items-start">
-                  <span className="text-[9px] font-mono text-crimson-bright shrink-0 mt-px">
+                  <span className="text-[12px] font-mono text-crimson-bright shrink-0 mt-px">
                     {opt.button}
                   </span>
                   <p
-                    className="wh-html text-[9px] font-mono text-parchment-dim leading-relaxed"
+                    className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: opt.description }}
                   />
                 </div>
@@ -529,10 +529,10 @@ export function DatasheetDetailPage() {
             onClick={() => setStrataOpen(o => !o)}
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 hover:bg-surface-4 transition-colors"
           >
-            <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+            <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
               Estratagemas
             </span>
-            <span className="text-[9px] font-mono text-parchment-dim">
+            <span className="text-[12px] font-mono text-parchment-dim">
               {strataOpen ? '▲' : '▼'}
             </span>
           </button>
@@ -543,7 +543,7 @@ export function DatasheetDetailPage() {
                   <button
                     key={det.id}
                     onClick={() => setSelectedDetachmentId(det.id)}
-                    className={`text-[7px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors ${
+                    className={`text-[10px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors ${
                       activeDetachmentId === det.id
                         ? 'border-crimson-bright text-parchment bg-crimson/10'
                         : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
@@ -555,36 +555,36 @@ export function DatasheetDetailPage() {
               </div>
               <div className="divide-y divide-rim-bright">
                 {visibleStrats.length === 0 ? (
-                  <p className="text-[8px] font-mono text-parchment-dim text-center py-4 uppercase tracking-widest">
+                  <p className="text-[11px] font-mono text-parchment-dim text-center py-4 uppercase tracking-widest">
                     Sin estratagemas
                   </p>
                 ) : (
                   visibleStrats.map(s => (
                     <div key={s.id} className="px-3 py-2.5 bg-surface-2">
                       <div className="flex items-start justify-between gap-2 mb-1">
-                        <span className="text-[9px] font-display uppercase tracking-widest text-parchment leading-tight">
+                        <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
                           {s.name}
                         </span>
-                        <span className="shrink-0 text-[8px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
+                        <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
                           {s.cpCost}CP
                         </span>
                       </div>
                       {(s.turn || s.phase) && (
                         <div className="flex gap-3 mb-1">
                           {s.turn && (
-                            <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
                               Turno: <span className="text-parchment">{s.turn}</span>
                             </span>
                           )}
                           {s.phase && (
-                            <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
                               Fase: <span className="text-parchment">{s.phase}</span>
                             </span>
                           )}
                         </div>
                       )}
                       <p
-                        className="wh-html text-[8px] font-mono text-parchment leading-relaxed"
+                        className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: s.description }}
                       />
                     </div>
@@ -602,7 +602,7 @@ export function DatasheetDetailPage() {
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
             <p
-              className="wh-html text-[9px] font-mono text-parchment-dim leading-relaxed"
+              className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
               dangerouslySetInnerHTML={{ __html: ds.damagedDescription }}
             />
           </div>
@@ -612,7 +612,7 @@ export function DatasheetDetailPage() {
       {/* Keywords */}
       {ds.keywords.length > 0 && (
         <div className="border border-rim-bright bg-surface-2 px-3 py-2">
-          <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim">
+          <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">
             <span className="text-parchment mr-1">Palabras Clave:</span>
             {ds.keywords.join(', ')}
           </p>

@@ -75,19 +75,19 @@ export function RuleTooltip({ name, description, ruleId, children }: Props) {
             style={{ transform: pos.above ? 'translateY(-100%)' : 'none' }}
           >
             <span className="flex items-baseline justify-between gap-2 mb-1">
-              <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+              <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
                 {name}
               </span>
               <Link
                 to={coreRulesLink}
-                className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
+                className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
                 onClick={() => setPos(null)}
               >
                 Ver regla →
               </Link>
             </span>
             <span
-              className="wh-html block text-[9px] font-mono text-parchment-dim leading-relaxed"
+              className="wh-html block text-[12px] font-mono text-parchment-dim leading-relaxed"
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </span>

@@ -13,7 +13,7 @@ export function FactionDetachmentsPage() {
   if (!faction) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-[9px] font-mono text-parchment-dim uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim uppercase tracking-widest">
           Facción no encontrada
         </p>
       </div>
@@ -26,21 +26,21 @@ export function FactionDetachmentsPage() {
       <div className="mb-6">
         <button
           onClick={() => navigate(factionPath(factionId!))}
-          className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+          className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
           ← {faction.name}
         </button>
         <div className="h-1 bg-crimson mb-2" />
-        <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
+        <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           Destacamentos
         </h1>
-        <p className="text-[8px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
+        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
           {faction.name} · {factionDetachments.length} destacamentos
         </p>
       </div>
 
       {factionDetachments.length === 0 ? (
-        <p className="text-[9px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
           Sin destacamentos
         </p>
       ) : (
@@ -58,44 +58,44 @@ export function FactionDetachmentsPage() {
                 <div className="min-w-0 flex-1">
                   {/* Name row */}
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <p className="text-[10px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+                    <p className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
                       {det.name}
                     </p>
                     {det.dp > 0 && (
-                      <span className="text-[7px] font-mono font-bold border border-crimson/60 text-crimson-bright px-1.5 py-px leading-none shrink-0">
+                      <span className="text-[10px] font-mono font-bold border border-crimson/60 text-crimson-bright px-1.5 py-px leading-none shrink-0">
                         {det.dp} DP
                       </span>
                     )}
                     {det.disposition && (
-                      <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim border border-rim-bright px-1.5 py-px leading-none shrink-0">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim border border-rim-bright px-1.5 py-px leading-none shrink-0">
                         {det.disposition}
                       </span>
                     )}
                   </div>
                   {det.legend && (
-                    <p className="wh-html text-[8px] font-mono text-parchment-dim italic leading-relaxed line-clamp-2 mb-2"
+                    <p className="wh-html text-[11px] font-mono text-parchment-dim italic leading-relaxed line-clamp-2 mb-2"
                       dangerouslySetInnerHTML={{ __html: det.legend }}
                     />
                   )}
                   <div className="flex gap-3">
                     {abilCount > 0 && (
-                      <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
                         {abilCount} habilidad{abilCount !== 1 ? 'es' : ''}
                       </span>
                     )}
                     {enhCount > 0 && (
-                      <span className="text-[7px] font-mono uppercase tracking-widest text-gold/70">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-gold/70">
                         {enhCount} mejora{enhCount !== 1 ? 's' : ''}
                       </span>
                     )}
                     {stratCount > 0 && (
-                      <span className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
                         {stratCount} estratagema{stratCount !== 1 ? 's' : ''}
                       </span>
                     )}
                   </div>
                 </div>
-                <span className="text-[11px] font-mono text-parchment-dim shrink-0 mt-0.5">›</span>
+                <span className="text-[14px] font-mono text-parchment-dim shrink-0 mt-0.5">›</span>
               </NavLink>
             )
           })}

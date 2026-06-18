@@ -9,14 +9,14 @@ function NavTile({ to, label, meta }: { to: string; label: string; meta: string 
       className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-4 transition-colors"
     >
       <div>
-        <p className="text-[11px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+        <p className="text-[14px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
           {label}
         </p>
-        <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
+        <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
           {meta}
         </p>
       </div>
-      <span className="text-[15px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">›</span>
+      <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">›</span>
     </NavLink>
   )
 }
@@ -34,7 +34,7 @@ export function FactionPage() {
   if (!faction) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-[9px] font-mono text-parchment-dim uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim uppercase tracking-widest">
           Facción no encontrada
         </p>
       </div>
@@ -47,15 +47,15 @@ export function FactionPage() {
       <div className="mb-8">
         <button
           onClick={() => navigate(-1)}
-          className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+          className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
           ← Catálogo
         </button>
         <div className="h-1 bg-crimson mb-2" />
-        <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
+        <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           {faction.name}
         </h1>
-        <p className="text-[8px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
+        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
           {faction.id}
         </p>
       </div>
