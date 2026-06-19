@@ -331,12 +331,12 @@ export function DatasheetDetailPage() {
       {/* Stats */}
       <div className="border border-rim-bright mb-3">
         {ds.models.length > 1 && (
-          <div className="flex border-b border-rim-bright">
+          <div className="flex border-b border-rim-bright overflow-x-auto">
             {ds.models.map((m, i) => (
               <button
                 key={i}
                 onClick={() => setActiveModel(i)}
-                className={`text-[11px] font-mono uppercase tracking-widest px-3 py-1.5 border-r border-rim-bright transition-colors ${
+                className={`text-[11px] font-mono uppercase tracking-widest px-3 py-1.5 border-r border-rim-bright transition-colors whitespace-nowrap shrink-0 ${
                   i === activeModel
                     ? 'bg-crimson/20 text-parchment'
                     : 'bg-surface-3 text-parchment-dim hover:text-parchment'
