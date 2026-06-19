@@ -6,7 +6,7 @@ interface Props {
 
 function Badge({ label }: { label: string }) {
   return (
-    <span className="text-[7px] uppercase font-mono px-1 py-0.5 bg-crimson/20 border border-crimson/40 text-crimson-bright leading-none">
+    <span className="text-[10px] uppercase font-mono px-1 py-0.5 bg-crimson/20 border border-crimson/40 text-crimson-bright leading-none">
       {label}
     </span>
   )
@@ -51,7 +51,7 @@ export function WeaponCard({ weapon }: Props) {
       )}
 
       {weapon.description && (
-        <p className="wh-html text-[9px] font-mono text-parchment-dim/60 mt-1 leading-relaxed"
+        <p className="wh-html text-[12px] font-mono text-parchment-dim/60 mt-1 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: weapon.description }}
         />
       )}

@@ -45,20 +45,20 @@ export function ThemePicker({ currentTheme, themes, onSelect }: Props) {
           <span style={{ background: currentTheme.colors.surface4 }} className="block" />
           <span style={{ background: currentTheme.colors.parchment }} className="block" />
         </span>
-        <span className="font-display text-[8px] uppercase tracking-widest text-parchment-dim hidden sm:inline select-none">
+        <span className="font-display text-[11px] uppercase tracking-widest text-parchment-dim hidden sm:inline select-none">
           Tema
         </span>
       </button>
 
       {isOpen && (
         <div className="absolute right-0 top-full mt-1 w-60 border border-rim-bright bg-surface-2 z-30 shadow-2xl">
-          <p className="px-3 py-1.5 text-[8px] font-display uppercase tracking-widest text-gold border-b border-rim-bright">
+          <p className="px-3 py-1.5 text-[11px] font-display uppercase tracking-widest text-gold border-b border-rim-bright">
             Estética del Cogitador
           </p>
           <div className="max-h-[70vh] overflow-y-auto">
             {grouped.map(({ group, label, themes: groupThemes }) => (
               <div key={group}>
-                <p className="px-3 pt-2 pb-1 text-[7px] font-display uppercase tracking-[3px] text-parchment-dim opacity-60 select-none">
+                <p className="px-3 pt-2 pb-1 text-[10px] font-display uppercase tracking-[3px] text-parchment-dim opacity-60 select-none">
                   — {label} —
                 </p>
                 {groupThemes.map(theme => {
@@ -87,19 +87,19 @@ export function ThemePicker({ currentTheme, themes, onSelect }: Props) {
                         ))}
                       </span>
                       <span
-                        className="text-[8px] font-display uppercase tracking-wide truncate flex-1"
+                        className="text-[11px] font-display uppercase tracking-wide truncate flex-1"
                         style={{ color: isActive ? theme.colors.parchment : theme.colors.parchmentDim }}
                       >
                         {theme.name}
                       </span>
                       <span
-                        className="text-[7px] font-mono shrink-0 opacity-50"
+                        className="text-[10px] font-mono shrink-0 opacity-50"
                         style={{ color: theme.colors.parchmentDim }}
                       >
                         {theme.faction}
                       </span>
                       {isActive && (
-                        <span className="text-[8px] font-mono shrink-0" style={{ color: theme.colors.crimsonBright }}>
+                        <span className="text-[11px] font-mono shrink-0" style={{ color: theme.colors.crimsonBright }}>
                           ▶
                         </span>
                       )}

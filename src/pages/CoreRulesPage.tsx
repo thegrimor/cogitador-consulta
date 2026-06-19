@@ -23,11 +23,11 @@ function RuleEntry({ rule }: { rule: CoreRule }) {
         onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between px-4 py-2.5 bg-surface-2 hover:bg-surface-3 transition-colors text-left"
       >
-        <span className="text-[10px] font-display uppercase tracking-widest text-parchment">
+        <span className="text-[13px] font-display uppercase tracking-widest text-parchment">
           {rule.name}
         </span>
         <span
-          className="text-[12px] font-mono text-parchment-dim ml-2 shrink-0 transition-transform"
+          className="text-[15px] font-mono text-parchment-dim ml-2 shrink-0 transition-transform"
           style={{ transform: open ? 'rotate(90deg)' : 'rotate(0deg)' }}
         >
           ›
@@ -36,12 +36,12 @@ function RuleEntry({ rule }: { rule: CoreRule }) {
       {open && (
         <div className="px-4 py-3 bg-surface-1 border-t border-rim-bright">
           {rule.summary && (
-            <p className="text-[8px] font-mono text-parchment-dim italic mb-1.5">
+            <p className="text-[11px] font-mono text-parchment-dim italic mb-1.5">
               {rule.summary}
             </p>
           )}
           <p
-            className="wh-html text-[9px] font-mono text-parchment leading-relaxed"
+            className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
             dangerouslySetInnerHTML={{ __html: rule.description }}
           />
         </div>
@@ -66,13 +66,13 @@ function CollapsibleSection({
         onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between px-3 py-2.5 bg-surface-3 border border-rim-bright hover:border-crimson transition-colors text-left"
       >
-        <span className="text-[9px] font-display uppercase tracking-widest text-crimson-bright">
+        <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
           {SECTION_LABELS[category]}
         </span>
         <div className="flex items-center gap-2">
-          <span className="text-[8px] font-mono text-parchment-dim">{rules.length}</span>
+          <span className="text-[11px] font-mono text-parchment-dim">{rules.length}</span>
           <span
-            className="text-[12px] font-mono text-parchment-dim transition-transform"
+            className="text-[15px] font-mono text-parchment-dim transition-transform"
             style={{ transform: open ? 'rotate(90deg)' : 'rotate(0deg)' }}
           >
             ›
@@ -122,11 +122,11 @@ export function CoreRulesPage() {
       {/* Header */}
       <div className="mb-6">
         <div className="h-1 bg-crimson mb-2" />
-        <h1 className="text-[13px] font-display uppercase tracking-[3px] text-parchment">
+        <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           Reglamento Core
         </h1>
         {lastUpdate && (
-          <p className="text-[7px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
+          <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
             Actualizado: {lastUpdate.split(' ')[0]}
           </p>
         )}
@@ -139,14 +139,14 @@ export function CoreRulesPage() {
           className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-4 transition-colors"
         >
           <div>
-            <p className="text-[11px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+            <p className="text-[14px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
               Fases de Juego
             </p>
-            <p className="text-[8px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
+            <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
               {PHASES.length} secciones · 07 – 23
             </p>
           </div>
-          <span className="text-[15px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">
+          <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">
             ›
           </span>
         </NavLink>
@@ -159,13 +159,13 @@ export function CoreRulesPage() {
           placeholder="Buscar regla…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full bg-surface-3 border border-rim-bright text-parchment text-[10px] font-mono px-3 py-2 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
+          className="w-full bg-surface-3 border border-rim-bright text-parchment text-[13px] font-mono px-3 py-2 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
         />
       </div>
 
       {/* Content */}
       {filtered.length === 0 ? (
-        <p className="text-[9px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
+        <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
           Sin resultados
         </p>
       ) : query ? (

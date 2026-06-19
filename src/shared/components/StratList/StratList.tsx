@@ -17,7 +17,7 @@ export function StratList({ stratagems }: Props) {
     <div className="border-b border-rim-bright">
       <button
         onClick={() => setOpen(v => !v)}
-        className="w-full flex items-center justify-between px-3 py-2 text-[9px] font-display uppercase tracking-widest text-gold hover:text-gold-bright transition-colors"
+        className="w-full flex items-center justify-between px-3 py-2 text-[12px] font-display uppercase tracking-widest text-gold hover:text-gold-bright transition-colors"
       >
         <span>Estratagemas ({stratagems.length})</span>
         <span>{open ? '▴' : '▾'}</span>
@@ -28,17 +28,17 @@ export function StratList({ stratagems }: Props) {
           {stratagems.map(s => (
             <div key={s.id} className="border border-rim-bright bg-surface-3 p-2">
               <div className="flex items-baseline justify-between gap-2 mb-1">
-                <span className="text-[9px] font-display uppercase tracking-widest text-parchment">
+                <span className="text-[12px] font-display uppercase tracking-widest text-parchment">
                   {s.name}
                 </span>
-                <span className="text-[9px] font-mono bg-crimson text-parchment px-1.5 py-0.5 shrink-0">
+                <span className="text-[12px] font-mono bg-crimson text-parchment px-1.5 py-0.5 shrink-0">
                   {s.cpCost}CP
                 </span>
               </div>
-              <p className="text-[8px] font-mono text-gold/60 uppercase mb-1">
+              <p className="text-[11px] font-mono text-gold/60 uppercase mb-1">
                 {s.phase} · {s.turn}
               </p>
-              <p className="text-[10px] font-mono text-parchment-dim leading-relaxed">
+              <p className="text-[13px] font-mono text-parchment-dim leading-relaxed">
                 {stripHtml(s.description)}
               </p>
             </div>
