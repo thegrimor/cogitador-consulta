@@ -108,7 +108,7 @@ export function FactionDatasheetsPage() {
                       const minPts = Math.min(...costs.map(c => c.points))
                       return (
                         <div className="flex flex-col items-center bg-surface-3 border border-gold/40 px-1.5 py-0.5 min-w-[36px]">
-                          <span className="text-[10px] font-mono uppercase text-gold/70 leading-none">pts</span>
+                          <span className="text-[10px] font-mono uppercase text-gold leading-none">pts</span>
                           <span className="text-[12px] font-display text-gold leading-none mt-0.5">{minPts}</span>
                         </div>
                       )

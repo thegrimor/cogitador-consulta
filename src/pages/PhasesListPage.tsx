@@ -10,7 +10,7 @@ function NavTile({ to, ref: refNum, name, count }: { to: string; ref: string; na
     >
       <div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-crimson">{refNum}</span>
+          <span className="text-[11px] font-mono uppercase tracking-widest text-crimson-bright">{refNum}</span>
           <p className="text-[14px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
             {name}
           </p>

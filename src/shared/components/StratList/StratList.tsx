@@ -35,7 +35,7 @@ export function StratList({ stratagems }: Props) {
                   {s.cpCost}CP
                 </span>
               </div>
-              <p className="text-[11px] font-mono text-gold/60 uppercase mb-1">
+              <p className="text-[11px] font-mono text-gold uppercase mb-1">
                 {s.phase} · {s.turn}
               </p>
               <p className="text-[13px] font-mono text-parchment-dim leading-relaxed">

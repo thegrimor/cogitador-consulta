@@ -13,7 +13,7 @@ function SubsectionRow({ refNum, name, description }: { refNum: string; name: st
         className="w-full flex items-center justify-between px-4 py-3 bg-surface-2 hover:bg-surface-3 transition-colors text-left"
       >
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-crimson shrink-0">{refNum}</span>
+          <span className="text-[11px] font-mono uppercase tracking-widest text-crimson-bright shrink-0">{refNum}</span>
           <span className="text-[13px] font-display uppercase tracking-widest text-parchment">
             {name}
           </span>
@@ -61,7 +61,7 @@ export function PhaseDetailPage() {
         </button>
         <div className="h-1 bg-crimson mb-2" />
         <div className="flex items-center gap-3">
-          <span className="text-[13px] font-mono uppercase tracking-widest text-crimson">{phase.ref}</span>
+          <span className="text-[13px] font-mono uppercase tracking-widest text-crimson-bright">{phase.ref}</span>
           <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
             {phase.name}
           </h1>

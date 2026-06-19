@@ -84,7 +84,7 @@ export function FactionDetachmentsPage() {
                       </span>
                     )}
                     {enhCount > 0 && (
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-gold/70">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-gold">
                         {enhCount} mejora{enhCount !== 1 ? 's' : ''}
                       </span>
                     )}

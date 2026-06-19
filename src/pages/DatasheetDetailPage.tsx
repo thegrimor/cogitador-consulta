@@ -305,7 +305,7 @@ export function DatasheetDetailPage() {
           <h1 className="text-[17px] font-display uppercase tracking-[2px] text-parchment leading-tight">
             {ds.name}
           </h1>
-          <span className="text-[11px] font-mono uppercase tracking-widest text-parchment/70 shrink-0">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-parchment shrink-0">
             {ds.role}
           </span>
         </div>
