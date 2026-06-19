@@ -58,7 +58,7 @@ export function ThemePicker({ currentTheme, themes, onSelect }: Props) {
           <div className="max-h-[70vh] overflow-y-auto">
             {grouped.map(({ group, label, themes: groupThemes }) => (
               <div key={group}>
-                <p className="px-3 pt-2 pb-1 text-[10px] font-display uppercase tracking-[3px] text-parchment-dim opacity-60 select-none">
+                <p className="px-3 pt-2 pb-1 text-[10px] font-display uppercase tracking-[3px] text-parchment-dim select-none">
                   — {label} —
                 </p>
                 {groupThemes.map(theme => {

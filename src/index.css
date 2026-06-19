@@ -154,7 +154,7 @@
 /* ── IMPERIUM ──────────────────────────────────────────────── */
 :root[data-theme="sm"] {
   --color-crimson:       #1a3d8f;
-  --color-crimson-bright:#2255cc;
+  --color-crimson-bright:#547fe2;
   --color-crimson-dim:   #0f2458;
   --color-gold:          #b8922a;
   --color-gold-bright:   #e8b840;
@@ -196,10 +196,10 @@
 
 :root[data-theme="adm"] {
   --color-crimson:       #8a1818;
-  --color-crimson-bright:#c02020;
+  --color-crimson-bright:#e04545;
   --color-crimson-dim:   #580f0f;
-  --color-gold:          #7a5a18;
-  --color-gold-bright:   #a07828;
+  --color-gold:          #a0761f;
+  --color-gold-bright:   #c29130;
   --color-neon:          #ff4400;
   --color-surface:       #060606;
   --color-surface-2:     #0e0a08;
@@ -219,8 +219,8 @@
   --color-crimson:       #b87c18;
   --color-crimson-bright:#e8a020;
   --color-crimson-dim:   #784e08;
-  --color-gold:          #8a1818;
-  --color-gold-bright:   #b82020;
+  --color-gold:          #df4848;
+  --color-gold-bright:   #e77373;
   --color-neon:          #ffcc00;
   --color-surface:       #080604;
   --color-surface-2:     #100c06;
@@ -238,7 +238,7 @@
 
 :root[data-theme="as"] {
   --color-crimson:       #8a1820;
-  --color-crimson-bright:#cc2030;
+  --color-crimson-bright:#e24352;
   --color-crimson-dim:   #580f14;
   --color-gold:          #8090a0;
   --color-gold-bright:   #b0c0d0;
@@ -261,8 +261,8 @@
   --color-crimson:       #6878a0;
   --color-crimson-bright:#90a8d0;
   --color-crimson-dim:   #3a4870;
-  --color-gold:          #2848a0;
-  --color-gold-bright:   #3860d0;
+  --color-gold:          #587ad5;
+  --color-gold-bright:   #7f99e1;
   --color-neon:          #80c8ff;
   --color-surface:       #050508;
   --color-surface-2:     #0a0c12;
@@ -280,9 +280,9 @@
 
 :root[data-theme="qi"] {
   --color-crimson:       #781820;
-  --color-crimson-bright:#a82030;
+  --color-crimson-bright:#dc4657;
   --color-crimson-dim:   #4a0f14;
-  --color-gold:          #906810;
+  --color-gold:          #a17512;
   --color-gold-bright:   #c08818;
   --color-neon:          #ffaa00;
   --color-surface:       #060406;
@@ -303,8 +303,8 @@
   --color-crimson:       #806018;
   --color-crimson-bright:#b08020;
   --color-crimson-dim:   #503c08;
-  --color-gold:          #701818;
-  --color-gold-bright:   #9a2020;
+  --color-gold:          #d84b4b;
+  --color-gold-bright:   #e27474;
   --color-neon:          #ffdd80;
   --color-surface:       #050505;
   --color-surface-2:     #0a0908;
@@ -325,8 +325,8 @@
   --color-crimson:       #8a6818;
   --color-crimson-bright:#c09020;
   --color-crimson-dim:   #584010;
-  --color-gold:          #882a10;
-  --color-gold-bright:   #c03818;
+  --color-gold:          #df451a;
+  --color-gold-bright:   #e86344;
   --color-neon:          #ff8800;
   --color-surface:       #060404;
   --color-surface-2:     #0c0808;
@@ -346,8 +346,8 @@
   --color-crimson:       #4a7020;
   --color-crimson-bright:#6a9830;
   --color-crimson-dim:   #2e4812;
-  --color-gold:          #7a5418;
-  --color-gold-bright:   #a07028;
+  --color-gold:          #a77321;
+  --color-gold-bright:   #c98d32;
   --color-neon:          #90ff30;
   --color-surface:       #050602;
   --color-surface-2:     #0a0c04;
@@ -386,10 +386,10 @@
 
 :root[data-theme="ec"] {
   --color-crimson:       #a81878;
-  --color-crimson-bright:#d820a0;
+  --color-crimson-bright:#e02aa8;
   --color-crimson-dim:   #6a0f4e;
-  --color-gold:          #6018a8;
-  --color-gold-bright:   #8820d8;
+  --color-gold:          #a059e7;
+  --color-gold-bright:   #c086ed;
   --color-neon:          #ff80ff;
   --color-surface:       #070408;
   --color-surface-2:     #0e080e;
@@ -407,10 +407,10 @@
 
 :root[data-theme="we"] {
   --color-crimson:       #900808;
-  --color-crimson-bright:#c01010;
+  --color-crimson-bright:#ed2a2a;
   --color-crimson-dim:   #5c0505;
-  --color-gold:          #806010;
-  --color-gold-bright:   #b08818;
+  --color-gold:          #9c7513;
+  --color-gold-bright:   #c79a1b;
   --color-neon:          #ff3300;
   --color-surface:       #070302;
   --color-surface-2:     #0e0604;
@@ -428,10 +428,10 @@
 
 :root[data-theme="cd"] {
   --color-crimson:       #7818a8;
-  --color-crimson-bright:#a020d8;
+  --color-crimson-bright:#b447e4;
   --color-crimson-dim:   #4a0f6a;
-  --color-gold:          #c83018;
-  --color-gold-bright:   #f04020;
+  --color-gold:          #e43c21;
+  --color-gold-bright:   #f36045;
   --color-neon:          #ff00ff;
   --color-surface:       #050308;
   --color-surface-2:     #0a060e;
@@ -449,10 +449,10 @@
 
 :root[data-theme="qt"] {
   --color-crimson:       #604838;
-  --color-crimson-bright:#887060;
+  --color-crimson-bright:#907665;
   --color-crimson-dim:   #3a2c20;
-  --color-gold:          #7a5818;
-  --color-gold-bright:   #a07828;
+  --color-gold:          #a0731f;
+  --color-gold-bright:   #c29130;
   --color-neon:          #ff6633;
   --color-surface:       #050404;
   --color-surface-2:     #0a0806;
@@ -494,8 +494,8 @@
   --color-crimson:       #b8a060;
   --color-crimson-bright:#d8c878;
   --color-crimson-dim:   #786838;
-  --color-gold:          #1860b8;
-  --color-gold-bright:   #2080e8;
+  --color-gold:          #277ce3;
+  --color-gold-bright:   #509bed;
   --color-neon:          #80e0ff;
   --color-surface:       #040608;
   --color-surface-2:     #080b0e;
@@ -536,7 +536,7 @@
   --color-crimson:       #2a6e1a;
   --color-crimson-bright:#50d820;
   --color-crimson-dim:   #154010;
-  --color-gold:          #c85000;
+  --color-gold:          #d65600;
   --color-gold-bright:   #f07820;
   --color-neon:          #d0ff00;
   --color-surface:       #040800;
@@ -555,7 +555,7 @@
 
 :root[data-theme="tyr"] {
   --color-crimson:       #601878;
-  --color-crimson-bright:#881ea8;
+  --color-crimson-bright:#ba44de;
   --color-crimson-dim:   #3c0f4a;
   --color-gold:          #a8c018;
   --color-gold-bright:   #d0f020;
@@ -578,7 +578,7 @@
   --color-crimson:       #107878;
   --color-crimson-bright:#18b0b0;
   --color-crimson-dim:   #084848;
-  --color-gold:          #388018;
+  --color-gold:          #3d8d1a;
   --color-gold-bright:   #50b820;
   --color-neon:          #00ffcc;
   --color-surface:       #030608;
@@ -597,7 +597,7 @@
 
 :root[data-theme="gc"] {
   --color-crimson:       #5818a8;
-  --color-crimson-bright:#7020d8;
+  --color-crimson-bright:#995ce7;
   --color-crimson-dim:   #380f6a;
   --color-gold:          #c08818;
   --color-gold-bright:   #e8aa20;
@@ -620,8 +620,8 @@
   --color-crimson:       #b86018;
   --color-crimson-bright:#e07820;
   --color-crimson-dim:   #783e0e;
-  --color-gold:          #606880;
-  --color-gold-bright:   #808898;
+  --color-gold:          #747d97;
+  --color-gold-bright:   #959ca9;
   --color-neon:          #ffaa44;
   --color-surface:       #060504;
   --color-surface-2:     #0c0a08;
@@ -642,7 +642,7 @@
   --color-crimson:       #707880;
   --color-crimson-bright:#9098a8;
   --color-crimson-dim:   #404850;
-  --color-gold:          #8a7018;
+  --color-gold:          #967a1a;
   --color-gold-bright:   #b09020;
   --color-neon:          #aaccff;
   --color-surface:       #050508;
