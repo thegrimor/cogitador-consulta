@@ -5,7 +5,7 @@ import { factionPath, datasheetPath } from '@/core/constants/routes'
 
 export function FactionDatasheetsPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, datasheets, pointsCostMap } = useGameDataContext()
+  const { factions, datasheets } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
@@ -87,44 +87,36 @@ export function FactionDatasheetsPage() {
         <div className="flex flex-col gap-px">
           {filtered.map(ds => {
             const primary = ds.models[0]
+            const hasInv = !!primary?.invSv && primary.invSv !== '-'
+            const stats = primary
+              ? [
+                  { label: 'M', value: primary.M },
+                  { label: 'T', value: String(primary.T) },
+                  { label: 'SV', value: primary.Sv },
+                  ...(hasInv ? [{ label: 'INV', value: primary.invSv }] : []),
+                ]
+              : []
             return (
               <NavLink
                 key={ds.id}
                 to={datasheetPath(ds.id)}
-                className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
+                className="group flex flex-wrap items-center justify-between gap-y-2 bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment truncate">
+                  <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
                     {ds.name}
                   </span>
                 </div>
-                <div className="flex items-center gap-px shrink-0 ml-3">
-                  {(() => {
-                    const costs = pointsCostMap[ds.id]
-                    if (costs?.length) {
-                      const minPts = Math.min(...costs.map(c => c.points))
-                      return (
-                        <div className="flex flex-col items-center bg-surface-3 border border-gold/40 px-1.5 py-0.5 min-w-[36px]">
-                          <span className="text-[10px] font-mono uppercase text-gold leading-none">pts</span>
-                          <span className="text-[12px] font-display text-gold leading-none mt-0.5">{minPts}</span>
-                        </div>
-                      )
-                    }
-                    return null
-                  })()}
-                  {primary && [
-                    { label: 'T', value: String(primary.T) },
-                    { label: 'SV', value: primary.Sv },
-                    { label: 'W', value: String(primary.W) },
-                  ].map(stat => (
+                <div className="flex items-center gap-1 shrink-0 ml-3">
+                  {stats.map(stat => (
                     <div
                       key={stat.label}
-                      className="flex flex-col items-center bg-surface-3 border border-rim-bright px-1.5 py-0.5 min-w-[28px]"
+                      className="flex flex-col items-center bg-surface-3 border border-rim-bright px-2 py-0.5 min-w-[32px]"
                     >
                       <span className="text-[10px] font-mono uppercase text-parchment-dim leading-none">
                         {stat.label}
                       </span>
-                      <span className="text-[12px] font-display text-parchment leading-none mt-0.5">
+                      <span className="text-[12px] font-display text-parchment leading-none mt-0.5 whitespace-nowrap">
                         {stat.value}
                       </span>
                     </div>
