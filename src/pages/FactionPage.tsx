@@ -55,9 +55,6 @@ export function FactionPage() {
         <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           {faction.name}
         </h1>
-        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
-          {faction.id}
-        </p>
       </div>
 
       {/* Tiles de navegación */}
