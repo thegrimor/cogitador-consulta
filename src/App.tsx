@@ -9,6 +9,8 @@ import { FactionDatasheetsPage } from '@/pages/FactionDatasheetsPage'
 import { FactionDetachmentsPage } from '@/pages/FactionDetachmentsPage'
 import { FactionArmyRulesPage } from '@/pages/FactionArmyRulesPage'
 import { RosterListPage } from '@/pages/RosterListPage'
+import { RosterNewPage } from '@/pages/RosterNewPage'
+import { RosterEditPage } from '@/pages/RosterEditPage'
 import { CoreRulesPage } from '@/pages/CoreRulesPage'
 import { PhasesListPage } from '@/pages/PhasesListPage'
 import { PhaseDetailPage } from '@/pages/PhaseDetailPage'
@@ -43,6 +45,8 @@ const router = createBrowserRouter([
         path: 'roster',
         children: [
           { index: true, element: <RosterListPage /> },
+          { path: 'new', element: <RosterNewPage /> },
+          { path: ':rosterId', element: <RosterEditPage /> },
         ],
       },
     ],
