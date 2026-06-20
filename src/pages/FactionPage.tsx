@@ -1,6 +1,6 @@
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { factionDatasheetsPath, factionDetachmentsPath, factionArmyRulesPath } from '@/core/constants/routes'
+import { ROUTES, factionDatasheetsPath, factionDetachmentsPath, factionArmyRulesPath } from '@/core/constants/routes'
 
 function NavTile({ to, label, meta }: { to: string; label: string; meta: string }) {
   return (
@@ -46,7 +46,7 @@ export function FactionPage() {
       {/* Header */}
       <div className="mb-8">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(ROUTES.CATALOG)}
           className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
           ← Catálogo

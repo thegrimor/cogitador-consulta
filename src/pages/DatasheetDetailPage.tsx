@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { datasheetPath } from '@/core/constants/routes'
+import { datasheetPath, factionPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
@@ -293,7 +293,7 @@ export function DatasheetDetailPage() {
     <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Back */}
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate(factionPath(ds.factionId))}
         className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
       >
         ← {faction?.name ?? 'Volver'}
