@@ -117,7 +117,7 @@ export function RosterEntryRow({
 
           {isCharacter && (
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">Realce</p>
+              <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">Mejora</p>
               <div className="flex flex-wrap gap-1">
                 <button onClick={() => onChangeEnhancement(null)} className={pillClass(!entry.enhancementId)}>
                   Ninguno
