@@ -340,6 +340,7 @@ export interface RosterEntry {
   modelCount: number
   pointsCost: number | null
   customName?: string
+  enhancementId?: string
 }
 
 export interface RosterList {
@@ -349,6 +350,7 @@ export interface RosterList {
   detachmentId: string | null
   entries: RosterEntry[]
   totalPoints: number | null
+  pointsLimit: number | null
   createdAt: string
   updatedAt: string
 }
