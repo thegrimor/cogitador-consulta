@@ -367,10 +367,13 @@ export function useGameData(): GameData {
             enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap),
           )
 
-        // ── factions (drop factions with no datasheets, e.g. empty placeholders) ──
+        // ── factions ──────────────────────────────────────────────────────────
+        // Drop factions with no datasheets (empty placeholders) and "Unaligned
+        // Forces" (generic terrain/fortifications, not a playable army).
         const factionIdsWithDatasheets = new Set(datasheets.map(d => d.factionId))
+        const EXCLUDED_FACTION_IDS = new Set(['UN'])
         const factions: Faction[] = [...rawFactions]
-          .filter(f => factionIdsWithDatasheets.has(f.id))
+          .filter(f => factionIdsWithDatasheets.has(f.id) && !EXCLUDED_FACTION_IDS.has(f.id))
           .sort((a, b) => a.name.localeCompare(b.name))
           .map(f => ({ id: f.id, name: f.name }))
 
