@@ -1,4 +1,4 @@
-import type { PointsCost, Datasheet } from '@/types'
+import type { PointsCost, Datasheet, RosterEntry } from '@/types'
 
 export function parseModelCountFromDescription(description: string): number | null {
   const m = description.match(/^(\d+)/)
@@ -17,4 +17,25 @@ export function sortCostVariants(costs: PointsCost[]): PointsCost[] {
     const bCount = parseModelCountFromDescription(b.description) ?? 0
     return aCount - bCount
   })
+}
+
+const ROLE_PRIORITY: Record<string, number> = {
+  Characters: 0,
+  Battleline: 1,
+  'Dedicated Transports': 2,
+  Fortifications: 3,
+  Other: 3,
+}
+
+function rolePriority(role: string): number {
+  return ROLE_PRIORITY[role] ?? 3
+}
+
+export function compareByRolePriority(a: { role: string }, b: { role: string }): number {
+  return rolePriority(a.role) - rolePriority(b.role)
+}
+
+export function resolveSelectedWeaponNames(entry: RosterEntry, datasheet: Datasheet): Set<string> {
+  if (entry.selectedWeaponNames !== undefined) return new Set(entry.selectedWeaponNames)
+  return new Set(datasheet.defaultWeaponNames)
 }

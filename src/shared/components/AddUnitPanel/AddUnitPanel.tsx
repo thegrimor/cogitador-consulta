@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Datasheet, PointsCost } from '@/types'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
+import { compareByRolePriority } from '@/core/utils/roster'
 
 interface Props {
   datasheets: Datasheet[]
@@ -9,7 +10,12 @@ interface Props {
 }
 
 export function AddUnitPanel({ datasheets, pointsCostMap, onAdd }: Props) {
-  const roles = ['Todos', ...Array.from(new Set(datasheets.map(d => d.role))).sort()]
+  const roles = [
+    'Todos',
+    ...Array.from(new Set(datasheets.map(d => d.role))).sort((a, b) =>
+      compareByRolePriority({ role: a }, { role: b }),
+    ),
+  ]
   const [activeRole, setActiveRole] = useState('Todos')
   const [search, setSearch] = useState('')
   const [expandedId, setExpandedId] = useState<string | null>(null)
