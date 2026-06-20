@@ -11,16 +11,18 @@ import {
   updateEntry,
   removeEntry,
   setEntryEnhancement,
+  setEntryAttachment,
+  setEntryWeapons,
 } from '@/store/rosterSlice'
-import { resolveModelCount } from '@/core/utils/roster'
+import { resolveModelCount, compareByRolePriority } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
 import { ROUTES } from '@/core/constants/routes'
-import type { Datasheet, PointsCost } from '@/types'
+import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 
 export function RosterEditPage() {
   const { rosterId: rosterIdParam } = useParams<{ rosterId: string }>()
-  const { factions, datasheets, detachments, enhancements, datasheetEnhancements, pointsCostMap } =
+  const { factions, datasheets, detachments, enhancements, datasheetEnhancements, pointsCostMap, leaderMap } =
     useGameDataContext()
   const roster = useAppSelector(state =>
     rosterIdParam ? selectRosterById(state, rosterIdParam) : undefined,
@@ -46,6 +48,11 @@ export function RosterEditPage() {
   const factionDetachments = detachments.filter(d => d.factionId === roster.factionId)
   const factionDatasheets = datasheets.filter(d => d.factionId === roster.factionId && !d.isVirtual)
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
+
+  const sortedEntries = roster.entries
+    .map(entry => ({ entry, datasheet: datasheetById.get(entry.datasheetId) }))
+    .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
+    .sort((a, b) => compareByRolePriority(a.datasheet, b.datasheet))
 
   const enhancementsCost = roster.entries.reduce((sum, e) => {
     if (!e.enhancementId) return sum
@@ -151,14 +158,17 @@ export function RosterEditPage() {
             Sin unidades añadidas
           </p>
         ) : (
-          roster.entries.map(entry => {
-            const datasheet = datasheetById.get(entry.datasheetId)
-            if (!datasheet) return null
+          sortedEntries.map(({ entry, datasheet }) => {
             const costs = pointsCostMap[entry.datasheetId] ?? []
             const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
             const availableEnhancements = enhancements.filter(
               e => e.detachmentId === roster.detachmentId && validEnhancementIds.has(e.id),
             )
+            const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
+            const attachableEntries = roster.entries
+              .filter(other => other.id !== entry.id && eligibleTargetIds.has(other.datasheetId))
+              .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
+              .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
             return (
               <RosterEntryRow
                 key={entry.id}
@@ -166,6 +176,7 @@ export function RosterEditPage() {
                 datasheet={datasheet}
                 costs={costs}
                 availableEnhancements={availableEnhancements}
+                attachableEntries={attachableEntries}
                 onChangeCost={cost =>
                   dispatch(
                     updateEntry({
@@ -177,6 +188,12 @@ export function RosterEditPage() {
                 }
                 onChangeEnhancement={enhancementId =>
                   dispatch(setEntryEnhancement({ rosterId, entryId: entry.id, enhancementId }))
+                }
+                onChangeAttachment={attachedToEntryId =>
+                  dispatch(setEntryAttachment({ rosterId, entryId: entry.id, attachedToEntryId }))
+                }
+                onChangeWeapons={selectedWeaponNames =>
+                  dispatch(setEntryWeapons({ rosterId, entryId: entry.id, selectedWeaponNames }))
                 }
                 onRemove={() => dispatch(removeEntry({ rosterId, entryId: entry.id }))}
               />

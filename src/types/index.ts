@@ -341,6 +341,8 @@ export interface RosterEntry {
   pointsCost: number | null
   customName?: string
   enhancementId?: string
+  attachedToEntryId?: string
+  selectedWeaponNames?: string[]
 }
 
 export interface RosterList {

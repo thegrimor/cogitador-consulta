@@ -105,6 +105,9 @@ const rosterSlice = createSlice({
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
       if (!roster) return
       roster.entries = roster.entries.filter(e => e.id !== action.payload.entryId)
+      roster.entries.forEach(e => {
+        if (e.attachedToEntryId === action.payload.entryId) e.attachedToEntryId = undefined
+      })
       recomputeTotals(roster)
     },
 
@@ -117,6 +120,30 @@ const rosterSlice = createSlice({
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
       entry.enhancementId = action.payload.enhancementId ?? undefined
+      roster.updatedAt = new Date().toISOString()
+    },
+
+    setEntryAttachment: (
+      state,
+      action: PayloadAction<{ rosterId: string; entryId: string; attachedToEntryId: string | null }>,
+    ) => {
+      const roster = state.rosters.find(r => r.id === action.payload.rosterId)
+      if (!roster) return
+      const entry = roster.entries.find(e => e.id === action.payload.entryId)
+      if (!entry) return
+      entry.attachedToEntryId = action.payload.attachedToEntryId ?? undefined
+      roster.updatedAt = new Date().toISOString()
+    },
+
+    setEntryWeapons: (
+      state,
+      action: PayloadAction<{ rosterId: string; entryId: string; selectedWeaponNames: string[] }>,
+    ) => {
+      const roster = state.rosters.find(r => r.id === action.payload.rosterId)
+      if (!roster) return
+      const entry = roster.entries.find(e => e.id === action.payload.entryId)
+      if (!entry) return
+      entry.selectedWeaponNames = action.payload.selectedWeaponNames
       roster.updatedAt = new Date().toISOString()
     },
   },
@@ -132,6 +159,8 @@ export const {
   updateEntry,
   removeEntry,
   setEntryEnhancement,
+  setEntryAttachment,
+  setEntryWeapons,
 } = rosterSlice.actions
 
 export const rosterReducer = rosterSlice.reducer
