@@ -6,7 +6,15 @@ const LS_KEY = 'cogitador-consulta-rosters'
 function loadPersistedState(): { roster: RosterState } | undefined {
   try {
     const raw = localStorage.getItem(LS_KEY)
-    return raw ? { roster: JSON.parse(raw) as RosterState } : undefined
+    if (!raw) return undefined
+    const parsed = JSON.parse(raw) as RosterState
+    parsed.rosters.forEach(r => {
+      const legacy = r as unknown as { detachmentId?: string | null }
+      if (!Array.isArray(r.detachmentIds)) {
+        r.detachmentIds = legacy.detachmentId ? [legacy.detachmentId] : []
+      }
+    })
+    return { roster: parsed }
   } catch {
     return undefined
   }

@@ -37,7 +37,7 @@ const rosterSlice = createSlice({
           id,
           name,
           factionId,
-          detachmentId: null,
+          detachmentIds: [],
           entries: [],
           totalPoints: 0,
           pointsLimit,
@@ -65,10 +65,10 @@ const rosterSlice = createSlice({
       roster.updatedAt = new Date().toISOString()
     },
 
-    setDetachment: (state, action: PayloadAction<{ rosterId: string; detachmentId: string | null }>) => {
+    setDetachments: (state, action: PayloadAction<{ rosterId: string; detachmentIds: string[] }>) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
       if (!roster) return
-      roster.detachmentId = action.payload.detachmentId
+      roster.detachmentIds = action.payload.detachmentIds
       roster.entries.forEach(e => { e.enhancementId = undefined })
       roster.updatedAt = new Date().toISOString()
     },
@@ -154,7 +154,7 @@ export const {
   deleteRoster,
   renameRoster,
   setPointsLimit,
-  setDetachment,
+  setDetachments,
   addEntry,
   updateEntry,
   removeEntry,

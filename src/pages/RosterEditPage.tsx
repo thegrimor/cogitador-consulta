@@ -6,7 +6,7 @@ import {
   selectRosterById,
   renameRoster,
   setPointsLimit,
-  setDetachment,
+  setDetachments,
   addEntry,
   updateEntry,
   removeEntry,
@@ -14,9 +14,10 @@ import {
   setEntryAttachment,
   setEntryWeapons,
 } from '@/store/rosterSlice'
-import { resolveModelCount, compareByRolePriority } from '@/core/utils/roster'
+import { resolveModelCount, compareByRolePriority, sumDetachmentPoints } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
+import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
 import { ROUTES } from '@/core/constants/routes'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 
@@ -32,6 +33,7 @@ export function RosterEditPage() {
 
   const [nameDraft, setNameDraft] = useState(roster?.name ?? '')
   const [limitDraft, setLimitDraft] = useState(roster?.pointsLimit ? String(roster.pointsLimit) : '')
+  const [detachmentModalOpen, setDetachmentModalOpen] = useState(false)
 
   if (!roster || !rosterIdParam) {
     return (
@@ -48,6 +50,8 @@ export function RosterEditPage() {
   const factionDetachments = detachments.filter(d => d.factionId === roster.factionId)
   const factionDatasheets = datasheets.filter(d => d.factionId === roster.factionId && !d.isVirtual)
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
+  const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
+  const selectedDetachmentIds = new Set(roster.detachmentIds)
 
   const sortedEntries = roster.entries
     .map(entry => ({ entry, datasheet: datasheetById.get(entry.datasheetId) }))
@@ -114,22 +118,48 @@ export function RosterEditPage() {
         <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1.5">
           Destacamento
         </p>
-        <div className="flex flex-wrap gap-1.5">
-          {factionDetachments.map(d => (
-            <button
-              key={d.id}
-              onClick={() => dispatch(setDetachment({ rosterId, detachmentId: d.id }))}
-              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
-                roster.detachmentId === d.id
-                  ? 'border-crimson-bright text-parchment bg-crimson/10'
-                  : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
-              }`}
-            >
-              {d.name}
-            </button>
-          ))}
+        <div className="flex flex-wrap items-center gap-1.5">
+          {selectedDetachments.length === 0 ? (
+            <span className="text-[11px] font-mono text-parchment-dim uppercase tracking-widest">
+              Sin destacamento
+            </span>
+          ) : (
+            selectedDetachments.map(d => (
+              <span
+                key={d.id}
+                className="text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border border-crimson-bright text-parchment bg-crimson/10 flex items-center gap-1.5"
+              >
+                {d.name}
+                {d.dp > 0 && <span className="text-crimson-bright font-bold">{d.dp} DP</span>}
+              </span>
+            ))
+          )}
+          {selectedDetachments.length > 1 && (
+            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+              Total: {sumDetachmentPoints(detachments, roster.detachmentIds)} DP
+            </span>
+          )}
+          <button
+            onClick={() => setDetachmentModalOpen(true)}
+            className="text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors"
+          >
+            {selectedDetachments.length === 0 ? 'Elegir destacamento' : 'Cambiar'}
+          </button>
         </div>
       </div>
+
+      {detachmentModalOpen && (
+        <DetachmentSelectModal
+          detachments={factionDetachments}
+          selectedIds={roster.detachmentIds}
+          pointsLimit={roster.pointsLimit}
+          onClose={() => setDetachmentModalOpen(false)}
+          onConfirm={detachmentIds => {
+            dispatch(setDetachments({ rosterId, detachmentIds }))
+            setDetachmentModalOpen(false)
+          }}
+        />
+      )}
 
       {/* Puntos */}
       <div className="mb-6 flex items-center gap-4">
@@ -162,7 +192,7 @@ export function RosterEditPage() {
             const costs = pointsCostMap[entry.datasheetId] ?? []
             const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
             const availableEnhancements = enhancements.filter(
-              e => e.detachmentId === roster.detachmentId && validEnhancementIds.has(e.id),
+              e => selectedDetachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id),
             )
             const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
             const attachableEntries = roster.entries

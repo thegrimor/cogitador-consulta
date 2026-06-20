@@ -1,0 +1,1 @@
+export { DetachmentSelectModal } from './DetachmentSelectModal'

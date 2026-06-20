@@ -1,4 +1,16 @@
-import type { PointsCost, Datasheet, RosterEntry } from '@/types'
+import type { PointsCost, Datasheet, Detachment, RosterEntry } from '@/types'
+
+export const DETACHMENT_POINTS_BUDGET = 3
+export const MULTI_DETACHMENT_THRESHOLD = 2000
+
+export function isMultiDetachmentAllowed(pointsLimit: number | null): boolean {
+  return pointsLimit !== null && pointsLimit >= MULTI_DETACHMENT_THRESHOLD
+}
+
+export function sumDetachmentPoints(detachments: Detachment[], detachmentIds: string[]): number {
+  const byId = new Map(detachments.map(d => [d.id, d]))
+  return detachmentIds.reduce((sum, id) => sum + (byId.get(id)?.dp ?? 0), 0)
+}
 
 export function parseModelCountFromDescription(description: string): number | null {
   const m = description.match(/^(\d+)/)

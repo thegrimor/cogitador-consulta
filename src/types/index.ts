@@ -349,7 +349,7 @@ export interface RosterList {
   id: string
   name: string
   factionId: string
-  detachmentId: string | null
+  detachmentIds: string[]
   entries: RosterEntry[]
   totalPoints: number | null
   pointsLimit: number | null
