@@ -357,10 +357,15 @@ export function useGameData(): GameData {
           datasheetStratagems[row.datasheet_id].push(row.stratagem_id)
         })
 
-        // ── datasheets ────────────────────────────────────────────────────────
-        const datasheets = rawDatasheets.map(ds =>
-          enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap),
+        // ── datasheets (Legends units excluded — not used in matched play) ────
+        const legendSourceIds = new Set(
+          rawSources.filter(s => /legends/i.test(s.name)).map(s => s.id),
         )
+        const datasheets = rawDatasheets
+          .filter(ds => !legendSourceIds.has(ds.source_id))
+          .map(ds =>
+            enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap),
+          )
 
         // ── factions ──────────────────────────────────────────────────────────
         const factions: Faction[] = [...rawFactions]
