@@ -1,4 +1,5 @@
-import { Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import { NavBar } from '@/shared/components/NavBar'
 import { ThemePicker } from '@/shared/components/ThemePicker'
 import { LoadingScreen } from '@/shared/components/LoadingScreen'
@@ -9,6 +10,11 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 export function AppShell() {
   const [currentTheme, setTheme, themes] = useTheme()
   const { loading, error } = useGameDataContext()
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   if (loading) return <LoadingScreen />
   if (error) return <ErrorScreen error={error} />
