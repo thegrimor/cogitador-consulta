@@ -367,8 +367,10 @@ export function useGameData(): GameData {
             enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap),
           )
 
-        // ── factions ──────────────────────────────────────────────────────────
+        // ── factions (drop factions with no datasheets, e.g. empty placeholders) ──
+        const factionIdsWithDatasheets = new Set(datasheets.map(d => d.factionId))
         const factions: Faction[] = [...rawFactions]
+          .filter(f => factionIdsWithDatasheets.has(f.id))
           .sort((a, b) => a.name.localeCompare(b.name))
           .map(f => ({ id: f.id, name: f.name }))
 
