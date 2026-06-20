@@ -94,9 +94,6 @@ export function FactionDatasheetsPage() {
                 className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim shrink-0 w-20">
-                    {ds.role}
-                  </span>
                   <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment truncate">
                     {ds.name}
                   </span>
