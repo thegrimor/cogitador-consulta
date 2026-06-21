@@ -47,10 +47,20 @@ function RuleEditor({
       ? `${rule.fromWeapons.join(' / ')} → (${eligible} disponible${eligible === 1 ? '' : 's'})`
       : `Equipar (${eligible} disponible${eligible === 1 ? '' : 's'})`
 
+  const baseRemaining = eligible - total
+
   return (
     <div className="border border-rim-bright px-2 py-1.5">
       <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">{label}</p>
       <div className="flex flex-col gap-1">
+        {rule.kind === 'replace' && (
+          <div className="flex items-center justify-between gap-2 pb-1 mb-0.5 border-b border-rim-bright/30">
+            <span className="text-[11px] font-mono text-parchment-dim truncate">
+              {rule.fromWeapons.join(' + ')} (equipo base)
+            </span>
+            <span className="text-[11px] font-mono text-parchment-dim shrink-0">x{baseRemaining}</span>
+          </div>
+        )}
         {rule.choices.map((choice, i) => {
           const max = ruleChoiceMax(rule, i, selection, cap)
           const qty = selection[i]
