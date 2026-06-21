@@ -104,12 +104,20 @@ export function ruleChoiceMax(rule: WeaponOptionRule, choiceIndex: number, selec
   return Math.max(0, remaining)
 }
 
+/** Weapons with multiple firing modes (e.g. "Plasma pistol – standard" / "– supercharge") are
+ * listed as separate profile rows in the wargear table but share one physical instance per
+ * model, and wargear-option text only ever names the weapon once, without a profile suffix.
+ * Stripping the suffix lets quantity lookups match every profile row to the same pick. */
+export function weaponBaseName(name: string): string {
+  return name.trim().toLowerCase().replace(/\s+[-–—]\s+\S.*$/, '')
+}
+
 /** Resolves the unit's actual weapon loadout as instance counts, decrementing replaced weapons
  * by however many picks were made rather than dropping them entirely (other models in the unit
  * may still carry the unmodified weapon). */
 export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry): Map<string, number> {
   const counts = new Map<string, number>()
-  datasheet.defaultWeaponNames.forEach(name => counts.set(name, entry.modelCount))
+  datasheet.defaultWeaponNames.forEach(name => counts.set(weaponBaseName(name), entry.modelCount))
 
   for (const rule of datasheet.weaponOptionRules) {
     if (rule.scope === 'unparsed' || rule.choices.length === 0) continue
@@ -119,7 +127,7 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
 
     if (rule.kind === 'replace') {
       rule.fromWeapons.forEach(w => {
-        const key = w.toLowerCase()
+        const key = weaponBaseName(w)
         const remaining = Math.max(0, (counts.get(key) ?? 0) - total)
         if (remaining === 0) counts.delete(key)
         else counts.set(key, remaining)
@@ -129,7 +137,7 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
     selection.forEach((qty, i) => {
       if (qty <= 0) return
       rule.choices[i].forEach(w => {
-        const key = w.toLowerCase()
+        const key = weaponBaseName(w)
         counts.set(key, (counts.get(key) ?? 0) + qty)
       })
     })
