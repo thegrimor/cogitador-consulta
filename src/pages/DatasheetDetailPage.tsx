@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { datasheetPath, factionPath } from '@/core/constants/routes'
+import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+const linkClass =
+  'text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors'
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -326,6 +329,12 @@ export function DatasheetDetailPage() {
             )}
           </div>
         )}
+      </div>
+
+      <div className="flex justify-end mb-3">
+        <NavLink to={mathhammerAttackerPath(ds.id, ds.factionId)} className={linkClass}>
+          Mathhammer
+        </NavLink>
       </div>
 
       {/* Stats */}

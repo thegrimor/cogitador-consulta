@@ -213,6 +213,7 @@ export function RosterEditPage() {
                 key={entry.id}
                 entry={entry}
                 datasheet={datasheet}
+                rosterId={rosterId}
                 costs={costs}
                 detachmentAbilities={activeDetachmentAbilities}
                 selectedDetachments={selectedDetachments}

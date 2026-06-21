@@ -47,3 +47,14 @@ export function rosterEditPath(id: string) {
 export function corePhasePath(id: string) {
   return `/core-rules/phases/${id}`
 }
+
+export function mathhammerAttackerPath(
+  datasheetId: string,
+  factionId: string,
+  options?: { detachmentId?: string; rosterId?: string },
+) {
+  const params = new URLSearchParams({ faction: factionId, datasheet: datasheetId })
+  if (options?.detachmentId) params.set('detachment', options.detachmentId)
+  if (options?.rosterId) params.set('roster', options.rosterId)
+  return `${ROUTES.MATHHAMMER}?${params.toString()}`
+}

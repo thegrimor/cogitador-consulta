@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment } from '@/types'
 import { resolveModelCount, resolveWeaponQuantities } from '@/core/utils/roster'
-import { datasheetPath, detachmentPath, factionArmyRulesPath } from '@/core/constants/routes'
+import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
 import { WeaponSelector } from '@/shared/components/WeaponSelector'
@@ -12,6 +12,7 @@ import { AbilityList } from '@/shared/components/AbilityList'
 interface Props {
   entry: RosterEntry
   datasheet: Datasheet
+  rosterId: string
   costs: PointsCost[]
   detachmentAbilities: DetachmentAbility[]
   selectedDetachments: Detachment[]
@@ -38,6 +39,7 @@ function pillClass(selected: boolean): string {
 export function RosterEntryRow({
   entry,
   datasheet,
+  rosterId,
   costs,
   detachmentAbilities,
   selectedDetachments,
@@ -161,6 +163,15 @@ export function RosterEntryRow({
             ))}
             <NavLink to={factionArmyRulesPath(datasheet.factionId)} className={linkClass}>
               Reglas de Ejército
+            </NavLink>
+            <NavLink
+              to={mathhammerAttackerPath(datasheet.id, datasheet.factionId, {
+                detachmentId: selectedDetachments[0]?.id,
+                rosterId,
+              })}
+              className={linkClass}
+            >
+              Mathhammer
             </NavLink>
           </div>
 
