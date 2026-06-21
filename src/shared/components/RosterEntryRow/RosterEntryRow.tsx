@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility } from '@/types'
+import { NavLink } from 'react-router-dom'
+import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment } from '@/types'
 import { resolveModelCount, resolveWeaponQuantities } from '@/core/utils/roster'
+import { datasheetPath, detachmentPath, factionArmyRulesPath } from '@/core/constants/routes'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
 import { WeaponSelector } from '@/shared/components/WeaponSelector'
@@ -12,6 +14,7 @@ interface Props {
   datasheet: Datasheet
   costs: PointsCost[]
   detachmentAbilities: DetachmentAbility[]
+  selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
   attachableEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
@@ -20,6 +23,9 @@ interface Props {
   onChangeWeaponSelection: (ruleId: string, selection: number[]) => void
   onRemove: () => void
 }
+
+const linkClass =
+  'text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors'
 
 function pillClass(selected: boolean): string {
   return `text-[10px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors whitespace-nowrap ${
@@ -34,6 +40,7 @@ export function RosterEntryRow({
   datasheet,
   costs,
   detachmentAbilities,
+  selectedDetachments,
   availableEnhancements,
   attachableEntries,
   onChangeCost,
@@ -142,6 +149,27 @@ export function RosterEntryRow({
           <WeaponOptionsEditor datasheet={datasheet} entry={entry} onChangeSelection={onChangeWeaponSelection} />
 
           <AbilityList abilities={datasheet.abilities} detachmentAbilities={detachmentAbilities} />
+
+          <div className="flex flex-wrap gap-2 pt-1">
+            <NavLink to={datasheetPath(datasheet.id)} className={linkClass}>
+              Ficha
+            </NavLink>
+            {selectedDetachments.map(d => (
+              <NavLink key={d.id} to={detachmentPath(d.id)} className={linkClass}>
+                {d.name}
+              </NavLink>
+            ))}
+            <NavLink to={factionArmyRulesPath(datasheet.factionId)} className={linkClass}>
+              Reglas de Ejército
+            </NavLink>
+          </div>
+
+          <button
+            onClick={() => setExpanded(false)}
+            className="w-full text-center text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment border-t border-rim-bright pt-2"
+          >
+            ▴ Cerrar
+          </button>
         </div>
       )}
     </div>
