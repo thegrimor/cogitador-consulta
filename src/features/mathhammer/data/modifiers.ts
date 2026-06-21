@@ -8757,10 +8757,9 @@ const RULES_3: ModifierRule[] = [
   },
 
   // ═══ TS ═══
-  // Dark Pacts: TS es HERETIC ASTARTES.
   // Cabal of Sorcerers: rituales psíquicos — solo Destiny's Ruin y Twist of Fate afectan al daño.
-  { id: 'ts_dark_pacts_lethal',    label: 'Dark Pacts — Lethal Hits',    description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [LETHAL HITS] hasta el final de la fase.', factionId: 'TS', effects: { lethalHitsBonus: true } },
-  { id: 'ts_dark_pacts_sustained', label: 'Dark Pacts — Sustained Hits 1', description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [SUSTAINED HITS 1] hasta el final de la fase.', factionId: 'TS', effects: { sustainedHitsBonus: 1 } },
+  // Nota: Abilities.csv solo asigna Dark Pacts (000008359) a CSM. TS no tiene esta regla — su regla
+  // de ejército real es Cabal of Sorcerers (rituales abajo).
   { id: 'ts_cabal_destinys_ruin',       label: "Cabal: Destiny's Ruin — repetir impactos 1",      description: "Destiny's Ruin (Warp Charge 5): re-roll a Hit roll of 1 each time a TS model makes an attack targeting the selected enemy unit.", factionId: 'TS', effects: { rerollHitsOf1: true } },
   { id: 'ts_cabal_destinys_ruin_full',  label: "Cabal: Destiny's Ruin (10+) — repetir impactos",  description: "Destiny's Ruin (Warp Charge 5, result 10+): re-roll the Hit roll each time a TS model makes an attack targeting the selected enemy unit.", factionId: 'TS', effects: { rerollAllHits: true } },
   { id: 'ts_cabal_twist_of_fate',       label: 'Cabal: Twist of Fate — +1 PA',                    description: "Twist of Fate (Warp Charge 9): improve the Armour Penetration characteristic of each attack that targets the selected enemy unit by 1.", factionId: 'TS', effects: { apMod: 1 } },
@@ -9362,9 +9361,10 @@ const RULES_3: ModifierRule[] = [
   },
 
   // ═══ WE ═══
-  // Dark Pacts: WE es HERETIC ASTARTES; Blessings of Khorne: tirar D6 al inicio de cada ronda de batalla
-  { id: 'we_dark_pacts_lethal',    label: 'Dark Pacts — Lethal Hits',    description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [LETHAL HITS] hasta el final de la fase.', factionId: 'WE', effects: { lethalHitsBonus: true } },
-  { id: 'we_dark_pacts_sustained', label: 'Dark Pacts — Sustained Hits 1', description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [SUSTAINED HITS 1] hasta el final de la fase.', factionId: 'WE', effects: { sustainedHitsBonus: 1 } },
+  // Blessings of Khorne: tirar D6 al inicio de cada ronda de batalla.
+  // Nota: Abilities.csv solo asigna Dark Pacts (000008359) a CSM. WE no tiene esta regla — su regla
+  // de ejército real es Blessings of Khorne (abajo). Decapitating Strikes (Devastating Wounds vs
+  // INFANTRY) no está modelada aún: no hay campo de modificador para Devastating Wounds otorgado.
   { id: 'we_blessings_martial_excellence', label: 'Blessings of Khorne: Martial Excellence — Sustained Hits 1 (CaC)', description: "MARTIAL EXCELLENCE: melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.", factionId: 'WE', combatType: 'melee', effects: { sustainedHitsBonus: 1 } },
   { id: 'we_blessings_warp_blades',        label: 'Blessings of Khorne: Warp Blades — Lethal Hits (CaC)',           description: "WARP BLADES: melee weapons equipped by models in this unit have the [LETHAL HITS] ability.", factionId: 'WE', combatType: 'melee', effects: { lethalHitsBonus: true } },
   {
