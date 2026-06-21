@@ -1,4 +1,5 @@
 import type { Weapon } from '@/types'
+import { weaponBaseName } from '@/core/utils/roster'
 
 interface Props {
   weapons: Weapon[]
@@ -40,7 +41,7 @@ export function WeaponSelector({ weapons, quantities }: Props) {
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">A Distancia</p>
           <div className="flex flex-col gap-1">
             {ranged.map(w => (
-              <WeaponRow key={w.line} weapon={w} qty={quantities.get(w.name.toLowerCase()) ?? 0} />
+              <WeaponRow key={w.line} weapon={w} qty={quantities.get(weaponBaseName(w.name)) ?? 0} />
             ))}
           </div>
         </div>
@@ -50,7 +51,7 @@ export function WeaponSelector({ weapons, quantities }: Props) {
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">Cuerpo a Cuerpo</p>
           <div className="flex flex-col gap-1">
             {melee.map(w => (
-              <WeaponRow key={w.line} weapon={w} qty={quantities.get(w.name.toLowerCase()) ?? 0} />
+              <WeaponRow key={w.line} weapon={w} qty={quantities.get(weaponBaseName(w.name)) ?? 0} />
             ))}
           </div>
         </div>
