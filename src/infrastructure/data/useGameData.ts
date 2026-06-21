@@ -125,6 +125,7 @@ function parseWeapon(raw: RawDatasheetWargear): Weapon {
     isTwinLinked: desc.includes('twin-linked'),
     isMelta: /\bmelta\s+\d+/i.test(desc),
     meltaValue: parseInt(desc.match(/\bmelta\s+(\d+)/i)?.[1] ?? '0') || 0,
+    cleaveValue: parseInt(desc.match(/\bcleave\s+(\d+)/i)?.[1] ?? '0') || 0,
     sustainedHitsValue: parseSustainedHits(desc),
     antiEntries: parseAntiEntries(desc),
     isIgnoresCover: desc.includes('ignores cover'),

@@ -115,6 +115,9 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
           {calc.blastBonusAttacks != null && (
             <Row label="↳ Blast bonus" value={`+${calc.blastBonusAttacks}A`} highlight />
           )}
+          {calc.cleaveBonusAttacks != null && (
+            <Row label="↳ Cleave bonus" value={`+${calc.cleaveBonusAttacks}A`} highlight />
+          )}
           <Row label="Ataques" value={fmt(calc.avgAttacks)} />
           <Row
             label="Impactos"
@@ -174,10 +177,12 @@ export function DamageCalculator({
   }
 
   const hasBlastWeapons = weapons.some(w => w.isBlast)
+  const hasCleaveWeapons = weapons.some(w => w.cleaveValue > 0) || mods.cleaveBonus > 0
 
   const hasActiveMods =
     mods.hitMod !== 0 || mods.rerollHitsOf1 || mods.rerollAllHits ||
     mods.critThreshold !== 6 || mods.sustainedHitsBonus !== 0 || mods.lethalHitsBonus ||
+    mods.cleaveBonus !== 0 ||
     mods.strengthMod !== 0 || mods.rerollWoundsOf1 || mods.rerollAllWounds ||
     mods.woundMod !== 0 || mods.apMod !== 0 || mods.saveMod !== 0 ||
     mods.attacksMod !== 0 || mods.rerollDamageOf1 || mods.rerollAllDamage
@@ -294,6 +299,11 @@ export function DamageCalculator({
               Blast: +{getBlastBonusAttacks(defenderModels)}A extra (+1A cada 5 modelos)
             </span>
           )}
+          {hasCleaveWeapons && (
+            <span className="block text-[9px] font-mono text-crimson-bright mt-0.5">
+              Cleave: +{getBlastBonusAttacks(defenderModels)}A extra por nivel de Cleave (+1A cada 5 modelos)
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-3">
           <button
@@ -346,6 +356,9 @@ export function DamageCalculator({
           </p>
           {calc.blastBonusAttacks != null && (
             <Row label="↳ Blast bonus" value={`+${calc.blastBonusAttacks}A`} highlight />
+          )}
+          {calc.cleaveBonusAttacks != null && (
+            <Row label="↳ Cleave bonus" value={`+${calc.cleaveBonusAttacks}A`} highlight />
           )}
           <Row label="Ataques" value={fmt(calc.avgAttacks)} />
           <Row
@@ -454,6 +467,8 @@ export function DamageCalculator({
             {(weapons[0].isLethalHits || mods.lethalHitsBonus) && ' [Lethal Hits]'}
             {(weapons[0].sustainedHitsValue + mods.sustainedHitsBonus) > 0
               && ` [Sustained ${weapons[0].sustainedHitsValue + mods.sustainedHitsBonus}]`}
+            {(weapons[0].cleaveValue + mods.cleaveBonus) > 0
+              && ` [Cleave ${weapons[0].cleaveValue + mods.cleaveBonus}]`}
             {weapons[0].isHeavy && ' [Heavy]'}
             {weapons[0].isMelta && meltaActive && ` [Melta ½ dist. +${weapons[0].meltaValue}D]`}
             {mods.attacksMod !== 0 && ` [+${mods.attacksMod}A]`}

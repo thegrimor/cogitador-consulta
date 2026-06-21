@@ -3,7 +3,6 @@ import type { GameData, Datasheet, Detachment, DetachmentAbility, Stratagem } fr
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import type { PanelSelection } from '../types'
 import { MODIFIER_RULES } from '../data/modifiers'
-import { LEADER_FOLLOWERS } from '../data/leaderFollowers'
 
 const EMPTY_SELECTION: PanelSelection = { factionId: null, detachmentId: null, datasheetId: null, characterId: null }
 
@@ -67,7 +66,7 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
         .filter(r =>
           r.leaderDatasheetId &&
           r.factionId === factionId &&
-          (!LEADER_FOLLOWERS[r.leaderDatasheetId] || LEADER_FOLLOWERS[r.leaderDatasheetId].includes(unitId))
+          (!gameData.leaderMap[r.leaderDatasheetId] || gameData.leaderMap[r.leaderDatasheetId].includes(unitId))
         )
         .map(r => r.leaderDatasheetId!)
     )
@@ -76,7 +75,7 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
       .filter((ds): ds is Datasheet => ds !== undefined)
       .filter(ds => rosterIds === null || rosterIds.includes(ds.id))
       .sort((a, b) => a.name.localeCompare(b.name))
-  }, [gameData.datasheets, selectedUnit, rosterIds])
+  }, [gameData.datasheets, gameData.leaderMap, selectedUnit, rosterIds])
 
   const detachmentAbilities = useMemo(
     () => selection.detachmentId
