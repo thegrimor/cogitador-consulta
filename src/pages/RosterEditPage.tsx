@@ -23,8 +23,16 @@ import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 
 export function RosterEditPage() {
   const { rosterId: rosterIdParam } = useParams<{ rosterId: string }>()
-  const { factions, datasheets, detachments, enhancements, datasheetEnhancements, pointsCostMap, leaderMap } =
-    useGameDataContext()
+  const {
+    factions,
+    datasheets,
+    detachments,
+    detachmentAbilities,
+    enhancements,
+    datasheetEnhancements,
+    pointsCostMap,
+    leaderMap,
+  } = useGameDataContext()
   const roster = useAppSelector(state =>
     rosterIdParam ? selectRosterById(state, rosterIdParam) : undefined,
   )
@@ -52,6 +60,7 @@ export function RosterEditPage() {
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
+  const activeDetachmentAbilities = detachmentAbilities.filter(da => selectedDetachmentIds.has(da.detachmentId))
 
   const sortedEntries = roster.entries
     .map(entry => ({ entry, datasheet: datasheetById.get(entry.datasheetId) }))
@@ -205,6 +214,7 @@ export function RosterEditPage() {
                 entry={entry}
                 datasheet={datasheet}
                 costs={costs}
+                detachmentAbilities={activeDetachmentAbilities}
                 availableEnhancements={availableEnhancements}
                 attachableEntries={attachableEntries}
                 onChangeCost={cost =>

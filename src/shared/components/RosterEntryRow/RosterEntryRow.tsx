@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Datasheet, RosterEntry, PointsCost, Enhancement } from '@/types'
+import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility } from '@/types'
 import { resolveModelCount, resolveWeaponQuantities } from '@/core/utils/roster'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
@@ -11,6 +11,7 @@ interface Props {
   entry: RosterEntry
   datasheet: Datasheet
   costs: PointsCost[]
+  detachmentAbilities: DetachmentAbility[]
   availableEnhancements: Enhancement[]
   attachableEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
@@ -32,6 +33,7 @@ export function RosterEntryRow({
   entry,
   datasheet,
   costs,
+  detachmentAbilities,
   availableEnhancements,
   attachableEntries,
   onChangeCost,
@@ -139,7 +141,7 @@ export function RosterEntryRow({
 
           <WeaponOptionsEditor datasheet={datasheet} entry={entry} onChangeSelection={onChangeWeaponSelection} />
 
-          <AbilityList abilities={datasheet.abilities} detachmentAbilities={[]} />
+          <AbilityList abilities={datasheet.abilities} detachmentAbilities={detachmentAbilities} />
         </div>
       )}
     </div>
