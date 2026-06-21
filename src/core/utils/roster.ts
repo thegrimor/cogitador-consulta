@@ -74,20 +74,36 @@ export function ruleChoiceMax(rule: WeaponOptionRule, choiceIndex: number, selec
   return Math.max(0, remaining)
 }
 
-export function resolveWeaponLoadout(datasheet: Datasheet, entry: RosterEntry): Set<string> {
-  const names = new Set(datasheet.defaultWeaponNames)
+/** Resolves the unit's actual weapon loadout as instance counts, decrementing replaced weapons
+ * by however many picks were made rather than dropping them entirely (other models in the unit
+ * may still carry the unmodified weapon). */
+export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry): Map<string, number> {
+  const counts = new Map<string, number>()
+  datasheet.defaultWeaponNames.forEach(name => counts.set(name, entry.modelCount))
 
   for (const rule of datasheet.weaponOptionRules) {
     if (rule.scope === 'unparsed' || rule.choices.length === 0) continue
     const selection = getRuleSelection(entry, rule)
-    if (ruleSelectionTotal(selection) === 0) continue
+    const total = ruleSelectionTotal(selection)
+    if (total === 0) continue
+
     if (rule.kind === 'replace') {
-      rule.fromWeapons.forEach(w => names.delete(w.toLowerCase()))
+      rule.fromWeapons.forEach(w => {
+        const key = w.toLowerCase()
+        const remaining = Math.max(0, (counts.get(key) ?? 0) - total)
+        if (remaining === 0) counts.delete(key)
+        else counts.set(key, remaining)
+      })
     }
+
     selection.forEach((qty, i) => {
-      if (qty > 0) rule.choices[i].forEach(w => names.add(w.toLowerCase()))
+      if (qty <= 0) return
+      rule.choices[i].forEach(w => {
+        const key = w.toLowerCase()
+        counts.set(key, (counts.get(key) ?? 0) + qty)
+      })
     })
   }
 
-  return names
+  return counts
 }

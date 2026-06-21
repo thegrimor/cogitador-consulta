@@ -47,7 +47,10 @@ function parseDefaultWeaponNames(loadout: string): string[] {
   const RE = /equipped with:\s*([^.]+)/gi
   let m: RegExpExecArray | null
   while ((m = RE.exec(clean)) !== null) {
-    const parts = m[1].split(';').map(s => s.trim().toLowerCase()).filter(Boolean)
+    const parts = m[1]
+      .split(';')
+      .map(s => s.trim().toLowerCase().replace(/^\d+\s+/, ''))
+      .filter(Boolean)
     names.push(...parts)
   }
   return [...new Set(names)]
