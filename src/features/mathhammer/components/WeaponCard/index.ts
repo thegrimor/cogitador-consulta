@@ -1,0 +1,1 @@
+export { WeaponCard } from './WeaponCard'

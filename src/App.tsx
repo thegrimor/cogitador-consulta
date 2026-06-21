@@ -14,6 +14,7 @@ import { RosterEditPage } from '@/pages/RosterEditPage'
 import { CoreRulesPage } from '@/pages/CoreRulesPage'
 import { PhasesListPage } from '@/pages/PhasesListPage'
 import { PhaseDetailPage } from '@/pages/PhaseDetailPage'
+import { MathhammerPage } from '@/pages/MathhammerPage'
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
           { path: ':rosterId', element: <RosterEditPage /> },
         ],
       },
+      { path: 'mathhammer', element: <MathhammerPage /> },
     ],
   },
 ])
