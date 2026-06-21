@@ -215,6 +215,7 @@ export function RosterEditPage() {
                 datasheet={datasheet}
                 costs={costs}
                 detachmentAbilities={activeDetachmentAbilities}
+                selectedDetachments={selectedDetachments}
                 availableEnhancements={availableEnhancements}
                 attachableEntries={attachableEntries}
                 onChangeCost={cost =>
