@@ -38,13 +38,15 @@ export function RosterListPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {rosters.map(roster => {
             const faction = factions.find(f => f.id === roster.factionId)
-            const detachment = detachments.find(d => d.id === roster.detachmentId)
+            const detachmentNames = roster.detachmentIds
+              .map(id => detachments.find(d => d.id === id)?.name)
+              .filter((name): name is string => !!name)
             return (
               <RosterCard
                 key={roster.id}
                 roster={roster}
                 factionName={faction?.name ?? roster.factionId}
-                detachmentName={detachment?.name ?? null}
+                detachmentName={detachmentNames.length > 0 ? detachmentNames.join(' + ') : null}
                 onDelete={() => handleDelete(roster.id, roster.name)}
               />
             )

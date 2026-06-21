@@ -304,6 +304,8 @@ export interface Datasheet {
   modelCountMin: number
   modelCountMax: number
   defaultWeaponNames: string[]
+  unitSlots: UnitSlot[]
+  weaponOptionRules: WeaponOptionRule[]
 }
 
 export interface GameData {
@@ -342,14 +344,15 @@ export interface RosterEntry {
   customName?: string
   enhancementId?: string
   attachedToEntryId?: string
-  selectedWeaponNames?: string[]
+  /** Maps weapon-option rule id to per-choice quantities picked (index-aligned with the rule's `choices`). */
+  weaponOptionSelections?: Record<string, number[]>
 }
 
 export interface RosterList {
   id: string
   name: string
   factionId: string
-  detachmentId: string | null
+  detachmentIds: string[]
   entries: RosterEntry[]
   totalPoints: number | null
   pointsLimit: number | null
@@ -378,6 +381,33 @@ export interface UnitOption {
   line: number
   button: string
   description: string
+}
+
+export interface UnitSlot {
+  role: string
+  min: number
+  max: number
+}
+
+export type WeaponOptionScope = 'role' | 'fixed_count' | 'scaling' | 'all_models' | 'unparsed'
+
+export interface WeaponOptionRule {
+  id: string
+  raw: string
+  scope: WeaponOptionScope
+  roleName?: string
+  fixedCount?: number
+  scaleEvery?: number
+  scaleGrant?: number
+  kind: 'replace' | 'add'
+  fromWeapons: string[]
+  /** Each entry is a bundle of weapon names granted together by picking that choice. */
+  choices: string[][]
+  /** true: at most one choice total per eligible model (mutually exclusive). false: up to maxStack picks per eligible model. */
+  exclusive: boolean
+  maxStack: number
+  /** Only meaningful when !exclusive and choices.length === 1: allows picking the same choice repeatedly up to maxStack. */
+  allowRepeatChoice: boolean
 }
 
 export interface Source {

@@ -37,7 +37,7 @@ const rosterSlice = createSlice({
           id,
           name,
           factionId,
-          detachmentId: null,
+          detachmentIds: [],
           entries: [],
           totalPoints: 0,
           pointsLimit,
@@ -65,10 +65,10 @@ const rosterSlice = createSlice({
       roster.updatedAt = new Date().toISOString()
     },
 
-    setDetachment: (state, action: PayloadAction<{ rosterId: string; detachmentId: string | null }>) => {
+    setDetachments: (state, action: PayloadAction<{ rosterId: string; detachmentIds: string[] }>) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
       if (!roster) return
-      roster.detachmentId = action.payload.detachmentId
+      roster.detachmentIds = action.payload.detachmentIds
       roster.entries.forEach(e => { e.enhancementId = undefined })
       roster.updatedAt = new Date().toISOString()
     },
@@ -135,15 +135,16 @@ const rosterSlice = createSlice({
       roster.updatedAt = new Date().toISOString()
     },
 
-    setEntryWeapons: (
+    setEntryWeaponSelection: (
       state,
-      action: PayloadAction<{ rosterId: string; entryId: string; selectedWeaponNames: string[] }>,
+      action: PayloadAction<{ rosterId: string; entryId: string; ruleId: string; selection: number[] }>,
     ) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
       if (!roster) return
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
-      entry.selectedWeaponNames = action.payload.selectedWeaponNames
+      if (!entry.weaponOptionSelections) entry.weaponOptionSelections = {}
+      entry.weaponOptionSelections[action.payload.ruleId] = action.payload.selection
       roster.updatedAt = new Date().toISOString()
     },
   },
@@ -154,13 +155,13 @@ export const {
   deleteRoster,
   renameRoster,
   setPointsLimit,
-  setDetachment,
+  setDetachments,
   addEntry,
   updateEntry,
   removeEntry,
   setEntryEnhancement,
   setEntryAttachment,
-  setEntryWeapons,
+  setEntryWeaponSelection,
 } = rosterSlice.actions
 
 export const rosterReducer = rosterSlice.reducer

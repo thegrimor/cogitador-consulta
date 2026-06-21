@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import type { Datasheet, RosterEntry, PointsCost, Enhancement } from '@/types'
-import { resolveModelCount, resolveSelectedWeaponNames } from '@/core/utils/roster'
+import { resolveModelCount, resolveWeaponLoadout } from '@/core/utils/roster'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
 import { WeaponSelector } from '@/shared/components/WeaponSelector'
+import { WeaponOptionsEditor } from '@/shared/components/WeaponOptionsEditor'
 import { AbilityList } from '@/shared/components/AbilityList'
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
   onChangeCost: (cost: PointsCost) => void
   onChangeEnhancement: (enhancementId: string | null) => void
   onChangeAttachment: (attachedToEntryId: string | null) => void
-  onChangeWeapons: (selectedWeaponNames: string[]) => void
+  onChangeWeaponSelection: (ruleId: string, selection: number[]) => void
   onRemove: () => void
 }
 
@@ -36,7 +37,7 @@ export function RosterEntryRow({
   onChangeCost,
   onChangeEnhancement,
   onChangeAttachment,
-  onChangeWeapons,
+  onChangeWeaponSelection,
   onRemove,
 }: Props) {
   const [expanded, setExpanded] = useState(false)
@@ -48,15 +49,7 @@ export function RosterEntryRow({
   const isCharacter = datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
-  const selectedWeaponNames = resolveSelectedWeaponNames(entry, datasheet)
-
-  function handleToggleWeapon(weaponName: string) {
-    const lower = weaponName.toLowerCase()
-    const next = selectedWeaponNames.has(lower)
-      ? [...selectedWeaponNames].filter(n => n !== lower)
-      : [...selectedWeaponNames, lower]
-    onChangeWeapons(next)
-  }
+  const activeWeaponNames = resolveWeaponLoadout(datasheet, entry)
 
   return (
     <div className="bg-surface-2 border border-rim-bright px-3 py-2.5">
@@ -142,11 +135,9 @@ export function RosterEntryRow({
 
           <StatsBar models={datasheet.models} />
 
-          <WeaponSelector
-            weapons={datasheet.weapons}
-            selectedNames={selectedWeaponNames}
-            onToggle={handleToggleWeapon}
-          />
+          <WeaponSelector weapons={datasheet.weapons} activeNames={activeWeaponNames} />
+
+          <WeaponOptionsEditor datasheet={datasheet} entry={entry} onChangeSelection={onChangeWeaponSelection} />
 
           <AbilityList abilities={datasheet.abilities} detachmentAbilities={[]} />
         </div>
