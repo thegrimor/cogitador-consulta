@@ -1,6 +1,12 @@
 import type { Datasheet, RosterEntry, WeaponOptionRule } from '@/types'
 import { resolveRoleCounts, ruleEligibleCount, stripHtml } from '@/core/utils/weaponOptions'
-import { getRuleSelection, ruleChoiceMax, ruleSelectionCap, ruleSelectionTotal } from '@/core/utils/roster'
+import {
+  getRuleSelection,
+  replaceWeaponRemaining,
+  ruleChoiceMax,
+  ruleSelectionCap,
+  ruleSelectionTotal,
+} from '@/core/utils/roster'
 
 interface Props {
   datasheet: Datasheet
@@ -18,19 +24,21 @@ function stepperButtonClass(disabled: boolean): string {
 
 function RuleEditor({
   rule,
+  allRules,
   roleCounts,
   modelCount,
   entry,
   onChange,
 }: {
   rule: WeaponOptionRule
+  allRules: WeaponOptionRule[]
   roleCounts: Record<string, number>
   modelCount: number
   entry: RosterEntry
   onChange: (selection: number[]) => void
 }) {
   const eligible = ruleEligibleCount(rule, roleCounts, modelCount)
-  const cap = ruleSelectionCap(rule, roleCounts, modelCount)
+  const cap = ruleSelectionCap(rule, allRules, entry, roleCounts, modelCount)
   const selection = getRuleSelection(entry, rule)
   const total = ruleSelectionTotal(selection)
 
@@ -47,7 +55,7 @@ function RuleEditor({
       ? `${rule.fromWeapons.join(' / ')} → (${eligible} disponible${eligible === 1 ? '' : 's'})`
       : `Equipar (${eligible} disponible${eligible === 1 ? '' : 's'})`
 
-  const baseRemaining = eligible - total
+  const baseRemaining = replaceWeaponRemaining(rule, allRules, entry, modelCount)
 
   return (
     <div className="border border-rim-bright px-2 py-1.5">
@@ -118,6 +126,7 @@ export function WeaponOptionsEditor({ datasheet, entry, onChangeSelection }: Pro
               <RuleEditor
                 key={rule.id}
                 rule={rule}
+                allRules={datasheet.weaponOptionRules}
                 roleCounts={roleCounts}
                 modelCount={entry.modelCount}
                 entry={entry}

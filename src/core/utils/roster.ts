@@ -58,13 +58,43 @@ export function ruleSelectionTotal(selection: number[]): number {
   return selection.reduce((a, b) => a + b, 0)
 }
 
+/** Rules whose 'replace' picks draw from the same finite pool of base weapons as `rule`
+ * (one instance per model), including `rule` itself. */
+function replacePoolRules(rule: WeaponOptionRule, allRules: WeaponOptionRule[]): WeaponOptionRule[] {
+  if (rule.kind !== 'replace') return []
+  return allRules.filter(r => r.kind === 'replace' && r.fromWeapons.some(w => rule.fromWeapons.includes(w)))
+}
+
+/** How many of the shared base weapon remain unreplaced once every rule drawing from the
+ * same pool (e.g. two different "replace your guardian spear" options) is accounted for. */
+export function replaceWeaponRemaining(
+  rule: WeaponOptionRule,
+  allRules: WeaponOptionRule[],
+  entry: RosterEntry,
+  totalModelCount: number,
+): number {
+  const pool = replacePoolRules(rule, allRules)
+  if (pool.length === 0) return totalModelCount
+  const used = pool.reduce((sum, r) => sum + ruleSelectionTotal(getRuleSelection(entry, r)), 0)
+  return totalModelCount - used
+}
+
 export function ruleSelectionCap(
   rule: WeaponOptionRule,
+  allRules: WeaponOptionRule[],
+  entry: RosterEntry,
   roleCounts: Record<string, number>,
   totalModelCount: number,
 ): number {
   const eligible = ruleEligibleCount(rule, roleCounts, totalModelCount)
-  return rule.exclusive ? eligible : eligible * rule.maxStack
+  const structuralCap = rule.exclusive ? eligible : eligible * rule.maxStack
+
+  const pool = replacePoolRules(rule, allRules)
+  if (pool.length <= 1) return structuralCap
+
+  const ownTotal = ruleSelectionTotal(getRuleSelection(entry, rule))
+  const remaining = replaceWeaponRemaining(rule, allRules, entry, totalModelCount) + ownTotal
+  return Math.max(0, Math.min(structuralCap, remaining))
 }
 
 /** Max value the stepper for a given choice can reach, given the rule's overall budget and repeat rules. */
