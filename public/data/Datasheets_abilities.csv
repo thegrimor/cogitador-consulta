@@ -5754,58 +5754,41 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003843|3|||Omnispex|Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.|Wargear||
 000003843|4|||Rad-saturation (Aura)|While an enemy unit (excluding <span class="kwb">VEHICLE</span> units) is within 3" of this unit, subtract 1 from the Objective Control characteristic of models in that unit.|Datasheet||
 000003844|1|000008346||||Core||
-000003844|2|000008359||||Faction||
 000003844|3|||Fiery Faith|While this model is leading a unit, you can re-roll Leadership tests taken for that unit.|Datasheet||
 000003844|4|||Cursed Flames|In your Shooting phase, after this model has shot, select one enemy <span class="kwb">INFANTRY</span> unit hit by one or more of those attacks. That unit must take a Battle-shock test.|Datasheet||
 000003845|1|000008346||||Core||
-000003845|2|000008359||||Faction||
 000003845|3|||Faithful Flock|While this unit is leading a unit and contains a <span class="kwb">CULT</span> <span class="kwb">DEMAGOGUE</span> model, models in that unit have a 5+ invulnerable save.|Datasheet||
 000003845|4|||Dark Ritual|Once per battle, in your Command phase, if this unit contains a <span class="kwb">CULT</span> <span class="kwb">DEMAGOGUE</span> model, it can use this ability. If it does, until the end of the turn, this unit can declare a charge in a turn in which it Advanced and each time a model in this unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll.|Datasheet||
 000003845|5|||Chaos Icon|Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test.|Wargear||
 000003846|1|000008346||||Core||
-000003846|2|000008359||||Faction||
 000003846|3|||Brutal Example|Once per turn, while this unit is leading a unit and contains a <span class="kwb">TRAITOR</span> <span class="kwb">ENFORCER</span> model, you can target that unit with the Fire Overwatch Stratagem for 0CP, and can do so even if you have already targeted a different unit from your army with that Stratagem this turn. Each time you use this ability, one Bodyguard model in that unit is destroyed.|Datasheet||
 000003846|4|||Mutated Bodyguard|While this unit contains a Traitor Ogryn model, <span class="kwb">CHARACTER</span> models in this unit have the Feel No Pain 4+ ability.|Datasheet||
 000003847|1|000008346||||Core||
-000003847|2|000008359||||Faction||
 000003847|3|||Brutal Example|While this model is leading a unit, you can target that unit with the Insane Bravery Stratagem for 0CP, and can do so even if another unit from your army has already been targeted with that Stratagem this phase. Each time you use this ability, one Bodyguard model in that unit is destroyed.|Datasheet||
 000003847|4|||Enforcer|This model’s unit is eligible to declare a charge in a turn in which it Fell Back.|Datasheet||
 000003848|1|000008346||||Core||
-000003848|2|000008359||||Faction||
 000003848|3|||Cursed Wardings (Psychic)|While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks.|Datasheet||
 000003848|4|||Psychic Barrier (Psychic)|At the start of your opponent’s Shooting phase, you can roll one D6: on a 1, this <span class="kwb">PSYKER</span>’s unit suffers D3 mortal wounds; on a 2+, until the end of the phase, models in this <span class="kwb">PSYKER</span>’s unit have a 4+ invulnerable save.|Datasheet||
-000003849|1|000008359||||Faction||
 000003849|2|||For the Dark Gods|At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.|Datasheet||
-000003850|1|000008359||||Faction||
 000003850|2|||For the Dark Gods|At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.|Datasheet||
 000003851|1|000008338||||Core|6+|
 000003851|2|000008344||||Core|6"|
-000003851|3|000008359||||Faction||
 000003851|4|||Accursed Horde|Each time an enemy unit has shot, if one or more models from this unit were destroyed as a result of those attacks, this unit can make a Horde move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Horde move while it is Battle-shocked.|Datasheet||
-000003852|1|000008359||||Faction||
 000003852|2|||Bestial Raiders|If this unit starts the game in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. If this unit is in Strategic Reserves, for the purposes of setting up this unit on the battlefield, treat the current battle round number as being one higher than it actually is.|Datasheet||
-000003853|1|000008359||||Faction||
 000003853|2|||Twisted Defence Force|While this unit is within range of an objective marker, each time a ranged attack targets this unit, models in this unit have the Benefit of Cover against that attack.|Datasheet||
 000003854|1|000008338||||Core|5+|
-000003854|2|000008359||||Faction||
 000003854|3|||Fearsome (Aura)|While an enemy unit is within 6" of this unit, each time that enemy unit takes a Battle-shock or Leadership test, subtract 1 from the result.|Datasheet||
 000003855|1|000008338||||Core|6+|
-000003855|2|000008359||||Faction||
 000003855|3|||Mischief Makers (Aura)|While an enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) is within 6" of this unit, each time a model in that unit makes a melee attack, subtract 1 from the Hit roll.|Datasheet||
 000003856|1|000008338||||Core|5+|
-000003856|2|000008359||||Faction||
 000003856|3|||Voltagheist Field|Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound.|Datasheet||
 000003856|4|||SERVANTS OF THE ABYSS|If a unit from your army with the Leader ability can be attached to a Cultist Mob, it can be attached to this unit instead.|Special (правая колонка)||
-000003857|1|000008359||||Faction||
 000003857|2|||Covering Fire|Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+.|Datasheet||
 000003857|3|||HEAVY WEAPONS TEAM|For the purposes of embarking within Transports, each Renegade Heavy Weapons Team model counts as two models.|Special (правая колонка)||
-000003858|1|000008359||||Faction||
 000003858|2|||Beastmaster|While this unit contains an Ogryn Pack Master model, you can re-roll Charge rolls made for this unit, and each time a Chaos Mauler Hound model in this unit makes an attack, re-roll a Hit roll of 1.|Datasheet||
-000003859|1|000008359||||Faction||
 000003859|2|||Ogryn Combat Stimms|Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 4+, do not remove it from play; that destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.|Datasheet||
 000003859|3|||OGRYNS|For the purposes of embarking within Transports, each Renegade Ogryn Brute model counts as one <span class="kwb">TERMINATOR</span> model.|Special (правая колонка)||
 000003860|1|000008338||||Core|6+|
-000003860|2|000008359||||Faction||
 000003860|3|||Wall of Muscle|Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack.|Datasheet||
 000003860|4|||OGRYNS|For the purposes of embarking within Transports, each Renegade Plague Ogryn model counts as one <span class="kwb">TERMINATOR</span> model.|Special (правая колонка)||
 000003861|1|000003676||||Faction||
@@ -6310,141 +6293,103 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004035|2|||Power Overload|Each time this model makes an attack that targets a <span class="kwb">MONSTER</span> or <span class="kwb">VEHICLE</span> unit, you can re-roll the Damage roll.|Datasheet||
 000004035|3|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
 000004036|1|000008346||||Core||
-000004036|2|000008359||||Faction||
 000004036|3|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004036|4|||Chance for Glory|Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Strength, Attacks, Armour Penetration and Damage characteristics of melee weapons equipped by this model by 1.|Datasheet||
 000004037|1|000008343||||Core||
 000004037|2|000008346||||Core||
-000004037|3|000008359||||Faction||
 000004037|4|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004037|5|||Formidably Resilient|Each time an attack is allocated to this model, halve the Damage characteristic of that attack.|Datasheet||
 000004038|1|000008343||||Core||
 000004038|2|000008346||||Core||
-000004038|3|000008359||||Faction||
 000004038|4|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004038|5|||Cruel Hunter|While this model is leading a unit, each time that unit Piles In or Consolidates, each model in that unit can move up to 6" instead of up to 3".|Datasheet||
 000004039|1|000008346||||Core||
-000004039|2|000008359||||Faction||
 000004039|3|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004039|4|||Lord of Fate|While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability against mortal wounds.|Datasheet||
 000004040|1|000008346||||Core||
-000004040|2|000008359||||Faction||
 000004040|3|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004040|4|||Bloody Stampede|Each time this model’s unit ends a Charge move, select one enemy unit within Engagement Range of this model and roll one D6: on a 2-3, that enemy unit suffers 1 mortal wound; on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds.|Datasheet||
 000004041|1|000008346||||Core||
-000004041|2|000008359||||Faction||
 000004041|3|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004041|4|||Revolting Regeneration|At the start of your Command phase, this model regains up to D3 lost wounds.|Datasheet||
 000004042|1|000008346||||Core||
-000004042|2|000008359||||Faction||
 000004042|3|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000004042|4|||Cut Off Their Escape|Each time an enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) within Engagement Range of this model’s unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle-shocked. When doing so, if that enemy unit is also Battle-shocked by other means, subtract 1 from each of those Desperate Escape tests.|Datasheet||
 000004043|1|000008343||||Core||
-000004043|2|000008359||||Faction||
 000004043|3|||Despoilers|Each time this unit makes a Dark Pact, until the end of the phase, each time a model in this unit makes an attack, you can re-roll the Hit roll.|Datasheet||
-000004044|1|000008359||||Faction||
 000004044|2|||Chaos Icon|Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test.|Wargear||
 000004044|3|||Chosen Marauders|This unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back.|Datasheet||
 000004045|1|000008346||||Core||
-000004045|2|000008359||||Faction||
 000004045|3|||Fiery Faith|While this model is leading a unit, you can re-roll Leadership tests taken for that unit.|Datasheet||
 000004045|4|||Cursed Flames|In your Shooting phase, after this model has shot, select one enemy <span class="kwb">INFANTRY</span> unit hit by one or more of those attacks. That unit must take a Battle-shock test.|Datasheet||
 000004046|1|000008346||||Core||
-000004046|2|000008359||||Faction||
 000004046|3|||Faithful Flock|While this unit is leading a unit and contains a <span class="kwb">CULT</span> <span class="kwb">DEMAGOGUE</span> model, models in that unit have a 5+ invulnerable save.|Datasheet||
 000004046|4|||Dark Ritual|Once per battle, in your Command phase, if this unit contains a <span class="kwb">CULT</span> <span class="kwb">DEMAGOGUE</span> model, it can use this ability. If it does, until the end of the turn, this unit can declare a charge in a turn in which it Advanced and each time a model in this unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll.|Datasheet||
 000004046|5|||Chaos Icon|Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test.|Wargear||
 000004047|1|000008346||||Core||
-000004047|2|000008359||||Faction||
 000004047|3|||Brutal Example|Once per turn, while this unit is leading a unit and contains a <span class="kwb">TRAITOR</span> <span class="kwb">ENFORCER</span> model, you can target that unit with the Fire Overwatch Stratagem for 0CP, and can do so even if you have already targeted a different unit from your army with that Stratagem this turn. Each time you use this ability, one Bodyguard model in that unit is destroyed.|Datasheet||
 000004047|4|||Mutated Bodyguard|While this unit contains a Traitor Ogryn model, <span class="kwb">CHARACTER</span> models in this unit have the Feel No Pain 4+ ability.|Datasheet||
 000004048|1|000008346||||Core||
-000004048|2|000008359||||Faction||
 000004048|3|||Brutal Example|While this model is leading a unit, you can target that unit with the Insane Bravery Stratagem for 0CP, and can do so even if another unit from your army has already been targeted with that Stratagem this phase. Each time you use this ability, one Bodyguard model in that unit is destroyed.|Datasheet||
 000004048|4|||Enforcer|This model’s unit is eligible to declare a charge in a turn in which it Fell Back.|Datasheet||
 000004049|1|000008346||||Core||
-000004049|2|000008359||||Faction||
 000004049|3|||Cursed Wardings (Psychic)|While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks.|Datasheet||
 000004049|4|||Psychic Barrier (Psychic)|At the start of your opponent’s Shooting phase, you can roll one D6: on a 1, this <span class="kwb">PSYKER</span>’s unit suffers D3 mortal wounds; on a 2+, until the end of the phase, models in this <span class="kwb">PSYKER</span>’s unit have a 4+ invulnerable save.|Datasheet||
-000004050|1|000008359||||Faction||
 000004050|2|||For the Dark Gods|At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.|Datasheet||
-000004051|1|000008359||||Faction||
 000004051|2|||For the Dark Gods|At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.|Datasheet||
 000004052|1|000008338||||Core|6+|
 000004052|2|000008344||||Core|6"|
-000004052|3|000008359||||Faction||
 000004052|4|||Accursed Horde|Each time an enemy unit has shot, if one or more models from this unit were destroyed as a result of those attacks, this unit can make a Horde move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Horde move while it is Battle-shocked.|Datasheet||
-000004053|1|000008359||||Faction||
 000004053|2|||Bestial Raiders|If this unit starts the game in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. If this unit is in Strategic Reserves, for the purposes of setting up this unit on the battlefield, treat the current battle round number as being one higher than it actually is.|Datasheet||
-000004054|1|000008359||||Faction||
 000004054|2|||Twisted Defence Force|While this unit is within range of an objective marker, each time a ranged attack targets this unit, models in this unit have the Benefit of Cover against that attack.|Datasheet||
 000004055|1|000008338||||Core|5+|
-000004055|2|000008359||||Faction||
 000004055|3|||Fearsome (Aura)|While an enemy unit is within 6" of this unit, each time that enemy unit takes a Battle-shock or Leadership test, subtract 1 from the result.|Datasheet||
 000004056|1|000008338||||Core|6+|
-000004056|2|000008359||||Faction||
 000004056|3|||Mischief Makers (Aura)|While an enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) is within 6" of this unit, each time a model in that unit makes a melee attack, subtract 1 from the Hit roll.|Datasheet||
 000004057|1|000008338||||Core|5+|
-000004057|2|000008359||||Faction||
 000004057|3|||Voltagheist Field|Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound.|Datasheet||
 000004057|4|||SERVANTS OF THE ABYSS|If a unit from your army with the Leader ability can be attached to a Cultist Mob, it can be attached to this unit instead.|Special (правая колонка)||
-000004058|1|000008359||||Faction||
 000004058|2|||Covering Fire|Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+.|Datasheet||
 000004058|3|||HEAVY WEAPONS TEAM|For the purposes of embarking within Transports, each Renegade Heavy Weapons Team model counts as two models.|Special (правая колонка)||
-000004059|1|000008359||||Faction||
 000004059|2|||Beastmaster|While this unit contains an Ogryn Pack Master model, you can re-roll Charge rolls made for this unit, and each time a Chaos Mauler Hound model in this unit makes an attack, re-roll a Hit roll of 1.|Datasheet||
-000004060|1|000008359||||Faction||
 000004060|2|||Ogryn Combat Stimms|Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 4+, do not remove it from play; that destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.|Datasheet||
 000004060|3|||OGRYNS|For the purposes of embarking within Transports, each Renegade Ogryn Brute model counts as one <span class="kwb">TERMINATOR</span> model.|Special (правая колонка)||
 000004061|1|000008338||||Core|6+|
-000004061|2|000008359||||Faction||
 000004061|3|||Wall of Muscle|Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack.|Datasheet||
 000004061|4|||OGRYNS|For the purposes of embarking within Transports, each Renegade Plague Ogryn model counts as one <span class="kwb">TERMINATOR</span> model.|Special (правая колонка)||
 000004062|1|000008346||||Core||
-000004062|2|000008359||||Faction||
 000004062|3|||Dark Zealotry|While this unit is leading a unit and contains a <span class="kwb">DARK</span> <span class="kwb">APOSTLE</span> model, each time a model in that unit makes a melee attack, add 1 to the Wound roll.|Datasheet||
 000004062|4|||Demagogue|Once per battle, at the start of any phase, you can select one friendly <span class="kwb">HERETIC</span> <span class="kwb">ASTARTES</span> unit that is Battle-shocked and within 12" of this unit’s <span class="kwb">DARK</span> <span class="kwb">APOSTLE</span> model. That unit is no longer Battle-shocked.|Datasheet||
 000004062|5|||Malign Sacrifice|At the start of the Fight phase, if this unit contains one or more Dark Disciple models, you can select one of those models and one enemy unit within Engagement Range of this unit, then roll one D6: on a 2-5, that enemy unit suffers 1 mortal wound; on a 6, that enemy unit suffers D3 mortal wounds. That Dark Disciple model is then destroyed.|Datasheet||
-000004063|1|000008359||||Faction||
 000004063|2|||Stabilisation Talons|Each time a model in this unit makes an attack with a ranged weapon, you can ignore any or all modifiers to the Hit roll and any or all modifiers to the Ballistic Skill characteristic of that weapon.|Datasheet||
-000004064|1|000008359||||Faction||
 000004064|2|||Veterans of the Long War|Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.|Datasheet||
 000004064|3|||Chaos Icon|Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test.|Wargear||
 000004065|1|000008346||||Core||
-000004065|2|000008359||||Faction||
 000004065|3|||Daemonkin (Psychic)|While this model is leading a unit, add 1 to Advance and Charge rolls made for that unit.|Datasheet||
 000004065|4|||Sacrificial Dagger|Once per phase, when this model is selected to shoot or fight, it can use this ability. If it does, this model’s unit suffers 1 mortal wound and, until the end of the phase, each time this model makes a Psychic Attack, add 1 to the Hit roll and add 1 to the Wound roll.|Datasheet||
-000004066|1|000008359||||Faction||
 000004066|2|||Unholy Bloodshed|Once per battle, when this unit makes a Dark Pact, until the end of the phase, weapons equipped by models in this unit have the [DEVASTATING WOUNDS] ability.|Datasheet||
 000004066|3|||Chaos Icon|Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test.|Wargear||
 000004067|1|000008343||||Core||
-000004067|2|000008359||||Faction||
 000004067|3|||Fearsome (Aura)|While an enemy unit is within 6" of this unit, each time that enemy unit takes a Battle-shock or Leadership test, subtract 1 from the result.|Datasheet||
 000004067|4|||Terrifying Assault|At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test.|Datasheet||
 000004068|1|000008346||||Core||
-000004068|2|000008359||||Faction||
 000004068|3|||Prescience (Psychic)|While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.|Datasheet||
 000004068|4|||Gift of Chaos (Psychic)|Each time this model is selected to shoot or fight, after resolving its attacks, select one enemy unit hit by one or more of those attacks that had the [PSYCHIC] ability. That unit must take a Leadership test: if that test is failed, that unit suffers D3 mortal wounds.|Datasheet||
 000004069|1|000008346||||Core||
-000004069|2|000008359||||Faction||
 000004069|3|||Flames of Change (Psychic)|While this model is leading a unit, ranged weapons equipped by models in that unit have the [IGNORES COVER] ability.|Datasheet||
 000004069|4|||Altered Reality (Psychic)|Once per battle round, after a Hit roll, a Wound roll or a saving throw is made for this model, you can change the result of that roll to a 6.|Datasheet||
 000004070|1|000008346||||Core||
-000004070|2|000008359||||Faction||
 000004070|3|||Gift of Poxes (Psychic)|While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.|Datasheet||
 000004070|4|||Feculent Despair (Aura, Psychic)|While an enemy unit is within 6" of this model, each time that unit takes a Battle-shock test, subtract 1 from that test.|Datasheet||
 000004071|1|000008346||||Core||
-000004071|2|000008359||||Faction||
 000004071|3|||Dark Favour (Psychic)|While this model is leading a unit, models in that unit have a 4+ invulnerable save.|Datasheet||
 000004071|4|||Infernal Speed|While this model is leading a unit, change the Move characteristic of models in that unit to 14".|Datasheet||
 000004072|1|000008343||||Core||
 000004072|2|000008346||||Core||
-000004072|3|000008359||||Faction||
 000004072|4|||Chaos Familiar|Once per battle, when an attack is allocated to the bearer, you can change the Damage characteristic to 0.|Wargear||
 000004072|5|||Warptime (Psychic)|While this model is leading a unit, you can re-roll Advance and Charge rolls made for that unit.|Datasheet||
 000004072|6|||Death Hex (Psychic)|At the start of your Shooting phase, one Psyker with this ability can use it. If it does, select one enemy unit within 12" of and visible to that <span class="kwb">PSYKER</span> and roll one D6: on a 1, that <span class="kwb">PSYKER</span>’s unit suffers D3 mortal wounds; on a 2+, until the start of your next Movement phase, each time an attack targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1.|Datasheet||
 000004073|1|000008343||||Core||
-000004073|2|000008359||||Faction||
 000004073|3|||Warp Strike|At the end of the Fight phase, if this unit destroyed one or more enemy units this phase and is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield and place it into Strategic Reserves.|Datasheet||
 000004074|1|000008344||||Core|6"|
 000004074|2|000008452||||Faction||
