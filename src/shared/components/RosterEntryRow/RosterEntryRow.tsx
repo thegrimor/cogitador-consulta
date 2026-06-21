@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Datasheet, RosterEntry, PointsCost, Enhancement } from '@/types'
-import { resolveModelCount, resolveWeaponLoadout } from '@/core/utils/roster'
+import { resolveModelCount, resolveWeaponQuantities } from '@/core/utils/roster'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
 import { WeaponSelector } from '@/shared/components/WeaponSelector'
@@ -49,7 +49,7 @@ export function RosterEntryRow({
   const isCharacter = datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
-  const activeWeaponNames = resolveWeaponLoadout(datasheet, entry)
+  const weaponQuantities = resolveWeaponQuantities(datasheet, entry)
 
   return (
     <div className="bg-surface-2 border border-rim-bright px-3 py-2.5">
@@ -135,7 +135,7 @@ export function RosterEntryRow({
 
           <StatsBar models={datasheet.models} />
 
-          <WeaponSelector weapons={datasheet.weapons} activeNames={activeWeaponNames} />
+          <WeaponSelector weapons={datasheet.weapons} quantities={weaponQuantities} />
 
           <WeaponOptionsEditor datasheet={datasheet} entry={entry} onChangeSelection={onChangeWeaponSelection} />
 
