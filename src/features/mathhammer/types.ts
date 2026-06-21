@@ -13,6 +13,7 @@ export interface CombatModifiers {
   rerollAllWounds: boolean
   lethalHitsBonus: boolean
   sustainedHitsBonus: number
+  cleaveBonus: number          // X de [CLEAVE X]: ataques extra por cada 5 modelos del objetivo (igual que Blast)
   apMod: number
   saveMod: number
   attacksMod: number
@@ -55,6 +56,7 @@ export interface DamageBreakdown {
   weaponName: string
   avgAttacks: number
   blastBonusAttacks?: number
+  cleaveBonusAttacks?: number
   hitProbability: number
   expectedHits: number
   sustainedExtraHits: number

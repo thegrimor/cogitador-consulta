@@ -148,6 +148,7 @@ export const DEFAULT_MODS: CombatModifiers = {
   rerollAllWounds: false,
   lethalHitsBonus: false,
   sustainedHitsBonus: 0,
+  cleaveBonus: 0,
   apMod: 0,
   saveMod: 0,
   attacksMod: 0,
@@ -181,6 +182,7 @@ export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): Co
     if (e.rerollAllDamage)     result.rerollAllDamage      = true
     if (e.lethalHitsBonus)     result.lethalHitsBonus      = true
     if (e.sustainedHitsBonus)  result.sustainedHitsBonus   = Math.max(result.sustainedHitsBonus, e.sustainedHitsBonus)
+    if (e.cleaveBonus)         result.cleaveBonus          = Math.max(result.cleaveBonus, e.cleaveBonus)
     if (e.critThreshold != null)      result.critThreshold      = Math.min(result.critThreshold, e.critThreshold)
     if (e.woundCritThreshold != null) result.woundCritThreshold = Math.min(result.woundCritThreshold, e.woundCritThreshold)
     if (e.overwatchThreshold != null) result.overwatchThreshold = Math.min(result.overwatchThreshold, e.overwatchThreshold)
@@ -217,6 +219,7 @@ export function mergeMods(
     rerollAllDamage:    base.rerollAllDamage    || attackerRuleMods.rerollAllDamage,
     lethalHitsBonus:    base.lethalHitsBonus    || attackerRuleMods.lethalHitsBonus,
     sustainedHitsBonus: Math.max(base.sustainedHitsBonus, attackerRuleMods.sustainedHitsBonus),
+    cleaveBonus:        Math.max(base.cleaveBonus, attackerRuleMods.cleaveBonus),
     critThreshold:      Math.min(base.critThreshold, attackerRuleMods.critThreshold),
     woundCritThreshold: Math.min(base.woundCritThreshold, attackerRuleMods.woundCritThreshold),
     feelNoPainThreshold:
@@ -234,7 +237,9 @@ export function calculateDamage(
   blastTargetModels: number = 0,
 ): DamageBreakdown {
   const blastBonus = weapon.isBlast ? getBlastBonusAttacks(blastTargetModels) : 0
-  const avgAttacks = parseDiceAverage(weapon.A) + blastBonus + mods.attacksMod
+  const cleaveTotal = weapon.cleaveValue + mods.cleaveBonus
+  const cleaveBonus = cleaveTotal > 0 ? cleaveTotal * getBlastBonusAttacks(blastTargetModels) : 0
+  const avgAttacks = parseDiceAverage(weapon.A) + blastBonus + cleaveBonus + mods.attacksMod
   const pHit        = weapon.isTorrent ? 1 : hitProbabilityWithMods(weapon.bsWs, mods)
   const effectiveMods = weapon.isTwinLinked
     ? { ...mods, rerollAllWounds: true }
@@ -342,6 +347,7 @@ export function calculateDamage(
     weaponName: weapon.name,
     avgAttacks,
     blastBonusAttacks: blastBonus > 0 ? blastBonus : undefined,
+    cleaveBonusAttacks: cleaveBonus > 0 ? cleaveBonus : undefined,
     hitProbability: pHit,
     expectedHits,
     sustainedExtraHits,

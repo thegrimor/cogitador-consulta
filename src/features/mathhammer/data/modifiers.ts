@@ -5589,6 +5589,20 @@ const RULES_2: ModifierRule[] = [
     lethalHitsBonus: true,
   },
   },
+  {
+    id: 'ork_rollin_deff',
+    label: "Rollin' Deff — [CLEAVE 1], CaC (WAGON, 1PC)",
+    description: 'Battle Tactic Stratagem (1CP). WHEN: Your Fight phase, when a friendly WAGON unit that made a charge move this turn is selected to fight. EFFECT: Your unit’s melee attacks have [CLEAVE 1].',
+    factionId: 'ORK',
+    target: 'attacker',
+    combatType: 'melee',
+    isStratagem: true,
+    cpCost: 1,
+    followerDatasheetIds: ['000000039', '000000053', '000000055', '000001540'],
+    effects: {
+      cleaveBonus: 1,
+    },
+  },
 
   // ═══ QI ═══
   // Doctrina Imperatives: idéntica a AdM según CSV (misma descripción exacta)
@@ -8332,6 +8346,18 @@ const RULES_3: ModifierRule[] = [
     rerollWoundsOf1: true,
   },
   },
+  {
+    id: 'sm_adaptable_executioner_cleave',
+    label: 'Adaptable Executioner — [CLEAVE 1] (o Precisión, sin efecto en el cálculo)',
+    description: 'EXECRATOR model only. When this unit is selected to fight, this model’s melee attacks have [CLEAVE 1] or [PRECISION] (your choice each time).',
+    factionId: 'SM',
+    datasheetId: '000004135',
+    target: 'attacker',
+    combatType: 'melee',
+    effects: {
+    cleaveBonus: 1,
+  },
+  },
 
   // ═══ TAU ═══
   // For the Greater Good: unidad observadora marca objetivo; las unidades guiadas atacando ese objetivo ganan +1 BS.
@@ -8951,6 +8977,19 @@ const RULES_3: ModifierRule[] = [
     strengthMod: 1,
   },
   },
+  {
+    id: 'ts_thicket_bladed_bone',
+    label: 'Thicket of Bladed Bone — +1 PA, [CLEAVE 1]',
+    description: 'SPAWN unit only. This unit’s melee attacks have +1 AP and [CLEAVE 1].',
+    factionId: 'TS',
+    datasheetId: '000001023',
+    target: 'attacker',
+    combatType: 'melee',
+    effects: {
+    apMod: 1,
+    cleaveBonus: 1,
+  },
+  },
 
   // ═══ TYR ═══
   // Synapse: mientras la unidad esté a 6" de un modelo Synapse, +1 Fuerza en ataques CaC.
@@ -9567,6 +9606,44 @@ const RULES_3: ModifierRule[] = [
   { id: 'opb_000002713_pedro_kantor', label: '[OPB] Pedro Kantor — +1 ataque', factionId: 'SM', leaderDatasheetId: '000002713', effects: { attacksMod: 1 } },
   { id: 'opb_000000409_aunva', label: "[OPB] Aun'va — FNP 2+ (Defender)", factionId: 'TAU', leaderDatasheetId: '000000409', target: 'defender', effects: { feelNoPainThreshold: 2 } },
   { id: 'opb_000004103_slaughterbound', label: '[OPB] Slaughterbound — +3 ataques, crítico 5+ CaC', factionId: 'WE', leaderDatasheetId: '000004103', combatType: 'melee', effects: { attacksMod: 3, critThreshold: 5 } },
+
+  // ── WE Wrath of Khorne (000001213) — elección por personaje seleccionado para luchar ──
+  {
+    id: 'we_wrath_khorne_cleave',
+    label: 'Wrath of Khorne — [CLEAVE 1] (Personaje, CaC)',
+    description: "When a friendly WORLD EATERS CHARACTER unit (excluding Epic Heroes) is selected to fight, that unit's CHARACTER models' melee attacks can have [CLEAVE 1] or: +1 AP.",
+    factionId: 'WE',
+    detachmentId: '000001213',
+    target: 'attacker',
+    combatType: 'melee',
+    effects: {
+    cleaveBonus: 1,
+  },
+  },
+  {
+    id: 'we_wrath_khorne_ap',
+    label: 'Wrath of Khorne — +1 PA (Personaje, CaC)',
+    description: "When a friendly WORLD EATERS CHARACTER unit (excluding Epic Heroes) is selected to fight, that unit's CHARACTER models' melee attacks can have [CLEAVE 1] or: +1 AP.",
+    factionId: 'WE',
+    detachmentId: '000001213',
+    target: 'attacker',
+    combatType: 'melee',
+    effects: {
+    apMod: 1,
+  },
+  },
+  {
+    id: 'we_talons_of_butchery',
+    label: 'Talons of Butchery — [CLEAVE 2] (Maulerfiend)',
+    description: 'MAULERFIEND unit only. This unit’s Maulerfiend Fists have [CLEAVE 2].',
+    factionId: 'WE',
+    datasheetId: '000002639',
+    target: 'attacker',
+    combatType: 'melee',
+    effects: {
+    cleaveBonus: 2,
+  },
+  },
 
   // ── Estratagemas de re-roll de daño ─────────────────────────────────────────
 

@@ -246,6 +246,7 @@ export interface Weapon {
   isTwinLinked: boolean
   isMelta: boolean
   meltaValue: number
+  cleaveValue: number
   sustainedHitsValue: number
   antiEntries: AntiEntry[]
   isIgnoresCover: boolean
