@@ -19,11 +19,13 @@ export function AddUnitPanel({ datasheets, pointsCostMap, onAdd }: Props) {
   const [activeRole, setActiveRole] = useState('Todos')
   const [search, setSearch] = useState('')
 
-  const filtered = datasheets.filter(d => {
-    const matchRole = activeRole === 'Todos' || d.role === activeRole
-    const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
-    return matchRole && matchSearch
-  })
+  const filtered = datasheets
+    .filter(d => {
+      const matchRole = activeRole === 'Todos' || d.role === activeRole
+      const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
+      return matchRole && matchSearch
+    })
+    .sort(compareByRolePriority)
 
   return (
     <div className="bg-surface-2 border border-rim-bright p-3">
