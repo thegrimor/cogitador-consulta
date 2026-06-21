@@ -12,7 +12,7 @@ import {
   removeEntry,
   setEntryEnhancement,
   setEntryAttachment,
-  setEntryWeapons,
+  setEntryWeaponSelection,
 } from '@/store/rosterSlice'
 import { resolveModelCount, compareByRolePriority, sumDetachmentPoints } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
@@ -222,8 +222,8 @@ export function RosterEditPage() {
                 onChangeAttachment={attachedToEntryId =>
                   dispatch(setEntryAttachment({ rosterId, entryId: entry.id, attachedToEntryId }))
                 }
-                onChangeWeapons={selectedWeaponNames =>
-                  dispatch(setEntryWeapons({ rosterId, entryId: entry.id, selectedWeaponNames }))
+                onChangeWeaponSelection={(ruleId, selection) =>
+                  dispatch(setEntryWeaponSelection({ rosterId, entryId: entry.id, ruleId, selection }))
                 }
                 onRemove={() => dispatch(removeEntry({ rosterId, entryId: entry.id }))}
               />

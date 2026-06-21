@@ -135,15 +135,16 @@ const rosterSlice = createSlice({
       roster.updatedAt = new Date().toISOString()
     },
 
-    setEntryWeapons: (
+    setEntryWeaponSelection: (
       state,
-      action: PayloadAction<{ rosterId: string; entryId: string; selectedWeaponNames: string[] }>,
+      action: PayloadAction<{ rosterId: string; entryId: string; ruleId: string; selection: number[] }>,
     ) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
       if (!roster) return
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
-      entry.selectedWeaponNames = action.payload.selectedWeaponNames
+      if (!entry.weaponOptionSelections) entry.weaponOptionSelections = {}
+      entry.weaponOptionSelections[action.payload.ruleId] = action.payload.selection
       roster.updatedAt = new Date().toISOString()
     },
   },
@@ -160,7 +161,7 @@ export const {
   removeEntry,
   setEntryEnhancement,
   setEntryAttachment,
-  setEntryWeapons,
+  setEntryWeaponSelection,
 } = rosterSlice.actions
 
 export const rosterReducer = rosterSlice.reducer

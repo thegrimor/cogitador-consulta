@@ -10,6 +10,7 @@ import type {
   RawModelCost, RawDatasheetLeader, RawEnhancement, RawDatasheetEnhancement,
   RawDatasheetOption, RawDatasheetDetachmentAbility, RawSource, RawCoreRule,
 } from '@/types'
+import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
 
 function parseCsvRaw(text: string): Record<string, string>[] {
   const result = Papa.parse<Record<string, string>>(text, {
@@ -174,6 +175,7 @@ function enrichDatasheet(
   keywordsByDs: Record<string, RawDatasheetKeyword[]>,
   compByDs: Record<string, RawDatasheetUnitComposition[]>,
   abilitiesMap: Record<string, RawAbility>,
+  optionsByDs: Record<string, UnitOption[]>,
 ): Datasheet {
   const models = (modelsByDs[raw.id] ?? [])
     .sort((a, b) => parseInt(a.line) - parseInt(b.line))
@@ -203,6 +205,9 @@ function enrichDatasheet(
   const { min: modelCountMin, max: modelCountMax } = parseUnitCompositionRange(unitComposition)
   const defaultWeaponNames = parseDefaultWeaponNames(raw.loadout || '')
 
+  const unitSlots = parseUnitSlots(unitComposition)
+  const weaponOptionRules = parseWeaponOptionRules(optionsByDs[raw.id] ?? [], unitSlots)
+
   return {
     id: raw.id,
     name: raw.name,
@@ -225,6 +230,8 @@ function enrichDatasheet(
     modelCountMin,
     modelCountMax,
     defaultWeaponNames,
+    unitSlots,
+    weaponOptionRules,
   }
 }
 
@@ -350,6 +357,18 @@ export function useGameData(): GameData {
         const keywordsByDs = groupBy(rawKeywords, 'datasheet_id')
         const compByDs     = groupBy(rawCompositions, 'datasheet_id')
 
+        // ── datasheetOptions (filtering out wahapedia's "None" placeholder rows) ──
+        const validDsOptions = rawDsOptions.filter(r => r.description?.trim().toLowerCase() !== 'none')
+        const optionsByDs: Record<string, UnitOption[]> = {}
+        validDsOptions.forEach(r => {
+          if (!optionsByDs[r.datasheet_id]) optionsByDs[r.datasheet_id] = []
+          optionsByDs[r.datasheet_id].push({
+            line: parseInt(r.line) || 0,
+            button: r.button,
+            description: r.description,
+          })
+        })
+
         // ── datasheetStratagems ───────────────────────────────────────────────
         const datasheetStratagems: Record<string, string[]> = {}
         rawDsStratagems.forEach(row => {
@@ -364,7 +383,7 @@ export function useGameData(): GameData {
         const datasheets = rawDatasheets
           .filter(ds => !legendSourceIds.has(ds.source_id))
           .map(ds =>
-            enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap),
+            enrichDatasheet(ds, modelsByDs, wargearByDs, abilsByDs, keywordsByDs, compByDs, abilitiesMap, optionsByDs),
           )
 
         // ── factions ──────────────────────────────────────────────────────────
@@ -442,17 +461,6 @@ export function useGameData(): GameData {
           datasheetEnhancements[r.datasheet_id].push(r.enhancement_id)
         })
 
-        // ── datasheetOptions ──────────────────────────────────────────────────
-        const datasheetOptions: Record<string, UnitOption[]> = {}
-        rawDsOptions.forEach(r => {
-          if (!datasheetOptions[r.datasheet_id]) datasheetOptions[r.datasheet_id] = []
-          datasheetOptions[r.datasheet_id].push({
-            line: parseInt(r.line) || 0,
-            button: r.button,
-            description: r.description,
-          })
-        })
-
         // ── datasheetDetachmentAbilities ──────────────────────────────────────
         const datasheetDetachmentAbilities: Record<string, string[]> = {}
         rawDsDetachAbils.forEach(r => {
@@ -512,7 +520,7 @@ export function useGameData(): GameData {
             pointsCosts, pointsCostMap,
             leaderMap, attachedMap,
             enhancements, datasheetEnhancements,
-            datasheetOptions,
+            datasheetOptions: optionsByDs,
             datasheetDetachmentAbilities,
             sources, sourceMap,
             lastUpdate,
