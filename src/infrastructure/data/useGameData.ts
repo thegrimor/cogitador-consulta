@@ -161,8 +161,7 @@ function resolveAbility(
   abilitiesMap: Record<string, RawAbility>,
 ): Ability | null {
   const type = row.type as 'Core' | 'Faction' | 'Datasheet'
-  if (type === 'Datasheet') {
-    if (!row.name) return null
+  if (row.name) {
     return { name: row.name, description: row.description, type, model: row.model || undefined }
   }
   const ref = abilitiesMap[row.ability_id]
