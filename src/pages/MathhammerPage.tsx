@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { usePanelState } from '@/features/mathhammer/hooks/usePanelState'
@@ -6,6 +7,8 @@ import { UnitPanel } from '@/features/mathhammer/components/UnitPanel'
 import { DamageCalculator } from '@/features/mathhammer/components/DamageCalculator'
 import { resolveModifiers } from '@/features/mathhammer/utils/mathhammer'
 import { MODIFIER_RULES } from '@/features/mathhammer/data/modifiers'
+import { useAppSelector } from '@/store/hooks'
+import { selectRosterById } from '@/store/rosterSlice'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
 
 type MobileTab = 'attacker' | 'result' | 'defender'
@@ -14,6 +17,28 @@ export function MathhammerPage() {
   const gameData = useGameDataContext()
   const leftPanel = usePanelState(gameData, 'mathhammer-left-panel')
   const rightPanel = usePanelState(gameData, 'mathhammer-right-panel')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const presetRosterId = searchParams.get('roster')
+  const presetRoster = useAppSelector(state =>
+    presetRosterId ? selectRosterById(state, presetRosterId) : undefined,
+  )
+
+  // Apply attacker preselection from query params (links from datasheet/roster pages), then clear the URL
+  useEffect(() => {
+    const faction = searchParams.get('faction')
+    const datasheet = searchParams.get('datasheet')
+    const detachment = searchParams.get('detachment')
+    if (!faction || !datasheet) return
+
+    leftPanel.selectFaction(faction)
+    if (detachment) leftPanel.selectDetachment(detachment)
+    leftPanel.selectUnit(datasheet)
+    if (presetRoster) {
+      const ids = Array.from(new Set(presetRoster.entries.map(e => e.datasheetId)))
+      leftPanel.setRosterIds(ids)
+    }
+    setSearchParams({}, { replace: true })
+  }, [searchParams]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const [selectedWeapons, setSelectedWeapons] = useState<Weapon[]>([])
   const [weaponQuantities, setWeaponQuantities] = useState<Record<string, number>>({})
