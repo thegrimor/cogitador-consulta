@@ -369,13 +369,22 @@ const RULES_1: ModifierRule[] = [
   },
   },
   {
-    id: 'ae_path_of_the_warrior',
-    label: 'Path of the Warrior — repetir impactos 1, repetir heridas 1',
-    description: 'Each time an Aspect Warriors or Avatar of Khaine unit from your army is selected to shoot or fight, select one of the following abilities for it to gain until the end of the phase: Each time a model in this unit makes an attack, re-roll a Hit roll of 1. Each time a model in this unit makes an attack',
+    id: 'ae_path_of_the_warrior_hits',
+    label: 'Path of the Warrior — repetir impactos 1',
+    description: 'Each time an Aspect Warriors or Avatar of Khaine unit from your army is selected to shoot or fight, select one of the following abilities for it to gain until the end of the phase: Each time a model in this unit makes an attack, re-roll a Hit roll of 1.',
     factionId: 'AE',
     detachmentId: '000001024',
     effects: {
     rerollHitsOf1: true,
+  },
+  },
+  {
+    id: 'ae_path_of_the_warrior_wounds',
+    label: 'Path of the Warrior — repetir heridas 1',
+    description: 'Each time an Aspect Warriors or Avatar of Khaine unit from your army is selected to shoot or fight, select one of the following abilities for it to gain until the end of the phase: Each time a model in this unit makes an attack, re-roll a Wound roll of 1.',
+    factionId: 'AE',
+    detachmentId: '000001024',
+    effects: {
     rerollWoundsOf1: true,
   },
   },
@@ -3555,6 +3564,17 @@ const RULES_1: ModifierRule[] = [
   },
   },
   {
+    id: 'ec_exquisite_swordsmanship_sustained',
+    label: 'Exquisite Swordsmanship — Sustained Hits 1, CaC',
+    description: 'Each time an Emperor’s Children unit from your army is selected to fight, if it made a Charge move this turn, select one of the abilities below. While resolving those attacks, melee weapons equipped by models in that unit have that ability: [LETHAL HITS] [SUSTAINED HITS 1]',
+    factionId: 'EC',
+    detachmentId: '000001034',
+    combatType: 'melee',
+    effects: {
+    sustainedHitsBonus: 1,
+  },
+  },
+  {
     id: 'ec_mechanised_murder',
     label: 'Mechanised Murder — repetir impactos 1, repetir heridas 1',
     description: 'Each time an Emperor’s Children model from your army makes an attack, if it is a Transport model or disembarked from a TRANSPORT this turn, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.',
@@ -4142,13 +4162,22 @@ const RULES_2: ModifierRule[] = [
   {
     id: 'gk_channelled_force',
     label: 'Channelled Force — Lethal Hits, CaC',
-    description: 'Each time a Grey Knights unit from your army is selected to fight, that unit can take a Leadership test. If that test is passed, select one of the following rules. Until the end of the phase, that unit has that rule. Melee weapons equipped by models in this unit with the [psychic] ability also have',
+    description: 'Each time a Grey Knights unit from your army is selected to fight, that unit can take a Leadership test. If that test is passed, select one of the following rules. Until the end of the phase, that unit has that rule. Melee weapons equipped by models in this unit with the [psychic] ability also have the [lethal hits] ability.',
     factionId: 'GK',
     detachmentId: '000001083',
     combatType: 'melee',
     effects: {
     lethalHitsBonus: true,
   },
+  },
+  {
+    id: 'gk_channelled_force_sustained',
+    label: 'Channelled Force — Sustained Hits 1, CaC',
+    description: 'Each time a Grey Knights unit from your army is selected to fight, that unit can take a Leadership test. If that test is passed, select one of the following rules. Until the end of the phase, that unit has that rule. Melee weapons equipped by models in this unit with the [psychic] ability also have the [sustained hits 1] ability.',
+    factionId: 'GK',
+    detachmentId: '000001083',
+    combatType: 'melee',
+    effects: { sustainedHitsBonus: 1 },
   },
   {
     id: 'gk_appointed_hour',
@@ -8125,6 +8154,14 @@ const RULES_3: ModifierRule[] = [
   },
   },
   {
+    id: 'ldr_000001162_guiding_hand_sustained',
+    label: 'Sergeant Telion — Sustained Hits 1 (Líder)',
+    description: 'While this model is leading a unit, each time that unit is selected to shoot or fight, select one of the following abilities to apply to weapons equipped by models in that unit until the end of the phase: [LETHAL HITS] [PRECISION] [SUSTAINED HITS 1]',
+    factionId: 'SM',
+    leaderDatasheetId: '000001162',
+    effects: { sustainedHitsBonus: 1 },
+  },
+  {
     id: 'ldr_000001174_litany_of_hate',
     label: 'Chaplain — +1 herir (Líder)',
     description: 'While this model is leading a unit, each time a model in that unit makes a melee attack, add 1 to the Wound roll.',
@@ -10225,17 +10262,37 @@ const RULES_4: ModifierRule[] = [
     },
   },
   {
-    id: 'unit_000002536_dance_of_death',
-    label: 'Troupe — -1 impactar, +1 herir, repetir imp.1 CaC',
-    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase:Hero’s Prowess: Each time a model in this unit makes an attack, re-roll a Hit roll of 1.Villain’s Doom: Each time a model in this unit makes an attack, add 1 to the Wound roll.Tric',
+    id: 'unit_000002536_dance_of_death_prowess',
+    label: 'Troupe — Hero’s Prowess: repetir imp.1 CaC',
+    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase: Hero’s Prowess: Each time a model in this unit makes an attack, re-roll a Hit roll of 1.',
+    factionId: 'AE',
+    datasheetId: '000002536',
+    combatType: 'melee',
+    effects: {
+      rerollHitsOf1: true,
+    },
+  },
+  {
+    id: 'unit_000002536_dance_of_death_doom',
+    label: 'Troupe — Villain’s Doom: +1 herir CaC',
+    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase: Villain’s Doom: Each time a model in this unit makes an attack, add 1 to the Wound roll.',
+    factionId: 'AE',
+    datasheetId: '000002536',
+    combatType: 'melee',
+    effects: {
+      woundMod: 1,
+    },
+  },
+  {
+    id: 'unit_000002536_dance_of_death_trickster',
+    label: 'Troupe — Trickster’s Grace: -1 impactar (defensor)',
+    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase: Trickster’s Grace: Each time an attack targets this unit, subtract 1 from the Hit roll.',
     factionId: 'AE',
     datasheetId: '000002536',
     combatType: 'melee',
     target: 'defender',
     effects: {
       hitMod: -1,
-      rerollHitsOf1: true,
-      woundMod: 1,
     },
   },
   {
@@ -11428,6 +11485,17 @@ const RULES_4: ModifierRule[] = [
     },
   },
   {
+    id: 'unit_000001333_master_of_magicks_sustained',
+    label: 'Aetaos’rau’keres — Sustained Hits D3 disparo',
+    description: 'In your Shooting phase, select one of the following abilities: [IGNORES COVER]; [LETHAL HITS]; [sustainded hits D3]. Until the end of the phase, this model’s ranged weapon has that ability.',
+    factionId: 'CD',
+    datasheetId: '000001333',
+    combatType: 'ranged',
+    effects: {
+      sustainedHitsBonus: 2,
+    },
+  },
+  {
     id: 'unit_000001465_virulent_blessing_psychic',
     label: 'Rotigus — +1 Daño CaC',
     description: 'At the start of the Fight phase, you can select one enemy unit within 24" and visible to this model. Until the end of the phase, each time an attack made by a Nurgle Legiones Daemonica model is allocated to a model in that unit, add 1 to the Damage characteristic of that attack.',
@@ -12420,14 +12488,23 @@ const RULES_4: ModifierRule[] = [
     },
   },
   {
-    id: 'unit_000004155_archon_of_the_poisoned_tongue_pain',
-    label: 'Lady Malys — Lethal Hits, Sustained 1',
-    description: 'In your Shooting phase or the Fight phase, when you select this model’sunit to shoot or fight, you can spend 1 Pain token to Empower that unit. If you do, select one of the following abilities: [SUSTAINED HITS 1]; [LETHAL HITS]. Until the end of the phase, while that unit is Empowered, weapons equip',
+    id: 'unit_000004155_archon_of_the_poisoned_tongue_pain_sustained',
+    label: 'Lady Malys — Sustained Hits 1 (Pain)',
+    description: 'In your Shooting phase or the Fight phase, when you select this model’s unit to shoot or fight, you can spend 1 Pain token to Empower that unit. If you do, select one of the following abilities: [SUSTAINED HITS 1]; [LETHAL HITS]. Until the end of the phase, while that unit is Empowered, weapons equipped by models in that unit have the selected ability.',
+    factionId: 'DRU',
+    datasheetId: '000004155',
+    effects: {
+      sustainedHitsBonus: 1,
+    },
+  },
+  {
+    id: 'unit_000004155_archon_of_the_poisoned_tongue_pain_lethal',
+    label: 'Lady Malys — Lethal Hits (Pain)',
+    description: 'In your Shooting phase or the Fight phase, when you select this model’s unit to shoot or fight, you can spend 1 Pain token to Empower that unit. If you do, select one of the following abilities: [SUSTAINED HITS 1]; [LETHAL HITS]. Until the end of the phase, while that unit is Empowered, weapons equipped by models in that unit have the selected ability.',
     factionId: 'DRU',
     datasheetId: '000004155',
     effects: {
       lethalHitsBonus: true,
-      sustainedHitsBonus: 1,
     },
   },
   {
@@ -12497,17 +12574,37 @@ const RULES_4: ModifierRule[] = [
     },
   },
   {
-    id: 'unit_000004164_dance_of_death',
-    label: 'Troupe — -1 impactar, +1 herir, repetir imp.1 CaC',
-    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase:Hero’s Prowess: Each time a model in this unit makes an attack, re-roll a Hit roll of 1.Villain’s Doom: Each time a model in this unit makes an attack, add 1 to the Wound roll.Tric',
+    id: 'unit_000004164_dance_of_death_prowess',
+    label: 'Troupe — Hero’s Prowess: repetir imp.1 CaC',
+    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase: Hero’s Prowess: Each time a model in this unit makes an attack, re-roll a Hit roll of 1.',
+    factionId: 'DRU',
+    datasheetId: '000004164',
+    combatType: 'melee',
+    effects: {
+      rerollHitsOf1: true,
+    },
+  },
+  {
+    id: 'unit_000004164_dance_of_death_doom',
+    label: 'Troupe — Villain’s Doom: +1 herir CaC',
+    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase: Villain’s Doom: Each time a model in this unit makes an attack, add 1 to the Wound roll.',
+    factionId: 'DRU',
+    datasheetId: '000004164',
+    combatType: 'melee',
+    effects: {
+      woundMod: 1,
+    },
+  },
+  {
+    id: 'unit_000004164_dance_of_death_trickster',
+    label: 'Troupe — Trickster’s Grace: -1 impactar (defensor)',
+    description: 'At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase: Trickster’s Grace: Each time an attack targets this unit, subtract 1 from the Hit roll.',
     factionId: 'DRU',
     datasheetId: '000004164',
     combatType: 'melee',
     target: 'defender',
     effects: {
       hitMod: -1,
-      rerollHitsOf1: true,
-      woundMod: 1,
     },
   },
   {
@@ -13777,9 +13874,20 @@ const RULES_5: ModifierRule[] = [
     },
   },
   {
-    id: 'unit_000002497_spirit_of_gork_psychic',
-    label: 'Kill Rig — +1 Fuerza, Lethal Hits CaC',
-    description: 'At the start of the Fight phase, you can select one friendly Orks unit within 12" of this model and roll one D6: on a 1, this model suffers D3 mortal wounds; on a 2-5, until the end of the phase, add 1 to the Strength characteristic of melee weapons equipped by models in that unit; on a 6, until the',
+    id: 'unit_000002497_spirit_of_gork_psychic_strength',
+    label: 'Kill Rig — +1 Fuerza CaC (D6: 2-5)',
+    description: 'At the start of the Fight phase, you can select one friendly Orks unit within 12" of this model and roll one D6: on a 2-5, until the end of the phase, add 1 to the Strength characteristic of melee weapons equipped by models in that unit.',
+    factionId: 'ORK',
+    datasheetId: '000002497',
+    combatType: 'melee',
+    effects: {
+      strengthMod: 1,
+    },
+  },
+  {
+    id: 'unit_000002497_spirit_of_gork_psychic_lethal',
+    label: 'Kill Rig — +1 Fuerza, Lethal Hits CaC (D6: 6)',
+    description: 'At the start of the Fight phase, you can select one friendly Orks unit within 12" of this model and roll one D6: on a 6, until the end of the phase, add 1 to the Strength characteristic of melee weapons equipped by models in that unit and those weapons have the [LETHAL HITS] ability.',
     factionId: 'ORK',
     datasheetId: '000002497',
     combatType: 'melee',
@@ -15891,6 +15999,17 @@ const RULES_5: ModifierRule[] = [
     },
   },
   {
+    id: 'unit_000002751_singular_purpose_quarry',
+    label: 'Norn Emissary — repetir imp./herir vs. presa',
+    description: 'At the start of the first battle round, select one of the following:Select one enemy unit. Until the end of the battle, each time this model makes an attack that targets that unit, you can re-roll the Hit roll and you can re-roll the Wound roll.Select one objective marker. Until the end of the battl',
+    factionId: 'TYR',
+    datasheetId: '000002751',
+    effects: {
+      rerollAllHits: true,
+      rerollAllWounds: true,
+    },
+  },
+  {
     id: 'unit_000002751_unnatural_resilience',
     label: 'Norn Emissary — FNP 4+',
     description: 'This model has the Feel No Pain 4+ ability against mortal wounds.',
@@ -15908,6 +16027,17 @@ const RULES_5: ModifierRule[] = [
     datasheetId: '000002752',
     effects: {
       feelNoPainThreshold: 5,
+    },
+  },
+  {
+    id: 'unit_000002752_singular_purpose_quarry',
+    label: 'Norn Assimilator — repetir imp./herir vs. presa',
+    description: 'At the start of the first battle round, select one of the following:Select one enemy unit. Until the end of the battle, each time this model makes an attack that targets that unit, you can re-roll the Hit roll and you can re-roll the Wound roll.Select one objective marker. Until the end of the battl',
+    factionId: 'TYR',
+    datasheetId: '000002752',
+    effects: {
+      rerollAllHits: true,
+      rerollAllWounds: true,
     },
   },
   {
