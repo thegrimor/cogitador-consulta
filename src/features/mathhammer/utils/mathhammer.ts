@@ -158,6 +158,7 @@ export const DEFAULT_MODS: CombatModifiers = {
   rerollAllDamage: false,
   feelNoPainThreshold: null,
   woundCritThreshold: 7,
+  devastatingWoundsBonus: false,
 }
 
 export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): CombatModifiers {
@@ -181,6 +182,7 @@ export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): Co
     if (e.rerollDamageOf1)     result.rerollDamageOf1      = true
     if (e.rerollAllDamage)     result.rerollAllDamage      = true
     if (e.lethalHitsBonus)     result.lethalHitsBonus      = true
+    if (e.devastatingWoundsBonus) result.devastatingWoundsBonus = true
     if (e.sustainedHitsBonus)  result.sustainedHitsBonus   = Math.max(result.sustainedHitsBonus, e.sustainedHitsBonus)
     if (e.cleaveBonus)         result.cleaveBonus          = Math.max(result.cleaveBonus, e.cleaveBonus)
     if (e.critThreshold != null)      result.critThreshold      = Math.min(result.critThreshold, e.critThreshold)
@@ -218,6 +220,7 @@ export function mergeMods(
     rerollDamageOf1:    base.rerollDamageOf1    || attackerRuleMods.rerollDamageOf1,
     rerollAllDamage:    base.rerollAllDamage    || attackerRuleMods.rerollAllDamage,
     lethalHitsBonus:    base.lethalHitsBonus    || attackerRuleMods.lethalHitsBonus,
+    devastatingWoundsBonus: base.devastatingWoundsBonus || attackerRuleMods.devastatingWoundsBonus,
     sustainedHitsBonus: Math.max(base.sustainedHitsBonus, attackerRuleMods.sustainedHitsBonus),
     cleaveBonus:        Math.max(base.cleaveBonus, attackerRuleMods.cleaveBonus),
     critThreshold:      Math.min(base.critThreshold, attackerRuleMods.critThreshold),
@@ -266,6 +269,13 @@ export function calculateDamage(
   // Determinar umbral efectivo de herida crítica ANTI:
   // tomar el mínimo entre lo que ofrecen los modificadores y las entradas ANTI del arma vs defensor
   let effectiveWoundCritThreshold = mods.woundCritThreshold
+  // Devastating Wounds (inherente o por regla) consume la herida crítica de reglamento: un 6
+  // natural siempre es herida crítica, sea o no haya ANTI — sin esto, Devastating Wounds no hacía
+  // nada en armas sin un ANTI-X coincidente con el defensor.
+  const hasDevastatingWounds = weapon.isDevastatingWounds || mods.devastatingWoundsBonus
+  if (hasDevastatingWounds) {
+    effectiveWoundCritThreshold = Math.min(effectiveWoundCritThreshold, 6)
+  }
   if (weapon.antiEntries.length > 0 && defenderKeywords.length > 0) {
     const defKwLower = defenderKeywords.map(k => k.toLowerCase())
     for (const entry of weapon.antiEntries) {
@@ -294,7 +304,7 @@ export function calculateDamage(
     expectedWounds       = expectedHits * pWound
   }
 
-  // Heridas críticas ANTI: tiradas de herida >= umbral cuentan como críticas.
+  // Heridas críticas: natural 6, o un umbral más bajo otorgado por ANTI-X o por una regla.
   // Sin Devastating Wounds: pasan por salvación normalmente (sin impacto en daño esperado).
   // Con Devastating Wounds: esquivan salvación → se cuentan como woundsSkippingSave.
   const antiCritWounds = hasWoundCrit
@@ -304,7 +314,7 @@ export function calculateDamage(
     : 0
 
   let expectedFailedSaves: number
-  if (weapon.isDevastatingWounds && hasWoundCrit) {
+  if (hasDevastatingWounds && hasWoundCrit) {
     const woundsSkippingSave = autoWoundsFromCrits + antiCritWounds
     const woundsNeedingSave  = expectedWounds - autoWoundsFromCrits - antiCritWounds
     expectedFailedSaves = woundsSkippingSave + Math.max(0, woundsNeedingSave) * pFailSave

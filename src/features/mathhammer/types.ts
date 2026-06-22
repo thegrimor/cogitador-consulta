@@ -23,6 +23,7 @@ export interface CombatModifiers {
   rerollAllDamage: boolean
   feelNoPainThreshold: number | null
   woundCritThreshold: number  // 7 = desactivado; valores activos 2–6 (paralelo a critThreshold)
+  devastatingWoundsBonus: boolean  // [DEVASTATING WOUNDS] otorgado por una regla (no inherente al arma)
 }
 
 export interface ModifierRule {

@@ -131,7 +131,7 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
             <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits)}`} highlight />
           )}
           {calc.antiCritWounds > 0 && (
-            <Row label="↳ Crit herida (ANTI)" value={`${fmt(calc.antiCritWounds)}`} highlight />
+            <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds)}`} highlight />
           )}
           <Row
             label="Heridas"
@@ -182,7 +182,7 @@ export function DamageCalculator({
   const hasActiveMods =
     mods.hitMod !== 0 || mods.rerollHitsOf1 || mods.rerollAllHits ||
     mods.critThreshold !== 6 || mods.sustainedHitsBonus !== 0 || mods.lethalHitsBonus ||
-    mods.cleaveBonus !== 0 ||
+    mods.cleaveBonus !== 0 || mods.devastatingWoundsBonus ||
     mods.strengthMod !== 0 || mods.rerollWoundsOf1 || mods.rerollAllWounds ||
     mods.woundMod !== 0 || mods.apMod !== 0 || mods.saveMod !== 0 ||
     mods.attacksMod !== 0 || mods.rerollDamageOf1 || mods.rerollAllDamage
@@ -373,7 +373,7 @@ export function DamageCalculator({
             <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits)}`} highlight />
           )}
           {calc.antiCritWounds > 0 && (
-            <Row label="↳ Crit herida (ANTI)" value={`${fmt(calc.antiCritWounds)}`} highlight />
+            <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds)}`} highlight />
           )}
           <Row
             label="Heridas"
@@ -464,6 +464,7 @@ export function DamageCalculator({
               ? ` (PA ef.${calc.effectiveAP})`
               : ''}
             {weapons[0].isTorrent && ' [Torrent]'}
+            {(weapons[0].isDevastatingWounds || mods.devastatingWoundsBonus) && ' [Devastating Wounds]'}
             {(weapons[0].isLethalHits || mods.lethalHitsBonus) && ' [Lethal Hits]'}
             {(weapons[0].sustainedHitsValue + mods.sustainedHitsBonus) > 0
               && ` [Sustained ${weapons[0].sustainedHitsValue + mods.sustainedHitsBonus}]`}
