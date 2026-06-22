@@ -2490,11 +2490,10 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'csm_raiders_and_reavers',
-    label: 'Raiders and Reavers — +1 PA, disparo',
+    label: 'Raiders and Reavers — +1 PA (objetivo cerca de marcador)',
     description: 'Ranged weapons equipped by HERETIC ASTARTES models from your army have the [ASSAULT] ability, and each time a HERETIC ASTARTES model from your army makes an attack that targets a unit within range of an objective marker, improve the Armour Penetration characteristic of that attack by 1.',
     factionId: 'CSM',
     detachmentId: '000000869',
-    combatType: 'ranged',
     effects: {
     apMod: 1,
   },
@@ -2521,12 +2520,23 @@ const RULES_1: ModifierRule[] = [
   },
   },
   {
-    id: 'csm_empyric_wellspring',
-    label: 'Empyric Wellspring — +1 PA, disparo',
-    description: 'Each time a unit from your army makes a Dark Pact, select one of the following abilities. Your unit has that ability until the end of the phase. Leaping Warpflame While this unit is within 9" of one or more friendly HERETIC ASTARTES PSYKER models, improve the Strength characteristic of ranged weapon',
+    id: 'csm_empyric_wellspring_warpflame',
+    label: 'Empyric Wellspring — Leaping Warpflame: +1 F, disparo (cerca de Psyker)',
+    description: 'Dark Pact: Leaping Warpflame. While this unit is within 9" of one or more friendly HERETIC ASTARTES PSYKER models, improve the Strength characteristic of ranged weapons equipped by models in this unit by 1.',
     factionId: 'CSM',
     detachmentId: '000001058',
     combatType: 'ranged',
+    effects: {
+    strengthMod: 1,
+  },
+  },
+  {
+    id: 'csm_empyric_wellspring_manifestation',
+    label: 'Empyric Wellspring — Monstrous Manifestation: +1 PA, CaC (cerca de Daemon Prince)',
+    description: 'Dark Pact: Monstrous Manifestation. While this unit is within 9" of one or more friendly HERETIC ASTARTES DAEMON PRINCE models, improve the Armour Penetration characteristic of melee weapons equipped by models in this unit by 1.',
+    factionId: 'CSM',
+    detachmentId: '000001058',
+    combatType: 'melee',
     effects: {
     apMod: 1,
   },
@@ -4333,9 +4343,19 @@ const RULES_2: ModifierRule[] = [
   { id: 'lov_masterful_construction_lh', label: 'Masterful Construction — Lethal Hits', description: "Masterful Construction: each time the bearer is selected to shoot or fight, you can select one of [DEVASTATING WOUNDS]/[LETHAL HITS]/[SUSTAINED HITS 1] for the bearer's weapons (excluding Psychic weapons) until the end of the phase.", factionId: 'LoV', detachmentId: '000000950', effects: { lethalHitsBonus: true } },
   { id: 'lov_masterful_construction_sh', label: 'Masterful Construction — Sustained Hits 1', description: "Masterful Construction: each time the bearer is selected to shoot or fight, you can select one of [DEVASTATING WOUNDS]/[LETHAL HITS]/[SUSTAINED HITS 1] for the bearer's weapons (excluding Psychic weapons) until the end of the phase.", factionId: 'LoV', detachmentId: '000000950', effects: { sustainedHitsBonus: 1 } },
   {
-    id: 'lov_methodical_annihilation',
-    label: 'Methodical Annihilation — +1 PA',
-    description: 'Each time a Leagues of Votann model from your army makes an attack with a weapon that targets the closest eligible target or a target that is within Engagement Range of that model’s unit: Re-roll a Wound roll of 1. If your unit is a Kâhl, Einhyr Hearthguard or Ûthar the Destined unit, improve the Ar',
+    id: 'lov_methodical_annihilation_reroll',
+    label: 'Methodical Annihilation — repetir heridas 1 (closest/Engagement Range)',
+    description: 'Each time a Leagues of Votann model from your army makes an attack with a weapon that targets the closest eligible target or a target that is within Engagement Range of that model’s unit: re-roll a Wound roll of 1.',
+    factionId: 'LoV',
+    detachmentId: '000001001',
+    effects: {
+    rerollWoundsOf1: true,
+  },
+  },
+  {
+    id: 'lov_methodical_annihilation_ap',
+    label: 'Methodical Annihilation — +1 PA (solo Kâhl/Einhyr Hearthguard/Ûthar)',
+    description: 'Methodical Annihilation: if your unit is a Kâhl, Einhyr Hearthguard or Ûthar the Destined unit, improve the Armour Penetration characteristic of that attack by 1. Activar manualmente solo si la unidad atacante es Kâhl, Einhyr Hearthguard o Ûthar the Destined.',
     factionId: 'LoV',
     detachmentId: '000001001',
     effects: {
@@ -4704,6 +4724,17 @@ const RULES_2: ModifierRule[] = [
     effects: {
     hitMod: 1,
     woundMod: 1,
+  },
+  },
+  {
+    id: 'nec_annihilation_protocol',
+    label: 'Annihilation Protocol — +1 PA, disparo (DESTROYER CULT, closest target)',
+    description: 'Each time a DESTROYER CULT unit from your army makes a ranged attack that targets the closest eligible target, add 1 to the Armour Penetration characteristic of that attack.',
+    factionId: 'NEC',
+    detachmentId: '000000815',
+    combatType: 'ranged',
+    effects: {
+    apMod: 1,
   },
   },
   {
@@ -5079,15 +5110,33 @@ const RULES_2: ModifierRule[] = [
   },
   },
   {
-    id: 'ork_try_dat_button',
-    label: 'Try Dat Button! — +2 PA, Lethal Hits, Sustained Hits 1',
-    description: 'Each time a Mek, Orks Walker or Grots Vehicle unit from your army is selected to shoot or fight, roll one D6. Until the end of the phase, weapons equipped by models in that unit have the corresponding ability shown in the table below. D6 BUTTON EFFECT [SUSTAINED HITS 1] ability. [LETHAL HITS] abilit',
+    id: 'ork_try_dat_button_sustained',
+    label: 'Try Dat Button! — Sustained Hits 1 (D6: 1-2)',
+    description: 'Each time a Mek, Orks Walker or Grots Vehicle unit from your army is selected to shoot or fight, roll one D6. On a 1-2, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability until the end of the phase.',
+    factionId: 'ORK',
+    detachmentId: '000000855',
+    effects: {
+    sustainedHitsBonus: 1,
+  },
+  },
+  {
+    id: 'ork_try_dat_button_lethal',
+    label: 'Try Dat Button! — Lethal Hits (D6: 3-4)',
+    description: 'Each time a Mek, Orks Walker or Grots Vehicle unit from your army is selected to shoot or fight, roll one D6. On a 3-4, weapons equipped by models in that unit have the [LETHAL HITS] ability until the end of the phase.',
+    factionId: 'ORK',
+    detachmentId: '000000855',
+    effects: {
+    lethalHitsBonus: true,
+  },
+  },
+  {
+    id: 'ork_try_dat_button_ap',
+    label: 'Try Dat Button! — +2 PA en Crítico de Herida (D6: 5-6)',
+    description: 'Each time a Mek, Orks Walker or Grots Vehicle unit from your army is selected to shoot or fight, roll one D6. On a 5-6, each time an attack made by a weapon equipped by a model in that unit scores a Critical Wound, improve the Armour Penetration characteristic of that attack by 2, until the end of the phase.',
     factionId: 'ORK',
     detachmentId: '000000855',
     effects: {
     apMod: 2,
-    sustainedHitsBonus: 1,
-    lethalHitsBonus: true,
   },
   },
   {
@@ -5615,6 +5664,7 @@ const RULES_2: ModifierRule[] = [
     label: "Rollin' Deff — [CLEAVE 1], CaC (WAGON, 1PC)",
     description: 'Battle Tactic Stratagem (1CP). WHEN: Your Fight phase, when a friendly WAGON unit that made a charge move this turn is selected to fight. EFFECT: Your unit’s melee attacks have [CLEAVE 1].',
     factionId: 'ORK',
+    detachmentId: '000001199',
     target: 'attacker',
     combatType: 'melee',
     isStratagem: true,
@@ -6211,15 +6261,25 @@ const RULES_2: ModifierRule[] = [
   },
   },
   {
-    id: 'sm_psychic_disciplines',
-    label: 'Psychic Disciplines — repetir impactos 1, repetir heridas 1, +1 PA',
-    description: 'At the start of the battle round, select one of the following Psychic Disciplines. Until the end of the battle round, that Psychic Discipline is active and its effects apply to all Adeptus Astartes Psyker units from your army. Biomancy Discipline Add 2" to the Move characteristic of models in this u',
+    id: 'sm_psychic_disciplines_divination',
+    label: 'Psychic Disciplines — Divination: repetir impactos 1, repetir heridas 1',
+    description: 'Divination Discipline: Each time a model in this unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.',
     factionId: 'SM',
     detachmentId: '000000994',
     effects: {
-    apMod: 1,
     rerollHitsOf1: true,
     rerollWoundsOf1: true,
+  },
+  },
+  {
+    id: 'sm_psychic_disciplines_pyromancy',
+    label: 'Psychic Disciplines — Pyromancy: +1 PA, disparo (objetivo a 12")',
+    description: 'Pyromancy Discipline: Each time a ranged attack made by a model in this unit targets an enemy unit within 12", improve the Armour Penetration characteristic of that attack by 1.',
+    factionId: 'SM',
+    detachmentId: '000000994',
+    combatType: 'ranged',
+    effects: {
+    apMod: 1,
   },
   },
   {
@@ -6361,15 +6421,25 @@ const RULES_2: ModifierRule[] = [
   },
   },
   {
-    id: 'sm_oath_of_reclamation',
-    label: 'Oath of Reclamation — -1 herir, +1 PA',
-    description: 'Each time an ADEPTUS ASTARTES model from your army makes a melee attack that targets a unit within range of an objective marker, improve the Armour Penetration characteristic of that attack by 1. Each time an attack targets an ADEPTUS ASTARTES unit from your army, if your unit is within range of an',
+    id: 'sm_oath_of_reclamation_ap',
+    label: 'Oath of Reclamation — +1 PA, CaC (objetivo cerca de marcador)',
+    description: 'Each time an ADEPTUS ASTARTES model from your army makes a melee attack that targets a unit within range of an objective marker, improve the Armour Penetration characteristic of that attack by 1.',
+    factionId: 'SM',
+    detachmentId: '000001132',
+    combatType: 'melee',
+    effects: {
+    apMod: 1,
+  },
+  },
+  {
+    id: 'sm_oath_of_reclamation_defense',
+    label: 'Oath of Reclamation — -1 herir recibido (cerca de marcador, S>T o Titus)',
+    description: 'Each time an attack targets an ADEPTUS ASTARTES unit from your army, if your unit is within range of an objective marker that you controlled at the start of the phase and if the Strength characteristic of that attack is greater than the Toughness characteristic of your unit or your unit has the Titus keyword, subtract 1 from the Wound roll.',
     factionId: 'SM',
     detachmentId: '000001132',
     target: 'defender',
     effects: {
     woundMod: -1,
-    apMod: 1,
   },
   },
   {
@@ -8413,10 +8483,11 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'tau_bonded_heroes',
-    label: 'Bonded Heroes — +1 PA',
-    description: 'Each time a T’au Empire Battlesuit model from your army makes a ranged attack that targets a unit within 12", improve the Strength characteristic of that attack by 1. If that attack targets a unit within 9", improve the Armour Penetration characteristic of that attack by 1 as well.',
+    label: 'Bonded Heroes — +1 PA, disparo (Battlesuit, objetivo a 8")',
+    description: 'Each time a T’au Empire Battlesuit model from your army makes a ranged attack that targets a unit within 12", improve the Strength characteristic of that attack by 1. If that attack targets a unit within 8", improve the Armour Penetration characteristic of that attack by 1 as well.',
     factionId: 'TAU',
     detachmentId: '000000846',
+    combatType: 'ranged',
     effects: {
     apMod: 1,
   },

@@ -88,7 +88,9 @@ export function UnitPanel({
     if (exists) {
       onWeaponsChange(selectedWeapons.filter(x => !(x.name === w.name && x.line === w.line)))
     } else {
-      onWeaponsChange([...selectedWeapons, w])
+      const isMelee = w.range === 'Melee'
+      const sameType = selectedWeapons.filter(x => (x.range === 'Melee') === isMelee)
+      onWeaponsChange([...sameType, w])
       // Persist the computed default so DamageCalculator sees it immediately
       if (onQuantityChange && !(wKey(w) in weaponQuantities)) {
         onQuantityChange(wKey(w), defaultQtyFor(w))
