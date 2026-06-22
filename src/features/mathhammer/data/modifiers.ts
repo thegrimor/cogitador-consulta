@@ -346,6 +346,7 @@ const RULES_1: ModifierRule[] = [
   },
 
   // ═══ AE ═══
+  { id: 'ae_blades_from_beyond', label: 'Blades from Beyond — Devastating Wounds, CaC (1PC)', description: 'Spirit Conclave: TARGET: One Wraithblades, Wraithlord or Wraithknight unit from your army that has not been selected to fight this phase. EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'AE', detachmentId: '000001019', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   {
     id: 'ae_shepherds_of_the_dead',
     label: 'Shepherds of the Dead — +1 impactar, +1 herir',
@@ -1138,6 +1139,8 @@ const RULES_1: ModifierRule[] = [
   },
 
   // ═══ AS ═══
+  { id: 'as_cleansing_flames', label: 'Cleansing Flames — Devastating Wounds, Torrent (2PC)', description: 'Bringers of Flame: TARGET: One ADEPTA SORORITAS unit from your army that has not been selected to shoot this phase. EFFECT: Until the end of the phase, Torrent weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'AS', detachmentId: '000000879', combatType: 'ranged', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
+  { id: 'as_devastating_reprise', label: 'Devastating Reprise — Devastating Wounds, disparo (1PC)', description: "Chorus of Condemnation: when a friendly EXORCIST unit has shot, select one enemy unit hit by those ranged attacks. Your unit's ranged attacks that target that unit have [DEVASTATING WOUNDS].", factionId: 'AS', detachmentId: '000001163', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   {
     id: 'as_the_blood_of_martyrs',
     label: 'The Blood of Martyrs — +1 impactar, +1 herir',
@@ -1813,6 +1816,8 @@ const RULES_1: ModifierRule[] = [
   },
 
   // ═══ AoI ═══
+  { id: 'aoi_rites_of_exorcism', label: 'Rites of Exorcism — Devastating Wounds vs DAEMON (1PC)', description: 'Daemon Hunters: select one enemy DAEMON unit within 12" and visible. If it fails a Battle-shock test, until the end of the phase each friendly AGENTS OF THE IMPERIUM attack that targets that unit has [DEVASTATING WOUNDS].', factionId: 'AoI', detachmentId: '000000894', isStratagem: true, cpCost: 1, requiresTargetKeyword: 'daemon', effects: { devastatingWoundsBonus: true } },
+  { id: 'aoi_ignis_judicium', label: 'Ignis Judicium — Devastating Wounds, Melta 1, Precision (disparo)', description: 'Ignis Judicium: Inquisitor or Ministorum Priest model only. The bearer’s ranged weapons have the [DEVASTATING WOUNDS], [MELTA 1] and [PRECISION] abilities.', factionId: 'AoI', detachmentId: '000000893', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
   {
     id: 'aoi_deathwatch_mission_tactics',
     label: 'Deathwatch Mission Tactics — Lethal Hits, Sustained Hits 1',
@@ -2458,6 +2463,10 @@ const RULES_1: ModifierRule[] = [
   // ═══ CSM ═══
   { id: 'csm_dark_pacts_lethal',    label: 'Dark Pacts — Lethal Hits',    factionId: 'CSM', effects: { lethalHitsBonus: true } },
   { id: 'csm_dark_pacts_sustained', label: 'Dark Pacts — Sustained Hits 1', factionId: 'CSM', effects: { sustainedHitsBonus: 1 } },
+  // Nota: "Black Crusade" (000008961005, Devious Stratagems, 1PC) también otorga Devastating Wounds
+  // a boltguns tras advance/fall back, pero la condición es demasiado específica para modelar con
+  // los campos disponibles hoy — se omite deliberadamente.
+  { id: 'csm_fleeting_might', label: 'Fleeting Might — Devastating Wounds (post-Dark Pact)', description: 'Underdeck Uprising: just after a DAMNED unit from your army makes a Dark Pact, until the end of the phase, weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'CSM', detachmentId: '000000947', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   {
     id: 'csm_marks_of_chaos',
     label: 'Marks of Chaos — repetir impactos 1, crítico 5+',
@@ -3012,6 +3021,7 @@ const RULES_1: ModifierRule[] = [
   },
 
   // ═══ DG ═══
+  { id: 'dg_furnace_of_plagues', label: 'Furnace of Plagues — +1F/+1A, Devastating Wounds (CaC)', description: 'Furnace of Plagues: DEATH GUARD model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons, and the bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.', factionId: 'DG', detachmentId: '000001049', combatType: 'melee', effects: { strengthMod: 1, attacksMod: 1, devastatingWoundsBonus: true } },
   // Nurgle's Gift (Aura) = Contagions of Nurgle: −1T a enemigos + plaga elegida al inicio
   { id: 'dg_contagions_toughness', label: 'Contagions of Nurgle — −1 Resistencia enemiga', description: "Nurgle's Gift (Aura): while an enemy unit is within Contagion Range, subtract 1 from its Toughness characteristic. Modelled as +1 Strength for DG attacker.", factionId: 'DG', effects: { strengthMod: 1 } },
   { id: 'dg_plague_skullsquirm',   label: 'Plaga: Skullsquirm Blight — −1 impactar recibido', description: "Skullsquirm Blight: each time an Afflicted enemy model makes an attack, subtract 1 from the Hit roll. Activate on the DG unit being attacked.", factionId: 'DG', target: 'defender', effects: { hitMod: -1 } },
@@ -3260,6 +3270,8 @@ const RULES_1: ModifierRule[] = [
   },
 
   // ═══ DRU ═══
+  { id: 'dru_distillers_of_fear', label: 'Distillers of Fear — Devastating Wounds vs Battle-shocked (CaC, 2PC)', description: 'Covenite Coterie: select one Haemonculus Covens unit that has not been selected to fight this phase. Until the end of the phase, each attack from your unit that targets a Battle-shocked enemy unit has [DEVASTATING WOUNDS].', factionId: 'DRU', detachmentId: '000001114', combatType: 'melee', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
+  { id: 'dru_salting_the_wound', label: 'Salting the Wound — Devastating Wounds vs Battle-shocked (CaC, 1PC)', description: 'Tools of Torment: when a friendly CRONOS/TALOS unit is selected to fight, until the end of the phase your unit’s attacks that target a Battle-shocked unit have [DEVASTATING WOUNDS].', factionId: 'DRU', detachmentId: '000001195', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   // Power from Pain: sistema de tokens gastados por unidad para activar su Pain ability individual (por datasheet).
   // No es escalado por turnos ni faction-wide. Sin toggle a nivel facción.
   {
@@ -3813,6 +3825,7 @@ const RULES_2: ModifierRule[] = [
   },
 
   // ═══ GC ═══
+  { id: 'gc_surging_broodworship', label: 'Surging Broodworship — Devastating Wounds (1PC)', description: 'Heroes of the Uprising: when a friendly KILLER unit is selected to attack, attacks made by KILLER models in your unit have [DEVASTATING WOUNDS]. (Nota: la keyword KILLER no figura en los datos como tal; regla limitada al destacamento.)', factionId: 'GC', detachmentId: '000001196', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   {
     id: 'gc_a_perfect_ambush',
     label: 'A Perfect Ambush — Sustained Hits 1',
@@ -4093,6 +4106,8 @@ const RULES_2: ModifierRule[] = [
   { id: 'gc_synapse', label: 'Sinapse — +1 Fuerza (CaC)', description: "Synapse: while a GENESTEALER CULTS unit is within 6\" of one or more friendly Synapse models, add 1 to the Strength characteristic of each melee attack made by models in that unit.", factionId: 'GC', combatType: 'melee', effects: { strengthMod: 1 } },
 
   // ═══ GK ═══
+  { id: 'gk_truesilver_channelling', label: 'Truesilver Channelling — Devastating Wounds, Psychic (CaC, 2PC)', description: 'Brotherhood Strike: select one Grey Knights Infantry unit that has not been selected to fight this phase. Until the end of the phase, Psychic weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'GK', detachmentId: '000001081', combatType: 'melee', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
+  { id: 'gk_focused_immolation', label: 'Focused Immolation — Devastating Wounds, Sustained Hits 1, disparo (1PC)', description: 'Fires of Purgation: when a friendly PURGATION SQUAD unit is selected to shoot, select one enemy unit. Your unit’s ranged attacks that target that unit have [DEVASTATING WOUNDS] and [SUSTAINED HITS 1].', factionId: 'GK', detachmentId: '000001186', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true, sustainedHitsBonus: 1 } },
   {
     id: 'gk_hallowed_ground',
     label: 'Hallowed Ground — repetir impactos 1',
@@ -4314,6 +4329,9 @@ const RULES_2: ModifierRule[] = [
   // Fortify Takeover añade −1 herir recibido cuando S atacante > T de la unidad LoV.
   { id: 'lov_prioritised_hit',  label: 'Prioritised Efficiency — +1 impactar (objetivo)', description: 'Hostile Acquisition / Fortify Takeover: add 1 to the Hit roll when targeting an enemy near an objective marker (or attacking from a controlled objective).', factionId: 'LoV', effects: { hitMod: 1 } },
   { id: 'lov_fortify_defense',  label: 'Fortify Takeover — −1 herir recibido (S>T)',      description: 'Fortify Takeover: subtract 1 from the Wound roll of attacks that target this unit when the attacking weapon Strength is greater than this unit Toughness (not VEHICLE).', factionId: 'LoV', target: 'defender', effects: { woundMod: -1 } },
+  { id: 'lov_masterful_construction_dw', label: 'Masterful Construction — Devastating Wounds', description: "Masterful Construction: each time the bearer is selected to shoot or fight, you can select one of [DEVASTATING WOUNDS]/[LETHAL HITS]/[SUSTAINED HITS 1] for the bearer's weapons (excluding Psychic weapons) until the end of the phase.", factionId: 'LoV', detachmentId: '000000950', effects: { devastatingWoundsBonus: true } },
+  { id: 'lov_masterful_construction_lh', label: 'Masterful Construction — Lethal Hits', description: "Masterful Construction: each time the bearer is selected to shoot or fight, you can select one of [DEVASTATING WOUNDS]/[LETHAL HITS]/[SUSTAINED HITS 1] for the bearer's weapons (excluding Psychic weapons) until the end of the phase.", factionId: 'LoV', detachmentId: '000000950', effects: { lethalHitsBonus: true } },
+  { id: 'lov_masterful_construction_sh', label: 'Masterful Construction — Sustained Hits 1', description: "Masterful Construction: each time the bearer is selected to shoot or fight, you can select one of [DEVASTATING WOUNDS]/[LETHAL HITS]/[SUSTAINED HITS 1] for the bearer's weapons (excluding Psychic weapons) until the end of the phase.", factionId: 'LoV', detachmentId: '000000950', effects: { sustainedHitsBonus: 1 } },
   {
     id: 'lov_methodical_annihilation',
     label: 'Methodical Annihilation — +1 PA',
@@ -4557,6 +4575,7 @@ const RULES_2: ModifierRule[] = [
   },
 
   // ═══ NEC ═══
+  { id: 'nec_cynosure_of_eradication', label: 'Cynosure of Eradication — Devastating Wounds (CRYPTEK/CANOPTEK, 2PC)', description: 'Canoptek Court: select one CRYPTEK or CANOPTEK unit wholly within your army’s Power Matrix. Until the end of the phase, weapons equipped by CRYPTEK or CANOPTEK models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'NEC', detachmentId: '000000816', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
   // Reanimation Protocols: modelos destruidos se recuperan en 5+ (aprox. FNP 5+ a efectos del calculador)
   // Reanimation Protocols: cura D3 heridas al final de la fase de mando — no es FNP per-attack, no modelable como toggle.
   {
@@ -5036,6 +5055,8 @@ const RULES_2: ModifierRule[] = [
   // WAAAGH!: una vez por partida, el Warboss puede declarar WAAAGH! → +1 impactar a todas las unidades Ork esa ronda
   { id: 'ork_waaagh',     label: 'WAAAGH! — +1 Fuerza y +1 Ataque (CaC)',        description: "WAAAGH!: once per battle. Until the start of your next Command phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in this unit.", factionId: 'ORK', combatType: 'melee', effects: { strengthMod: 1, attacksMod: 1 } },
   { id: 'ork_waaagh_inv', label: 'WAAAGH! — salvación invulnerable 5+ (defensor)', description: "WAAAGH!: models from your army have a 5+ invulnerable save. Activate on the ORK unit being attacked.", factionId: 'ORK', target: 'defender', effects: { saveMod: 1 } },
+  { id: 'ork_da_gobshot_thunderbuss', label: 'Da Gobshot Thunderbuss — Devastating Wounds, disparo', description: 'Da Gobshot Thunderbuss: ORKS model only. Ranged weapons equipped by the bearer have the [DEVASTATING WOUNDS] and [HAZARDOUS] abilities (Hazardous sin efecto modelable hoy).', factionId: 'ORK', detachmentId: '000001030', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
+  { id: 'ork_headwoppas_killchoppa', label: "Headwoppa's Killchoppa — Devastating Wounds, CaC", description: "Headwoppa's Killchoppa: ORKS model only. Melee weapons equipped by the bearer (excluding Extra Attacks weapons) have the [DEVASTATING WOUNDS] ability.", factionId: 'ORK', detachmentId: '000000852', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
   {
     id: 'ork_get_stuck_in',
     label: 'Get Stuck In — Sustained Hits 1, CaC',
@@ -6072,6 +6093,11 @@ const RULES_2: ModifierRule[] = [
   },
 
   // ═══ SM ═══
+  { id: 'sm_immolation_protocols_795', label: 'Immolation Protocols — Devastating Wounds, Torrent, disparo (2PC)', description: 'Firestorm Assault Force: select one ADEPTUS ASTARTES unit that has not been selected to shoot this phase. Until the end of the phase, Torrent weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000000795', combatType: 'ranged', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
+  { id: 'sm_immolation_protocols_1086', label: 'Immolation Protocols — Devastating Wounds, Torrent, disparo (2PC)', description: 'Forgefather’s Seekers: select one ADEPTUS ASTARTES unit that has not been selected to shoot this phase. Until the end of the phase, Torrent weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000001086', combatType: 'ranged', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
+  { id: 'sm_master_marksmen', label: 'Master Marksmen — Devastating Wounds, disparo (1PC)', description: 'Pilum Strike Team: select one ADEPTUS ASTARTES unit that has not been selected to shoot this phase. Until the end of the phase, ranged weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000000906', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
+  { id: 'sm_benediction_of_fury', label: 'Benediction of Fury — Devastating Wounds, CaC (Chaplain)', description: 'Benediction of Fury: Chaplain model only. The bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000001006', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
+  { id: 'sm_guiding_omens', label: "Guiding Omens — Devastating Wounds, CaC (Emperor's Champion)", description: "Guiding Omens: EMPEROR'S CHAMPION model only. Instrument of the God-Emperor (once per battle): if engaged with an enemy CHARACTER unit, this model's melee attacks have [DEVASTATING WOUNDS].", factionId: 'SM', datasheetId: '000002795', detachmentId: '000001178', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
   {
     id: 'sm_oath_of_moment',
     label: 'Juramento del Momento — re-roll impactar',
@@ -8362,6 +8388,7 @@ const RULES_3: ModifierRule[] = [
   // ═══ TAU ═══
   // For the Greater Good: unidad observadora marca objetivo; las unidades guiadas atacando ese objetivo ganan +1 BS.
   { id: 'tau_for_the_greater_good', label: 'For the Greater Good — +1 BS, disparo (guiado)', description: "For the Greater Good: while a unit is Guided (targeting a Spotted unit marked by an Observer unit), improve the Ballistic Skill of that attack by 1.", factionId: 'TAU', combatType: 'ranged', effects: { hitMod: 1 } },
+  { id: 'tau_root_carved_weapons', label: 'Root-carved Weapons — Devastating Wounds, Precision (Kroot War Shaper)', description: 'Root-carved Weapons: Kroot War Shaper model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities.', factionId: 'TAU', datasheetId: '000003703', detachmentId: '000000847', effects: { devastatingWoundsBonus: true } },
   {
     id: 'tau_patient_hunter',
     label: 'Patient Hunter — Sustained Hits 1, disparo',
@@ -8757,10 +8784,9 @@ const RULES_3: ModifierRule[] = [
   },
 
   // ═══ TS ═══
-  // Dark Pacts: TS es HERETIC ASTARTES.
   // Cabal of Sorcerers: rituales psíquicos — solo Destiny's Ruin y Twist of Fate afectan al daño.
-  { id: 'ts_dark_pacts_lethal',    label: 'Dark Pacts — Lethal Hits',    description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [LETHAL HITS] hasta el final de la fase.', factionId: 'TS', effects: { lethalHitsBonus: true } },
-  { id: 'ts_dark_pacts_sustained', label: 'Dark Pacts — Sustained Hits 1', description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [SUSTAINED HITS 1] hasta el final de la fase.', factionId: 'TS', effects: { sustainedHitsBonus: 1 } },
+  // Nota: Abilities.csv solo asigna Dark Pacts (000008359) a CSM. TS no tiene esta regla — su regla
+  // de ejército real es Cabal of Sorcerers (rituales abajo).
   { id: 'ts_cabal_destinys_ruin',       label: "Cabal: Destiny's Ruin — repetir impactos 1",      description: "Destiny's Ruin (Warp Charge 5): re-roll a Hit roll of 1 each time a TS model makes an attack targeting the selected enemy unit.", factionId: 'TS', effects: { rerollHitsOf1: true } },
   { id: 'ts_cabal_destinys_ruin_full',  label: "Cabal: Destiny's Ruin (10+) — repetir impactos",  description: "Destiny's Ruin (Warp Charge 5, result 10+): re-roll the Hit roll each time a TS model makes an attack targeting the selected enemy unit.", factionId: 'TS', effects: { rerollAllHits: true } },
   { id: 'ts_cabal_twist_of_fate',       label: 'Cabal: Twist of Fate — +1 PA',                    description: "Twist of Fate (Warp Charge 9): improve the Armour Penetration characteristic of each attack that targets the selected enemy unit by 1.", factionId: 'TS', effects: { apMod: 1 } },
@@ -9362,11 +9388,12 @@ const RULES_3: ModifierRule[] = [
   },
 
   // ═══ WE ═══
-  // Dark Pacts: WE es HERETIC ASTARTES; Blessings of Khorne: tirar D6 al inicio de cada ronda de batalla
-  { id: 'we_dark_pacts_lethal',    label: 'Dark Pacts — Lethal Hits',    description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [LETHAL HITS] hasta el final de la fase.', factionId: 'WE', effects: { lethalHitsBonus: true } },
-  { id: 'we_dark_pacts_sustained', label: 'Dark Pacts — Sustained Hits 1', description: 'Dark Pacts (HERETIC ASTARTES): superar prueba de Liderazgo o sufrir D3 heridas mortales, ganar [SUSTAINED HITS 1] hasta el final de la fase.', factionId: 'WE', effects: { sustainedHitsBonus: 1 } },
+  // Blessings of Khorne: tirar D6 al inicio de cada ronda de batalla.
+  // Nota: Abilities.csv solo asigna Dark Pacts (000008359) a CSM. WE no tiene esta regla — su regla
+  // de ejército real es Blessings of Khorne (abajo).
   { id: 'we_blessings_martial_excellence', label: 'Blessings of Khorne: Martial Excellence — Sustained Hits 1 (CaC)', description: "MARTIAL EXCELLENCE: melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.", factionId: 'WE', combatType: 'melee', effects: { sustainedHitsBonus: 1 } },
   { id: 'we_blessings_warp_blades',        label: 'Blessings of Khorne: Warp Blades — Lethal Hits (CaC)',           description: "WARP BLADES: melee weapons equipped by models in this unit have the [LETHAL HITS] ability.", factionId: 'WE', combatType: 'melee', effects: { lethalHitsBonus: true } },
+  { id: 'we_blessings_decapitating_strikes', label: 'Blessings of Khorne: Decapitating Strikes — Devastating Wounds vs INFANTRY (CaC)', description: "DECAPITATING STRIKES: each time a model in this unit makes a melee attack that targets an INFANTRY unit, that attack has the [DEVASTATING WOUNDS] ability.", factionId: 'WE', combatType: 'melee', requiresTargetKeyword: 'infantry', effects: { devastatingWoundsBonus: true } },
   {
     id: 'we_relentless_rage',
     label: 'Relentless Rage — +2 F, CaC',
