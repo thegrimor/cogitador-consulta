@@ -6,27 +6,51 @@ interface Props {
   onToggle: (id: string) => void
 }
 
-function RuleButton({ rule, active, onToggle }: { rule: ModifierRule; active: boolean; onToggle: (id: string) => void }) {
+function RuleButton({
+  rule, active, bonusActive, onToggle,
+}: {
+  rule: ModifierRule
+  active: boolean
+  bonusActive: boolean
+  onToggle: (id: string) => void
+}) {
   const cpLabel = rule.cpCost ? ` [${rule.cpCost}PC]` : ''
   return (
-    <button
-      onClick={() => onToggle(rule.id)}
-      className={`text-left px-2 py-1.5 border transition-colors ${
-        active
-          ? 'border-gold bg-gold/20 text-gold-bright'
-          : 'border-rim-bright text-parchment hover:border-gold/50 hover:text-parchment'
-      }`}
-    >
-      <div className="text-xs font-mono leading-snug">
-        <span className="mr-1.5">{active ? '▶' : '○'}</span>
-        {rule.label}{cpLabel}
-      </div>
-      {rule.isStratagem && rule.description && (
-        <div className="text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70">
-          {rule.description}
+    <div>
+      <button
+        onClick={() => onToggle(rule.id)}
+        className={`w-full text-left px-2 py-1.5 border transition-colors ${
+          active
+            ? 'border-gold bg-gold/20 text-gold-bright'
+            : 'border-rim-bright text-parchment hover:border-gold/50 hover:text-parchment'
+        }`}
+      >
+        <div className="text-xs font-mono leading-snug">
+          <span className="mr-1.5">{active ? '▶' : '○'}</span>
+          {rule.label}{cpLabel}
         </div>
+        {rule.isStratagem && rule.description && (
+          <div className="text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70">
+            {rule.description}
+          </div>
+        )}
+      </button>
+      {active && rule.bonusEffects && (
+        <button
+          onClick={() => onToggle(`${rule.id}__bonus`)}
+          className={`w-full text-left px-2 py-1 mt-0.5 ml-3 border transition-colors ${
+            bonusActive
+              ? 'border-gold/70 bg-gold/10 text-gold-bright'
+              : 'border-rim-bright/60 text-parchment-dim hover:border-gold/50 hover:text-parchment'
+          }`}
+        >
+          <div className="text-[11px] font-mono leading-snug">
+            <span className="mr-1.5">{bonusActive ? '▶' : '○'}</span>
+            + si {rule.bonusCondition}
+          </div>
+        </button>
       )}
-    </button>
+    </div>
   )
 }
 
@@ -46,7 +70,7 @@ export function ModifierPanel({ rules, activeIds, onToggle }: Props) {
           </div>
           <div className="px-3 py-2 flex flex-col gap-1.5">
             {unitRules.map(rule => (
-              <RuleButton key={rule.id} rule={rule} active={activeIds.has(rule.id)} onToggle={onToggle} />
+              <RuleButton key={rule.id} rule={rule} active={activeIds.has(rule.id)} bonusActive={activeIds.has(`${rule.id}__bonus`)} onToggle={onToggle} />
             ))}
           </div>
         </>
@@ -58,7 +82,7 @@ export function ModifierPanel({ rules, activeIds, onToggle }: Props) {
           </div>
           <div className="px-3 py-2 flex flex-col gap-1.5">
             {armyRules.map(rule => (
-              <RuleButton key={rule.id} rule={rule} active={activeIds.has(rule.id)} onToggle={onToggle} />
+              <RuleButton key={rule.id} rule={rule} active={activeIds.has(rule.id)} bonusActive={activeIds.has(`${rule.id}__bonus`)} onToggle={onToggle} />
             ))}
           </div>
         </>
@@ -70,7 +94,7 @@ export function ModifierPanel({ rules, activeIds, onToggle }: Props) {
           </div>
           <div className="px-3 py-2 flex flex-col gap-1.5">
             {stratagems.map(rule => (
-              <RuleButton key={rule.id} rule={rule} active={activeIds.has(rule.id)} onToggle={onToggle} />
+              <RuleButton key={rule.id} rule={rule} active={activeIds.has(rule.id)} bonusActive={activeIds.has(`${rule.id}__bonus`)} onToggle={onToggle} />
             ))}
           </div>
         </>

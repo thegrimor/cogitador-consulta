@@ -41,6 +41,8 @@ export interface ModifierRule {
   isStratagem?: boolean
   cpCost?: number
   effects: Partial<CombatModifiers>
+  bonusCondition?: string              // condición más estricta que desbloquea bonusEffects (ej. "objetivo a media vida")
+  bonusEffects?: Partial<CombatModifiers> // solo se aplica si además se activa el toggle `${id}__bonus`
   requiresAntiKeyword?: string      // regla solo aparece si el arma tiene ANTI-<keyword>
   requiresTargetKeyword?: string    // regla solo aparece si el defensor tiene esta keyword
   requiresAttackerKeyword?: string  // regla solo aparece si la unidad atacante tiene esta keyword

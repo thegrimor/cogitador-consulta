@@ -79,14 +79,17 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'ac_auric_armour',
-    label: 'Auric Armour — repetir impactos 1, repetir heridas 1',
+    label: 'Auric Armour — repetir impactos 1 (+repetir heridas 1 a media vida)',
     description: 'While an Adeptus Custodes Vehicle unit from your army is at Starting Strength, unless that unit is an Aircraft or it is Battle-shocked, add 2 to the Objective Control characteristic of models in that unit. While an ADEPTUS CUSTODES VEHICLE unit from your army is below Starting Strength, each time a',
     factionId: 'AC',
     detachmentId: '000000986',
     effects: {
     rerollHitsOf1: true,
-    rerollWoundsOf1: true,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      rerollWoundsOf1: true,
+    },
   },
   {
     id: 'ac_against_all_odds',
@@ -323,14 +326,17 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'ldr_000002088_tenacious_spirit',
-    label: 'Aleya — +1 impactar, +1 herir (Líder)',
+    label: 'Aleya — +1 impactar (+1 herir a media vida) (Líder)',
     description: 'While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength.',
     factionId: 'AC',
     leaderDatasheetId: '000002088',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'ldr_000002519_golden_laurels',
@@ -1152,14 +1158,17 @@ const RULES_1: ModifierRule[] = [
   { id: 'as_devastating_reprise', label: 'Devastating Reprise — Devastating Wounds, disparo (1PC)', description: "Chorus of Condemnation: when a friendly EXORCIST unit has shot, select one enemy unit hit by those ranged attacks. Your unit's ranged attacks that target that unit have [DEVASTATING WOUNDS].", factionId: 'AS', detachmentId: '000001163', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   {
     id: 'as_the_blood_of_martyrs',
-    label: 'The Blood of Martyrs — +1 impactar, +1 herir',
+    label: 'The Blood of Martyrs — +1 impactar (+1 herir a media vida)',
     description: 'Each time an ADEPTA SORORITAS model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model’s unit is Below Half-strength.',
     factionId: 'AS',
     detachmentId: '000000791',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'as_fervent_purgation',
@@ -1289,7 +1298,7 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'as_righteous_vengeance',
-    label: 'RIGHTEOUS VENGEANCE — repetir impactos, repetir heridas, CaC (1CP)',
+    label: 'RIGHTEOUS VENGEANCE — repetir impactos (+repetir heridas a media vida), CaC (1CP)',
     description: 'Hallowed Martyrs: Until the end of the phase, each time a model in your unit makes a melee attack, you can re-roll the Hit roll and, if your unit is Below Half-strength, you can re-roll the Wound roll as well.',
     factionId: 'AS',
     detachmentId: '000000791',
@@ -1298,8 +1307,11 @@ const RULES_1: ModifierRule[] = [
     cpCost: 1,
     effects: {
     rerollAllHits: true,
-    rerollAllWounds: true,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      rerollAllWounds: true,
+    },
   },
   {
     id: 'as_purity_of_suffering',
@@ -2660,7 +2672,7 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'csm_pick_them_off',
-    label: 'PICK THEM OFF — repetir impactos, repetir heridas, disparo (1CP)',
+    label: 'PICK THEM OFF — repetir impactos (+repetir heridas a media vida), disparo (1CP)',
     description: 'Deceptors: Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If the target is Below Half-strength, you can re-roll the Wound roll as well.',
     factionId: 'CSM',
     detachmentId: '000000868',
@@ -2669,8 +2681,11 @@ const RULES_1: ModifierRule[] = [
     cpCost: 1,
     effects: {
     rerollAllHits: true,
-    rerollAllWounds: true,
   },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
+      rerollAllWounds: true,
+    },
   },
   {
     id: 'csm_pitiless_hunters',
@@ -2701,7 +2716,7 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'csm_persistent_assailants',
-    label: 'PERSISTENT ASSAILANTS — repetir impactos, repetir heridas, CaC (1CP)',
+    label: 'PERSISTENT ASSAILANTS — repetir impactos (+repetir heridas a media vida), CaC (1CP)',
     description: 'Fellhammer Siege-host: Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Hit roll, and if your unit is Below Half-strength you can re-roll the Wound roll as well.',
     factionId: 'CSM',
     detachmentId: '000000871',
@@ -2710,8 +2725,11 @@ const RULES_1: ModifierRule[] = [
     cpCost: 1,
     effects: {
     rerollAllHits: true,
-    rerollAllWounds: true,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      rerollAllWounds: true,
+    },
   },
   {
     id: 'csm_pitiless_cannonade',
@@ -2997,15 +3015,18 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'ldr_000001584_warp_sighted_butcher',
-    label: 'Master Of Executions — repetir impactos, repetir heridas (Líder)',
+    label: 'Master Of Executions — repetir impactos (+repetir heridas a media vida) (Líder)',
     description: 'While this model is leading a unit, each time a model in that unit makes a melee attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that unit is Below Half-strength, you can re-roll the Wound roll as well.',
     factionId: 'CSM',
     leaderDatasheetId: '000001584',
     combatType: 'melee',
     effects: {
     rerollAllHits: true,
-    rerollAllWounds: true,
   },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
+      rerollAllWounds: true,
+    },
   },
   {
     id: 'ldr_000001600_cursed_wardings_psychic',
@@ -4744,7 +4765,7 @@ const RULES_2: ModifierRule[] = [
   },
   {
     id: 'nec_the_spoor_of_frailty',
-    label: 'THE SPOOR OF FRAILTY — +1 impactar, +1 herir (1CP)',
+    label: 'THE SPOOR OF FRAILTY — +1 impactar (+1 herir a media vida) (1CP)',
     description: 'Annihilation Legion: Until the end of the phase, each time a model from your unit makes an attack that targets a unit below Starting Strength, add 1 to the Hit roll. If the target is Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'NEC',
     detachmentId: '000000815',
@@ -4752,8 +4773,11 @@ const RULES_2: ModifierRule[] = [
     cpCost: 1,
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'nec_annihilation_protocol',
@@ -6494,7 +6518,7 @@ const RULES_2: ModifierRule[] = [
   },
   {
     id: 'sm_heroes_of_the_chapter',
-    label: 'HEROES OF THE CHAPTER — +1 impactar, +1 herir (1CP)',
+    label: 'HEROES OF THE CHAPTER — +1 impactar (+1 herir a media vida) (1CP)',
     description: '1st Company Task Force: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'SM',
     detachmentId: '000000798',
@@ -6502,8 +6526,11 @@ const RULES_2: ModifierRule[] = [
     cpCost: 1,
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'sm_armour_of_contempt',
@@ -6911,7 +6938,7 @@ const RULES_2: ModifierRule[] = [
   },
   {
     id: 'sm_fury_of_the_first',
-    label: 'FURY OF THE FIRST — +1 impactar, +1 herir (1CP)',
+    label: 'FURY OF THE FIRST — +1 impactar (+1 herir bajo Fuerza Inicial) (1CP)',
     description: 'Emperor’s Shield: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below its Starting Strength, add 1 to the Wound roll as well.',
     factionId: 'SM',
     detachmentId: '000001103',
@@ -6919,8 +6946,11 @@ const RULES_2: ModifierRule[] = [
     cpCost: 1,
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está por debajo de su Fuerza Inicial',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'sm_onslaught_of_fire',
@@ -7053,7 +7083,7 @@ const RULES_2: ModifierRule[] = [
   },
   {
     id: 'sm_ruthless_butchery',
-    label: 'RUTHLESS BUTCHERY — +1 impactar, +1 herir, CaC (1CP)',
+    label: 'RUTHLESS BUTCHERY — +1 impactar (+1 herir bajo Fuerza Inicial), CaC (1CP)',
     description: 'Hammer of Avernii: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below Starting Strength, add 1 to the Wound roll as well.',
     factionId: 'SM',
     detachmentId: '000001118',
@@ -7062,8 +7092,11 @@ const RULES_2: ModifierRule[] = [
     cpCost: 1,
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está por debajo de su Fuerza Inicial',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'sm_armour_of_contempt_14',
@@ -8070,14 +8103,17 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'ldr_000000286_refuse_to_accept_defeat',
-    label: 'Krom Dragongaze — +1 impactar, +1 herir (Líder)',
+    label: 'Krom Dragongaze — +1 impactar (+1 herir a media vida) (Líder)',
     description: 'While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength.',
     factionId: 'SM',
     leaderDatasheetId: '000000286',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'ldr_000000288_born_of_wolves',
@@ -8280,25 +8316,31 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'ldr_000002677_keep_the_banner_high',
-    label: 'Ancient In Terminator Armour — +1 impactar, +1 herir (Líder)',
+    label: 'Ancient In Terminator Armour — +1 impactar (+1 herir a media vida) (Líder)',
     description: 'While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength.',
     factionId: 'SM',
     leaderDatasheetId: '000002677',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'ldr_000002713_to_the_last',
-    label: 'Pedro Kantor — +1 impactar, +1 herir (Líder)',
+    label: 'Pedro Kantor — +1 impactar (+1 herir a media vida) (Líder)',
     description: 'While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength.',
     factionId: 'SM',
     leaderDatasheetId: '000002713',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'ldr_000002738_sanguinary_priest',
@@ -8531,14 +8573,17 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'tau_hunter_s_instincts',
-    label: 'Hunter’s Instincts — +1 impactar, +1 herir',
+    label: 'Hunter’s Instincts — +1 impactar (+1 herir a media vida)',
     description: 'Each time a Kroot model from your army makes an attack, add 1 to the Hit roll if the target of that attack is below its Starting Strength, and add 1 to the Wound roll as well if the target of that attack is Below Half-strength.',
     factionId: 'TAU',
     detachmentId: '000000847',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'tau_markerlight_precision',
@@ -9141,14 +9186,17 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'tyr_enraged_behemoths',
-    label: 'Enraged Behemoths — +1 impactar, +1 herir',
+    label: 'Enraged Behemoths — +1 impactar (+1 herir a media vida)',
     description: 'Each time a Tyranids Monster model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model’s unit is Below Half-strength. In addition, while a TYRANIDS MONSTER unit from your army (excluding Battle-s',
     factionId: 'TYR',
     detachmentId: '000000769',
     effects: {
     hitMod: 1,
-    woundMod: 1,
   },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
+      woundMod: 1,
+    },
   },
   {
     id: 'tyr_synaptic_imperatives',
@@ -9683,13 +9731,16 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'aura_000002630_beacons_of_rage_aura',
-    label: 'Eightbound — +1 impactar, +1 herir (Aura)',
-    description: 'While a friendly WORLD EATERS unit is within 6" of this unit, each time a model in that unit makes a melee attack that targets a unit (excluding MONSTERS and VEHICLES ), add 1 to the Hit roll. If that attack targets a unit (excluding MONSTERS and VEHICLES ) that is Below Half-strength, add 1 to the',
+    label: 'Eightbound — +1 impactar (Aura)',
+    description: 'While a friendly WORLD EATERS unit is within 6" of this unit, each time a model in that unit makes a melee attack that targets a unit (excluding MONSTERS and VEHICLES), add 1 to the Hit roll. If that attack targets a unit (excluding MONSTERS and VEHICLES) that is Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'WE',
     sourceDatasheetId: '000002630',
     combatType: 'melee',
     effects: {
     hitMod: 1,
+  },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
     woundMod: 1,
   },
   },
@@ -9789,7 +9840,7 @@ const RULES_3: ModifierRule[] = [
   // ── AdM Cohort Cybernetica (000000823) ──────────────────────────────────────
   { id: 'adm_auto_divinatory', label: 'AUTO-DIVINATORY TARGETING — BS 3+ e ignora cobertura, disparo (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, ranged weapons equipped by models in your unit have a Ballistic Skill characteristic of 3+ and the [IGNORES COVER] ability.', factionId: 'AdM', detachmentId: '000000823', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
   { id: 'adm_benevolence', label: 'BENEVOLENCE OF THE OMNISSIAH — FNP 6+ (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, models in your unit have the Feel No Pain 6+ ability.', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 1, target: 'defender', effects: { feelNoPainThreshold: 6 } },
-  { id: 'adm_machine_spirit_resurgent', label: 'MACHINE SPIRIT RESURGENT — repetir todos los impactos (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, each time a model in your unit makes an attack, you can re-roll the Hit roll. If your unit is Below Half-strength, you can re-roll the Wound roll as well.', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 1, effects: { rerollAllHits: true } },
+  { id: 'adm_machine_spirit_resurgent', label: 'MACHINE SPIRIT RESURGENT — repetir impactos (+repetir heridas a media vida) (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, each time a model in your unit makes an attack, you can re-roll the Hit roll. If your unit is Below Half-strength, you can re-roll the Wound roll as well.', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 1, effects: { rerollAllHits: true }, bonusCondition: 'la unidad está a media vida o menos', bonusEffects: { rerollAllWounds: true } },
 
 
   // ── Unidades y líderes generados desde CSV ────────────────────────────────
@@ -10708,12 +10759,15 @@ const RULES_4: ModifierRule[] = [
   },
   {
     id: 'unit_000002613_grim_demeanour',
-    label: 'Death Korps Of Krieg — +1 impactar, +1 herir',
+    label: 'Death Korps Of Krieg — +1 impactar (+1 herir a media vida)',
     description: 'Each time a model in this unit makes an attack, add 1 to the Hit roll if this unit is below its Starting Strength, and add 1 to the Wound roll as well if this unit is Below Half-strength.',
     factionId: 'AM',
     datasheetId: '000002613',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -11269,12 +11323,15 @@ const RULES_4: ModifierRule[] = [
   },
   {
     id: 'unit_000003826_indomitor_doctrines',
-    label: 'Indomitor Kill Team — +1 impactar, +1 herir',
+    label: 'Indomitor Kill Team — +1 impactar (+1 herir a media vida)',
     description: 'Each time a model in this unit makes an attack, add 1 to the Hit roll if this unit is below its Starting Strength, and add 1 to the Wound roll as well if this unit is Below Half-strength.',
     factionId: 'AoI',
     datasheetId: '000003826',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -11999,12 +12056,15 @@ const RULES_4: ModifierRule[] = [
   },
   {
     id: 'unit_000003876_visions_of_suffering_psychic',
-    label: 'Nemesis Claw — +1 impactar, +1 herir',
+    label: 'Nemesis Claw — +1 impactar (+1 herir a media vida)',
     description: 'Each time a model in this unit makes an attack that targets an enemy unit that is below its Starting Strength, add 1 to the Hit roll. If that enemy unit is Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'CSM',
     datasheetId: '000003876',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -12326,12 +12386,15 @@ const RULES_4: ModifierRule[] = [
   },
   {
     id: 'unit_000000643_silent_executioner',
-    label: 'Drazhar — repetir impactos, repetir heridas',
+    label: 'Drazhar — repetir impactos (+repetir heridas a media vida)',
     description: 'Each time this model makes an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that target is Below Half-strength, you can re-roll the Wound roll as well.',
     factionId: 'DRU',
     datasheetId: '000000643',
     effects: {
       rerollAllHits: true,
+    },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
       rerollAllWounds: true,
     },
   },
@@ -12664,12 +12727,15 @@ const RULES_4: ModifierRule[] = [
   },
   {
     id: 'unit_000004091_glutton_for_punishment',
-    label: 'Maulerfiend — +1 impactar, +1 herir',
+    label: 'Maulerfiend — +1 impactar (+1 herir a media vida)',
     description: 'Each time this model makes an attack, if it is below its Starting Strength, add 1 to the Hit roll. If this model is also Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'EC',
     datasheetId: '000004091',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'el modelo está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -12820,12 +12886,15 @@ const RULES_4: ModifierRule[] = [
   },
   {
     id: 'unit_000003950_grim_demeanour',
-    label: 'Death Korps Of Krieg — +1 impactar, +1 herir',
+    label: 'Death Korps Of Krieg — +1 impactar (+1 herir a media vida)',
     description: 'Each time a model in this unit makes an attack, add 1 to the Hit roll if this unit is below its Starting Strength, and add 1 to the Wound roll as well if this unit is Below Half-strength.',
     factionId: 'GC',
     datasheetId: '000003950',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -15870,12 +15939,15 @@ const RULES_5: ModifierRule[] = [
   },
   {
     id: 'unit_000000474_encephalic_diffusion_aura_psychic',
-    label: 'Maleceptor — -1 impactar, -1 herir',
+    label: 'Maleceptor — -1 impactar (-1 herir si el objetivo está a media vida)',
     description: 'While an enemy unit is within 6" of this model, each time a model in that unit makes an attack, subtract 1 from the Hit roll, and, if that enemy unit is Below Half-strength, subtract 1 from the Wound roll as well.',
     factionId: 'TYR',
     datasheetId: '000000474',
     effects: {
       hitMod: -1,
+    },
+    bonusCondition: 'la unidad enemiga está a media vida o menos',
+    bonusEffects: {
       woundMod: -1,
     },
   },
@@ -15967,13 +16039,16 @@ const RULES_5: ModifierRule[] = [
   },
   {
     id: 'unit_000002689_feeding_frenzy',
-    label: 'Psychophage — +1 impactar, +1 herir CaC',
+    label: 'Psychophage — +1 impactar (+1 herir a media vida), CaC',
     description: 'Each time this model makes a melee attack that targets a unit that is below its Starting Strength, add 1 to the Hit roll. If that target is also Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'TYR',
     datasheetId: '000002689',
     combatType: 'melee',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -16134,12 +16209,15 @@ const RULES_5: ModifierRule[] = [
   },
   {
     id: 'unit_000001603_threat_level_rising',
-    label: 'Spindle Drones — +1 impactar, +1 herir',
+    label: 'Spindle Drones — +1 impactar (+1 herir a media vida)',
     description: 'Each time a model in this unit makes an attack, add 1 to the Hit roll if this unit is below its Starting Strength, and add 1 to the Wound roll as well if this unit is Below Half-strength.',
     factionId: 'UN',
     datasheetId: '000001603',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'la unidad está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
@@ -16247,13 +16325,16 @@ const RULES_5: ModifierRule[] = [
   },
   {
     id: 'unit_000002639_savage_exaltation',
-    label: 'Maulerfiend — +1 impactar, +1 herir CaC',
+    label: 'Maulerfiend — +1 impactar (+1 herir a media vida), CaC',
     description: 'Each time this model makes a melee attack that targets an enemy unit that is below its Starting Strength, add 1 to the Hit roll and, if that attack targets an enemy unit that is Below Half-strength, add 1 to the Wound roll as well.',
     factionId: 'WE',
     datasheetId: '000002639',
     combatType: 'melee',
     effects: {
       hitMod: 1,
+    },
+    bonusCondition: 'el objetivo está a media vida o menos',
+    bonusEffects: {
       woundMod: 1,
     },
   },
