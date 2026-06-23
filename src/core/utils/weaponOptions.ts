@@ -49,13 +49,21 @@ export function parseUnitSlots(compositionLines: string[]): UnitSlot[] {
   const slots: UnitSlot[] = []
   for (const line of relevant) {
     const clean = stripHtml(line)
-    const rangeMatch = clean.match(/^(\d+)\s*-\s*(\d+)\s+(.+)$/)
-    const singleMatch = clean.match(/^(\d+)\s+(.+)$/)
-    if (rangeMatch) {
-      slots.push({ role: rangeMatch[3].trim(), min: parseInt(rangeMatch[1]), max: parseInt(rangeMatch[2]) })
-    } else if (singleMatch) {
-      const n = parseInt(singleMatch[1])
-      slots.push({ role: singleMatch[2].trim(), min: n, max: n })
+    // Lines like "1 Grenadier Sergeant and 9 Grenadiers" or "1 X, 7 Y and 1 Z" declare several roles at once.
+    for (const part of clean.split(/,\s*|\s+and\s+/i)) {
+      const segment = part.trim().replace(/\.+$/, '')
+      const rangeMatch = segment.match(/^(\d+)\s*-\s*(\d+)\s+(.+)$/)
+      const singleMatch = segment.match(/^(\d+)\s+(.+)$/)
+      if (rangeMatch) {
+        const role = rangeMatch[3].trim()
+        if (/^models?(\s+maximum)?$/i.test(role)) continue
+        slots.push({ role, min: parseInt(rangeMatch[1]), max: parseInt(rangeMatch[2]) })
+      } else if (singleMatch) {
+        const role = singleMatch[2].trim()
+        if (/^models?(\s+maximum)?$/i.test(role)) continue
+        const n = parseInt(singleMatch[1])
+        slots.push({ role, min: n, max: n })
+      }
     }
   }
   return slots
@@ -81,13 +89,13 @@ export function resolveRoleCounts(slots: UnitSlot[], totalModelCount: number): R
 }
 
 function matchRole(text: string, slots: UnitSlot[]): string | undefined {
-  let norm = text.trim().replace(/^(the|this|any number of|up to \d+|one)\s+/i, '').trim()
+  let norm = text.trim().replace(/^(the|this|any number(?:s)? of|each|up to \d+|one)\s+/i, '').trim()
   norm = norm.replace(/[’']s$/i, '').trim().toLowerCase()
   const exact = slots.find(s => s.role.toLowerCase() === norm)
   if (exact) return exact.role
-  const stripTrailingS = (s: string) => s.replace(/s$/i, '')
-  const noS = stripTrailingS(norm)
-  const byStem = slots.find(s => stripTrailingS(s.role.toLowerCase()) === noS)
+  const singularize = (s: string) => (/ies$/i.test(s) ? s.slice(0, -3) + 'y' : s.replace(/s$/i, ''))
+  const noS = singularize(norm)
+  const byStem = slots.find(s => singularize(s.role.toLowerCase()) === noS)
   if (byStem) return byStem.role
   const candidates = slots.filter(
     s => norm.includes(s.role.toLowerCase()) || s.role.toLowerCase().includes(norm),
@@ -116,6 +124,10 @@ function parseSubjectScope(subjectRaw: string, slots: UnitSlot[]): SubjectScope 
     return { scope: 'unparsed' }
   }
 
+  if (/^(this|the) unit$/i.test(subject)) {
+    return { scope: 'fixed_count', fixedCount: 1 }
+  }
+
   let m = subject.match(/^up to (\d+)\s+(.+)$/i)
   if (m) {
     const n = parseInt(m[1])
@@ -125,10 +137,11 @@ function parseSubjectScope(subjectRaw: string, slots: UnitSlot[]): SubjectScope 
     return role ? { scope: 'fixed_count', fixedCount: n, roleName: role } : { scope: 'unparsed' }
   }
 
-  m = subject.match(/^any number of (.+)$/i)
+  m = subject.match(/^any numbers? of (.+)$/i)
   if (m) {
-    if (/^models?$/i.test(m[1].trim())) return { scope: 'all_models' }
-    const role = matchRole(m[1], slots)
+    const roleText = m[1].trim()
+    if (/^models?$/i.test(roleText)) return { scope: 'all_models' }
+    const role = matchRole(roleText.replace(/\s+models?$/i, ''), slots)
     return role ? { scope: 'role', roleName: role } : { scope: 'unparsed' }
   }
 
@@ -156,6 +169,39 @@ function makeRule(partial: Omit<WeaponOptionRule, 'id'>): WeaponOptionRule {
   return { id: `wor-${ruleCounter++}`, ...partial }
 }
 
+/** Cuts a trailing clarifying sentence ("...with 1 power fist. That model's boltgun cannot be replaced.") down to the first sentence. */
+function firstSentence(s: string): string {
+  return s.split(/\.\s+(?=[A-Z])/)[0]
+}
+
+interface ReplaceClause {
+  subjectRaw: string
+  fromText: string
+  tail: string
+}
+
+/** Matches the handful of phrasing templates GW uses for "swap weapon X for weapon Y". */
+function matchReplaceClause(text: string): ReplaceClause | null {
+  // ── "<subject> can (each) have its/their <weapon[s]> replaced with <...>" (tolerates "replace"/missing "be") ──
+  let m = text.match(/^(.+?) can (?:each )?have (?:its|their) (.+?) (?:replaced|replace)(?:\s+with)?\s+(.+)$/i)
+  // ── "<subject> can have each <weapon> it is equipped with replaced with <...>" ──
+  if (!m) m = text.match(/^(.+?) can have each (.+?) it is equipped with replaced with (.+)$/i)
+  // ── "each of <subject>'s <weapon[s]> can be replaced with <...>" ──
+  if (!m) {
+    const eachOf = text.match(/^each of (.+?)[’'](?:s)?\s+(.+?) can be replaced with (.+)$/i)
+    if (eachOf) m = eachOf
+  }
+  // ── "<subject>'s <weapon[s]> can (each) be replaced with <...>" (tolerates "replace"/missing "be") ──
+  if (!m) m = text.match(/^(.+?)[’'](?:s)?\s+(.+?) can(?: each)?(?: be)? (?:replaced|replace)(?:\s+with)?\s+(.+)$/i)
+  // ── "<subject> can (each) replace one of its/their <weapon[s]> with <...>" ──
+  if (!m) m = text.match(/^(.+?) can(?: each)? replace one of (?:its|their) (.+?) with:?\s*(.*)$/i)
+  // ── "<subject> can (each) replace its/their <weapon[s]> with <...>" ──
+  if (!m) m = text.match(/^(.+?) can(?: each)? replace (?:its|their) (.+?) with:?\s*(.*)$/i)
+  if (!m) return null
+  const [, subjectRaw, fromText, tail] = m
+  return { subjectRaw, fromText, tail }
+}
+
 /**
  * Best-effort parser for GW's free-text wargear option lines. Covers the
  * dominant phrasing templates (replace/equip, single weapon, "one of the
@@ -170,14 +216,18 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
     const head = list ? list.head : stripHtml(raw)
 
     // ── "for every N models in this unit, M model(s) ... can be equipped with ..." ──
-    const scaling = head.match(/for every (\d+) models? in (?:this|the) unit,\s*(\d+) models?.*?\bequipped with\b/i)
+    const scaling = head.match(
+      new RegExp(`for every ${NUM_PATTERN} models? in (?:this|the) unit,\\s*${NUM_PATTERN} .+?\\bcan (?:each )?be equipped with\\b`, 'i'),
+    )
     if (scaling) {
-      const choices = list ? list.items.map(splitBundle) : [splitBundle(head.split(/equipped with/i).pop() ?? '')]
+      const choices = list
+        ? list.items.map(splitBundle)
+        : [splitBundle(firstSentence(head.split(/can (?:each )?be equipped with/i).pop() ?? ''))]
       return makeRule({
         raw,
         scope: 'scaling',
-        scaleEvery: parseInt(scaling[1]),
-        scaleGrant: parseInt(scaling[2]),
+        scaleEvery: parseCount(scaling[1]),
+        scaleGrant: parseCount(scaling[2]),
         kind: 'add',
         fromWeapons: [],
         choices,
@@ -187,45 +237,38 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       })
     }
 
-    // ── "for every N models in this unit, M model's <weapon[s]> can be replaced with ..." ──
-    const scalingReplace = head.match(
-      /^for every (\d+) models? in (?:this|the) unit,\s*(\d+) .+?[’'](?:s)?\s+(.+?) can be replaced with (.+)$/i,
+    // ── "for every N models in this unit, (up to) M <subject> ... replaced with ..." ──
+    const scalingPrefix = head.match(
+      new RegExp(`^for every ${NUM_PATTERN} models? in (?:this|the) unit,\\s*(?:up to )?${NUM_PATTERN} (.+)$`, 'i'),
     )
-    if (scalingReplace) {
-      const [, every, grant, fromText, tail] = scalingReplace
-      const choices = list ? list.items.map(splitBundle) : [splitBundle(tail)]
-      return makeRule({
-        raw,
-        scope: 'scaling',
-        scaleEvery: parseInt(every),
-        scaleGrant: parseInt(grant),
-        kind: 'replace',
-        fromWeapons: splitBundle(fromText),
-        choices,
-        exclusive: true,
-        maxStack: 1,
-        allowRepeatChoice: false,
-      })
+    if (scalingPrefix) {
+      const [, every, grant, rest] = scalingPrefix
+      const clause = matchReplaceClause(rest)
+      if (clause) {
+        const fromWeapons = splitBundle(clause.fromText.replace(/\beach\b/i, '').trim())
+        const choices = list ? list.items.map(splitBundle) : [splitBundle(firstSentence(clause.tail))]
+        return makeRule({
+          raw,
+          scope: 'scaling',
+          scaleEvery: parseCount(every),
+          scaleGrant: parseCount(grant),
+          kind: 'replace',
+          fromWeapons,
+          choices,
+          exclusive: true,
+          maxStack: 1,
+          allowRepeatChoice: false,
+        })
+      }
     }
 
-    // ── "<subject> can (each) have its/their <weapon[s]> replaced with <...>" ──
-    let m = head.match(/^(.+?) can (?:each )?have (?:its|their) (.+?) replaced with (.+)$/i)
-    // ── "<subject> can have each <weapon> it is equipped with replaced with <...>" ──
-    if (!m) m = head.match(/^(.+?) can have each (.+?) it is equipped with replaced with (.+)$/i)
-    // ── "each of <subject>'s <weapon[s]> can be replaced with <...>" ──
-    if (!m) {
-      const eachOf = head.match(/^each of (.+?)[’'](?:s)?\s+(.+?) can be replaced with (.+)$/i)
-      if (eachOf) m = eachOf
-    }
-    // ── "<subject>'s <weapon[s]> can be replaced with <...>" ──
-    if (!m) m = head.match(/^(.+?)[’'](?:s)?\s+(.+?) can be replaced with (.+)$/i)
-    // ── "<subject> can replace its/their <weapon[s]> with <...>" ──
-    if (!m) m = head.match(/^(.+?) can replace (?:its|their) (.+?) with (.+)$/i)
-    if (m) {
-      const [, subjectRaw, fromText, tail] = m
+    // ── "<subject> can (each) have/replace its/their <weapon[s]> (replaced) with <...>" ──
+    const replaceClause = matchReplaceClause(head)
+    if (replaceClause) {
+      const { subjectRaw, fromText, tail } = replaceClause
       const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
       const fromWeapons = splitBundle(fromText.replace(/\beach\b/i, '').trim())
-      const choices = list ? list.items.map(splitBundle) : [splitBundle(tail)]
+      const choices = list ? list.items.map(splitBundle) : [splitBundle(firstSentence(tail))]
       return makeRule({
         raw,
         scope,
@@ -241,7 +284,7 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
     }
 
     // ── "<subject> can (each) be equipped with up to N of the following[, ...duplicates...]: <ul>" ──
-    m = head.match(new RegExp(`^(.+?) can(?: each)? be equipped with:?\\s*up to ${NUM_PATTERN} of the following\\b`, 'i'))
+    let m = head.match(new RegExp(`^(.+?) can(?: each)? be equipped with:?\\s*up to ${NUM_PATTERN} of the following\\b`, 'i'))
     if (m && list) {
       const [, subjectRaw, nStr] = m
       const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
@@ -262,7 +305,7 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
     }
 
     // ── "<subject> can be equipped with up to N <weapon>." (repeatable single weapon) ──
-    m = head.match(new RegExp(`^(.+?) can be equipped with:?\\s*up to ${NUM_PATTERN} (.+)$`, 'i'))
+    m = head.match(new RegExp(`^(.+?) can(?: each)? be equipped with:?\\s*up to ${NUM_PATTERN} (.+)$`, 'i'))
     if (m) {
       const [, subjectRaw, nStr, weaponText] = m
       const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
@@ -281,7 +324,7 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
     }
 
     // ── "<subject> can be equipped with any of the following: <ul>" (independent adds) ──
-    m = head.match(/^(.+?) can be equipped with:?\s*any of the following:?$/i)
+    m = head.match(/^(.+?) can(?: each)? be equipped with:?\s*any of the following:?$/i)
     if (m && list) {
       const { scope, roleName, fixedCount } = parseSubjectScope(m[1], slots)
       return makeRule({
@@ -298,12 +341,12 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       })
     }
 
-    // ── "<subject> can be equipped with one of the following: <ul>" / "<subject> can be equipped with <weapon>." ──
-    m = head.match(/^(.+?) can be equipped with:?\s*(?:one of the following:?|(.+))$/i)
+    // ── "<subject> can/must be equipped with one of the following: <ul>" / "<subject> can be equipped with <weapon>." ──
+    m = head.match(/^(.+?) (?:can(?: each)?|must) be equipped with:?\s*(?:one of the following:?|(.+))$/i)
     if (m) {
       const [, subjectRaw, inlineWeapon] = m
       const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
-      const choices = list ? list.items.map(splitBundle) : [splitBundle(inlineWeapon ?? '')]
+      const choices = list ? list.items.map(splitBundle) : [splitBundle(firstSentence(inlineWeapon ?? ''))]
       return makeRule({
         raw,
         scope,
