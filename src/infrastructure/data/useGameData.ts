@@ -157,17 +157,24 @@ function parseModel(raw: RawDatasheetModel): ModelProfile {
   }
 }
 
+// The scraped source mislabels some unit-specific abilities with the name of the
+// page layout column they appeared in (in Russian) instead of an actual ability type.
+// These are always datasheet-specific rules, so normalize them to 'Datasheet'.
+const STRAY_COLUMN_LABELS = new Set(['Fortification (левая колонка)', 'Special (правая колонка)', 'Без заголовка'])
+
 function resolveAbility(
   row: RawDatasheetAbility,
   abilitiesMap: Record<string, RawAbility>,
 ): Ability | null {
-  const type = row.type as 'Core' | 'Faction' | 'Datasheet'
+  const rawType = STRAY_COLUMN_LABELS.has(row.type) ? 'Datasheet' : row.type
+  const type = rawType as 'Core' | 'Faction' | 'Datasheet'
   if (row.name) {
     return { name: row.name, description: row.description, type, model: row.model || undefined }
   }
   const ref = abilitiesMap[row.ability_id]
   if (!ref) return null
-  return { name: ref.name, description: ref.description, type }
+  const name = row.parameter ? `${ref.name} ${row.parameter}` : ref.name
+  return { name, description: ref.description, type }
 }
 
 function enrichDatasheet(
