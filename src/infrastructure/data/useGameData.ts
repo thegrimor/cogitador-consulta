@@ -157,16 +157,20 @@ function parseModel(raw: RawDatasheetModel): ModelProfile {
   }
 }
 
-// The scraped source mislabels some unit-specific abilities with the name of the
-// page layout column they appeared in (in Russian) instead of an actual ability type.
-// These are always datasheet-specific rules, so normalize them to 'Datasheet'.
-const STRAY_COLUMN_LABELS = new Set(['Fortification (левая колонка)', 'Special (правая колонка)', 'Без заголовка'])
+// The scraped source mislabels some unit-specific abilities, either with the name of
+// the page layout column they appeared in (in Russian), or with a wargear/primarch
+// sub-category instead of an actual ability type. These are always datasheet-specific
+// rules, so normalize them to 'Datasheet' to keep them out of the generic/faction bucket.
+const NON_STANDARD_TYPE_LABELS = new Set([
+  'Fortification (левая колонка)', 'Special (правая колонка)', 'Без заголовка',
+  'Wargear', 'Wargear profile', 'Primarch',
+])
 
 function resolveAbility(
   row: RawDatasheetAbility,
   abilitiesMap: Record<string, RawAbility>,
 ): Ability | null {
-  const rawType = STRAY_COLUMN_LABELS.has(row.type) ? 'Datasheet' : row.type
+  const rawType = NON_STANDARD_TYPE_LABELS.has(row.type) ? 'Datasheet' : row.type
   const type = rawType as 'Core' | 'Faction' | 'Datasheet'
   if (row.name) {
     return { name: row.name, description: row.description, type, model: row.model || undefined }
