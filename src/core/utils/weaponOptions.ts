@@ -12,6 +12,27 @@ function extractListItems(html: string): { items: string[]; head: string } | nul
   return { items: items.filter(Boolean), head }
 }
 
+const NUMBER_WORDS: Record<string, number> = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  ten: 10,
+}
+
+const NUM_PATTERN = `(\\d+|${Object.keys(NUMBER_WORDS).join('|')})`
+
+/** Parses a count that may be a digit or a spelled-out number word ("two", "three", ...). */
+function parseCount(s: string): number {
+  const n = parseInt(s, 10)
+  return Number.isNaN(n) ? NUMBER_WORDS[s.toLowerCase()] ?? 0 : n
+}
+
 /** Splits "1 X and 1 Y" / "1 X, 1 Y and 1 Z" into ["X", "Y", "Z"], dropping leading quantities. */
 function splitBundle(text: string): string[] {
   return text
@@ -219,8 +240,29 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       })
     }
 
+    // ── "<subject> can (each) be equipped with up to N of the following[, ...duplicates...]: <ul>" ──
+    m = head.match(new RegExp(`^(.+?) can(?: each)? be equipped with:?\\s*up to ${NUM_PATTERN} of the following\\b`, 'i'))
+    if (m && list) {
+      const [, subjectRaw, nStr] = m
+      const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
+      const cannotDuplicate = /cannot take duplicate|cannot be equipped with duplicate/i.test(head)
+      const allowRepeatChoice = !cannotDuplicate && /\bcan take duplicate/i.test(head)
+      return makeRule({
+        raw,
+        scope,
+        roleName,
+        fixedCount,
+        kind: 'add',
+        fromWeapons: [],
+        choices: list.items.map(splitBundle),
+        exclusive: false,
+        maxStack: parseCount(nStr),
+        allowRepeatChoice,
+      })
+    }
+
     // ── "<subject> can be equipped with up to N <weapon>." (repeatable single weapon) ──
-    m = head.match(/^(.+?) can be equipped with:?\s*up to (\d+) (.+)$/i)
+    m = head.match(new RegExp(`^(.+?) can be equipped with:?\\s*up to ${NUM_PATTERN} (.+)$`, 'i'))
     if (m) {
       const [, subjectRaw, nStr, weaponText] = m
       const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
@@ -233,7 +275,7 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
         fromWeapons: [],
         choices: [splitBundle(weaponText)],
         exclusive: false,
-        maxStack: parseInt(nStr),
+        maxStack: parseCount(nStr),
         allowRepeatChoice: true,
       })
     }
