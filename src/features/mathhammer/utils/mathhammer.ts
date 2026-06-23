@@ -161,37 +161,47 @@ export const DEFAULT_MODS: CombatModifiers = {
   devastatingWoundsBonus: false,
 }
 
+function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): void {
+  if (e.hitMod)              result.hitMod              += e.hitMod
+  if (e.woundMod)            result.woundMod            += e.woundMod
+  if (e.apMod)               result.apMod               += e.apMod
+  if (e.saveMod)             result.saveMod             += e.saveMod
+  if (e.strengthMod)         result.strengthMod         += e.strengthMod
+  if (e.attacksMod)          result.attacksMod          += e.attacksMod
+  if (e.damageMod)           result.damageMod           += e.damageMod
+  if (e.damageReduction)     result.damageReduction     += e.damageReduction
+  if (e.rerollHitsOf1)       result.rerollHitsOf1        = true
+  if (e.rerollAllHits)       result.rerollAllHits        = true
+  if (e.rerollWoundsOf1)     result.rerollWoundsOf1      = true
+  if (e.rerollAllWounds)     result.rerollAllWounds      = true
+  if (e.rerollDamageOf1)     result.rerollDamageOf1      = true
+  if (e.rerollAllDamage)     result.rerollAllDamage      = true
+  if (e.lethalHitsBonus)     result.lethalHitsBonus      = true
+  if (e.devastatingWoundsBonus) result.devastatingWoundsBonus = true
+  if (e.sustainedHitsBonus)  result.sustainedHitsBonus   = Math.max(result.sustainedHitsBonus, e.sustainedHitsBonus)
+  if (e.cleaveBonus)         result.cleaveBonus          = Math.max(result.cleaveBonus, e.cleaveBonus)
+  if (e.critThreshold != null)      result.critThreshold      = Math.min(result.critThreshold, e.critThreshold)
+  if (e.woundCritThreshold != null) result.woundCritThreshold = Math.min(result.woundCritThreshold, e.woundCritThreshold)
+  if (e.overwatchThreshold != null) result.overwatchThreshold = Math.min(result.overwatchThreshold, e.overwatchThreshold)
+  if (e.feelNoPainThreshold != null) {
+    result.feelNoPainThreshold = result.feelNoPainThreshold === null
+      ? e.feelNoPainThreshold
+      : Math.min(result.feelNoPainThreshold, e.feelNoPainThreshold)
+  }
+}
+
+// A rule's bonusEffects only apply when both `${rule.id}` and `${rule.id}__bonus`
+// are active — the bonus represents a stricter condition layered on top of the
+// rule's own (weaker or unconditional) condition, never on its own.
 export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): CombatModifiers {
   const result = { ...DEFAULT_MODS }
-  for (const id of activeIds) {
+  const active = new Set(activeIds)
+  for (const id of active) {
     const rule = rules.find(r => r.id === id)
     if (!rule) continue
-    const e = rule.effects
-    if (e.hitMod)              result.hitMod              += e.hitMod
-    if (e.woundMod)            result.woundMod            += e.woundMod
-    if (e.apMod)               result.apMod               += e.apMod
-    if (e.saveMod)             result.saveMod             += e.saveMod
-    if (e.strengthMod)         result.strengthMod         += e.strengthMod
-    if (e.attacksMod)          result.attacksMod          += e.attacksMod
-    if (e.damageMod)           result.damageMod           += e.damageMod
-    if (e.damageReduction)     result.damageReduction     += e.damageReduction
-    if (e.rerollHitsOf1)       result.rerollHitsOf1        = true
-    if (e.rerollAllHits)       result.rerollAllHits        = true
-    if (e.rerollWoundsOf1)     result.rerollWoundsOf1      = true
-    if (e.rerollAllWounds)     result.rerollAllWounds      = true
-    if (e.rerollDamageOf1)     result.rerollDamageOf1      = true
-    if (e.rerollAllDamage)     result.rerollAllDamage      = true
-    if (e.lethalHitsBonus)     result.lethalHitsBonus      = true
-    if (e.devastatingWoundsBonus) result.devastatingWoundsBonus = true
-    if (e.sustainedHitsBonus)  result.sustainedHitsBonus   = Math.max(result.sustainedHitsBonus, e.sustainedHitsBonus)
-    if (e.cleaveBonus)         result.cleaveBonus          = Math.max(result.cleaveBonus, e.cleaveBonus)
-    if (e.critThreshold != null)      result.critThreshold      = Math.min(result.critThreshold, e.critThreshold)
-    if (e.woundCritThreshold != null) result.woundCritThreshold = Math.min(result.woundCritThreshold, e.woundCritThreshold)
-    if (e.overwatchThreshold != null) result.overwatchThreshold = Math.min(result.overwatchThreshold, e.overwatchThreshold)
-    if (e.feelNoPainThreshold != null) {
-      result.feelNoPainThreshold = result.feelNoPainThreshold === null
-        ? e.feelNoPainThreshold
-        : Math.min(result.feelNoPainThreshold, e.feelNoPainThreshold)
+    applyEffects(result, rule.effects)
+    if (rule.bonusEffects && active.has(`${rule.id}__bonus`)) {
+      applyEffects(result, rule.bonusEffects)
     }
   }
   return result
