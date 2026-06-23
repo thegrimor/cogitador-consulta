@@ -9730,6 +9730,17 @@ const RULES_3: ModifierRule[] = [
   },
   },
   {
+    id: 'unit_000002624_devastating_assault',
+    label: 'Daemon Prince of Khorne — Devastating Wounds tras Carga (CaC)',
+    description: 'Each time this model makes a Charge move, until the end of the turn, its melee weapons have the [DEVASTATING WOUNDS] ability.',
+    factionId: 'WE',
+    datasheetId: '000002624',
+    combatType: 'melee',
+    effects: {
+    devastatingWoundsBonus: true,
+  },
+  },
+  {
     id: 'aura_000002630_beacons_of_rage_aura',
     label: 'Eightbound — +1 impactar (Aura)',
     description: 'While a friendly WORLD EATERS unit is within 6" of this unit, each time a model in that unit makes a melee attack that targets a unit (excluding MONSTERS and VEHICLES), add 1 to the Hit roll. If that attack targets a unit (excluding MONSTERS and VEHICLES) that is Below Half-strength, add 1 to the Wound roll as well.',
