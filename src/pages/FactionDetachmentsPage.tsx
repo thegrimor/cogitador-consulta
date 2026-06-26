@@ -72,11 +72,6 @@ export function FactionDetachmentsPage() {
                       </span>
                     )}
                   </div>
-                  {det.legend && (
-                    <p className="wh-html text-[11px] font-mono text-parchment-dim italic leading-relaxed line-clamp-2 mb-2"
-                      dangerouslySetInnerHTML={{ __html: det.legend }}
-                    />
-                  )}
                   <div className="flex gap-3">
                     {abilCount > 0 && (
                       <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">

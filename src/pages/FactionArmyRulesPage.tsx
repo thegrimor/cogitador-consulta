@@ -53,11 +53,6 @@ export function FactionArmyRulesPage() {
               <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
                 {rule.name}
               </p>
-              {rule.legend && (
-                <p className="wh-html text-[11px] font-mono text-parchment-dim italic mb-2 leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: rule.legend }}
-                />
-              )}
               {rule.description && (
                 <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: rule.description }}

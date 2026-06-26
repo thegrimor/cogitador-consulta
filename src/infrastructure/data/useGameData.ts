@@ -228,7 +228,6 @@ function enrichDatasheet(
     factionId: raw.faction_id,
     sourceId: raw.source_id || '',
     role: raw.role,
-    legend: raw.legend,
     loadout: raw.loadout,
     isVirtual: raw.virtual === 'true' || raw.virtual === '1',
     leaderHead: splitIds(raw.leader_head),
@@ -417,7 +416,6 @@ export function useGameData(): GameData {
             id: d.id,
             factionId: d.faction_id,
             name: d.name,
-            legend: d.legend,
             type: d.type,
             disposition: d.disposition ?? '',
             dp: parseInt(d.dp ?? '0', 10) || 0,
@@ -426,7 +424,7 @@ export function useGameData(): GameData {
         // ── detachmentAbilities ───────────────────────────────────────────────
         const detachmentAbilities: DetachmentAbility[] = rawDetachAbils.map(da => ({
           id: da.id, detachmentId: da.detachment_id, name: da.name,
-          description: da.description, legend: da.legend,
+          description: da.description,
         }))
 
         // ── stratagems ────────────────────────────────────────────────────────
@@ -466,7 +464,6 @@ export function useGameData(): GameData {
           cost: parseInt(e.cost) || 0,
           detachmentId: e.detachment_id,
           detachmentName: e.detachment,
-          legend: e.legend,
           description: e.description,
         }))
         const datasheetEnhancements: Record<string, string[]> = {}
