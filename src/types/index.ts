@@ -195,7 +195,6 @@ export interface Detachment {
   id: string
   factionId: string
   name: string
-  legend: string
   type: string
   disposition: string
   dp: number
@@ -206,7 +205,6 @@ export interface DetachmentAbility {
   detachmentId: string
   name: string
   description: string
-  legend: string
 }
 
 export interface ModelProfile {
@@ -289,7 +287,6 @@ export interface Datasheet {
   factionId: string
   sourceId: string
   role: string
-  legend: string
   loadout: string
   isVirtual: boolean
   leaderHead: string[]
@@ -374,7 +371,6 @@ export interface Enhancement {
   cost: number
   detachmentId: string
   detachmentName: string
-  legend: string
   description: string
 }
 

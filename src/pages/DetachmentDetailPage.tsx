@@ -63,11 +63,6 @@ export function DetachmentDetailPage() {
             </span>
           </div>
         )}
-        {det.legend && (
-          <p className="wh-html text-[11px] font-mono text-parchment-dim italic mt-2 leading-relaxed max-w-2xl"
-            dangerouslySetInnerHTML={{ __html: det.legend }}
-          />
-        )}
       </div>
 
       {/* ── Habilidades de destacamento ── */}
@@ -81,11 +76,6 @@ export function DetachmentDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.legend && (
-                    <p className="wh-html text-[11px] font-mono text-parchment-dim italic mb-1.5 leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: ab.legend }}
-                    />
-                  )}
                   {ab.description && (
                     <p className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
                       dangerouslySetInnerHTML={{ __html: ab.description }}
@@ -116,11 +106,6 @@ export function DetachmentDetailPage() {
                       </span>
                     )}
                   </div>
-                  {en.legend && (
-                    <p className="wh-html text-[11px] font-mono text-parchment-dim italic mb-1.5 leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: en.legend }}
-                    />
-                  )}
                   {en.description && (
                     <p className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
                       dangerouslySetInnerHTML={{ __html: en.description }}
