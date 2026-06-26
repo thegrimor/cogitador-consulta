@@ -32,6 +32,7 @@ export interface ModifierRule {
   description?: string
   factionId?: string
   detachmentId?: string
+  enhancementId?: string      // solo aplica si esta Mejora está seleccionada en el panel
   datasheetId?: string        // ability de esta unidad concreta
   leaderDatasheetId?: string  // ability de un líder adjunto a la unidad
   followerDatasheetIds?: string[] // restricción: solo aparece para estas unidades (si ausente = toda la facción)
@@ -50,9 +51,10 @@ export interface ModifierRule {
 
 export interface PanelSelection {
   factionId: string | null
-  detachmentId: string | null
+  detachmentIds: string[]
   datasheetId: string | null
   characterId: string | null
+  enhancementId: string | null
 }
 
 export interface DamageBreakdown {
