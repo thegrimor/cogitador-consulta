@@ -31,7 +31,7 @@ export function MathhammerPage() {
     if (!faction || !datasheet) return
 
     leftPanel.selectFaction(faction)
-    if (detachment) leftPanel.selectDetachment(detachment)
+    if (detachment) leftPanel.selectDetachments([detachment])
     leftPanel.selectUnit(datasheet)
     if (presetRoster) {
       const ids = Array.from(new Set(presetRoster.entries.map(e => e.datasheetId)))

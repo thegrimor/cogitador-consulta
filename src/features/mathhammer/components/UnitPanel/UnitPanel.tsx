@@ -70,7 +70,7 @@ export function UnitPanel({
       .map((ds: Datasheet) => ds.id)
 
     panel.selectFaction(faction.id)
-    if (detachment) panel.selectDetachment(detachment.id)
+    if (detachment) panel.selectDetachments([detachment.id])
     panel.setRosterIds(matchedIds)
     setShowImport(false)
     setImportError(null)
@@ -145,14 +145,15 @@ export function UnitPanel({
   )
 
   const visibleRules = useMemo(() => {
-    const { factionId, detachmentId, datasheetId } = panel.selection
+    const { factionId, detachmentIds, datasheetId, enhancementId } = panel.selection
     const defKwLower = defenderKeywords.map(k => k.toLowerCase())
     return MODIFIER_RULES.filter(rule => {
       const ruleTarget = rule.target ?? 'attacker'
       if (isAttacker && ruleTarget === 'defender') return false
       if (!isAttacker && ruleTarget === 'attacker') return false
       if (rule.factionId && rule.factionId !== factionId) return false
-      if (rule.detachmentId && rule.detachmentId !== detachmentId) return false
+      if (rule.detachmentId && !detachmentIds.includes(rule.detachmentId)) return false
+      if (rule.enhancementId && rule.enhancementId !== enhancementId) return false
       if (rule.datasheetId && rule.datasheetId !== datasheetId) return false
       if (rule.leaderDatasheetId && rule.leaderDatasheetId !== panel.selection.characterId) return false
       if (rule.combatType && rule.combatType !== combatType) return false

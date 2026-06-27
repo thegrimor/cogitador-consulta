@@ -1,10 +1,12 @@
 import { useMemo } from 'react'
-import type { GameData, Datasheet, Detachment, DetachmentAbility, Stratagem } from '@/types'
+import type { GameData, Datasheet, Detachment, DetachmentAbility, Stratagem, Enhancement } from '@/types'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import type { PanelSelection } from '../types'
 import { MODIFIER_RULES } from '../data/modifiers'
 
-const EMPTY_SELECTION: PanelSelection = { factionId: null, detachmentId: null, datasheetId: null, characterId: null }
+const EMPTY_SELECTION: PanelSelection = {
+  factionId: null, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null,
+}
 
 export interface PanelState {
   selection: PanelSelection
@@ -13,13 +15,16 @@ export interface PanelState {
   allUnitsForFaction: Datasheet[]
   selectedUnit: Datasheet | null
   availableCharacters: Datasheet[]
+  availableEnhancements: Enhancement[]
   detachmentAbilities: DetachmentAbility[]
   applicableStratagems: Stratagem[]
   rosterIds: string[] | null
   selectFaction: (id: string | null) => void
-  selectDetachment: (id: string | null) => void
+  selectDetachments: (ids: string[]) => void
+  toggleDetachment: (id: string) => void
   selectUnit: (id: string | null) => void
   selectCharacter: (id: string | null) => void
+  selectEnhancement: (id: string | null) => void
   setRosterIds: (ids: string[] | null) => void
 }
 
@@ -78,10 +83,8 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
   }, [gameData.datasheets, gameData.leaderMap, selectedUnit, rosterIds])
 
   const detachmentAbilities = useMemo(
-    () => selection.detachmentId
-      ? gameData.detachmentAbilities.filter(da => da.detachmentId === selection.detachmentId)
-      : [],
-    [gameData.detachmentAbilities, selection.detachmentId],
+    () => gameData.detachmentAbilities.filter(da => selection.detachmentIds.includes(da.detachmentId)),
+    [gameData.detachmentAbilities, selection.detachmentIds],
   )
 
   const applicableStratagems = useMemo(() => {
@@ -90,31 +93,51 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
     return gameData.stratagems
       .filter(s =>
         unitStratIds.has(s.id) &&
-        (s.detachmentId === '' || s.detachmentId === selection.detachmentId),
+        (s.detachmentId === '' || selection.detachmentIds.includes(s.detachmentId)),
       )
       .sort((a, b) => a.cpCost - b.cpCost || a.phase.localeCompare(b.phase))
-  }, [gameData.stratagems, gameData.datasheetStratagems, selectedUnit, selection.detachmentId])
+  }, [gameData.stratagems, gameData.datasheetStratagems, selectedUnit, selection.detachmentIds])
+
+  const availableEnhancements = useMemo(() => {
+    const targetId = selection.characterId ?? selectedUnit?.id
+    if (!targetId) return []
+    const validEnhancementIds = new Set(gameData.datasheetEnhancements[targetId] ?? [])
+    const detachmentIds = new Set(selection.detachmentIds)
+    return gameData.enhancements.filter(e => detachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id))
+  }, [gameData.datasheetEnhancements, gameData.enhancements, selection.characterId, selection.detachmentIds, selectedUnit])
 
   const selectFaction = (factionId: string | null) => {
-    setSelection({ factionId, detachmentId: null, datasheetId: null, characterId: null })
+    setSelection({ factionId, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null })
     setRosterIdsState(null)
   }
 
-  const selectDetachment = (detachmentId: string | null) =>
-    setSelection(s => ({ ...s, detachmentId }))
+  const selectDetachments = (detachmentIds: string[]) =>
+    setSelection(s => ({ ...s, detachmentIds, enhancementId: null }))
+
+  const toggleDetachment = (detachmentId: string) =>
+    setSelection(s => ({
+      ...s,
+      detachmentIds: s.detachmentIds.includes(detachmentId)
+        ? s.detachmentIds.filter(id => id !== detachmentId)
+        : [...s.detachmentIds, detachmentId],
+      enhancementId: null,
+    }))
 
   const selectUnit = (datasheetId: string | null) =>
-    setSelection(s => ({ ...s, datasheetId, characterId: null }))
+    setSelection(s => ({ ...s, datasheetId, characterId: null, enhancementId: null }))
 
   const selectCharacter = (characterId: string | null) =>
-    setSelection(s => ({ ...s, characterId }))
+    setSelection(s => ({ ...s, characterId, enhancementId: null }))
+
+  const selectEnhancement = (enhancementId: string | null) =>
+    setSelection(s => ({ ...s, enhancementId }))
 
   const setRosterIds = (ids: string[] | null) => setRosterIdsState(ids)
 
   return {
     selection, availableDetachments, availableUnits, allUnitsForFaction, selectedUnit,
-    availableCharacters, detachmentAbilities, applicableStratagems,
+    availableCharacters, availableEnhancements, detachmentAbilities, applicableStratagems,
     rosterIds,
-    selectFaction, selectDetachment, selectUnit, selectCharacter, setRosterIds,
+    selectFaction, selectDetachments, toggleDetachment, selectUnit, selectCharacter, selectEnhancement, setRosterIds,
   }
 }

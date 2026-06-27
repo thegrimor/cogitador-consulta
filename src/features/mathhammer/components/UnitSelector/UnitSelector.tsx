@@ -12,8 +12,22 @@ const selectCls =
   'focus:border-gold transition-colors ' +
   'disabled:opacity-30 disabled:cursor-not-allowed'
 
+function pillClass(selected: boolean): string {
+  return `text-[10px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors whitespace-nowrap ${
+    selected
+      ? 'border-crimson-bright text-parchment bg-crimson/10'
+      : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
+  }`
+}
+
 export function UnitSelector({ gameData, panel }: Props) {
-  const { selection, availableDetachments, availableUnits, availableCharacters } = panel
+  const { selection, availableDetachments, availableUnits, availableCharacters, availableEnhancements, selectedUnit } = panel
+
+  const bearer = selection.characterId
+    ? gameData.datasheets.find(ds => ds.id === selection.characterId) ?? null
+    : selectedUnit
+  const bearerIsCharacter = bearer?.keywords.some(k => k.toUpperCase() === 'CHARACTER') ?? false
+  const selectedEnhancement = availableEnhancements.find(e => e.id === selection.enhancementId)
 
   return (
     <div className="flex flex-col gap-2 p-3 border-b border-rim-bright">
@@ -35,19 +49,32 @@ export function UnitSelector({ gameData, panel }: Props) {
 
       <div>
         <label className="block text-[9px] font-display uppercase tracking-widest text-gold mb-1">
-          Destacamento
+          Destacamento <span className="text-parchment-dim normal-case tracking-normal">(multiselección)</span>
         </label>
-        <select
-          className={selectCls}
-          value={selection.detachmentId ?? ''}
-          onChange={e => panel.selectDetachment(e.target.value || null)}
-          disabled={!selection.factionId}
-        >
-          <option value="">— Selecciona Destacamento —</option>
-          {availableDetachments.map(d => (
-            <option key={d.id} value={d.id}>{d.name}</option>
-          ))}
-        </select>
+        {!selection.factionId ? (
+          <p className="text-[10px] font-mono text-parchment-dim">Selecciona un Ejército primero.</p>
+        ) : availableDetachments.length === 0 ? (
+          <p className="text-[10px] font-mono text-parchment-dim">Sin destacamentos disponibles.</p>
+        ) : (
+          <div className="flex flex-wrap gap-1">
+            {availableDetachments.map(d => {
+              const selected = selection.detachmentIds.includes(d.id)
+              return (
+                <button
+                  key={d.id}
+                  onClick={() => panel.toggleDetachment(d.id)}
+                  className={`text-[10px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors whitespace-nowrap ${
+                    selected
+                      ? 'border-crimson-bright text-parchment bg-crimson/10'
+                      : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
+                  }`}
+                >
+                  {d.name}
+                </button>
+              )
+            })}
+          </div>
+        )}
       </div>
 
       <div>
@@ -82,6 +109,33 @@ export function UnitSelector({ gameData, panel }: Props) {
               <option key={c.id} value={c.id}>{c.name}</option>
             ))}
           </select>
+        </div>
+      )}
+
+      {bearerIsCharacter && availableEnhancements.length > 0 && (
+        <div>
+          <label className="block text-[9px] font-display uppercase tracking-widest text-gold mb-1">
+            Mejora <span className="text-parchment-dim normal-case tracking-normal">(opcional)</span>
+          </label>
+          <div className="flex flex-wrap gap-1">
+            <button onClick={() => panel.selectEnhancement(null)} className={pillClass(!selection.enhancementId)}>
+              Ninguna
+            </button>
+            {availableEnhancements.map(e => (
+              <button
+                key={e.id}
+                onClick={() => panel.selectEnhancement(e.id)}
+                className={pillClass(selection.enhancementId === e.id)}
+              >
+                {e.name} · {e.cost}pts
+              </button>
+            ))}
+          </div>
+          {selectedEnhancement && (
+            <p className="text-[10px] font-mono text-parchment-dim leading-relaxed mt-1.5">
+              {selectedEnhancement.description}
+            </p>
+          )}
         </div>
       )}
     </div>
