@@ -4,12 +4,12 @@ const RULES_1: ModifierRule[] = [
   // ═══ Universal ═══
   {
     id: 'cover',
-    label: 'Cobertura (+1 Sv defensor)',
-    description: 'El defensor está en cobertura: +1 a las tiradas de salvación contra ataques de disparo.',
+    label: 'Cobertura (-1 Imp. atacante)',
+    description: 'El defensor está en cobertura: empeora el BS del atacante en 1 contra ataques de disparo (no aplica contra armas [IGNORES COVER]).',
     combatType: 'ranged',
-    target: 'defender',
+    target: 'attacker',
     effects: {
-    saveMod: -1,
+    hitMod: -1,
   },
   },
   {

@@ -481,7 +481,6 @@ export function DamageCalculator({
           <span className="text-gold">Defensor</span> — T:{defenderModel.T}
           {' '}Sv:{defenderModel.Sv}
           {defenderModel.invSv && ` Inv:${defenderModel.invSv}`}
-          {mods.saveMod < 0 && ' [Cobertura]'}
           {mods.feelNoPainThreshold !== null && ` FNP:${mods.feelNoPainThreshold}+`}
         </p>
         {defenderModel.invSv && (
