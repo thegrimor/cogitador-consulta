@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
-import { SM_CHAPTER_FILTERS } from '@/core/constants/chapters'
+import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
+import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -12,7 +12,7 @@ export function FactionArmyRulesPage() {
   const faction = factions.find(f => f.id === factionId)
   const isSM = factionId === 'SM'
   const allArmyRules = armyRulesByFaction[factionId ?? ''] ?? []
-  const [activeChapter, setActiveChapter] = useState('Todos')
+  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
   const armyRules = isSM && activeChapter !== 'Todos'
     ? allArmyRules.filter(r => (armyRuleChaptersMap[r.id] ?? []).includes(activeChapter))
     : allArmyRules

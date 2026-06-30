@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, detachmentPath } from '@/core/constants/routes'
-import { SM_CHAPTER_FILTERS } from '@/core/constants/chapters'
+import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
+import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 
 export function FactionDetachmentsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -12,7 +12,7 @@ export function FactionDetachmentsPage() {
   const faction = factions.find(f => f.id === factionId)
   const isSM = factionId === 'SM'
   const allFactionDetachments = detachments.filter(d => d.factionId === factionId)
-  const [activeChapter, setActiveChapter] = useState('Todos')
+  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
   const factionDetachments = isSM && activeChapter !== 'Todos'
     ? allFactionDetachments.filter(d => d.chapters.includes(activeChapter))
     : allFactionDetachments

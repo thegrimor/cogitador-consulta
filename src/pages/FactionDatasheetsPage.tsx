@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
-import { chapterOf } from '@/core/constants/chapters'
+import { chapterOf, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
+import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 
 const IS_SPACE_MARINES = (factionId: string | undefined) => factionId === 'SM'
 
@@ -22,7 +23,7 @@ export function FactionDatasheetsPage() {
   const chapters = isSM
     ? ['Todos', ...Array.from(new Set(factionSheets.map(d => chapterOf(d.factionKeywords)))).sort()]
     : []
-  const [activeChapter, setActiveChapter] = useState('Todos')
+  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
 
   const filtered = factionSheets.filter(d => {
     const matchRole = activeRole === 'Todos' || d.role === activeRole

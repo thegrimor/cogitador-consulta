@@ -9,3 +9,7 @@ export const SM_CHAPTER_FILTERS = ['Space Marines', ...SM_CHAPTERS] as const
 export function chapterOf(factionKeywords: string[]): string {
   return factionKeywords.find(k => (SM_CHAPTERS as readonly string[]).includes(k)) ?? 'Space Marines'
 }
+
+/** Shared across Datasheets/Detachments/Army Rules so picking a chapter on one
+ * page keeps it selected when navigating to the others, and across reloads. */
+export const SM_CHAPTER_FILTER_STORAGE_KEY = 'cogitador-sm-chapter-filter'
