@@ -1,6 +1,8 @@
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, detachmentPath } from '@/core/constants/routes'
+import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
+import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 
 export function FactionDetachmentsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -8,7 +10,12 @@ export function FactionDetachmentsPage() {
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const factionDetachments = detachments.filter(d => d.factionId === factionId)
+  const isSM = factionId === 'SM'
+  const allFactionDetachments = detachments.filter(d => d.factionId === factionId)
+  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
+  const factionDetachments = isSM && activeChapter !== 'Todos'
+    ? allFactionDetachments.filter(d => d.chapters.includes(activeChapter))
+    : allFactionDetachments
 
   if (!faction) {
     return (
@@ -38,6 +45,24 @@ export function FactionDetachmentsPage() {
           {faction.name} · {factionDetachments.length} destacamentos
         </p>
       </div>
+
+      {isSM && (
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {['Todos', ...SM_CHAPTER_FILTERS].map(chapter => (
+            <button
+              key={chapter}
+              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
+              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
+                activeChapter === chapter
+                  ? 'border-gold text-parchment bg-gold/10'
+                  : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
+              }`}
+            >
+              {chapter}
+            </button>
+          ))}
+        </div>
+      )}
 
       {factionDetachments.length === 0 ? (
         <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
@@ -69,6 +94,11 @@ export function FactionDetachmentsPage() {
                     {det.disposition && (
                       <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim border border-rim-bright px-1.5 py-px leading-none shrink-0">
                         {det.disposition}
+                      </span>
+                    )}
+                    {isSM && det.chapters.length > 0 && !det.chapters.includes('Space Marines') && (
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
+                        {det.chapters.join(' / ')}
                       </span>
                     )}
                   </div>
