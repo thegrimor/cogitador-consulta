@@ -84,7 +84,7 @@ export function FactionDatasheetsPage() {
           {chapters.map(chapter => (
             <button
               key={chapter}
-              onClick={() => setActiveChapter(chapter)}
+              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
               className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
                 activeChapter === chapter
                   ? 'border-gold text-parchment bg-gold/10'
@@ -126,16 +126,22 @@ export function FactionDatasheetsPage() {
                   ...(hasInv ? [{ label: 'INV', value: primary.invSv }] : []),
                 ]
               : []
+            const chapter = isSM ? chapterOf(ds.factionKeywords) : 'Space Marines'
             return (
               <NavLink
                 key={ds.id}
                 to={datasheetPath(ds.id)}
                 className="group flex items-start justify-between gap-3 bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
               >
-                <div className="flex items-center gap-3 min-w-0 flex-1">
+                <div className="flex items-center gap-2 min-w-0 flex-1 flex-wrap">
                   <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
                     {ds.name}
                   </span>
+                  {chapter !== 'Space Marines' && (
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
+                      {chapter}
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-center gap-1 shrink-0">
                   {stats.map(stat => (

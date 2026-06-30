@@ -51,7 +51,7 @@ export function FactionArmyRulesPage() {
           {['Todos', ...SM_CHAPTER_FILTERS].map(chapter => (
             <button
               key={chapter}
-              onClick={() => setActiveChapter(chapter)}
+              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
               className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
                 activeChapter === chapter
                   ? 'border-gold text-parchment bg-gold/10'

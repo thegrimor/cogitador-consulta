@@ -51,7 +51,7 @@ export function FactionDetachmentsPage() {
           {['Todos', ...SM_CHAPTER_FILTERS].map(chapter => (
             <button
               key={chapter}
-              onClick={() => setActiveChapter(chapter)}
+              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
               className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
                 activeChapter === chapter
                   ? 'border-gold text-parchment bg-gold/10'
@@ -94,6 +94,11 @@ export function FactionDetachmentsPage() {
                     {det.disposition && (
                       <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim border border-rim-bright px-1.5 py-px leading-none shrink-0">
                         {det.disposition}
+                      </span>
+                    )}
+                    {isSM && det.chapters.length > 0 && !det.chapters.includes('Space Marines') && (
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
+                        {det.chapters.join(' / ')}
                       </span>
                     )}
                   </div>
