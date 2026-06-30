@@ -1,14 +1,21 @@
+import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
+import { SM_CHAPTER_FILTERS } from '@/core/constants/chapters'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, armyRulesByFaction } = useGameDataContext()
+  const { factions, armyRulesByFaction, armyRuleChaptersMap } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const armyRules = armyRulesByFaction[factionId ?? ''] ?? []
+  const isSM = factionId === 'SM'
+  const allArmyRules = armyRulesByFaction[factionId ?? ''] ?? []
+  const [activeChapter, setActiveChapter] = useState('Todos')
+  const armyRules = isSM && activeChapter !== 'Todos'
+    ? allArmyRules.filter(r => (armyRuleChaptersMap[r.id] ?? []).includes(activeChapter))
+    : allArmyRules
 
   if (!faction) {
     return (
@@ -38,6 +45,24 @@ export function FactionArmyRulesPage() {
           {faction.name}
         </p>
       </div>
+
+      {isSM && (
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {['Todos', ...SM_CHAPTER_FILTERS].map(chapter => (
+            <button
+              key={chapter}
+              onClick={() => setActiveChapter(chapter)}
+              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
+                activeChapter === chapter
+                  ? 'border-gold text-parchment bg-gold/10'
+                  : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
+              }`}
+            >
+              {chapter}
+            </button>
+          ))}
+        </div>
+      )}
 
       {armyRules.length === 0 ? (
         <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">

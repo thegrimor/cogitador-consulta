@@ -84,6 +84,11 @@ export interface RawDetachment {
   dp: string
 }
 
+export interface RawDetachmentChapter {
+  detachment_id: string
+  chapter: string
+}
+
 export interface RawDetachmentAbility {
   id: string
   faction_id: string
@@ -198,6 +203,9 @@ export interface Detachment {
   type: string
   disposition: string
   dp: number
+  /** Space Marines chapter(s) (Black Templars, Blood Angels, etc.) this detachment is
+   * available to. Empty for every faction except SM, where it's always non-empty. */
+  chapters: string[]
 }
 
 export interface DetachmentAbility {
@@ -315,6 +323,8 @@ export interface GameData {
   datasheetStratagems: Record<string, string[]>
   abilitiesMap: Record<string, RawAbility>
   armyRulesByFaction: Record<string, RawAbility[]>
+  /** ability id -> chapter name(s) that use it (SM only; e.g. Templar Vows -> ['Black Templars']). */
+  armyRuleChaptersMap: Record<string, string[]>
   pointsCosts: PointsCost[]
   pointsCostMap: Record<string, PointsCost[]>
   leaderMap: Record<string, string[]>

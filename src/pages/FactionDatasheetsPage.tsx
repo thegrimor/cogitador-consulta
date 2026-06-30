@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
+import { chapterOf } from '@/core/constants/chapters'
+
+const IS_SPACE_MARINES = (factionId: string | undefined) => factionId === 'SM'
 
 export function FactionDatasheetsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -10,15 +13,22 @@ export function FactionDatasheetsPage() {
 
   const faction = factions.find(f => f.id === factionId)
   const factionSheets = datasheets.filter(d => d.factionId === factionId && !d.isVirtual)
+  const isSM = IS_SPACE_MARINES(factionId)
 
   const roles = ['Todos', ...Array.from(new Set(factionSheets.map(d => d.role))).sort()]
   const [activeRole, setActiveRole] = useState('Todos')
   const [search, setSearch] = useState('')
 
+  const chapters = isSM
+    ? ['Todos', ...Array.from(new Set(factionSheets.map(d => chapterOf(d.factionKeywords)))).sort()]
+    : []
+  const [activeChapter, setActiveChapter] = useState('Todos')
+
   const filtered = factionSheets.filter(d => {
     const matchRole = activeRole === 'Todos' || d.role === activeRole
+    const matchChapter = !isSM || activeChapter === 'Todos' || chapterOf(d.factionKeywords) === activeChapter
     const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
-    return matchRole && matchSearch
+    return matchRole && matchChapter && matchSearch
   })
 
   if (!faction) {
@@ -66,6 +76,25 @@ export function FactionDatasheetsPage() {
           </button>
         ))}
       </div>
+
+      {/* Filtro de capítulo (solo Space Marines) */}
+      {isSM && (
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {chapters.map(chapter => (
+            <button
+              key={chapter}
+              onClick={() => setActiveChapter(chapter)}
+              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
+                activeChapter === chapter
+                  ? 'border-gold text-parchment bg-gold/10'
+                  : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
+              }`}
+            >
+              {chapter}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Búsqueda */}
       <div className="mb-4">
