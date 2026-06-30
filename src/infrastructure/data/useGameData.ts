@@ -5,12 +5,13 @@ import type {
   ModelProfile, Weapon, Ability, AntiEntry, Enhancement, UnitOption, Source, CoreRule,
   PointsCost, WargearCost,
   RawFaction, RawDatasheet, RawDatasheetModel, RawDatasheetWargear,
-  RawDatasheetAbility, RawAbility, RawDetachment, RawDetachmentAbility,
+  RawDatasheetAbility, RawAbility, RawDetachment, RawDetachmentChapter, RawDetachmentAbility,
   RawStratagem, RawDatasheetStratagem, RawDatasheetKeyword, RawDatasheetUnitComposition,
   RawModelCost, RawWargearCost, RawDatasheetLeader, RawEnhancement, RawDatasheetEnhancement,
   RawDatasheetOption, RawDatasheetDetachmentAbility, RawSource, RawCoreRule,
 } from '@/types'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
+import { SM_CHAPTERS } from '@/core/constants/chapters'
 
 function parseCsvRaw(text: string): Record<string, string>[] {
   const result = Papa.parse<Record<string, string>>(text, {
@@ -256,6 +257,7 @@ const CSV_FILES = [
   'Datasheets_abilities',
   'Abilities',
   'Detachments',
+  'Detachments_chapters',
   'Detachment_abilities',
   'Stratagems',
   'Datasheets_stratagems',
@@ -283,6 +285,7 @@ export function useGameData(): GameData {
     datasheetStratagems: {},
     abilitiesMap: {},
     armyRulesByFaction: {},
+    armyRuleChaptersMap: {},
     pointsCosts: [],
     pointsCostMap: {},
     wargearCostMap: {},
@@ -324,21 +327,22 @@ export function useGameData(): GameData {
         const rawDsAbilities               = rows[4]  as unknown as RawDatasheetAbility[]
         const rawAbilities                 = rows[5]  as unknown as RawAbility[]
         const rawDetachments               = rows[6]  as unknown as RawDetachment[]
-        const rawDetachAbils               = rows[7]  as unknown as RawDetachmentAbility[]
-        const rawStratagems                = rows[8]  as unknown as RawStratagem[]
-        const rawDsStratagems              = rows[9]  as unknown as RawDatasheetStratagem[]
-        const rawKeywords                  = rows[10] as unknown as RawDatasheetKeyword[]
-        const rawCompositions              = rows[11] as unknown as RawDatasheetUnitComposition[]
-        const rawModelCosts                = rows[12] as unknown as RawModelCost[]
-        const rawWargearCosts              = rows[13] as unknown as RawWargearCost[]
-        const rawLeaders                   = rows[14] as unknown as RawDatasheetLeader[]
-        const rawEnhancements              = rows[15] as unknown as RawEnhancement[]
-        const rawDsEnhancements            = rows[16] as unknown as RawDatasheetEnhancement[]
-        const rawDsOptions                 = rows[17] as unknown as RawDatasheetOption[]
-        const rawDsDetachAbils             = rows[18] as unknown as RawDatasheetDetachmentAbility[]
-        const rawSources                   = rows[19] as unknown as RawSource[]
-        const rawLastUpdate                = rows[20] as unknown as { last_update: string }[]
-        const rawCoreRules                 = rows[21] as unknown as RawCoreRule[]
+        const rawDetachmentChapters        = rows[7]  as unknown as RawDetachmentChapter[]
+        const rawDetachAbils               = rows[8]  as unknown as RawDetachmentAbility[]
+        const rawStratagems                = rows[9]  as unknown as RawStratagem[]
+        const rawDsStratagems              = rows[10] as unknown as RawDatasheetStratagem[]
+        const rawKeywords                  = rows[11] as unknown as RawDatasheetKeyword[]
+        const rawCompositions              = rows[12] as unknown as RawDatasheetUnitComposition[]
+        const rawModelCosts                = rows[13] as unknown as RawModelCost[]
+        const rawWargearCosts              = rows[14] as unknown as RawWargearCost[]
+        const rawLeaders                   = rows[15] as unknown as RawDatasheetLeader[]
+        const rawEnhancements              = rows[16] as unknown as RawEnhancement[]
+        const rawDsEnhancements            = rows[17] as unknown as RawDatasheetEnhancement[]
+        const rawDsOptions                 = rows[18] as unknown as RawDatasheetOption[]
+        const rawDsDetachAbils             = rows[19] as unknown as RawDatasheetDetachmentAbility[]
+        const rawSources                   = rows[20] as unknown as RawSource[]
+        const rawLastUpdate                = rows[21] as unknown as { last_update: string }[]
+        const rawCoreRules                 = rows[22] as unknown as RawCoreRule[]
 
         // ── abilitiesMap (last-write-wins per id, used for datasheet ability lookup) ──
         const abilitiesMap: Record<string, RawAbility> = {}
@@ -348,7 +352,16 @@ export function useGameData(): GameData {
         const datasheetFactionMap: Record<string, string> = {}
         rawDatasheets.forEach(ds => { datasheetFactionMap[ds.id] = ds.faction_id })
 
+        // Quick chapter lookup per datasheet (SM only) so army rules can be tagged
+        // with which chapter(s) actually use them (e.g. Templar Vows -> Black Templars).
+        const chapterByDatasheet: Record<string, string> = {}
+        rawKeywords.forEach(k => {
+          if (k.is_faction_keyword !== 'true' && k.is_faction_keyword !== '1') return
+          if ((SM_CHAPTERS as readonly string[]).includes(k.keyword)) chapterByDatasheet[k.datasheet_id] = k.keyword
+        })
+
         const armyRulesByFaction: Record<string, RawAbility[]> = {}
+        const armyRuleChapters: Record<string, Set<string>> = {}
         const seenByFaction: Record<string, Set<string>> = {}
         rawDsAbilities
           .filter(a => a.type === 'Faction' && a.ability_id)
@@ -364,6 +377,8 @@ export function useGameData(): GameData {
               const ability = abilitiesMap[a.ability_id]
               if (ability) armyRulesByFaction[factionId].push(ability)
             }
+            if (!armyRuleChapters[a.ability_id]) armyRuleChapters[a.ability_id] = new Set()
+            armyRuleChapters[a.ability_id].add(chapterByDatasheet[a.datasheet_id] ?? 'Space Marines')
           })
 
         // ── group helpers ─────────────────────────────────────────────────────
@@ -413,6 +428,12 @@ export function useGameData(): GameData {
           .map(f => ({ id: f.id, name: f.name }))
 
         // ── detachments ───────────────────────────────────────────────────────
+        const chaptersByDetachment: Record<string, string[]> = {}
+        rawDetachmentChapters.forEach(r => {
+          if (!chaptersByDetachment[r.detachment_id]) chaptersByDetachment[r.detachment_id] = []
+          chaptersByDetachment[r.detachment_id].push(r.chapter)
+        })
+
         const detachments: Detachment[] = rawDetachments
           .filter(d => d.type === '')
           .map(d => ({
@@ -422,6 +443,7 @@ export function useGameData(): GameData {
             type: d.type,
             disposition: d.disposition ?? '',
             dp: parseInt(d.dp ?? '0', 10) || 0,
+            chapters: chaptersByDetachment[d.id] ?? [],
           }))
 
         // ── detachmentAbilities ───────────────────────────────────────────────
@@ -535,10 +557,15 @@ export function useGameData(): GameData {
           coreRulesMap[r.name.toLowerCase()] = r
         })
 
+        const armyRuleChaptersMap: Record<string, string[]> = {}
+        Object.entries(armyRuleChapters).forEach(([abilityId, chapters]) => {
+          armyRuleChaptersMap[abilityId] = [...chapters]
+        })
+
         if (!cancelled) {
           setState({
             factions, datasheets, detachments, detachmentAbilities,
-            stratagems, datasheetStratagems, abilitiesMap, armyRulesByFaction,
+            stratagems, datasheetStratagems, abilitiesMap, armyRulesByFaction, armyRuleChaptersMap,
             pointsCosts, pointsCostMap, wargearCostMap,
             leaderMap, attachedMap,
             enhancements, datasheetEnhancements,

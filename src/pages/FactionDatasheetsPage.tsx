@@ -2,6 +2,10 @@ import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
+import { chapterOf, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
+import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
+
+const IS_SPACE_MARINES = (factionId: string | undefined) => factionId === 'SM'
 
 export function FactionDatasheetsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -10,15 +14,22 @@ export function FactionDatasheetsPage() {
 
   const faction = factions.find(f => f.id === factionId)
   const factionSheets = datasheets.filter(d => d.factionId === factionId && !d.isVirtual)
+  const isSM = IS_SPACE_MARINES(factionId)
 
   const roles = ['Todos', ...Array.from(new Set(factionSheets.map(d => d.role))).sort()]
   const [activeRole, setActiveRole] = useState('Todos')
   const [search, setSearch] = useState('')
 
+  const chapters = isSM
+    ? ['Todos', ...Array.from(new Set(factionSheets.map(d => chapterOf(d.factionKeywords)))).sort()]
+    : []
+  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
+
   const filtered = factionSheets.filter(d => {
     const matchRole = activeRole === 'Todos' || d.role === activeRole
+    const matchChapter = !isSM || activeChapter === 'Todos' || chapterOf(d.factionKeywords) === activeChapter
     const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
-    return matchRole && matchSearch
+    return matchRole && matchChapter && matchSearch
   })
 
   if (!faction) {
@@ -67,6 +78,25 @@ export function FactionDatasheetsPage() {
         ))}
       </div>
 
+      {/* Filtro de capítulo (solo Space Marines) */}
+      {isSM && (
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {chapters.map(chapter => (
+            <button
+              key={chapter}
+              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
+              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
+                activeChapter === chapter
+                  ? 'border-gold text-parchment bg-gold/10'
+                  : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
+              }`}
+            >
+              {chapter}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Búsqueda */}
       <div className="mb-4">
         <input
@@ -96,16 +126,22 @@ export function FactionDatasheetsPage() {
                   ...(hasInv ? [{ label: 'INV', value: primary.invSv }] : []),
                 ]
               : []
+            const chapter = isSM ? chapterOf(ds.factionKeywords) : 'Space Marines'
             return (
               <NavLink
                 key={ds.id}
                 to={datasheetPath(ds.id)}
                 className="group flex items-start justify-between gap-3 bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
               >
-                <div className="flex items-center gap-3 min-w-0 flex-1">
+                <div className="flex items-center gap-2 min-w-0 flex-1 flex-wrap">
                   <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
                     {ds.name}
                   </span>
+                  {chapter !== 'Space Marines' && (
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
+                      {chapter}
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-center gap-1 shrink-0">
                   {stats.map(stat => (
