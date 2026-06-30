@@ -117,9 +117,10 @@ function parseUnits(payload, costMap) {
   }
 
   // The size+cost pattern in the RSC:
-  // [false,"SIZE"]}],"$L{hexId}"
+  // [false,"SIZE"]}],"$L{hexId}"  -- 1st-unit / single-tier rows
+  // ["$undefined","SIZE"]}],"$L{hexId}"  -- 2nd+/3rd+ unit surcharge tiers
   // Where ]}] closes children array, span element, and span's parent
-  const sizeRegex = /\[false,"([^"]+)"\]}\],"?\$L([0-9a-f]+)"?/g;
+  const sizeRegex = /\[(?:false|"\$undefined"),"([^"]+)"\]}\],"?\$L([0-9a-f]+)"?/g;
 
   // Collect ALL size+cost pairs with their positions
   const allPairs = [];
@@ -142,6 +143,19 @@ function parseUnits(payload, costMap) {
     allHeaders.push({ header: hMatch[1], pos: hMatch.index });
   }
 
+  // WARGEAR OPTIONS surcharges ("per Hades lascannon", "per Heavy reaper
+  // autocannon", etc.) - same {"children":"X"}],"$Lid" shape as enhancements,
+  // but scoped per-unit by position so we know which datasheet they belong to.
+  const wargearRegex = /\{"children":"(per [^"]+)"\}\],"?\$L([0-9a-f]+)"?/g;
+  const allWargearCosts = [];
+  let wMatch;
+  while ((wMatch = wargearRegex.exec(payload)) !== null) {
+    const pts = costMap.get(wMatch[2]);
+    if (pts !== undefined) {
+      allWargearCosts.push({ name: wMatch[1], pts, pos: wMatch.index });
+    }
+  }
+
   // For each unit, find the pairs that fall within its section
   for (let i = 0; i < unitPositions.length; i++) {
     const { name, pos } = unitPositions[i];
@@ -150,9 +164,14 @@ function parseUnits(payload, costMap) {
     // Find cost headers within this unit's section
     const unitHeaders = allHeaders.filter(h => h.pos > pos && h.pos < nextUnitPos);
 
+    // Per-weapon wargear surcharges anywhere within this unit's section
+    const wargearCosts = allWargearCosts
+      .filter(w => w.pos > pos && w.pos < nextUnitPos)
+      .map(w => ({ name: w.name, pts: w.pts }));
+
     if (unitHeaders.length === 0) {
       // No cost sections for this unit (maybe Legends-only or no points)
-      units.push({ name, costSections: [] });
+      units.push({ name, costSections: [], wargearCosts });
       continue;
     }
 
@@ -168,7 +187,7 @@ function parseUnits(payload, costMap) {
       }
     }
 
-    units.push({ name, costSections });
+    units.push({ name, costSections, wargearCosts });
   }
 
   return units.filter(u => u.costSections.some(s => s.costs.length > 0));
@@ -226,8 +245,12 @@ function parseEnhancements(payload, costMap) {
     const name = m[1];
     const refId = m[2];
     const pts = costMap.get(refId);
-    // Filter: title case (not all-caps), not a CSS class, not pts content
-    if (pts !== undefined && name !== name.toUpperCase() && name.length < 80 && !name.includes(':') && !name.includes('px-')) {
+    // Filter: title case (not all-caps), not a CSS class, not pts content,
+    // not a per-weapon wargear surcharge (those are captured per-unit in parseUnits)
+    if (
+      pts !== undefined && name !== name.toUpperCase() && name.length < 80 &&
+      !name.includes(':') && !name.includes('px-') && !name.startsWith('per ')
+    ) {
       enhancements.push({ name, pts });
     }
   }

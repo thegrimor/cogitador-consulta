@@ -72,6 +72,17 @@ function normalName(name) {
     .trim();
 }
 
+/** Turn an MFM cost-section header into a short tier suffix for the description. */
+function tierSuffix(header) {
+  const h = header.toUpperCase();
+  if (h.includes('1ST TO 2ND')) return ' (1st-2nd units)';
+  if (h.includes('1ST UNIT')) return ' (1st unit)';
+  if (h.includes('2ND + UNIT') || h.includes('2ND+ UNIT')) return ' (2nd+ unit)';
+  if (h.includes('3RD + UNIT') || h.includes('3RD+ UNIT')) return ' (3rd+ unit)';
+  if (h === 'YOUR UNIT COSTS') return '';
+  return ` (${header.replace(/^YOUR /, '').replace(/ COSTS?$/, '').toLowerCase()})`;
+}
+
 /** Try to find a datasheet by name, handling singular/plural variations */
 function findMatches(nameToSheets, rawName, factionIds) {
   const norm = normalName(rawName);
@@ -145,11 +156,18 @@ function main() {
     for (const unit of factionData.units) {
       if (unit.costSections.length === 0) continue;
 
-      // Use primary cost section (first one)
-      const primarySection = unit.costSections[0];
-      if (!primarySection || primarySection.costs.length === 0) continue;
+      // Flatten every tier (1st unit / 2nd+ unit / 3rd+ unit / etc.) into one
+      // cost list, tagging the size description when a unit has more than
+      // one tier so e.g. a Defiler's 2nd+ copy surcharge isn't lost.
+      const multiTier = unit.costSections.length > 1;
+      const mfmCosts = unit.costSections.flatMap(section =>
+        section.costs.map(c => ({
+          size: multiTier ? `${c.size}${tierSuffix(section.header)}` : c.size,
+          pts: c.pts,
+        })),
+      );
+      if (mfmCosts.length === 0) continue;
 
-      const mfmCosts = primarySection.costs; // [{ size, pts }]
       const normUnitName = normalName(unit.name);
 
       // Find matching datasheets (with singular/plural fallback)
@@ -185,24 +203,34 @@ function main() {
             costByDs.set(ds.id, [...(costByDs.get(ds.id) ?? []), newRow]);
           }
           updated += mfmCosts.length;
-        } else {
-          // Update existing rows in order
-          const count = Math.min(existingRows.length, mfmCosts.length);
-          for (let i = 0; i < count; i++) {
+        } else if (existingRows.length === mfmCosts.length) {
+          // Same row count - update costs in place, keep existing descriptions
+          for (let i = 0; i < mfmCosts.length; i++) {
             const oldCost = existingRows[i].cost;
             existingRows[i].cost = String(mfmCosts[i].pts);
             if (oldCost !== String(mfmCosts[i].pts)) updated++;
           }
-
-          if (existingRows.length !== mfmCosts.length) {
-            // Size mismatch - warn but don't remove
-            console.warn(
-              `  [SIZE MISMATCH] ${factionData.faction}: ${unit.name} — ` +
-              `CSV has ${existingRows.length} size(s), MFM has ${mfmCosts.length} size(s). ` +
-              `Updated first ${count}.`
-            );
-            skipped++;
+        } else {
+          // Row count changed (e.g. a 2nd+/3rd+ unit surcharge tier was
+          // newly discovered) - rebuild this datasheet's rows from scratch.
+          for (const row of existingRows) {
+            const idx = costs.indexOf(row);
+            if (idx !== -1) costs.splice(idx, 1);
           }
+          const newRows = mfmCosts.map((c, i) => ({
+            datasheet_id: ds.id,
+            line: String(i + 1),
+            description: c.size,
+            cost: String(c.pts),
+          }));
+          costs.push(...newRows);
+          costByDs.set(ds.id, newRows);
+          console.warn(
+            `  [TIER CHANGE] ${factionData.faction}: ${unit.name} — ` +
+            `rebuilt ${existingRows.length} -> ${mfmCosts.length} cost row(s).`
+          );
+          updated += mfmCosts.length;
+          skipped++; // reused as "tier rebuilds" counter
         }
       }
     }
@@ -219,7 +247,7 @@ function main() {
 
   console.log('\n=== Update Complete ===');
   console.log(`Updated costs:    ${updated}`);
-  console.log(`Size mismatches:  ${skipped}`);
+  console.log(`Tier rebuilds:    ${skipped}`);
   console.log(`Unmatched units:  ${unmatched}`);
   if (unmatchedUnits.length > 0) {
     console.log('\nUnmatched units (first 20):');

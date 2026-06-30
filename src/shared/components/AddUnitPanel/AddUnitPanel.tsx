@@ -1,15 +1,19 @@
 import { useState } from 'react'
-import type { Datasheet, PointsCost } from '@/types'
+import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
-import { compareByRolePriority } from '@/core/utils/roster'
+import {
+  compareByRolePriority, resolveCostsForUnitIndex, unitIndexInRoster, maxCopiesAllowed,
+} from '@/core/utils/roster'
 
 interface Props {
   datasheets: Datasheet[]
   pointsCostMap: Record<string, PointsCost[]>
+  entries: RosterEntry[]
+  pointsLimit: number | null
   onAdd: (datasheet: Datasheet, cost: PointsCost) => void
 }
 
-export function AddUnitPanel({ datasheets, pointsCostMap, onAdd }: Props) {
+export function AddUnitPanel({ datasheets, pointsCostMap, entries, pointsLimit, onAdd }: Props) {
   const roles = [
     'Todos',
     ...Array.from(new Set(datasheets.map(d => d.role))).sort((a, b) =>
@@ -64,7 +68,14 @@ export function AddUnitPanel({ datasheets, pointsCostMap, onAdd }: Props) {
       ) : (
         <div className="flex flex-col gap-px max-h-[420px] overflow-y-auto">
           {filtered.map(ds => {
-            const costs = pointsCostMap[ds.id] ?? []
+            const allCosts = pointsCostMap[ds.id] ?? []
+            // The Nth copy of a datasheet (e.g. a 2nd Defiler) can have a different
+            // surcharge tier than the 1st - that's not a player choice, so narrow to
+            // whichever tier this next copy would fall into before offering any picker.
+            const unitIndex = unitIndexInRoster(entries, ds.id, null)
+            const costs = resolveCostsForUnitIndex(allCosts, unitIndex)
+            const cap = maxCopiesAllowed(ds, pointsLimit)
+            const atCap = unitIndex > cap
             return (
               <div key={ds.id} className="bg-surface-3 border border-rim-bright px-3 py-2">
                 <div className="flex items-center justify-between gap-2">
@@ -76,8 +87,19 @@ export function AddUnitPanel({ datasheets, pointsCostMap, onAdd }: Props) {
                   </span>
                 </div>
                 <div className="mt-2">
-                  {costs.length > 0 ? (
+                  {atCap ? (
+                    <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-1 border border-rim-bright text-parchment-dim/50">
+                      {cap === 1 ? 'Héroe Épico ya en la lista' : `Límite alcanzado (${cap})`}
+                    </span>
+                  ) : costs.length > 1 ? (
                     <CostVariantPicker costs={costs} selectedDescription="" onSelect={cost => onAdd(ds, cost)} />
+                  ) : costs.length === 1 ? (
+                    <button
+                      onClick={() => onAdd(ds, costs[0])}
+                      className="text-[10px] font-mono uppercase tracking-widest px-2 py-1 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
+                    >
+                      Añadir ({costs[0].points}pts)
+                    </button>
                   ) : (
                     <button
                       onClick={() => onAdd(ds, { datasheetId: ds.id, description: '', points: 0 })}
