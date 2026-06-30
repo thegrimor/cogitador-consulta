@@ -8,6 +8,27 @@ export function isMultiDetachmentAllowed(pointsLimit: number | null): boolean {
   return pointsLimit !== null && pointsLimit >= MULTI_DETACHMENT_THRESHOLD
 }
 
+/** Battle size tiers, by points-limit upper bound, and how many copies of a single
+ * (non-Epic Hero) datasheet are allowed at each one. Incursion 2 / Strike Force 3 / Onslaught 4. */
+const BATTLE_SIZE_COPY_CAPS: { maxPoints: number; cap: number }[] = [
+  { maxPoints: 1000, cap: 2 },
+  { maxPoints: 2000, cap: 3 },
+  { maxPoints: Infinity, cap: 4 },
+]
+
+export function isEpicHero(datasheet: Datasheet): boolean {
+  return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
+}
+
+/** How many copies of `datasheet` the roster may contain. Epic Heroes are always
+ * capped at 1 (unique named characters); everything else scales with battle size.
+ * Returns Infinity if no points limit is set (battle size can't be determined). */
+export function maxCopiesAllowed(datasheet: Datasheet, pointsLimit: number | null): number {
+  if (isEpicHero(datasheet)) return 1
+  if (pointsLimit === null) return Infinity
+  return (BATTLE_SIZE_COPY_CAPS.find(t => pointsLimit <= t.maxPoints) ?? BATTLE_SIZE_COPY_CAPS.at(-1)!).cap
+}
+
 export function sumDetachmentPoints(detachments: Detachment[], detachmentIds: string[]): number {
   const byId = new Map(detachments.map(d => [d.id, d]))
   return detachmentIds.reduce((sum, id) => sum + (byId.get(id)?.dp ?? 0), 0)
@@ -30,6 +51,55 @@ export function sortCostVariants(costs: PointsCost[]): PointsCost[] {
     const bCount = parseModelCountFromDescription(b.description) ?? 0
     return aCount - bCount
   })
+}
+
+/** "Nth unit / Nth+ unit / Nth-Mth units" surcharge tiers (e.g. a 2nd Defiler costs
+ * more than the 1st) aren't a player choice — they're determined by how many of that
+ * datasheet are already in the roster. This range is what `description` encodes. */
+export interface CostTierRange { min: number; max: number }
+
+export function parseTierRange(description: string): CostTierRange | null {
+  const m = description.match(/\(([^)]+)\)\s*$/)
+  if (!m) return null
+  const tier = m[1].toLowerCase().trim()
+
+  const plus = tier.match(/^(\d+)(?:st|nd|rd|th)\s*\+\s*units?$/)
+  if (plus) return { min: parseInt(plus[1], 10), max: Infinity }
+
+  const range = tier.match(/^1st\s*(?:-|to)\s*(\d+)(?:st|nd|rd|th)\s*units?$/)
+  if (range) return { min: 1, max: parseInt(range[1], 10) }
+
+  const exact = tier.match(/^(\d+)(?:st|nd|rd|th)\s*units?$/)
+  if (exact) return { min: parseInt(exact[1], 10), max: parseInt(exact[1], 10) }
+
+  return null
+}
+
+/** Strips a tier suffix like " (2nd+ unit)" so two tiers of the same squad size compare equal. */
+export function stripTierSuffix(description: string): string {
+  return description.replace(/\s*\([^)]+\)\s*$/, '').trim()
+}
+
+/** Narrows `costs` down to whichever tier applies to the Nth (1-indexed) copy of this
+ * datasheet in the roster. Costs with no tier suffix (plain squad-size choices) always pass through. */
+export function resolveCostsForUnitIndex(costs: PointsCost[], unitIndex: number): PointsCost[] {
+  return costs.filter(c => {
+    const range = parseTierRange(c.description)
+    return range === null || (unitIndex >= range.min && unitIndex <= range.max)
+  })
+}
+
+/** 1-indexed position of `entryId` among entries sharing its datasheetId, in roster order.
+ * Pass `entryId: null` to get the index the *next* added copy of `datasheetId` would take. */
+export function unitIndexInRoster(
+  entries: { id: string; datasheetId: string }[],
+  datasheetId: string,
+  entryId: string | null,
+): number {
+  const matching = entries.filter(e => e.datasheetId === datasheetId)
+  if (entryId === null) return matching.length + 1
+  const idx = matching.findIndex(e => e.id === entryId)
+  return idx === -1 ? matching.length + 1 : idx + 1
 }
 
 const ROLE_PRIORITY: Record<string, number> = {

@@ -234,7 +234,7 @@ export function DatasheetDetailPage() {
   const { datasheetId } = useParams<{ datasheetId: string }>()
   const {
     factions, datasheets, stratagems, detachments,
-    pointsCostMap, leaderMap, attachedMap,
+    pointsCostMap, wargearCostMap, leaderMap, attachedMap,
     datasheetOptions, datasheetDetachmentAbilities, detachmentAbilities,
     sourceMap,
   } = useGameDataContext()
@@ -280,6 +280,7 @@ export function DatasheetDetailPage() {
 
   // Wargear options
   const options = datasheetOptions[ds.id] ?? []
+  const wargearCosts = wargearCostMap[ds.id] ?? []
 
   // Detachment abilities specific to this unit
   const unitDetachAbilIds = datasheetDetachmentAbilities[ds.id] ?? []
@@ -526,6 +527,18 @@ export function DatasheetDetailPage() {
                   />
                 </div>
               ))}
+              {wargearCosts.length > 0 && (
+                <div className="flex flex-wrap gap-1 pt-2 mt-1 border-t border-rim-bright">
+                  {wargearCosts.map((w, i) => (
+                    <span
+                      key={i}
+                      className="text-[11px] font-mono text-parchment-dim border border-rim-bright bg-surface-3 px-2 py-0.5"
+                    >
+                      {w.name}: <span className="text-gold">+{w.points} pts</span>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

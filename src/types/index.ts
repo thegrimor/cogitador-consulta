@@ -133,6 +133,12 @@ export interface RawModelCost {
   cost: string
 }
 
+export interface RawWargearCost {
+  datasheet_id: string
+  name: string
+  cost: string
+}
+
 export interface RawDatasheetLeader {
   leader_id: string
   attached_id: string
@@ -320,6 +326,7 @@ export interface GameData {
   armyRulesByFaction: Record<string, RawAbility[]>
   pointsCosts: PointsCost[]
   pointsCostMap: Record<string, PointsCost[]>
+  wargearCostMap: Record<string, WargearCost[]>
   leaderMap: Record<string, string[]>
   attachedMap: Record<string, string[]>
   enhancements: Enhancement[]
@@ -364,6 +371,12 @@ export interface RosterList {
 export interface PointsCost {
   datasheetId: string
   description: string
+  points: number
+}
+
+export interface WargearCost {
+  datasheetId: string
+  name: string
   points: number
 }
 

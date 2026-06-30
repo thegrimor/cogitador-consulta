@@ -14,7 +14,10 @@ import {
   setEntryAttachment,
   setEntryWeaponSelection,
 } from '@/store/rosterSlice'
-import { resolveModelCount, compareByRolePriority, sumDetachmentPoints } from '@/core/utils/roster'
+import {
+  resolveModelCount, compareByRolePriority, sumDetachmentPoints,
+  resolveCostsForUnitIndex, unitIndexInRoster,
+} from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
@@ -198,7 +201,11 @@ export function RosterEditPage() {
           </p>
         ) : (
           sortedEntries.map(({ entry, datasheet }) => {
-            const costs = pointsCostMap[entry.datasheetId] ?? []
+            // Surcharge tiers (2nd+/3rd+ copy of a datasheet) aren't a player choice -
+            // narrow to whichever tier this entry's position in the roster falls into,
+            // leaving only genuine squad-size choices (if any) selectable.
+            const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
+            const costs = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
             const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
             const availableEnhancements = enhancements.filter(
               e => selectedDetachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id),
@@ -244,7 +251,13 @@ export function RosterEditPage() {
         )}
       </div>
 
-      <AddUnitPanel datasheets={factionDatasheets} pointsCostMap={pointsCostMap} onAdd={handleAddUnit} />
+      <AddUnitPanel
+        datasheets={factionDatasheets}
+        pointsCostMap={pointsCostMap}
+        entries={roster.entries}
+        pointsLimit={roster.pointsLimit}
+        onAdd={handleAddUnit}
+      />
     </div>
   )
 }

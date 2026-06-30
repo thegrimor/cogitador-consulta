@@ -1,5 +1,5 @@
 import type { PointsCost } from '@/types'
-import { sortCostVariants } from '@/core/utils/roster'
+import { sortCostVariants, stripTierSuffix } from '@/core/utils/roster'
 
 interface Props {
   costs: PointsCost[]
@@ -22,7 +22,7 @@ export function CostVariantPicker({ costs, selectedDescription, onSelect }: Prop
               : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
           }`}
         >
-          {cost.description} · {cost.points}pts
+          {stripTierSuffix(cost.description)} · {cost.points}pts
         </button>
       ))}
     </div>

@@ -3,11 +3,11 @@ import Papa from 'papaparse'
 import type {
   GameData, Faction, Detachment, DetachmentAbility, Stratagem, Datasheet,
   ModelProfile, Weapon, Ability, AntiEntry, Enhancement, UnitOption, Source, CoreRule,
-  PointsCost,
+  PointsCost, WargearCost,
   RawFaction, RawDatasheet, RawDatasheetModel, RawDatasheetWargear,
   RawDatasheetAbility, RawAbility, RawDetachment, RawDetachmentAbility,
   RawStratagem, RawDatasheetStratagem, RawDatasheetKeyword, RawDatasheetUnitComposition,
-  RawModelCost, RawDatasheetLeader, RawEnhancement, RawDatasheetEnhancement,
+  RawModelCost, RawWargearCost, RawDatasheetLeader, RawEnhancement, RawDatasheetEnhancement,
   RawDatasheetOption, RawDatasheetDetachmentAbility, RawSource, RawCoreRule,
 } from '@/types'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
@@ -252,6 +252,7 @@ const CSV_FILES = [
   'Datasheets_keywords',
   'Datasheets_unit_composition',
   'Datasheets_models_cost',
+  'Datasheets_wargear_cost',
   'Datasheets_leader',
   'Enhancements',
   'Datasheets_enhancements',
@@ -274,6 +275,7 @@ export function useGameData(): GameData {
     armyRulesByFaction: {},
     pointsCosts: [],
     pointsCostMap: {},
+    wargearCostMap: {},
     leaderMap: {},
     attachedMap: {},
     enhancements: [],
@@ -318,14 +320,15 @@ export function useGameData(): GameData {
         const rawKeywords                  = rows[10] as unknown as RawDatasheetKeyword[]
         const rawCompositions              = rows[11] as unknown as RawDatasheetUnitComposition[]
         const rawModelCosts                = rows[12] as unknown as RawModelCost[]
-        const rawLeaders                   = rows[13] as unknown as RawDatasheetLeader[]
-        const rawEnhancements              = rows[14] as unknown as RawEnhancement[]
-        const rawDsEnhancements            = rows[15] as unknown as RawDatasheetEnhancement[]
-        const rawDsOptions                 = rows[16] as unknown as RawDatasheetOption[]
-        const rawDsDetachAbils             = rows[17] as unknown as RawDatasheetDetachmentAbility[]
-        const rawSources                   = rows[18] as unknown as RawSource[]
-        const rawLastUpdate                = rows[19] as unknown as { last_update: string }[]
-        const rawCoreRules                 = rows[20] as unknown as RawCoreRule[]
+        const rawWargearCosts              = rows[13] as unknown as RawWargearCost[]
+        const rawLeaders                   = rows[14] as unknown as RawDatasheetLeader[]
+        const rawEnhancements              = rows[15] as unknown as RawEnhancement[]
+        const rawDsEnhancements            = rows[16] as unknown as RawDatasheetEnhancement[]
+        const rawDsOptions                 = rows[17] as unknown as RawDatasheetOption[]
+        const rawDsDetachAbils             = rows[18] as unknown as RawDatasheetDetachmentAbility[]
+        const rawSources                   = rows[19] as unknown as RawSource[]
+        const rawLastUpdate                = rows[20] as unknown as { last_update: string }[]
+        const rawCoreRules                 = rows[21] as unknown as RawCoreRule[]
 
         // ── abilitiesMap (last-write-wins per id, used for datasheet ability lookup) ──
         const abilitiesMap: Record<string, RawAbility> = {}
@@ -437,6 +440,14 @@ export function useGameData(): GameData {
           pointsCostMap[p.datasheetId].push(p)
         })
 
+        // ── wargear surcharges (per-weapon point costs) ─────────────────────────
+        const wargearCostMap: Record<string, WargearCost[]> = {}
+        rawWargearCosts.forEach(r => {
+          const w: WargearCost = { datasheetId: r.datasheet_id, name: r.name, points: parseInt(r.cost) || 0 }
+          if (!wargearCostMap[w.datasheetId]) wargearCostMap[w.datasheetId] = []
+          wargearCostMap[w.datasheetId].push(w)
+        })
+
         // ── leader maps ───────────────────────────────────────────────────────
         const leaderMap: Record<string, string[]> = {}
         const attachedMap: Record<string, string[]> = {}
@@ -520,7 +531,7 @@ export function useGameData(): GameData {
           setState({
             factions, datasheets, detachments, detachmentAbilities,
             stratagems, datasheetStratagems, abilitiesMap, armyRulesByFaction,
-            pointsCosts, pointsCostMap,
+            pointsCosts, pointsCostMap, wargearCostMap,
             leaderMap, attachedMap,
             enhancements, datasheetEnhancements,
             datasheetOptions: optionsByDs,
