@@ -15,7 +15,10 @@ function Badge({ label }: { label: string }) {
 export function WeaponCard({ weapon }: Props) {
   const hasBadges = weapon.isTorrent || weapon.isBlast || weapon.isDevastatingWounds ||
     weapon.isLethalHits || weapon.isHeavy || weapon.sustainedHitsValue > 0 || weapon.isTwinLinked ||
-    weapon.isMelta || weapon.antiEntries.length > 0
+    weapon.isMelta || weapon.antiEntries.length > 0 ||
+    weapon.isAssault || weapon.rapidFireValue !== '' || weapon.isHazardous || weapon.isPistol ||
+    weapon.isPsychic || weapon.isPrecision || weapon.isOneShot || weapon.isIndirectFire ||
+    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion
 
   return (
     <div className="w-full text-left p-2 border-b border-rim-bright">
@@ -47,6 +50,18 @@ export function WeaponCard({ weapon }: Props) {
           {weapon.antiEntries.map((entry, i) => (
             <Badge key={i} label={`Anti-${entry.keyword} ${entry.threshold}+`} />
           ))}
+          {weapon.isAssault      && <Badge label="Assault" />}
+          {weapon.rapidFireValue !== '' && <Badge label={`Rapid Fire ${weapon.rapidFireValue}`} />}
+          {weapon.isHazardous    && <Badge label="Hazardous" />}
+          {weapon.isPistol       && <Badge label="Pistol" />}
+          {weapon.isPsychic      && <Badge label="Psychic" />}
+          {weapon.isPrecision    && <Badge label="Precision" />}
+          {weapon.isOneShot      && <Badge label="One Shot" />}
+          {weapon.isIndirectFire && <Badge label="Indirect Fire" />}
+          {weapon.isExtraAttacks && <Badge label="Extra Attacks" />}
+          {weapon.isLance        && <Badge label="Lance" />}
+          {weapon.cleaveValue > 0 && <Badge label={`Cleave ${weapon.cleaveValue}`} />}
+          {weapon.isConversion   && <Badge label="Conversion" />}
         </div>
       )}
 

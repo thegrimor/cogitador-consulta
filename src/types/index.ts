@@ -271,6 +271,7 @@ export interface Weapon {
   isIndirectFire: boolean
   isExtraAttacks: boolean
   isLance: boolean
+  isConversion: boolean
   rapidFireValue: string
 }
 

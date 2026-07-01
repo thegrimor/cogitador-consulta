@@ -139,6 +139,7 @@ function parseWeapon(raw: RawDatasheetWargear): Weapon {
     isIndirectFire: desc.includes('indirect fire'),
     isExtraAttacks: desc.includes('extra attacks'),
     isLance: /\blance\b/.test(desc),
+    isConversion: /\bconversion\b/.test(desc),
     rapidFireValue: parseRapidFire(desc),
   }
 }

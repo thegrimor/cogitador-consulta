@@ -8,11 +8,12 @@ interface Props {
   pointsLimit: number | null
   onConfirm: (detachmentIds: string[]) => void
   onClose: () => void
+  unconstrained?: boolean
 }
 
-export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, onConfirm, onClose }: Props) {
+export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, onConfirm, onClose, unconstrained }: Props) {
   const [draftIds, setDraftIds] = useState<string[]>(selectedIds)
-  const multiMode = isMultiDetachmentAllowed(pointsLimit)
+  const multiMode = unconstrained || isMultiDetachmentAllowed(pointsLimit)
   const totalDp = sumDetachmentPoints(detachments, draftIds)
 
   function toggle(detachment: Detachment) {
@@ -25,7 +26,7 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
       setDraftIds(draftIds.filter(id => id !== detachment.id))
       return
     }
-    if (totalDp + detachment.dp > DETACHMENT_POINTS_BUDGET) return
+    if (!unconstrained && totalDp + detachment.dp > DETACHMENT_POINTS_BUDGET) return
     setDraftIds([...draftIds, detachment.id])
   }
 
@@ -53,7 +54,7 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
           )}
         </div>
 
-        {multiMode && (
+        {multiMode && !unconstrained && (
           <p className="px-4 pt-2 text-[10px] font-mono text-parchment-dim uppercase tracking-widest">
             Lista de {pointsLimit} pts: puedes seleccionar varios destacamentos hasta {DETACHMENT_POINTS_BUDGET} DP
           </p>
@@ -67,7 +68,7 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
           ) : (
             detachments.map(d => {
               const selected = draftIds.includes(d.id)
-              const disabled = !selected && multiMode && totalDp + d.dp > DETACHMENT_POINTS_BUDGET
+              const disabled = !selected && multiMode && !unconstrained && totalDp + d.dp > DETACHMENT_POINTS_BUDGET
               return (
                 <button
                   key={d.id}

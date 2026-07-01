@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import type { GameData } from '@/types'
 import type { PanelState } from '../../hooks/usePanelState'
+import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
+import { sumDetachmentPoints } from '@/core/utils/roster'
 
 interface Props {
   gameData: GameData
@@ -22,6 +25,7 @@ function pillClass(selected: boolean): string {
 
 export function UnitSelector({ gameData, panel }: Props) {
   const { selection, availableDetachments, availableUnits, availableCharacters, availableEnhancements, selectedUnit } = panel
+  const [detachModalOpen, setDetachModalOpen] = useState(false)
 
   const bearer = selection.characterId
     ? gameData.datasheets.find(ds => ds.id === selection.characterId) ?? null
@@ -48,34 +52,56 @@ export function UnitSelector({ gameData, panel }: Props) {
       </div>
 
       <div>
-        <label className="block text-[9px] font-display uppercase tracking-widest text-gold mb-1">
-          Destacamento <span className="text-parchment-dim normal-case tracking-normal">(multiselección)</span>
-        </label>
+        <p className="text-[9px] font-display uppercase tracking-widest text-gold mb-1.5">Destacamento</p>
         {!selection.factionId ? (
           <p className="text-[10px] font-mono text-parchment-dim">Selecciona un Ejército primero.</p>
-        ) : availableDetachments.length === 0 ? (
-          <p className="text-[10px] font-mono text-parchment-dim">Sin destacamentos disponibles.</p>
         ) : (
-          <div className="flex flex-wrap gap-1">
-            {availableDetachments.map(d => {
-              const selected = selection.detachmentIds.includes(d.id)
-              return (
-                <button
-                  key={d.id}
-                  onClick={() => panel.toggleDetachment(d.id)}
-                  className={`text-[10px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors whitespace-nowrap ${
-                    selected
-                      ? 'border-crimson-bright text-parchment bg-crimson/10'
-                      : 'border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment'
-                  }`}
-                >
-                  {d.name}
-                </button>
-              )
-            })}
-          </div>
+          <>
+            <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+              {selection.detachmentIds.length === 0 ? (
+                <span className="text-[10px] font-mono text-parchment-dim uppercase tracking-widest">Sin destacamento</span>
+              ) : (
+                availableDetachments
+                  .filter(d => selection.detachmentIds.includes(d.id))
+                  .map(d => (
+                    <span
+                      key={d.id}
+                      className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 border border-crimson-bright text-parchment bg-crimson/10 flex items-center gap-1.5"
+                    >
+                      {d.name}
+                      {d.dp > 0 && <span className="text-crimson-bright font-bold">{d.dp} DP</span>}
+                    </span>
+                  ))
+              )}
+              {selection.detachmentIds.length > 1 && (
+                <span className="text-[9px] font-mono uppercase tracking-widest text-parchment-dim">
+                  Total: {sumDetachmentPoints(availableDetachments, selection.detachmentIds)} DP
+                </span>
+              )}
+            </div>
+            <button
+              onClick={() => setDetachModalOpen(true)}
+              className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors"
+            >
+              {selection.detachmentIds.length === 0 ? 'Elegir destacamento' : 'Cambiar'}
+            </button>
+          </>
         )}
       </div>
+
+      {detachModalOpen && (
+        <DetachmentSelectModal
+          detachments={availableDetachments}
+          selectedIds={selection.detachmentIds}
+          pointsLimit={null}
+          unconstrained
+          onClose={() => setDetachModalOpen(false)}
+          onConfirm={ids => {
+            panel.selectDetachments(ids)
+            setDetachModalOpen(false)
+          }}
+        />
+      )}
 
       <div>
         <label className="block text-[9px] font-display uppercase tracking-widest text-gold mb-1">
