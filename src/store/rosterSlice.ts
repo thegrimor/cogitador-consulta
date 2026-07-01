@@ -10,7 +10,10 @@ const initialState: RosterState = {
 }
 
 function recomputeTotals(roster: RosterList) {
-  roster.totalPoints = roster.entries.reduce((sum, e) => sum + (e.pointsCost ?? 0), 0)
+  roster.totalPoints = roster.entries.reduce(
+    (sum, e) => sum + (e.pointsCost ?? 0) + (e.wargearSurcharge ?? 0),
+    0,
+  )
   roster.updatedAt = new Date().toISOString()
 }
 
@@ -147,6 +150,24 @@ const rosterSlice = createSlice({
       entry.weaponOptionSelections[action.payload.ruleId] = action.payload.selection
       roster.updatedAt = new Date().toISOString()
     },
+
+    setEntryWargearCosts: (
+      state,
+      action: PayloadAction<{
+        rosterId: string
+        entryId: string
+        selections: Record<string, number>
+        surcharge: number
+      }>,
+    ) => {
+      const roster = state.rosters.find(r => r.id === action.payload.rosterId)
+      if (!roster) return
+      const entry = roster.entries.find(e => e.id === action.payload.entryId)
+      if (!entry) return
+      entry.wargearSelections = action.payload.selections
+      entry.wargearSurcharge = action.payload.surcharge
+      recomputeTotals(roster)
+    },
   },
 })
 
@@ -162,6 +183,7 @@ export const {
   setEntryEnhancement,
   setEntryAttachment,
   setEntryWeaponSelection,
+  setEntryWargearCosts,
 } = rosterSlice.actions
 
 export const rosterReducer = rosterSlice.reducer

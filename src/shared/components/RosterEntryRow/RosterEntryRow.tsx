@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment } from '@/types'
+import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
 import { resolveModelCount, resolveWeaponQuantities } from '@/core/utils/roster'
 import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
@@ -14,6 +14,7 @@ interface Props {
   datasheet: Datasheet
   rosterId: string
   costs: PointsCost[]
+  wargearCosts: WargearCost[]
   detachmentAbilities: DetachmentAbility[]
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
@@ -22,6 +23,7 @@ interface Props {
   onChangeEnhancement: (enhancementId: string | null) => void
   onChangeAttachment: (attachedToEntryId: string | null) => void
   onChangeWeaponSelection: (ruleId: string, selection: number[]) => void
+  onChangeWargearCosts: (selections: Record<string, number>, surcharge: number) => void
   onRemove: () => void
 }
 
@@ -41,6 +43,7 @@ export function RosterEntryRow({
   datasheet,
   rosterId,
   costs,
+  wargearCosts,
   detachmentAbilities,
   selectedDetachments,
   availableEnhancements,
@@ -49,6 +52,7 @@ export function RosterEntryRow({
   onChangeEnhancement,
   onChangeAttachment,
   onChangeWeaponSelection,
+  onChangeWargearCosts,
   onRemove,
 }: Props) {
   const [expanded, setExpanded] = useState(false)
@@ -61,6 +65,14 @@ export function RosterEntryRow({
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
   const weaponQuantities = resolveWeaponQuantities(datasheet, entry)
+  const wargearSelections = entry.wargearSelections ?? {}
+  const wargearSurcharge = entry.wargearSurcharge ?? 0
+
+  function handleWargearChange(weaponName: string, count: number) {
+    const next = { ...wargearSelections, [weaponName]: count }
+    const surcharge = wargearCosts.reduce((sum, wc) => sum + (next[wc.name] ?? 0) * wc.points, 0)
+    onChangeWargearCosts(next, surcharge)
+  }
 
   return (
     <div className="bg-surface-2 border border-rim-bright px-3 py-2.5">
@@ -71,7 +83,10 @@ export function RosterEntryRow({
             {datasheet.name}
           </p>
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
-            {entry.pointsCost ?? 0}pts
+            {(entry.pointsCost ?? 0) + wargearSurcharge}pts
+            {wargearSurcharge > 0 && (
+              <span className="text-gold ml-1">(+{wargearSurcharge} arm.)</span>
+            )}
           </p>
           {attachedTo && (
             <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">
@@ -141,6 +156,59 @@ export function RosterEntryRow({
                   {selectedEnhancement.description}
                 </p>
               )}
+            </div>
+          )}
+
+          {wargearCosts.length > 0 && (
+            <div>
+              <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1.5">
+                Armamento con sobrecoste
+              </p>
+              <div className="flex flex-col gap-1.5">
+                {wargearCosts.map(wc => {
+                  const current = wargearSelections[wc.name] ?? 0
+                  const label = wc.name.replace(/^per /i, '')
+                  return (
+                    <div key={wc.name} className="flex items-center justify-between gap-3">
+                      <span className="text-[11px] font-mono text-parchment-dim">
+                        {label}
+                        <span className="text-gold ml-1">+{wc.points}pts/modelo</span>
+                      </span>
+                      {entry.modelCount === 1 ? (
+                        <button
+                          onClick={() => handleWargearChange(wc.name, current === 1 ? 0 : 1)}
+                          className={pillClass(current === 1)}
+                        >
+                          {current === 1 ? `+${wc.points}pts` : 'Equipar'}
+                        </button>
+                      ) : (
+                        <div className="flex items-center gap-1">
+                          <button
+                            onClick={() => handleWargearChange(wc.name, Math.max(0, current - 1))}
+                            className="text-[11px] font-mono px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
+                          >
+                            −
+                          </button>
+                          <span className="text-[11px] font-mono text-parchment w-5 text-center">
+                            {current}
+                          </span>
+                          <button
+                            onClick={() => handleWargearChange(wc.name, Math.min(entry.modelCount, current + 1))}
+                            className="text-[11px] font-mono px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
+                          >
+                            +
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+                {wargearSurcharge > 0 && (
+                  <p className="text-[10px] font-mono text-gold mt-0.5">
+                    Total armamento: +{wargearSurcharge}pts
+                  </p>
+                )}
+              </div>
             </div>
           )}
 

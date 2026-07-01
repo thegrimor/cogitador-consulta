@@ -361,6 +361,10 @@ export interface RosterEntry {
   attachedToEntryId?: string
   /** Maps weapon-option rule id to per-choice quantities picked (index-aligned with the rule's `choices`). */
   weaponOptionSelections?: Record<string, number[]>
+  /** Per-weapon surcharge selections: weapon name → number of models equipped with it. */
+  wargearSelections?: Record<string, number>
+  /** Total points surcharge from wargear upgrades (sum of selections × per-weapon cost). */
+  wargearSurcharge?: number
 }
 
 export interface RosterList {

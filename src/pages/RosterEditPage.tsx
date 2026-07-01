@@ -13,6 +13,7 @@ import {
   setEntryEnhancement,
   setEntryAttachment,
   setEntryWeaponSelection,
+  setEntryWargearCosts,
 } from '@/store/rosterSlice'
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints,
@@ -34,6 +35,7 @@ export function RosterEditPage() {
     enhancements,
     datasheetEnhancements,
     pointsCostMap,
+    wargearCostMap,
     leaderMap,
   } = useGameDataContext()
   const roster = useAppSelector(state =>
@@ -222,6 +224,7 @@ export function RosterEditPage() {
                 datasheet={datasheet}
                 rosterId={rosterId}
                 costs={costs}
+                wargearCosts={wargearCostMap[datasheet.id] ?? []}
                 detachmentAbilities={activeDetachmentAbilities}
                 selectedDetachments={selectedDetachments}
                 availableEnhancements={availableEnhancements}
@@ -243,6 +246,9 @@ export function RosterEditPage() {
                 }
                 onChangeWeaponSelection={(ruleId, selection) =>
                   dispatch(setEntryWeaponSelection({ rosterId, entryId: entry.id, ruleId, selection }))
+                }
+                onChangeWargearCosts={(selections, surcharge) =>
+                  dispatch(setEntryWargearCosts({ rosterId, entryId: entry.id, selections, surcharge }))
                 }
                 onRemove={() => dispatch(removeEntry({ rosterId, entryId: entry.id }))}
               />
