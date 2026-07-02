@@ -105,6 +105,8 @@ export interface ParsedUnit {
   name: string
   points: number
   weapons: ParsedWeapon[]
+  enhancementName?: string
+  attachedToUnitName?: string
 }
 
 export interface ParsedRosterText {
@@ -126,7 +128,9 @@ const WEAPON_RE = /^[•◦]?\s*(\d+)x\s+(.+)$/
 // Non-weapon bullet: starts with bullet but no "Nx" — e.g. "• Warlord", "• Enhancement: ..."
 const NON_WEAPON_BULLET_RE = /^[•◦]/
 // Lines to always skip
-const SKIP_RE = /^(Force Dispositions|Total\s+Points|Points\s+Limit|Warlord|Attached\s+Units?|Attached\s+Unit\s+\d)/i
+const SKIP_RE = /^(Force Dispositions|Total\s+Points|Points\s+Limit|Warlord)/i
+// "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
+const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
 
 const KNOWN_SECTIONS = new Set([
   'CHARACTERS', 'BATTLELINE', 'OTHER DATASHEETS', 'DEDICATED TRANSPORTS',
@@ -193,7 +197,23 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Non-weapon bullet (no count): "• Warlord", "• Enhancement: ..."
+        // Enhancement bullet: "• Enhancement: Nombre"
+    const enhMatch = line.match(/^[•◦]\s*Enhancement:\s*(.+)$/i)
+    if (enhMatch) {
+      if (currentUnit) currentUnit.enhancementName = enhMatch[1].trim()
+      continue
+    }
+
+    // Attachment line: "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: ..."
+    const attachMatch = line.match(ATTACHMENT_LINE_RE)
+    if (attachMatch) {
+      if (currentUnit && !currentUnit.attachedToUnitName) {
+        currentUnit.attachedToUnitName = attachMatch[1].trim()
+      }
+      continue
+    }
+
+    // Non-weapon bullet (no count): "• Warlord", etc.
     if (NON_WEAPON_BULLET_RE.test(line)) continue
 
     // Unit/army-name line: "Name (X Points)"
@@ -238,6 +258,8 @@ export function resolveImportedRoster(
   factions: Faction[],
   detachments: Detachment[],
   wargearCostMap: Record<string, WargearCost[]>,
+  enhancements: Enhancement[],
+  leaderMap: Record<string, string[]>,
 ): { roster: Omit<RosterList, 'id' | 'createdAt' | 'updatedAt'>; warnings: string[] } {
   const warnings: string[] = []
 
@@ -255,8 +277,21 @@ export function resolveImportedRoster(
   const detachmentIds: string[] = []
   for (const detName of parsed.detachmentNames) {
     const det = detachments.find(d => d.name.toLowerCase() === detName.toLowerCase())
-    if (det) detachmentIds.push(det.id)
-    else warnings.push(`Destacamento no encontrado: "${detName}"`)
+    if (det) {
+      detachmentIds.push(det.id)
+    } else {
+      // BattleScribe sometimes joins multiple detachments with " and " instead of " + "
+      const parts = detName.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean)
+      if (parts.length > 1) {
+        for (const part of parts) {
+          const d = detachments.find(d2 => d2.name.toLowerCase() === part.toLowerCase())
+          if (d) detachmentIds.push(d.id)
+          else warnings.push(`Destacamento no encontrado: "${part}"`)
+        }
+      } else {
+        warnings.push(`Destacamento no encontrado: "${detName}"`)
+      }
+    }
   }
 
   const factionDatasheets = faction ? datasheets.filter(d => d.factionId === factionId) : datasheets
@@ -326,9 +361,47 @@ export function resolveImportedRoster(
       if (Object.keys(weaponOptionSelections).length > 0) {
         entry.weaponOptionSelections = weaponOptionSelections
       }
+      if (unit.enhancementName) {
+        const enh = enhancements.find(e => e.name.toLowerCase() === unit.enhancementName!.toLowerCase())
+        if (enh) {
+          entry.enhancementId = enh.id
+          // The imported points already include the enhancement cost; subtract it so
+          // RosterEditPage doesn't add it a second time when computing combinedTotal.
+          entry.pointsCost = Math.max(0, entry.pointsCost - enh.cost)
+        } else {
+          warnings.push(`Mejora no encontrada: "${unit.enhancementName}"`)
+        }
+      }
       return entry
     })
     .filter((e): e is RosterEntry => e !== null)
+
+  // Resolve leader attachments
+  const datasheetById = new Map(datasheets.map(d => [d.id, d]))
+  const parsedUnitByEntryId = new Map(
+    entries.map((e, i) => [e.id, parsed.units[i]] as const).filter(([, u]) => u !== undefined),
+  )
+
+  for (const entry of entries) {
+    const eligibleTargetIds = new Set(leaderMap[entry.datasheetId] ?? [])
+    if (eligibleTargetIds.size === 0) continue
+
+    const parsedUnit = parsedUnitByEntryId.get(entry.id)
+    const candidates = entries.filter(other => other.id !== entry.id && eligibleTargetIds.has(other.datasheetId))
+
+    if (parsedUnit?.attachedToUnitName) {
+      // Explicit attachment from import text — match by unit name
+      const targetName = parsedUnit.attachedToUnitName.toLowerCase()
+      const target = candidates.find(other => {
+        const ds = datasheetById.get(other.datasheetId)
+        return ds?.name.toLowerCase() === targetName
+      })
+      if (target) entry.attachedToEntryId = target.id
+    } else if (candidates.length === 1) {
+      // Only one possible target — auto-attach
+      entry.attachedToEntryId = candidates[0].id
+    }
+  }
 
   const totalPoints = entries.reduce((sum, e) => sum + (e.pointsCost ?? 0) + (e.wargearSurcharge ?? 0), 0)
 

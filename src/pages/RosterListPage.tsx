@@ -9,7 +9,7 @@ import { exportRosterToText, parseRosterText, resolveImportedRoster } from '@/co
 
 export function RosterListPage() {
   const rosters = useAppSelector(selectAllRosters)
-  const { factions, detachments, datasheets, enhancements, wargearCostMap } = useGameDataContext()
+  const { factions, detachments, datasheets, enhancements, wargearCostMap, leaderMap } = useGameDataContext()
   const dispatch = useAppDispatch()
 
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -37,7 +37,7 @@ export function RosterListPage() {
     setImportError(null)
     try {
       const parsed = parseRosterText(importText)
-      const { roster, warnings } = resolveImportedRoster(parsed, datasheets, factions, detachments, wargearCostMap)
+      const { roster, warnings } = resolveImportedRoster(parsed, datasheets, factions, detachments, wargearCostMap, enhancements, leaderMap)
       dispatch(importRosterFromData(roster))
       setImportText('')
       setShowImport(false)
