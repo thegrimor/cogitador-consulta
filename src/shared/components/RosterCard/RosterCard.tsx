@@ -7,9 +7,11 @@ interface Props {
   factionName: string
   detachmentName: string | null
   onDelete: () => void
+  onExport: () => void
+  exported?: boolean
 }
 
-export function RosterCard({ roster, factionName, detachmentName, onDelete }: Props) {
+export function RosterCard({ roster, factionName, detachmentName, onDelete, onExport, exported }: Props) {
   const overLimit = roster.pointsLimit !== null && (roster.totalPoints ?? 0) > roster.pointsLimit
 
   return (
@@ -23,16 +25,28 @@ export function RosterCard({ roster, factionName, detachmentName, onDelete }: Pr
           <p className="text-[13px] font-display uppercase tracking-widest text-parchment leading-tight min-w-0">
             {roster.name}
           </p>
-          <button
-            onClick={e => {
-              e.preventDefault()
-              e.stopPropagation()
-              onDelete()
-            }}
-            className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0"
-          >
-            Eliminar
-          </button>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={e => {
+                e.preventDefault()
+                e.stopPropagation()
+                onExport()
+              }}
+              className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright transition-colors"
+            >
+              {exported ? 'Copiado!' : 'Exportar'}
+            </button>
+            <button
+              onClick={e => {
+                e.preventDefault()
+                e.stopPropagation()
+                onDelete()
+              }}
+              className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright"
+            >
+              Eliminar
+            </button>
+          </div>
         </div>
         <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-1">
           {factionName}
