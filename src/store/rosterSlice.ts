@@ -168,6 +168,20 @@ const rosterSlice = createSlice({
       entry.wargearSurcharge = action.payload.surcharge
       recomputeTotals(roster)
     },
+
+    importRosterFromData: {
+      prepare: (payload: Omit<RosterList, 'id' | 'createdAt' | 'updatedAt'>) => ({
+        payload: {
+          ...payload,
+          id: crypto.randomUUID(),
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+      }),
+      reducer: (state, action: PayloadAction<RosterList>) => {
+        state.rosters.push(action.payload)
+      },
+    },
   },
 })
 
@@ -184,6 +198,7 @@ export const {
   setEntryAttachment,
   setEntryWeaponSelection,
   setEntryWargearCosts,
+  importRosterFromData,
 } = rosterSlice.actions
 
 export const rosterReducer = rosterSlice.reducer
