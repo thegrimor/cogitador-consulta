@@ -74,7 +74,7 @@ function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
 
 // ── Tabla de armas ────────────────────────────────────────────────────────────
 
-function WeaponStatBox({ label, value }: { label: string; value: string }) {
+function WeaponStatBox({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="flex flex-col items-center border border-rim-bright bg-surface-3 px-2 py-1 min-w-[38px]">
       <span className="text-[9px] font-mono uppercase text-parchment-dim leading-none">{label}</span>

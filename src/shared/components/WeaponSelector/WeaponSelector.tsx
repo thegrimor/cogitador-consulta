@@ -14,7 +14,7 @@ function Badge({ label }: { label: string }) {
   )
 }
 
-function WeaponStatBox({ label, value, dim }: { label: string; value: string; dim?: boolean }) {
+function WeaponStatBox({ label, value, dim }: { label: string; value: string | number; dim?: boolean }) {
   return (
     <div className={`flex flex-col items-center border px-2 py-1 min-w-[36px] ${dim ? 'border-rim-bright/30 bg-surface-3/30' : 'border-rim-bright bg-surface-3'}`}>
       <span className={`text-[9px] font-display uppercase tracking-[2px] leading-none mb-0.5 ${dim ? 'text-gold/40' : 'text-gold'}`}>{label}</span>

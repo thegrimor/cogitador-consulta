@@ -367,7 +367,7 @@ export function resolveImportedRoster(
           entry.enhancementId = enh.id
           // The imported points already include the enhancement cost; subtract it so
           // RosterEditPage doesn't add it a second time when computing combinedTotal.
-          entry.pointsCost = Math.max(0, entry.pointsCost - enh.cost)
+          entry.pointsCost = Math.max(0, (entry.pointsCost ?? 0) - enh.cost)
         } else {
           warnings.push(`Mejora no encontrada: "${unit.enhancementName}"`)
         }
