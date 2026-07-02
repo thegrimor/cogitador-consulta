@@ -57,9 +57,9 @@ function RuleButton({
           {rule.label}{cpLabel}
         </div>
         {rule.isStratagem && rule.description && (
-          <div className="text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70">
-            {rule.description}
-          </div>
+          <div className="wh-html text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70"
+            dangerouslySetInnerHTML={{ __html: rule.description }}
+          />
         )}
       </button>
       {rule.bonusEffects && (

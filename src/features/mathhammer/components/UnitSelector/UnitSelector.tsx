@@ -158,9 +158,9 @@ export function UnitSelector({ gameData, panel }: Props) {
             ))}
           </div>
           {selectedEnhancement && (
-            <p className="text-[10px] font-mono text-parchment-dim leading-relaxed mt-1.5">
-              {selectedEnhancement.description}
-            </p>
+            <p className="wh-html text-[10px] font-mono text-parchment-dim leading-relaxed mt-1.5"
+              dangerouslySetInnerHTML={{ __html: selectedEnhancement.description }}
+            />
           )}
         </div>
       )}
