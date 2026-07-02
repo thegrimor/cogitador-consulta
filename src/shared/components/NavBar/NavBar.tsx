@@ -9,12 +9,9 @@ export function NavBar() {
     }`
 
   return (
-    <nav className="flex items-center justify-center gap-1 sm:justify-start overflow-x-auto">
+    <nav className="flex items-center justify-center gap-1 sm:justify-start">
       <NavLink to="/catalog" className={linkClass}>
         Archivo
-      </NavLink>
-      <NavLink to="/core-rules" className={linkClass}>
-        Reglamento
       </NavLink>
       <NavLink to="/roster" className={linkClass}>
         Ejército
