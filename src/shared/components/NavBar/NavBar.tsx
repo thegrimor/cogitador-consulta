@@ -9,7 +9,7 @@ export function NavBar() {
     }`
 
   return (
-    <nav className="flex items-center justify-center gap-1 sm:justify-start">
+    <nav className="flex items-center justify-center gap-1 sm:justify-start overflow-x-auto">
       <NavLink to="/catalog" className={linkClass}>
         Archivo
       </NavLink>
