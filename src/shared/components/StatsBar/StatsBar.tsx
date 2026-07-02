@@ -11,10 +11,7 @@ function StatCell({ label, value }: { label: string; value: string | number }) {
       <span className="text-[11px] font-display uppercase tracking-[2px] text-gold leading-none mb-0.5">
         {label}
       </span>
-      <span
-        className="text-sm font-display font-black text-crimson-bright leading-none"
-        style={{ textShadow: '0 0 6px #ff2222' }}
-      >
+      <span className="text-sm font-display font-black text-crimson-bright leading-none">
         {value}
       </span>
     </div>

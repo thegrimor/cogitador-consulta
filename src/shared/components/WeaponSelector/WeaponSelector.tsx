@@ -14,8 +14,18 @@ function Badge({ label }: { label: string }) {
   )
 }
 
+function WeaponStatBox({ label, value, dim }: { label: string; value: string | number; dim?: boolean }) {
+  return (
+    <div className={`flex flex-col items-center border px-2 py-1 min-w-[36px] ${dim ? 'border-rim-bright/30 bg-surface-3/30' : 'border-rim-bright bg-surface-3'}`}>
+      <span className={`text-[9px] font-display uppercase tracking-[2px] leading-none mb-0.5 ${dim ? 'text-gold/40' : 'text-gold'}`}>{label}</span>
+      <span className={`text-[12px] font-display font-black leading-tight mt-0.5 whitespace-nowrap ${dim ? 'text-crimson-bright/40' : 'text-crimson-bright'}`}>{value}</span>
+    </div>
+  )
+}
+
 function WeaponRow({ weapon, qty }: { weapon: Weapon; qty: number }) {
   const active = qty > 0
+  const isMelee = weapon.range.toLowerCase() === 'melee'
 
   const badges: string[] = []
   if (weapon.isTorrent)           badges.push('Torrent')
@@ -42,24 +52,26 @@ function WeaponRow({ weapon, qty }: { weapon: Weapon; qty: number }) {
 
   return (
     <div
-      className={`w-full px-2 py-1 border transition-colors ${
+      className={`w-full px-2 py-2 border transition-colors ${
         active
-          ? 'border-crimson-bright text-parchment bg-crimson/10'
-          : 'border-rim-bright/40 text-parchment-dim/40'
+          ? 'border-crimson-bright bg-crimson/10'
+          : 'border-rim-bright/40'
       }`}
     >
-      <div className="flex items-center justify-between gap-2">
-        <span className="text-[11px] font-mono uppercase tracking-wide truncate flex items-center gap-1.5">
-          {active && <span className="text-crimson-bright font-bold">x{qty}</span>}
-          {weapon.name}
-        </span>
-        <span className="text-[10px] font-mono text-parchment-dim shrink-0">
-          A:{weapon.A} · {weapon.range.toLowerCase() === 'melee' ? 'HA' : 'HP'}:{weapon.bsWs} · F{weapon.S} · AP
-          {weapon.AP} · D{weapon.D}
-        </span>
+      <p className={`text-[11px] font-display uppercase tracking-wide mb-1.5 flex items-center gap-1.5 ${active ? 'text-parchment' : 'text-parchment-dim/40'}`}>
+        {active && <span className="text-crimson-bright font-bold text-[10px]">x{qty}</span>}
+        {weapon.name}
+      </p>
+      <div className="flex flex-wrap gap-px mb-1.5">
+        <WeaponStatBox label="Rango" value={weapon.range} dim={!active} />
+        <WeaponStatBox label="A"     value={weapon.A}     dim={!active} />
+        <WeaponStatBox label={isMelee ? 'HA' : 'HP'} value={weapon.bsWs} dim={!active} />
+        <WeaponStatBox label="F"     value={weapon.S}     dim={!active} />
+        <WeaponStatBox label="AP"    value={weapon.AP}    dim={!active} />
+        <WeaponStatBox label="D"     value={weapon.D}     dim={!active} />
       </div>
       {badges.length > 0 && (
-        <div className="flex flex-wrap gap-1 mt-1">
+        <div className="flex flex-wrap gap-1">
           {badges.map(b => <Badge key={b} label={b} />)}
         </div>
       )}

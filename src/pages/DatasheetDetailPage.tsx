@@ -74,53 +74,39 @@ function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
 
 // ── Tabla de armas ────────────────────────────────────────────────────────────
 
+function WeaponStatBox({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div className="flex flex-col items-center border border-rim-bright bg-surface-3 px-2 py-1 min-w-[38px]">
+      <span className="text-[9px] font-mono uppercase text-parchment-dim leading-none">{label}</span>
+      <span className="text-[13px] font-display text-parchment leading-tight mt-0.5 whitespace-nowrap">{value}</span>
+    </div>
+  )
+}
+
 function WeaponsTable({ weapons, title }: { weapons: Weapon[]; title: string }) {
   if (weapons.length === 0) return null
 
   return (
     <div className="border border-rim-bright">
       <SectionHeader title={title} />
-      <div className="overflow-x-auto">
-        <table className="w-full text-[12px] font-mono">
-          <thead>
-            <tr className="bg-surface-3 border-b border-rim-bright text-parchment-dim uppercase tracking-widest">
-              <th className="hidden sm:table-cell text-left px-3 py-1.5 font-normal">Nombre</th>
-              <th className="text-center px-2 py-1.5 font-normal whitespace-nowrap">Rango</th>
-              <th className="text-center px-2 py-1.5 font-normal">A</th>
-              <th className="text-center px-2 py-1.5 font-normal">HA/HP</th>
-              <th className="text-center px-2 py-1.5 font-normal">F</th>
-              <th className="text-center px-2 py-1.5 font-normal">AP</th>
-              <th className="text-center px-2 py-1.5 font-normal">D</th>
-              <th className="text-left px-3 py-1.5 font-normal">Habilidades</th>
-            </tr>
-          </thead>
-          <tbody>
-            {weapons.map((w, i) => (
-              <tr
-                key={w.line}
-                className={`border-b border-rim-bright last:border-b-0 ${i % 2 === 0 ? 'bg-surface-2' : 'bg-surface-3/50'}`}
-              >
-                <td className="hidden sm:table-cell px-3 py-1.5 text-parchment whitespace-nowrap">
-                  <span className="font-display uppercase tracking-wide text-[11px]">{w.name}</span>
-                </td>
-                <td className="sm:hidden px-2 py-1 text-parchment" colSpan={7}>
-                  <span className="font-display uppercase tracking-wide text-[11px] block mb-0.5">{w.name}</span>
-                  <span className="text-parchment-dim text-[10px]">{w.range} · {w.A} · {w.bsWs} · F{w.S} · AP{w.AP} · D{w.D}</span>
-                  <span className="block mt-0.5"><WeaponSpecialBadges weapon={w} /></span>
-                </td>
-                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment-dim">{w.range}</td>
-                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.A}</td>
-                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.bsWs}</td>
-                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.S}</td>
-                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.AP}</td>
-                <td className="hidden sm:table-cell text-center px-2 py-1.5 text-parchment">{w.D}</td>
-                <td className="hidden sm:table-cell px-3 py-1.5">
-                  <WeaponSpecialBadges weapon={w} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="divide-y divide-rim-bright">
+        {weapons.map((w, i) => (
+          <div
+            key={w.line}
+            className={`px-3 py-2 ${i % 2 === 0 ? 'bg-surface-2' : 'bg-surface-3/50'}`}
+          >
+            <p className="font-display uppercase tracking-wide text-[11px] text-parchment mb-1.5">{w.name}</p>
+            <div className="flex flex-wrap gap-px mb-1.5">
+              <WeaponStatBox label="Rango" value={w.range} />
+              <WeaponStatBox label="A" value={w.A} />
+              <WeaponStatBox label="HA/HP" value={w.bsWs} />
+              <WeaponStatBox label="F" value={w.S} />
+              <WeaponStatBox label="AP" value={w.AP} />
+              <WeaponStatBox label="D" value={w.D} />
+            </div>
+            <WeaponSpecialBadges weapon={w} />
+          </div>
+        ))}
       </div>
     </div>
   )
