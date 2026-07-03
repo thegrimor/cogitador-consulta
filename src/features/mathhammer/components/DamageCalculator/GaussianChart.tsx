@@ -47,7 +47,7 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
     if (sigma < 0.05 || mean <= 0) return null
 
     const xMin = Math.max(0, mean - 4 * sigma)
-    const xMax = mean + 4 * sigma
+    const xMax = Math.max(mean + 4 * sigma, targetWounds * 1.06)
     const span = xMax - xMin
 
     const sx = (x: number) => PAD_S + ((x - xMin) / span) * CHART_W
@@ -72,8 +72,7 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
 
   if (!d) return null
 
-  const { fillD, polyPts, baseY, meanX, targetX, killP, tooClose, xMax } = d
-  const killZone = targetWounds < xMax
+  const { fillD, polyPts, baseY, meanX, targetX, killP, tooClose } = d
   const labelY   = baseY + 14
   const clipId   = `kz${Math.round(mean * 10)}-${Math.round(sigma * 10)}-${targetWounds}`
 
@@ -92,10 +91,8 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
         {/* Relleno base (zona segura para el defensor) */}
         <path d={fillD} fill={CRIMSON_DIM} fillOpacity="0.18" />
 
-        {/* Relleno zona de baja (daño ≥ heridas objetivo) */}
-        {killZone && (
-          <path d={fillD} fill={CRIMSON_BRT} fillOpacity="0.38" clipPath={`url(#${clipId})`} />
-        )}
+        {/* Relleno zona de aniquilación (daño ≥ heridas para aniquilar la unidad) */}
+        <path d={fillD} fill={CRIMSON_BRT} fillOpacity="0.38" clipPath={`url(#${clipId})`} />
 
         {/* Eje X */}
         <line x1={PAD_S} y1={baseY} x2={PAD_S + CHART_W} y2={baseY} stroke={RIM_BRT} strokeWidth="1" />
@@ -133,8 +130,8 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
           {targetWounds}H
         </text>
 
-        {/* % de matar en zona crimson */}
-        {killZone && killP > 0.01 && (
+        {/* % de aniquilar la unidad en zona crimson */}
+        {killP > 0.25 && (
           <text
             x={Math.min(PAD_S + CHART_W - 4, (targetX + PAD_S + CHART_W) / 2)}
             y={PAD_T + 17}
@@ -169,13 +166,13 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
           <svg width="16" height="6" aria-hidden>
             <line x1="0" y1="3" x2="16" y2="3" stroke={GOLD} strokeWidth="1.5" />
           </svg>
-          {targetWounds}H (umbral de baja)
+          {targetWounds}H (umbral de aniquilación)
         </span>
         <span className="flex items-center gap-1.5">
           <svg width="12" height="10" aria-hidden>
             <rect x="0" y="0" width="12" height="10" fill={CRIMSON_BRT} fillOpacity="0.38" />
           </svg>
-          zona de baja
+          zona de aniquilación
         </span>
       </div>
     </div>
