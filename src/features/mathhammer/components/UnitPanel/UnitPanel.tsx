@@ -100,7 +100,6 @@ export function UnitPanel({
 
   const anySelectedHeavy       = selectedWeapons.some(w => w.isHeavy)
   const anySelectedMelta       = selectedWeapons.some(w => w.isMelta)
-  const anySelectedTwinLinked  = selectedWeapons.some(w => w.isTwinLinked)
   const anySelectedRapidFire   = selectedWeapons.some(w => w.rapidFireValue !== '')
   const anySelectedLance       = selectedWeapons.some(w => w.isLance)
   const anySelectedTorrent     = selectedWeapons.some(w => w.isTorrent)
@@ -164,7 +163,6 @@ export function UnitPanel({
       if (rule.leaderDatasheetId && rule.leaderDatasheetId !== panel.selection.characterId) return false
       if (rule.combatType && rule.combatType !== combatType) return false
       if (rule.id === 'weapon_heavy'       && !anySelectedHeavy)      return false
-      if (rule.id === 'weapon_twin_linked' && !anySelectedTwinLinked) return false
       if (rule.id === 'weapon_rapid_fire'  && !anySelectedRapidFire)  return false
       if (rule.id === 'weapon_melta'       && !anySelectedMelta)      return false
       if (rule.id === 'weapon_lance'       && !anySelectedLance)      return false
@@ -177,7 +175,7 @@ export function UnitPanel({
       if (rule.sourceDatasheetId && panel.rosterIds !== null && !panel.rosterIds.includes(rule.sourceDatasheetId)) return false
       return true
     })
-  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedMelta, anySelectedTwinLinked, anySelectedRapidFire, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
+  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedMelta, anySelectedRapidFire, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
 
   const roleLabel = selectedUnit?.role ? ` · ${selectedUnit.role}` : ''
 

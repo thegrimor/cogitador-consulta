@@ -1,5 +1,5 @@
-import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost } from '@/types'
-import { weaponBaseName } from '@/core/utils/roster'
+import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
+import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants } from '@/core/utils/roster'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
 
@@ -104,9 +104,11 @@ export interface ParsedWeapon {
 export interface ParsedUnit {
   name: string
   points: number
-  weapons: ParsedWeapon[]
+  weapons: ParsedWeapon[]       // ◦ and bare Nx lines (actual weapons)
+  bulletItems: ParsedWeapon[]   // • Nx lines (model sub-types or char weapons)
   enhancementName?: string
   attachedToUnitName?: string
+  attachmentGroupId?: number    // from "Attached unit N" block
 }
 
 export interface ParsedRosterText {
@@ -123,19 +125,23 @@ const UNIT_PTS_RE = /^(.+?)\s+\(([\d.]+)\s*[Pp]oints?\)$/
 const DETACHMENT_RE = /^(.+?)\s+\(\d+\s+Detachment\s+[Pp]oints?\)/i
 // Battle size header
 const BATTLE_SIZE_RE = /^(Combat Patrol|Incursion|Strike Force|Onslaught)\s+\(/i
-// Weapon line: optional bullet/circle + "Nx Name"  e.g. "• 1x Fidelis", "◦ 2x Bolter", "1x Lance"
-const WEAPON_RE = /^[•◦]?\s*(\d+)x\s+(.+)$/
+// Weapon line: ◦ bullet or bare "Nx Name" — e.g. "◦ 2x Bolter", "1x Lance"
+const WEAPON_RE = /^(?:◦\s*)?(\d+)x\s+(.+)$/
+// Model-type line: filled bullet + "Nx Name" — e.g. "• 1x Hesyr", "• 9x Einhyr Hearthguard"
+const MODEL_LINE_RE = /^•\s*(\d+)x\s+(.+)$/
 // Non-weapon bullet: starts with bullet but no "Nx" — e.g. "• Warlord", "• Enhancement: ..."
 const NON_WEAPON_BULLET_RE = /^[•◦]/
 // Lines to always skip
 const SKIP_RE = /^(Force Dispositions|Total\s+Points|Points\s+Limit|Warlord)/i
 // "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
+// "Attached unit 1" / "Attached unit 2" — listhammer group headers
+const ATTACH_GROUP_RE = /^Attached\s+unit\s+(\d+)$/i
 
 const KNOWN_SECTIONS = new Set([
   'CHARACTERS', 'BATTLELINE', 'OTHER DATASHEETS', 'DEDICATED TRANSPORTS',
   'FORTIFICATIONS', 'INFANTRY', 'MOUNTED', 'VEHICLES', 'MONSTERS',
-  'ALLIED UNITS', 'TRANSPORT',
+  'ALLIED UNITS', 'TRANSPORT', 'ATTACHED UNITS',
 ])
 
 function parsePoints(raw: string): number {
@@ -155,6 +161,7 @@ export function parseRosterText(text: string): ParsedRosterText {
 
   let seenDetachment = false
   let seenSection = false
+  let currentAttachmentGroup = -1
   // The unit currently being accumulated (for collecting its weapon lines)
   let currentUnit: ParsedUnit | null = null
 
@@ -169,6 +176,8 @@ export function parseRosterText(text: string): ParsedRosterText {
     // Section headers
     if (KNOWN_SECTIONS.has(line.toUpperCase())) {
       seenSection = true
+      // Leaving the ATTACHED UNITS block resets the group tracker
+      if (line.toUpperCase() !== 'ATTACHED UNITS') currentAttachmentGroup = -1
       continue
     }
 
@@ -188,7 +197,16 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Weapon line: "• 1x Fidelis", "◦ 2x Bolter", "1x Lance of Illumination"
+    // Model-type bullet: "• 1x Hesyr", "• 9x Einhyr Hearthguard"
+    const mMatch = line.match(MODEL_LINE_RE)
+    if (mMatch) {
+      if (currentUnit) {
+        currentUnit.bulletItems.push({ count: parseInt(mMatch[1], 10), name: mMatch[2].trim() })
+      }
+      continue
+    }
+
+    // Weapon line: "◦ 2x Bolter", "1x Lance of Illumination"
     const wMatch = line.match(WEAPON_RE)
     if (wMatch) {
       if (currentUnit) {
@@ -197,8 +215,8 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-        // Enhancement bullet: "• Enhancement: Nombre"
-    const enhMatch = line.match(/^[•◦]\s*Enhancement:\s*(.+)$/i)
+    // Enhancement bullet: "• Enhancement: Nombre" or "• Enhancements: Nombre" (listhammer uses plural)
+    const enhMatch = line.match(/^[•◦]\s*Enhancements?:\s*(.+)$/i)
     if (enhMatch) {
       if (currentUnit) currentUnit.enhancementName = enhMatch[1].trim()
       continue
@@ -213,8 +231,15 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Non-weapon bullet (no count): "• Warlord", etc.
+    // Non-weapon bullet (no count): "• Warlord", "• Attached as: Leader", etc.
     if (NON_WEAPON_BULLET_RE.test(line)) continue
+
+    // "Attached unit 1" / "Attached unit 2" — listhammer group header
+    const agMatch = line.match(ATTACH_GROUP_RE)
+    if (agMatch) {
+      currentAttachmentGroup = parseInt(agMatch[1], 10)
+      continue
+    }
 
     // Unit/army-name line: "Name (X Points)"
     const uMatch = line.match(UNIT_PTS_RE)
@@ -226,7 +251,8 @@ export function parseRosterText(text: string): ParsedRosterText {
           armyName = unitName
         } else {
           flushUnit()
-          currentUnit = { name: unitName, points: pts, weapons: [] }
+          currentUnit = { name: unitName, points: pts, weapons: [], bulletItems: [] }
+          if (currentAttachmentGroup >= 0) currentUnit.attachmentGroupId = currentAttachmentGroup
         }
       }
       continue
@@ -260,6 +286,7 @@ export function resolveImportedRoster(
   wargearCostMap: Record<string, WargearCost[]>,
   enhancements: Enhancement[],
   leaderMap: Record<string, string[]>,
+  pointsCostMap: Record<string, PointsCost[]>,
 ): { roster: Omit<RosterList, 'id' | 'createdAt' | 'updatedAt'>; warnings: string[] } {
   const warnings: string[] = []
 
@@ -296,6 +323,11 @@ export function resolveImportedRoster(
 
   const factionDatasheets = faction ? datasheets.filter(d => d.factionId === factionId) : datasheets
 
+  // Build entryId → parsedUnit map during the map() so indices stay correct after filter
+  const entryToParsedUnit = new Map<string, ParsedUnit>()
+  // Track how many copies of each datasheet we've seen (for tier-range cost lookup)
+  const unitIndexCounter = new Map<string, number>()
+
   const entries = parsed.units
     .map(unit => {
       let datasheet = factionDatasheets.find(d => d.name.toLowerCase() === unit.name.toLowerCase())
@@ -306,6 +338,18 @@ export function resolveImportedRoster(
         return null
       }
 
+      // When the unit has ◦ weapon lines, • lines are model sub-type headers (use for count).
+      // When there are no ◦ lines (single-model chars, vehicles), • lines are the weapons.
+      const hasBulletSubgroups = unit.weapons.length > 0
+      const effectiveWeapons = hasBulletSubgroups ? unit.weapons : (unit.bulletItems ?? [])
+
+      const parsedModelCount = hasBulletSubgroups
+        ? (unit.bulletItems ?? []).reduce((s, m) => s + m.count, 0)
+        : 0
+      const modelCount = parsedModelCount > 0
+        ? parsedModelCount
+        : (datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1)
+
       const handledBases = new Set<string>()
 
       // 1. Wargear with surcharge cost — match by base name (strips "– profile" suffix)
@@ -313,7 +357,7 @@ export function resolveImportedRoster(
       const wargearSelections: Record<string, number> = {}
       let wargearSurcharge = 0
 
-      for (const pw of unit.weapons) {
+      for (const pw of effectiveWeapons) {
         const pwBase = weaponBaseName(pw.name)
         const wc = availableWargear.find(w => weaponBaseName(w.name) === pwBase)
         if (wc) {
@@ -335,7 +379,7 @@ export function resolveImportedRoster(
         for (let ci = 0; ci < rule.choices.length; ci++) {
           for (const choiceWeapon of rule.choices[ci]) {
             const cwBase = weaponBaseName(choiceWeapon)
-            const pw = unit.weapons.find(w => !handledBases.has(weaponBaseName(w.name)) && weaponBaseName(w.name) === cwBase)
+            const pw = effectiveWeapons.find(w => !handledBases.has(weaponBaseName(w.name)) && weaponBaseName(w.name) === cwBase)
             if (pw) {
               selection[ci] = pw.count
               handledBases.add(cwBase)
@@ -348,12 +392,20 @@ export function resolveImportedRoster(
         if (anyMatch) weaponOptionSelections[rule.id] = selection
       }
 
+      // Look up base cost from our data (never trust imported points — they may be wrong)
+      const unitIndex = (unitIndexCounter.get(datasheet.id) ?? 0) + 1
+      unitIndexCounter.set(datasheet.id, unitIndex)
+      const allCosts = sortCostVariants(resolveCostsForUnitIndex(pointsCostMap[datasheet.id] ?? [], unitIndex))
+      const matchingCost = allCosts.find(c => resolveModelCount(c, datasheet) === modelCount) ?? allCosts[0]
+      const baseCost = matchingCost?.points ?? 0
+
       const entry: RosterEntry = {
         id: crypto.randomUUID(),
         datasheetId: datasheet.id,
-        modelCount: datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1,
-        pointsCost: Math.max(0, unit.points - wargearSurcharge),
+        modelCount,
+        pointsCost: baseCost,
       }
+      entryToParsedUnit.set(entry.id, unit)
       if (Object.keys(wargearSelections).length > 0) {
         entry.wargearSelections = wargearSelections
         entry.wargearSurcharge = wargearSurcharge
@@ -365,9 +417,8 @@ export function resolveImportedRoster(
         const enh = enhancements.find(e => e.name.toLowerCase() === unit.enhancementName!.toLowerCase())
         if (enh) {
           entry.enhancementId = enh.id
-          // The imported points already include the enhancement cost; subtract it so
-          // RosterEditPage doesn't add it a second time when computing combinedTotal.
-          entry.pointsCost = Math.max(0, (entry.pointsCost ?? 0) - enh.cost)
+          // Enhancement cost is NOT stored in pointsCost — RosterEditPage computes it
+          // separately from enhancementId and adds it to combinedTotal.
         } else {
           warnings.push(`Mejora no encontrada: "${unit.enhancementName}"`)
         }
@@ -378,15 +429,12 @@ export function resolveImportedRoster(
 
   // Resolve leader attachments
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
-  const parsedUnitByEntryId = new Map(
-    entries.map((e, i) => [e.id, parsed.units[i]] as const).filter(([, u]) => u !== undefined),
-  )
 
   for (const entry of entries) {
     const eligibleTargetIds = new Set(leaderMap[entry.datasheetId] ?? [])
     if (eligibleTargetIds.size === 0) continue
 
-    const parsedUnit = parsedUnitByEntryId.get(entry.id)
+    const parsedUnit = entryToParsedUnit.get(entry.id)
     const candidates = entries.filter(other => other.id !== entry.id && eligibleTargetIds.has(other.datasheetId))
 
     if (parsedUnit?.attachedToUnitName) {
@@ -395,6 +443,14 @@ export function resolveImportedRoster(
       const target = candidates.find(other => {
         const ds = datasheetById.get(other.datasheetId)
         return ds?.name.toLowerCase() === targetName
+      })
+      if (target) entry.attachedToEntryId = target.id
+    } else if (parsedUnit?.attachmentGroupId !== undefined) {
+      // Listhammer "Attached unit N" block — find the bodyguard in the same group
+      const groupId = parsedUnit.attachmentGroupId
+      const target = candidates.find(other => {
+        const pu = entryToParsedUnit.get(other.id)
+        return pu?.attachmentGroupId === groupId
       })
       if (target) entry.attachedToEntryId = target.id
     } else if (candidates.length === 1) {

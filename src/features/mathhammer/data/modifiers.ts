@@ -33,17 +33,15 @@ const RULES_1: ModifierRule[] = [
   // ── Weapon abilities (WA001–WA023, CoreRules.csv) ───────────────────────────
   // WA002 Heavy ya modelado arriba como `weapon_heavy`.
   // WA005 Torrent ya manejado en calculateDamage() con weapon.isTorrent.
-  // WA013 Twin-linked ya manejado en calculateDamage() con weapon.isTwinLinked;
-  //   este toggle permite añadir el efecto a armas que no tienen el flag nativo.
-  { id: 'weapon_twin_linked', label: '[TWIN-LINKED] — repetir tirada de herida (WA013)', description: '[TWIN-LINKED] (WA013): Each time an attack is made with this weapon, you can re-roll the wound roll.', effects: { rerollAllWounds: true } },
-  { id: 'weapon_lance',       label: '[LANCE] — +1 herir si has cargado (WA017)',          description: '[LANCE] (WA017): Each time an attack is made with this weapon, if the attacking unit made a charge move this turn, add 1 to the wound roll.', combatType: 'melee', effects: { woundMod: 1 } },
-  { id: 'weapon_rapid_fire',  label: '[RAPID FIRE 1] — +1 ataque a media distancia (WA004)', description: '[RAPID FIRE X] (WA004): Add X additional attack dice when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { attacksMod: 1 } },
-  { id: 'weapon_melta',       label: '[MELTA 1] — +1 daño a media distancia (WA011)',       description: '[MELTA X] (WA011): Add X to the weapon\'s D characteristic when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { damageMod: 1 } },
+  // WA013 Twin-linked ya manejado en calculateDamage() con weapon.isTwinLinked (per-arma).
+  { id: 'weapon_lance',       label: '[LANCE] — +1 herir si has cargado',          description: '[LANCE]: Each time an attack is made with this weapon, if the attacking unit made a charge move this turn, add 1 to the wound roll.', combatType: 'melee', effects: { woundMod: 1 } },
+  { id: 'weapon_rapid_fire',  label: '[RAPID FIRE 1] — +1 ataque a media distancia', description: '[RAPID FIRE X]: Add X additional attack dice when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { attacksMod: 1 } },
+  { id: 'weapon_melta',       label: '[MELTA 1] — +1 daño a media distancia',       description: '[MELTA X]: Add X to the weapon\'s D characteristic when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { damageMod: 1 } },
 
   // ── Unit/Core abilities ────────────────────────────────────────────────────
-  { id: 'unit_stealth',              label: 'Stealth — cobertura vs todos los ataques a distancia (UA010)', description: 'Stealth (UA010): if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
-  { id: 'core_plunging_fire',        label: 'Plunging Fire — +1 BS (atacante en terreno alto, CO030)', description: 'Plunging Fire (CO030): improve attacker\'s BS by 1 if on terrain 3"+ high, or TOWERING within 12". Equivale a bsMod: -1 en el atacante.', combatType: 'ranged', effects: { bsMod: -1 } },
-  { id: 'core_shooting_engaged_mv',  label: 'Disparar a MONSTRUO/VEHÍCULO en combate — −1 impactar (CO053)', description: 'Shooting at Engaged Monsters/Vehicles (CO053): subtract 1 from the Hit Roll when targeting a MONSTER or VEHICLE unit that is Engaged with friendly units.', combatType: 'ranged', effects: { hitMod: -1 } },
+  { id: 'unit_stealth',              label: 'Stealth — cobertura vs todos los ataques a distancia', description: 'Stealth: if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
+  { id: 'core_plunging_fire',        label: 'Plunging Fire — +1 BS (atacante en terreno alto)', description: 'Plunging Fire: improve attacker\'s BS by 1 if on terrain 3"+ high, or TOWERING within 12". Equivale a bsMod: -1 en el atacante.', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'core_shooting_engaged_mv',  label: 'Disparar a MONSTRUO/VEHÍCULO en combate — −1 impactar', description: 'Shooting at Engaged Monsters/Vehicles: subtract 1 from the Hit Roll when targeting a MONSTER or VEHICLE unit that is Engaged with friendly units.', combatType: 'ranged', effects: { hitMod: -1 } },
 
   // ═══ AC ═══
   // Martial Ka'tah — regla de facción (sin destacamento), se elige postura al activar
