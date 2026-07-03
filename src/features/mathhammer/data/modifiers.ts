@@ -4,21 +4,21 @@ const RULES_1: ModifierRule[] = [
   // ═══ Universal ═══
   {
     id: 'cover',
-    label: 'Cobertura (+1 Sv defensor)',
-    description: 'El defensor está en cobertura: +1 a las tiradas de salvación contra ataques de disparo.',
+    label: 'Cobertura (empeora BS atacante +1)',
+    description: 'El defensor tiene el Beneficio de Cobertura (13.08): empeora la característica BS del atacante en 1. Independiente del cap ±1 de los modificadores al dado.',
     combatType: 'ranged',
     target: 'defender',
     effects: {
-    saveMod: -1,
+    bsMod: 1,
   },
   },
   {
     id: 'weapon_heavy',
-    label: 'Arma Pesada (Heavy) — se movió este turno (−1 impactar)',
-    description: 'El portador de un arma con la regla [HEAVY] se ha movido este turno: −1 a impactar.',
+    label: 'Arma Pesada (Heavy) — quieto este turno (+1 impactar)',
+    description: 'El portador de un arma con la regla [HEAVY] no se ha movido este turno: +1 al dado de impactar.',
     combatType: 'ranged',
     effects: {
-    hitMod: -1,
+    hitMod: 1,
   },
   },
   {
@@ -29,6 +29,21 @@ const RULES_1: ModifierRule[] = [
     cpCost: 1,
     effects: { rerollDamageOf1: true },
   },
+
+  // ── Weapon abilities (WA001–WA023, CoreRules.csv) ───────────────────────────
+  // WA002 Heavy ya modelado arriba como `weapon_heavy`.
+  // WA005 Torrent ya manejado en calculateDamage() con weapon.isTorrent.
+  // WA013 Twin-linked ya manejado en calculateDamage() con weapon.isTwinLinked;
+  //   este toggle permite añadir el efecto a armas que no tienen el flag nativo.
+  { id: 'weapon_twin_linked', label: '[TWIN-LINKED] — repetir tirada de herida (WA013)', description: '[TWIN-LINKED] (WA013): Each time an attack is made with this weapon, you can re-roll the wound roll.', effects: { rerollAllWounds: true } },
+  { id: 'weapon_lance',       label: '[LANCE] — +1 herir si has cargado (WA017)',          description: '[LANCE] (WA017): Each time an attack is made with this weapon, if the attacking unit made a charge move this turn, add 1 to the wound roll.', combatType: 'melee', effects: { woundMod: 1 } },
+  { id: 'weapon_rapid_fire',  label: '[RAPID FIRE 1] — +1 ataque a media distancia (WA004)', description: '[RAPID FIRE X] (WA004): Add X additional attack dice when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { attacksMod: 1 } },
+  { id: 'weapon_melta',       label: '[MELTA 1] — +1 daño a media distancia (WA011)',       description: '[MELTA X] (WA011): Add X to the weapon\'s D characteristic when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { damageMod: 1 } },
+
+  // ── Unit/Core abilities ────────────────────────────────────────────────────
+  { id: 'unit_stealth',              label: 'Stealth — cobertura vs todos los ataques a distancia (UA010)', description: 'Stealth (UA010): if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
+  { id: 'core_plunging_fire',        label: 'Plunging Fire — +1 BS (atacante en terreno alto, CO030)', description: 'Plunging Fire (CO030): improve attacker\'s BS by 1 if on terrain 3"+ high, or TOWERING within 12". Equivale a bsMod: -1 en el atacante.', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'core_shooting_engaged_mv',  label: 'Disparar a MONSTRUO/VEHÍCULO en combate — −1 impactar (CO053)', description: 'Shooting at Engaged Monsters/Vehicles (CO053): subtract 1 from the Hit Roll when targeting a MONSTER or VEHICLE unit that is Engaged with friendly units.', combatType: 'ranged', effects: { hitMod: -1 } },
 
   // ═══ AC ═══
   // Martial Ka'tah — regla de facción (sin destacamento), se elige postura al activar
@@ -48,11 +63,10 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'ac_revered_companions',
-    label: 'Revered Companions — +1 impactar',
-    description: 'Anathema Psykana units from your army gain the following the ability: Null Aegis (Aura): While an Adeptus Custodes unit is within 6" of this unit, models in that unit have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds. All other ADEPTUS CUSTODES units from your army gain the',
+    label: 'Revered Companions — Deadly Unity: +1 impactar (atacante ANATHEMA PSYKANA)',
+    description: 'Deadly Unity (Aura): While an Adeptus Custodes unit is within 6" of an ANATHEMA PSYKANA unit from your army, each time a model in that ANATHEMA PSYKANA unit makes an attack, add 1 to the Hit roll.',
     factionId: 'AC',
     detachmentId: '000000861',
-    target: 'defender',
     effects: {
     hitMod: 1,
   },
@@ -86,11 +100,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     rerollHitsOf1: true,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      rerollWoundsOf1: true,
-    },
   },
+  { id: 'ac_auric_armour_2', label: 'Auric Armour — repetir heridas 1 (unidad ≤ media vida)', factionId: 'AC', detachmentId: '000000986', effects: { rerollWoundsOf1: true } },
   {
     id: 'ac_against_all_odds',
     label: 'Against All Odds — +1 impactar, +1 herir',
@@ -333,11 +344,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'ldr_000002088_tenacious_spirit_2', label: 'Aleya — +1 herir (unidad ≤ media vida) (Líder)', factionId: 'AC', leaderDatasheetId: '000002088', effects: { woundMod: 1 } },
   {
     id: 'ldr_000002519_golden_laurels',
     label: 'Valerian — empeora PA atacante (Líder)',
@@ -853,8 +861,8 @@ const RULES_1: ModifierRule[] = [
 
   // ═══ AM ═══
   // Voice of Command: órdenes del Oficial — solo 1 orden por unidad por fase (activar la que aplique)
-  { id: 'am_take_aim',          label: 'Orden: ¡Take Aim! — +1 BS, disparo',                 description: 'Take Aim!: improve the Ballistic Skill characteristic of ranged weapons in this unit by 1.',      factionId: 'AM', combatType: 'ranged', effects: { hitMod: 1 } },
-  { id: 'am_fix_bayonets',      label: 'Orden: ¡Fix Bayonets! — +1 WS, CaC',                 description: 'Fix Bayonets!: improve the Weapon Skill characteristic of melee weapons in this unit by 1.',       factionId: 'AM', combatType: 'melee',  effects: { hitMod: 1 } },
+  { id: 'am_take_aim',          label: 'Orden: ¡Take Aim! — +1 BS (característica, disparo)',  description: 'Take Aim!: improve the Ballistic Skill characteristic of ranged weapons in this unit by 1.',      factionId: 'AM', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'am_fix_bayonets',      label: 'Orden: ¡Fix Bayonets! — +1 WS (característica, CaC)', description: 'Fix Bayonets!: improve the Weapon Skill characteristic of melee weapons in this unit by 1.',       factionId: 'AM', combatType: 'melee',  effects: { wsMod: -1 } },
   { id: 'am_first_rank_fire',   label: 'Orden: ¡First Rank, Fire! — +1 ataque Rapid Fire',   description: 'First Rank, Fire! Second Rank, Fire!: improve the Attacks characteristic of Rapid Fire weapons in this unit by 1.', factionId: 'AM', combatType: 'ranged', effects: { attacksMod: 1 } },
   { id: 'am_take_cover',        label: 'Orden: ¡Take Cover! — +1 salvación (defensor)',       description: 'Take Cover!: improve the Save characteristic of models in this unit by 1 (cannot improve better than 3+).', factionId: 'AM', target: 'defender', effects: { saveMod: 1 } },
   {
@@ -1152,6 +1160,8 @@ const RULES_1: ModifierRule[] = [
     sustainedHitsBonus: 1,
   },
   },
+  // AE missing detachment rules (Bloque 5)
+  { id: 'ae_determined_defence', label: 'Protector Host — +1 salvación (GUARDIANS/DIRE AVENGERS cerca de objetivo)', description: 'Determined Defence: each time an attack targets a GUARDIANS or DIRE AVENGERS unit from your army, if that unit is within range of an objective marker, add 1 to any armour saving throw made against that attack.', factionId: 'AE', detachmentId: '000000920', target: 'defender', effects: { saveMod: 1 } },
 
   // ═══ AS ═══
   { id: 'as_cleansing_flames', label: 'Cleansing Flames — Devastating Wounds, Torrent (2PC)', description: 'Bringers of Flame: TARGET: One ADEPTA SORORITAS unit from your army that has not been selected to shoot this phase. EFFECT: Until the end of the phase, Torrent weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'AS', detachmentId: '000000879', combatType: 'ranged', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
@@ -1165,11 +1175,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'as_the_blood_of_martyrs_2', label: 'The Blood of Martyrs — +1 herir (unidad ≤ media vida)', factionId: 'AS', detachmentId: '000000791', effects: { woundMod: 1 } },
   {
     id: 'as_fervent_purgation',
     label: 'Fervent Purgation — +1 F, disparo',
@@ -1247,7 +1254,7 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'as_to_the_heart_of_heresy',
-    label: 'TO THE HEART OF HERESY — +1 PA, CaC (1CP)',
+    label: 'TO THE HEART OF HERESY — +1 F + +1 PA si Righteous, CaC (1CP)',
     description: 'Champions of Faith: Until the end of the turn, improve the Strength characteristic of melee weapons equipped by models in your unit by 1. If your unit is Righteous, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by mo',
     factionId: 'AS',
     detachmentId: '000001003',
@@ -1255,6 +1262,7 @@ const RULES_1: ModifierRule[] = [
     isStratagem: true,
     cpCost: 1,
     effects: {
+    strengthMod: 1,
     apMod: 1,
   },
   },
@@ -1308,11 +1316,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     rerollAllHits: true,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      rerollAllWounds: true,
-    },
   },
+  { id: 'as_righteous_vengeance_2', label: 'RIGHTEOUS VENGEANCE — repetir heridas, CaC (unidad ≤ media vida)', factionId: 'AS', detachmentId: '000000791', combatType: 'melee', isStratagem: true, cpCost: 0, effects: { rerollAllWounds: true } },
   {
     id: 'as_purity_of_suffering',
     label: 'PURITY OF SUFFERING — FNP 4+ (1CP)',
@@ -1451,6 +1456,9 @@ const RULES_1: ModifierRule[] = [
     apMod: 1,
   },
   },
+  // AS missing detachment rules (Bloque 5)
+  { id: 'as_holy_quest_bs', label: 'Sacred Champions — Holy Quest: +1 BS (CELESTIAN SACRESANTS, disparo)', description: 'Holy Quest: Each time a CELESTIAN SACRESANTS model makes a ranged attack, improve its Ballistic Skill characteristic by 1.', factionId: 'AS', detachmentId: '000001164', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'as_holy_quest_ws', label: 'Sacred Champions — Holy Quest: +1 WS (CELESTIAN SACRESANTS, CaC)',   description: 'Holy Quest: Each time a CELESTIAN SACRESANTS model makes a melee attack, improve its Weapon Skill characteristic by 1.',   factionId: 'AS', detachmentId: '000001164', combatType: 'melee',  effects: { wsMod: -1 } },
 
   // ═══ AdM ═══
   {
@@ -1464,14 +1472,20 @@ const RULES_1: ModifierRule[] = [
   },
   },
   {
-    id: 'adm_protector_doctrina',
-    label: 'Doctrina Protectora — [HEAVY] +1 impactar, disparo',
-    description: 'Protector Imperative: ranged weapons gain [HEAVY] and +1 BS (Ballistic Skill).',
+    id: 'adm_protector_doctrina_bs',
+    label: 'Doctrina Protectora — +1 BS (característica, siempre)',
+    description: 'Protector Imperative: improve the Ballistic Skill characteristic of ranged weapons by 1.',
     factionId: 'AdM',
     combatType: 'ranged',
-    effects: {
-    hitMod: 1,
+    effects: { bsMod: -1 },
   },
+  {
+    id: 'adm_protector_doctrina_heavy',
+    label: 'Doctrina Protectora — quieto, +1 dado impactar ([HEAVY])',
+    description: 'Protector Imperative: ranged weapons gain [HEAVY]; +1 to Hit roll when the unit has not moved this turn.',
+    factionId: 'AdM',
+    combatType: 'ranged',
+    effects: { hitMod: 1 },
   },
   {
     id: 'adm_protector_doctrina_def',
@@ -1486,13 +1500,11 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'adm_conqueror_doctrina',
-    label: 'Doctrina Conquistadora — [ASSAULT] +1 impactar, CaC',
-    description: 'Conqueror Imperative: ranged weapons gain [ASSAULT] and melee weapons get +1 WS (Weapon Skill).',
+    label: 'Doctrina Conquistadora — +1 WS (característica, CaC)',
+    description: 'Conqueror Imperative: improve the Weapon Skill characteristic of melee weapons by 1.',
     factionId: 'AdM',
     combatType: 'melee',
-    effects: {
-    hitMod: 1,
-  },
+    effects: { wsMod: -1 },
   },
   {
     id: 'adm_conqueror_doctrina_ap',
@@ -1652,17 +1664,15 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'adm_eradication_protocols',
-    label: 'ERADICATION PROTOCOLS — repetir impactos 1, repetir heridas 1 (1CP)',
+    label: 'ERADICATION PROTOCOLS — repetir heridas 1 (1CP)',
     description: 'Haloscreed Battle Clade: Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1, and, if it is a HALO OVERRIDE unit, re-roll a Hit roll of 1.',
     factionId: 'AdM',
     detachmentId: '000000984',
     isStratagem: true,
     cpCost: 1,
-    effects: {
-    rerollHitsOf1: true,
-    rerollWoundsOf1: true,
+    effects: { rerollWoundsOf1: true },
   },
-  },
+  { id: 'adm_eradication_protocols_2', label: 'ERADICATION PROTOCOLS — repetir impactos 1 (solo si unidad HALO OVERRIDE)', factionId: 'AdM', detachmentId: '000000984', isStratagem: true, cpCost: 0, effects: { rerollHitsOf1: true } },
   {
     id: 'adm_electrogheist_visitations',
     label: 'ELECTROGHEIST VISITATIONS — -1 impactar (1CP)',
@@ -1835,6 +1845,9 @@ const RULES_1: ModifierRule[] = [
     feelNoPainThreshold: 5,
   },
   },
+  // AdM missing detachment rules (Bloque 5)
+  { id: 'adm_war_form_fnp',    label: 'Lords of the Forge — FNP 5+ (TECH-PRIEST)',            description: 'Forge-Blessed: TECH-PRIEST models in your army have the Feel No Pain 5+ ability.', factionId: 'AdM', detachmentId: '000001167', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'adm_luminen_lethal',  label: 'Luminen Auto-choir — Lethal Hits disparo (CORPUSCARII)',  description: 'Luminen Auto-choir: each time a CORPUSCARII ELECTRO-PRIESTS model makes a ranged attack, that attack has the [LETHAL HITS] ability.', factionId: 'AdM', detachmentId: '000001168', combatType: 'ranged', effects: { lethalHitsBonus: true } },
 
   // ═══ AoI ═══
   { id: 'aoi_rites_of_exorcism', label: 'Rites of Exorcism — Devastating Wounds vs DAEMON (1PC)', description: 'Daemon Hunters: select one enemy DAEMON unit within 12" and visible. If it fails a Battle-shock test, until the end of the phase each friendly AGENTS OF THE IMPERIUM attack that targets that unit has [DEVASTATING WOUNDS].', factionId: 'AoI', detachmentId: '000000894', isStratagem: true, cpCost: 1, requiresTargetKeyword: 'daemon', effects: { devastatingWoundsBonus: true } },
@@ -2480,6 +2493,8 @@ const RULES_1: ModifierRule[] = [
     sustainedHitsBonus: 1,
   },
   },
+  // CD missing detachment rules (Bloque 5)
+  { id: 'cd_pandaem_sustained', label: 'Pandaemoniac Inferno — Sustained Hits 1 (vs unidades en Engagement Range)', description: 'Living Flame: each time an attack is made by a CHAOS DAEMONS model from your army, if the target unit is within Engagement Range of one or more units from your army, that attack has the [SUSTAINED HITS 1] ability.', factionId: 'CD', detachmentId: '000000957', effects: { sustainedHitsBonus: 1 } },
 
   // ═══ CSM ═══
   { id: 'csm_dark_pacts_lethal',    label: 'Dark Pacts — Lethal Hits',    factionId: 'CSM', effects: { lethalHitsBonus: true } },
@@ -2682,11 +2697,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     rerollAllHits: true,
   },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      rerollAllWounds: true,
-    },
   },
+  { id: 'csm_pick_them_off_2', label: 'PICK THEM OFF — repetir heridas, disparo (objetivo ≤ media vida)', factionId: 'CSM', detachmentId: '000000868', combatType: 'ranged', isStratagem: true, cpCost: 0, effects: { rerollAllWounds: true } },
   {
     id: 'csm_pitiless_hunters',
     label: 'PITILESS HUNTERS — repetir impactos, repetir heridas, disparo (1CP)',
@@ -2726,11 +2738,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     rerollAllHits: true,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      rerollAllWounds: true,
-    },
   },
+  { id: 'csm_persistent_assailants_2', label: 'PERSISTENT ASSAILANTS — repetir heridas, CaC (unidad ≤ media vida)', factionId: 'CSM', detachmentId: '000000871', combatType: 'melee', isStratagem: true, cpCost: 0, effects: { rerollAllWounds: true } },
   {
     id: 'csm_pitiless_cannonade',
     label: 'PITILESS CANNONADE — crítico 5+, disparo (1CP)',
@@ -3023,11 +3032,8 @@ const RULES_1: ModifierRule[] = [
     effects: {
     rerollAllHits: true,
   },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      rerollAllWounds: true,
-    },
   },
+  { id: 'ldr_000001584_warp_sighted_butcher_2', label: 'Master Of Executions — repetir heridas (objetivo ≤ media vida) (Líder)', factionId: 'CSM', leaderDatasheetId: '000001584', combatType: 'melee', effects: { rerollAllWounds: true } },
   {
     id: 'ldr_000001600_cursed_wardings_psychic',
     label: 'Rogue Psyker — FNP 4+ (Líder)',
@@ -3059,6 +3065,9 @@ const RULES_1: ModifierRule[] = [
     strengthMod: 2,
   },
   },
+  // CSM missing detachment rules (Bloque 5)
+  { id: 'csm_murdertalon_hits', label: 'Murdertalon Raiders — Prey on the Weak: repetir impactos 1 (vs Battle-shocked/Half)', description: 'Prey on the Weak: each time a model in your unit makes an attack that targets a Battle-shocked unit or a unit that is Below Half-strength, re-roll a Hit roll of 1.', factionId: 'CSM', detachmentId: '000001206', effects: { rerollHitsOf1: true } },
+  { id: 'csm_murdertalon_def',  label: 'Murdertalon Raiders — Prey on the Weak: −1 impactar (defensor Battle-shocked/Half)', description: 'Prey on the Weak: each time a model in a Battle-shocked unit or a unit that is Below Half-strength makes an attack that targets your unit, subtract 1 from the Hit roll.', factionId: 'CSM', detachmentId: '000001206', target: 'defender', effects: { hitMod: -1 } },
 
   // ═══ DG ═══
   { id: 'dg_furnace_of_plagues', label: 'Furnace of Plagues — +1F/+1A, Devastating Wounds (CaC)', description: 'Furnace of Plagues: DEATH GUARD model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons, and the bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.', factionId: 'DG', detachmentId: '000001049', combatType: 'melee', effects: { strengthMod: 1, attacksMod: 1, devastatingWoundsBonus: true } },
@@ -3364,7 +3373,7 @@ const RULES_1: ModifierRule[] = [
   },
   {
     id: 'dru_making_a_point',
-    label: 'MAKING A POINT — +1 PA, disparo (1CP)',
+    label: 'MAKING A POINT — +1 BS (característica) + +1 PA, disparo (1CP)',
     description: 'Kabalite Cartel: Until the end of the phase, improve the Ballistic Skill and Armour Penetration characteristics of ranged weapons equipped by models in your unit by 1.',
     factionId: 'DRU',
     detachmentId: '000001115',
@@ -3372,6 +3381,7 @@ const RULES_1: ModifierRule[] = [
     isStratagem: true,
     cpCost: 1,
     effects: {
+    bsMod: -1,
     apMod: 1,
   },
   },
@@ -3569,6 +3579,9 @@ const RULES_1: ModifierRule[] = [
     sustainedHitsBonus: 1,
   },
   },
+  // DRU missing detachment rules (Bloque 5)
+  { id: 'dru_exacting_cruelty',   label: 'Exhibition of Slaughter — Lethal Hits CaC (vs non-MONSTER/VEHICLE)',    description: 'Wych Cult melee attacks have the [LETHAL HITS] ability while targeting units that are not MONSTERS or VEHICLES.', factionId: 'DRU', detachmentId: '000001193', combatType: 'melee',   effects: { lethalHitsBonus: true } },
+  { id: 'dru_contracted_harvest', label: 'Kabalite Agonysts — Sustained Hits 1 disparo (vs non-MONSTER/VEHICLE)', description: 'Kabalite Cartel ranged attacks have the [SUSTAINED HITS 1] ability while targeting units that are not MONSTERS or VEHICLES.', factionId: 'DRU', detachmentId: '000001194', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
 
   // ═══ EC ═══
   // EC no es HERETIC ASTARTES en 10th (keywords: EMPEROR'S CHILDREN / LEGIONS OF EXCESS).
@@ -3874,6 +3887,8 @@ const RULES_2: ModifierRule[] = [
     apMod: 1,
   },
   },
+  // EC missing detachment rules (Bloque 5)
+  { id: 'ec_frantic_focus', label: 'Frenzied Host — Frantic Focus: +1 Fuerza BATTLELINE (Advance/Fall Back)', description: 'Frantic Focus: each time a BATTLELINE model from your army makes an attack, if the attacking unit Advanced or Fell Back this turn, add 1 to the Strength characteristic of that attack.', factionId: 'EC', detachmentId: '000001156', effects: { strengthMod: 1 } },
 
   // ═══ GC ═══
   { id: 'gc_surging_broodworship', label: 'Surging Broodworship — Devastating Wounds (1PC)', description: 'Heroes of the Uprising: when a friendly KILLER unit is selected to attack, attacks made by KILLER models in your unit have [DEVASTATING WOUNDS]. (Nota: la keyword KILLER no figura en los datos como tal; regla limitada al destacamento.)', factionId: 'GC', detachmentId: '000001196', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
@@ -4643,6 +4658,60 @@ const RULES_2: ModifierRule[] = [
     feelNoPainThreshold: 5,
   },
   },
+  // Brandfast Oathband — Mobile Sensor Relays
+  {
+    id: 'lov_firebase_control',
+    label: 'Firebase Control — Sustained Hits 1 (Brandfast, Infantería)',
+    description: 'Mobile Sensor Relays: while a friendly LoV Infantry unit is wholly within 6" of a friendly Transport, ranged weapons equipped by models in that Infantry unit have the [SUSTAINED HITS 1] ability.',
+    factionId: 'LoV',
+    detachmentId: '000001099',
+    combatType: 'ranged',
+    requiresAttackerKeyword: 'Infantry',
+    effects: { sustainedHitsBonus: 1 },
+  },
+  // Farseekers — Eye of the Hunt
+  {
+    id: 'lov_eye_of_the_hunt',
+    label: 'Eye of the Hunt — +1 impactar disparo (Hernkyn, Farseekers)',
+    description: 'Friendly Hernkyn units\' ranged attacks that target a unit within 12" have +1 to hit rolls.',
+    factionId: 'LoV',
+    detachmentId: '000001161',
+    combatType: 'ranged',
+    requiresAttackerKeyword: 'Hernkyn',
+    effects: { hitMod: 1 },
+  },
+  // Farseekers — Scornful Analysis (stratagem, IGNORES COVER)
+  {
+    id: 'lov_scornful_analysis',
+    label: 'SCORNFUL ANALYSIS — ignora cobertura, disparo (1CP)',
+    description: 'Farseekers: select one visible enemy unit within 12" of a friendly Hernkyn unit. Friendly LoV units\' attacks against that enemy unit have [IGNORES COVER]. Activa solo si el objetivo está en cobertura — negará el bsMod +1 de la cobertura.',
+    factionId: 'LoV',
+    detachmentId: '000001161',
+    combatType: 'ranged',
+    isStratagem: true,
+    cpCost: 1,
+    effects: { bsMod: -1 },
+  },
+  // Hearthguard Covenant — Avatars of the Ancestors
+  {
+    id: 'lov_avatars_of_ancestors',
+    label: 'Avatars of the Ancestors — repetir heridas 1, disparo (Hearthguard Covenant)',
+    description: 'Friendly Kâhl/Einhyr Champion/Einhyr Hearthguard/Ûthar the Destined units\' ranged attacks that target a unit within 9" can re-roll wound rolls of 1.',
+    factionId: 'LoV',
+    detachmentId: '000001162',
+    combatType: 'ranged',
+    effects: { rerollWoundsOf1: true },
+  },
+  // Brôkhyr Thunderkyn — Breaching Fire (removes cover from enemy)
+  {
+    id: 'lov_breaching_fire',
+    label: 'Breaching Fire — quita cobertura objetivo (Thunderkyn en lista)',
+    description: 'After Brôkhyr Thunderkyn shoot, the hit enemy unit cannot have the Benefit of Cover until start of your next Shooting phase. Activa junto a "Cobertura" en el defensor — el bsMod +1 de cover se cancela con este −1. Solo para otras unidades atacando ese objetivo.',
+    factionId: 'LoV',
+    combatType: 'ranged',
+    sourceDatasheetId: '000002603',
+    effects: { bsMod: -1 },
+  },
 
   // ═══ NEC ═══
   { id: 'nec_cynosure_of_eradication', label: 'Cynosure of Eradication — Devastating Wounds (CRYPTEK/CANOPTEK, 2PC)', description: 'Canoptek Court: select one CRYPTEK or CANOPTEK unit wholly within your army’s Power Matrix. Until the end of the phase, weapons equipped by CRYPTEK or CANOPTEK models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'NEC', detachmentId: '000000816', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
@@ -4774,11 +4843,8 @@ const RULES_2: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'nec_the_spoor_of_frailty_2', label: 'THE SPOOR OF FRAILTY — +1 herir (objetivo ≤ media vida)', factionId: 'NEC', detachmentId: '000000815', isStratagem: true, cpCost: 0, effects: { woundMod: 1 } },
   {
     id: 'nec_annihilation_protocol',
     label: 'Annihilation Protocol — +1 PA, disparo (DESTROYER CULT, closest target)',
@@ -5134,6 +5200,8 @@ const RULES_2: ModifierRule[] = [
     rerollWoundsOf1: true,
   },
   },
+  // NEC missing detachment rules (Bloque 5)
+  { id: 'nec_transdimensional', label: 'Skyshroud Spearhead — Transdimensional Deployment: +1 impactar (tras ingress)', description: 'Transdimensional Deployment: each time a model in your unit makes a ranged attack, if your unit was set up on the battlefield this turn using the Ingress rule, add 1 to the Hit roll.', factionId: 'NEC', detachmentId: '000001172', combatType: 'ranged', effects: { hitMod: 1 } },
 
   // ═══ ORK ═══
   // WAAAGH!: una vez por partida, el Warboss puede declarar WAAAGH! → +1 impactar a todas las unidades Ork esa ronda
@@ -5730,9 +5798,10 @@ const RULES_2: ModifierRule[] = [
 
   // ═══ QI ═══
   // Doctrina Imperatives: idéntica a AdM según CSV (misma descripción exacta)
-  { id: 'qi_protector_doctrina',     label: 'Doctrina Protectora — [HEAVY] +1 impactar, disparo',                        description: 'Protector Imperative: ranged weapons gain [HEAVY] and +1 BS.',                                                                                           factionId: 'QI', combatType: 'ranged',                    effects: { hitMod: 1 } },
+  { id: 'qi_protector_doctrina_bs',  label: 'Doctrina Protectora — +1 BS (característica, siempre)',                      description: 'Protector Imperative: improve the Ballistic Skill characteristic of ranged weapons by 1.',                                                                   factionId: 'QI', combatType: 'ranged',                    effects: { bsMod: -1 } },
+  { id: 'qi_protector_doctrina_heavy', label: 'Doctrina Protectora — quieto, +1 dado impactar ([HEAVY])',                  description: 'Protector Imperative: ranged weapons gain [HEAVY]; +1 to Hit roll when the unit has not moved this turn.',                                                   factionId: 'QI', combatType: 'ranged',                    effects: { hitMod: 1 } },
   { id: 'qi_protector_doctrina_def', label: 'Doctrina Protectora — −1 impactar melee recibido (posición Battleline)',      description: 'Protector Imperative (conditional): each time a melee attack targets this unit, if BATTLELINE or within 6" of AdM/QI BATTLELINE, subtract 1 from the Hit roll.', factionId: 'QI', combatType: 'melee', target: 'defender', effects: { hitMod: -1 } },
-  { id: 'qi_conqueror_doctrina',     label: 'Doctrina Conquistadora — [ASSAULT] +1 impactar, CaC',                        description: 'Conqueror Imperative: ranged weapons gain [ASSAULT] and melee weapons get +1 WS.',                                                                         factionId: 'QI', combatType: 'melee',                     effects: { hitMod: 1 } },
+  { id: 'qi_conqueror_doctrina',     label: 'Doctrina Conquistadora — +1 WS (característica, CaC)',                        description: 'Conqueror Imperative: improve the Weapon Skill characteristic of melee weapons by 1.',                                                                      factionId: 'QI', combatType: 'melee',                     effects: { wsMod: -1 } },
   { id: 'qi_conqueror_doctrina_ap',  label: 'Doctrina Conquistadora — +1 PA, CaC (posición Battleline)',                  description: 'Conqueror Imperative (conditional): if BATTLELINE or within 6" of AdM/QI BATTLELINE, improve the AP of melee attacks by 1.',                              factionId: 'QI', combatType: 'melee',                     effects: { apMod: 1 } },
   {
     id: 'qi_cogbound_alliance',
@@ -5971,6 +6040,12 @@ const RULES_2: ModifierRule[] = [
     rerollAllHits: true,
   },
   },
+  // QI missing detachment rules (Bloque 5)
+  { id: 'qi_dauntless_sustained',  label: 'Dauntless Defenders — Against the Horde: Sustained Hits 1 (línea defensiva)', description: 'Against the Horde: each time a model in this unit makes an attack, if this unit is on a defensive line (wholly within range of an objective marker), that attack has the [SUSTAINED HITS 1] ability.', factionId: 'QI', detachmentId: '000001107', effects: { sustainedHitsBonus: 1 } },
+  { id: 'qi_rain_of_devastation',  label: 'Rain of Devastation — +1 impactar (vs unidad en terreno)',                    description: 'Rain of Devastation: each time a model in your unit makes an attack that targets a unit that is within or on a terrain feature, add 1 to the Hit roll.', factionId: 'QI', detachmentId: '000001210', effects: { hitMod: 1 } },
+  { id: 'qi_driven_ignores_cover', label: 'Driven from Their Lairs — IGNORES COVER disparo (Bondsman activo)',            description: 'Driven from Their Lairs: while your unit has a Bondsman ability active, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability.', factionId: 'QI', detachmentId: '000001211', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'qi_code_chivalric_hits',  label: 'Code Chivalric — repetir impactos 1 (Vow: Questing Oath)',                    description: 'Code Chivalric Quality (Questing Oath): re-roll Hit rolls of 1 each time a model from your army makes an attack.', factionId: 'QI', effects: { rerollHitsOf1: true } },
+  { id: 'qi_code_chivalric_wounds',label: 'Code Chivalric — repetir heridas 1 (Vow: Questing Oath)',                     description: 'Code Chivalric Quality (Questing Oath): re-roll Wound rolls of 1 each time a model from your army makes an attack.', factionId: 'QI', effects: { rerollWoundsOf1: true } },
 
   // ═══ QT ═══
   // QT es CHAOS KNIGHTS, no HERETIC ASTARTES → no tiene Dark Pacts.
@@ -6194,6 +6269,8 @@ const RULES_2: ModifierRule[] = [
     apMod: 1,
   },
   },
+  // QT missing detachment rules (Bloque 5)
+  { id: 'qt_annihilate_unworthy', label: 'Annihilate the Unworthy — +1 impactar vs Battle-shocked (KNIGHT TYRANT)', description: 'Annihilate the Unworthy: each time a KNIGHT TYRANT model makes an attack that targets a Battle-shocked unit, add 1 to the Hit roll.', factionId: 'QT', detachmentId: '000001203', effects: { hitMod: 1 } },
 
   // ═══ SM ═══
   { id: 'sm_immolation_protocols_795', label: 'Immolation Protocols — Devastating Wounds, Torrent, disparo (2PC)', description: 'Firestorm Assault Force: select one ADEPTUS ASTARTES unit that has not been selected to shoot this phase. Until the end of the phase, Torrent weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000000795', combatType: 'ranged', isStratagem: true, cpCost: 2, effects: { devastatingWoundsBonus: true } },
@@ -6201,6 +6278,9 @@ const RULES_2: ModifierRule[] = [
   { id: 'sm_master_marksmen', label: 'Master Marksmen — Devastating Wounds, disparo (1PC)', description: 'Pilum Strike Team: select one ADEPTUS ASTARTES unit that has not been selected to shoot this phase. Until the end of the phase, ranged weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000000906', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
   { id: 'sm_benediction_of_fury', label: 'Benediction of Fury — Devastating Wounds, CaC (Chaplain)', description: 'Benediction of Fury: Chaplain model only. The bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.', factionId: 'SM', detachmentId: '000001006', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
   { id: 'sm_guiding_omens', label: "Guiding Omens — Devastating Wounds, CaC (Emperor's Champion)", description: "Guiding Omens: EMPEROR'S CHAMPION model only. Instrument of the God-Emperor (once per battle): if engaged with an enemy CHARACTER unit, this model's melee attacks have [DEVASTATING WOUNDS].", factionId: 'SM', datasheetId: '000002795', detachmentId: '000001178', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
+  { id: 'sm_anointed_champion_hit',   label: "Anointed Champion — repetir 1 impactar, CaC (EMPEROR'S CHAMPION, aprox.)", factionId: 'SM', datasheetId: '000002795', detachmentId: '000001178', combatType: 'melee', effects: { rerollHitsOf1: true } },
+  { id: 'sm_anointed_champion_wound', label: "Anointed Champion — repetir 1 herir, CaC (EMPEROR'S CHAMPION, aprox.)",   factionId: 'SM', datasheetId: '000002795', detachmentId: '000001178', combatType: 'melee', effects: { rerollWoundsOf1: true } },
+  { id: 'sm_dark_age_arsenal_plasma', label: 'Dark Age Arsenal — +1 Fuerza armas plasma (DARK ANGELS, disparo)',          factionId: 'SM', detachmentId: '000001182', combatType: 'ranged', effects: { strengthMod: 1 } },
   {
     id: 'sm_oath_of_moment',
     label: 'Juramento del Momento — re-roll impactar',
@@ -6527,11 +6607,8 @@ const RULES_2: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'sm_heroes_of_the_chapter_2', label: 'HEROES OF THE CHAPTER — +1 herir (unidad ≤ media vida)', factionId: 'SM', detachmentId: '000000798', isStratagem: true, cpCost: 0, effects: { woundMod: 1 } },
   {
     id: 'sm_armour_of_contempt',
     label: 'ARMOUR OF CONTEMPT — empeora PA atacante (1CP)',
@@ -6947,11 +7024,8 @@ const RULES_2: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está por debajo de su Fuerza Inicial',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'sm_fury_of_the_first_2', label: 'FURY OF THE FIRST — +1 herir (unidad < Fuerza Inicial)', factionId: 'SM', detachmentId: '000001103', isStratagem: true, cpCost: 0, effects: { woundMod: 1 } },
   {
     id: 'sm_onslaught_of_fire',
     label: 'ONSLAUGHT OF FIRE — +1 impactar, disparo (1CP)',
@@ -7093,11 +7167,8 @@ const RULES_2: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está por debajo de su Fuerza Inicial',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'sm_ruthless_butchery_2', label: 'RUTHLESS BUTCHERY — +1 herir, CaC (unidad < Fuerza Inicial)', factionId: 'SM', detachmentId: '000001118', combatType: 'melee', isStratagem: true, cpCost: 0, effects: { woundMod: 1 } },
   {
     id: 'sm_armour_of_contempt_14',
     label: 'ARMOUR OF CONTEMPT — empeora PA atacante (1CP)',
@@ -7534,7 +7605,7 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'sm_stunning_fusillade',
-    label: 'STUNNING FUSILLADE — +1 PA, disparo (1CP)',
+    label: 'STUNNING FUSILLADE — +1 BS (característica) + +1 PA, disparo (1CP)',
     description: 'Shadowmark Talon: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit that is more than 12" away, improve the Ballistic Skill and Armour Penetration characteristics of that attack by 1. If one or more enemy model',
     factionId: 'SM',
     detachmentId: '000001104',
@@ -7542,6 +7613,7 @@ const RULES_3: ModifierRule[] = [
     isStratagem: true,
     cpCost: 1,
     effects: {
+    bsMod: -1,
     apMod: 1,
   },
   },
@@ -7759,7 +7831,7 @@ const RULES_3: ModifierRule[] = [
   },
   {
     id: 'sm_strike_from_the_shadows',
-    label: 'STRIKE FROM THE SHADOWS — +1 PA, disparo (1CP)',
+    label: 'STRIKE FROM THE SHADOWS — +1 BS (característica) + +1 PA, disparo (1CP)',
     description: 'Vanguard Spearhead: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit that is more than 12" away, improve the Ballistic Skill and Armour Penetration characteristics of that attack by 1. If one or more enemy model',
     factionId: 'SM',
     detachmentId: '000000797',
@@ -7767,6 +7839,7 @@ const RULES_3: ModifierRule[] = [
     isStratagem: true,
     cpCost: 1,
     effects: {
+    bsMod: -1,
     apMod: 1,
   },
   },
@@ -8110,11 +8183,8 @@ const RULES_3: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'ldr_000000286_refuse_to_accept_defeat_2', label: 'Krom Dragongaze — +1 herir (unidad ≤ media vida) (Líder)', factionId: 'SM', leaderDatasheetId: '000000286', effects: { woundMod: 1 } },
   {
     id: 'ldr_000000288_born_of_wolves',
     label: 'Canis Wolfborn — Sustained Hits 1, CaC (Líder)',
@@ -8323,11 +8393,8 @@ const RULES_3: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'ldr_000002677_keep_the_banner_high_2', label: 'Ancient In Terminator Armour — +1 herir (unidad ≤ media vida) (Líder)', factionId: 'SM', leaderDatasheetId: '000002677', effects: { woundMod: 1 } },
   {
     id: 'ldr_000002713_to_the_last',
     label: 'Pedro Kantor — +1 impactar (+1 herir a media vida) (Líder)',
@@ -8337,11 +8404,8 @@ const RULES_3: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'ldr_000002713_to_the_last_2', label: 'Pedro Kantor — +1 herir (unidad ≤ media vida) (Líder)', factionId: 'SM', leaderDatasheetId: '000002713', effects: { woundMod: 1 } },
   {
     id: 'ldr_000002738_sanguinary_priest',
     label: 'Sanguinary Priest With Jump Pack — FNP 5+ (Líder)',
@@ -8533,10 +8597,13 @@ const RULES_3: ModifierRule[] = [
     cleaveBonus: 1,
   },
   },
+  // SM missing detachment/army rules (Bloque 5)
+  { id: 'sm_black_winged_vc',    label: 'Dark Angels Darkflight — Black-Winged Vigilance: IGNORES COVER (RAVENWING FLY, disparo)', description: 'Black-Winged Vigilance: each time a RAVENWING FLY model makes a ranged attack, that attack has the [IGNORES COVER] ability.', factionId: 'SM', detachmentId: '000001183', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'sm_templar_vows_wound', label: 'Black Templars — Templar Vows: Accept Any Challenge — +1 herir (F ≤ T, CaC)', description: "Templar Vows (Accept Any Challenge): each time a BLACK TEMPLARS model makes a melee attack, if the weapon's Strength characteristic is equal to or less than the target's Toughness characteristic, add 1 to the Wound roll.", factionId: 'SM', combatType: 'melee', effects: { woundMod: 1 } },
 
   // ═══ TAU ═══
   // For the Greater Good: unidad observadora marca objetivo; las unidades guiadas atacando ese objetivo ganan +1 BS.
-  { id: 'tau_for_the_greater_good', label: 'For the Greater Good — +1 BS, disparo (guiado)', description: "For the Greater Good: while a unit is Guided (targeting a Spotted unit marked by an Observer unit), improve the Ballistic Skill of that attack by 1.", factionId: 'TAU', combatType: 'ranged', effects: { hitMod: 1 } },
+  { id: 'tau_for_the_greater_good', label: 'For the Greater Good — +1 BS (característica, disparo, guiado)', description: "For the Greater Good: while a unit is Guided (targeting a Spotted unit marked by an Observer unit), improve the Ballistic Skill characteristic of that attack by 1.", factionId: 'TAU', combatType: 'ranged', effects: { bsMod: -1 } },
   { id: 'tau_root_carved_weapons', label: 'Root-carved Weapons — Devastating Wounds, Precision (Kroot War Shaper)', description: 'Root-carved Weapons: Kroot War Shaper model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities.', factionId: 'TAU', datasheetId: '000003703', detachmentId: '000000847', effects: { devastatingWoundsBonus: true } },
   {
     id: 'tau_patient_hunter',
@@ -8580,19 +8647,17 @@ const RULES_3: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'tau_hunter_s_instincts_2', label: 'Hunter’s Instincts — +1 herir (objetivo ≤ media vida)', factionId: 'TAU', detachmentId: '000000847', effects: { woundMod: 1 } },
   {
     id: 'tau_markerlight_precision',
-    label: 'Markerlight Precision — Sustained Hits 1, disparo',
+    label: 'Markerlight Precision — +1 BS (característica) + Sustained Hits 1, disparo',
     description: 'Each time a T’AU EMPIRE unit from your army (excluding KROOT units) is selected to shoot, ranged weapons equipped by models in your unit have their Ballistic Skill characteristic improved by 1 and have the [SUSTAINED HITS 1] ability while targeting an enemy unit that is visible to one or more friend',
     factionId: 'TAU',
     detachmentId: '000000966',
     combatType: 'ranged',
     effects: {
+    bsMod: -1,
     sustainedHitsBonus: 1,
   },
   },
@@ -9169,6 +9234,10 @@ const RULES_3: ModifierRule[] = [
     cleaveBonus: 1,
   },
   },
+  // TS missing detachment rules (Bloque 5)
+  { id: 'ts_witchsight',       label: 'Chosen Cabal — Witchsight: IGNORES COVER, disparo',                   description: 'Witchsight: ranged weapons equipped by THOUSAND SONS models from your army have the [IGNORES COVER] ability.', factionId: 'TS', detachmentId: '000000969', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'ts_fervent_devotees', label: 'Devoted Thralls — Fervent Devotees: Sustained Hits 1 CaC (cerca de objetivo)', description: 'Fervent Devotees: each time a CULTIST model from your army makes a melee attack that targets a unit within range of an objective marker, that attack has the [SUSTAINED HITS 1] ability.', factionId: 'TS', detachmentId: '000000970', combatType: 'melee', effects: { sustainedHitsBonus: 1 } },
+  { id: 'ts_ensorcelled_ws',   label: 'Ensorcelled Animus — +1 WS (Sekhetar, CaC)',                           description: 'Ensorcelled Animus: each time a SEKHETAR model makes a melee attack, improve its Weapon Skill characteristic by 1.', factionId: 'TS', detachmentId: '000001208', combatType: 'melee', effects: { wsMod: -1 } },
 
   // ═══ TYR ═══
   // Synapse: mientras la unidad esté a 6" de un modelo Synapse, +1 Fuerza en ataques CaC.
@@ -9193,11 +9262,8 @@ const RULES_3: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'tyr_enraged_behemoths_2', label: 'Enraged Behemoths — +1 herir (unidad ≤ media vida)', factionId: 'TYR', detachmentId: '000000769', effects: { woundMod: 1 } },
   {
     id: 'tyr_synaptic_imperatives',
     label: 'Synaptic Imperatives — +1 impactar',
@@ -9530,6 +9596,8 @@ const RULES_3: ModifierRule[] = [
     lethalHitsBonus: true,
   },
   },
+  // TYR missing detachment rules (Bloque 5)
+  { id: 'tyr_mindhunger', label: 'Ambush Predators — Mindhunger: repetir impactos 1 vs CHARACTER', description: 'Mindhunger: each time a model in this unit makes an attack that targets a CHARACTER unit, re-roll a Hit roll of 1.', factionId: 'TYR', detachmentId: '000001060', effects: { rerollHitsOf1: true } },
 
   // ═══ UN ═══
   {
@@ -9750,11 +9818,8 @@ const RULES_3: ModifierRule[] = [
     effects: {
     hitMod: 1,
   },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-    woundMod: 1,
   },
-  },
+  { id: 'aura_000002630_beacons_of_rage_aura_2', label: 'Eightbound — +1 herir (objetivo ≤ media vida) (Aura)', factionId: 'WE', sourceDatasheetId: '000002630', combatType: 'melee', effects: { woundMod: 1 } },
   {
     id: 'aura_000004105_daemon_lord_of_khorne_aura',
     label: 'Bloodthirster — +1 impactar (Aura)',
@@ -9766,6 +9831,11 @@ const RULES_3: ModifierRule[] = [
     hitMod: 1,
   },
   },
+
+  // WE missing detachment rules (Bloque 5)
+  { id: 'we_blood_tithe_fnp',    label: 'Blood Tithe [2BTP] — FNP 5+ vs heridas psíquicas/mortales', description: 'Blood Tithe [2 BTP]: Until the end of the turn, each time a model in this unit would lose a wound as a result of a Psychic Attack or mortal wound, roll one D6: on a 5+, that wound is not lost.', factionId: 'WE', detachmentId: '000001043', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'we_blood_tithe_lance',  label: 'Blood Tithe [3BTP] — +1 herir (CaC, como LANCE si ha cargado)', description: 'Blood Tithe [3 BTP]: Until the end of the turn, each time a BLOOD LEGIONS model makes a melee attack, add 1 to the Wound roll.', factionId: 'WE', detachmentId: '000001043', combatType: 'melee', effects: { woundMod: 1 } },
+  { id: 'we_rush_to_fray_lance', label: 'Rush to the Fray — +1 herir (CaC, desembarca)',             description: 'Rush to the Fray: Until the end of the turn, add 1 to Wound rolls for melee weapons equipped by models in this unit.', factionId: 'WE', detachmentId: '000001045', combatType: 'melee', effects: { woundMod: 1 } },
 
   // ── Habilidades "Una vez por partida" de personajes ──────────────────────────
   { id: 'opb_000001446_trajann', label: '[OPB] Trajann Valoris — +12 ataques', factionId: 'AC', leaderDatasheetId: '000001446', effects: { attacksMod: 12 } },
@@ -9849,9 +9919,11 @@ const RULES_3: ModifierRule[] = [
   { id: 'ae_layered_wards', label: 'LAYERED WARDS — FNP 5+ vs heridas mortales (AE Warhost, 1CP)', description: 'Armoured Warhost: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'AE', detachmentId: '000000990', isStratagem: true, cpCost: 1, target: 'defender', effects: { feelNoPainThreshold: 5 } },
 
   // ── AdM Cohort Cybernetica (000000823) ──────────────────────────────────────
-  { id: 'adm_auto_divinatory', label: 'AUTO-DIVINATORY TARGETING — BS 3+ e ignora cobertura, disparo (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, ranged weapons equipped by models in your unit have a Ballistic Skill characteristic of 3+ and the [IGNORES COVER] ability.', factionId: 'AdM', detachmentId: '000000823', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
+  { id: 'adm_auto_divinatory_bs', label: 'AUTO-DIVINATORY TARGETING — BS 3+ (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, ranged weapons equipped by models in your unit have a Ballistic Skill characteristic of 3+. (Preciso para BS4+; para BS peor, el efecto real es mayor.)', factionId: 'AdM', detachmentId: '000000823', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { bsMod: -1 } },
+  { id: 'adm_auto_divinatory_cover', label: 'AUTO-DIVINATORY TARGETING — IGNORES COVER (solo con cobertura activa)', description: 'Cohort Cybernetica: ranged weapons also have [IGNORES COVER]. Activar solo si el defensor tiene cobertura activa (cancela el +1 BS de cobertura).', factionId: 'AdM', detachmentId: '000000823', combatType: 'ranged', isStratagem: true, cpCost: 0, effects: { bsMod: -1 } },
   { id: 'adm_benevolence', label: 'BENEVOLENCE OF THE OMNISSIAH — FNP 6+ (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, models in your unit have the Feel No Pain 6+ ability.', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 1, target: 'defender', effects: { feelNoPainThreshold: 6 } },
-  { id: 'adm_machine_spirit_resurgent', label: 'MACHINE SPIRIT RESURGENT — repetir impactos (+repetir heridas a media vida) (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, each time a model in your unit makes an attack, you can re-roll the Hit roll. If your unit is Below Half-strength, you can re-roll the Wound roll as well.', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 1, effects: { rerollAllHits: true }, bonusCondition: 'la unidad está a media vida o menos', bonusEffects: { rerollAllWounds: true } },
+  { id: 'adm_machine_spirit_resurgent', label: 'MACHINE SPIRIT RESURGENT — repetir impactos (AdM Cybernetica, 1CP)', description: 'Cohort Cybernetica: Until the start of your next Command phase, each time a model in your unit makes an attack, you can re-roll the Hit roll. If your unit is Below Half-strength, you can re-roll the Wound roll as well.', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 1, effects: { rerollAllHits: true } },
+  { id: 'adm_machine_spirit_resurgent_2', label: 'MACHINE SPIRIT RESURGENT — repetir heridas (unidad ≤ media vida)', factionId: 'AdM', detachmentId: '000000823', isStratagem: true, cpCost: 0, effects: { rerollAllWounds: true } },
 
 
   // ── Unidades y líderes generados desde CSV ────────────────────────────────
@@ -10777,11 +10849,8 @@ const RULES_4: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000002613_grim_demeanour_2', label: 'Death Korps Of Krieg — +1 herir (unidad ≤ media vida)', factionId: 'AM', datasheetId: '000002613', effects: { woundMod: 1 } },
   {
     id: 'unit_000002614_jungle_fighters',
     label: 'Catachan Jungle Fighters — +1 herir CaC',
@@ -11341,11 +11410,8 @@ const RULES_4: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000003826_indomitor_doctrines_2', label: 'Indomitor Kill Team — +1 herir (unidad ≤ media vida)', factionId: 'AoI', datasheetId: '000003826', effects: { woundMod: 1 } },
   {
     id: 'unit_000003828_malefic_warding',
     label: 'Daemonhost — FNP 5+',
@@ -12074,11 +12140,8 @@ const RULES_4: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000003876_visions_of_suffering_psychic_2', label: 'Nemesis Claw — +1 herir (objetivo ≤ media vida)', factionId: 'CSM', datasheetId: '000003876', effects: { woundMod: 1 } },
   {
     id: 'unit_000004192_brutal_raider',
     label: 'Red Corsairs Reave-Captain — +1 Fuerza, +1 PA CaC',
@@ -12404,11 +12467,8 @@ const RULES_4: ModifierRule[] = [
     effects: {
       rerollAllHits: true,
     },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      rerollAllWounds: true,
-    },
   },
+  { id: 'unit_000000643_silent_executioner_2', label: 'Drazhar — repetir heridas (objetivo ≤ media vida)', factionId: 'DRU', datasheetId: '000000643', effects: { rerollAllWounds: true } },
   {
     id: 'unit_000000644_sadistic_raiders_pain',
     label: 'Kabalite Warriors — repetir her.1',
@@ -12745,11 +12805,8 @@ const RULES_4: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'el modelo está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000004091_glutton_for_punishment_2', label: 'Maulerfiend (EC) — +1 herir (modelo ≤ media vida)', factionId: 'EC', datasheetId: '000004091', effects: { woundMod: 1 } },
   {
     id: 'unit_000004094_monarch_of_the_hunt',
     label: 'Shalaxi Helbane — repetir impactos, repetir heridas CaC',
@@ -12904,11 +12961,8 @@ const RULES_4: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000003950_grim_demeanour_2', label: 'Death Korps Of Krieg (GC) — +1 herir (unidad ≤ media vida)', factionId: 'GC', datasheetId: '000003950', effects: { woundMod: 1 } },
   {
     id: 'unit_000003953_transport_support',
     label: 'Taurox Prime — repetir impactos disparo',
@@ -15957,11 +16011,8 @@ const RULES_5: ModifierRule[] = [
     effects: {
       hitMod: -1,
     },
-    bonusCondition: 'la unidad enemiga está a media vida o menos',
-    bonusEffects: {
-      woundMod: -1,
-    },
   },
+  { id: 'unit_000000474_encephalic_diffusion_aura_psychic_2', label: 'Maleceptor — -1 herir (unidad enemiga ≤ media vida)', factionId: 'TYR', datasheetId: '000000474', effects: { woundMod: -1 } },
   {
     id: 'aura_000000475_warp_field_aura_psychic',
     label: 'Zoanthropes — FNP 6+ (Aura)',
@@ -16058,11 +16109,8 @@ const RULES_5: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000002689_predatory_instincts_2', label: 'Psychophage — +1 herir (objetivo ≤ media vida), CaC', factionId: 'TYR', datasheetId: '000002689', combatType: 'melee', effects: { woundMod: 1 } },
   {
     id: 'unit_000002691_adaptive_instincts',
     label: 'Tyranid Warriors With Melee Bio-weapons — repetir imp.1 CaC',
@@ -16227,11 +16275,8 @@ const RULES_5: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'la unidad está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000001603_threat_level_rising_2', label: 'Spindle Drones — +1 herir (unidad ≤ media vida)', factionId: 'UN', datasheetId: '000001603', effects: { woundMod: 1 } },
   {
     id: 'unit_000002809_defence_line',
     label: 'Wall Of Martyrs Defence Line — FNP 4+',
@@ -16344,11 +16389,8 @@ const RULES_5: ModifierRule[] = [
     effects: {
       hitMod: 1,
     },
-    bonusCondition: 'el objetivo está a media vida o menos',
-    bonusEffects: {
-      woundMod: 1,
-    },
   },
+  { id: 'unit_000002639_glutton_for_punishment_2', label: 'Maulerfiend (WE) — +1 herir (objetivo ≤ media vida), CaC', factionId: 'WE', datasheetId: '000002639', combatType: 'melee', effects: { woundMod: 1 } },
   {
     id: 'unit_000002641_airborne_predator',
     label: 'Heldrake — +1 impactar',
@@ -18806,9 +18848,8 @@ const RULES_5: ModifierRule[] = [
     factionId: 'AC',
     enhancementId: '000008926004',
     effects: { hitMod: 1 },
-    bonusCondition: 'el objetivo es PSYKER',
-    bonusEffects: { woundMod: 1 },
   },
+  { id: 'enh_ac_oblivion_knight_2', label: 'Mejora: Oblivion Knight — +1 herir (objetivo es PSYKER)', factionId: 'AC', enhancementId: '000008926004', effects: { woundMod: 1 } },
   {
     id: 'enh_ae_mirage_field',
     label: 'Mejora: Mirage Field — −1 impactar recibido',

@@ -2,7 +2,6 @@ import { useMemo } from 'react'
 import type { GameData, Datasheet, Detachment, DetachmentAbility, Stratagem, Enhancement } from '@/types'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import type { PanelSelection } from '../types'
-import { MODIFIER_RULES } from '../data/modifiers'
 
 const EMPTY_SELECTION: PanelSelection = {
   factionId: null, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null,
@@ -67,16 +66,12 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
     const factionId = selectedUnit.factionId
     const unitId = selectedUnit.id
     const leaderIds = new Set(
-      MODIFIER_RULES
-        .filter(r =>
-          r.leaderDatasheetId &&
-          r.factionId === factionId &&
-          (!gameData.leaderMap[r.leaderDatasheetId] || gameData.leaderMap[r.leaderDatasheetId].includes(unitId))
-        )
-        .map(r => r.leaderDatasheetId!)
+      Object.entries(gameData.leaderMap)
+        .filter(([, followerIds]) => followerIds.includes(unitId))
+        .map(([leaderId]) => leaderId)
     )
     return [...leaderIds]
-      .map(id => gameData.datasheets.find(ds => ds.id === id))
+      .map(id => gameData.datasheets.find(ds => ds.id === id && ds.factionId === factionId))
       .filter((ds): ds is Datasheet => ds !== undefined)
       .filter(ds => rosterIds === null || rosterIds.includes(ds.id))
       .sort((a, b) => a.name.localeCompare(b.name))

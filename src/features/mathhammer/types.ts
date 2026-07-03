@@ -1,7 +1,9 @@
 import type { CombatType } from '@/types'
 
 export interface CombatModifiers {
-  hitMod: number
+  hitMod: number           // modificador al dado (cap neto ±1)
+  bsMod: number            // modificador a la característica BS ranged (cobertura: +1; no tiene cap)
+  wsMod: number            // modificador a la característica WS melee (sin cap)
   rerollHitsOf1: boolean
   rerollAllHits: boolean
   critThreshold: number
@@ -42,8 +44,6 @@ export interface ModifierRule {
   isStratagem?: boolean
   cpCost?: number
   effects: Partial<CombatModifiers>
-  bonusCondition?: string              // condición más estricta que desbloquea bonusEffects (ej. "objetivo a media vida")
-  bonusEffects?: Partial<CombatModifiers> // solo se aplica si además se activa el toggle `${id}__bonus`
   requiresAntiKeyword?: string      // regla solo aparece si el arma tiene ANTI-<keyword>
   requiresTargetKeyword?: string    // regla solo aparece si el defensor tiene esta keyword
   requiresAttackerKeyword?: string  // regla solo aparece si la unidad atacante tiene esta keyword

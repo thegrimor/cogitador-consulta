@@ -98,14 +98,20 @@ export function UnitPanel({
     }
   }
 
-  const anySelectedHeavy = selectedWeapons.some(w => w.isHeavy)
+  const anySelectedHeavy       = selectedWeapons.some(w => w.isHeavy)
+  const anySelectedMelta       = selectedWeapons.some(w => w.isMelta)
+  const anySelectedTwinLinked  = selectedWeapons.some(w => w.isTwinLinked)
+  const anySelectedRapidFire   = selectedWeapons.some(w => w.rapidFireValue !== '')
+  const anySelectedLance       = selectedWeapons.some(w => w.isLance)
+  const anySelectedTorrent     = selectedWeapons.some(w => w.isTorrent)
+  const anySelectedIndirect    = selectedWeapons.some(w => w.isIndirectFire)
+  const anySelectedPsychic     = selectedWeapons.some(w => w.isPsychic)
+
   const heavyModActive = activeModifierIds?.has('weapon_heavy') ?? false
 
   function handleHeavyToggle() {
     onModifierToggle?.('weapon_heavy')
   }
-
-  const anySelectedMelta = selectedWeapons.some(w => w.isMelta)
 
   const characterDatasheet = useMemo(
     () => panel.selection.characterId
@@ -157,14 +163,21 @@ export function UnitPanel({
       if (rule.datasheetId && rule.datasheetId !== datasheetId) return false
       if (rule.leaderDatasheetId && rule.leaderDatasheetId !== panel.selection.characterId) return false
       if (rule.combatType && rule.combatType !== combatType) return false
-      if (rule.id === 'weapon_heavy' && !anySelectedHeavy) return false
+      if (rule.id === 'weapon_heavy'       && !anySelectedHeavy)      return false
+      if (rule.id === 'weapon_twin_linked' && !anySelectedTwinLinked) return false
+      if (rule.id === 'weapon_rapid_fire'  && !anySelectedRapidFire)  return false
+      if (rule.id === 'weapon_melta'       && !anySelectedMelta)      return false
+      if (rule.id === 'weapon_lance'       && !anySelectedLance)      return false
+      if (rule.id === 'weapon_torrent'     && !anySelectedTorrent)    return false
+      if (rule.id === 'weapon_indirect'    && !anySelectedIndirect)   return false
+      if (rule.id === 'weapon_psychic'     && !anySelectedPsychic)    return false
       if (rule.requiresAntiKeyword && !weaponAntiKeywords.includes(rule.requiresAntiKeyword)) return false
       if (rule.requiresTargetKeyword && !defKwLower.includes(rule.requiresTargetKeyword.toLowerCase())) return false
       if (rule.requiresAttackerKeyword && !attackerKeywords.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
       if (rule.sourceDatasheetId && panel.rosterIds !== null && !panel.rosterIds.includes(rule.sourceDatasheetId)) return false
       return true
     })
-  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, weaponAntiKeywords, defenderKeywords, attackerKeywords])
+  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedMelta, anySelectedTwinLinked, anySelectedRapidFire, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
 
   const roleLabel = selectedUnit?.role ? ` · ${selectedUnit.role}` : ''
 

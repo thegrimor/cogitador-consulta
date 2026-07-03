@@ -24,13 +24,9 @@ function pillClass(selected: boolean): string {
 }
 
 export function UnitSelector({ gameData, panel }: Props) {
-  const { selection, availableDetachments, availableUnits, availableCharacters, availableEnhancements, selectedUnit } = panel
+  const { selection, availableDetachments, availableUnits, availableCharacters, availableEnhancements } = panel
   const [detachModalOpen, setDetachModalOpen] = useState(false)
 
-  const bearer = selection.characterId
-    ? gameData.datasheets.find(ds => ds.id === selection.characterId) ?? null
-    : selectedUnit
-  const bearerIsCharacter = bearer?.keywords.some(k => k.toUpperCase() === 'CHARACTER') ?? false
   const selectedEnhancement = availableEnhancements.find(e => e.id === selection.enhancementId)
 
   return (
@@ -138,7 +134,7 @@ export function UnitSelector({ gameData, panel }: Props) {
         </div>
       )}
 
-      {bearerIsCharacter && availableEnhancements.length > 0 && (
+      {availableEnhancements.length > 0 && (
         <div>
           <label className="block text-[9px] font-display uppercase tracking-widest text-gold mb-1">
             Mejora <span className="text-parchment-dim normal-case tracking-normal">(opcional)</span>

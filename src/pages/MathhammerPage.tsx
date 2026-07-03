@@ -27,12 +27,18 @@ export function MathhammerPage() {
   useEffect(() => {
     const faction = searchParams.get('faction')
     const datasheet = searchParams.get('datasheet')
-    const detachment = searchParams.get('detachment')
+    const detachmentsParam = searchParams.get('detachments')
+    const detachmentParam = searchParams.get('detachment') // legacy single-detachment param
+    const character = searchParams.get('character')
     if (!faction || !datasheet) return
 
     leftPanel.selectFaction(faction)
-    if (detachment) leftPanel.selectDetachments([detachment])
+    const detachmentIds = detachmentsParam
+      ? detachmentsParam.split(',').filter(Boolean)
+      : detachmentParam ? [detachmentParam] : []
+    if (detachmentIds.length) leftPanel.selectDetachments(detachmentIds)
     leftPanel.selectUnit(datasheet)
+    if (character) leftPanel.selectCharacter(character)
     if (presetRoster) {
       const ids = Array.from(new Set(presetRoster.entries.map(e => e.datasheetId)))
       leftPanel.setRosterIds(ids)

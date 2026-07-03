@@ -51,10 +51,11 @@ export function corePhasePath(id: string) {
 export function mathhammerAttackerPath(
   datasheetId: string,
   factionId: string,
-  options?: { detachmentId?: string; rosterId?: string },
+  options?: { detachmentIds?: string[]; characterId?: string; rosterId?: string },
 ) {
   const params = new URLSearchParams({ faction: factionId, datasheet: datasheetId })
-  if (options?.detachmentId) params.set('detachment', options.detachmentId)
+  if (options?.detachmentIds?.length) params.set('detachments', options.detachmentIds.join(','))
+  if (options?.characterId) params.set('character', options.characterId)
   if (options?.rosterId) params.set('roster', options.rosterId)
   return `${ROUTES.MATHHAMMER}?${params.toString()}`
 }

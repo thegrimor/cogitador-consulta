@@ -19,6 +19,7 @@ interface Props {
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
   attachableEntries: { entry: RosterEntry; datasheet: Datasheet }[]
+  attachedCharacterDatasheetId?: string
   onChangeCost: (cost: PointsCost) => void
   onChangeEnhancement: (enhancementId: string | null) => void
   onChangeAttachment: (attachedToEntryId: string | null) => void
@@ -48,6 +49,7 @@ export function RosterEntryRow({
   selectedDetachments,
   availableEnhancements,
   attachableEntries,
+  attachedCharacterDatasheetId,
   onChangeCost,
   onChangeEnhancement,
   onChangeAttachment,
@@ -235,7 +237,8 @@ export function RosterEntryRow({
             </NavLink>
             <NavLink
               to={mathhammerAttackerPath(datasheet.id, datasheet.factionId, {
-                detachmentId: selectedDetachments[0]?.id,
+                detachmentIds: selectedDetachments.map(d => d.id),
+                characterId: attachedCharacterDatasheetId,
                 rosterId,
               })}
               className={linkClass}
