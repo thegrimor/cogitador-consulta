@@ -19,7 +19,6 @@ const CRIMSON_DIM  = '#c41e1e'
 const CRIMSON_BRT  = '#ff2222'
 const GOLD         = '#c8962a'
 const GOLD_BRT     = '#f0b840'
-const PARCHMENT_DIM = '#a89880'
 const RIM_BRT      = '#4a3a28'
 const MONO         = "'Share Tech Mono', monospace"
 
@@ -130,8 +129,8 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
           {targetWounds}H
         </text>
 
-        {/* % de aniquilar la unidad en zona crimson */}
-        {killP > 0.25 && (
+        {/* % de matar (aniquilar) la unidad */}
+        {killP >= 0.25 && (
           <text
             x={Math.min(PAD_S + CHART_W - 4, (targetX + PAD_S + CHART_W) / 2)}
             y={PAD_T + 17}
@@ -139,18 +138,6 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
             fill={CRIMSON_BRT} fontSize="13" fontWeight="bold" fontFamily={MONO}
           >
             {(killP * 100).toFixed(0)}%
-          </text>
-        )}
-
-        {/* % supervivencia en zona dim */}
-        {killP < 0.99 && (1 - killP) > 0.01 && (
-          <text
-            x={Math.max(PAD_S + 4, (PAD_S + targetX) / 2)}
-            y={PAD_T + 15}
-            textAnchor="middle"
-            fill={PARCHMENT_DIM} fontSize="10" fontFamily={MONO}
-          >
-            {((1 - killP) * 100).toFixed(0)}%
           </text>
         )}
       </svg>
