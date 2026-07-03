@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
@@ -172,6 +172,34 @@ export function MathhammerPage() {
       setDefenderIdsArr([])
     }
   }
+
+  // Auto-activate/deactivate an enhancement's modifier rules the moment it's equipped/changed,
+  // instead of requiring a separate manual toggle click in the Reglas de Ejército list below.
+  const prevAttackerEnhancementId = useRef<string | null>(null)
+  useEffect(() => {
+    const enhancementId = leftPanel.selection.enhancementId
+    if (enhancementId === prevAttackerEnhancementId.current) return
+    const prevRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === prevAttackerEnhancementId.current).map(r => r.id)
+    const nextRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === enhancementId).map(r => r.id)
+    prevAttackerEnhancementId.current = enhancementId
+    setAttackerIdsArr(prev => {
+      const withoutOld = prev.filter(id => !prevRuleIds.includes(id))
+      return Array.from(new Set([...withoutOld, ...nextRuleIds]))
+    })
+  }, [leftPanel.selection.enhancementId])
+
+  const prevDefenderEnhancementId = useRef<string | null>(null)
+  useEffect(() => {
+    const enhancementId = rightPanel.selection.enhancementId
+    if (enhancementId === prevDefenderEnhancementId.current) return
+    const prevRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === prevDefenderEnhancementId.current).map(r => r.id)
+    const nextRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === enhancementId).map(r => r.id)
+    prevDefenderEnhancementId.current = enhancementId
+    setDefenderIdsArr(prev => {
+      const withoutOld = prev.filter(id => !prevRuleIds.includes(id))
+      return Array.from(new Set([...withoutOld, ...nextRuleIds]))
+    })
+  }, [rightPanel.selection.enhancementId])
 
   function toggleAttackerModifier(id: string) {
     setAttackerIdsArr(prev => {
