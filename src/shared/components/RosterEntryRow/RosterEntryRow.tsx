@@ -245,7 +245,8 @@ export function RosterEntryRow({
             </NavLink>
             <NavLink
               to={mathhammerAttackerPath(datasheet.id, datasheet.factionId, {
-                detachmentId: selectedDetachments[0]?.id,
+                detachmentIds: selectedDetachments.map(d => d.id),
+                characterId: leadingEntries[0]?.datasheet.id,
                 rosterId,
               })}
               className={linkClass}

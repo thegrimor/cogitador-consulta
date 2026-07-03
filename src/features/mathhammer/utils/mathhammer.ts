@@ -93,13 +93,20 @@ export function parseStat(stat: string): number | null {
   return match ? parseInt(match[1]) : null
 }
 
-export function hitProbabilityWithMods(bsWs: string, mods: CombatModifiers): number {
+export function hitProbabilityWithMods(bsWs: string, mods: CombatModifiers, isMelee = false): number {
   if (bsWs.trim() === '*') return 1
   const val = parseStat(bsWs)
   if (val === null) return 0
-  // Overwatch: el threshold es el de la regla (por defecto 6); hitMod no aplica salvo regla explícita.
-  const baseThreshold = mods.overwatchHit ? mods.overwatchThreshold : val
-  const effectiveBs = mods.overwatchHit ? mods.overwatchThreshold : (baseThreshold - mods.hitMod)
+  // Overwatch: threshold fijo; ni bsMod ni hitMod aplican.
+  if (mods.overwatchHit) {
+    const baseP = Math.min(5 / 6, Math.max(1 / 6, (7 - mods.overwatchThreshold) / 6))
+    return baseP
+  }
+  // bsMod: característica BS ranged; wsMod: característica WS melee. Sin cap.
+  // hitMod: modifica el dado, cap neto ±1.
+  const charMod = isMelee ? mods.wsMod : mods.bsMod
+  const cappedHitMod = Math.max(-1, Math.min(1, mods.hitMod))
+  const effectiveBs = val + charMod - cappedHitMod
   const baseP = Math.min(5 / 6, Math.max(1 / 6, (7 - effectiveBs) / 6))
   if (mods.rerollAllHits)  return baseP + (1 - baseP) * baseP
   if (mods.rerollHitsOf1)  return baseP + (1 / 6) * baseP
@@ -137,6 +144,8 @@ export function saveFailProbability(svRaw: string, invSvRaw: string, AP: number)
 
 export const DEFAULT_MODS: CombatModifiers = {
   hitMod: 0,
+  bsMod: 0,
+  wsMod: 0,
   rerollHitsOf1: false,
   rerollAllHits: false,
   critThreshold: 6,
@@ -163,6 +172,8 @@ export const DEFAULT_MODS: CombatModifiers = {
 
 function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): void {
   if (e.hitMod)              result.hitMod              += e.hitMod
+  if (e.bsMod)               result.bsMod               += e.bsMod
+  if (e.wsMod)               result.wsMod               += e.wsMod
   if (e.woundMod)            result.woundMod            += e.woundMod
   if (e.apMod)               result.apMod               += e.apMod
   if (e.saveMod)             result.saveMod             += e.saveMod
@@ -190,19 +201,11 @@ function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): voi
   }
 }
 
-// A rule's bonusEffects only apply when both `${rule.id}` and `${rule.id}__bonus`
-// are active — the bonus represents a stricter condition layered on top of the
-// rule's own (weaker or unconditional) condition, never on its own.
 export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): CombatModifiers {
   const result = { ...DEFAULT_MODS }
-  const active = new Set(activeIds)
-  for (const id of active) {
+  for (const id of new Set(activeIds)) {
     const rule = rules.find(r => r.id === id)
-    if (!rule) continue
-    applyEffects(result, rule.effects)
-    if (rule.bonusEffects && active.has(`${rule.id}__bonus`)) {
-      applyEffects(result, rule.bonusEffects)
-    }
+    if (rule) applyEffects(result, rule.effects)
   }
   return result
 }
@@ -214,6 +217,8 @@ export function mergeMods(
 ): CombatModifiers {
   return {
     hitMod:             base.hitMod             + attackerRuleMods.hitMod             + defenderRuleMods.hitMod,
+    bsMod:              base.bsMod              + attackerRuleMods.bsMod              + defenderRuleMods.bsMod,
+    wsMod:              base.wsMod              + attackerRuleMods.wsMod              + defenderRuleMods.wsMod,
     woundMod:           base.woundMod           + attackerRuleMods.woundMod           + defenderRuleMods.woundMod,
     apMod:              base.apMod              + attackerRuleMods.apMod              + defenderRuleMods.apMod,
     saveMod:            base.saveMod            + attackerRuleMods.saveMod            + defenderRuleMods.saveMod,
@@ -253,15 +258,17 @@ export function calculateDamage(
   const cleaveTotal = weapon.cleaveValue + mods.cleaveBonus
   const cleaveBonus = cleaveTotal > 0 ? cleaveTotal * getBlastBonusAttacks(blastTargetModels) : 0
   const avgAttacks = parseDiceAverage(weapon.A) + blastBonus + cleaveBonus + mods.attacksMod
-  const pHit        = weapon.isTorrent ? 1 : hitProbabilityWithMods(weapon.bsWs, mods)
+  const isMeleeWeapon = weapon.range.trim().toLowerCase() === 'melee'
+  const pHit        = weapon.isTorrent ? 1 : hitProbabilityWithMods(weapon.bsWs, mods, isMeleeWeapon)
   const effectiveMods = weapon.isTwinLinked
     ? { ...mods, rerollAllWounds: true }
     : mods
   const pWound      = woundProbabilityWithMods(weapon.S, defenderModel.T, effectiveMods)
   // apMod > 0 = attacker improves AP (more penetrating), < 0 = defender reduces AP (AoC).
   // Clamp to 0: AP can't become positive (AoC on AP 0 weapon has no further benefit).
-  // saveMod (cover) is applied separately — it directly shifts the save threshold,
-  // so it works even at AP 0 (cover still helps against non-penetrating attacks).
+  // saveMod: genuine +1 Save abilities (e.g. AM Take Cover! order) — applied here so it
+  // shifts the save threshold independently of AP (works even at AP 0).
+  // Cover (10th ed) is NOT saveMod — it's hitMod: -1 on the defender side (13.08).
   const apAdjusted  = Math.min(0, weapon.AP - mods.apMod)
   const effectiveAP = apAdjusted - mods.saveMod
   const pFailSave   = saveFailProbability(defenderModel.Sv, defenderModel.invSv, effectiveAP)

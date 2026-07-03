@@ -13,9 +13,6 @@ export function NavBar() {
       <NavLink to="/catalog" className={linkClass}>
         Archivo
       </NavLink>
-      <NavLink to="/core-rules" className={linkClass}>
-        Reglamento
-      </NavLink>
       <NavLink to="/roster" className={linkClass}>
         Ejército
       </NavLink>
