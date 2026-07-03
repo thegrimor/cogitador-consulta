@@ -142,8 +142,8 @@ export function GaussianChart({ mean, sigma, targetWounds }: Props) {
           </text>
         )}
 
-        {/* % supervivencia en zona dim */}
-        {killP < 0.99 && (1 - killP) > 0.01 && (
+        {/* % supervivencia en zona dim (solo si el resultado es realmente incierto) */}
+        {killP > 0.01 && killP < 0.99 && (
           <text
             x={Math.max(PAD_S + 4, (PAD_S + targetX) / 2)}
             y={PAD_T + 15}
