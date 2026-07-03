@@ -19,7 +19,7 @@ interface Props {
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
   attachableEntries: { entry: RosterEntry; datasheet: Datasheet }[]
-  attachedCharacterDatasheetId?: string
+  leadingEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
   onChangeEnhancement: (enhancementId: string | null) => void
   onChangeAttachment: (attachedToEntryId: string | null) => void
@@ -49,7 +49,7 @@ export function RosterEntryRow({
   selectedDetachments,
   availableEnhancements,
   attachableEntries,
-  attachedCharacterDatasheetId,
+  leadingEntries,
   onChangeCost,
   onChangeEnhancement,
   onChangeAttachment,
@@ -89,10 +89,18 @@ export function RosterEntryRow({
             {wargearSurcharge > 0 && (
               <span className="text-gold ml-1">(+{wargearSurcharge} arm.)</span>
             )}
+            {selectedEnhancement && (
+              <span className="text-gold ml-1">(+{selectedEnhancement.cost} mej.)</span>
+            )}
           </p>
           {attachedTo && (
             <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">
               Adjuntado a: {attachedTo.datasheet.name}
+            </p>
+          )}
+          {leadingEntries.length > 0 && (
+            <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">
+              Liderado por: {leadingEntries.map(l => l.datasheet.name).join(', ')}
             </p>
           )}
         </button>
@@ -238,7 +246,7 @@ export function RosterEntryRow({
             <NavLink
               to={mathhammerAttackerPath(datasheet.id, datasheet.factionId, {
                 detachmentIds: selectedDetachments.map(d => d.id),
-                characterId: attachedCharacterDatasheetId,
+                characterId: leadingEntries[0]?.datasheet.id,
                 rosterId,
               })}
               className={linkClass}

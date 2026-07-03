@@ -235,12 +235,10 @@ export function RosterEditPage() {
               .filter(other => other.id !== entry.id && eligibleTargetIds.has(other.datasheetId))
               .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
               .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
-            const attachedCharacterEntry = roster.entries.find(
-              other => other.attachedToEntryId === entry.id,
-            )
-            const attachedCharacterDatasheetId = attachedCharacterEntry
-              ? datasheetById.get(attachedCharacterEntry.datasheetId)?.id
-              : undefined
+            const leadingEntries = roster.entries
+              .filter(other => other.attachedToEntryId === entry.id)
+              .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
+              .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
             return (
               <RosterEntryRow
                 key={entry.id}
@@ -253,7 +251,7 @@ export function RosterEditPage() {
                 selectedDetachments={selectedDetachments}
                 availableEnhancements={availableEnhancements}
                 attachableEntries={attachableEntries}
-                attachedCharacterDatasheetId={attachedCharacterDatasheetId}
+                leadingEntries={leadingEntries}
                 onChangeCost={cost =>
                   dispatch(
                     updateEntry({
