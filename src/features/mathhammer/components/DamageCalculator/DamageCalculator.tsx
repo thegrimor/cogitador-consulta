@@ -447,7 +447,7 @@ export function DamageCalculator({
 
       {/* Campana de Gauss */}
       {sigmaTotal > 0.05 && (
-        <GaussianChart mean={totalDamage} sigma={sigmaTotal} targetWounds={defenderModel.W} />
+        <GaussianChart mean={totalDamage} sigma={sigmaTotal} targetWounds={defenderModel.W * defenderModels} />
       )}
 
       {/* Context */}
