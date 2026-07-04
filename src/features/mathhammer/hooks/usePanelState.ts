@@ -94,9 +94,13 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
   }, [gameData.stratagems, gameData.datasheetStratagems, selectedUnit, selection.detachmentIds])
 
   const availableEnhancements = useMemo(() => {
-    const targetId = selection.characterId ?? selectedUnit?.id
-    if (!targetId) return []
-    const validEnhancementIds = new Set(gameData.datasheetEnhancements[targetId] ?? [])
+    // A led unit can bear an Enhancement either on the attached character or on the unit
+    // itself (some Enhancements are "UNIT only" and don't require a character at all), so
+    // the eligible list is the union of both — attaching a character must not hide
+    // Enhancements the base unit already qualified for.
+    const targetIds = [selection.characterId, selectedUnit?.id].filter((id): id is string => id != null)
+    if (targetIds.length === 0) return []
+    const validEnhancementIds = new Set(targetIds.flatMap(id => gameData.datasheetEnhancements[id] ?? []))
     const detachmentIds = new Set(selection.detachmentIds)
     return gameData.enhancements.filter(e => detachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id))
   }, [gameData.datasheetEnhancements, gameData.enhancements, selection.characterId, selection.detachmentIds, selectedUnit])
