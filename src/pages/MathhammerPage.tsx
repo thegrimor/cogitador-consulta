@@ -5,7 +5,7 @@ import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { usePanelState } from '@/features/mathhammer/hooks/usePanelState'
 import { UnitPanel } from '@/features/mathhammer/components/UnitPanel'
 import { DamageCalculator } from '@/features/mathhammer/components/DamageCalculator'
-import { resolveModifiers } from '@/features/mathhammer/utils/mathhammer'
+import { resolveModifiers, mergeMods, DEFAULT_MODS } from '@/features/mathhammer/utils/mathhammer'
 import { MODIFIER_RULES } from '@/features/mathhammer/data/modifiers'
 import { useAppSelector } from '@/store/hooks'
 import { selectRosterById } from '@/store/rosterSlice'
@@ -220,18 +220,12 @@ export function MathhammerPage() {
   const attackerMods = resolveModifiers(Array.from(attackerActiveIds), MODIFIER_RULES)
   const defenderMods = resolveModifiers(Array.from(defenderActiveIds), MODIFIER_RULES)
 
-  // Merge: defender contributes penalty modifiers into the attacker's calculation
+  // Merge: defender contributes penalty modifiers into the attacker's calculation.
+  // mergeMods also folds in bsMod/wsMod/strengthMod/damageMod from the defender side
+  // (e.g. Stealth, Cover, and similar defensive abilities), which the previous inline
+  // merge here silently dropped.
   const mods = {
-    ...attackerMods,
-    hitMod:              attackerMods.hitMod + defenderMods.hitMod,
-    woundMod:            attackerMods.woundMod + defenderMods.woundMod,
-    apMod:               attackerMods.apMod + defenderMods.apMod,
-    saveMod:             attackerMods.saveMod + defenderMods.saveMod,
-    damageReduction:     attackerMods.damageReduction + defenderMods.damageReduction,
-    feelNoPainThreshold:
-      defenderMods.feelNoPainThreshold !== null
-        ? defenderMods.feelNoPainThreshold
-        : attackerMods.feelNoPainThreshold,
+    ...mergeMods(DEFAULT_MODS, attackerMods, defenderMods),
     overwatchHit: overwatchActive,
   }
 
