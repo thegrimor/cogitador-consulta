@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import type { GameData, Datasheet, Detachment, DetachmentAbility, Stratagem, Enhancement } from '@/types'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
+import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import type { PanelSelection } from '../types'
 
 const EMPTY_SELECTION: PanelSelection = {
@@ -13,7 +14,7 @@ export interface PanelState {
   availableUnits: Datasheet[]
   allUnitsForFaction: Datasheet[]
   selectedUnit: Datasheet | null
-  availableCharacters: Datasheet[]
+  availableCharacters: { datasheet: Datasheet; viaEnhancement: boolean }[]
   availableEnhancements: Enhancement[]
   detachmentAbilities: DetachmentAbility[]
   applicableStratagems: Stratagem[]
@@ -70,12 +71,26 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
         .filter(([, followerIds]) => followerIds.includes(unitId))
         .map(([leaderId]) => leaderId)
     )
-    return [...leaderIds]
+    // Enhancements that unlock attaching to this unit, only if the detachment granting
+    // them is actually selected — collect which datasheets are eligible to take one.
+    const enhancementLeaderIds = new Set<string>()
+    for (const e of gameData.enhancements) {
+      if (!selection.detachmentIds.includes(e.detachmentId)) continue
+      if (!(ENHANCEMENT_ATTACHMENTS[e.id] ?? []).includes(unitId)) continue
+      for (const [dsId, enhIds] of Object.entries(gameData.datasheetEnhancements)) {
+        if (enhIds.includes(e.id)) enhancementLeaderIds.add(dsId)
+      }
+    }
+    return [...new Set([...leaderIds, ...enhancementLeaderIds])]
       .map(id => gameData.datasheets.find(ds => ds.id === id && ds.factionId === factionId))
       .filter((ds): ds is Datasheet => ds !== undefined)
       .filter(ds => rosterIds === null || rosterIds.includes(ds.id))
-      .sort((a, b) => a.name.localeCompare(b.name))
-  }, [gameData.datasheets, gameData.leaderMap, selectedUnit, rosterIds])
+      .map(ds => ({ datasheet: ds, viaEnhancement: !leaderIds.has(ds.id) }))
+      .sort((a, b) => a.datasheet.name.localeCompare(b.datasheet.name))
+  }, [
+    gameData.datasheets, gameData.leaderMap, gameData.enhancements, gameData.datasheetEnhancements,
+    selectedUnit, selection.detachmentIds, rosterIds,
+  ])
 
   const detachmentAbilities = useMemo(
     () => gameData.detachmentAbilities.filter(da => selection.detachmentIds.includes(da.detachmentId)),
