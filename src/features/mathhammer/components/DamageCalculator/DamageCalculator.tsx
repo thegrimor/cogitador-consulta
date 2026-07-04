@@ -146,6 +146,14 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
             detail={`${fmt(calc.expectedWounds)} × ${pct(calc.saveFailProbability)}`}
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapon.D} />
+          {calc.fnpProbability > 0 && (
+            <Row
+              label={`↳ FNP ${calc.feelNoPainThreshold}+`}
+              value={`−${fmt(calc.damageBeforeFNP - calc.expectedTotalDamage)}`}
+              detail={`${fmt(calc.damageBeforeFNP)} × ${pct(calc.fnpProbability)} ignorado`}
+              highlight
+            />
+          )}
           <Row label="Bajas esperadas" value={fmt(calc.expectedKills * qty)} detail={`/${defenderModel.W}H · ×${qty}`} highlight />
           {calc.standardDeviation > 0 && (
             <Row label="Desv. típica (σ)" value={`±${calc.standardDeviation.toFixed(2)}`} detail="por modelo atacante" />
@@ -389,6 +397,14 @@ export function DamageCalculator({
             detail={`${fmt(calc.expectedWounds)} × ${pct(calc.saveFailProbability)}`}
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapons[0].D} />
+          {calc.fnpProbability > 0 && (
+            <Row
+              label={`↳ FNP ${calc.feelNoPainThreshold}+`}
+              value={`−${fmt(calc.damageBeforeFNP - calc.expectedTotalDamage)}`}
+              detail={`${fmt(calc.damageBeforeFNP)} × ${pct(calc.fnpProbability)} ignorado`}
+              highlight
+            />
+          )}
           <Row label="Bajas esperadas" value={fmt(calc.expectedKills * singleQty)} detail={`/${defenderModel.W}H por modelo`} highlight />
           {calc.autoWoundsFromCrits > 0 && calc.expectedWounds > 0 && (
             <Row
