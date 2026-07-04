@@ -23,6 +23,7 @@ import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
 import { ROUTES } from '@/core/constants/routes'
+import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { exportRosterToText } from '@/core/utils/rosterExport'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 
@@ -231,10 +232,19 @@ export function RosterEditPage() {
               e => selectedDetachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id),
             )
             const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
+            const enhancementTargetIds = new Set(
+              entry.enhancementId ? ENHANCEMENT_ATTACHMENTS[entry.enhancementId] ?? [] : [],
+            )
             const attachableEntries = roster.entries
-              .filter(other => other.id !== entry.id && eligibleTargetIds.has(other.datasheetId))
-              .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
-              .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
+              .filter(other =>
+                other.id !== entry.id && (eligibleTargetIds.has(other.datasheetId) || enhancementTargetIds.has(other.datasheetId)),
+              )
+              .map(other => ({
+                entry: other,
+                datasheet: datasheetById.get(other.datasheetId),
+                viaEnhancement: !eligibleTargetIds.has(other.datasheetId) && enhancementTargetIds.has(other.datasheetId),
+              }))
+              .filter((x): x is { entry: RosterEntry; datasheet: Datasheet; viaEnhancement: boolean } => !!x.datasheet)
             const leadingEntries = roster.entries
               .filter(other => other.attachedToEntryId === entry.id)
               .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))

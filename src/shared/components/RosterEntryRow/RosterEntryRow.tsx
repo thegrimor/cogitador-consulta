@@ -18,7 +18,7 @@ interface Props {
   detachmentAbilities: DetachmentAbility[]
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
-  attachableEntries: { entry: RosterEntry; datasheet: Datasheet }[]
+  attachableEntries: { entry: RosterEntry; datasheet: Datasheet; viaEnhancement: boolean }[]
   leadingEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
   onChangeEnhancement: (enhancementId: string | null) => void
@@ -99,6 +99,7 @@ export function RosterEntryRow({
           {attachedTo && (
             <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">
               Adjuntado a: {attachedTo.datasheet.name}
+              {attachedTo.viaEnhancement && ' (por mejora)'}
             </p>
           )}
           {leadingEntries.length > 0 && (
@@ -133,13 +134,14 @@ export function RosterEntryRow({
                   <button onClick={() => onChangeAttachment(null)} className={pillClass(!entry.attachedToEntryId)}>
                     Ninguno
                   </button>
-                  {attachableEntries.map(({ entry: target, datasheet: targetDs }) => (
+                  {attachableEntries.map(({ entry: target, datasheet: targetDs, viaEnhancement }) => (
                     <button
                       key={target.id}
                       onClick={() => onChangeAttachment(target.id)}
                       className={pillClass(entry.attachedToEntryId === target.id)}
                     >
                       {targetDs.name}
+                      {viaEnhancement && ' (por mejora)'}
                     </button>
                   ))}
                 </div>
