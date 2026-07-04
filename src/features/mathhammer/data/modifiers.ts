@@ -19361,7 +19361,7 @@ const RULES_5: ModifierRule[] = [
   // no modelables como toggle continuo). Se añaden de forma incremental, mismo criterio que el
   // resto de este archivo: si el efecto es demasiado específico o no afecta al combate, se omite.
   {
-    id: 'enh_ac_gift_of_terran_artifice',
+    id: 'enh_ac_gift_of_terran_artifice', bearerOnly: true,
     label: 'Mejora: Gift of Terran Artifice — +1 herir CaC',
     description: 'ADEPTUS CUSTODES model only. Each time the bearer makes a melee attack, add 1 to the Wound roll.',
     factionId: 'AC',
@@ -19388,7 +19388,7 @@ const RULES_5: ModifierRule[] = [
     effects: { hitMod: -1 },
   },
   {
-    id: 'enh_aoi_ignis_judicium',
+    id: 'enh_aoi_ignis_judicium', bearerOnly: true,
     label: 'Mejora: Ignis Judicium — Devastating Wounds a distancia',
     description: 'INQUISITOR or MINISTORUM PRIEST model only. The bearer’s ranged weapons have the [DEVASTATING WOUNDS], [MELTA 1] and [PRECISION] abilities.',
     factionId: 'AoI',
@@ -19397,7 +19397,7 @@ const RULES_5: ModifierRule[] = [
     effects: { devastatingWoundsBonus: true },
   },
   {
-    id: 'enh_cd_fulgurating_presence',
+    id: 'enh_cd_fulgurating_presence', bearerOnly: true,
     label: 'Mejora: Fulgurating Presence — −1 impactar recibido',
     description: 'Each time an attack targets the bearer, subtract 1 from the Hit roll.',
     factionId: 'CD',
@@ -19424,7 +19424,7 @@ const RULES_5: ModifierRule[] = [
     effects: { hitMod: 1 },
   },
   {
-    id: 'enh_cd_neverblade',
+    id: 'enh_cd_neverblade', bearerOnly: true,
     label: 'Mejora: Neverblade — +2S/+1A/+1PA/+1 impactar CaC',
     description: 'Legiones Daemonica Tzeentch Monster model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, improve the Attacks and Armour Penetration characteristics of melee weapons equipped by the bearer by 1, and each time the bearer makes a melee attack, add 1 to the Hit roll.',
     factionId: 'CD',
@@ -19433,7 +19433,7 @@ const RULES_5: ModifierRule[] = [
     effects: { strengthMod: 2, attacksMod: 1, apMod: 1, hitMod: 1 },
   },
   {
-    id: 'enh_dg_foul_constitution',
+    id: 'enh_dg_foul_constitution', bearerOnly: true,
     label: 'Mejora: Foul Constitution — −1 Daño recibido',
     description: 'Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.',
     factionId: 'DG',
@@ -19442,7 +19442,7 @@ const RULES_5: ModifierRule[] = [
     effects: { damageReduction: 1 },
   },
   {
-    id: 'enh_dg_furnace_of_plagues',
+    id: 'enh_dg_furnace_of_plagues', bearerOnly: true,
     label: 'Mejora: Furnace of Plagues — +1S/+1A CaC y Devastating Wounds',
     description: 'DEATH GUARD model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons, and the bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.',
     factionId: 'DG',
@@ -19457,14 +19457,14 @@ const RULES_5: ModifierRule[] = [
   // CombatModifiers (dados de impactar/herir/salvar/PA/daño); el resto se omite.
   // ═══ SM — Enhancements (bloque nuevo) ═══
   {
-    id: 'enh_new_sm_champion_deathwing',
+    id: 'enh_new_sm_champion_deathwing', bearerOnly: true,
     label: 'Mejora: Champion of the Deathwing — Lethal Hits CaC',
     description: 'Deathwing model only. Melee weapons equipped by the bearer have the [LETHAL HITS] ability.',
     factionId: 'SM', enhancementId: '000008774002', combatType: 'melee', requiresAttackerKeyword: 'deathwing',
     effects: { lethalHitsBonus: true },
   },
   {
-    id: 'enh_new_sm_champion_deathwing_2',
+    id: 'enh_new_sm_champion_deathwing_2', bearerOnly: true,
     label: 'Mejora: Champion of the Deathwing — crítico 5+ CaC (cerca de objetivo)',
     description: 'Deathwing model only. Each time the bearer makes a melee attack, if it is within range of your Vowed objective marker, a Critical Hit is scored on an unmodified Hit roll of 5+.',
     factionId: 'SM', enhancementId: '000008774002', combatType: 'melee', requiresAttackerKeyword: 'deathwing',
@@ -19478,7 +19478,7 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 5 },
   },
   {
-    id: 'enh_new_sm_imperiums_sword',
+    id: 'enh_new_sm_imperiums_sword', bearerOnly: true,
     label: 'Mejora: The Imperium’s Sword — +1 Ataque CaC',
     description: 'Adeptus Astartes model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000008494002', combatType: 'melee',
@@ -19492,7 +19492,7 @@ const RULES_5: ModifierRule[] = [
     effects: { attacksMod: 1 },
   },
   {
-    id: 'enh_new_sm_thief_of_secrets',
+    id: 'enh_new_sm_thief_of_secrets', bearerOnly: true,
     label: 'Mejora: Thief of Secrets — +1S/+1PA/+1 Daño CaC',
     description: 'Adeptus Astartes model only. Improve the Strength, Damage and Armour Penetration characteristics of the bearer’s melee weapons by 1.',
     factionId: 'SM', enhancementId: '000008522002', combatType: 'melee',
@@ -19512,21 +19512,21 @@ const RULES_5: ModifierRule[] = [
     effects: { apMod: 1 },
   },
   {
-    id: 'enh_new_sm_paragon_of_fury',
+    id: 'enh_new_sm_paragon_of_fury', bearerOnly: true,
     label: 'Mejora: Paragon of Fury — +2S CaC',
     description: 'Adeptus Astartes model only. Add 2 to the Strength characteristic of melee weapons equipped by the bearer.',
     factionId: 'SM', enhancementId: '000010400002', combatType: 'melee',
     effects: { strengthMod: 2 },
   },
   {
-    id: 'enh_new_sm_braggarts_steel',
+    id: 'enh_new_sm_braggarts_steel', bearerOnly: true,
     label: 'Mejora: Braggart’s Steel — +2S CaC',
     description: 'Space Wolves model only. Add 2 to the Strength characteristic of melee weapons equipped by the bearer.',
     factionId: 'SM', enhancementId: '000010265002', combatType: 'melee', requiresAttackerKeyword: 'space wolves',
     effects: { strengthMod: 2 },
   },
   {
-    id: 'enh_new_sm_artisan_of_war',
+    id: 'enh_new_sm_artisan_of_war', bearerOnly: true,
     label: 'Mejora: Artisan of War — +1PA',
     description: 'Adeptus Astartes Jump Pack model only. Improve the Armour Penetration characteristic of the bearer’s weapons by 1.',
     factionId: 'SM', enhancementId: '000009190002', requiresAttackerKeyword: 'jump pack',
@@ -19540,7 +19540,7 @@ const RULES_5: ModifierRule[] = [
     effects: { bsMod: 1 },
   },
   {
-    id: 'enh_new_sm_fury_of_the_storm',
+    id: 'enh_new_sm_fury_of_the_storm', bearerOnly: true,
     label: 'Mejora: Fury of the Storm — +1S/+1PA CaC',
     description: 'Adeptus Astartes Mounted model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1.',
     factionId: 'SM', enhancementId: '000008486002', combatType: 'melee',
@@ -19554,7 +19554,7 @@ const RULES_5: ModifierRule[] = [
     effects: { lethalHitsBonus: true },
   },
   {
-    id: 'enh_new_sm_armour_of_antoninus',
+    id: 'enh_new_sm_armour_of_antoninus', bearerOnly: true,
     label: 'Mejora: Armour of Antoninus — FNP 5+',
     description: 'Adeptus Astartes model only. The bearer has the Feel No Pain 5+ ability.',
     factionId: 'SM', enhancementId: '000010633002', target: 'defender',
@@ -19568,49 +19568,49 @@ const RULES_5: ModifierRule[] = [
     effects: { apMod: 1 },
   },
   {
-    id: 'enh_new_sm_artificer_armour',
+    id: 'enh_new_sm_artificer_armour', bearerOnly: true,
     label: 'Mejora: Artificer Armour — FNP 5+',
     description: 'Adeptus Astartes model only. The bearer has the Feel No Pain 5+ ability.',
     factionId: 'SM', enhancementId: '000008353002', target: 'defender',
     effects: { feelNoPainThreshold: 5 },
   },
   {
-    id: 'enh_new_sm_redoubtable_machine_spirit',
+    id: 'enh_new_sm_redoubtable_machine_spirit', bearerOnly: true,
     label: 'Mejora: Redoubtable Machine Spirit — salvación invulnerable 5+',
     description: 'Adeptus Astartes Vehicle model only. The bearer has a 5+ invulnerable save.',
     factionId: 'SM', enhancementId: '000010783002', target: 'defender', requiresAttackerKeyword: 'vehicle',
     effects: { feelNoPainThreshold: 5 },
   },
   {
-    id: 'enh_new_sm_calibanite_armaments',
+    id: 'enh_new_sm_calibanite_armaments', bearerOnly: true,
     label: 'Mejora: Calibanite Armaments — +1 Daño CaC',
     description: 'Adeptus Astartes model only. Add 1 to the Damage characteristic of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000009733002', combatType: 'melee',
     effects: { damageMod: 1 },
   },
   {
-    id: 'enh_new_sm_adamantine_mantle',
+    id: 'enh_new_sm_adamantine_mantle', bearerOnly: true,
     label: 'Mejora: Adamantine Mantle — −1 Daño recibido',
     description: 'Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.',
     factionId: 'SM', enhancementId: '000009240002', target: 'defender',
     effects: { damageReduction: 1 },
   },
   {
-    id: 'enh_new_sm_spearpoint_paragon',
+    id: 'enh_new_sm_spearpoint_paragon', bearerOnly: true,
     label: 'Mejora: Spearpoint Paragon — +1S/+1PA CaC',
     description: 'Adeptus Astartes model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1.',
     factionId: 'SM', enhancementId: '000010629002', combatType: 'melee',
     effects: { strengthMod: 1, apMod: 1 },
   },
   {
-    id: 'enh_new_sm_champion_of_the_feast',
+    id: 'enh_new_sm_champion_of_the_feast', bearerOnly: true,
     label: 'Mejora: Champion of the Feast — +1 Ataque CaC',
     description: 'Adeptus Astartes model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000010460002', combatType: 'melee',
     effects: { attacksMod: 1 },
   },
   {
-    id: 'enh_new_sm_spiritus_ferrum',
+    id: 'enh_new_sm_spiritus_ferrum', bearerOnly: true,
     label: 'Mejora: Spiritus Ferrum — +1 Ataque CaC',
     description: 'Adeptus Astartes model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000010623002', combatType: 'melee',
@@ -19625,7 +19625,7 @@ const RULES_5: ModifierRule[] = [
   },
   { id: 'enh_new_sm_stubborn_tenacity_2', label: 'Mejora: Stubborn Tenacity — +1 herir (unidad Battle-shocked y mermada)', factionId: 'SM', enhancementId: '000008771003', effects: { woundMod: 1 } },
   {
-    id: 'enh_new_sm_war_tempered_artifice',
+    id: 'enh_new_sm_war_tempered_artifice', bearerOnly: true,
     label: 'Mejora: War-tempered Artifice — +3S CaC',
     description: 'Adeptus Astartes Infantry model only. Add 3 to the Strength characteristic of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000008482003', combatType: 'melee', requiresAttackerKeyword: 'infantry',
@@ -19639,49 +19639,49 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 5 },
   },
   {
-    id: 'enh_new_sm_ancient_weapons',
+    id: 'enh_new_sm_ancient_weapons', bearerOnly: true,
     label: 'Mejora: Ancient Weapons — +2S/+1PA/+1 Daño CaC',
     description: 'Adeptus Astartes model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, and improve the Armour Penetration and Damage characteristics of those weapons by 1.',
     factionId: 'SM', enhancementId: '000010155003', combatType: 'melee',
     effects: { strengthMod: 2, apMod: 1, damageMod: 1 },
   },
   {
-    id: 'enh_new_sm_ghostweave_cloak',
+    id: 'enh_new_sm_ghostweave_cloak', bearerOnly: true,
     label: 'Mejora: Ghostweave Cloak — Stealth (−1 impactar recibido a distancia)',
     description: 'Adeptus Astartes model only. The bearer has the Stealth ability.',
     factionId: 'SM', enhancementId: '000008490003', combatType: 'ranged', target: 'defender',
     effects: { bsMod: 1 },
   },
   {
-    id: 'enh_new_sm_the_flesh_is_weak',
+    id: 'enh_new_sm_the_flesh_is_weak', bearerOnly: true,
     label: 'Mejora: The Flesh is Weak — FNP 4+',
     description: 'Adeptus Astartes model only. The bearer has the Feel No Pain 4+ ability.',
     factionId: 'SM', enhancementId: '000008478003', target: 'defender',
     effects: { feelNoPainThreshold: 4 },
   },
   {
-    id: 'enh_new_sm_war_tempered_artifice_forgefathers',
+    id: 'enh_new_sm_war_tempered_artifice_forgefathers', bearerOnly: true,
     label: 'Mejora: War-tempered Artifice — +3S CaC',
     description: 'Adeptus Astartes Infantry model only. Add 3 to the Strength characteristic of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000010368003', combatType: 'melee', requiresAttackerKeyword: 'infantry',
     effects: { strengthMod: 3 },
   },
   {
-    id: 'enh_new_sm_the_honour_vehement',
+    id: 'enh_new_sm_the_honour_vehement', bearerOnly: true,
     label: 'Mejora: The Honour Vehement — +1A/+1S CaC',
     description: 'Adeptus Astartes model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000008353003', combatType: 'melee',
     effects: { attacksMod: 1, strengthMod: 1 },
   },
   {
-    id: 'enh_new_sm_oath_of_macragge',
+    id: 'enh_new_sm_oath_of_macragge', bearerOnly: true,
     label: 'Mejora: Oath of Macragge — +1A/+1S CaC',
     description: 'Adeptus Astartes model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.',
     factionId: 'SM', enhancementId: '000010633003', combatType: 'melee',
     effects: { attacksMod: 1, strengthMod: 1 },
   },
   {
-    id: 'enh_new_sm_gunnery_honours',
+    id: 'enh_new_sm_gunnery_honours', bearerOnly: true,
     label: 'Mejora: Gunnery Honours — repetir 1 impacto/1 herida/1 daño',
     description: 'Adeptus Astartes Vehicle model only. Once per phase, you can re-roll one Hit roll, one Wound roll and one Damage roll for the bearer.',
     factionId: 'SM', enhancementId: '000010783003', requiresAttackerKeyword: 'vehicle',
@@ -19695,7 +19695,7 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 6 },
   },
   {
-    id: 'enh_new_sm_umbral_raptor',
+    id: 'enh_new_sm_umbral_raptor', bearerOnly: true,
     label: 'Mejora: Umbral Raptor — Stealth (−1 impactar recibido a distancia)',
     description: 'Adeptus Astartes model only. The bearer has the Stealth ability.',
     factionId: 'SM', enhancementId: '000010466004', combatType: 'ranged', target: 'defender',
@@ -19715,7 +19715,7 @@ const RULES_5: ModifierRule[] = [
     effects: { rerollAllHits: true },
   },
   {
-    id: 'enh_new_sm_fenrisian_grit',
+    id: 'enh_new_sm_fenrisian_grit', bearerOnly: true,
     label: 'Mejora: Fenrisian Grit — FNP 4+',
     description: 'Adeptus Astartes model only. The bearer has the Feel No Pain 4+ ability.',
     factionId: 'SM', enhancementId: '000010261003', target: 'defender',
@@ -19724,7 +19724,7 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ SM — Enhancements (bloque nuevo, parte 2) ═══
   {
-    id: 'enh_new_sm2_weapons_of_the_first_legion',
+    id: 'enh_new_sm2_weapons_of_the_first_legion', bearerOnly: true,
     label: 'Mejora: Weapons of the First Legion — +1A/+1S/+1D CaC',
     description: 'ADEPTUS ASTARTES model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is Battle-shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons instead.',
     factionId: 'SM', enhancementId: '000008771004', combatType: 'melee',
@@ -19773,7 +19773,7 @@ const RULES_5: ModifierRule[] = [
     effects: { sustainedHitsBonus: 1 },
   },
   {
-    id: 'enh_new_sm2_firestorm_coordinators',
+    id: 'enh_new_sm2_firestorm_coordinators', bearerOnly: true,
     label: 'Mejora: Firestorm Coordinators — Sustained Hits 1 (disparo)',
     description: 'ADEPTUS ASTARTES VEHICLE model only. Ranged weapons equipped by the bearer have the [SUSTAINED HITS 1] ability.',
     factionId: 'SM', enhancementId: '000010783004', combatType: 'ranged',
@@ -19794,7 +19794,7 @@ const RULES_5: ModifierRule[] = [
     effects: { lethalHitsBonus: true },
   },
   {
-    id: 'enh_new_sm2_hordeslayer',
+    id: 'enh_new_sm2_hordeslayer', bearerOnly: true,
     label: 'Mejora: Hordeslayer — +2A CaC (superioridad numérica enemiga)',
     description: 'Space Wolves model only. At the start of the Fight phase, if there are more enemy models than friendly models wholly within 6" of the bearer, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer. If the bearer’s unit has achieved one or more Boasts, add 3 to the Attacks characteristic instead.',
     factionId: 'SM', enhancementId: '000010265004', combatType: 'melee',
@@ -19808,7 +19808,7 @@ const RULES_5: ModifierRule[] = [
     effects: { woundMod: 1 },
   },
   {
-    id: 'enh_new_sm2_liberatum',
+    id: 'enh_new_sm2_liberatum', bearerOnly: true,
     label: 'Mejora: Liberatum — rerroll impactar y herir (objetivo cerca de marcador)',
     description: 'ADEPTUS ASTARTES model only. Each time the bearer makes an attack that targets an enemy unit, if the target is within range of an objective marker, you can re-roll the Hit roll and you can re-roll the Wound roll.',
     factionId: 'SM', enhancementId: '000010684005',
@@ -19822,14 +19822,14 @@ const RULES_5: ModifierRule[] = [
     effects: { bsMod: -1 },
   },
   {
-    id: 'enh_new_sm2_adamantine_mantle_firestorm',
+    id: 'enh_new_sm2_adamantine_mantle_firestorm', bearerOnly: true,
     label: 'Mejora: Adamantine Mantle — −1 Daño recibido',
     description: 'ADEPTUS ASTARTES model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack. If that attack was made with a Melta or Torrent weapon, change the Damage characteristic of that attack to 1 instead.',
     factionId: 'SM', enhancementId: '000008482005', target: 'defender',
     effects: { damageReduction: 1 },
   },
   {
-    id: 'enh_new_sm2_iron_resolve',
+    id: 'enh_new_sm2_iron_resolve', bearerOnly: true,
     label: 'Mejora: Iron Resolve — Feel No Pain 5+',
     description: 'ADEPTUS ASTARTES TERMINATOR model only. The bearer has the Feel No Pain 5+ ability. Once per battle, after the bearer’s unit is selected as the target of one or more attacks, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer’s unit have the Feel No Pain 5+ ability.',
     factionId: 'SM', enhancementId: '000008494005', target: 'defender',
@@ -19864,21 +19864,21 @@ const RULES_5: ModifierRule[] = [
     effects: { sustainedHitsBonus: 1 },
   },
   {
-    id: 'enh_new_sm2_angels_fang',
+    id: 'enh_new_sm2_angels_fang', bearerOnly: true,
     label: 'Mejora: Angel’s Fang — Sustained Hits 2 CaC (objetivo CHARACTER)',
     description: 'ADEPTUS ASTARTES model only. Each time the bearer makes a melee attack that targets a CHARACTER, MONSTER or VEHICLE unit, that attack has the [SUSTAINED HITS 2] ability.',
     factionId: 'SM', enhancementId: '000010645005', combatType: 'melee', requiresTargetKeyword: 'character',
     effects: { sustainedHitsBonus: 2 },
   },
   {
-    id: 'enh_new_sm2_angels_fang_2',
+    id: 'enh_new_sm2_angels_fang_2', bearerOnly: true,
     label: 'Mejora: Angel’s Fang — Sustained Hits 2 CaC (objetivo MONSTER)',
     description: 'ADEPTUS ASTARTES model only. Each time the bearer makes a melee attack that targets a CHARACTER, MONSTER or VEHICLE unit, that attack has the [SUSTAINED HITS 2] ability.',
     factionId: 'SM', enhancementId: '000010645005', combatType: 'melee', requiresTargetKeyword: 'monster',
     effects: { sustainedHitsBonus: 2 },
   },
   {
-    id: 'enh_new_sm2_angels_fang_3',
+    id: 'enh_new_sm2_angels_fang_3', bearerOnly: true,
     label: 'Mejora: Angel’s Fang — Sustained Hits 2 CaC (objetivo VEHICLE)',
     description: 'ADEPTUS ASTARTES model only. Each time the bearer makes a melee attack that targets a CHARACTER, MONSTER or VEHICLE unit, that attack has the [SUSTAINED HITS 2] ability.',
     factionId: 'SM', enhancementId: '000010645005', combatType: 'melee', requiresTargetKeyword: 'vehicle',
@@ -19913,7 +19913,7 @@ const RULES_5: ModifierRule[] = [
     effects: { apMod: -1 },
   },
   {
-    id: 'enh_new_sm2_adamantine_mantle_forgefathers',
+    id: 'enh_new_sm2_adamantine_mantle_forgefathers', bearerOnly: true,
     label: 'Mejora: Adamantine Mantle — −1 Daño recibido',
     description: 'ADEPTUS ASTARTES model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack. If that attack was made with a Melta or Torrent weapon, change the Damage characteristic of that attack to 1 instead.',
     factionId: 'SM', enhancementId: '000010368005', target: 'defender',
@@ -19934,28 +19934,28 @@ const RULES_5: ModifierRule[] = [
     effects: { bsMod: -1 },
   },
   {
-    id: 'enh_new_sm2_shroud_field',
+    id: 'enh_new_sm2_shroud_field', bearerOnly: true,
     label: 'Mejora: Shroud Field — Stealth (−1 impactar recibido, disparo)',
     description: 'PHOBOS model only. This model has the Lone Operative and Stealth abilities.',
     factionId: 'SM', enhancementId: '000011137002', combatType: 'ranged', target: 'defender',
     effects: { bsMod: 1 },
   },
   {
-    id: 'enh_new_sm2_guiding_omens',
+    id: 'enh_new_sm2_guiding_omens', bearerOnly: true,
     label: 'Mejora: Guiding Omens — +2A CaC (Vision of Momentous Brutality)',
     description: 'EMPEROR’S CHAMPION model only. At the start of the first battle round, you can select up to three of a list of abilities for this model, which last until the end of the battle, including Vision of Momentous Brutality: this model’s melee attacks have +2 Attacks.',
     factionId: 'SM', enhancementId: '000011145002', combatType: 'melee',
     effects: { attacksMod: 2 },
   },
   {
-    id: 'enh_new_sm2_adaptable_executioner',
+    id: 'enh_new_sm2_adaptable_executioner', bearerOnly: true,
     label: 'Mejora: Adaptable Executioner — Cleave 1 CaC (opción)',
     description: 'EXECRATOR model only. When this unit is selected to fight, this model’s melee attacks have [CLEAVE 1] or [PRECISION] (your choice each time).',
     factionId: 'SM', enhancementId: '000009843006', combatType: 'melee',
     effects: { cleaveBonus: 1 },
   },
   {
-    id: 'enh_new_sm2_blood_boil',
+    id: 'enh_new_sm2_blood_boil', bearerOnly: true,
     label: 'Mejora: Blood Boil — rerroll daño (ataques psíquicos)',
     description: 'ADEPTUS ASTARTES PSYKER model only. This model’s [PSYCHIC] attacks have [ANTI: non-MONSTER/VEHICLE 5+] and can re-roll Damage rolls.',
     factionId: 'SM', enhancementId: '000011150002',
@@ -19976,7 +19976,7 @@ const RULES_5: ModifierRule[] = [
     effects: { sustainedHitsBonus: 1 },
   },
   {
-    id: 'enh_new_sm2_archtraitors_bridge',
+    id: 'enh_new_sm2_archtraitors_bridge', bearerOnly: true,
     label: 'Mejora: On the Archtraitor’s Bridge — +2A CaC',
     description: 'DEATH COMPANY model only. This model’s melee attacks have +2 Attacks.',
     factionId: 'SM', enhancementId: '000011152003', combatType: 'melee',
@@ -19997,14 +19997,14 @@ const RULES_5: ModifierRule[] = [
     effects: { bsMod: -1, apMod: 1 },
   },
   {
-    id: 'enh_new_sm2_feral_rage',
+    id: 'enh_new_sm2_feral_rage', bearerOnly: true,
     label: 'Mejora: Feral Rage — +1A CaC',
     description: 'ADEPTUS ASTARTES model only. Add 1 to the Attacks characteristic of melee weapons equipped by the bearer. Each time the bearer ends a Charge move, until the end of the turn, add an additional 1 to the Attacks characteristic of those weapons.',
     factionId: 'SM', enhancementId: '000010261005', combatType: 'melee',
     effects: { attacksMod: 1 },
   },
   {
-    id: 'enh_new_sm2_benediction_of_fury',
+    id: 'enh_new_sm2_benediction_of_fury', bearerOnly: true,
     label: 'Mejora: Benediction of Fury — Devastating Wounds CaC',
     description: 'Chaplain model only. The bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.',
     factionId: 'SM', enhancementId: '000009843005', combatType: 'melee',
@@ -20014,55 +20014,55 @@ const RULES_5: ModifierRule[] = [
   // ═══ CSM — Enhancements (bloque nuevo) ═══
   { id: 'enh_new_csm_greyveil_hex', label: 'Mejora: Greyveil Hex — Stealth (recibido, disparo)', description: 'Chaos Lord model only. Models in the bearer’s unit have the Stealth ability.', factionId: 'CSM', enhancementId: '000010641002', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
   { id: 'enh_new_csm_forges_blessing', label: 'Mejora: Forge’s Blessing — Feel No Pain 6+ (unidad VEHICLE aliada)', description: 'HERETIC ASTARTES model only. In your Command phase, select one friendly HERETIC ASTARTES VEHICLE unit within 12" of the bearer. Until the start of your next Command phase, that unit has the Feel No Pain 6+ ability.', factionId: 'CSM', enhancementId: '000008985002', target: 'defender', effects: { feelNoPainThreshold: 6 } },
-  { id: 'enh_new_csm_cursed_fang', label: 'Mejora: Cursed Fang — +1 PA CaC', description: 'HERETIC ASTARTES INFANTRY model only. Improve the Armour Penetration characteristic of the bearer’s melee weapons by 1.', factionId: 'CSM', enhancementId: '000008964002', combatType: 'melee', effects: { apMod: 1 } },
+  { id: 'enh_new_csm_cursed_fang', bearerOnly: true, label: 'Mejora: Cursed Fang — +1 PA CaC', description: 'HERETIC ASTARTES INFANTRY model only. Improve the Armour Penetration characteristic of the bearer’s melee weapons by 1.', factionId: 'CSM', enhancementId: '000008964002', combatType: 'melee', effects: { apMod: 1 } },
   { id: 'enh_new_csm_nights_shroud', label: 'Mejora: Night’s Shroud — Stealth (recibido, disparo)', description: 'Chaos Lord model only (excluding TERMINATOR models). Models in the bearer’s unit have the Stealth ability.', factionId: 'CSM', enhancementId: '000008972003', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
-  { id: 'enh_new_csm_living_carapace', label: 'Mejora: Living Carapace — Feel No Pain 5+', description: 'Chaos Lord model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'CSM', enhancementId: '000009773003', target: 'defender', effects: { feelNoPainThreshold: 5 } },
-  { id: 'enh_new_csm_intoxicating_elixir', label: 'Mejora: Intoxicating Elixir — Feel No Pain 5+', description: 'Heretic Astartes Slaanesh model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'CSM', enhancementId: '000008357003', target: 'defender', effects: { feelNoPainThreshold: 5 } },
-  { id: 'enh_new_csm_shroud_of_obfuscation', label: 'Mejora: Shroud of Obfuscation — Stealth (recibido, disparo)', description: 'HERETIC ASTARTES INFANTRY model only. The bearer has the Stealth ability.', factionId: 'CSM', enhancementId: '000008964004', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
-  { id: 'enh_new_csm_mark_of_soul_forges', label: 'Mejora: Mark of the Soul Forges — crítico impactar 5+', description: 'HERETIC ASTARTES model only (excluding Damned models). Each time the bearer makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.', factionId: 'CSM', enhancementId: '000010743004', effects: { critThreshold: 5 } },
-  { id: 'enh_new_csm_iron_artifice', label: 'Mejora: Iron Artifice — crítico herida 4+ vs VEHICLE', description: 'HERETIC ASTARTES INFANTRY model only. The bearer’s weapons have the [ANTI-VEHICLE 4+] ability.', factionId: 'CSM', enhancementId: '000008976003', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 4 } },
-  { id: 'enh_new_csm_iron_artifice_2', label: 'Mejora: Iron Artifice — crítico herida 4+ vs FORTIFICATION', description: 'HERETIC ASTARTES INFANTRY model only. The bearer’s weapons have the [ANTI-FORTIFICATION 4+] ability.', factionId: 'CSM', enhancementId: '000008976003', requiresTargetKeyword: 'fortification', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_csm_living_carapace', bearerOnly: true, label: 'Mejora: Living Carapace — Feel No Pain 5+', description: 'Chaos Lord model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'CSM', enhancementId: '000009773003', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_csm_intoxicating_elixir', bearerOnly: true, label: 'Mejora: Intoxicating Elixir — Feel No Pain 5+', description: 'Heretic Astartes Slaanesh model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'CSM', enhancementId: '000008357003', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_csm_shroud_of_obfuscation', bearerOnly: true, label: 'Mejora: Shroud of Obfuscation — Stealth (recibido, disparo)', description: 'HERETIC ASTARTES INFANTRY model only. The bearer has the Stealth ability.', factionId: 'CSM', enhancementId: '000008964004', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
+  { id: 'enh_new_csm_mark_of_soul_forges', bearerOnly: true, label: 'Mejora: Mark of the Soul Forges — crítico impactar 5+', description: 'HERETIC ASTARTES model only (excluding Damned models). Each time the bearer makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.', factionId: 'CSM', enhancementId: '000010743004', effects: { critThreshold: 5 } },
+  { id: 'enh_new_csm_iron_artifice', bearerOnly: true, label: 'Mejora: Iron Artifice — crítico herida 4+ vs VEHICLE', description: 'HERETIC ASTARTES INFANTRY model only. The bearer’s weapons have the [ANTI-VEHICLE 4+] ability.', factionId: 'CSM', enhancementId: '000008976003', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_csm_iron_artifice_2', bearerOnly: true, label: 'Mejora: Iron Artifice — crítico herida 4+ vs FORTIFICATION', description: 'HERETIC ASTARTES INFANTRY model only. The bearer’s weapons have the [ANTI-FORTIFICATION 4+] ability.', factionId: 'CSM', enhancementId: '000008976003', requiresTargetKeyword: 'fortification', effects: { woundCritThreshold: 4 } },
   { id: 'enh_new_csm_incendiary_goad', label: 'Mejora: Incendiary Goad — +1F/+1A CaC (modelos DAMNED)', description: 'DARK APOSTLE or DAMNED model only. While the bearer’s unit is below its Starting Strength, add 1 to the Strength characteristic of melee weapons equipped by DAMNED models in that unit, and while that unit is Below Half-strength, add 1 to the Attacks characteristic of those weapons as well.', factionId: 'CSM', enhancementId: '000008981004', combatType: 'melee', requiresAttackerKeyword: 'damned', effects: { strengthMod: 1, attacksMod: 1 } },
-  { id: 'enh_new_csm_warmasters_gift', label: 'Mejora: Warmaster’s Gift — crítico herida 5+ (vs foco de odio)', description: 'CHAOS LORD model only. Each time the bearer makes an attack that targets your focus of hatred, an unmodified successful Wound roll of 5+ scores a Critical Wound.', factionId: 'CSM', enhancementId: '000008960005', effects: { woundCritThreshold: 5 } },
-  { id: 'enh_new_csm_prime_test_subject', label: 'Mejora: Prime Test Subject — +1 Daño y repetir impactos, CaC', description: 'Heretic Astartes Infantry model (excluding Damned models) only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer. Each time the bearer makes a melee attack, you can re-roll the Hit roll.', factionId: 'CSM', enhancementId: '000009773005', combatType: 'melee', effects: { damageMod: 1, rerollAllHits: true } },
-  { id: 'enh_new_csm_talisman_of_burning_blood', label: 'Mejora: Talisman of Burning Blood — +1F/+1A CaC', description: 'Heretic Astartes Khorne model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.', factionId: 'CSM', enhancementId: '000008357005', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1 } },
-  { id: 'enh_new_csm_tzagulla', label: 'Mejora: Tzagulla — +1F/+1A/+1PA', description: 'HERETIC ASTARTES model with the Deep Strike ability only. Improve the Attacks, Strength and Armour Penetration characteristics of the bearer’s weapons by 1.', factionId: 'CSM', enhancementId: '000010739005', effects: { attacksMod: 1, strengthMod: 1, apMod: 1 } },
-  { id: 'enh_new_csm_infernal_avatar', label: 'Mejora: Infernal Avatar — +2F/+1PA CaC', description: 'Heretic Astartes Daemon Prince model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, and improve the Armour Penetration characteristic of those weapons by 1.', factionId: 'CSM', enhancementId: '000010151005', combatType: 'melee', effects: { strengthMod: 2, apMod: 1 } },
+  { id: 'enh_new_csm_warmasters_gift', bearerOnly: true, label: 'Mejora: Warmaster’s Gift — crítico herida 5+ (vs foco de odio)', description: 'CHAOS LORD model only. Each time the bearer makes an attack that targets your focus of hatred, an unmodified successful Wound roll of 5+ scores a Critical Wound.', factionId: 'CSM', enhancementId: '000008960005', effects: { woundCritThreshold: 5 } },
+  { id: 'enh_new_csm_prime_test_subject', bearerOnly: true, label: 'Mejora: Prime Test Subject — +1 Daño y repetir impactos, CaC', description: 'Heretic Astartes Infantry model (excluding Damned models) only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer. Each time the bearer makes a melee attack, you can re-roll the Hit roll.', factionId: 'CSM', enhancementId: '000009773005', combatType: 'melee', effects: { damageMod: 1, rerollAllHits: true } },
+  { id: 'enh_new_csm_talisman_of_burning_blood', bearerOnly: true, label: 'Mejora: Talisman of Burning Blood — +1F/+1A CaC', description: 'Heretic Astartes Khorne model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.', factionId: 'CSM', enhancementId: '000008357005', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1 } },
+  { id: 'enh_new_csm_tzagulla', bearerOnly: true, label: 'Mejora: Tzagulla — +1F/+1A/+1PA', description: 'HERETIC ASTARTES model with the Deep Strike ability only. Improve the Attacks, Strength and Armour Penetration characteristics of the bearer’s weapons by 1.', factionId: 'CSM', enhancementId: '000010739005', effects: { attacksMod: 1, strengthMod: 1, apMod: 1 } },
+  { id: 'enh_new_csm_infernal_avatar', bearerOnly: true, label: 'Mejora: Infernal Avatar — +2F/+1PA CaC', description: 'Heretic Astartes Daemon Prince model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, and improve the Armour Penetration characteristic of those weapons by 1.', factionId: 'CSM', enhancementId: '000010151005', combatType: 'melee', effects: { strengthMod: 2, apMod: 1 } },
   { id: 'enh_new_csm_shadowcowl_talisman', label: 'Mejora: Shadowcowl Talisman — Salvación invulnerable 5+', description: 'CHAOS LORD WITH JUMP PACK model only. This unit has a 5+ invulnerable save.', factionId: 'CSM', enhancementId: '000011228002', target: 'defender', effects: { feelNoPainThreshold: 5 } },
-  { id: 'enh_new_csm_pact_of_cursed_pinions', label: 'Mejora: Pact of Cursed Pinions — +1 ataque CaC', description: 'CHAOS LORD WITH JUMP PACK model only. This model’s melee attacks have +1 to the Attacks characteristic.', factionId: 'CSM', enhancementId: '000011228003', combatType: 'melee', effects: { attacksMod: 1 } },
+  { id: 'enh_new_csm_pact_of_cursed_pinions', bearerOnly: true, label: 'Mejora: Pact of Cursed Pinions — +1 ataque CaC', description: 'CHAOS LORD WITH JUMP PACK model only. This model’s melee attacks have +1 to the Attacks characteristic.', factionId: 'CSM', enhancementId: '000011228003', combatType: 'melee', effects: { attacksMod: 1 } },
   { id: 'enh_new_csm_voice_of_the_tyrant', label: 'Mejora: Voice of the Tyrant — +1 impactar (Huron’s Elite)', description: 'HERETIC ASTARTES model only (excluding Damned models). The bearer’s unit gains the Huron’s Elite ability from the Tyrannical Motivation Detachment rule: each time a model in this unit makes an attack, add 1 to the Hit roll.', factionId: 'CSM', enhancementId: '000010688002', effects: { hitMod: 1 } },
 
   // ═══ AS — Enhancements (bloque nuevo) ═══
-  { id: 'enh_new_as_fervent_ferocity', label: 'Mejora: Fervent Ferocity — Feel No Pain 4+', description: 'The bearer has the Feel No Pain 4+ ability.', factionId: 'AS', enhancementId: '000009316002', target: 'defender', effects: { feelNoPainThreshold: 4 } },
-  { id: 'enh_new_as_mark_of_devotion', label: 'Mejora: Mark of Devotion — +1 ataque CaC', description: 'ADEPTA SORORITAS model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'AS', enhancementId: '000009831003', combatType: 'melee', effects: { attacksMod: 1 } },
-  { id: 'enh_new_as_through_suffering_strength', label: 'Mejora: Through Suffering, Strength — +1F/+1A/+1D CaC', description: 'ADEPTA SORORITAS model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons.', factionId: 'AS', enhancementId: '000008470003', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1, damageMod: 1 } },
-  { id: 'enh_new_as_blade_of_saint_ellynor', label: 'Mejora: Blade of Saint Ellynor — +1F/+1PA CaC', description: 'ADEPTA SORORITAS model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1.', factionId: 'AS', enhancementId: '000009037003', combatType: 'melee', effects: { strengthMod: 1, apMod: 1 } },
+  { id: 'enh_new_as_fervent_ferocity', bearerOnly: true, label: 'Mejora: Fervent Ferocity — Feel No Pain 4+', description: 'The bearer has the Feel No Pain 4+ ability.', factionId: 'AS', enhancementId: '000009316002', target: 'defender', effects: { feelNoPainThreshold: 4 } },
+  { id: 'enh_new_as_mark_of_devotion', bearerOnly: true, label: 'Mejora: Mark of Devotion — +1 ataque CaC', description: 'ADEPTA SORORITAS model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'AS', enhancementId: '000009831003', combatType: 'melee', effects: { attacksMod: 1 } },
+  { id: 'enh_new_as_through_suffering_strength', bearerOnly: true, label: 'Mejora: Through Suffering, Strength — +1F/+1A/+1D CaC', description: 'ADEPTA SORORITAS model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons.', factionId: 'AS', enhancementId: '000008470003', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1, damageMod: 1 } },
+  { id: 'enh_new_as_blade_of_saint_ellynor', bearerOnly: true, label: 'Mejora: Blade of Saint Ellynor — +1F/+1PA CaC', description: 'ADEPTA SORORITAS model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1.', factionId: 'AS', enhancementId: '000009037003', combatType: 'melee', effects: { strengthMod: 1, apMod: 1 } },
   { id: 'enh_new_as_refrain_of_enduring_faith', label: 'Mejora: Refrain of Enduring Faith — Salvación invulnerable 5+ (unidad liderada)', description: 'PENITENT model only. While the bearer is leading a unit, models in that unit have a 5+ invulnerable save.', factionId: 'AS', enhancementId: '000009029004', target: 'defender', effects: { feelNoPainThreshold: 5 } },
   { id: 'enh_new_as_fire_and_fury', label: 'Mejora: Fire and Fury — +1 ataque, armas Torrent (unidad liderada)', description: 'ADEPTA SORORITAS model only. While the bearer is leading a unit, add 1 to the Attacks characteristic of Torrent weapons equipped by models in that unit.', factionId: 'AS', enhancementId: '000009033004', combatType: 'ranged', effects: { attacksMod: 1 } },
   { id: 'enh_new_as_fire_and_fury_2', label: 'Mejora: Fire and Fury — Sustained Hits 1 (resto de armas a distancia, unidad liderada)', description: 'ADEPTA SORORITAS model only. While the bearer is leading a unit, all other ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.', factionId: 'AS', enhancementId: '000009033004', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
-  { id: 'enh_new_as_iron_surplice', label: 'Mejora: Iron Surplice of Saint Istalela — Feel No Pain 5+', description: 'CANONESS or PALATINE model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'AS', enhancementId: '000009033005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_as_iron_surplice', bearerOnly: true, label: 'Mejora: Iron Surplice of Saint Istalela — Feel No Pain 5+', description: 'CANONESS or PALATINE model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'AS', enhancementId: '000009033005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
   { id: 'enh_new_as_hagiomnifex_smiting', label: 'Mejora: Hagiomnifex — Psalm of Righteous Smiting: +1 Fuerza', description: 'ADEPTA SORORITAS CHARACTER model only (excluding PENITENT units). Once per turn, you can select Psalm of Righteous Smiting: this unit’s attacks have +1 to the Strength characteristic.', factionId: 'AS', enhancementId: '000011101002', effects: { strengthMod: 1 } },
   { id: 'enh_new_as_hagiomnifex_repudiation', label: 'Mejora: Hagiomnifex — Chorus of Repudiation: −1 herir recibido (S > T)', description: 'ADEPTA SORORITAS CHARACTER model only (excluding PENITENT units). Once per turn, you can select Chorus of Repudiation: attacks that target this unit with a Strength greater than this unit’s Toughness have −1 to Wound rolls.', factionId: 'AS', enhancementId: '000011101002', target: 'defender', effects: { woundMod: -1 } },
 
   // ═══ AE — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_ae_aspect_of_murder', label: 'Mejora: Aspect of Murder — +1 Daño CaC', description: 'Autarch or Autarch Wayleaper model only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer, and those weapons have the [PRECISION] ability.', factionId: 'AE', enhancementId: '000009927002', combatType: 'melee', effects: { damageMod: 1 } },
+  { id: 'enh_new_ae_aspect_of_murder', bearerOnly: true, label: 'Mejora: Aspect of Murder — +1 Daño CaC', description: 'Autarch or Autarch Wayleaper model only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer, and those weapons have the [PRECISION] ability.', factionId: 'AE', enhancementId: '000009927002', combatType: 'melee', effects: { damageMod: 1 } },
 
-  { id: 'enh_new_ae_runes_of_sanctuary_psychic', label: 'Mejora: Runes of Sanctuary (Psychic) — −1 PA recibido, disparo', description: 'PSYKER model only. Once per turn, in your opponent’s Shooting phase, when a friendly AELDARI unit within 9" of and visible to the bearer is selected as the target of a ranged attack, the bearer can use this Enhancement. If it does, until the end of the phase, each time an attack targets that friendly AELDARI unit, worsen the Armour Penetration characteristic of that attack by 1.', factionId: 'AE', enhancementId: '000009325002', combatType: 'ranged', target: 'defender', effects: { apMod: -1 } },
+  { id: 'enh_new_ae_runes_of_sanctuary_psychic', bearerOnly: true, label: 'Mejora: Runes of Sanctuary (Psychic) — −1 PA recibido, disparo', description: 'PSYKER model only. Once per turn, in your opponent’s Shooting phase, when a friendly AELDARI unit within 9" of and visible to the bearer is selected as the target of a ranged attack, the bearer can use this Enhancement. If it does, until the end of the phase, each time an attack targets that friendly AELDARI unit, worsen the Armour Penetration characteristic of that attack by 1.', factionId: 'AE', enhancementId: '000009325002', combatType: 'ranged', target: 'defender', effects: { apMod: -1 } },
 
-  { id: 'enh_new_ae_gaze_of_ynnead', label: 'Mejora: Gaze of Ynnead — Devastating Wounds (Eldritch Storm)', description: 'Farseer model only. The bearer’s Eldritch Storm weapon has the [DEVASTATING WOUNDS] ability.', factionId: 'AE', enhancementId: '000009919002', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
+  { id: 'enh_new_ae_gaze_of_ynnead', bearerOnly: true, label: 'Mejora: Gaze of Ynnead — Devastating Wounds (Eldritch Storm)', description: 'Farseer model only. The bearer’s Eldritch Storm weapon has the [DEVASTATING WOUNDS] ability.', factionId: 'AE', enhancementId: '000009919002', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
 
   { id: 'enh_new_ae_guiding_presence', label: 'Mejora: Guiding Presence — +1 impactar (unidad Vehicle aliada)', description: 'Aeldari Psyker model only. At the start of your Shooting phase, select one friendly Aeldari Vehicle model within 9" of the bearer. Until the end of the phase, each time that model makes an attack, add 1 to the Hit roll.', factionId: 'AE', enhancementId: '000009769002', combatType: 'ranged', requiresAttackerKeyword: 'vehicle', effects: { hitMod: 1 } },
 
-  { id: 'enh_new_ae_grace_of_khaine', label: 'Mejora: Grace of Khaine — repetir 1s a impactar/herir/daño', description: 'Each time the bearer makes an attack, re-roll a Hit roll of 1, re-roll a Wound roll of 1 and re-roll a Damage roll of 1.', factionId: 'AE', enhancementId: '000009334002', effects: { rerollHitsOf1: true, rerollWoundsOf1: true, rerollDamageOf1: true } },
+  { id: 'enh_new_ae_grace_of_khaine', bearerOnly: true, label: 'Mejora: Grace of Khaine — repetir 1s a impactar/herir/daño', description: 'Each time the bearer makes an attack, re-roll a Hit roll of 1, re-roll a Wound roll of 1 and re-roll a Damage roll of 1.', factionId: 'AE', enhancementId: '000009334002', effects: { rerollHitsOf1: true, rerollWoundsOf1: true, rerollDamageOf1: true } },
 
   { id: 'enh_new_ae_runes_of_warding', label: 'Mejora: Runes of Warding — FNP 4+', description: 'Asuryani Psyker model only. Models in the bearer’s unit have the Feel No Pain 4+ ability against mortal wounds, Psychic Attacks and Critical Wounds caused by attacks with the [DEVASTATING WOUNDS] ability.', factionId: 'AE', enhancementId: '000009923003', target: 'defender', effects: { feelNoPainThreshold: 4 } },
 
-  { id: 'enh_new_ae_weavers_wail', label: 'Mejora: Weavers’ Wail — +3F/+1A CaC', description: 'Troupe Master model only. Add 3 to the Strength and add 1 to the Attacks characteristics of the bearer’s melee weapons.', factionId: 'AE', enhancementId: '000010649003', combatType: 'melee', effects: { strengthMod: 3, attacksMod: 1 } },
+  { id: 'enh_new_ae_weavers_wail', bearerOnly: true, label: 'Mejora: Weavers’ Wail — +3F/+1A CaC', description: 'Troupe Master model only. Add 3 to the Strength and add 1 to the Attacks characteristics of the bearer’s melee weapons.', factionId: 'AE', enhancementId: '000010649003', combatType: 'melee', effects: { strengthMod: 3, attacksMod: 1 } },
 
   { id: 'enh_new_ae_alacritous_assault', label: 'Mejora: Alacritous Assault — [LANCE] CaC', description: 'Anhrathe unit only. Melee weapons equipped by models in this unit have the [LANCE] ability. (LANCE: each time the bearer makes an attack, if the attacking unit made a charge move this turn, add 1 to the Wound roll.)', factionId: 'AE', enhancementId: '000010699003', combatType: 'melee', effects: { woundMod: 1 } },
 
-  { id: 'enh_new_ae_borrowed_vigour', label: 'Mejora: Borrowed Vigour — +2A CaC', description: 'Archon model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'AE', enhancementId: '000009919004', combatType: 'melee', effects: { attacksMod: 2 } },
+  { id: 'enh_new_ae_borrowed_vigour', bearerOnly: true, label: 'Mejora: Borrowed Vigour — +2A CaC', description: 'Archon model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'AE', enhancementId: '000009919004', combatType: 'melee', effects: { attacksMod: 2 } },
 
   { id: 'enh_new_ae_exotic_munitions', label: 'Mejora: Exotic Munitions — crítico herida 5+ vs MONSTER, disparo', description: 'Anhrathe unit only. Ranged weapons equipped by models in this unit have the [ANTI-MONSTER 5+] and [ANTI-VEHICLE 5+] abilities.', factionId: 'AE', enhancementId: '000010699004', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 5 } },
   { id: 'enh_new_ae_exotic_munitions_2', label: 'Mejora: Exotic Munitions — crítico herida 5+ vs VEHICLE, disparo', description: 'Anhrathe unit only. Ranged weapons equipped by models in this unit have the [ANTI-MONSTER 5+] and [ANTI-VEHICLE 5+] abilities.', factionId: 'AE', enhancementId: '000010699004', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 5 } },
@@ -20071,81 +20071,81 @@ const RULES_5: ModifierRule[] = [
 
   { id: 'enh_new_ae_protector_of_the_paths', label: 'Mejora: Protector of the Paths — overwatch 5+ gratis', description: 'Asuryani model only. While the bearer is leading a Dire Avengers or Guardians unit, once per battle round, you can target the bearer’s unit with the Fire Overwatch Stratagem for 0CP, and while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+ (or 4+ instead if the bearer’s unit is within range of an objective marker you control).', factionId: 'AE', enhancementId: '000009911004', combatType: 'ranged', effects: { overwatchThreshold: 5 } },
 
-  { id: 'enh_new_ae_seersight_strike', label: 'Mejora: Seersight Strike — crítico herida 2+ vs MONSTER, disparo psíquico', description: 'Asuryani Mounted Psyker model only. Psychic weapons equipped by the bearer have the [ANTI-MONSTER 2+] and [ANTI-VEHICLE 2+] abilities.', factionId: 'AE', enhancementId: '000009903004', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 2 } },
-  { id: 'enh_new_ae_seersight_strike_2', label: 'Mejora: Seersight Strike — crítico herida 2+ vs VEHICLE, disparo psíquico', description: 'Asuryani Mounted Psyker model only. Psychic weapons equipped by the bearer have the [ANTI-MONSTER 2+] and [ANTI-VEHICLE 2+] abilities.', factionId: 'AE', enhancementId: '000009903004', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 2 } },
+  { id: 'enh_new_ae_seersight_strike', bearerOnly: true, label: 'Mejora: Seersight Strike — crítico herida 2+ vs MONSTER, disparo psíquico', description: 'Asuryani Mounted Psyker model only. Psychic weapons equipped by the bearer have the [ANTI-MONSTER 2+] and [ANTI-VEHICLE 2+] abilities.', factionId: 'AE', enhancementId: '000009903004', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 2 } },
+  { id: 'enh_new_ae_seersight_strike_2', bearerOnly: true, label: 'Mejora: Seersight Strike — crítico herida 2+ vs VEHICLE, disparo psíquico', description: 'Asuryani Mounted Psyker model only. Psychic weapons equipped by the bearer have the [ANTI-MONSTER 2+] and [ANTI-VEHICLE 2+] abilities.', factionId: 'AE', enhancementId: '000009903004', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 2 } },
 
   { id: 'enh_new_ae_shimmerstone', label: 'Mejora: Shimmerstone — −1 herir recibido, disparo', description: 'Autarch or Autarch Wayleaper model only. While the bearer is leading an Aspect Warriors unit, each time a ranged attack targets that unit, subtract 1 from the Wound roll.', factionId: 'AE', enhancementId: '000009927004', combatType: 'ranged', target: 'defender', effects: { woundMod: -1 } },
 
   { id: 'enh_new_ae_voidstone', label: 'Mejora: Voidstone — salvación invulnerable 5+', description: 'Anhrathe Infantry unit only. Models in this unit have a 5+ invulnerable save.', factionId: 'AE', enhancementId: '000010704005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
 
-  { id: 'enh_new_ae_morbid_might', label: 'Mejora: Morbid Might — repetir herida CaC', description: 'Succubus model only. Each time the bearer makes a melee attack, you can re-roll the Wound roll.', factionId: 'AE', enhancementId: '000009919005', combatType: 'melee', effects: { rerollAllWounds: true } },
+  { id: 'enh_new_ae_morbid_might', bearerOnly: true, label: 'Mejora: Morbid Might — repetir herida CaC', description: 'Succubus model only. Each time the bearer makes a melee attack, you can re-roll the Wound roll.', factionId: 'AE', enhancementId: '000009919005', combatType: 'melee', effects: { rerollAllWounds: true } },
 
-  { id: 'enh_new_ae_psychic_destroyer', label: 'Mejora: Psychic Destroyer — +1 Daño disparo psíquico', description: 'Asuryani Psyker model only. Add 1 to the Damage characteristic of ranged Psychic weapons equipped by the bearer.', factionId: 'AE', enhancementId: '000009899005', combatType: 'ranged', effects: { damageMod: 1 } },
+  { id: 'enh_new_ae_psychic_destroyer', bearerOnly: true, label: 'Mejora: Psychic Destroyer — +1 Daño disparo psíquico', description: 'Asuryani Psyker model only. Add 1 to the Damage characteristic of ranged Psychic weapons equipped by the bearer.', factionId: 'AE', enhancementId: '000009899005', combatType: 'ranged', effects: { damageMod: 1 } },
 
   { id: 'enh_new_ae_assassins_eye', label: 'Mejora: Assassins’ Eye — +1 PA vs CHARACTER, disparo', description: 'RANGERS/SHROUD RUNNERS unit only. This unit’s ranged attacks that target a CHARACTER unit have +1 AP.', factionId: 'AE', enhancementId: '000011184003', combatType: 'ranged', requiresTargetKeyword: 'character', effects: { apMod: 1 } },
 
   // ═══ QI — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_qi_bringer_of_justice', label: 'Mejora: Bringer of Justice — +2A/+1 impactar CaC', description: 'Imperial Knights model only. Improve the Attacks characteristic of melee weapons equipped by the bearer by 2, and each time the bearer makes a melee attack, add 1 to the Hit roll.', factionId: 'QI', enhancementId: '000010755002', combatType: 'melee', effects: { attacksMod: 2, hitMod: 1 } },
+  { id: 'enh_new_qi_bringer_of_justice', bearerOnly: true, label: 'Mejora: Bringer of Justice — +2A/+1 impactar CaC', description: 'Imperial Knights model only. Improve the Attacks characteristic of melee weapons equipped by the bearer by 2, and each time the bearer makes a melee attack, add 1 to the Hit roll.', factionId: 'QI', enhancementId: '000010755002', combatType: 'melee', effects: { attacksMod: 2, hitMod: 1 } },
 
   { id: 'enh_new_qi_mentors_pride', label: 'Mejora: Mentor’s Pride — repetir 1s a impactar (ARMIGER)', description: 'IMPERIAL KNIGHTS model only. While two or more Armiger models are under the effects of the bearer’s Bondsman ability, each time each of those ARMIGER models makes an attack, you can re-roll a Hit roll of 1.', factionId: 'QI', enhancementId: '000010506002', requiresAttackerKeyword: 'armiger', effects: { rerollHitsOf1: true } },
 
   { id: 'enh_new_qi_bearer_of_the_evanescent_ion', label: 'Mejora: Bearer of the Evanescent Ion — cobertura vs disparo (unidad aliada)', description: 'IMPERIAL KNIGHTS model only. At the end of your Movement phase, select one other IMPERIAL KNIGHTS model from your army that is within 12" of and visible to the bearer. Until the start of your next Movement phase, that selected model has the Stealth ability.', factionId: 'QI', enhancementId: '000010493003', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
 
-  { id: 'enh_new_qi_knight_of_the_opus_machina', label: 'Mejora: Knight of the Opus Machina — repetir 1s a impactar, disparo', description: 'IMPERIAL KNIGHTS model only. Each time the bearer makes a ranged attack, if the bearer is within 6" of one or more friendly Adeptus Mechanicus units, re-roll a Hit roll of 1.', factionId: 'QI', enhancementId: '000009761003', combatType: 'ranged', effects: { rerollHitsOf1: true } },
+  { id: 'enh_new_qi_knight_of_the_opus_machina', bearerOnly: true, label: 'Mejora: Knight of the Opus Machina — repetir 1s a impactar, disparo', description: 'IMPERIAL KNIGHTS model only. Each time the bearer makes a ranged attack, if the bearer is within 6" of one or more friendly Adeptus Mechanicus units, re-roll a Hit roll of 1.', factionId: 'QI', enhancementId: '000009761003', combatType: 'ranged', effects: { rerollHitsOf1: true } },
 
-  { id: 'enh_new_qi_purgations_hand', label: 'Mejora: Purgation’s Hand — repetir 1s a impactar/herir, CaC', description: 'IMPERIAL KNIGHTS model only. Each time the bearer makes a melee attack, if the bearer is on your defensive line, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.', factionId: 'QI', enhancementId: '000010497003', combatType: 'melee', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
+  { id: 'enh_new_qi_purgations_hand', bearerOnly: true, label: 'Mejora: Purgation’s Hand — repetir 1s a impactar/herir, CaC', description: 'IMPERIAL KNIGHTS model only. Each time the bearer makes a melee attack, if the bearer is on your defensive line, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.', factionId: 'QI', enhancementId: '000010497003', combatType: 'melee', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
 
-  { id: 'enh_new_qi_sanctuary', label: 'Mejora: Sanctuary — salvación invulnerable 5+', description: 'IMPERIAL KNIGHTS model only. The bearer has a 5+ invulnerable save.', factionId: 'QI', enhancementId: '000010755005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_qi_sanctuary', bearerOnly: true, label: 'Mejora: Sanctuary — salvación invulnerable 5+', description: 'IMPERIAL KNIGHTS model only. The bearer has a 5+ invulnerable save.', factionId: 'QI', enhancementId: '000010755005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
 
   // ═══ NEC — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_nec_inured_to_damage', label: 'Mejora: Inured to Damage — Feel No Pain 6+', description: 'The bearer has the Feel No Pain 6+ ability. Once the bearer has destroyed one or more enemy units, it has the Feel No Pain 5+ ability instead.', factionId: 'NEC', enhancementId: '000009596002', target: 'defender', effects: { feelNoPainThreshold: 6 } },
-  { id: 'enh_new_nec_destroyer_ankh', label: 'Mejora: Destroyer Ankh — +2 ataques CaC', description: 'Catacomb Command Barge or Overlord model only. The bearer has the Destroyer Cult keyword. Add 2" to the Move characteristic of models in the bearer’s unit and add 2 to the Attacks characteristic of melee weapons equipped by the bearer.', factionId: 'NEC', enhancementId: '000010668002', combatType: 'melee', effects: { attacksMod: 2 } },
-  { id: 'enh_new_nec_cryptometric_experimentation', label: 'Mejora: Cryptometric Experimentation — salvación invulnerable 4+', description: 'Add 1 to the Toughness and Wounds characteristics of the bearer. The bearer has a 4+ invulnerable save.', factionId: 'NEC', enhancementId: '000010735002', target: 'defender', effects: { feelNoPainThreshold: 4 } },
+  { id: 'enh_new_nec_inured_to_damage', bearerOnly: true, label: 'Mejora: Inured to Damage — Feel No Pain 6+', description: 'The bearer has the Feel No Pain 6+ ability. Once the bearer has destroyed one or more enemy units, it has the Feel No Pain 5+ ability instead.', factionId: 'NEC', enhancementId: '000009596002', target: 'defender', effects: { feelNoPainThreshold: 6 } },
+  { id: 'enh_new_nec_destroyer_ankh', bearerOnly: true, label: 'Mejora: Destroyer Ankh — +2 ataques CaC', description: 'Catacomb Command Barge or Overlord model only. The bearer has the Destroyer Cult keyword. Add 2" to the Move characteristic of models in the bearer’s unit and add 2 to the Attacks characteristic of melee weapons equipped by the bearer.', factionId: 'NEC', enhancementId: '000010668002', combatType: 'melee', effects: { attacksMod: 2 } },
+  { id: 'enh_new_nec_cryptometric_experimentation', bearerOnly: true, label: 'Mejora: Cryptometric Experimentation — salvación invulnerable 4+', description: 'Add 1 to the Toughness and Wounds characteristics of the bearer. The bearer has a 4+ invulnerable save.', factionId: 'NEC', enhancementId: '000010735002', target: 'defender', effects: { feelNoPainThreshold: 4 } },
   { id: 'enh_new_nec_dread_majesty', label: 'Mejora: Dread Majesty (Aura) — relanzar 1s a impactar y herir', description: 'Overlord or Catacomb Command Barge model only. While a friendly NECRONS unit (excluding Monster and Titanic units) is within 6" of the bearer, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.', factionId: 'NEC', enhancementId: '000009749002', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
   { id: 'enh_new_nec_hyperphasic_fulcrum', label: 'Mejora: Hyperphasic Fulcrum — relanzar 1s a herir', description: 'CRYPTEK model only. While the bearer is leading a unit, if that unit is wholly within your army’s Power Matrix, each time a model in that unit makes an attack, re-roll a Wound roll of 1.', factionId: 'NEC', enhancementId: '000008546003', effects: { rerollWoundsOf1: true } },
-  { id: 'enh_new_nec_unflinching_will', label: 'Mejora: Unflinching Will — Anti-Infantry 5+ CaC', description: 'OVERLORD model only. The bearer’s melee weapons have the [PRECISION] and [ANTI-INFANTRY 5+] abilities.', factionId: 'NEC', enhancementId: '000008550003', combatType: 'melee', requiresTargetKeyword: 'infantry', effects: { woundCritThreshold: 5 } },
+  { id: 'enh_new_nec_unflinching_will', bearerOnly: true, label: 'Mejora: Unflinching Will — Anti-Infantry 5+ CaC', description: 'OVERLORD model only. The bearer’s melee weapons have the [PRECISION] and [ANTI-INFANTRY 5+] abilities.', factionId: 'NEC', enhancementId: '000008550003', combatType: 'melee', requiresTargetKeyword: 'infantry', effects: { woundCritThreshold: 5 } },
   { id: 'enh_new_nec_arisen_tyrant', label: 'Mejora: Arisen Tyrant — relanzar 1s a impactar', description: 'NECRONS model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. If the bearer’s unit was set up on the battlefield this turn, you can re-roll the Hit roll instead.', factionId: 'NEC', enhancementId: '000008554003', effects: { rerollHitsOf1: true } },
   { id: 'enh_new_nec_nether_realm_casket', label: 'Mejora: Nether-realm Casket — Stealth (BS atacante +1 a distancia)', description: 'NECRONS model only. While the bearer is leading a unit, models in that unit have the Stealth ability.', factionId: 'NEC', enhancementId: '000008372003', target: 'defender', combatType: 'ranged', effects: { bsMod: 1 } },
   { id: 'enh_new_nec_animus_damper', label: 'Mejora: Animus Damper — −1 impactar recibido (atacante VEHICLE)', description: 'C’tan Shard of the Void Dragon model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy VEHICLE unit visible to the bearer. That unit must take a Leadership test. Until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'NEC', enhancementId: '000010672004', target: 'defender', requiresAttackerKeyword: 'vehicle', effects: { hitMod: -1 } },
   { id: 'enh_new_nec_warrior_noble', label: 'Mejora: Warrior Noble — −1 impactar recibido en CaC', description: 'OVERLORD model only. Each time a melee attack targets the bearer’s unit, subtract 1 from the Hit roll.', factionId: 'NEC', enhancementId: '000008550004', target: 'defender', combatType: 'melee', effects: { hitMod: -1 } },
   { id: 'enh_new_nec_mark_of_the_nekrosor', label: 'Mejora: Mark of the Nekrosor — +1 impactar', description: 'Destroyer Cult model only. Each time a model in the bearer’s unit makes an attack, add 1 to the Hit roll.', factionId: 'NEC', enhancementId: '000010668004', effects: { hitMod: 1 } },
   { id: 'enh_new_nec_phasal_subjugator', label: 'Mejora: Phasal Subjugator (Aura) — +1 impactar', description: 'NECRONS model only. While a friendly NECRONS unit (excluding CHARACTER units) is within 6" of the bearer, each time a model in that unit makes an attack, add 1 to the Hit roll.', factionId: 'NEC', enhancementId: '000008372004', effects: { hitMod: 1 } },
-  { id: 'enh_new_nec_enaegic_dermal_bond', label: 'Mejora: Enaegic Dermal Bond — Feel No Pain 4+', description: 'NECRONS model only. The bearer has the Feel No Pain 4+ ability.', factionId: 'NEC', enhancementId: '000008372005', target: 'defender', effects: { feelNoPainThreshold: 4 } },
+  { id: 'enh_new_nec_enaegic_dermal_bond', bearerOnly: true, label: 'Mejora: Enaegic Dermal Bond — Feel No Pain 4+', description: 'NECRONS model only. The bearer has the Feel No Pain 4+ ability.', factionId: 'NEC', enhancementId: '000008372005', target: 'defender', effects: { feelNoPainThreshold: 4 } },
   { id: 'enh_new_nec_chrono_impedance_fields', label: 'Mejora: Chrono-impedance Fields — −1 Daño recibido', description: 'NECRONS model only. In your Command phase, select one friendly Necrons Vehicle or Necrons Mounted unit (excluding Titanic units) within 6" of the bearer. Until the start of your next Command phase, each time an attack is allocated to a model in that unit, subtract 1 from the Damage characteristic of that attack.', factionId: 'NEC', enhancementId: '000009749005', target: 'defender', effects: { damageReduction: 1 } },
 
   // ═══ AoI — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_aoi_daemon_slayer', label: 'Mejora: Daemon Slayer — +1 ataque CaC', description: 'INQUISITOR model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons, and those weapons have the [ANTI-DAEMON 3+] ability.', factionId: 'AoI', enhancementId: '000009134002', combatType: 'melee', effects: { attacksMod: 1 } },
-  { id: 'enh_new_aoi_daemon_slayer_2', label: 'Mejora: Daemon Slayer — Anti-Daemon 3+ CaC', factionId: 'AoI', enhancementId: '000009134002', combatType: 'melee', requiresTargetKeyword: 'daemon', effects: { woundCritThreshold: 3 } },
+  { id: 'enh_new_aoi_daemon_slayer', bearerOnly: true, label: 'Mejora: Daemon Slayer — +1 ataque CaC', description: 'INQUISITOR model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons, and those weapons have the [ANTI-DAEMON 3+] ability.', factionId: 'AoI', enhancementId: '000009134002', combatType: 'melee', effects: { attacksMod: 1 } },
+  { id: 'enh_new_aoi_daemon_slayer_2', bearerOnly: true, label: 'Mejora: Daemon Slayer — Anti-Daemon 3+ CaC', factionId: 'AoI', enhancementId: '000009134002', combatType: 'melee', requiresTargetKeyword: 'daemon', effects: { woundCritThreshold: 3 } },
   { id: 'enh_new_aoi_manhunters_helm', label: 'Mejora: Manhunter’s Helm — +1 herir (ADEPTUS ARBITES vs Priority Target)', description: 'Proctor-Exactant model only. At the start of the first battle round, select one enemy unit to be your Priority Target. Each time an ADEPTUS ARBITES model from your army makes an attack that targets your Priority Target, if the bearer is on the battlefield, add 1 to the Wound roll.', factionId: 'AoI', enhancementId: '000009369002', requiresAttackerKeyword: 'adeptus arbites', effects: { woundMod: 1 } },
-  { id: 'enh_new_aoi_blackweave_shroud', label: 'Mejora: Blackweave Shroud — Feel No Pain 4+', description: 'AGENTS OF THE IMPERIUM model only. The bearer has the Feel No Pain 4+ ability.', factionId: 'AoI', enhancementId: '000009126004', target: 'defender', effects: { feelNoPainThreshold: 4 } },
-  { id: 'enh_new_aoi_micromelta_rounds', label: 'Mejora: Micromelta Rounds — Anti-Monster 4+ a distancia', description: 'Vindicare Assassin models only. This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.', factionId: 'AoI', enhancementId: '000009757005', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
-  { id: 'enh_new_aoi_micromelta_rounds_2', label: 'Mejora: Micromelta Rounds — Anti-Vehicle 4+ a distancia', factionId: 'AoI', enhancementId: '000009757005', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_aoi_blackweave_shroud', bearerOnly: true, label: 'Mejora: Blackweave Shroud — Feel No Pain 4+', description: 'AGENTS OF THE IMPERIUM model only. The bearer has the Feel No Pain 4+ ability.', factionId: 'AoI', enhancementId: '000009126004', target: 'defender', effects: { feelNoPainThreshold: 4 } },
+  { id: 'enh_new_aoi_micromelta_rounds', bearerOnly: true, label: 'Mejora: Micromelta Rounds — Anti-Monster 4+ a distancia', description: 'Vindicare Assassin models only. This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.', factionId: 'AoI', enhancementId: '000009757005', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_aoi_micromelta_rounds_2', bearerOnly: true, label: 'Mejora: Micromelta Rounds — Anti-Vehicle 4+ a distancia', factionId: 'AoI', enhancementId: '000009757005', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 4 } },
   { id: 'enh_new_aoi_grimoire_of_true_names', label: 'Mejora: Grimoire of True Names (Aura) — −1 impactar/herir recibido (atacante DAEMON)', description: 'INQUISITOR model only. While an enemy DAEMON unit is within 9" of the bearer, each time a model in that DAEMON unit makes an attack, subtract 1 from the Hit roll and subtract 1 from the Wound roll.', factionId: 'AoI', enhancementId: '000009134005', target: 'defender', requiresAttackerKeyword: 'daemon', effects: { hitMod: -1, woundMod: -1 } },
   { id: 'enh_new_aoi_witch_hunter', label: 'Mejora: Witch Hunter — relanzar impactar (objetivo PSYKER)', description: 'INQUISITOR or MINISTORUM PRIEST model only. While the bearer is leading a unit, each time a model in that unit makes an attack that targets a PSYKER unit, you can re-roll the Hit roll.', factionId: 'AoI', enhancementId: '000009130005', requiresTargetKeyword: 'psyker', effects: { rerollAllHits: true } },
-  { id: 'enh_new_aoi_universal_anathema', label: 'Mejora: Universal Anathema — Anti-Infantry 2+ CaC', description: 'AGENTS OF THE IMPERIUM model only. Melee weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.', factionId: 'AoI', enhancementId: '000009126005', combatType: 'melee', requiresTargetKeyword: 'infantry', effects: { woundCritThreshold: 2 } },
-  { id: 'enh_new_aoi_universal_anathema_2', label: 'Mejora: Universal Anathema — Anti-Monster 4+ CaC', factionId: 'AoI', enhancementId: '000009126005', combatType: 'melee', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_aoi_universal_anathema', bearerOnly: true, label: 'Mejora: Universal Anathema — Anti-Infantry 2+ CaC', description: 'AGENTS OF THE IMPERIUM model only. Melee weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.', factionId: 'AoI', enhancementId: '000009126005', combatType: 'melee', requiresTargetKeyword: 'infantry', effects: { woundCritThreshold: 2 } },
+  { id: 'enh_new_aoi_universal_anathema_2', bearerOnly: true, label: 'Mejora: Universal Anathema — Anti-Monster 4+ CaC', factionId: 'AoI', enhancementId: '000009126005', combatType: 'melee', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
 
   // ═══ ORK — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_ork_skwad_leader', label: 'Mejora: Skwad Leader — Stealth al liderar Kommandos (−1 impactar recibido)', description: 'Warboss Infantry model only. While leading a Kommandos unit, that unit has the Stealth ability (subtract 1 from the Hit roll of ranged attacks that target it).', factionId: 'ORK', enhancementId: '000009795002', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
-  { id: 'enh_new_ork_proper_killy', label: 'Mejora: Proper Killy — +1 Daño CaC', description: 'Beast Snagga model only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer.', factionId: 'ORK', enhancementId: '000008868003', combatType: 'melee', effects: { damageMod: 1 } },
-  { id: 'enh_new_ork_scarred_brute', label: 'Mejora: Scarred Brute — Feel No Pain 5+', description: 'The bearer has the Feel No Pain 5+ ability.', factionId: 'ORK', enhancementId: '000009615003', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_ork_skwad_leader', bearerOnly: true, label: 'Mejora: Skwad Leader — Stealth al liderar Kommandos (−1 impactar recibido)', description: 'Warboss Infantry model only. While leading a Kommandos unit, that unit has the Stealth ability (subtract 1 from the Hit roll of ranged attacks that target it).', factionId: 'ORK', enhancementId: '000009795002', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
+  { id: 'enh_new_ork_proper_killy', bearerOnly: true, label: 'Mejora: Proper Killy — +1 Daño CaC', description: 'Beast Snagga model only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer.', factionId: 'ORK', enhancementId: '000008868003', combatType: 'melee', effects: { damageMod: 1 } },
+  { id: 'enh_new_ork_scarred_brute', bearerOnly: true, label: 'Mejora: Scarred Brute — Feel No Pain 5+', description: 'The bearer has the Feel No Pain 5+ ability.', factionId: 'ORK', enhancementId: '000009615003', target: 'defender', effects: { feelNoPainThreshold: 5 } },
   { id: 'enh_new_ork_mek_kaptin', label: 'Mejora: Mek Kaptin — repetir impactar a distancia (unidad Flash Gitz)', description: 'Big Mek, Big Mek in Mega Armour or Big Mek with Shokk Attack Gun model only. While the bearer is attached to a Flash Gitz unit, each time a model in the bearer’s unit makes a ranged attack, you can re-roll the Hit roll.', factionId: 'ORK', enhancementId: '000009795003', combatType: 'ranged', effects: { rerollAllHits: true } },
   { id: 'enh_new_ork_bionik_workshop', label: 'Mejora: Bionik Workshop — Bionik Arms: +1 Fuerza CaC', description: 'Big Mek or Painboy model only. At the start of the battle, roll one D3. On a result of Bionik Arms, models in the bearer’s unit add 1 to the Strength characteristic of melee weapons they are equipped with, until the end of the battle.', factionId: 'ORK', enhancementId: '000010712004', combatType: 'melee', effects: { strengthMod: 1 } },
   { id: 'enh_new_ork_bionik_workshop_2', label: 'Mejora: Bionik Workshop — Bionik Bonce: +1 HA CaC', description: 'Big Mek or Painboy model only. At the start of the battle, roll one D3. On a result of Bionik Bonce, models in the bearer’s unit improve the Weapon Skill characteristic of melee weapons they are equipped with by 1, until the end of the battle.', factionId: 'ORK', enhancementId: '000010712004', combatType: 'melee', effects: { wsMod: -1 } },
   { id: 'enh_new_ork_targetin_squigs', label: 'Mejora: Targetin’ Squigs — +1 impactar a distancia', description: 'ORKS model only. Each time a model in the bearer’s unit makes a ranged attack, add 1 to the Hit roll.', factionId: 'ORK', enhancementId: '000009991004', combatType: 'ranged', effects: { hitMod: 1 } },
-  { id: 'enh_new_ork_eadstompa', label: 'Mejora: ’Eadstompa — repetir heridas 1 (objetivo bajo dotación inicial)', description: 'Infantry Warboss model only. Each time the bearer makes an attack that targets a unit that is below its Starting Strength, you can re-roll a Wound roll of 1.', factionId: 'ORK', enhancementId: '000008885004', effects: { rerollWoundsOf1: true } },
-  { id: 'enh_new_ork_eadstompa_2', label: 'Mejora: ’Eadstompa — repetir heridas (objetivo ≤ media vida)', description: 'Infantry Warboss model only. If the target unit is Below Half-strength, you can re-roll the Wound roll (instead of only a 1).', factionId: 'ORK', enhancementId: '000008885004', effects: { rerollAllWounds: true } },
-  { id: 'enh_new_ork_ferocious_show_off', label: 'Mejora: Ferocious Show Off — +1 Fuerza CaC (unidad <10 modelos)', description: 'Orks Infantry model only. Each time the bearer fights, add 1 to the Strength characteristic of the bearer’s melee weapons.', factionId: 'ORK', enhancementId: '000008881004', combatType: 'melee', effects: { strengthMod: 1 } },
-  { id: 'enh_new_ork_ferocious_show_off_2', label: 'Mejora: Ferocious Show Off — +3 Fuerza CaC (unidad ≥10 modelos)', description: 'Orks Infantry model only. If the bearer’s unit contains 10 or more models, each time the bearer fights, add 3 to the Strength characteristic of the bearer’s melee weapons instead.', factionId: 'ORK', enhancementId: '000008881004', combatType: 'melee', effects: { strengthMod: 3 } },
+  { id: 'enh_new_ork_eadstompa', bearerOnly: true, label: 'Mejora: ’Eadstompa — repetir heridas 1 (objetivo bajo dotación inicial)', description: 'Infantry Warboss model only. Each time the bearer makes an attack that targets a unit that is below its Starting Strength, you can re-roll a Wound roll of 1.', factionId: 'ORK', enhancementId: '000008885004', effects: { rerollWoundsOf1: true } },
+  { id: 'enh_new_ork_eadstompa_2', bearerOnly: true, label: 'Mejora: ’Eadstompa — repetir heridas (objetivo ≤ media vida)', description: 'Infantry Warboss model only. If the target unit is Below Half-strength, you can re-roll the Wound roll (instead of only a 1).', factionId: 'ORK', enhancementId: '000008885004', effects: { rerollAllWounds: true } },
+  { id: 'enh_new_ork_ferocious_show_off', bearerOnly: true, label: 'Mejora: Ferocious Show Off — +1 Fuerza CaC (unidad <10 modelos)', description: 'Orks Infantry model only. Each time the bearer fights, add 1 to the Strength characteristic of the bearer’s melee weapons.', factionId: 'ORK', enhancementId: '000008881004', combatType: 'melee', effects: { strengthMod: 1 } },
+  { id: 'enh_new_ork_ferocious_show_off_2', bearerOnly: true, label: 'Mejora: Ferocious Show Off — +3 Fuerza CaC (unidad ≥10 modelos)', description: 'Orks Infantry model only. If the bearer’s unit contains 10 or more models, each time the bearer fights, add 3 to the Strength characteristic of the bearer’s melee weapons instead.', factionId: 'ORK', enhancementId: '000008881004', combatType: 'melee', effects: { strengthMod: 3 } },
   { id: 'enh_new_ork_smoky_gubbinz', label: 'Mejora: Smoky Gubbinz — Stealth (−1 impactar recibido)', description: 'Mek model only. Models in the bearer’s unit have the Stealth ability (subtract 1 from the Hit roll of ranged attacks that target them).', factionId: 'ORK', enhancementId: '000008877004', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
   { id: 'enh_new_ork_supa_glowy_fing', label: 'Mejora: Supa-glowy Fing — −1 impactar del enemigo (resultado 5-6 en D6)', description: 'Mek model only. In your Command phase, select one enemy unit within 18" of and visible to the bearer, then roll one D6: on a 5-6, until the start of your next Command phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll.', factionId: 'ORK', enhancementId: '000008877005', target: 'defender', effects: { hitMod: -1 } },
-  { id: 'enh_new_ork_master_meknologist', label: 'Mejora: Master Meknologist — +1 HB a distancia', description: 'Big Mek model only. Improve the Ballistic Skill characteristic of the bearer’s ranged weapons by 1.', factionId: 'ORK', enhancementId: '000010795005', combatType: 'ranged', effects: { bsMod: -1 } },
+  { id: 'enh_new_ork_master_meknologist', bearerOnly: true, label: 'Mejora: Master Meknologist — +1 HB a distancia', description: 'Big Mek model only. Improve the Ballistic Skill characteristic of the bearer’s ranged weapons by 1.', factionId: 'ORK', enhancementId: '000010795005', combatType: 'ranged', effects: { bsMod: -1 } },
   { id: 'enh_new_ork_surly_as_a_squiggoth', label: 'Mejora: Surly as a Squiggoth — −1 herir recibido (F atacante > T unidad)', description: 'Beastboss on Squigosaur model only. While the bearer is leading a unit, each time an attack targets that unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of the unit, subtract 1 from the Wound roll.', factionId: 'ORK', enhancementId: '000008868005', target: 'defender', effects: { woundMod: -1 } },
-  { id: 'enh_new_ork_supa_cybork_body', label: 'Mejora: Supa-Cybork Body — Feel No Pain 4+', description: 'ORKS model only. The bearer has the Feel No Pain 4+ ability.', factionId: 'ORK', enhancementId: '000008367005', target: 'defender', effects: { feelNoPainThreshold: 4 } },
+  { id: 'enh_new_ork_supa_cybork_body', bearerOnly: true, label: 'Mejora: Supa-Cybork Body — Feel No Pain 4+', description: 'ORKS model only. The bearer has the Feel No Pain 4+ ability.', factionId: 'ORK', enhancementId: '000008367005', target: 'defender', effects: { feelNoPainThreshold: 4 } },
   { id: 'enh_new_ork_targetin_gizmos', label: 'Mejora: Targetin’ Gizmos — Sustained Hits 1 a distancia (Waaagh! activo)', description: 'WAGON unit only, with a BIG MEK model embarked. If the Waaagh! is active for this unit, this unit’s ranged attacks have the Sustained Hits 1 ability.', factionId: 'ORK', enhancementId: '000011208003', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
   { id: 'enh_new_ork_gitfinder_googlez', label: 'Mejora: Gitfinder Googlez — Ignora cobertura a distancia', description: 'Mek model only. Ranged weapons equipped by models in the bearer’s unit have the Ignores Cover ability.', factionId: 'ORK', enhancementId: '000008877002', combatType: 'ranged', effects: { bsMod: -1 } },
   { id: 'enh_new_ork_git_spotter_squig', label: 'Mejora: Git-spotter Squig — Ignora cobertura a distancia', description: 'ORKS model only. Ranged weapons equipped by models in the bearer’s unit have the Ignores Cover ability.', factionId: 'ORK', enhancementId: '000010712003', combatType: 'ranged', effects: { bsMod: -1 } },
@@ -20155,47 +20155,47 @@ const RULES_5: ModifierRule[] = [
   // ═══ TAU — Enhancements (bloque nuevo) ═══
 
   { id: 'enh_new_tau_borthrod_gland', label: 'Mejora: Borthrod Gland — Crítico impactar con 5+ CaC', description: 'Kroot Flesh Shaper only. While the bearer is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.', factionId: 'TAU', enhancementId: '000008821002', combatType: 'melee', effects: { critThreshold: 5 } },
-  { id: 'enh_new_tau_supernova_launcher', label: 'Mejora: Supernova Launcher — +3F/+1PA/+1D a distancia', description: 'Battlesuit model only. Select one of this model’s Airbursting Fragmentation Projector weapons. Add 3 to the Strength characteristic, and add 1 to the Armour Penetration and Damage characteristics of that weapon’s attacks.', factionId: 'TAU', enhancementId: '000009983002', combatType: 'ranged', effects: { strengthMod: 3, apMod: 1, damageMod: 1 } },
-  { id: 'enh_new_tau_thermoneutronic_projector', label: 'Mejora: Thermoneutronic Projector — +2F/+1PA/+1D a distancia', description: 'Battlesuit model only. Select one of this model’s T’au Flamer weapons. Add 2 to the Strength characteristic, and add 1 to the Armour Penetration and Damage characteristics of that weapon’s attacks.', factionId: 'TAU', enhancementId: '000009983003', combatType: 'ranged', effects: { strengthMod: 2, apMod: 1, damageMod: 1 } },
-  { id: 'enh_new_tau_plasma_accelerator_rifle', label: 'Mejora: Plasma Accelerator Rifle — +2F/+1A/+1PA/+1D a distancia', description: 'Battlesuit model only. Select one of this model’s Plasma Rifle weapons. Add 2 to the Strength characteristic, and add 1 to the Attacks, Armour Penetration and Damage characteristics of that weapon’s attacks.', factionId: 'TAU', enhancementId: '000009983004', combatType: 'ranged', effects: { strengthMod: 2, attacksMod: 1, apMod: 1, damageMod: 1 } },
-  { id: 'enh_new_tau_fusion_blades', label: 'Mejora: Fusion Blades — +1A/+3F a distancia (fusion blaster)', description: 'T’au Empire model only. Select one fusion blaster equipped by the bearer. Improve the Attacks characteristic of that weapon by 1 and improve the Strength characteristic by 3.', factionId: 'TAU', enhancementId: '000009983005', combatType: 'ranged', effects: { attacksMod: 1, strengthMod: 3 } },
+  { id: 'enh_new_tau_supernova_launcher', bearerOnly: true, label: 'Mejora: Supernova Launcher — +3F/+1PA/+1D a distancia', description: 'Battlesuit model only. Select one of this model’s Airbursting Fragmentation Projector weapons. Add 3 to the Strength characteristic, and add 1 to the Armour Penetration and Damage characteristics of that weapon’s attacks.', factionId: 'TAU', enhancementId: '000009983002', combatType: 'ranged', effects: { strengthMod: 3, apMod: 1, damageMod: 1 } },
+  { id: 'enh_new_tau_thermoneutronic_projector', bearerOnly: true, label: 'Mejora: Thermoneutronic Projector — +2F/+1PA/+1D a distancia', description: 'Battlesuit model only. Select one of this model’s T’au Flamer weapons. Add 2 to the Strength characteristic, and add 1 to the Armour Penetration and Damage characteristics of that weapon’s attacks.', factionId: 'TAU', enhancementId: '000009983003', combatType: 'ranged', effects: { strengthMod: 2, apMod: 1, damageMod: 1 } },
+  { id: 'enh_new_tau_plasma_accelerator_rifle', bearerOnly: true, label: 'Mejora: Plasma Accelerator Rifle — +2F/+1A/+1PA/+1D a distancia', description: 'Battlesuit model only. Select one of this model’s Plasma Rifle weapons. Add 2 to the Strength characteristic, and add 1 to the Attacks, Armour Penetration and Damage characteristics of that weapon’s attacks.', factionId: 'TAU', enhancementId: '000009983004', combatType: 'ranged', effects: { strengthMod: 2, attacksMod: 1, apMod: 1, damageMod: 1 } },
+  { id: 'enh_new_tau_fusion_blades', bearerOnly: true, label: 'Mejora: Fusion Blades — +1A/+3F a distancia (fusion blaster)', description: 'T’au Empire model only. Select one fusion blaster equipped by the bearer. Improve the Attacks characteristic of that weapon by 1 and improve the Strength characteristic by 3.', factionId: 'TAU', enhancementId: '000009983005', combatType: 'ranged', effects: { attacksMod: 1, strengthMod: 3 } },
   { id: 'enh_new_tau_experienced_leader', label: 'Mejora: Experienced Leader — repetir heridas (unidad enemiga marcada)', description: 'At the start of the first battle round, select one enemy unit on the battlefield. Until the end of the battle, each time a KROOT model from your army makes an attack that targets that enemy unit, if the bearer is on the battlefield, you can re-roll the Wound roll.', factionId: 'TAU', enhancementId: '000009645002', effects: { rerollAllWounds: true } },
   { id: 'enh_new_tau_coordinated_exploitation', label: 'Mejora: Coordinated Exploitation — Sustained Hits 1 a distancia (unidad Guiada)', description: 'T’au Empire model only (excluding Kroot Shaper models). While the bearer is leading an Observer unit, ranged weapons equipped by models in a Guided unit have the Sustained Hits 1 ability while targeting their Spotted unit.', factionId: 'TAU', enhancementId: '000008811002', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
   { id: 'enh_new_tau_target_optimisation_microdrones', label: 'Mejora: Target Optimisation Microdrones — +1 PA a distancia (una vez por turno)', description: 'Cadre Fireblade model only. Once per turn, in your Shooting phase, when a friendly Fire Warrior, Pathfinder Team or Cadre Fireblade unit within 6" of the bearer is selected to shoot, improve the Armour Penetration characteristic of ranged weapons equipped by models in that unit by 1 until the end of the phase.', factionId: 'TAU', enhancementId: '000009636002', combatType: 'ranged', effects: { apMod: 1 } },
-  { id: 'enh_new_tau_precision_of_the_patient_hunter', label: 'Mejora: Precision of the Patient Hunter — +1 impactar a distancia', description: 'T’au Empire model only. Each time the bearer makes a ranged attack, add 1 to the Hit roll.', factionId: 'TAU', enhancementId: '000008442003', combatType: 'ranged', effects: { hitMod: 1 } },
-  { id: 'enh_new_tau_precision_of_the_patient_hunter_2', label: 'Mejora: Precision of the Patient Hunter — +1 herir a distancia (desde 3ª ronda)', description: 'T’au Empire model only. From the third battle round onwards, each time the bearer makes a ranged attack, add 1 to the Wound roll as well.', factionId: 'TAU', enhancementId: '000008442003', combatType: 'ranged', effects: { woundMod: 1 } },
-  { id: 'enh_new_tau_prototype_weapon_system', label: 'Mejora: Prototype Weapon System — Lethal Hits a distancia', description: 'T’au Empire Battlesuit model only. Each time the bearer is selected to shoot, select either Lethal Hits or Sustained Hits 1. Until those attacks are resolved, ranged weapons equipped by the bearer have the Lethal Hits ability.', factionId: 'TAU', enhancementId: '000008815003', combatType: 'ranged', effects: { lethalHitsBonus: true } },
-  { id: 'enh_new_tau_prototype_weapon_system_2', label: 'Mejora: Prototype Weapon System — Sustained Hits 1 a distancia', description: 'T’au Empire Battlesuit model only. Each time the bearer is selected to shoot, select either Lethal Hits or Sustained Hits 1. Until those attacks are resolved, ranged weapons equipped by the bearer have the Sustained Hits 1 ability.', factionId: 'TAU', enhancementId: '000008815003', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
+  { id: 'enh_new_tau_precision_of_the_patient_hunter', bearerOnly: true, label: 'Mejora: Precision of the Patient Hunter — +1 impactar a distancia', description: 'T’au Empire model only. Each time the bearer makes a ranged attack, add 1 to the Hit roll.', factionId: 'TAU', enhancementId: '000008442003', combatType: 'ranged', effects: { hitMod: 1 } },
+  { id: 'enh_new_tau_precision_of_the_patient_hunter_2', bearerOnly: true, label: 'Mejora: Precision of the Patient Hunter — +1 herir a distancia (desde 3ª ronda)', description: 'T’au Empire model only. From the third battle round onwards, each time the bearer makes a ranged attack, add 1 to the Wound roll as well.', factionId: 'TAU', enhancementId: '000008442003', combatType: 'ranged', effects: { woundMod: 1 } },
+  { id: 'enh_new_tau_prototype_weapon_system', bearerOnly: true, label: 'Mejora: Prototype Weapon System — Lethal Hits a distancia', description: 'T’au Empire Battlesuit model only. Each time the bearer is selected to shoot, select either Lethal Hits or Sustained Hits 1. Until those attacks are resolved, ranged weapons equipped by the bearer have the Lethal Hits ability.', factionId: 'TAU', enhancementId: '000008815003', combatType: 'ranged', effects: { lethalHitsBonus: true } },
+  { id: 'enh_new_tau_prototype_weapon_system_2', bearerOnly: true, label: 'Mejora: Prototype Weapon System — Sustained Hits 1 a distancia', description: 'T’au Empire Battlesuit model only. Each time the bearer is selected to shoot, select either Lethal Hits or Sustained Hits 1. Until those attacks are resolved, ranged weapons equipped by the bearer have the Sustained Hits 1 ability.', factionId: 'TAU', enhancementId: '000008815003', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
   { id: 'enh_new_tau_fanatical_convert', label: 'Mejora: Fanatical Convert — For the Greater Good (+1 HB, unidad Guiada)', description: 'Kroot model only. The bearer’s unit has the For the Greater Good ability: while the unit is Guided (targeting a Spotted unit marked by an Observer unit), improve the Ballistic Skill characteristic of that attack by 1.', factionId: 'TAU', enhancementId: '000009839004', combatType: 'ranged', effects: { bsMod: -1 } },
   { id: 'enh_new_tau_through_unity_devastation', label: 'Mejora: Through Unity, Devastation — Lethal Hits a distancia (unidad Guiada)', description: 'T’au Empire model only (excluding Kroot Shaper models). While the bearer is leading an Observer unit, ranged weapons equipped by models in a Guided unit have the Lethal Hits ability while targeting their Spotted unit.', factionId: 'TAU', enhancementId: '000008442005', combatType: 'ranged', effects: { lethalHitsBonus: true } },
   { id: 'enh_new_tau_kroothawk_flock', label: 'Mejora: Kroothawk Flock — Ignora cobertura a distancia', description: 'Kroot model only. Ranged weapons equipped by models in the bearer’s unit have the Ignores Cover ability.', factionId: 'TAU', enhancementId: '000008821003', combatType: 'ranged', effects: { bsMod: -1 } },
 
   // ═══ TYR — Enhancements (bloque nuevo) ═══
-  { id: 'enh_new_tyr_power_of_the_hive_mind', label: 'Mejora: Power of the Hive Mind — +1F/+1PA armas psíquicas', description: 'Tyranids Psyker model only. Improve the Strength and Armour Penetration characteristics of psychic weapons equipped by the bearer by 1.', factionId: 'TYR', enhancementId: '000008421002', effects: { strengthMod: 1, apMod: 1 } },
+  { id: 'enh_new_tyr_power_of_the_hive_mind', bearerOnly: true, label: 'Mejora: Power of the Hive Mind — +1F/+1PA armas psíquicas', description: 'Tyranids Psyker model only. Improve the Strength and Armour Penetration characteristics of psychic weapons equipped by the bearer by 1.', factionId: 'TYR', enhancementId: '000008421002', effects: { strengthMod: 1, apMod: 1 } },
   { id: 'enh_new_tyr_ocular_adaptation', label: 'Mejora: Ocular Adaptation — +1 impactar CaC', description: 'Winged Tyranid Prime/Tyranid Prime with Lash Whip model only. This unit’s melee attacks have +1 to their Hit rolls.', factionId: 'TYR', enhancementId: '000009737003', combatType: 'melee', effects: { hitMod: 1 } },
-  { id: 'enh_new_tyr_reinforced_carapace', label: 'Mejora: Reinforced Carapace — −1 Daño recibido', description: 'Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.', factionId: 'TYR', enhancementId: '000009681003', target: 'defender', effects: { damageReduction: 1 } },
+  { id: 'enh_new_tyr_reinforced_carapace', bearerOnly: true, label: 'Mejora: Reinforced Carapace — −1 Daño recibido', description: 'Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.', factionId: 'TYR', enhancementId: '000009681003', target: 'defender', effects: { damageReduction: 1 } },
   { id: 'enh_new_tyr_sensory_assimilation', label: 'Mejora: Sensory Assimilation — −1 impactar recibido', description: 'Winged Tyranid Prime or Tyranid Prime with Lash Whip model only. Each time an attack targets the bearer’s unit, subtract 1 from the Hit roll.', factionId: 'TYR', enhancementId: '000009737004', target: 'defender', effects: { hitMod: -1 } },
-  { id: 'enh_new_tyr_synaptic_control', label: 'Mejora: Synaptic Control — −1 Daño recibido', description: 'Tyranids Synapse model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.', factionId: 'TYR', enhancementId: '000008421004', target: 'defender', effects: { damageReduction: 1 } },
-  { id: 'enh_new_tyr_monstrous_nemesis', label: 'Mejora: Monstrous Nemesis — +1 herir CaC vs MONSTER', description: 'Tyranids Monster model only. Each time the bearer makes a melee attack that targets a Monster unit, add 1 to the Wound roll.', factionId: 'TYR', enhancementId: '000008404005', combatType: 'melee', requiresTargetKeyword: 'monster', effects: { woundMod: 1 } },
-  { id: 'enh_new_tyr_monstrous_nemesis_2', label: 'Mejora: Monstrous Nemesis — +1 herir CaC vs VEHICLE', description: 'Tyranids Monster model only. Each time the bearer makes a melee attack that targets a Vehicle unit, add 1 to the Wound roll.', factionId: 'TYR', enhancementId: '000008404005', combatType: 'melee', requiresTargetKeyword: 'vehicle', effects: { woundMod: 1 } },
-  { id: 'enh_new_tyr_trygon_prime', label: 'Mejora: Trygon Prime — +1F/+1 HA CaC', description: 'Trygon model only. The bearer gains the Synapse keyword. Improve the Strength and Weapon Skill characteristics of melee weapons equipped by the bearer by 1.', factionId: 'TYR', enhancementId: '000010147005', combatType: 'melee', effects: { strengthMod: 1, wsMod: 1 } },
+  { id: 'enh_new_tyr_synaptic_control', bearerOnly: true, label: 'Mejora: Synaptic Control — −1 Daño recibido', description: 'Tyranids Synapse model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.', factionId: 'TYR', enhancementId: '000008421004', target: 'defender', effects: { damageReduction: 1 } },
+  { id: 'enh_new_tyr_monstrous_nemesis', bearerOnly: true, label: 'Mejora: Monstrous Nemesis — +1 herir CaC vs MONSTER', description: 'Tyranids Monster model only. Each time the bearer makes a melee attack that targets a Monster unit, add 1 to the Wound roll.', factionId: 'TYR', enhancementId: '000008404005', combatType: 'melee', requiresTargetKeyword: 'monster', effects: { woundMod: 1 } },
+  { id: 'enh_new_tyr_monstrous_nemesis_2', bearerOnly: true, label: 'Mejora: Monstrous Nemesis — +1 herir CaC vs VEHICLE', description: 'Tyranids Monster model only. Each time the bearer makes a melee attack that targets a Vehicle unit, add 1 to the Wound roll.', factionId: 'TYR', enhancementId: '000008404005', combatType: 'melee', requiresTargetKeyword: 'vehicle', effects: { woundMod: 1 } },
+  { id: 'enh_new_tyr_trygon_prime', bearerOnly: true, label: 'Mejora: Trygon Prime — +1F/+1 HA CaC', description: 'Trygon model only. The bearer gains the Synapse keyword. Improve the Strength and Weapon Skill characteristics of melee weapons equipped by the bearer by 1.', factionId: 'TYR', enhancementId: '000010147005', combatType: 'melee', effects: { strengthMod: 1, wsMod: 1 } },
   { id: 'enh_new_tyr_parasitic_biomorphology', label: 'Mejora: Parasitic Biomorphology — +1F CaC (unidad)', description: 'Tyranids model only. Add 1 to the Strength characteristic of melee weapons equipped by models in the bearer’s unit.', factionId: 'TYR', enhancementId: '000008412005', combatType: 'melee', effects: { strengthMod: 1 } },
-  { id: 'enh_new_tyr_elevated_might', label: 'Mejora: Elevated Might — repetir heridas CaC', description: 'Winged Tyranid Prime/Tyranid Prime with Lash Whip model only. This model’s melee attacks can re-roll Wound rolls.', factionId: 'TYR', enhancementId: '000009737005', combatType: 'melee', effects: { rerollAllWounds: true } },
-  { id: 'enh_new_tyr_elevated_might_2', label: 'Mejora: Elevated Might — +1 PA CaC', description: 'Winged Tyranid Prime/Tyranid Prime with Lash Whip model only. This model’s melee attacks have +1 Armour Penetration.', factionId: 'TYR', enhancementId: '000009737005', combatType: 'melee', effects: { apMod: 1 } },
-  { id: 'enh_new_tyr_adaptive_biology', label: 'Mejora: Adaptive Biology — FNP 5+', description: 'Tyranids model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'TYR', enhancementId: '000008348005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_tyr_elevated_might', bearerOnly: true, label: 'Mejora: Elevated Might — repetir heridas CaC', description: 'Winged Tyranid Prime/Tyranid Prime with Lash Whip model only. This model’s melee attacks can re-roll Wound rolls.', factionId: 'TYR', enhancementId: '000009737005', combatType: 'melee', effects: { rerollAllWounds: true } },
+  { id: 'enh_new_tyr_elevated_might_2', bearerOnly: true, label: 'Mejora: Elevated Might — +1 PA CaC', description: 'Winged Tyranid Prime/Tyranid Prime with Lash Whip model only. This model’s melee attacks have +1 Armour Penetration.', factionId: 'TYR', enhancementId: '000009737005', combatType: 'melee', effects: { apMod: 1 } },
+  { id: 'enh_new_tyr_adaptive_biology', bearerOnly: true, label: 'Mejora: Adaptive Biology — FNP 5+', description: 'Tyranids model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'TYR', enhancementId: '000008348005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
   { id: 'enh_new_tyr_chameleonic', label: 'Mejora: Chameleonic — Stealth (empeora HP atacante)', description: 'Vanguard Invader model only. The bearer has the Stealth ability and each time a ranged attack targets the bearer’s unit, models in that unit have the Benefit of Cover against that attack.', factionId: 'TYR', enhancementId: '000008417003', target: 'defender', combatType: 'ranged', effects: { bsMod: 1 } },
   { id: 'enh_new_tyr_synaptoprescience_upgrade', label: 'Mejora: Synaptoprescience Upgrade — salvación inv. 4+', description: 'Norn Assimilator unit only. This unit has a 4+ invulnerable save.', factionId: 'TYR', enhancementId: '000010203003', target: 'defender', effects: { feelNoPainThreshold: 4 } },
   { id: 'enh_new_tyr_destabilising_predation_upgrade', label: 'Mejora: Destabilising Predation Upgrade — crítico herida 2+ vs CHARACTER (disparo)', description: 'Norn Emissary unit only. This unit’s ranged attacks have [ANTI-CHARACTER 2+].', factionId: 'TYR', enhancementId: '000010203002', combatType: 'ranged', requiresTargetKeyword: 'character', effects: { woundCritThreshold: 2 } },
 
   // ═══ QT — Enhancements (bloque nuevo) ═══
-  { id: 'enh_new_qt_profane_altar', label: 'Mejora: Profane Altar — Lethal Hits y Sustained Hits 1', description: 'Chaos Knights model only. Each time the bearer makes a Dark Sacrifice, until the end of the phase, the bearer’s weapons have both the Lethal Hits and Sustained Hits 1 abilities.', factionId: 'QT', enhancementId: '000009765002', effects: { lethalHitsBonus: true, sustainedHitsBonus: 1 } },
-  { id: 'enh_new_qt_knight_diabolus', label: 'Mejora: Knight Diabolus — +1 HA CaC', description: 'Chaos Knights model only. Improve the Weapon Skill characteristic of the bearer’s melee weapons by 1.', factionId: 'QT', enhancementId: '000010304002', combatType: 'melee', effects: { wsMod: 1 } },
+  { id: 'enh_new_qt_profane_altar', bearerOnly: true, label: 'Mejora: Profane Altar — Lethal Hits y Sustained Hits 1', description: 'Chaos Knights model only. Each time the bearer makes a Dark Sacrifice, until the end of the phase, the bearer’s weapons have both the Lethal Hits and Sustained Hits 1 abilities.', factionId: 'QT', enhancementId: '000009765002', effects: { lethalHitsBonus: true, sustainedHitsBonus: 1 } },
+  { id: 'enh_new_qt_knight_diabolus', bearerOnly: true, label: 'Mejora: Knight Diabolus — +1 HA CaC', description: 'Chaos Knights model only. Improve the Weapon Skill characteristic of the bearer’s melee weapons by 1.', factionId: 'QT', enhancementId: '000010304002', combatType: 'melee', effects: { wsMod: 1 } },
   { id: 'enh_new_qt_final_howl', label: 'Mejora: Final Howl — repetir herida de 1 (Aura, WAR DOG)', description: 'War Dog model only. While a friendly War Dog model is within 6" of the bearer, each time that model makes an attack, re-roll a Wound roll of 1.', factionId: 'QT', enhancementId: '000010312003', requiresAttackerKeyword: 'war dog', effects: { rerollWoundsOf1: true } },
-  { id: 'enh_new_qt_diabolical_resilience', label: 'Mejora: Diabolical Resilience — FNP 6+', description: 'Chaos Knights model only. The bearer has the Feel No Pain 6+ ability.', factionId: 'QT', enhancementId: '000009765005', target: 'defender', effects: { feelNoPainThreshold: 6 } },
-  { id: 'enh_new_qt_veil_of_medrengard', label: 'Mejora: Veil of Medrengard — salvación inv. 4+ vs disparo', description: 'Chaos Knights model only. The bearer has a 4+ invulnerable save against ranged attacks.', factionId: 'QT', enhancementId: '000008516005', target: 'defender', combatType: 'ranged', effects: { feelNoPainThreshold: 4 } },
-  { id: 'enh_new_qt_veil_of_medrengard_2', label: 'Mejora: Veil of Medrengard — salvación inv. 5+ vs CaC', description: 'Chaos Knights model only. The bearer has a 5+ invulnerable save against melee attacks.', factionId: 'QT', enhancementId: '000008516005', target: 'defender', combatType: 'melee', effects: { feelNoPainThreshold: 5 } },
-  { id: 'enh_new_qt_panoply_of_the_cursed_knight', label: 'Mejora: Panoply of the Cursed Knight — −1 PA recibido', description: 'War Dog model only. Each time an attack targets the bearer, worsen the Armour Penetration characteristic of that attack by 1.', factionId: 'QT', enhancementId: '000010312005', target: 'defender', effects: { apMod: -1 } },
-  { id: 'enh_new_qt_blessing_of_the_dark_master', label: 'Mejora: Blessing of the Dark Master — Stealth (empeora HP atacante)', description: 'Chaos Knights model only. The bearer has the Stealth ability.', factionId: 'QT', enhancementId: '000010308007', target: 'defender', combatType: 'ranged', effects: { bsMod: 1 } },
+  { id: 'enh_new_qt_diabolical_resilience', bearerOnly: true, label: 'Mejora: Diabolical Resilience — FNP 6+', description: 'Chaos Knights model only. The bearer has the Feel No Pain 6+ ability.', factionId: 'QT', enhancementId: '000009765005', target: 'defender', effects: { feelNoPainThreshold: 6 } },
+  { id: 'enh_new_qt_veil_of_medrengard', bearerOnly: true, label: 'Mejora: Veil of Medrengard — salvación inv. 4+ vs disparo', description: 'Chaos Knights model only. The bearer has a 4+ invulnerable save against ranged attacks.', factionId: 'QT', enhancementId: '000008516005', target: 'defender', combatType: 'ranged', effects: { feelNoPainThreshold: 4 } },
+  { id: 'enh_new_qt_veil_of_medrengard_2', bearerOnly: true, label: 'Mejora: Veil of Medrengard — salvación inv. 5+ vs CaC', description: 'Chaos Knights model only. The bearer has a 5+ invulnerable save against melee attacks.', factionId: 'QT', enhancementId: '000008516005', target: 'defender', combatType: 'melee', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_qt_panoply_of_the_cursed_knight', bearerOnly: true, label: 'Mejora: Panoply of the Cursed Knight — −1 PA recibido', description: 'War Dog model only. Each time an attack targets the bearer, worsen the Armour Penetration characteristic of that attack by 1.', factionId: 'QT', enhancementId: '000010312005', target: 'defender', effects: { apMod: -1 } },
+  { id: 'enh_new_qt_blessing_of_the_dark_master', bearerOnly: true, label: 'Mejora: Blessing of the Dark Master — Stealth (empeora HP atacante)', description: 'Chaos Knights model only. The bearer has the Stealth ability.', factionId: 'QT', enhancementId: '000010308007', target: 'defender', combatType: 'ranged', effects: { bsMod: 1 } },
   { id: 'enh_new_qt_snarling_rivalry', label: 'Mejora: Snarling Rivalry — Ignores Cover (disparo)', description: 'Executioner unit only. This unit’s ranged attacks have the Ignores Cover ability.', factionId: 'QT', enhancementId: '000011222003', combatType: 'ranged', effects: { bsMod: -1 } },
 
   // ═══ AdM — Enhancements (bloque nuevo) ═══
@@ -20219,14 +20219,14 @@ const RULES_5: ModifierRule[] = [
 
   { id: 'enh_new_adm_peerless_eradicator', label: 'Mejora: Peerless Eradicator — Sustained Hits 1 disparo (unidad liderada)', description: 'ADEPTUS MECHANICUS model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.', factionId: 'AdM', enhancementId: '000008385004', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
 
-  { id: 'enh_new_adm_arch_negator', label: 'Mejora: Arch-negator — crítico herida 4+ vs VEHICLE (disparo)', description: 'TECH-PRIEST model only. Ranged weapons equipped by the bearer have the [ANTI-VEHICLE 4+] ability.', factionId: 'AdM', enhancementId: '000008572005', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_adm_arch_negator', bearerOnly: true, label: 'Mejora: Arch-negator — crítico herida 4+ vs VEHICLE (disparo)', description: 'TECH-PRIEST model only. Ranged weapons equipped by the bearer have the [ANTI-VEHICLE 4+] ability.', factionId: 'AdM', enhancementId: '000008572005', combatType: 'ranged', requiresTargetKeyword: 'vehicle', effects: { woundCritThreshold: 4 } },
 
-  { id: 'enh_new_adm_omnissiahs_fury', label: 'Mejora: Omnissiah’s Fury — +2A/+1PA/+1D CaC', description: 'Skitarii Marshal model only. Add 2 to the Attacks characteristic of melee weapons equipped by the bearer, and improve the Armour Penetration and Damage characteristics of those weapons by 1.', factionId: 'AdM', enhancementId: '000010747005', combatType: 'melee', effects: { attacksMod: 2, apMod: 1, damageMod: 1 } },
+  { id: 'enh_new_adm_omnissiahs_fury', bearerOnly: true, label: 'Mejora: Omnissiah’s Fury — +2A/+1PA/+1D CaC', description: 'Skitarii Marshal model only. Add 2 to the Attacks characteristic of melee weapons equipped by the bearer, and improve the Armour Penetration and Damage characteristics of those weapons by 1.', factionId: 'AdM', enhancementId: '000010747005', combatType: 'melee', effects: { attacksMod: 2, apMod: 1, damageMod: 1 } },
 
-  { id: 'enh_new_adm_autoclavic_denunciation_infantry', label: 'Mejora: Autoclavic Denunciation — crítico herida 2+ vs INFANTRY (disparo)', description: 'ADEPTUS MECHANICUS model only. Ranged weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.', factionId: 'AdM', enhancementId: '000008385005', combatType: 'ranged', requiresTargetKeyword: 'infantry', effects: { woundCritThreshold: 2 } },
-  { id: 'enh_new_adm_autoclavic_denunciation_monster', label: 'Mejora: Autoclavic Denunciation — crítico herida 4+ vs MONSTER (disparo)', description: 'ADEPTUS MECHANICUS model only. Ranged weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.', factionId: 'AdM', enhancementId: '000008385005', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
+  { id: 'enh_new_adm_autoclavic_denunciation_infantry', bearerOnly: true, label: 'Mejora: Autoclavic Denunciation — crítico herida 2+ vs INFANTRY (disparo)', description: 'ADEPTUS MECHANICUS model only. Ranged weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.', factionId: 'AdM', enhancementId: '000008385005', combatType: 'ranged', requiresTargetKeyword: 'infantry', effects: { woundCritThreshold: 2 } },
+  { id: 'enh_new_adm_autoclavic_denunciation_monster', bearerOnly: true, label: 'Mejora: Autoclavic Denunciation — crítico herida 4+ vs MONSTER (disparo)', description: 'ADEPTUS MECHANICUS model only. Ranged weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.', factionId: 'AdM', enhancementId: '000008385005', combatType: 'ranged', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
 
-  { id: 'enh_new_adm_inloaded_lethality', label: 'Mejora: Inloaded Lethality — +3A/+1D CaC', description: 'Tech-Priest Dominus or Tech-Priest Manipulus model only. Add 3 to the Attacks characteristic of the bearer’s melee weapons and add 1 to the Damage characteristic of the bearer’s melee weapons.', factionId: 'AdM', enhancementId: '000009745005', combatType: 'melee', effects: { attacksMod: 3, damageMod: 1 } },
+  { id: 'enh_new_adm_inloaded_lethality', bearerOnly: true, label: 'Mejora: Inloaded Lethality — +3A/+1D CaC', description: 'Tech-Priest Dominus or Tech-Priest Manipulus model only. Add 3 to the Attacks characteristic of the bearer’s melee weapons and add 1 to the Damage characteristic of the bearer’s melee weapons.', factionId: 'AdM', enhancementId: '000009745005', combatType: 'melee', effects: { attacksMod: 3, damageMod: 1 } },
 
   { id: 'enh_new_adm_electromiasmic_brazier', label: 'Mejora: Electromiasmic Brazier — Stealth (disparo)', description: 'TECH-PRIEST model only. This unit has Stealth.', factionId: 'AdM', enhancementId: '000011131003', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
 
@@ -20239,9 +20239,9 @@ const RULES_5: ModifierRule[] = [
 
   { id: 'enh_new_lov_bastion_shield', label: 'Mejora: Bastion Shield — −1 PA recibido (disparo)', description: 'LEAGUES OF VOTANN model only. Each time a ranged attack targets the bearer’s unit, if the attacking model is within 12" of the bearer’s unit, worsen the Armour Penetration characteristic of that attack by 1.', factionId: 'LoV', enhancementId: '000009823002', combatType: 'ranged', target: 'defender', effects: { apMod: -1 } },
 
-  { id: 'enh_new_lov_masterful_construction_1', label: 'Mejora: Masterful Construction — Devastating Wounds (elección)', description: 'Each time the bearer is selected to shoot or fight, you can select one of the following weapon abilities: [DEVASTATING WOUNDS]; [LETHAL HITS]; [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by the bearer (excluding Psychic weapons) have that ability.', factionId: 'LoV', enhancementId: '000009529002', effects: { devastatingWoundsBonus: true } },
-  { id: 'enh_new_lov_masterful_construction_2', label: 'Mejora: Masterful Construction — Lethal Hits (elección)', description: 'Each time the bearer is selected to shoot or fight, you can select one of the following weapon abilities: [DEVASTATING WOUNDS]; [LETHAL HITS]; [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by the bearer (excluding Psychic weapons) have that ability.', factionId: 'LoV', enhancementId: '000009529002', effects: { lethalHitsBonus: true } },
-  { id: 'enh_new_lov_masterful_construction_3', label: 'Mejora: Masterful Construction — Sustained Hits 1 (elección)', description: 'Each time the bearer is selected to shoot or fight, you can select one of the following weapon abilities: [DEVASTATING WOUNDS]; [LETHAL HITS]; [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by the bearer (excluding Psychic weapons) have that ability.', factionId: 'LoV', enhancementId: '000009529002', effects: { sustainedHitsBonus: 1 } },
+  { id: 'enh_new_lov_masterful_construction_1', bearerOnly: true, label: 'Mejora: Masterful Construction — Devastating Wounds (elección)', description: 'Each time the bearer is selected to shoot or fight, you can select one of the following weapon abilities: [DEVASTATING WOUNDS]; [LETHAL HITS]; [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by the bearer (excluding Psychic weapons) have that ability.', factionId: 'LoV', enhancementId: '000009529002', effects: { devastatingWoundsBonus: true } },
+  { id: 'enh_new_lov_masterful_construction_2', bearerOnly: true, label: 'Mejora: Masterful Construction — Lethal Hits (elección)', description: 'Each time the bearer is selected to shoot or fight, you can select one of the following weapon abilities: [DEVASTATING WOUNDS]; [LETHAL HITS]; [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by the bearer (excluding Psychic weapons) have that ability.', factionId: 'LoV', enhancementId: '000009529002', effects: { lethalHitsBonus: true } },
+  { id: 'enh_new_lov_masterful_construction_3', bearerOnly: true, label: 'Mejora: Masterful Construction — Sustained Hits 1 (elección)', description: 'Each time the bearer is selected to shoot or fight, you can select one of the following weapon abilities: [DEVASTATING WOUNDS]; [LETHAL HITS]; [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by the bearer (excluding Psychic weapons) have that ability.', factionId: 'LoV', enhancementId: '000009529002', effects: { sustainedHitsBonus: 1 } },
 
   { id: 'enh_new_lov_trivarg_cyber_implant', label: 'Mejora: Trivärg Cyber Implant — Sustained Hits 2 disparo', description: 'LEAGUES OF VOTANN model only. In your Shooting phase, each time the bearer’s unit is selected to shoot, if it disembarked from a Transport this turn, or if you spend 2YP, until the end of the phase, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 2] ability.', factionId: 'LoV', enhancementId: '000010447003', combatType: 'ranged', effects: { sustainedHitsBonus: 2 } },
 
@@ -20250,39 +20250,39 @@ const RULES_5: ModifierRule[] = [
   { id: 'enh_new_lov_etacarn_targeting_implant_1', label: 'Mejora: Etacarn SB9 Targeting Implant — repetir impacto de 1', description: 'LEAGUES OF VOTANN model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1.', factionId: 'LoV', enhancementId: '000010708004', effects: { rerollHitsOf1: true } },
   { id: 'enh_new_lov_etacarn_targeting_implant_2', label: 'Mejora: Etacarn SB9 Targeting Implant — Sustained Hits 1 (3YP)', description: 'LEAGUES OF VOTANN model only. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, that attack has the [SUSTAINED HITS 1] ability.', factionId: 'LoV', enhancementId: '000010708004', effects: { sustainedHitsBonus: 1 } },
 
-  { id: 'enh_new_lov_quake_supervisor', label: 'Mejora: Quake Supervisor — +1 impactar (ARTILLERY aliada, disparo)', description: 'LEAGUES OF VOTANN model only. While the bearer is within 3" of one or more friendly Leagues of Votann Artillery units, the bearer has the Lone Operative ability, and each time one of those ARTILLERY units makes a ranged attack that targets an enemy unit visible to the bearer, add 1 to the Hit roll.', factionId: 'LoV', enhancementId: '000010443004', combatType: 'ranged', effects: { hitMod: 1 } },
+  { id: 'enh_new_lov_quake_supervisor', bearerOnly: true, label: 'Mejora: Quake Supervisor — +1 impactar (ARTILLERY aliada, disparo)', description: 'LEAGUES OF VOTANN model only. While the bearer is within 3" of one or more friendly Leagues of Votann Artillery units, the bearer has the Lone Operative ability, and each time one of those ARTILLERY units makes a ranged attack that targets an enemy unit visible to the bearer, add 1 to the Hit roll.', factionId: 'LoV', enhancementId: '000010443004', combatType: 'ranged', effects: { hitMod: 1 } },
 
   { id: 'enh_new_lov_precursive_judgement', label: 'Mejora: Precursive Judgement — Overwatch 5+ (0PC)', description: 'Kâhl model only. While the bearer’s unit is wholly within 6" of one or more friendly Leagues of Votann Transport units, you can target the bearer’s unit with the Fire Overwatch Stratagem for 0CP and hits are scored on unmodified Hit rolls of 5+ while resolving that Stratagem.', factionId: 'LoV', enhancementId: '000010447004', combatType: 'ranged', effects: { overwatchThreshold: 5 } },
 
-  { id: 'enh_new_lov_piledriver', label: 'Mejora: Piledriver — +2 Daño CaC (2YP)', description: 'LEAGUES OF VOTANN model only. Each time the bearer’s unit is selected to fight, the bearer can use this Enhancement. If it does, spend up to 2YP and, until the end of the phase, add the number of YP you just spent to the Damage characteristic of the bearer’s melee weapons.', factionId: 'LoV', enhancementId: '000010443005', combatType: 'melee', effects: { damageMod: 2 } },
+  { id: 'enh_new_lov_piledriver', bearerOnly: true, label: 'Mejora: Piledriver — +2 Daño CaC (2YP)', description: 'LEAGUES OF VOTANN model only. Each time the bearer’s unit is selected to fight, the bearer can use this Enhancement. If it does, spend up to 2YP and, until the end of the phase, add the number of YP you just spent to the Damage characteristic of the bearer’s melee weapons.', factionId: 'LoV', enhancementId: '000010443005', combatType: 'melee', effects: { damageMod: 2 } },
 
   { id: 'enh_new_lov_graviton_vault', label: 'Mejora: Graviton Vault — −1 impactar recibido (unidad suprimida)', description: 'Iron-master model only. In your Shooting phase, after the bearer has shot, and in the Fight phase, after the bearer has fought, select one enemy MONSTER or VEHICLE unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'LoV', enhancementId: '000010451005', effects: { hitMod: -1 } },
 
   { id: 'enh_new_lov_saturation_rounds_upgrade', label: 'Mejora: Saturation Rounds Upgrade — Ignores Cover (disparo)', description: 'SAGITAUR unit only. This unit’s ranged attacks have [IGNORES COVER].', factionId: 'LoV', enhancementId: '000011051002', combatType: 'ranged', effects: { bsMod: -1 } },
 
   // ═══ AM — Enhancements (bloque nuevo) ═══
-  { id: 'enh_new_am_titan_killer', label: 'Mejora: Titan Killer — repetir tirada de Daño (disparo)', description: 'Astra Militarum Titanic Character model only. Each time the bearer makes a ranged attack, you can re-roll the Damage roll.', factionId: 'AM', enhancementId: '000010787003', combatType: 'ranged', effects: { rerollAllDamage: true } },
+  { id: 'enh_new_am_titan_killer', bearerOnly: true, label: 'Mejora: Titan Killer — repetir tirada de Daño (disparo)', description: 'Astra Militarum Titanic Character model only. Each time the bearer makes a ranged attack, you can re-roll the Damage roll.', factionId: 'AM', enhancementId: '000010787003', combatType: 'ranged', effects: { rerollAllDamage: true } },
   { id: 'enh_new_am_aquilan_eye', label: 'Mejora: Aquilan Eye — Orden Target Weak Spot: +1 PA (disparo)', description: 'Astra Militarum officer model only. Each time you select an Order for the bearer to issue, you can select the Target Weak Spot Order: each time a model in this unit makes a ranged attack that targets an enemy unit within 12", improve the Armour Penetration characteristic of that attack by 1.', factionId: 'AM', enhancementId: '000010637003', combatType: 'ranged', effects: { apMod: 1 } },
   { id: 'enh_new_am_sacred_unguents', label: 'Mejora: Sacred Unguents — repetir impactos (TRANSPORT, disparo)', description: 'Astra Militarum Tech-Priest Enginseer model only. At the start of your Shooting phase, select one Transport from your army (excluding Aircraft and Titanic units) within 3" of the bearer. Until the end of the phase, each time that TRANSPORT makes an attack, you can re-roll the Hit roll.', factionId: 'AM', enhancementId: '000009861003', combatType: 'ranged', requiresAttackerKeyword: 'transport', effects: { rerollAllHits: true } },
   { id: 'enh_new_am_drill_commander', label: 'Mejora: Drill Commander — crítico 5+ (disparo)', description: 'Officer model only. While the bearer is leading a unit, each time a model in that unit makes a ranged attack, if that unit Remained Stationary this turn, a Critical Hit is scored on a successful unmodified Hit roll of 5+.', factionId: 'AM', enhancementId: '000008380003', combatType: 'ranged', effects: { critThreshold: 5 } },
-  { id: 'enh_new_am_indomitable_steed', label: 'Mejora: Indomitable Steed — Feel No Pain 6+', description: 'Vehicle Officer model only. The bearer has the Feel No Pain 6+ ability.', factionId: 'AM', enhancementId: '000009865003', effects: { feelNoPainThreshold: 6 } },
+  { id: 'enh_new_am_indomitable_steed', bearerOnly: true, label: 'Mejora: Indomitable Steed — Feel No Pain 6+', description: 'Vehicle Officer model only. The bearer has the Feel No Pain 6+ ability.', factionId: 'AM', enhancementId: '000009865003', effects: { feelNoPainThreshold: 6 } },
   { id: 'enh_new_am_elimination_force', label: 'Mejora: Elimination Force — +1 herir (Fuerza atacante < Resistencia del objetivo)', description: 'At the start of the first battle round, select one enemy unit. Each time a model in the bearer’s unit makes an attack that targets that enemy unit, if the Strength characteristic of that attack is less than the Toughness characteristic of that enemy unit, add 1 to the Wound roll.', factionId: 'AM', enhancementId: '000009389003', effects: { woundMod: 1 } },
   { id: 'enh_new_am_stalwarts_honours', label: 'Mejora: Stalwart’s Honours — +1 salvación (Orden ¡Take Cover!)', description: 'Officer model only. While the bearer is leading a unit, when that unit is issued an Order, it is also affected by the Take Cover! Order.', factionId: 'AM', enhancementId: '000009857005', target: 'defender', effects: { saveMod: 1 } },
   { id: 'enh_new_am_spec_ops_veteran', label: 'Mejora: Spec Ops Veteran — Orden Move to the Shadows: Stealth (disparo)', description: 'Astra Militarum Infantry officer model only. Each time you select an Order for the bearer to issue, you can select the Move to the Shadows Order: each time a ranged attack targets this unit, until those attacks are resolved, models in this unit have the Stealth ability.', factionId: 'AM', enhancementId: '000010637004', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
   { id: 'enh_new_am_veteran_crew', label: 'Mejora: Veteran Crew — repetir impactos de 1 (disparo)', description: 'Vehicle Officer model only. Each time a model in the bearer’s unit makes a ranged attack, re-roll a Hit roll of 1.', factionId: 'AM', enhancementId: '000009865005', combatType: 'ranged', effects: { rerollHitsOf1: true } },
 
   // ═══ EC — Enhancements (bloque nuevo) ═══
-  { id: 'enh_new_ec_venom_of_the_six_fanged_serpent', label: 'Mejora: Venom of the Six-fanged Serpent — +1S/+1D/+2PA CaC', description: 'Add 1 to the Strength and Damage characteristics of the bearer’s melee weapons and improve the Armour Penetration characteristic of those weapons by 2.', factionId: 'EC', enhancementId: '000010808002', combatType: 'melee', effects: { strengthMod: 1, damageMod: 1, apMod: 2 } },
+  { id: 'enh_new_ec_venom_of_the_six_fanged_serpent', bearerOnly: true, label: 'Mejora: Venom of the Six-fanged Serpent — +1S/+1D/+2PA CaC', description: 'Add 1 to the Strength and Damage characteristics of the bearer’s melee weapons and improve the Armour Penetration characteristic of those weapons by 2.', factionId: 'EC', enhancementId: '000010808002', combatType: 'melee', effects: { strengthMod: 1, damageMod: 1, apMod: 2 } },
   { id: 'enh_new_ec_steeped_in_suffering', label: 'Mejora: Steeped in Suffering — +1 impactar (objetivo bajo Fuerza inicial)', description: 'Emperor’s Children model only. Each time a model in the bearer’s unit makes an attack that targets an enemy unit below its Starting Strength, add 1 to the Hit roll. If that target is also Below Half-strength, add 1 to the Wound roll as well.', factionId: 'EC', enhancementId: '000009998002', effects: { hitMod: 1 } },
   { id: 'enh_new_ec_steeped_in_suffering_2', label: 'Mejora: Steeped in Suffering — +1 herir (objetivo a media vida)', factionId: 'EC', enhancementId: '000009998002', effects: { woundMod: 1 } },
   { id: 'enh_new_ec_intoxicating_musk', label: 'Mejora: Intoxicating Musk — −1 herir recibido (Fuerza atacante > Resistencia)', description: 'Emperor’s Children model only. Each time a melee attack targets the bearer’s unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll.', factionId: 'EC', enhancementId: '000009998003', combatType: 'melee', target: 'defender', effects: { woundMod: -1 } },
-  { id: 'enh_new_ec_distortion', label: 'Mejora: Distortion — +1A/+1D CaC', description: 'Emperor’s Children model only. Add 1 to the Attacks and Damage characteristics of melee weapons equipped by the bearer.', factionId: 'EC', enhancementId: '000010002004', combatType: 'melee', effects: { attacksMod: 1, damageMod: 1 } },
-  { id: 'enh_new_ec_possessed_blade', label: 'Mejora: Possessed Blade — +1A CaC (arma seleccionada)', description: 'Emperor’s Children model only. At the start of the battle, select one melee weapon equipped by the bearer; add 1 to the Attacks characteristic of that weapon.', factionId: 'EC', enhancementId: '000010010004', combatType: 'melee', effects: { attacksMod: 1 } },
-  { id: 'enh_new_ec_possessed_blade_2', label: 'Mejora: Possessed Blade — +1D y Devastating Wounds CaC (al luchar)', description: 'Each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those attacks, add 1 to the Damage characteristic of that weapon and that weapon has the [devastating wounds] ability.', factionId: 'EC', enhancementId: '000010010004', combatType: 'melee', effects: { damageMod: 1, devastatingWoundsBonus: true } },
-  { id: 'enh_new_ec_slayer_of_champions', label: 'Mejora: Slayer of Champions — +1S/+1PA CaC (objetivo CHARACTER)', description: 'Emperor’s Children model only. Each time the bearer makes a melee attack that targets a CHARACTER unit, improve the Strength and Armour Penetration characteristics of that attack by 1.', factionId: 'EC', enhancementId: '000010018005', combatType: 'melee', requiresTargetKeyword: 'character', effects: { strengthMod: 1, apMod: 1 } },
-  { id: 'enh_new_ec_spiritsliver', label: 'Mejora: Spiritsliver — +1S/+1A CaC', description: 'Emperor’s Children Daemon Prince model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons.', factionId: 'EC', enhancementId: '000010654005', combatType: 'melee', effects: { strengthMod: 1, attacksMod: 1 } },
+  { id: 'enh_new_ec_distortion', bearerOnly: true, label: 'Mejora: Distortion — +1A/+1D CaC', description: 'Emperor’s Children model only. Add 1 to the Attacks and Damage characteristics of melee weapons equipped by the bearer.', factionId: 'EC', enhancementId: '000010002004', combatType: 'melee', effects: { attacksMod: 1, damageMod: 1 } },
+  { id: 'enh_new_ec_possessed_blade', bearerOnly: true, label: 'Mejora: Possessed Blade — +1A CaC (arma seleccionada)', description: 'Emperor’s Children model only. At the start of the battle, select one melee weapon equipped by the bearer; add 1 to the Attacks characteristic of that weapon.', factionId: 'EC', enhancementId: '000010010004', combatType: 'melee', effects: { attacksMod: 1 } },
+  { id: 'enh_new_ec_possessed_blade_2', bearerOnly: true, label: 'Mejora: Possessed Blade — +1D y Devastating Wounds CaC (al luchar)', description: 'Each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those attacks, add 1 to the Damage characteristic of that weapon and that weapon has the [devastating wounds] ability.', factionId: 'EC', enhancementId: '000010010004', combatType: 'melee', effects: { damageMod: 1, devastatingWoundsBonus: true } },
+  { id: 'enh_new_ec_slayer_of_champions', bearerOnly: true, label: 'Mejora: Slayer of Champions — +1S/+1PA CaC (objetivo CHARACTER)', description: 'Emperor’s Children model only. Each time the bearer makes a melee attack that targets a CHARACTER unit, improve the Strength and Armour Penetration characteristics of that attack by 1.', factionId: 'EC', enhancementId: '000010018005', combatType: 'melee', requiresTargetKeyword: 'character', effects: { strengthMod: 1, apMod: 1 } },
+  { id: 'enh_new_ec_spiritsliver', bearerOnly: true, label: 'Mejora: Spiritsliver — +1S/+1A CaC', description: 'Emperor’s Children Daemon Prince model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons.', factionId: 'EC', enhancementId: '000010654005', combatType: 'melee', effects: { strengthMod: 1, attacksMod: 1 } },
   { id: 'enh_new_ec_psychedelic_soulflame', label: 'Mejora: Psychedelic Soulflame — Sustained Hits 1', description: 'Emperor’s Children Terminator Squad unit only. This unit’s attacks have the Sustained Hits 1 ability.', factionId: 'EC', enhancementId: '000011001003', effects: { sustainedHitsBonus: 1 } },
-  { id: 'enh_new_ec_euphoric_crown', label: 'Mejora: Euphoric Crown — +1S CaC', description: 'Lord Exultant model only. This model’s melee attacks have +1 Strength.', factionId: 'EC', enhancementId: '000011011002', combatType: 'melee', effects: { strengthMod: 1 } },
+  { id: 'enh_new_ec_euphoric_crown', bearerOnly: true, label: 'Mejora: Euphoric Crown — +1S CaC', description: 'Lord Exultant model only. This model’s melee attacks have +1 Strength.', factionId: 'EC', enhancementId: '000011011002', combatType: 'melee', effects: { strengthMod: 1 } },
   { id: 'enh_new_ec_howling_plate', label: 'Mejora: Howling Plate — +1PA disparo', description: 'Lord Exultant model only. This unit’s ranged attacks have +1 Armour Penetration.', factionId: 'EC', enhancementId: '000011011003', combatType: 'ranged', effects: { apMod: 1 } },
 
   // ═══ DRU — Enhancements (bloque nuevo) ═══
@@ -20308,7 +20308,7 @@ const RULES_5: ModifierRule[] = [
     effects: { bsMod: 1 },
   },
   {
-    id: 'enh_new_dru_eye_of_spite',
+    id: 'enh_new_dru_eye_of_spite', bearerOnly: true,
     label: 'Mejora: Eye of Spite — +1 ataques / +1 PA CaC',
     description: 'Succubus model only. Improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 1. (Bono adicional al gastar 1 Pain token en el Fight phase, hasta +2/+2, no modelado por ser condicional a un recurso puntual.)',
     factionId: 'DRU',
@@ -20317,7 +20317,7 @@ const RULES_5: ModifierRule[] = [
     effects: { attacksMod: 1, apMod: 1 },
   },
   {
-    id: 'enh_new_dru_morghennas_curse',
+    id: 'enh_new_dru_morghennas_curse', bearerOnly: true,
     label: 'Mejora: Morghenna’s Curse — +1 PA / +1 daño CaC',
     description: 'Succubus model only. Improve the Armour Penetration and Damage characteristics of the bearer’s melee weapons by 1.',
     factionId: 'DRU',
@@ -20338,7 +20338,7 @@ const RULES_5: ModifierRule[] = [
   // ═══ WE — Enhancements (bloque nuevo) ═══
 
   {
-    id: 'enh_new_we_berzerker_glaive',
+    id: 'enh_new_we_berzerker_glaive', bearerOnly: true,
     label: 'Mejora: Berzerker Glaive — +1 ataques / +1 daño CaC',
     description: 'WORLD EATERS model only. Add 1 to the Attacks and Damage characteristics of melee weapons (excluding Extra Attacks weapons) equipped by the bearer.',
     factionId: 'WE',
@@ -20347,7 +20347,7 @@ const RULES_5: ModifierRule[] = [
     effects: { attacksMod: 1, damageMod: 1 },
   },
   {
-    id: 'enh_new_we_archslaughterer',
+    id: 'enh_new_we_archslaughterer', bearerOnly: true,
     label: 'Mejora: Archslaughterer — +1 PA CaC',
     description: 'WORLD EATERS model only. Improve the Armour Penetration characteristic of melee weapons equipped by the bearer by 1. While the bearer is a Vessel of Wrath, improve the Damage characteristic of those weapons by 1 as well. (Bono de daño condicional no modelado: “Vessel of Wrath” no aparece como keyword confirmable en Datasheets_keywords.csv.)',
     factionId: 'WE',
@@ -20356,7 +20356,7 @@ const RULES_5: ModifierRule[] = [
     effects: { apMod: 1 },
   },
   {
-    id: 'enh_new_we_helm_of_brazen_ire',
+    id: 'enh_new_we_helm_of_brazen_ire', bearerOnly: true,
     label: 'Mejora: Helm of Brazen Ire — reducir daño recibido en 1',
     description: 'WORLD EATERS model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.',
     factionId: 'WE',
@@ -20373,7 +20373,7 @@ const RULES_5: ModifierRule[] = [
     effects: { critThreshold: 5 },
   },
   {
-    id: 'enh_new_we_brazen_form',
+    id: 'enh_new_we_brazen_form', bearerOnly: true,
     label: 'Mejora: Brazen Form — Feel No Pain 5+',
     description: 'World Eaters Monster model only. Add 1 to the bearer’s Toughness characteristic and the bearer has the Feel No Pain 5+ ability. (Bono de Toughness no modelado: sin campo disponible.)',
     factionId: 'WE',
@@ -20382,7 +20382,7 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 5 },
   },
   {
-    id: 'enh_new_we_blade_of_endless_bloodshed',
+    id: 'enh_new_we_blade_of_endless_bloodshed', bearerOnly: true,
     label: 'Mejora: Blade of Endless Bloodshed — +1 ataques / +1 fuerza / +1 daño CaC',
     description: 'World Eaters model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. (Ganancia automática de Blood Tithe point al destruir una unidad no modelada: recurso fuera del alcance de CombatModifiers.)',
     factionId: 'WE',
@@ -20411,18 +20411,18 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ DG — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_dg_daemon_weapon_of_nurgle', label: 'Mejora: Daemon Weapon of Nurgle — Golpe Crítico con 5+ en CaC', description: 'DEATH GUARD model only. Each time the bearer makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.', factionId: 'DG', enhancementId: '000010123002', combatType: 'melee', effects: { critThreshold: 5 } },
-  { id: 'enh_new_dg_fell_harvester', label: 'Mejora: Fell Harvester — +2 ataques CaC', description: 'Death Guard model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'DG', enhancementId: '000010135003', combatType: 'melee', effects: { attacksMod: 2 } },
-  { id: 'enh_new_dg_revolting_regeneration', label: 'Mejora: Revolting Regeneration — Feel No Pain 5+', description: 'DEATH GUARD model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'DG', enhancementId: '000010123005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_dg_daemon_weapon_of_nurgle', bearerOnly: true, label: 'Mejora: Daemon Weapon of Nurgle — Golpe Crítico con 5+ en CaC', description: 'DEATH GUARD model only. Each time the bearer makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.', factionId: 'DG', enhancementId: '000010123002', combatType: 'melee', effects: { critThreshold: 5 } },
+  { id: 'enh_new_dg_fell_harvester', bearerOnly: true, label: 'Mejora: Fell Harvester — +2 ataques CaC', description: 'Death Guard model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'DG', enhancementId: '000010135003', combatType: 'melee', effects: { attacksMod: 2 } },
+  { id: 'enh_new_dg_revolting_regeneration', bearerOnly: true, label: 'Mejora: Revolting Regeneration — Feel No Pain 5+', description: 'DEATH GUARD model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'DG', enhancementId: '000010123005', target: 'defender', effects: { feelNoPainThreshold: 5 } },
   { id: 'enh_new_dg_insectile_murmuration', label: 'Mejora: Insectile Murmuration — repetir heridas de 1 (PLAGUE MARINES)', description: 'PLAGUE MARINES unit only. When this unit’s attacks target a unit within Contagion Range of a friendly unit, those attacks can re-roll wound rolls of 1.', factionId: 'DG', enhancementId: '000009729003', requiresAttackerKeyword: 'plague marines', effects: { rerollWoundsOf1: true } },
-  { id: 'enh_new_dg_tendrilous_emissions', label: 'Mejora: Tendrilous Emissions — repetir heridas de 1 a distancia (VEHICLE)', description: 'Lord of Virulence only. While the bearer is within 3” of one or more friendly Death Guard Vehicle units, each time one of those VEHICLE units makes a ranged attack that targets an enemy unit visible to the bearer, re-roll a Wound roll of 1.', factionId: 'DG', enhancementId: '000010127005', combatType: 'ranged', requiresAttackerKeyword: 'vehicle', effects: { rerollWoundsOf1: true } },
+  { id: 'enh_new_dg_tendrilous_emissions', bearerOnly: true, label: 'Mejora: Tendrilous Emissions — repetir heridas de 1 a distancia (VEHICLE)', description: 'Lord of Virulence only. While the bearer is within 3” of one or more friendly Death Guard Vehicle units, each time one of those VEHICLE units makes a ranged attack that targets an enemy unit visible to the bearer, re-roll a Wound roll of 1.', factionId: 'DG', enhancementId: '000010127005', combatType: 'ranged', requiresAttackerKeyword: 'vehicle', effects: { rerollWoundsOf1: true } },
 
   // ═══ GK — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_gk_shield_of_admonishment', label: 'Mejora: Shield of Admonishment — −1 impactar recibido en CaC', description: 'Each time a melee attack targets the bearer, subtract 1 from the Hit roll.', factionId: 'GK', enhancementId: '000009493002', combatType: 'melee', target: 'defender', effects: { hitMod: -1 } },
+  { id: 'enh_new_gk_shield_of_admonishment', bearerOnly: true, label: 'Mejora: Shield of Admonishment — −1 impactar recibido en CaC', description: 'Each time a melee attack targets the bearer, subtract 1 from the Hit roll.', factionId: 'GK', enhancementId: '000009493002', combatType: 'melee', target: 'defender', effects: { hitMod: -1 } },
   { id: 'enh_new_gk_sigil_of_the_hunt', label: 'Mejora: Sigil of the Hunt — repetir impactos de 1 a distancia', description: 'GREY KNIGHTS model only. In your Shooting phase, each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1.', factionId: 'GK', enhancementId: '000010356002', combatType: 'ranged', effects: { rerollHitsOf1: true } },
   { id: 'enh_new_gk_sixty_sixth_seal', label: 'Mejora: The Sixty-sixth Seal — +1 PA a distancia', description: 'GREY KNIGHTS model only. In your Shooting phase, each time a model in the bearer’s unit makes an attack, improve the Armour Penetration characteristic of that attack by 1.', factionId: 'GK', enhancementId: '000010356004', combatType: 'ranged', effects: { apMod: 1 } },
-  { id: 'enh_new_gk_sanctic_reaper', label: 'Mejora: Sanctic Reaper — +3 ataques CaC', description: 'GREY KNIGHTS TERMINATOR model only. Add 3 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'GK', enhancementId: '000010352004', combatType: 'melee', effects: { attacksMod: 3 } },
+  { id: 'enh_new_gk_sanctic_reaper', bearerOnly: true, label: 'Mejora: Sanctic Reaper — +3 ataques CaC', description: 'GREY KNIGHTS TERMINATOR model only. Add 3 to the Attacks characteristic of the bearer’s melee weapons.', factionId: 'GK', enhancementId: '000010352004', combatType: 'melee', effects: { attacksMod: 3 } },
   { id: 'enh_new_gk_phial_of_the_abyss', label: 'Mejora: Phial of the Abyss — Stealth (unidad)', description: 'Grey Knights Infantry model only. Models in the bearer’s unit have the Stealth ability.', factionId: 'GK', enhancementId: '000009777004', target: 'defender', combatType: 'ranged', effects: { bsMod: 1 } },
   { id: 'enh_new_gk_nemesis_rounds', label: 'Mejora: Nemesis Rounds — overwatch 5+', description: 'GREY KNIGHTS TERMINATOR model only. Each time you target the bearer’s unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ while resolving that Stratagem.', factionId: 'GK', enhancementId: '000010352005', combatType: 'ranged', effects: { overwatchThreshold: 5 } },
   { id: 'enh_new_gk_boons_of_deimos', label: 'Mejora: Boons of Deimos — +2 Fuerza a distancia (PURGATION SQUAD)', description: 'PURGATION SQUAD unit only. This unit’s ranged attacks have +2 Strength.', factionId: 'GK', enhancementId: '000011169003', combatType: 'ranged', effects: { strengthMod: 2 } },
@@ -20430,9 +20430,9 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ GC — Enhancements (bloque nuevo) ═══
 
-  { id: 'enh_new_gc_biomorph_adaptation', label: 'Mejora: Biomorph Adaptation — +1 AP/+1 daño CaC', description: 'Abominant or Patriarch model only. Improve the Armour Penetration and Damage characteristics of melee weapons equipped by the bearer by 1.', factionId: 'GC', enhancementId: '000009075003', combatType: 'melee', effects: { apMod: 1, damageMod: 1 } },
+  { id: 'enh_new_gc_biomorph_adaptation', bearerOnly: true, label: 'Mejora: Biomorph Adaptation — +1 AP/+1 daño CaC', description: 'Abominant or Patriarch model only. Improve the Armour Penetration and Damage characteristics of melee weapons equipped by the bearer by 1.', factionId: 'GC', enhancementId: '000009075003', combatType: 'melee', effects: { apMod: 1, damageMod: 1 } },
 
-  { id: 'enh_new_gc_miasmic_fumes', label: 'Mejora: Miasmic Fumes — −1 impactar/−1 herir recibido', description: 'Biophagus model only. Each time an attack targets the bearer, subtract 1 from the Hit roll and subtract 1 from the Wound roll.', factionId: 'GC', enhancementId: '000009468003', target: 'defender', effects: { hitMod: -1, woundMod: -1 } },
+  { id: 'enh_new_gc_miasmic_fumes', bearerOnly: true, label: 'Mejora: Miasmic Fumes — −1 impactar/−1 herir recibido', description: 'Biophagus model only. Each time an attack targets the bearer, subtract 1 from the Hit roll and subtract 1 from the Wound roll.', factionId: 'GC', enhancementId: '000009468003', target: 'defender', effects: { hitMod: -1, woundMod: -1 } },
 
   { id: 'enh_new_gc_denunciator_of_tyrants', label: 'Mejora: Denunciator of Tyrants — +1 impactar/+1 herir vs CHARACTER', description: 'Magus, Primus or Acolyte Iconward model only. Each time a model in the bearer’s unit makes an attack that targets a CHARACTER unit, add 1 to the Hit roll and add 1 to the Wound roll.', factionId: 'GC', enhancementId: '000009071003', requiresTargetKeyword: 'character', effects: { hitMod: 1, woundMod: 1 } },
 
@@ -20440,7 +20440,7 @@ const RULES_5: ModifierRule[] = [
 
   { id: 'enh_new_gc_starfall_shells', label: 'Mejora: Starfall Shells — −1 impactar recibido (unidad marcada)', description: 'Genestealer Cults Mounted model only. In your Shooting phase, after the bearer has shot, select one enemy unit hit by one or more of those attacks made with a cult sniper rifle. Until the start of your next Shooting phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll.', factionId: 'GC', enhancementId: '000009079004', target: 'defender', effects: { hitMod: -1 } },
 
-  { id: 'enh_new_gc_vanguard_tyrant', label: 'Mejora: Vanguard Tyrant — +1S/+1AP CaC', description: 'Winged Hive Tyrant model only. Improve the Strength and Armour Penetration characteristics of melee weapons equipped by the bearer by 1.', factionId: 'GC', enhancementId: '000009827004', combatType: 'melee', effects: { strengthMod: 1, apMod: 1 } },
+  { id: 'enh_new_gc_vanguard_tyrant', bearerOnly: true, label: 'Mejora: Vanguard Tyrant — +1S/+1AP CaC', description: 'Winged Hive Tyrant model only. Improve the Strength and Armour Penetration characteristics of melee weapons equipped by the bearer by 1.', factionId: 'GC', enhancementId: '000009827004', combatType: 'melee', effects: { strengthMod: 1, apMod: 1 } },
 
   { id: 'enh_new_gc_assault_commando', label: 'Mejora: Assault Commando — repetir impactar a distancia (tras desembarcar)', description: 'Genestealer Cults model only. Each time a model in the bearer’s unit makes a ranged attack, if it disembarked from a TRANSPORT this turn, you can re-roll the Hit roll.', factionId: 'GC', enhancementId: '000009079005', combatType: 'ranged', effects: { rerollAllHits: true } },
 
@@ -20450,7 +20450,7 @@ const RULES_5: ModifierRule[] = [
 
   { id: 'enh_new_gc_assassination_edict', label: 'Mejora: Assassination Edict — +1 impactar vs CHARACTER', description: 'Genestealer Cults model only. Each time a model in the bearer’s unit makes an attack that targets a CHARACTER unit, add 1 to the Hit roll.', factionId: 'GC', enhancementId: '000009067005', requiresTargetKeyword: 'character', effects: { hitMod: 1 } },
 
-  { id: 'enh_new_gc_gene_tailored_toxins', label: 'Mejora: Gene-Tailored Toxins — +1 daño', description: 'Locus or Sanctus model only. This model’s attacks have +1 to their Damage characteristic.', factionId: 'GC', enhancementId: '000011201002', effects: { damageMod: 1 } },
+  { id: 'enh_new_gc_gene_tailored_toxins', bearerOnly: true, label: 'Mejora: Gene-Tailored Toxins — +1 daño', description: 'Locus or Sanctus model only. This model’s attacks have +1 to their Damage characteristic.', factionId: 'GC', enhancementId: '000011201002', effects: { damageMod: 1 } },
 
   { id: 'enh_new_gc_contraband_munitions', label: 'Mejora: Contraband Munitions — +2 Fuerza a distancia', description: 'Kelermorph or Reductus Saboteur model only. This unit’s ranged attacks have +2 to their Strength characteristic.', factionId: 'GC', enhancementId: '000011201003', combatType: 'ranged', effects: { strengthMod: 2 } },
 
@@ -20464,17 +20464,17 @@ const RULES_5: ModifierRule[] = [
 
   { id: 'enh_new_cd_slaughterthirst', label: 'Mejora: Slaughterthirst (Aura) — Lance CaC (aura KHORNE)', description: 'Legiones Daemonica Khorne model only. While a friendly Legiones Daemonica Khorne unit (excluding Monsters) is within 6" of the bearer, weapons equipped by models in that unit have the [LANCE] ability (add 1 to the Wound roll if the unit made a charge move this turn).', factionId: 'CD', enhancementId: '000009815002', requiresAttackerKeyword: 'khorne', combatType: 'melee', effects: { woundMod: 1 } },
 
-  { id: 'enh_new_cd_argath_king_of_blades', label: 'Mejora: A’rgath, the King of Blades — +1A/+1S CaC', description: 'Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead. (Nota: solo se modela el bono base; el bono adicional de Shadow of Chaos no es modelable.)', factionId: 'CD', enhancementId: '000008438002', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1 } },
+  { id: 'enh_new_cd_argath_king_of_blades', bearerOnly: true, label: 'Mejora: A’rgath, the King of Blades — +1A/+1S CaC', description: 'Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead. (Nota: solo se modela el bono base; el bono adicional de Shadow of Chaos no es modelable.)', factionId: 'CD', enhancementId: '000008438002', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1 } },
 
-  { id: 'enh_new_cd_fatal_caress', label: 'Mejora: Fatal Caress — Critical Wound a 5+', description: 'Each time the bearer makes a melee attack, a Critical Wound is scored on an unmodified Wound roll of 5+.', factionId: 'CD', enhancementId: '000009572002', combatType: 'melee', effects: { woundCritThreshold: 5 } },
+  { id: 'enh_new_cd_fatal_caress', bearerOnly: true, label: 'Mejora: Fatal Caress — Critical Wound a 5+', description: 'Each time the bearer makes a melee attack, a Critical Wound is scored on an unmodified Wound roll of 5+.', factionId: 'CD', enhancementId: '000009572002', combatType: 'melee', effects: { woundCritThreshold: 5 } },
 
   { id: 'enh_new_cd_mutagenic_flames', label: 'Mejora: Mutagenic Flames — −1 impactar recibido (unidad marcada)', description: 'In your Shooting phase, after the bearer has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next Shooting phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'CD', enhancementId: '000009580003', target: 'defender', effects: { hitMod: -1 } },
 
-  { id: 'enh_new_cd_furys_cage', label: 'Mejora: Fury’s Cage — repetir impactar y herir CaC', description: 'Legiones Daemonica Khorne Monster model only. Each time the bearer is selected to fight, it can use this Enhancement. If it does, the bearer suffers D3+1 mortal wounds, and until the end of the phase, each time it makes an attack, you can re-roll the Hit roll and you can re-roll the Wound roll.', factionId: 'CD', enhancementId: '000009815003', combatType: 'melee', effects: { rerollAllHits: true, rerollAllWounds: true } },
+  { id: 'enh_new_cd_furys_cage', bearerOnly: true, label: 'Mejora: Fury’s Cage — repetir impactar y herir CaC', description: 'Legiones Daemonica Khorne Monster model only. Each time the bearer is selected to fight, it can use this Enhancement. If it does, the bearer suffers D3+1 mortal wounds, and until the end of the phase, each time it makes an attack, you can re-roll the Hit roll and you can re-roll the Wound roll.', factionId: 'CD', enhancementId: '000009815003', combatType: 'melee', effects: { rerollAllHits: true, rerollAllWounds: true } },
 
-  { id: 'enh_new_cd_the_endless_gift', label: 'Mejora: The Endless Gift — FNP 5+', description: 'Nurgle Legiones Daemonica model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'CD', enhancementId: '000008438004', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh_new_cd_the_endless_gift', bearerOnly: true, label: 'Mejora: The Endless Gift — FNP 5+', description: 'Nurgle Legiones Daemonica model only. The bearer has the Feel No Pain 5+ ability.', factionId: 'CD', enhancementId: '000008438004', target: 'defender', effects: { feelNoPainThreshold: 5 } },
 
-  { id: 'enh_new_cd_the_everstave', label: 'Mejora: The Everstave — +1 Fuerza a distancia', description: 'Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3". While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6" instead. (Nota: solo se modela el bono base de Fuerza; el alcance y la variante de Shadow of Chaos no son modelables.)', factionId: 'CD', enhancementId: '000008438005', combatType: 'ranged', effects: { strengthMod: 1 } },
+  { id: 'enh_new_cd_the_everstave', bearerOnly: true, label: 'Mejora: The Everstave — +1 Fuerza a distancia', description: 'Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3". While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6" instead. (Nota: solo se modela el bono base de Fuerza; el alcance y la variante de Shadow of Chaos no son modelables.)', factionId: 'CD', enhancementId: '000008438005', combatType: 'ranged', effects: { strengthMod: 1 } },
 
   { id: 'enh_new_cd_font_of_spores', label: 'Mejora: Font of Spores (Aura) — +1 AP (aura NURGLE)', description: 'Legiones Daemonica Nurgle Monster model only. While a friendly Legiones Daemonica Nurgle unit is within 6" of the bearer, improve the Armour Penetration characteristic of weapons equipped by models in that unit by 1.', factionId: 'CD', enhancementId: '000009819005', requiresAttackerKeyword: 'nurgle', effects: { apMod: 1 } },
 
@@ -20492,7 +20492,7 @@ const RULES_5: ModifierRule[] = [
     effects: { strengthMod: 1 },
   },
   {
-    id: 'enh_new_ts_prescient_authority',
+    id: 'enh_new_ts_prescient_authority', bearerOnly: true,
     label: 'Mejora: Prescient Authority — repetir herir 1 (CULTISTS aliados)',
     description: 'Once per turn, when a friendly Thousand Sons Cultists or Tzaangors unit within 3" of the bearer is selected to shoot or fight, the bearer can use this Enhancement. If it does, until the end of the phase, each time a model in that unit makes an attack, re-roll a Wound roll of 1.',
     factionId: 'TS',
@@ -20501,7 +20501,7 @@ const RULES_5: ModifierRule[] = [
     effects: { rerollWoundsOf1: true },
   },
   {
-    id: 'enh_new_ts_prescient_authority_2',
+    id: 'enh_new_ts_prescient_authority_2', bearerOnly: true,
     label: 'Mejora: Prescient Authority — repetir herir 1 (TZAANGORS aliados)',
     description: 'Once per turn, when a friendly Thousand Sons Cultists or Tzaangors unit within 3" of the bearer is selected to shoot or fight, the bearer can use this Enhancement. If it does, until the end of the phase, each time a model in that unit makes an attack, re-roll a Wound roll of 1.',
     factionId: 'TS',
@@ -20528,7 +20528,7 @@ const RULES_5: ModifierRule[] = [
     effects: { hitMod: 1 },
   },
   {
-    id: 'enh_new_ts_eldritch_vortex',
+    id: 'enh_new_ts_eldritch_vortex', bearerOnly: true,
     label: 'Mejora: Eldritch Vortex of E’taph — +1 Fuerza/+1 Daño armas Psychic',
     description: 'Thousand Sons model only. Add 1 to the Strength and Damage characteristics of Psychic weapons equipped by the bearer.',
     factionId: 'TS',
@@ -20536,7 +20536,7 @@ const RULES_5: ModifierRule[] = [
     effects: { strengthMod: 1, damageMod: 1 },
   },
   {
-    id: 'enh_new_ts_flowing_flesh',
+    id: 'enh_new_ts_flowing_flesh', bearerOnly: true,
     label: 'Mejora: Flowing Flesh — Feel No Pain 4+',
     description: 'Tzaangor Shaman model only. The bearer has the Feel No Pain 4+ ability and a Wounds characteristic of 5.',
     factionId: 'TS',
@@ -20545,7 +20545,7 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 4 },
   },
   {
-    id: 'enh_new_ts_stave_abominus',
+    id: 'enh_new_ts_stave_abominus', bearerOnly: true,
     label: 'Mejora: The Stave Abominus — Sustained Hits D3 y Devastating Wounds CaC',
     description: 'Thousand Sons Infantry model only. The bearer’s melee weapons have the [SUSTAINED HITS D3] and [DEVASTATING WOUNDS] abilities.',
     factionId: 'TS',
@@ -20584,7 +20584,7 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 4 },
   },
   {
-    id: 'enh_new_ac2_enhanced_voidsheen_cloak',
+    id: 'enh_new_ac2_enhanced_voidsheen_cloak', bearerOnly: true,
     label: 'Mejora: Enhanced Voidsheen Cloak — −1 daño recibido',
     description: 'Anathema Psykana model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack. If that attack was made by a Psyker or Battle-shocked model, change the Damage characteristic of that attack to 1 instead.',
     factionId: 'AC',
@@ -20593,7 +20593,7 @@ const RULES_5: ModifierRule[] = [
     effects: { damageReduction: 1 },
   },
   {
-    id: 'enh_new_ac2_adamantine_talisman',
+    id: 'enh_new_ac2_adamantine_talisman', bearerOnly: true,
     label: 'Mejora: Adamantine Talisman — +1A/+1F/+1D CaC',
     description: 'Adeptus Custodes model only. Improve the Attacks, Strength and Damage characteristics of melee weapons equipped by the bearer by 1.',
     factionId: 'AC',
@@ -20602,7 +20602,7 @@ const RULES_5: ModifierRule[] = [
     effects: { attacksMod: 1, strengthMod: 1, damageMod: 1 },
   },
   {
-    id: 'enh_new_ac2_augury_uplink',
+    id: 'enh_new_ac2_augury_uplink', bearerOnly: true,
     label: 'Mejora: Augury Uplink — Feel No Pain 5+',
     description: 'Adeptus Custodes model only. The bearer has the Feel No Pain 5+ ability.',
     factionId: 'AC',
@@ -20611,7 +20611,7 @@ const RULES_5: ModifierRule[] = [
     effects: { feelNoPainThreshold: 5 },
   },
   {
-    id: 'enh_new_ac2_praesidius',
+    id: 'enh_new_ac2_praesidius', bearerOnly: true,
     label: 'Mejora: Praesidius — Stealth (empeora BS atacante +1)',
     description: 'Adeptus Custodes model only. The bearer has the Lone Operative and Stealth abilities.',
     factionId: 'AC',
@@ -20629,7 +20629,7 @@ const RULES_5: ModifierRule[] = [
     effects: { rerollHitsOf1: true },
   },
   {
-    id: 'enh_new_ac2_hall_of_armouries',
+    id: 'enh_new_ac2_hall_of_armouries', bearerOnly: true,
     label: 'Mejora: From the Hall of Armouries — +1F/+1D CaC',
     description: 'Shield-Captain model only. Add 1 to the Strength and Damage characteristics of the bearer’s melee weapons.',
     factionId: 'AC',
@@ -20638,7 +20638,7 @@ const RULES_5: ModifierRule[] = [
     effects: { strengthMod: 1, damageMod: 1 },
   },
   {
-    id: 'enh_new_ac2_admonimortis',
+    id: 'enh_new_ac2_admonimortis', bearerOnly: true,
     label: 'Mejora: Admonimortis — +3F/+1PA/+1D CaC',
     description: 'Shield-Captain model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 3, and improve the Armour Penetration and Damage characteristics of those weapons by 1.',
     factionId: 'AC',
@@ -20656,7 +20656,7 @@ const RULES_5: ModifierRule[] = [
     effects: { hitMod: -1 },
   },
   {
-    id: 'enh_new_ac2_veiled_blade',
+    id: 'enh_new_ac2_veiled_blade', bearerOnly: true,
     label: 'Mejora: Veiled Blade — +2 Ataques CaC',
     description: 'Adeptus Custodes model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any Command phase, triple the bearer’s Objective Control characteristic until the end of the turn.',
     factionId: 'AC',
@@ -20665,7 +20665,7 @@ const RULES_5: ModifierRule[] = [
     effects: { attacksMod: 2 },
   },
   {
-    id: 'enh_new_ac2_raptor_blade',
+    id: 'enh_new_ac2_raptor_blade', bearerOnly: true,
     label: 'Mejora: Raptor Blade — +1A/+1F/+1D CaC',
     description: 'Anathema Psykana model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is within Engagement Range of one or more enemy Psyker units that are Battle-shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons instead.',
     factionId: 'AC',
@@ -20689,19 +20689,19 @@ const RULES_5: ModifierRule[] = [
   // modelar aquí (despliegue, movimiento, Control de Objetivos, economía de PC/tokens,
   // habilidades de una vez por partida) no tiene ningún campo representable en este motor.
   // ═══ SM — Enhancements (bloque 2, parte A) ═══
-  { id: 'enh2_new_sm1_seal_of_indomitability', label: 'Mejora: Seal of Indomitability — salvación inv. 3+ (una vez por batalla)', description: 'Once per battle, when the bearer’s unit is selected as the target of one or more attacks, it can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ invulnerable save.', factionId: 'SM', enhancementId: '000009255002', target: 'defender', effects: { feelNoPainThreshold: 3 } },
-  { id: 'enh2_new_sm1_rage_fuelled_warrior', label: 'Mejora: Rage-fuelled Warrior — Sustained Hits 3 CaC (una vez por batalla)', description: 'Adeptus Astartes model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer’s melee weapons have the [SUSTAINED HITS 3] ability.', factionId: 'SM', enhancementId: '000008376003', combatType: 'melee', effects: { sustainedHitsBonus: 3 } },
+  { id: 'enh2_new_sm1_seal_of_indomitability', bearerOnly: true, label: 'Mejora: Seal of Indomitability — salvación inv. 3+ (una vez por batalla)', description: 'Once per battle, when the bearer’s unit is selected as the target of one or more attacks, it can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ invulnerable save.', factionId: 'SM', enhancementId: '000009255002', target: 'defender', effects: { feelNoPainThreshold: 3 } },
+  { id: 'enh2_new_sm1_rage_fuelled_warrior', bearerOnly: true, label: 'Mejora: Rage-fuelled Warrior — Sustained Hits 3 CaC (una vez por batalla)', description: 'Adeptus Astartes model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer’s melee weapons have the [SUSTAINED HITS 3] ability.', factionId: 'SM', enhancementId: '000008376003', combatType: 'melee', effects: { sustainedHitsBonus: 3 } },
   { id: 'enh2_new_sm1_osseus_key', label: 'Mejora: Osseus Key — −1 impactar (VEHICLE enemigo elegido, Ld superada)', description: 'Watch Master or Techmarine model only. At the start of your opponent’s Shooting phase, select one enemy VEHICLE unit (excluding TITANIC units) within 12" of and visible to the bearer. That unit must take a Leadership test. If that test is passed, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'SM', enhancementId: '000008522003', target: 'defender', combatType: 'ranged', effects: { hitMod: -1 } },
-  { id: 'enh2_new_sm1_archangels_shard', label: 'Mejora: Archangel’s Shard — crítico herida 5+ vs CHAOS, CaC', description: 'Adeptus Astartes Jump Pack model only. The bearer’s melee weapons have the [Anti-Chaos 5+] and [Lance] abilities.', factionId: 'SM', enhancementId: '000009190004', combatType: 'melee', requiresTargetKeyword: 'chaos', effects: { woundCritThreshold: 5 } },
-  { id: 'enh2_new_sm1_archangels_shard_2', label: 'Mejora: Archangel’s Shard — Lance: +1 herir si cargó, CaC', factionId: 'SM', enhancementId: '000009190004', combatType: 'melee', effects: { woundMod: 1 } },
+  { id: 'enh2_new_sm1_archangels_shard', bearerOnly: true, label: 'Mejora: Archangel’s Shard — crítico herida 5+ vs CHAOS, CaC', description: 'Adeptus Astartes Jump Pack model only. The bearer’s melee weapons have the [Anti-Chaos 5+] and [Lance] abilities.', factionId: 'SM', enhancementId: '000009190004', combatType: 'melee', requiresTargetKeyword: 'chaos', effects: { woundCritThreshold: 5 } },
+  { id: 'enh2_new_sm1_archangels_shard_2', bearerOnly: true, label: 'Mejora: Archangel’s Shard — Lance: +1 herir si cargó, CaC', factionId: 'SM', enhancementId: '000009190004', combatType: 'melee', effects: { woundMod: 1 } },
 
   // ═══ SM — Enhancements (bloque 2, parte B) ═══
   { id: 'enh2_new_sm2_elders_guidance', label: 'Mejora: Elder’s Guidance — +1 PA armas CaC (liderando Blood Claws)', description: 'Space Wolves model only. Once per battle, at the start of the Fight phase, if the bearer is leading a Blood Claws unit, the bearer can use this Enhancement. If it does, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.', factionId: 'SM', enhancementId: '000010269004', combatType: 'melee', requiresAttackerKeyword: 'blood claws', effects: { apMod: 1 } },
   { id: 'enh2_new_sm2_vengeful_onslaught', label: 'Mejora: Vengeful Onslaught — +1 impactar (Death Company, tras morir el portador)', description: 'Death Company model only. If the bearer is destroyed, until the end of your next turn, each time a friendly Death Company model makes an attack, add 1 to the Hit roll.', factionId: 'SM', enhancementId: '000009186005', requiresAttackerKeyword: 'death company', effects: { hitMod: 1 } },
-  { id: 'enh2_new_sm2_tome_of_ectoclades', label: 'Mejora: The Tome of Ectoclades — relanzar impactar vs 2º objetivo Oath of Moment', description: 'Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement to select a second enemy unit as an Oath of Moment target. Designer’s Note: each time a model with the Oath of Moment ability makes an attack that targets either Oath of Moment target, you can re-roll the Hit roll.', factionId: 'SM', enhancementId: '000008522005', effects: { rerollAllHits: true } },
+  { id: 'enh2_new_sm2_tome_of_ectoclades', bearerOnly: true, label: 'Mejora: The Tome of Ectoclades — relanzar impactar vs 2º objetivo Oath of Moment', description: 'Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement to select a second enemy unit as an Oath of Moment target. Designer’s Note: each time a model with the Oath of Moment ability makes an attack that targets either Oath of Moment target, you can re-roll the Hit roll.', factionId: 'SM', enhancementId: '000008522005', effects: { rerollAllHits: true } },
   { id: 'enh2_new_sm2_malodraxian_standard', label: 'Mejora: Malodraxian Standard — -1 herir si Fuerza atacante > Aguante (defensor)', description: 'Adeptus Astartes Ancient model only. Each time an attack targets the bearer’s unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of the bearer’s unit, subtract 1 from the Wound roll.', factionId: 'SM', enhancementId: '000010460005', target: 'defender', effects: { woundMod: -1 } },
   { id: 'enh2_new_sm2_death_in_the_dark', label: 'Mejora: Death in the Dark — +1 impactar contra unidad oculta', description: 'Infantry Phobos unit only. This unit’s attacks that target a hidden unit have +1 to Hit rolls.', factionId: 'SM', enhancementId: '000011137003', effects: { hitMod: 1 } },
-  { id: 'enh2_new_sm2_shadow_of_abomination', label: 'Mejora: Shadow of Abomination — +1 Daño ataques CaC (una vez por batalla)', description: 'Adeptus Astartes Jump Pack model only. Once per battle, per army, when this unit is selected to fight, you can use this ability. If you do, this model’s melee attacks have +1 to Damage.', factionId: 'SM', enhancementId: '000011151003', combatType: 'melee', effects: { damageMod: 1 } },
+  { id: 'enh2_new_sm2_shadow_of_abomination', bearerOnly: true, label: 'Mejora: Shadow of Abomination — +1 Daño ataques CaC (una vez por batalla)', description: 'Adeptus Astartes Jump Pack model only. Once per battle, per army, when this unit is selected to fight, you can use this ability. If you do, this model’s melee attacks have +1 to Damage.', factionId: 'SM', enhancementId: '000011151003', combatType: 'melee', effects: { damageMod: 1 } },
 
   // ═══ CSM — Enhancements (bloque 2) ═══
 
@@ -20709,12 +20709,12 @@ const RULES_5: ModifierRule[] = [
   { id: 'enh2_new_csm_rabble_rouser', label: 'Mejora: Rabble Rouser — +1 Ataque (unidad CULTIST MOB/FELLGOR BEASTMEN, 1/turno)', description: 'Once per turn, when a friendly CULTIST MOB or FELLGOR BEASTMEN unit within 6" of the bearer is selected to shoot or fight, the bearer can use this Enhancement. If it does, until the end of the phase, add 1 to the Attacks characteristic of weapons equipped by models in that friendly unit.', factionId: 'CSM', enhancementId: '000009512002', effects: { attacksMod: 1 } },
   { id: 'enh2_new_csm_eager_for_vengeance', label: 'Mejora: Eager for Vengeance — +1 impactar vs foco de odio (tras Retirada)', description: 'HERETIC ASTARTES model only (excluding DAMNED models). The bearer’s unit is eligible to shoot and declare a charge in a turn in which it Fell Back. Each time a model in the bearer’s unit makes an attack that targets your focus of hatred, if the bearer’s unit Fell Back this turn, add 1 to the Hit roll, and each time you select your focus of hatred as a target of that unit’s charge, add 1 to the Charge roll.', factionId: 'CSM', enhancementId: '000008960002', effects: { hitMod: 1 } },
   { id: 'enh2_new_csm_eyes_of_the_hunter', label: 'Mejora: Eyes of the Hunter — [IGNORES COVER], disparo (unidad)', description: 'HERETIC ASTARTES model only. Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.', factionId: 'CSM', enhancementId: '000010694003', combatType: 'ranged', effects: { bsMod: -1 } },
-  { id: 'enh2_new_csm_dread_reaver', label: 'Mejora: Dread Reaver — repetir impactar y herir en CaC (cerca de zona enemiga)', description: 'HERETIC ASTARTES model only. Each time the bearer makes a melee attack, if the bearer is wholly within 12" of your opponent’s deployment zone, you can re-roll the Hit roll and you can re-roll the Wound roll.', factionId: 'CSM', enhancementId: '000008968003', combatType: 'melee', effects: { rerollAllHits: true, rerollAllWounds: true } },
+  { id: 'enh2_new_csm_dread_reaver', bearerOnly: true, label: 'Mejora: Dread Reaver — repetir impactar y herir en CaC (cerca de zona enemiga)', description: 'HERETIC ASTARTES model only. Each time the bearer makes a melee attack, if the bearer is wholly within 12" of your opponent’s deployment zone, you can re-roll the Hit roll and you can re-roll the Wound roll.', factionId: 'CSM', enhancementId: '000008968003', combatType: 'melee', effects: { rerollAllHits: true, rerollAllWounds: true } },
   { id: 'enh2_new_csm_dark_majesty', label: 'Mejora: Dark Majesty — −1 impactar recibido (enemigo aturdido tras cargar)', description: 'Each time the bearer ends a Charge move, select one enemy unit within Engagement Range of it. Until the start of your next Charge phase, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'CSM', enhancementId: '000009520003', target: 'defender', effects: { hitMod: -1 } },
   { id: 'enh2_new_csm_fratricidal_trophies', label: 'Mejora: Fratricidal Trophies — repetir impactar (TERMINATOR, Default to Doctrine)', description: 'Heretic Astartes Terminator model only. In a turn in which the bearer’s unit chose to Default to Doctrine, until the end of the turn, each time a model in this unit makes an attack, you can re-roll the Hit roll.', factionId: 'CSM', enhancementId: '000010694004', requiresAttackerKeyword: 'terminator', effects: { rerollAllHits: true } },
-  { id: 'enh2_new_csm_mark_of_legend', label: 'Mejora: Mark of Legend — repetir 1 impacto/1 herida (1/turno)', description: 'HERETIC ASTARTES model only (excluding DAMNED models). Once per turn, you can re-roll one Hit roll, one Wound roll or one saving throw made for the bearer.', factionId: 'CSM', enhancementId: '000008960004', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
+  { id: 'enh2_new_csm_mark_of_legend', bearerOnly: true, label: 'Mejora: Mark of Legend — repetir 1 impacto/1 herida (1/turno)', description: 'HERETIC ASTARTES model only (excluding DAMNED models). Once per turn, you can re-roll one Hit roll, one Wound roll or one saving throw made for the bearer.', factionId: 'CSM', enhancementId: '000008960004', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
   { id: 'enh2_new_csm_tempting_addendum', label: 'Mejora: Tempting Addendum — repetir impactar (DAEMON VEHICLE tras invocar Pacto Oscuro)', description: 'HERETIC ASTARTES model only. Each time a HERETIC ASTARTES DAEMON VEHICLE unit from your army invokes its contract while within 3" of the bearer: if it suffers one or more mortal wounds as a result of that Dark Pact, add 1 to the number of mortal wounds it suffers; until the end of the phase, each time a model in that unit makes an attack, you can re-roll the Hit roll.', factionId: 'CSM', enhancementId: '000008985004', requiresAttackerKeyword: 'vehicle', effects: { rerollAllHits: true } },
-  { id: 'enh2_new_csm_ironbound_enmity', label: 'Mejora: Ironbound Enmity — +1 herir cerca de objetivo', description: 'HERETIC ASTARTES model only. Each time the bearer makes an attack while within range of an objective marker, add 1 to the Wound roll.', factionId: 'CSM', enhancementId: '000008976004', effects: { woundMod: 1 } },
+  { id: 'enh2_new_csm_ironbound_enmity', bearerOnly: true, label: 'Mejora: Ironbound Enmity — +1 herir cerca de objetivo', description: 'HERETIC ASTARTES model only. Each time the bearer makes an attack while within range of an objective marker, add 1 to the Wound roll.', factionId: 'CSM', enhancementId: '000008976004', effects: { woundMod: 1 } },
   { id: 'enh2_new_csm_mind_blade', label: 'Mejora: Mind Blade — [LANCE] en CaC (PSYKER)', description: 'Psyker model only. Melee weapons equipped by models in the bearer’s unit have the [LANCE] ability.', factionId: 'CSM', enhancementId: '000010151004', combatType: 'melee', requiresAttackerKeyword: 'psyker', effects: { woundMod: 1 } },
   { id: 'enh2_new_csm_warp_tracer', label: 'Mejora: Warp Tracer — quita Cobertura a objetivo marcado, disparo', description: 'HERETIC ASTARTES model only. In your Shooting phase, after the bearer has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, that enemy unit cannot have the Benefit of Cover.', factionId: 'CSM', enhancementId: '000008976005', combatType: 'ranged', effects: { bsMod: -1 } },
 
@@ -20725,17 +20725,17 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ AE — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_ae_path_of_eldanesh', label: 'Mejora: Path of Eldanesh — +1 PA CaC (al abrir Escotilla)', description: 'The bearer has the Fights First ability and, each time the bearer opens a Hatchway, until the end of the turn, improve the Armour Penetration characteristic of melee weapons equipped by the bearer by 1. (Fights First no tiene campo de modelado; el bonus de PA se modela como interruptor manual activado al abrir Escotilla.)', factionId: 'AE', enhancementId: '000009351003', combatType: 'melee', effects: { apMod: 1 } },
+  { id: 'enh2_new_ae_path_of_eldanesh', bearerOnly: true, label: 'Mejora: Path of Eldanesh — +1 PA CaC (al abrir Escotilla)', description: 'The bearer has the Fights First ability and, each time the bearer opens a Hatchway, until the end of the turn, improve the Armour Penetration characteristic of melee weapons equipped by the bearer by 1. (Fights First no tiene campo de modelado; el bonus de PA se modela como interruptor manual activado al abrir Escotilla.)', factionId: 'AE', enhancementId: '000009351003', combatType: 'melee', effects: { apMod: 1 } },
   { id: 'enh2_new_ae_mantle_of_wisdom', label: 'Mejora: Mantle of Wisdom — repetir 1s impactar y herir (aura Aspect Warriors)', description: 'Autarch or Autarch Wayleaper model only. While the bearer is leading an Aspect Warriors unit, each time that unit is selected to shoot or fight, until the end of the phase, models in that unit gain both of the abilities from the Path of the Warrior Detachment rule: re-roll a Hit roll of 1, and re-roll a Wound roll of 1.', factionId: 'AE', enhancementId: '000009927003', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
-  { id: 'enh2_new_ae_murders_jest', label: 'Mejora: Murder’s Jest — todo impacto exitoso es Crítico (vs unidad a media fuerza)', description: 'Death Jester model only. Each time the bearer makes an attack that targets a unit that is Below Half-strength, each successful Hit roll scores a Critical Hit. (Sin campo de palabra clave para "Below Half-strength"; modelado como interruptor manual.)', factionId: 'AE', enhancementId: '000009915004', combatType: 'ranged', effects: { critThreshold: 2 } },
-  { id: 'enh2_new_ae_fanged_leer', label: 'Mejora: Fanged Leer — Sustained Hits 3 adicional (Cruel Amusement doble)', description: 'Death Jester model only. When using the bearer’s Cruel Amusement ability, you can select two of the abilities for its shrieker cannon to gain, instead of one (Ignores Cover / [PRECISION] / [SUSTAINED HITS 3]). Modelado con el efecto Sustained Hits 3 simultáneo, la única de las tres opciones con campo de daño mapeable (Ignores Cover y Precision no tienen campo en CombatModifiers).', factionId: 'AE', enhancementId: '000010649004', combatType: 'ranged', effects: { sustainedHitsBonus: 3 } },
+  { id: 'enh2_new_ae_murders_jest', bearerOnly: true, label: 'Mejora: Murder’s Jest — todo impacto exitoso es Crítico (vs unidad a media fuerza)', description: 'Death Jester model only. Each time the bearer makes an attack that targets a unit that is Below Half-strength, each successful Hit roll scores a Critical Hit. (Sin campo de palabra clave para "Below Half-strength"; modelado como interruptor manual.)', factionId: 'AE', enhancementId: '000009915004', combatType: 'ranged', effects: { critThreshold: 2 } },
+  { id: 'enh2_new_ae_fanged_leer', bearerOnly: true, label: 'Mejora: Fanged Leer — Sustained Hits 3 adicional (Cruel Amusement doble)', description: 'Death Jester model only. When using the bearer’s Cruel Amusement ability, you can select two of the abilities for its shrieker cannon to gain, instead of one (Ignores Cover / [PRECISION] / [SUSTAINED HITS 3]). Modelado con el efecto Sustained Hits 3 simultáneo, la única de las tres opciones con campo de daño mapeable (Ignores Cover y Precision no tienen campo en CombatModifiers).', factionId: 'AE', enhancementId: '000010649004', combatType: 'ranged', effects: { sustainedHitsBonus: 3 } },
   { id: 'enh2_new_ae_breath_of_vaul', label: 'Mejora: Breath of Vaul — repetir daño (fusion gun, aura Storm Guardians)', description: 'Asuryani model only. While the bearer is leading a Storm Guardians unit, each time you roll to determine the number of attacks made with a flamer equipped by a model in that unit, you can re-roll the result, and each time you make a Damage roll for a model equipped with a fusion gun in that unit, you can re-roll the result. (Solo se modela la repetición del roll de Daño del fusion gun; no existe campo para repetir el roll de número de ataques.)', factionId: 'AE', enhancementId: '000009911005', combatType: 'ranged', effects: { rerollAllDamage: true } },
 
   // ═══ TAU — Enhancements (bloque 2) ═══
 
   { id: 'enh2_new_tau_exemplar_of_the_kauyon', label: 'Mejora: Exemplar of the Kauyon — Sustained Hits 1 disparo (Patient Hunter anticipado)', description: 'T’AU EMPIRE model only (excluding Kroot Shaper models). While the bearer is leading a unit, the Patient Hunter Detachment rule applies to that unit from the second battle round onwards instead of from the third. Patient Hunter: ranged weapons equipped by T’au Empire models have the [SUSTAINED HITS 1] ability during those rounds. (Condición de ronda de batalla sin campo propio; modelado como interruptor manual. La segunda cláusula de Patient Hunter, ignorar modificadores al BS/Hit roll cuando Guided+Spotted, no tiene campo mapeable y se omite.)', factionId: 'TAU', enhancementId: '000008442002', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
   { id: 'enh2_new_tau_exemplar_of_the_montka', label: 'Mejora: Exemplar of the Mont’ka — Lethal Hits disparo (Killing Blow extendido)', description: 'T’AU EMPIRE model only (excluding Kroot Shaper models). While the bearer is leading a unit, the Killing Blow Detachment rule applies to that unit during the fourth battle round as well. Killing Blow: while a unit is Guided, its ranged weapons have the [LETHAL HITS] ability. (Condición de ronda de batalla/Guided sin campo propio; modelado como interruptor manual. La cláusula de [ASSAULT] no tiene campo mapeable y se omite.)', factionId: 'TAU', enhancementId: '000008811003', combatType: 'ranged', effects: { lethalHitsBonus: true } },
-  { id: 'enh2_new_tau_root_carved_weapons', label: 'Mejora: Root-carved Weapons — Devastating Wounds (todas las armas)', description: 'Kroot War Shaper model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities. (Precision no tiene campo en CombatModifiers y se omite; se modela el Devastating Wounds. Nota: existe una regla de datasheet homónima ya modelada vía datasheetId, id tau_root_carved_weapons, pero esta es la versión de Mejora con su propio enhancementId.)', factionId: 'TAU', enhancementId: '000008821005', effects: { devastatingWoundsBonus: true } },
+  { id: 'enh2_new_tau_root_carved_weapons', bearerOnly: true, label: 'Mejora: Root-carved Weapons — Devastating Wounds (todas las armas)', description: 'Kroot War Shaper model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities. (Precision no tiene campo en CombatModifiers y se omite; se modela el Devastating Wounds. Nota: existe una regla de datasheet homónima ya modelada vía datasheetId, id tau_root_carved_weapons, pero esta es la versión de Mejora con su propio enhancementId.)', factionId: 'TAU', enhancementId: '000008821005', effects: { devastatingWoundsBonus: true } },
 
   // ═══ NEC — Enhancements (bloque 2) ═══
   { id: 'enh2_new_nec_ingrained_superiority', label: 'Mejora: Ingrained Superiority — +1 PA en crítico herida', description: 'NECRONS model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.', factionId: 'NEC', enhancementId: '000008543003', effects: { apMod: 1 } },
@@ -20746,20 +20746,20 @@ const RULES_5: ModifierRule[] = [
   { id: 'enh2_new_nec_prelocational_optimiser_sustained', label: 'Mejora: Prelocational Optimiser — Sustained Hits 1 (disparo, tras Eternity Gate)', factionId: 'NEC', enhancementId: '000010214002', combatType: 'ranged', effects: { sustainedHitsBonus: 1 } },
 
   // ═══ QI — Enhancements (bloque 2) ═══
-  { id: 'enh2_new_qi_wyrmslayer_divination', label: 'Mejora: Wyrmslayer Divination — repetir impactar vs FLY (disparo)', description: 'IMPERIAL KNIGHTS model only. In your Shooting phase, when the bearer is selected to shoot, this Enhancement is expended; until the end of the phase, each time it makes an attack that targets a unit that can FLY, you can re-roll the Hit roll.', factionId: 'QI', enhancementId: '000010502003', combatType: 'ranged', requiresTargetKeyword: 'fly', effects: { rerollAllHits: true } },
-  { id: 'enh2_new_qi_pennant_of_silvered_fury', label: 'Mejora: Pennant of Silvered Fury — Sustained Hits 2 (CaC)', description: 'IMPERIAL KNIGHTS model only. When the bearer is selected to fight, this Enhancement is expended; until the end of the phase, melee weapons equipped by the bearer have the [SUSTAINED HITS 2] ability.', factionId: 'QI', enhancementId: '000010502004', combatType: 'melee', effects: { sustainedHitsBonus: 2 } },
+  { id: 'enh2_new_qi_wyrmslayer_divination', bearerOnly: true, label: 'Mejora: Wyrmslayer Divination — repetir impactar vs FLY (disparo)', description: 'IMPERIAL KNIGHTS model only. In your Shooting phase, when the bearer is selected to shoot, this Enhancement is expended; until the end of the phase, each time it makes an attack that targets a unit that can FLY, you can re-roll the Hit roll.', factionId: 'QI', enhancementId: '000010502003', combatType: 'ranged', requiresTargetKeyword: 'fly', effects: { rerollAllHits: true } },
+  { id: 'enh2_new_qi_pennant_of_silvered_fury', bearerOnly: true, label: 'Mejora: Pennant of Silvered Fury — Sustained Hits 2 (CaC)', description: 'IMPERIAL KNIGHTS model only. When the bearer is selected to fight, this Enhancement is expended; until the end of the phase, melee weapons equipped by the bearer have the [SUSTAINED HITS 2] ability.', factionId: 'QI', enhancementId: '000010502004', combatType: 'melee', effects: { sustainedHitsBonus: 2 } },
 
   // ═══ DRU — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_dru_master_nemesine', label: 'Mejora: Master Nemesine — crítico herida 2+ vs BEAST', description: 'Haemonculus model only. The bearer’s weapons have the [anti-beast 2+] and [anti-monster 4+] abilities.', factionId: 'DRU', enhancementId: '000010584003', requiresTargetKeyword: 'beast', effects: { woundCritThreshold: 2 } },
-  { id: 'enh2_new_dru_master_nemesine_2', label: 'Mejora: Master Nemesine — crítico herida 4+ vs MONSTER', factionId: 'DRU', enhancementId: '000010584003', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
+  { id: 'enh2_new_dru_master_nemesine', bearerOnly: true, label: 'Mejora: Master Nemesine — crítico herida 2+ vs BEAST', description: 'Haemonculus model only. The bearer’s weapons have the [anti-beast 2+] and [anti-monster 4+] abilities.', factionId: 'DRU', enhancementId: '000010584003', requiresTargetKeyword: 'beast', effects: { woundCritThreshold: 2 } },
+  { id: 'enh2_new_dru_master_nemesine_2', bearerOnly: true, label: 'Mejora: Master Nemesine — crítico herida 4+ vs MONSTER', factionId: 'DRU', enhancementId: '000010584003', requiresTargetKeyword: 'monster', effects: { woundCritThreshold: 4 } },
   { id: 'enh2_new_dru_sadistic_fulcrum', label: 'Mejora: Sadistic Fulcrum — repetir impactar (Transporte aliado, disparo)', description: 'Each time you spend 1 Pain token to Empower the bearer’s unit in the Shooting phase, select one friendly Drukhari Transport within 6" of the bearer’s unit; until the end of the phase, each time that TRANSPORT makes an attack, you can re-roll the Hit roll. Modelled as an unconditional re-roll (Pain-token spend not tracked).', factionId: 'DRU', enhancementId: '000010576003', combatType: 'ranged', effects: { rerollAllHits: true } },
-  { id: 'enh2_new_dru_leechbite_plate', label: 'Mejora: Leechbite Plate — +1 salvación (Archon)', description: 'Archon model only. The bearer has a Save characteristic of 3+. Archon base Sv is 4+ (Datasheets_models.csv), so this is a +1 improvement.', factionId: 'DRU', enhancementId: '000010588002', target: 'defender', effects: { saveMod: 1 } },
+  { id: 'enh2_new_dru_leechbite_plate', bearerOnly: true, label: 'Mejora: Leechbite Plate — +1 salvación (Archon)', description: 'Archon model only. The bearer has a Save characteristic of 3+. Archon base Sv is 4+ (Datasheets_models.csv), so this is a +1 improvement.', factionId: 'DRU', enhancementId: '000010588002', target: 'defender', effects: { saveMod: 1 } },
   { id: 'enh2_new_dru_gnarlskin_experimentor', label: 'Mejora: Gnarlskin Experimentor — -1 herir enemigo (F>R)', description: 'Haemonculus model only. Attacks that target this unit with a Strength greater than your unit’s Toughness have -1 to wound rolls.', factionId: 'DRU', enhancementId: '000011194002', target: 'defender', effects: { woundMod: -1 } },
 
   // ═══ QT — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_qt_fleshmetal_fusion', label: 'Mejora: Fleshmetal Fusion — +1 salvación vs ataques de Daño 1', description: 'CHAOS KNIGHTS model only. While the bearer is using the Unnatural Fortitude ability, each time an attack with a Damage characteristic of 1 is allocated to the bearer, add 1 to any armour saving throw made against that attack. Modelled as an unconditional +1 save (Unnatural Fortitude state and Damage=1 condition not tracked, consistent with existing codebase convention for similar conditional save/FNP grants). Also grants +1 Toughness characteristic, which has no corresponding CombatModifiers field and is not modelled.', factionId: 'QT', enhancementId: '000010304004', target: 'defender', effects: { saveMod: 1 } },
+  { id: 'enh2_new_qt_fleshmetal_fusion', bearerOnly: true, label: 'Mejora: Fleshmetal Fusion — +1 salvación vs ataques de Daño 1', description: 'CHAOS KNIGHTS model only. While the bearer is using the Unnatural Fortitude ability, each time an attack with a Damage characteristic of 1 is allocated to the bearer, add 1 to any armour saving throw made against that attack. Modelled as an unconditional +1 save (Unnatural Fortitude state and Damage=1 condition not tracked, consistent with existing codebase convention for similar conditional save/FNP grants). Also grants +1 Toughness characteristic, which has no corresponding CombatModifiers field and is not modelled.', factionId: 'QT', enhancementId: '000010304004', target: 'defender', effects: { saveMod: 1 } },
 
   // ═══ DG — Enhancements (bloque 2) ═══
 
@@ -20770,12 +20770,12 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ AS — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_as_righteous_rage', label: 'Mejora: Righteous Rage — +1F/+1A CaC por Dado de Milagro descartado (máx. 3)', description: 'ADEPTA SORORITAS model only. Each time the bearer is selected to fight, you can first discard up to 3 Miracle dice. For each Miracle dice just discarded, until the end of the phase, add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.', factionId: 'AS', enhancementId: '000009033002', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1 } },
-  { id: 'enh2_new_as_mantle_of_ophelia', label: 'Mejora: Mantle of Ophelia — Daño recibido reducido a 1', description: 'Canoness or Palatine model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1.', factionId: 'AS', enhancementId: '000008470005', target: 'defender', effects: { damageReduction: 1 } },
+  { id: 'enh2_new_as_righteous_rage', bearerOnly: true, label: 'Mejora: Righteous Rage — +1F/+1A CaC por Dado de Milagro descartado (máx. 3)', description: 'ADEPTA SORORITAS model only. Each time the bearer is selected to fight, you can first discard up to 3 Miracle dice. For each Miracle dice just discarded, until the end of the phase, add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.', factionId: 'AS', enhancementId: '000009033002', combatType: 'melee', effects: { attacksMod: 1, strengthMod: 1 } },
+  { id: 'enh2_new_as_mantle_of_ophelia', bearerOnly: true, label: 'Mejora: Mantle of Ophelia — Daño recibido reducido a 1', description: 'Canoness or Palatine model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1.', factionId: 'AS', enhancementId: '000008470005', target: 'defender', effects: { damageReduction: 1 } },
 
   // ═══ ORK — Enhancements (bloque 2) ═══
-  { id: 'enh2_new_ork_da_gobshot_thunderbuss', label: 'Mejora: Da Gobshot Thunderbuss — Devastating Wounds (disparo)', description: 'ORKS model only. Ranged weapons equipped by the bearer have the [DEVASTATING WOUNDS] and [HAZARDOUS] abilities.', factionId: 'ORK', enhancementId: '000009991002', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
-  { id: 'enh2_new_ork_headwoppas_killchoppa', label: 'Mejora: Headwoppa’s Killchoppa — Devastating Wounds (CaC)', description: 'ORKS model only. Melee weapons equipped by the bearer (excluding Extra Attacks weapons) have the [DEVASTATING WOUNDS] ability.', factionId: 'ORK', enhancementId: '000008367003', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
+  { id: 'enh2_new_ork_da_gobshot_thunderbuss', bearerOnly: true, label: 'Mejora: Da Gobshot Thunderbuss — Devastating Wounds (disparo)', description: 'ORKS model only. Ranged weapons equipped by the bearer have the [DEVASTATING WOUNDS] and [HAZARDOUS] abilities.', factionId: 'ORK', enhancementId: '000009991002', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
+  { id: 'enh2_new_ork_headwoppas_killchoppa', bearerOnly: true, label: 'Mejora: Headwoppa’s Killchoppa — Devastating Wounds (CaC)', description: 'ORKS model only. Melee weapons equipped by the bearer (excluding Extra Attacks weapons) have the [DEVASTATING WOUNDS] ability.', factionId: 'ORK', enhancementId: '000008367003', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
 
   // ═══ GC — Enhancements (bloque 2) ═══
   { id: 'enh2_new_gc_martial_espionage', label: 'Mejora: Martial Espionage — +1 PA disparo (aliado Astra Militarum)', description: 'GENESTEALER CULTS INFANTRY model only. Once per turn, when a friendly ASTRA MILITARUM INFANTRY or ASTRA MILITARUM MOUNTED unit within 9" of the bearer is selected to shoot, until the end of the phase, improve the Armour Penetration characteristic of ranged weapons equipped by models in that unit by 1.', factionId: 'GC', enhancementId: '000009084002', combatType: 'ranged', requiresAttackerKeyword: 'astra militarum', effects: { apMod: 1 } },
@@ -20783,39 +20783,39 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ AM — Enhancements (bloque 2) ═══
   { id: 'enh2_new_am_omnissian_unguents', label: 'Mejora: Omnissian Unguents — Feel No Pain 5+ (aura, Armoured Skirmisher)', description: 'Astra Militarum Tech-Priest Enginseer model only. While a friendly Armoured Skirmisher unit is within 3" of the bearer, that unit has the Feel No Pain 5+ ability.', factionId: 'AM', enhancementId: '000010791004', target: 'defender', effects: { feelNoPainThreshold: 5 } },
-  { id: 'enh2_new_am_legacy_sidearm', label: 'Mejora: Legacy Sidearm — +2 ataques (pistolas del portador)', description: 'Infantry Officer model only. Add 2 to the Attacks characteristic of the bearer’s Pistols.', factionId: 'AM', enhancementId: '000009857004', combatType: 'ranged', effects: { attacksMod: 2 } },
+  { id: 'enh2_new_am_legacy_sidearm', bearerOnly: true, label: 'Mejora: Legacy Sidearm — +2 ataques (pistolas del portador)', description: 'Infantry Officer model only. Add 2 to the Attacks characteristic of the bearer’s Pistols.', factionId: 'AM', enhancementId: '000009857004', combatType: 'ranged', effects: { attacksMod: 2 } },
   { id: 'enh2_new_am_smoke_grenades', label: 'Mejora: Smoke Grenades — Cobertura y Stealth (−1 impactar recibido)', description: 'Infantry Officer model only. The bearer’s unit has the Benefit of Cover and the Stealth ability while the bearer’s unit is wholly within 3" of one or more friendly TRANSPORT models.', factionId: 'AM', enhancementId: '000009861004', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },
   { id: 'enh2_new_am_tripwires', label: 'Mejora: Tripwires — Aturdido, −1 impactar (unidad enemiga)', description: 'Astra Militarum Infantry model only. Each time an enemy INFANTRY or MOUNTED unit ends a Normal, Advance, Charge or Fall Back move within 9" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'AM', enhancementId: '000009869005', effects: { hitMod: -1 } },
 
   // ═══ AC — Enhancements (bloque 2) ═══
   { id: 'enh2_new_ac_aegis_projector', label: 'Mejora: Aegis Projector — Daño a 0 (1/turno, primera salvación fallada)', description: 'ADEPTUS CUSTODES model only. Once per turn, the first time a saving throw is failed for the bearer’s unit, change the Damage characteristic of that attack to 0.', factionId: 'AC', enhancementId: '000008921002', target: 'defender', effects: { damageReduction: 1 } },
-  { id: 'enh2_new_ac_fierce_conqueror', label: 'Mejora: Fierce Conqueror — +2 ataques CaC (por cada 5 enemigos cercanos)', description: 'Shield-Captain model only. At the start of the Fight phase, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer for every 5 enemy models within 6" of the bearer (rounding down).', factionId: 'AC', enhancementId: '000009987004', combatType: 'melee', effects: { attacksMod: 2 } },
+  { id: 'enh2_new_ac_fierce_conqueror', bearerOnly: true, label: 'Mejora: Fierce Conqueror — +2 ataques CaC (por cada 5 enemigos cercanos)', description: 'Shield-Captain model only. At the start of the Fight phase, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer for every 5 enemy models within 6" of the bearer (rounding down).', factionId: 'AC', enhancementId: '000009987004', combatType: 'melee', effects: { attacksMod: 2 } },
   { id: 'enh2_new_ac_panoptispex', label: 'Mejora: Panoptispex — Ignora Cobertura (aura de liderazgo, disparo)', description: 'Shield-Captain or Blade Champion model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [IGNORES COVER] ability.', factionId: 'AC', enhancementId: '000008395005', combatType: 'ranged', effects: { bsMod: -1 } },
 
   // ═══ TYR — Enhancements (bloque 2) ═══
   { id: 'enh2_new_tyr_naturalised_camouflage', label: 'Mejora: Naturalised Camouflage — Benefit of Cover (unidades Endless Multitude)', description: 'TYRANIDS model only. At the start of the first battle round, select up to three friendly Endless Multitude units within 9" of the bearer. Until the end of the battle round, each time a ranged attack targets one of those units, models in that unit have the Benefit of Cover against that attack.', factionId: 'TYR', enhancementId: '000008408003', combatType: 'ranged', target: 'defender', requiresTargetKeyword: 'endless multitude', effects: { bsMod: 1 } },
-  { id: 'enh2_new_tyr_perfectly_adapted', label: 'Mejora: Perfectly Adapted — repetir 1 impacto/1 herida/1 daño (a elección)', description: 'TYRANIDS model only. Once per turn, you can re-roll one Hit roll, one Wound roll, one Damage roll, one Advance roll, one Charge roll or one saving throw made for the bearer.', factionId: 'TYR', enhancementId: '000008348003', effects: { rerollHitsOf1: true, rerollWoundsOf1: true, rerollDamageOf1: true } },
-  { id: 'enh2_new_tyr_null_nodules', label: 'Mejora: Null Nodules — Feel No Pain 5+ vs Ataques Psíquicos', description: 'Tyranids Monster model only. Once per battle, when a Psychic Attack is allocated to the bearer, it can use this ability. If it does, until the end of the phase, the bearer has the Feel No Pain 5+ ability against Psychic Attacks.', factionId: 'TYR', enhancementId: '000008404004', target: 'defender', effects: { feelNoPainThreshold: 5 } },
-  { id: 'enh2_new_tyr_stalker', label: 'Mejora: Stalker — +1 impactar y +1 herir (unidad marcada)', description: 'Vanguard Invader model only. At the start of the battle, select one enemy unit. Each time the bearer makes an attack that targets that enemy unit, add 1 to the Hit roll and add 1 to the Wound roll.', factionId: 'TYR', enhancementId: '000008417004', effects: { hitMod: 1, woundMod: 1 } },
+  { id: 'enh2_new_tyr_perfectly_adapted', bearerOnly: true, label: 'Mejora: Perfectly Adapted — repetir 1 impacto/1 herida/1 daño (a elección)', description: 'TYRANIDS model only. Once per turn, you can re-roll one Hit roll, one Wound roll, one Damage roll, one Advance roll, one Charge roll or one saving throw made for the bearer.', factionId: 'TYR', enhancementId: '000008348003', effects: { rerollHitsOf1: true, rerollWoundsOf1: true, rerollDamageOf1: true } },
+  { id: 'enh2_new_tyr_null_nodules', bearerOnly: true, label: 'Mejora: Null Nodules — Feel No Pain 5+ vs Ataques Psíquicos', description: 'Tyranids Monster model only. Once per battle, when a Psychic Attack is allocated to the bearer, it can use this ability. If it does, until the end of the phase, the bearer has the Feel No Pain 5+ ability against Psychic Attacks.', factionId: 'TYR', enhancementId: '000008404004', target: 'defender', effects: { feelNoPainThreshold: 5 } },
+  { id: 'enh2_new_tyr_stalker', bearerOnly: true, label: 'Mejora: Stalker — +1 impactar y +1 herir (unidad marcada)', description: 'Vanguard Invader model only. At the start of the battle, select one enemy unit. Each time the bearer makes an attack that targets that enemy unit, add 1 to the Hit roll and add 1 to the Wound roll.', factionId: 'TYR', enhancementId: '000008417004', effects: { hitMod: 1, woundMod: 1 } },
   { id: 'enh2_new_tyr_piercing_talons', label: 'Mejora: Piercing Talons — +1 PA en Herida Crítica', description: 'TYRANIDS model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.', factionId: 'TYR', enhancementId: '000008408004', effects: { apMod: 1 } },
 
   // ═══ AdM — Enhancements (bloque 2) ═══
-  { id: 'enh2_new_adm_necromechanic', label: 'Mejora: Necromechanic — Daño a 0 (VEHICLE aliado)', description: 'TECH-PRIEST model only. Once per battle round, when a saving throw made for a friendly LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE model within 12" of the bearer is failed, the bearer can use this Enhancement. If they do, change the Damage characteristic of that attack to 0.', factionId: 'AdM', enhancementId: '000008572002', target: 'defender', requiresTargetKeyword: 'vehicle', effects: { damageReduction: 1 } },
-  { id: 'enh2_new_adm_mantle_of_the_gnosticarch', label: 'Mejora: Mantle of the Gnosticarch — Daño a 1 recibido', description: 'TECH-PRIEST model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1.', factionId: 'AdM', enhancementId: '000008564003', target: 'defender', effects: { damageReduction: 1 } },
+  { id: 'enh2_new_adm_necromechanic', bearerOnly: true, label: 'Mejora: Necromechanic — Daño a 0 (VEHICLE aliado)', description: 'TECH-PRIEST model only. Once per battle round, when a saving throw made for a friendly LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE model within 12" of the bearer is failed, the bearer can use this Enhancement. If they do, change the Damage characteristic of that attack to 0.', factionId: 'AdM', enhancementId: '000008572002', target: 'defender', requiresTargetKeyword: 'vehicle', effects: { damageReduction: 1 } },
+  { id: 'enh2_new_adm_mantle_of_the_gnosticarch', bearerOnly: true, label: 'Mejora: Mantle of the Gnosticarch — Daño a 1 recibido', description: 'TECH-PRIEST model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1.', factionId: 'AdM', enhancementId: '000008564003', target: 'defender', effects: { damageReduction: 1 } },
   { id: 'enh2_new_adm_lord_of_machines', label: 'Mejora: Lord of Machines — −1 impactar recibido (atacante VEHICLE)', description: 'TECH-PRIEST model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy VEHICLE unit within 12" of and visible to the bearer. That unit must take a Leadership test: if that test is passed, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll; if that test is failed, that unit is not eligible to shoot this phase.', factionId: 'AdM', enhancementId: '000008572003', target: 'defender', requiresAttackerKeyword: 'vehicle', effects: { hitMod: -1 } },
   { id: 'enh2_new_adm_artisan', label: 'Mejora: Artisan — 6 automático a impactar/herir (una vez por fase)', description: 'TECH-PRIEST model only. While the bearer is leading a unit that is within range of your Acquisition objective marker, once per phase, you can change the result of one Hit roll, one Wound roll or one saving throw made for that unit to an unmodified 6.', factionId: 'AdM', enhancementId: '000008568005', effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
 
   // ═══ TS — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_ts_empyric_onslaught', label: 'Mejora: Empyric Onslaught — +3 ataques disparo (armas psíquicas)', description: 'THOUSAND SONS model only. While the bearer’s unit is wholly within your army’s Flow of Magic, add 3 to the Attacks characteristic of ranged Psychic weapons equipped by the bearer.', factionId: 'TS', enhancementId: '000009741004', combatType: 'ranged', effects: { attacksMod: 3 } },
+  { id: 'enh2_new_ts_empyric_onslaught', bearerOnly: true, label: 'Mejora: Empyric Onslaught — +3 ataques disparo (armas psíquicas)', description: 'THOUSAND SONS model only. While the bearer’s unit is wholly within your army’s Flow of Magic, add 3 to the Attacks characteristic of ranged Psychic weapons equipped by the bearer.', factionId: 'TS', enhancementId: '000009741004', combatType: 'ranged', effects: { attacksMod: 3 } },
 
-  { id: 'enh2_new_ts_tome_of_true_names', label: 'Mejora: Tome of True Names — salvación invulnerable 2+', description: 'Thousand Sons Infantry model only. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 2+ invulnerable save.', factionId: 'TS', enhancementId: '000010197005', target: 'defender', effects: { feelNoPainThreshold: 2 } },
+  { id: 'enh2_new_ts_tome_of_true_names', bearerOnly: true, label: 'Mejora: Tome of True Names — salvación invulnerable 2+', description: 'Thousand Sons Infantry model only. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 2+ invulnerable save.', factionId: 'TS', enhancementId: '000010197005', target: 'defender', effects: { feelNoPainThreshold: 2 } },
 
   // ═══ EC — Enhancements (bloque 2) ═══
 
   { id: 'enh2_new_ec_tears_of_the_phoenix', label: 'Mejora: Tears of the Phoenix — ignora modificadores HA/impactar/herir CaC', description: 'EMPEROR’S CHILDREN model only. Each time a model in the bearer’s unit makes a melee attack, you can ignore any or all modifiers to that attack’s Weapon Skill characteristic and any or all modifiers to the Hit roll and Wound roll.', factionId: 'EC', enhancementId: '000010654002', combatType: 'melee', effects: { wsMod: -1, hitMod: 1, woundMod: 1 } },
 
-  { id: 'enh2_new_ec_dark_blessings', label: 'Mejora: Dark Blessings — salvación invulnerable 3+', description: 'Emperor’s Children Infantry model only. Once per battle, just after an enemy unit has selected its targets, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ invulnerable save.', factionId: 'EC', enhancementId: '000010010003', target: 'defender', effects: { feelNoPainThreshold: 3 } },
+  { id: 'enh2_new_ec_dark_blessings', bearerOnly: true, label: 'Mejora: Dark Blessings — salvación invulnerable 3+', description: 'Emperor’s Children Infantry model only. Once per battle, just after an enemy unit has selected its targets, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ invulnerable save.', factionId: 'EC', enhancementId: '000010010003', target: 'defender', effects: { feelNoPainThreshold: 3 } },
 
   { id: 'enh2_new_ec_heretek_adept', label: 'Mejora: Heretek Adept — Daño a 0 (VEHICLE aliado cercano)', description: 'Emperor’s Children Infantry model only. Once per battle round, when a saving throw is failed for a friendly Emperor’s Children Vehicle model within 6" of the bearer, you can change the Damage characteristic of that attack to 0.', factionId: 'EC', enhancementId: '000010006005', target: 'defender', requiresAttackerKeyword: 'vehicle', effects: { damageReduction: 1 } },
 
@@ -20823,9 +20823,9 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ GK — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_gk_grimoire_of_conjunctions', label: 'Mejora: Grimoire of Conjunctions — +4 Fuerza CaC (una vez por batalla)', description: 'GREY KNIGHTS model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, add 4 to the Strength characteristic of melee weapons equipped by the bearer.', factionId: 'GK', enhancementId: '000010364002', combatType: 'melee', effects: { strengthMod: 4 } },
+  { id: 'enh2_new_gk_grimoire_of_conjunctions', bearerOnly: true, label: 'Mejora: Grimoire of Conjunctions — +4 Fuerza CaC (una vez por batalla)', description: 'GREY KNIGHTS model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, add 4 to the Strength characteristic of melee weapons equipped by the bearer.', factionId: 'GK', enhancementId: '000010364002', combatType: 'melee', effects: { strengthMod: 4 } },
 
-  { id: 'enh2_new_gk_radiant_champion', label: 'Mejora: Radiant Champion — +1 daño (herida mortal adicional CaC, Hallowed Ground)', description: 'Grey Knights Infantry model only. The bearer’s melee weapons have the [PRECISION] ability, and while the bearer is wholly within your army’s Hallowed Ground, each time a melee attack made by the bearer scores a wound, the target of that attack suffers 1 mortal wound in addition to any normal damage.', factionId: 'GK', enhancementId: '000009777003', combatType: 'melee', effects: { damageMod: 1 } },
+  { id: 'enh2_new_gk_radiant_champion', bearerOnly: true, label: 'Mejora: Radiant Champion — +1 daño (herida mortal adicional CaC, Hallowed Ground)', description: 'Grey Knights Infantry model only. The bearer’s melee weapons have the [PRECISION] ability, and while the bearer is wholly within your army’s Hallowed Ground, each time a melee attack made by the bearer scores a wound, the target of that attack suffers 1 mortal wound in addition to any normal damage.', factionId: 'GK', enhancementId: '000009777003', combatType: 'melee', effects: { damageMod: 1 } },
 
   { id: 'enh2_new_gk_spiritus_machina', label: 'Mejora: Spiritus Machina — repetir tiradas de herir (unidad desembarcada este turno)', description: 'Grey Knights Infantry model only. In your Shooting phase, each time the bearer’s unit is selected to shoot, if the bearer’s unit disembarked from a Transport this turn, until the end of the phase, each time a model in the bearer’s unit makes an attack, you can re-roll the Wound roll.', factionId: 'GK', enhancementId: '000010360005', combatType: 'ranged', effects: { rerollAllWounds: true } },
 
@@ -20835,7 +20835,7 @@ const RULES_5: ModifierRule[] = [
 
   // ═══ LoV — Enhancements (bloque 2) ═══
 
-  { id: 'enh2_new_lov_iron_ambassador', label: 'Mejora: Iron Ambassador — +3 Daño disparo (gastar hasta 3YP)', description: 'Leagues of Votann model equipped with an Autoch-pattern combi-bolter only. Once per battle, when the bearer’s unit is selected to shoot, the bearer can use this Enhancement. If it does, spend up to 3YP and, until the end of the phase, add the number of YP you just spent to the Damage characteristic of the bearer’s ranged weapons.', factionId: 'LoV', enhancementId: '000010435004', combatType: 'ranged', effects: { damageMod: 3 } },
+  { id: 'enh2_new_lov_iron_ambassador', bearerOnly: true, label: 'Mejora: Iron Ambassador — +3 Daño disparo (gastar hasta 3YP)', description: 'Leagues of Votann model equipped with an Autoch-pattern combi-bolter only. Once per battle, when the bearer’s unit is selected to shoot, the bearer can use this Enhancement. If it does, spend up to 3YP and, until the end of the phase, add the number of YP you just spent to the Damage characteristic of the bearer’s ranged weapons.', factionId: 'LoV', enhancementId: '000010435004', combatType: 'ranged', effects: { damageMod: 3 } },
 
   // ═══ WE — Enhancements (bloque 2) ═══
   { id: 'enh2_new_we_unleash_hell', label: 'Mejora: Unleash Hell — enemigo suprimido, -1 impactar', description: 'World Eaters model only. At the start of your Shooting phase, select one Vehicle model within 6" of the bearer (or the Transport the bearer is embarked within) and after it has shot, select one enemy unit it hit; that unit is suppressed until the start of your next turn. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.', factionId: 'WE', enhancementId: '000010086004', target: 'attacker', effects: { hitMod: -1 } },

@@ -12,6 +12,13 @@ interface Props {
   attackerName: string
   defenderName: string
   mods: CombatModifiers
+  /** Mods to use instead of `mods` for weapons that belong to the attached leader
+   * (see `leaderWeapons`) — includes bearer-only enhancement/ability effects. */
+  leaderMods?: CombatModifiers
+  /** Weapon objects belonging to the currently attached leader/character, if any.
+   * Used to tell its own weapons apart from the led unit's weapons so bearer-only
+   * modifiers (e.g. "this model's melee attacks have +1 A") don't leak onto the unit. */
+  leaderWeapons?: Weapon[]
   combatType: CombatType
   onCombatTypeChange: (t: CombatType) => void
   unitMin?: number
@@ -162,9 +169,14 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
 }
 
 export function DamageCalculator({
-  weapons, weaponQuantities = {}, defenderModel, defenderKeywords = [], attackerName, defenderName, mods, combatType, onCombatTypeChange,
+  weapons, weaponQuantities = {}, defenderModel, defenderKeywords = [], attackerName, defenderName, mods,
+  leaderMods, leaderWeapons, combatType, onCombatTypeChange,
   unitMin, unitMax, defenderMin, defenderMax, meltaActive, overwatchActive = false, onOverwatchToggle,
 }: Props) {
+  function modsFor(w: Weapon): CombatModifiers {
+    return leaderMods && leaderWeapons?.includes(w) ? leaderMods : mods
+  }
+
   const [defenderModels, setDefenderModels] = useState(defenderMin ?? 1)
   const [syncedDefenderMin, setSyncedDefenderMin] = useState(defenderMin)
   if (defenderMin !== syncedDefenderMin) {
@@ -177,15 +189,19 @@ export function DamageCalculator({
   }
 
   const hasBlastWeapons = weapons.some(w => w.isBlast)
-  const hasCleaveWeapons = weapons.some(w => w.cleaveValue > 0) || mods.cleaveBonus > 0
+  const hasCleaveWeapons = weapons.some(w => w.cleaveValue > 0) || mods.cleaveBonus > 0 || (leaderMods?.cleaveBonus ?? 0) > 0
 
-  const hasActiveMods =
-    mods.hitMod !== 0 || mods.rerollHitsOf1 || mods.rerollAllHits ||
-    mods.critThreshold !== 6 || mods.sustainedHitsBonus !== 0 || mods.lethalHitsBonus ||
-    mods.cleaveBonus !== 0 || mods.devastatingWoundsBonus ||
-    mods.strengthMod !== 0 || mods.rerollWoundsOf1 || mods.rerollAllWounds ||
-    mods.woundMod !== 0 || mods.apMod !== 0 || mods.saveMod !== 0 ||
-    mods.attacksMod !== 0 || mods.rerollDamageOf1 || mods.rerollAllDamage
+  function isActive(m: CombatModifiers): boolean {
+    return (
+      m.hitMod !== 0 || m.rerollHitsOf1 || m.rerollAllHits ||
+      m.critThreshold !== 6 || m.sustainedHitsBonus !== 0 || m.lethalHitsBonus ||
+      m.cleaveBonus !== 0 || m.devastatingWoundsBonus ||
+      m.strengthMod !== 0 || m.rerollWoundsOf1 || m.rerollAllWounds ||
+      m.woundMod !== 0 || m.apMod !== 0 || m.saveMod !== 0 ||
+      m.attacksMod !== 0 || m.rerollDamageOf1 || m.rerollAllDamage
+    )
+  }
+  const hasActiveMods = weapons.some(w => isActive(modsFor(w)))
 
   const weaponLocked = weapons.length > 0
 
@@ -224,9 +240,10 @@ export function DamageCalculator({
   }
 
   const breakdowns = weapons.map(w => {
+    const baseMods = modsFor(w)
     const wMods = (meltaActive && w.isMelta)
-      ? { ...mods, damageMod: mods.damageMod + w.meltaValue }
-      : mods
+      ? { ...baseMods, damageMod: baseMods.damageMod + w.meltaValue }
+      : baseMods
     return calculateDamage(w, defenderModel, wMods, defenderKeywords, defenderModels)
   })
   const totalDamage = breakdowns.reduce((s, b, i) => s + b.expectedTotalDamage * getQty(weapons[i]), 0)
@@ -425,7 +442,7 @@ export function DamageCalculator({
               key={`${w.name}-${i}`}
               weapon={w}
               defenderModel={defenderModel}
-              mods={mods}
+              mods={modsFor(w)}
               qty={getQty(w)}
               blastTargetModels={defenderModels}
               defenderKeywords={defenderKeywords}
@@ -452,31 +469,34 @@ export function DamageCalculator({
 
       {/* Context */}
       <div className="text-xs font-mono text-parchment-dim border border-rim-bright p-3 space-y-1 leading-relaxed">
-        {isSingle && (
+        {isSingle && (() => {
+          const displayMods = modsFor(weapons[0])
+          return (
           <p>
             <span className="text-gold">Atacante</span>
             {' '}— F:{weapons[0].S}
-            {mods.strengthMod !== 0 || mods.woundMod !== 0
-              ? ` (ef.${weapons[0].S + mods.strengthMod + mods.woundMod})`
+            {displayMods.strengthMod !== 0 || displayMods.woundMod !== 0
+              ? ` (ef.${weapons[0].S + displayMods.strengthMod + displayMods.woundMod})`
               : ''}
             {' '}AP:{weapons[0].AP}
-            {(mods.apMod !== 0 || mods.saveMod !== 0)
+            {(displayMods.apMod !== 0 || displayMods.saveMod !== 0)
               ? ` (PA ef.${calc.effectiveAP})`
               : ''}
             {weapons[0].isTorrent && ' [Torrent]'}
-            {(weapons[0].isDevastatingWounds || mods.devastatingWoundsBonus) && ' [Devastating Wounds]'}
-            {(weapons[0].isLethalHits || mods.lethalHitsBonus) && ' [Lethal Hits]'}
-            {(weapons[0].sustainedHitsValue + mods.sustainedHitsBonus) > 0
-              && ` [Sustained ${weapons[0].sustainedHitsValue + mods.sustainedHitsBonus}]`}
-            {(weapons[0].cleaveValue + mods.cleaveBonus) > 0
-              && ` [Cleave ${weapons[0].cleaveValue + mods.cleaveBonus}]`}
+            {(weapons[0].isDevastatingWounds || displayMods.devastatingWoundsBonus) && ' [Devastating Wounds]'}
+            {(weapons[0].isLethalHits || displayMods.lethalHitsBonus) && ' [Lethal Hits]'}
+            {(weapons[0].sustainedHitsValue + displayMods.sustainedHitsBonus) > 0
+              && ` [Sustained ${weapons[0].sustainedHitsValue + displayMods.sustainedHitsBonus}]`}
+            {(weapons[0].cleaveValue + displayMods.cleaveBonus) > 0
+              && ` [Cleave ${weapons[0].cleaveValue + displayMods.cleaveBonus}]`}
             {weapons[0].isHeavy && ' [Heavy]'}
             {weapons[0].isMelta && meltaActive && ` [Melta ½ dist. +${weapons[0].meltaValue}D]`}
-            {mods.attacksMod !== 0 && ` [+${mods.attacksMod}A]`}
-            {(mods.rerollDamageOf1 || mods.rerollAllDamage) && ' [RR Daño]'}
+            {displayMods.attacksMod !== 0 && ` [+${displayMods.attacksMod}A]`}
+            {(displayMods.rerollDamageOf1 || displayMods.rerollAllDamage) && ' [RR Daño]'}
             {overwatchActive && ' [Overwatch 6+]'}
           </p>
-        )}
+          )
+        })()}
         <p>
           <span className="text-gold">Defensor</span> — T:{defenderModel.T}
           {' '}Sv:{defenderModel.Sv}

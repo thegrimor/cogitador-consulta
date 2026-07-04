@@ -210,6 +210,14 @@ export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): Co
   return result
 }
 
+/** Symmetrically combines two attacker-side CombatModifiers (e.g. unit-wide + bearer-only
+ * effects), unlike `mergeMods` whose attacker/defender fields are deliberately asymmetric. */
+export function combineAttackerMods(a: CombatModifiers, b: CombatModifiers): CombatModifiers {
+  const result = { ...a }
+  applyEffects(result, b)
+  return result
+}
+
 export function mergeMods(
   base: CombatModifiers,
   attackerRuleMods: CombatModifiers,
