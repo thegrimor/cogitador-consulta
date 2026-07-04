@@ -127,8 +127,8 @@ export function UnitSelector({ gameData, panel }: Props) {
             onChange={e => panel.selectCharacter(e.target.value || null)}
           >
             <option value="">— Sin Personaje —</option>
-            {availableCharacters.map(c => (
-              <option key={c.id} value={c.id}>{c.name}</option>
+            {availableCharacters.map(({ datasheet: c, viaEnhancement }) => (
+              <option key={c.id} value={c.id}>{c.name}{viaEnhancement ? ' (por mejora)' : ''}</option>
             ))}
           </select>
         </div>
