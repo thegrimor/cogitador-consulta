@@ -2,8 +2,16 @@ import { useState } from 'react'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import {
-  compareByRolePriority, resolveCostsForUnitIndex, unitIndexInRoster, maxCopiesAllowed,
+  compareByRolePriority, resolveCostsForUnitIndex, unitIndexInRoster, maxCopiesAllowed, resolveModelCount,
 } from '@/core/utils/roster'
+
+function modelCountLabel(ds: Datasheet): string {
+  if (ds.modelCountMin <= 0) return ''
+  if (ds.modelCountMin === ds.modelCountMax) {
+    return ds.modelCountMin === 1 ? '1 miniatura' : `${ds.modelCountMin} miniaturas`
+  }
+  return `${ds.modelCountMin}-${ds.modelCountMax} miniaturas`
+}
 
 interface Props {
   datasheets: Datasheet[]
@@ -86,6 +94,9 @@ export function AddUnitPanel({ datasheets, pointsCostMap, entries, pointsLimit, 
                     {ds.role}
                   </span>
                 </div>
+                {modelCountLabel(ds) && (
+                  <p className="text-[10px] font-mono text-parchment-dim mt-0.5">{modelCountLabel(ds)}</p>
+                )}
                 <div className="mt-2">
                   {atCap ? (
                     <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-1 border border-rim-bright text-parchment-dim/50">
@@ -98,7 +109,7 @@ export function AddUnitPanel({ datasheets, pointsCostMap, entries, pointsLimit, 
                       onClick={() => onAdd(ds, costs[0])}
                       className="text-[10px] font-mono uppercase tracking-widest px-2 py-1 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
                     >
-                      Añadir ({costs[0].points}pts)
+                      Añadir ({resolveModelCount(costs[0], ds)} · {costs[0].points}pts)
                     </button>
                   ) : (
                     <button
