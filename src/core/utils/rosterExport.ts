@@ -1,5 +1,6 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
 import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants } from '@/core/utils/roster'
+import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
 
@@ -432,6 +433,9 @@ export function resolveImportedRoster(
 
   for (const entry of entries) {
     const eligibleTargetIds = new Set(leaderMap[entry.datasheetId] ?? [])
+    if (entry.enhancementId) {
+      for (const id of ENHANCEMENT_ATTACHMENTS[entry.enhancementId] ?? []) eligibleTargetIds.add(id)
+    }
     if (eligibleTargetIds.size === 0) continue
 
     const parsedUnit = entryToParsedUnit.get(entry.id)
