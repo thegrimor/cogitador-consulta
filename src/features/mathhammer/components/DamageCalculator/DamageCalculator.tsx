@@ -153,6 +153,14 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
             detail={`${fmt(calc.expectedWounds)} × ${pct(calc.saveFailProbability)}`}
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapon.D} />
+          {calc.fnpProbability > 0 && (
+            <Row
+              label={`↳ FNP ${calc.feelNoPainThreshold}+`}
+              value={`−${fmt(calc.damageBeforeFNP - calc.expectedTotalDamage)}`}
+              detail={`${fmt(calc.damageBeforeFNP)} × ${pct(calc.fnpProbability)} ignorado`}
+              highlight
+            />
+          )}
           <Row label="Bajas esperadas" value={fmt(calc.expectedKills * qty)} detail={`/${defenderModel.W}H · ×${qty}`} highlight />
           {calc.standardDeviation > 0 && (
             <Row label="Desv. típica (σ)" value={`±${calc.standardDeviation.toFixed(2)}`} detail="por modelo atacante" />
@@ -198,7 +206,8 @@ export function DamageCalculator({
       m.cleaveBonus !== 0 || m.devastatingWoundsBonus ||
       m.strengthMod !== 0 || m.rerollWoundsOf1 || m.rerollAllWounds ||
       m.woundMod !== 0 || m.apMod !== 0 || m.saveMod !== 0 ||
-      m.attacksMod !== 0 || m.rerollDamageOf1 || m.rerollAllDamage
+      m.attacksMod !== 0 || m.rerollDamageOf1 || m.rerollAllDamage ||
+      m.feelNoPainThreshold !== null
     )
   }
   const hasActiveMods = weapons.some(w => isActive(modsFor(w)))
@@ -405,6 +414,14 @@ export function DamageCalculator({
             detail={`${fmt(calc.expectedWounds)} × ${pct(calc.saveFailProbability)}`}
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapons[0].D} />
+          {calc.fnpProbability > 0 && (
+            <Row
+              label={`↳ FNP ${calc.feelNoPainThreshold}+`}
+              value={`−${fmt(calc.damageBeforeFNP - calc.expectedTotalDamage)}`}
+              detail={`${fmt(calc.damageBeforeFNP)} × ${pct(calc.fnpProbability)} ignorado`}
+              highlight
+            />
+          )}
           <Row label="Bajas esperadas" value={fmt(calc.expectedKills * singleQty)} detail={`/${defenderModel.W}H por modelo`} highlight />
           {calc.autoWoundsFromCrits > 0 && calc.expectedWounds > 0 && (
             <Row

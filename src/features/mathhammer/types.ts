@@ -75,6 +75,9 @@ export interface DamageBreakdown {
   saveFailProbability: number
   expectedFailedSaves: number
   avgDamagePerWound: number
+  damageBeforeFNP: number
+  feelNoPainThreshold: number | null
+  fnpProbability: number
   expectedTotalDamage: number
   expectedKills: number
   effectiveAP: number
