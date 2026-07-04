@@ -83,6 +83,9 @@ export function RosterEntryRow({
           <p className="text-[13px] font-display uppercase tracking-widest text-parchment flex items-center gap-1.5">
             <span>{expanded ? '▾' : '▸'}</span>
             {datasheet.name}
+            <span className="text-[10px] font-mono normal-case tracking-normal text-parchment-dim">
+              ({entry.modelCount} {entry.modelCount === 1 ? 'miniatura' : 'miniaturas'})
+            </span>
           </p>
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
             {(entry.pointsCost ?? 0) + wargearSurcharge}pts
@@ -218,6 +221,29 @@ export function RosterEntryRow({
                   <p className="text-[10px] font-mono text-gold mt-0.5">
                     Total armamento: +{wargearSurcharge}pts
                   </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {(datasheet.unitComposition.length > 0 || datasheet.loadout) && (
+            <div className="border border-rim-bright">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim px-2 py-1 bg-surface-3">
+                Composición y Equipo
+              </p>
+              <div className="px-2 py-1.5 space-y-1">
+                {datasheet.unitComposition.map((line, i) => (
+                  <p
+                    key={i}
+                    className="wh-html text-[11px] font-mono text-parchment-dim"
+                    dangerouslySetInnerHTML={{ __html: line }}
+                  />
+                ))}
+                {datasheet.loadout && (
+                  <p
+                    className="text-[11px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                    dangerouslySetInnerHTML={{ __html: datasheet.loadout }}
+                  />
                 )}
               </div>
             </div>
