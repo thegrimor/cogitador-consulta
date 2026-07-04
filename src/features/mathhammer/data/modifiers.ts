@@ -5205,8 +5205,6 @@ const RULES_2: ModifierRule[] = [
   // WAAAGH!: una vez por partida, el Warboss puede declarar WAAAGH! → +1 impactar a todas las unidades Ork esa ronda
   { id: 'ork_waaagh',     label: 'WAAAGH! — +1 Fuerza y +1 Ataque (CaC)',        description: "WAAAGH!: once per battle. Until the start of your next Command phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in this unit.", factionId: 'ORK', combatType: 'melee', effects: { strengthMod: 1, attacksMod: 1 } },
   { id: 'ork_waaagh_inv', label: 'WAAAGH! — salvación invulnerable 5+ (defensor)', description: "WAAAGH!: models from your army have a 5+ invulnerable save. Activate on the ORK unit being attacked.", factionId: 'ORK', target: 'defender', effects: { saveMod: 1 } },
-  { id: 'ork_da_gobshot_thunderbuss', label: 'Da Gobshot Thunderbuss — Devastating Wounds, disparo', description: 'Da Gobshot Thunderbuss: ORKS model only. Ranged weapons equipped by the bearer have the [DEVASTATING WOUNDS] and [HAZARDOUS] abilities (Hazardous sin efecto modelable hoy).', factionId: 'ORK', detachmentId: '000001030', combatType: 'ranged', effects: { devastatingWoundsBonus: true } },
-  { id: 'ork_headwoppas_killchoppa', label: "Headwoppa's Killchoppa — Devastating Wounds, CaC", description: "Headwoppa's Killchoppa: ORKS model only. Melee weapons equipped by the bearer (excluding Extra Attacks weapons) have the [DEVASTATING WOUNDS] ability.", factionId: 'ORK', detachmentId: '000000852', combatType: 'melee', effects: { devastatingWoundsBonus: true } },
   {
     id: 'ork_get_stuck_in',
     label: 'Get Stuck In — Sustained Hits 1, CaC',
