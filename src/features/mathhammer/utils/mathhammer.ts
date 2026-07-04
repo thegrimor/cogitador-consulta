@@ -278,7 +278,9 @@ export function calculateDamage(
   // shifts the save threshold independently of AP (works even at AP 0).
   // Cover (10th ed) is NOT saveMod — it's hitMod: -1 on the defender side (13.08).
   const apAdjusted  = Math.min(0, weapon.AP - mods.apMod)
-  const effectiveAP = apAdjusted - mods.saveMod
+  // saveMod > 0 genuinely improves the Save characteristic, so it must cancel out AP
+  // (bring effectiveAP toward 0), not compound it — hence + here, not -.
+  const effectiveAP = apAdjusted + mods.saveMod
   const pFailSave   = saveFailProbability(defenderModel.Sv, defenderModel.invSv, effectiveAP)
 
   // En overwatch, los críticos no pueden ocurrir en resultados que no son impactos.

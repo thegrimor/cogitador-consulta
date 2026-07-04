@@ -9316,6 +9316,19 @@ const RULES_3: ModifierRule[] = [
   },
   },
   {
+    id: 'tyr_ablative_carapace_objective',
+    label: 'ABLATIVE CARAPACE — FNP 4+ en objetivo (2CP)',
+    description: 'Assimilation Swarm: Si tu unidad está en rango de un marcador de objetivo que controlas, Feel No Pain 4+ en vez de 5+.',
+    factionId: 'TYR',
+    detachmentId: '000000771',
+    target: 'defender',
+    isStratagem: true,
+    cpCost: 2,
+    effects: {
+    feelNoPainThreshold: 4,
+  },
+  },
+  {
     id: 'tyr_secure_biomass',
     label: 'SECURE BIOMASS — crítico 5+, Lethal Hits, CaC (1CP)',
     description: 'Assimilation Swarm: Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a Harvester unit, each time a model in that unit makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical',
@@ -20845,10 +20858,172 @@ const RULES_5: ModifierRule[] = [
 
 ]
 
+// Bloque 6: estratagemas de destacamentos sin ninguna regla modelada (revisión completa
+// de todos los destacamentos — solo se agregan las que tienen un efecto de combate
+// concreto y representable; se omiten las que solo "ignoran modificadores" sin dar un
+// número fijo, las puramente de movimiento/objetivo, y las de valor absoluto (no delta).
+const RULES_6: ModifierRule[] = [
+  // ═══ AC ═══
+  { id: 'ac_purgation_sweep', label: 'PURGATION SWEEP — +1 ataque Torrent (1CP)', description: 'Null Maiden Vigil: Torrent weapons equipped by models in your unit get +1 Attacks.', factionId: 'AC', detachmentId: '000000862', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'ac_purgation_sweep_2', label: 'PURGATION SWEEP — +2 ataques vs Psyker/Battle-shocked (1CP)', description: 'Null Maiden Vigil: si el objetivo es PSYKER o Battle-shocked, +2 Attacks en vez de +1.', factionId: 'AC', detachmentId: '000000862', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { attacksMod: 2 } },
+  { id: 'ac_arcane_genetic_alchemy', label: 'ARCANE GENETIC ALCHEMY — FNP 4+ mortales (1CP)', description: 'Shield Host: models in your unit have the Feel No Pain 4+ ability against mortal wounds.', factionId: 'AC', detachmentId: '000000765', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 4 } },
+  { id: 'ac_avenge_the_fallen', label: 'AVENGE THE FALLEN — +1 ataque CaC (1CP)', description: 'Shield Host: +1 Attacks a melee weapons equipped by models in your unit.', factionId: 'AC', detachmentId: '000000765', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'ac_avenge_the_fallen_2', label: 'AVENGE THE FALLEN — +2 ataques si Below Half-strength (1CP)', description: 'Shield Host: +2 Attacks en vez de +1 si tu unidad está Below Half-strength.', factionId: 'AC', detachmentId: '000000765', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 2 } },
+  { id: 'ac_empyric_severance', label: 'EMPYRIC SEVERANCE — FNP 4+ (1CP)', description: 'Talons Of The Emperor: your unit has the Feel No Pain 4+ ability against Psychic attacks and mortal wounds.', factionId: 'AC', detachmentId: '000000861', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 4 } },
+
+  // ═══ AdM ═══
+  { id: 'adm_incantation_iron_soul', label: 'INCANTATION OF THE IRON SOUL — FNP 4+ mortales (1CP)', description: 'Data-Psalm Conclave: CULT MECHANICUS models in your unit have the Feel No Pain 4+ ability against mortal wounds.', factionId: 'AdM', detachmentId: '000000821', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 4 } },
+  { id: 'adm_luminescent_blessing', label: 'LUMINESCENT BLESSING — salvación 4+ (1CP)', description: 'Data-Psalm Conclave: CULT MECHANICUS models in your unit have a 4+ invulnerable save.', factionId: 'AdM', detachmentId: '000000821', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'adm_tribute_emphatic_veneration', label: 'TRIBUTE OF EMPHATIC VENERATION — -1 impactar enemigo (1CP)', description: 'Data-Psalm Conclave: si el enemigo falla el chequeo de Battle-shock, -1 a sus tiradas de impactar hasta tu próxima fase de mando.', factionId: 'AdM', detachmentId: '000000821', isStratagem: true, cpCost: 1, effects: { hitMod: -1 } },
+  { id: 'adm_bulwark_imperative', label: 'BULWARK IMPERATIVE — salvación 4+ (2CP)', description: 'Rad-Zone Corps: models in those SKITARII units have a 4+ invulnerable save.', factionId: 'AdM', detachmentId: '000000762', target: 'defender', isStratagem: true, cpCost: 2, effects: { saveMod: 1 } },
+  { id: 'adm_responsive_shielding', label: 'RESPONSIVE SHIELDING — salvación 4+ en objetivo (1CP)', description: 'Response Clade: models in your unit have a 4+ invulnerable save (unidad SKITARII en rango de objetivo).', factionId: 'AdM', detachmentId: '000000913', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'adm_echoes_conduit_wars', label: 'ECHOES OF THE CONDUIT WARS — repetir 1s impactar/herir (1CP)', description: 'Luminen Auto-choir: ELECTRO-PRIESTS attacks vs unidad en objetivo pueden repetir impactos de 1 y heridas de 1.', factionId: 'AdM', detachmentId: '000001168', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
+
+  // ═══ AE ═══
+  { id: 'ae_shuriken_storm', label: 'SHURIKEN STORM — +1 Fuerza armas shuriken (1CP)', description: 'Protector Host: +1 Strength a Avenger shuriken catapults, shuriken catapults/pistols/cannons.', factionId: 'AE', detachmentId: '000000920', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { strengthMod: 1 } },
+  { id: 'ae_spiralling_evasion', label: 'SPIRALLING EVASION — salvación 4+ (1CP)', description: 'Windrider Host: models in your unit have a 4+ invulnerable save.', factionId: 'AE', detachmentId: '000001018', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+
+  // ═══ AM ═══
+  { id: 'am_combined_fire', label: 'COMBINED FIRE — +2 Fuerza vs marcado (1CP)', description: 'Armoured Infantry: +2 Strength a ataques que apunten a la unidad marcada por tu Armoured Skirmisher.', factionId: 'AM', detachmentId: '000001150', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { strengthMod: 2 } },
+  { id: 'am_mordian_minute', label: 'MORDIAN MINUTE — +1 Fuerza (1CP)', description: 'Grizzled Company: +1 Strength a ataques de una unidad afectada por First Rank Fire! Second Rank Fire!.', factionId: 'AM', detachmentId: '000001121', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { strengthMod: 1 } },
+  { id: 'am_furious_fusillade', label: 'FURIOUS FUSILLADE — +1 ataque a media distancia (1CP)', description: 'Siege Regiment: +1 Attacks a ranged weapons dentro de media distancia.', factionId: 'AM', detachmentId: '000001010', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+
+  // ═══ AoI ═══
+  { id: 'aoi_hellfire_rounds', label: 'HELLFIRE ROUNDS — Anti-Infantry 2+ (1CP)', description: 'Ordo Xenos Alien Hunters: DEATHWATCH INFANTRY ranged weapons get [ANTI-INFANTRY 2+] y [ANTI-MONSTER 5+].', factionId: 'AoI', detachmentId: '000000892', combatType: 'ranged', requiresTargetKeyword: 'infantry', isStratagem: true, cpCost: 1, effects: { woundCritThreshold: 2 } },
+  { id: 'aoi_displacer_field', label: 'DISPLACER FIELD — salvación 4+ (1CP)', description: 'Imperialis Fleet: models in your CHARACTER unit have a 4+ invulnerable save.', factionId: 'AoI', detachmentId: '000000895', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'aoi_breach_and_clear', label: 'BREACH AND CLEAR — +1 impactar/herir (1CP)', description: 'Voidship\'s Company: IMPERIAL NAVY BREACHERS +1 to Hit y +1 to Wound al cruzar un Hatchway.', factionId: 'AoI', detachmentId: '000000924', isStratagem: true, cpCost: 1, effects: { hitMod: 1, woundMod: 1 } },
+
+  // ═══ AS ═══
+  { id: 'as_shield_of_faith', label: 'SHIELD OF FAITH — FNP 5+ mortales (1CP)', description: 'Army of Faith: models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'AS', detachmentId: '000000880', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'as_shield_of_denial', label: 'SHIELD OF DENIAL — FNP 6+ mortales (1CP)', description: 'Champions of Faith: models in your unit have the Feel No Pain 6+ ability against mortal wounds.', factionId: 'AS', detachmentId: '000001003', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 6 } },
+  { id: 'as_shield_of_denial_2', label: 'SHIELD OF DENIAL — FNP 5+ si Righteous (1CP)', description: 'Champions of Faith: FNP 5+ en vez de 6+ si tu unidad es Righteous.', factionId: 'AS', detachmentId: '000001003', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'as_harmonised_exorcism', label: 'HARMONISED EXORCISM — +1 impactar (1CP)', description: 'Chorus of Condemnation: EXORCIST ranged attacks vs unidad cerca de ADEPTA SORORITAS INFANTRY FLY get +1 to hit.', factionId: 'AS', detachmentId: '000001163', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
+  { id: 'as_faithful_fortitude', label: 'FAITHFUL FORTITUDE — FNP 5+ mortales (1CP)', description: 'Sacred Champions: CELESTIAN SACRESANTS have Feel No Pain 5+ against mortal wounds.', factionId: 'AS', detachmentId: '000001164', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+
+  // ═══ CD ═══
+  { id: 'cd_sheathed_in_brass', label: 'SHEATHED IN BRASS — salvación 3+ (1CP)', description: 'Blood Legion: models in your unit have a Save characteristic of 3+.', factionId: 'CD', detachmentId: '000000999', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+
+  // ═══ CSM ═══
+  { id: 'csm_baleful_blessing', label: 'BALEFUL BLESSING — FNP 5+ mortales (1CP)', description: 'Cabal of Chaos: models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'CSM', detachmentId: '000001058', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'csm_infernal_sacrifice', label: 'INFERNAL SACRIFICE — +1 ataque CaC (Dark Pact) (1CP)', description: 'Chaos Cult: +1 Attacks a melee weapons de tu unidad DAMNED al hacer un Desperate Pact.', factionId: 'CSM', detachmentId: '000000872', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'csm_infernal_sacrifice_2', label: 'INFERNAL SACRIFICE — +1 Fuerza extra si pasa Liderazgo (1CP)', description: 'Chaos Cult: si no falla el chequeo de Liderazgo del Dark Pact, +1 Strength adicional.', factionId: 'CSM', detachmentId: '000000872', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { strengthMod: 1 } },
+  { id: 'csm_hardened_killers_bs', label: 'HARDENED KILLERS — mejora BS (1CP)', description: 'Huron\'s Marauders: improve BS characteristic de ranged weapons de tu unidad DAMNED by 1.', factionId: 'CSM', detachmentId: '000001133', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { bsMod: -1 } },
+  { id: 'csm_hardened_killers_attacks', label: 'HARDENED KILLERS — +1 ataque Rapid Fire (1CP)', description: 'Huron\'s Marauders: improve Attacks de Rapid Fire weapons de tu unidad DAMNED by 1.', factionId: 'CSM', detachmentId: '000001133', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'csm_hardened_killers_save', label: 'HARDENED KILLERS — mejora salvación (1CP)', description: 'Huron\'s Marauders: improve Save characteristic de tu unidad DAMNED by 1.', factionId: 'CSM', detachmentId: '000001133', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'csm_reavers_flurry', label: 'REAVERS\' FLURRY — +1 ataque CaC (1CP)', description: 'Huron\'s Marauders: +1 Attacks a melee weapons de una unidad HERETIC ASTARTES que cargó.', factionId: 'CSM', detachmentId: '000001133', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'csm_eye_of_the_gods', label: 'EYE OF THE GODS — +1F/+1A/+1D permanente (1CP)', description: 'Pactbound Zealots: +1 Attacks, Strength y Damage a melee weapons de un CHARACTER que destruyó una unidad enemiga.', factionId: 'CSM', detachmentId: '000000751', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1, strengthMod: 1, damageMod: 1 } },
+  { id: 'csm_black_crusade', label: 'BLACK CRUSADE — Devastating Wounds (1CP)', description: 'Veterans of the Long War: bolt pistols, boltguns y combi-bolters get [DEVASTATING WOUNDS].', factionId: 'CSM', detachmentId: '000000867', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { devastatingWoundsBonus: true } },
+
+  // ═══ DG ═══
+  // (MYPHITIC INVIGORATION ya existe como 'dg_myphitic_invigoration' — Flyblown Host)
+
+  // ═══ DRU ═══
+  { id: 'dru_malicious_frenzy_lethal', label: 'MALICIOUS FRENZY — Lethal Hits (1CP)', description: 'Reaper\'s Wager: weapons equipped by models in your unit get [LETHAL HITS].', factionId: 'DRU', detachmentId: '000000993', isStratagem: true, cpCost: 1, effects: { lethalHitsBonus: true } },
+  { id: 'dru_malicious_frenzy_sustained', label: 'MALICIOUS FRENZY — Sustained Hits 1 (1CP)', description: 'Reaper\'s Wager: weapons equipped by models in your unit get [SUSTAINED HITS 1].', factionId: 'DRU', detachmentId: '000000993', isStratagem: true, cpCost: 1, effects: { sustainedHitsBonus: 1 } },
+  { id: 'dru_night_shield', label: 'NIGHT SHIELD — salvación 4+ (1CP)', description: 'Skysplinter Assault: models in your Vehicle unit have a 4+ invulnerable save.', factionId: 'DRU', detachmentId: '000000831', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'dru_acrobatic_display_spite', label: 'ACROBATIC DISPLAY — salvación 5+ (1CP)', description: 'Spectacle of Spite: models in your unit have a 5+ invulnerable save.', factionId: 'DRU', detachmentId: '000001113', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'dru_acrobatic_display_exhibition', label: 'ACROBATIC DISPLAY — salvación 5+ (1CP)', description: 'Exhibition of Slaughter: your WYCH CULT unit has a 5+ invulnerable save.', factionId: 'DRU', detachmentId: '000001193', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'dru_planned_strikes', label: 'PLANNED STRIKES — Lethal Hits (1CP)', description: 'Exhibition of Slaughter: your WYCH CULT unit\'s melee attacks get [LETHAL HITS].', factionId: 'DRU', detachmentId: '000001193', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { lethalHitsBonus: true } },
+  { id: 'dru_prioritised_victim', label: 'PRIORITISED VICTIM — repetir 1s impactar/herir vs Character (1CP)', description: 'Kabalite Agonysts: BLADES FOR HIRE/KABAL attacks vs CHARACTER pueden repetir impactos de 1 y heridas de 1.', factionId: 'DRU', detachmentId: '000001194', requiresTargetKeyword: 'character', isStratagem: true, cpCost: 1, effects: { rerollHitsOf1: true, rerollWoundsOf1: true } },
+
+  // ═══ EC ═══
+  { id: 'ec_protection_dark_prince', label: 'PROTECTION OF THE DARK PRINCE — FNP 4+ mortales (1CP)', description: 'Coterie of the Conceited: models in your unit have FNP 6+, y FNP 4+ against mortal wounds.', factionId: 'EC', detachmentId: '000001037', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 4 } },
+
+  // ═══ GC ═══
+  { id: 'gc_hyperadrenal_reflexes', label: 'HYPERADRENAL REFLEXES — salvación 4+ (1CP)', description: 'Infestation Swarm: GREAT DEVOURER unit tiene 4+ invulnerable save.', factionId: 'GC', detachmentId: '000000941', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'gc_deft_manoeuvring', label: 'DEFT MANOEUVRING — salvación 4+ (1CP)', description: 'Outlander Claw: Achilles Ridgerunners/Atalan Jackals tienen 4+ invulnerable save.', factionId: 'GC', detachmentId: '000000887', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+
+  // ═══ GK ═══
+  { id: 'gk_giants_of_battlefield', label: 'GIANTS OF THE BATTLEFIELD — +1 ataque CaC (1CP)', description: 'Hallowed Conclave: +1 Attacks a melee weapons de tu unidad Terminator.', factionId: 'GK', detachmentId: '000001082', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'gk_truesilver_will', label: 'TRUESILVER WILL — FNP 4+ mortales (1CP)', description: 'Sanctic Spearhead: GREY KNIGHTS PSYKER VEHICLE tiene FNP 4+ contra mortales.', factionId: 'GK', detachmentId: '000001084', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 4 } },
+  { id: 'gk_aegis_eternal', label: 'AEGIS ETERNAL — salvación 4+ (1CP)', description: 'Warpbane Task Force: models in your Infantry unit dentro de Hallowed Ground tienen 4+ invulnerable save.', factionId: 'GK', detachmentId: '000000992', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+
+  // ═══ LoV ═══
+  { id: 'lov_brekkeknots', label: 'BRËKKEKNOTS — salvación 4+ (1CP)', description: 'Hearthband: models in your unit have a 4+ invulnerable save.', factionId: 'LoV', detachmentId: '000001001', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'lov_gravitronic_pulse', label: 'GRAVITRONIC PULSE — -1 impactar enemigo (1CP)', description: 'Hearthfire Strike: enemigos Engagement Range pierden Fights First y -1 to hit.', factionId: 'LoV', detachmentId: '000000951', isStratagem: true, cpCost: 1, effects: { hitMod: -1 } },
+  { id: 'lov_preventative_purge', label: 'PREVENTATIVE PURGE — -1 impactar (disparo extra) (1CP)', description: 'Hearthfyre Arsenal: tu unidad dispara tras el Fall Back enemigo, -1 to hit.', factionId: 'LoV', detachmentId: '000001100', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { hitMod: -1 } },
+  { id: 'lov_no_shot_wasted', label: 'NO SHOT WASTED — Lethal Hits (1CP)', description: 'Farseekers: HERNKYN unit\'s ranged attacks get [LETHAL HITS].', factionId: 'LoV', detachmentId: '000001161', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { lethalHitsBonus: true } },
+  { id: 'lov_fury_of_hearth', label: 'FURY OF THE HEARTH — +1 Fuerza (1CP)', description: 'Hearthguard Covenant: EINHYR HEARTHGUARD ranged attacks +1 S.', factionId: 'LoV', detachmentId: '000001162', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { strengthMod: 1 } },
+  { id: 'lov_fury_of_hearth_yp', label: 'FURY OF THE HEARTH — Sustained Hits 1 (gastar 1YP) (1CP)', description: 'Hearthguard Covenant: si gastas 1YP, EINHYR HEARTHGUARD ranged attacks get [SUSTAINED HITS 1].', factionId: 'LoV', detachmentId: '000001162', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { sustainedHitsBonus: 1 } },
+
+  // ═══ NEC ═══
+  { id: 'nec_quantum_flare_shield', label: 'QUANTUM FLARE-SHIELD — salvación 4+ (1CP)', description: 'Canoptek Harvesters: modelo CRYPTEK tiene 4+ invulnerable save.', factionId: 'NEC', detachmentId: '000000961', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'nec_microscarab_swarm', label: 'MICROSCARAB SWARM — salvación (1CP)', description: 'Cryptek Conclave: Necron Warriors 5+ invulnerable save, Immortals 4+ invulnerable save.', factionId: 'NEC', detachmentId: '000001127', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'nec_quantum_deflection', label: 'QUANTUM DEFLECTION — salvación 4+ (1CP)', description: 'Hypercrypt Legion: NECRONS VEHICLE unit tiene 4+ invulnerable save.', factionId: 'NEC', detachmentId: '000000818', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'nec_evasive_protocols', label: 'EVASIVE PROTOCOLS — -1 herir vs alta Fuerza (1CP)', description: 'Skyshroud Spearhead: NECRONS MOUNTED unit, -1 to wound rolls contra S mayor que su T.', factionId: 'NEC', detachmentId: '000001172', target: 'defender', isStratagem: true, cpCost: 1, effects: { woundMod: -1 } },
+
+  // ═══ ORK ═══
+  { id: 'ork_full_throttle', label: 'FULL THROTTLE! — +1 herir CaC (1CP)', description: 'Kult of Speed: +1 to wound rolls a melee attacks de una unidad Speed Freeks que cargó.', factionId: 'ORK', detachmentId: '000000854', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { woundMod: 1 } },
+  { id: 'ork_speediest_freeks', label: 'SPEEDIEST FREEKS — salvación 5+ (1CP)', description: 'Kult of Speed: models in your Speed Freeks/Trukk unit have a 5+ invulnerable save.', factionId: 'ORK', detachmentId: '000000854', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'ork_huge_showoffs', label: 'HUGE SHOW-OFFS — +1 impactar (1CP)', description: 'More Dakka!: tu Walker (excl. Killa Kans) +1 to hit.', factionId: 'ORK', detachmentId: '000001030', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
+  { id: 'ork_mobile_dakkastorm', label: 'MOBILE DAKKASTORM — +2 Fuerza vs marcado (1CP)', description: 'Speedwaaagh!: +2 Strength a ataques que apunten a la unidad marcada.', factionId: 'ORK', detachmentId: '000001151', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { strengthMod: 2 } },
+  { id: 'ork_devastating_drift', label: 'DEVASTATING DRIFT — Cleave 1 (1CP)', description: 'Rollin\' Deff: WAGON que cargó, melee attacks get [CLEAVE 1].', factionId: 'ORK', detachmentId: '000001199', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { cleaveBonus: 1 } },
+
+  // ═══ QI ═══
+  { id: 'qi_omnissiahs_grace', label: 'OMNISSIAH\'S GRACE — FNP 5+ mortales (1CP)', description: 'Questor Forgepact: models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'QI', detachmentId: '000000988', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'qi_rotate_ion_shields', label: 'ROTATE ION SHIELDS — salvación 4+ (1CP)', description: 'Valourstrike Lance: models in your unit have a 4+ invulnerable save.', factionId: 'QI', detachmentId: '000001106', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+
+  // ═══ QT ═══
+  { id: 'qt_feral_arrogance', label: 'FERAL ARROGANCE — FNP 5+ mortales (1CP)', description: 'Helhunt Lance: models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'QT', detachmentId: '000001144', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'qt_diabolic_bulwark', label: 'DIABOLIC BULWARK — salvación 4+ (1CP)', description: 'Infernal Lance: models in your unit have a 4+ invulnerable save.', factionId: 'QT', detachmentId: '000001075', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'qt_rune_cursed_stronghold', label: 'RUNE-CURSED STRONGHOLD — FNP 5+ mortales (1CP)', description: 'Bastions of Tyranny: KNIGHT TYRANT unit tiene Feel No Pain 5+ contra mortales.', factionId: 'QT', detachmentId: '000001203', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'qt_intimidating_reminder', label: 'INTIMIDATING REMINDER — -1 impactar enemigo (1CP)', description: 'Bastions of Tyranny: unidad enemiga marcada queda suprimida, -1 to hit hasta tu próxima fase de mando.', factionId: 'QT', detachmentId: '000001203', isStratagem: true, cpCost: 1, effects: { hitMod: -1 } },
+
+  // ═══ SM ═══
+  { id: 'sm_legendary_fortitude', label: 'LEGENDARY FORTITUDE — -1 daño (1CP)', description: '1st Company Task Force: subtract 1 from Damage characteristic de ataques que targeten tu unidad Terminator/Bladeguard/Sternguard/Vanguard.', factionId: 'SM', detachmentId: '000000798', target: 'defender', isStratagem: true, cpCost: 1, effects: { damageReduction: 1 } },
+  { id: 'sm_hellfire_rounds', label: 'HELLFIRE ROUNDS — Anti-Infantry 2+ (1CP)', description: 'Black Spear Task Force: Kill Team ranged weapons get [ANTI-INFANTRY 2+] y [ANTI-MONSTER 5+].', factionId: 'SM', detachmentId: '000000808', combatType: 'ranged', requiresTargetKeyword: 'infantry', isStratagem: true, cpCost: 1, effects: { woundCritThreshold: 2 } },
+  { id: 'sm_ceramite_bulwark', label: 'CERAMITE BULWARK — +1F/+1A CaC (1CP)', description: 'Boarding Strike: +1 Attacks y Strength a melee weapons de modelos seleccionados en tu unidad Battleline.', factionId: 'SM', detachmentId: '000000905', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1, strengthMod: 1 } },
+  { id: 'sm_augmetic_fortitude', label: 'AUGMETIC FORTITUDE — -1 daño (1CP)', description: 'Hammer of Avernii: subtract 1 from Damage characteristic de ataques que targeten tu unidad Terminator/Bladeguard/Sternguard/Vanguard.', factionId: 'SM', detachmentId: '000001118', target: 'defender', isStratagem: true, cpCost: 1, effects: { damageReduction: 1 } },
+  { id: 'sm_ancient_fury', label: 'ANCIENT FURY — +1 impactar (1CP)', description: 'Ironstorm Spearhead: tu Walker +1 to hit hasta tu próxima fase de mando.', factionId: 'SM', detachmentId: '000000794', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
+  { id: 'sm_savage_echoes_str', label: 'SAVAGE ECHOES — +1 Fuerza CaC (1CP)', description: 'Liberator Assault Group: +1 Strength a melee weapons tras ser cargado.', factionId: 'SM', detachmentId: '000000758', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { strengthMod: 1 } },
+  { id: 'sm_savage_echoes_atk', label: 'SAVAGE ECHOES — +1 ataque CaC (1CP)', description: 'Liberator Assault Group: +1 Attacks a melee weapons tras ser cargado.', factionId: 'SM', detachmentId: '000000758', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'sm_savage_echoes_red_thirst', label: 'SAVAGE ECHOES — Red Thirst +1F/+1A CaC (1CP)', description: 'Liberator Assault Group: dar rienda suelta al Red Thirst (Battle-shocked): +1 Strength y +1 Attacks a melee weapons.', factionId: 'SM', detachmentId: '000000758', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { strengthMod: 1, attacksMod: 1 } },
+  { id: 'sm_angelic_grace', label: 'ANGELIC GRACE — FNP 5+ mortales (1CP)', description: 'Liberator Assault Group: models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'SM', detachmentId: '000000758', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'sm_suppression_strafing', label: 'SUPPRESSION STRAFING — -1 impactar enemigo (1CP)', description: 'Orbital Assault Force: unidad enemiga marcada queda suprimida, -1 to hit hasta tu próximo turno.', factionId: 'SM', detachmentId: '000001131', isStratagem: true, cpCost: 1, effects: { hitMod: -1 } },
+  { id: 'sm_limb_from_limb_str', label: 'LIMB FROM LIMB — +1 Fuerza CaC (1CP)', description: 'Rage-cursed Onslaught: +1 Strength a melee weapons de una unidad que cargó.', factionId: 'SM', detachmentId: '000001123', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { strengthMod: 1 } },
+  { id: 'sm_limb_from_limb_ap', label: 'LIMB FROM LIMB — +1 PA CaC (1CP)', description: 'Rage-cursed Onslaught: +1 Armour Penetration a melee weapons de una unidad que cargó.', factionId: 'SM', detachmentId: '000001123', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { apMod: 1 } },
+  { id: 'sm_limb_from_limb_red_thirst', label: 'LIMB FROM LIMB — Red Thirst +1F/+1PA CaC (1CP)', description: 'Rage-cursed Onslaught: dar rienda suelta al Red Thirst: +1 Strength y +1 Armour Penetration.', factionId: 'SM', detachmentId: '000001123', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { strengthMod: 1, apMod: 1 } },
+  { id: 'sm_furious_dedication', label: 'FURIOUS DEDICATION — +1 ataque CaC (1CP)', description: 'Reclamation Force: +1 Attacks a melee weapons.', factionId: 'SM', detachmentId: '000001132', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { attacksMod: 1 } },
+  { id: 'sm_shock_assault', label: 'SHOCK ASSAULT — Lance (1CP)', description: 'Stormlance Task Force: melee weapons de unidad Mounted get [LANCE].', factionId: 'SM', detachmentId: '000000796', combatType: 'melee', isStratagem: true, cpCost: 1, effects: { woundMod: 1 } },
+  { id: 'sm_unbreakable_lines', label: 'UNBREAKABLE LINES — -1 herir (2CP)', description: 'Unforgiven Task Force: -1 to wound rolls a ataques que targeten tu unidad tras ser cargada.', factionId: 'SM', detachmentId: '000000834', target: 'defender', isStratagem: true, cpCost: 2, effects: { woundMod: -1 } },
+  { id: 'sm_lions_will', label: 'LION\'S WILL — +1 impactar (1CP)', description: 'Wrath of the Rock: +1 to hit a ataques de tu unidad (excl. Deathwing/Ravenwing/Vehicle) en Engagement Range.', factionId: 'SM', detachmentId: '000001059', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
+  { id: 'sm_fuelled_by_faith', label: 'FUELLED BY FAITH — FNP 5+ mortales (1CP)', description: 'Wrathful Procession: models in your unit have the Feel No Pain 5+ ability against mortal wounds.', factionId: 'SM', detachmentId: '000001006', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 5 } },
+  { id: 'sm_revelation_of_guilt', label: 'REVELATION OF GUILT — +1 impactar plasma (1CP)', description: 'Dark Age Arsenal: plasma ranged attacks get +1 to hit rolls.', factionId: 'SM', detachmentId: '000001182', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { hitMod: 1 } },
+
+  // ═══ TAU ═══
+  // (MULTISENSORY SCANNING ya existe como 'tau_multisensory_scanning' — Auxiliary Cadre)
+  { id: 'tau_guided_by_unity', label: 'GUIDED BY UNITY — Lethal Hits (1CP)', description: 'Auxiliary Cadre: ranged attacks vs unidad cerca de Kroot/Vespid get [LETHAL HITS].', factionId: 'TAU', detachmentId: '000001005', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { lethalHitsBonus: true } },
+  // (REACTIVE IMPACT DAMPENERS ya existe como 'tau_reactive_impact_dampeners' — Experimental Prototype Cadre)
+  { id: 'tau_threat_assessment_analyser_lethal', label: 'THREAT ASSESSMENT ANALYSER — Lethal Hits (1CP)', description: 'ranged weapons get [LETHAL HITS].', factionId: 'TAU', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { lethalHitsBonus: true } },
+  { id: 'tau_threat_assessment_analyser_sustained', label: 'THREAT ASSESSMENT ANALYSER — Sustained Hits 1 (1CP)', description: 'ranged weapons get [SUSTAINED HITS 1].', factionId: 'TAU', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { sustainedHitsBonus: 1 } },
+  { id: 'tau_responsive_volley', label: 'RESPONSIVE VOLLEY — crítico 5+ (1CP)', description: 'Starfire Cadre: Critical Hit se logra con 5+ en vez de 6 al cruzar un Hatchway.', factionId: 'TAU', detachmentId: '000000966', combatType: 'ranged', isStratagem: true, cpCost: 1, effects: { critThreshold: 5 } },
+
+  // ═══ TS ═══
+  { id: 'ts_costly_blessing', label: 'COSTLY BLESSING — salvación 3+ (1CP)', description: 'Chosen Cabal: THOUSAND SONS PSYKER CHARACTER tiene 3+ invulnerable save.', factionId: 'TS', detachmentId: '000000969', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'ts_unwavering_phalanx', label: 'UNWAVERING PHALANX — -1 herir (1CP)', description: 'Rubricae Phalanx: -1 to wound rolls a ataques que targeten tu unidad Rubric Marines tras ser cargada.', factionId: 'TS', detachmentId: '000001064', target: 'defender', isStratagem: true, cpCost: 1, effects: { woundMod: -1 } },
+  { id: 'ts_warped_vicissitude', label: 'WARPED VICISSITUDE — salvación 4+ (1CP)', description: 'Warpmeld Pact: Tzaangors unit tiene 4+ invulnerable save.', factionId: 'TS', detachmentId: '000001063', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'ts_warp_fields', label: 'WARP FIELDS — -1 herir vs alta Fuerza (1CP)', description: 'Sekhetar Cohort: SEKHETAR ROBOTS cerca de PSYKER, -1 to wound rolls contra S mayor que su T.', factionId: 'TS', detachmentId: '000001208', target: 'defender', isStratagem: true, cpCost: 1, effects: { woundMod: -1 } },
+
+  // ═══ TYR ═══
+  { id: 'tyr_lithe_killers', label: 'LITHE KILLERS — salvación 5+ (1CP)', description: 'Boarding Swarm: models in your unit have a 5+ invulnerable save.', factionId: 'TYR', detachmentId: '000000974', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'tyr_hyperadrenal_reflexes', label: 'HYPERADRENAL REFLEXES — salvación 4+ (1CP)', description: 'Infestation Swarm: GREAT DEVOURER unit tiene 4+ invulnerable save.', factionId: 'TYR', detachmentId: '000000979', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'tyr_enfilading_emergence', label: 'ENFILADING EMERGENCE — Sustained Hits 1 (1CP)', description: 'Subterranean Assault: weapons de unidad que llegó como Reinforcement get [SUSTAINED HITS 1].', factionId: 'TYR', detachmentId: '000001057', isStratagem: true, cpCost: 1, effects: { sustainedHitsBonus: 1 } },
+  { id: 'tyr_alien_physiology', label: 'ALIEN PHYSIOLOGY — -1 herir vs alta Fuerza (1CP)', description: 'Warrior Bioform Onslaught: TYRANID WARRIORS, -1 to wound rolls contra S mayor que su T.', factionId: 'TYR', detachmentId: '000000982', target: 'defender', isStratagem: true, cpCost: 1, effects: { woundMod: -1 } },
+  // (SYNAPTIC AMPLIFICATION ya existe como 'tyr_synaptic_amplification' — Warrior Bioform Onslaught)
+  // (SPONTANEOUS HYPERCORROSION ya existe como 'tyr_spontaneous_hypercorrosion' — Warrior Bioform Onslaught)
+  { id: 'tyr_counterpredation', label: 'COUNTERPREDATION — +1F/+1PA vs oculto (1CP)', description: 'Ambush Predators: DEATHLEAPER/LICTOR/NEUROLICTOR/VON RYAN\'S LEAPERS attacks vs hidden unit +1 S y +1 AP.', factionId: 'TYR', detachmentId: '000001060', isStratagem: true, cpCost: 1, effects: { strengthMod: 1, apMod: 1 } },
+
+  // ═══ WE ═══
+  { id: 'we_unstoppable_rage', label: 'UNSTOPPABLE RAGE — -1 impactar enemigo (1CP)', description: 'Boarding Butchers: enemigos cerca del Hatchway quedan stunned, -1 to hit hasta tu próxima fase de movimiento.', factionId: 'WE', detachmentId: '000000977', isStratagem: true, cpCost: 1, effects: { hitMod: -1 } },
+  { id: 'we_blessing_of_burning_blood', label: 'BLESSING OF BURNING BLOOD — salvación 5+ (1CP)', description: 'Khorne Daemonkin: models in your World Eaters unit have a 5+ invulnerable save (4+ si Boon of Blood activo).', factionId: 'WE', detachmentId: '000001043', target: 'defender', isStratagem: true, cpCost: 1, effects: { saveMod: 1 } },
+  { id: 'we_scorn_the_witch', label: 'SCORN THE WITCH — FNP 4+ mortales (1CP)', description: 'Vessels of Wrath (2026): WORLD EATERS CHARACTER (excl. Epic Heroes) tiene Feel No Pain 4+ contra mortales.', factionId: 'WE', detachmentId: '000001213', target: 'defender', isStratagem: true, cpCost: 1, effects: { feelNoPainThreshold: 4 } },
+]
+
 export const MODIFIER_RULES: ModifierRule[] = [
   ...RULES_1,
   ...RULES_2,
   ...RULES_3,
   ...RULES_4,
   ...RULES_5,
+  ...RULES_6,
 ]
