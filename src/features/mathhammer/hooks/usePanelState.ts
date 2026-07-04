@@ -14,6 +14,7 @@ export interface PanelState {
   availableUnits: Datasheet[]
   allUnitsForFaction: Datasheet[]
   selectedUnit: Datasheet | null
+  selectedCharacter: Datasheet | null
   availableCharacters: { datasheet: Datasheet; viaEnhancement: boolean }[]
   availableEnhancements: Enhancement[]
   detachmentAbilities: DetachmentAbility[]
@@ -60,6 +61,13 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
       ? gameData.datasheets.find(ds => ds.id === selection.datasheetId) ?? null
       : null,
     [gameData.datasheets, selection.datasheetId],
+  )
+
+  const selectedCharacter = useMemo(
+    () => selection.characterId
+      ? gameData.datasheets.find(ds => ds.id === selection.characterId) ?? null
+      : null,
+    [gameData.datasheets, selection.characterId],
   )
 
   const availableCharacters = useMemo(() => {
@@ -149,7 +157,7 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
   const setRosterIds = (ids: string[] | null) => setRosterIdsState(ids)
 
   return {
-    selection, availableDetachments, availableUnits, allUnitsForFaction, selectedUnit,
+    selection, availableDetachments, availableUnits, allUnitsForFaction, selectedUnit, selectedCharacter,
     availableCharacters, availableEnhancements, detachmentAbilities, applicableStratagems,
     rosterIds,
     selectFaction, selectDetachments, toggleDetachment, selectUnit, selectCharacter, selectEnhancement, setRosterIds,

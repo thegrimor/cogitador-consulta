@@ -112,12 +112,7 @@ export function UnitPanel({
     onModifierToggle?.('weapon_heavy')
   }
 
-  const characterDatasheet = useMemo(
-    () => panel.selection.characterId
-      ? gameData.datasheets.find(ds => ds.id === panel.selection.characterId) ?? null
-      : null,
-    [gameData.datasheets, panel.selection.characterId],
-  )
+  const characterDatasheet = panel.selectedCharacter
 
   const unitMax = selectedUnit?.modelCountMax
   const unitMin = selectedUnit?.modelCountMin

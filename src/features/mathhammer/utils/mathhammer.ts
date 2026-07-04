@@ -210,6 +210,14 @@ export function resolveModifiers(activeIds: string[], rules: ModifierRule[]): Co
   return result
 }
 
+/** Symmetrically combines two attacker-side CombatModifiers (e.g. unit-wide + bearer-only
+ * effects), unlike `mergeMods` whose attacker/defender fields are deliberately asymmetric. */
+export function combineAttackerMods(a: CombatModifiers, b: CombatModifiers): CombatModifiers {
+  const result = { ...a }
+  applyEffects(result, b)
+  return result
+}
+
 export function mergeMods(
   base: CombatModifiers,
   attackerRuleMods: CombatModifiers,
@@ -270,7 +278,9 @@ export function calculateDamage(
   // shifts the save threshold independently of AP (works even at AP 0).
   // Cover (10th ed) is NOT saveMod — it's hitMod: -1 on the defender side (13.08).
   const apAdjusted  = Math.min(0, weapon.AP - mods.apMod)
-  const effectiveAP = apAdjusted - mods.saveMod
+  // saveMod > 0 genuinely improves the Save characteristic, so it must cancel out AP
+  // (bring effectiveAP toward 0), not compound it — hence + here, not -.
+  const effectiveAP = apAdjusted + mods.saveMod
   const pFailSave   = saveFailProbability(defenderModel.Sv, defenderModel.invSv, effectiveAP)
 
   // En overwatch, los críticos no pueden ocurrir en resultados que no son impactos.
