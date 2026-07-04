@@ -6,7 +6,7 @@ import { usePanelState } from '@/features/mathhammer/hooks/usePanelState'
 import { UnitPanel } from '@/features/mathhammer/components/UnitPanel'
 import { DamageCalculator } from '@/features/mathhammer/components/DamageCalculator'
 import { resolveModifiers, mergeMods, DEFAULT_MODS } from '@/features/mathhammer/utils/mathhammer'
-import { MODIFIER_RULES } from '@/features/mathhammer/data/modifiers'
+import { MODIFIER_RULES, getInnateFeelNoPain } from '@/features/mathhammer/data/modifiers'
 import { useAppSelector } from '@/store/hooks'
 import { selectRosterById } from '@/store/rosterSlice'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
@@ -224,8 +224,21 @@ export function MathhammerPage() {
   // mergeMods also folds in bsMod/wsMod/strengthMod/damageMod from the defender side
   // (e.g. Stealth, Cover, and similar defensive abilities), which the previous inline
   // merge here silently dropped.
+  const merged = mergeMods(DEFAULT_MODS, attackerMods, defenderMods)
+
+  // A model's own 'Feel No Pain X+' Core ability (CSV-driven) is unconditional — it always
+  // applies while that unit is the defender, unlike stratagem/leader/aura FNP which are opt-in
+  // toggles above. Combine with whichever is best if both are active (only one FNP applies).
+  const innateFnp = getInnateFeelNoPain(rightPanel.selectedUnit)
+  const combinedFnp = innateFnp === null
+    ? merged.feelNoPainThreshold
+    : merged.feelNoPainThreshold === null
+      ? innateFnp
+      : Math.min(merged.feelNoPainThreshold, innateFnp)
+
   const mods = {
-    ...mergeMods(DEFAULT_MODS, attackerMods, defenderMods),
+    ...merged,
+    feelNoPainThreshold: combinedFnp,
     overwatchHit: overwatchActive,
   }
 

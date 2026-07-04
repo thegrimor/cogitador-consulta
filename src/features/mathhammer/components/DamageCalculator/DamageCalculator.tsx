@@ -185,7 +185,8 @@ export function DamageCalculator({
     mods.cleaveBonus !== 0 || mods.devastatingWoundsBonus ||
     mods.strengthMod !== 0 || mods.rerollWoundsOf1 || mods.rerollAllWounds ||
     mods.woundMod !== 0 || mods.apMod !== 0 || mods.saveMod !== 0 ||
-    mods.attacksMod !== 0 || mods.rerollDamageOf1 || mods.rerollAllDamage
+    mods.attacksMod !== 0 || mods.rerollDamageOf1 || mods.rerollAllDamage ||
+    mods.feelNoPainThreshold !== null
 
   const weaponLocked = weapons.length > 0
 

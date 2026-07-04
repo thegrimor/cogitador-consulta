@@ -1,4 +1,5 @@
 import type { ModifierRule } from '../types'
+import type { Datasheet } from '@/types'
 
 const RULES_1: ModifierRule[] = [
   // ═══ Universal ═══
@@ -20852,3 +20853,21 @@ export const MODIFIER_RULES: ModifierRule[] = [
   ...RULES_4,
   ...RULES_5,
 ]
+
+// Most Feel No Pain abilities come from the generic 'Feel No Pain X+' Core ability (CSV-driven,
+// name built as "<ability name> <parameter>" in useGameData's resolveAbility), not from a
+// hand-written rule above. It's an unconditional, always-on property of the model — unlike the
+// stratagem/leader/aura FNP rules above, it should never require a manual toggle to take effect.
+const FNP_ABILITY_RE = /^Feel No Pain\s*(\d)\+$/i
+
+export function getInnateFeelNoPain(datasheet: Datasheet | null | undefined): number | null {
+  if (!datasheet) return null
+  let best: number | null = null
+  for (const ab of datasheet.abilities) {
+    const match = ab.name.match(FNP_ABILITY_RE)
+    if (!match) continue
+    const threshold = parseInt(match[1])
+    if (best === null || threshold < best) best = threshold
+  }
+  return best
+}
