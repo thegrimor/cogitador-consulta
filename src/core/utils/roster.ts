@@ -187,7 +187,20 @@ export function weaponBaseName(name: string): string {
  * may still carry the unmodified weapon). */
 export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry): Map<string, number> {
   const counts = new Map<string, number>()
-  datasheet.defaultWeaponNames.forEach(name => counts.set(weaponBaseName(name), entry.modelCount))
+
+  // Free-text loadout/option descriptions pluralize a weapon's name when a model carries
+  // more than one (e.g. "2 twin bolt cannons"), but the datasheet's own weapon profile is
+  // always named in the singular ("Twin bolt cannon"). Resolve to whichever form actually
+  // matches a real profile so counts land on the same key WeaponSelector looks up.
+  const profileBases = new Set(datasheet.weapons.map(w => weaponBaseName(w.name)))
+  const canonicalKey = (name: string): string => {
+    const base = weaponBaseName(name)
+    if (profileBases.has(base)) return base
+    const singular = base.replace(/s$/, '')
+    return profileBases.has(singular) ? singular : base
+  }
+
+  datasheet.defaultWeaponNames.forEach(name => counts.set(canonicalKey(name), entry.modelCount))
 
   for (const rule of datasheet.weaponOptionRules) {
     if (rule.scope === 'unparsed' || rule.choices.length === 0) continue
@@ -197,7 +210,7 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
 
     if (rule.kind === 'replace') {
       rule.fromWeapons.forEach(w => {
-        const key = weaponBaseName(w)
+        const key = canonicalKey(w)
         const remaining = Math.max(0, (counts.get(key) ?? 0) - total)
         if (remaining === 0) counts.delete(key)
         else counts.set(key, remaining)
@@ -207,7 +220,7 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
     selection.forEach((qty, i) => {
       if (qty <= 0) return
       rule.choices[i].forEach(w => {
-        const key = weaponBaseName(w)
+        const key = canonicalKey(w)
         counts.set(key, (counts.get(key) ?? 0) + qty)
       })
     })

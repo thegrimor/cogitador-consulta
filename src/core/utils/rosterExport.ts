@@ -463,7 +463,14 @@ export function resolveImportedRoster(
         }
       }
 
-      // 2. Weapon option rules (free choices) — match each choice bundle against imported weapons
+      // 2. Weapon option rules (free choices) — match each choice bundle against imported
+      // weapons. A choice can bundle several weapons together (e.g. "1 twin bolt cannon and
+      // 1 twin ion beamer" as a single pick), and that bundle can still include one of the
+      // rule's own "from" weapons when only part of a multi-weapon default is swapped out —
+      // so a bundle only counts as picked when every weapon it lists is actually present;
+      // otherwise a squad that just kept its unmodified default (e.g. plain "2x Twin bolt
+      // cannon", no ion beamer at all) would look like it chose the bundle that merely
+      // happens to still include a twin bolt cannon.
       const weaponOptionSelections: Record<string, number[]> = {}
 
       for (const rule of datasheet.weaponOptionRules) {
@@ -473,15 +480,14 @@ export function resolveImportedRoster(
         let anyMatch = false
 
         for (let ci = 0; ci < rule.choices.length; ci++) {
-          for (const choiceWeapon of rule.choices[ci]) {
+          const bundleMatches = rule.choices[ci].map(choiceWeapon => {
             const cwBase = weaponBaseName(choiceWeapon)
-            const pw = effectiveWeapons.find(w => !handledBases.has(weaponBaseName(w.name)) && weaponBaseName(w.name) === cwBase)
-            if (pw) {
-              selection[ci] = pw.count
-              handledBases.add(cwBase)
-              anyMatch = true
-              break
-            }
+            return effectiveWeapons.find(w => !handledBases.has(weaponBaseName(w.name)) && weaponBaseName(w.name) === cwBase)
+          })
+          if (bundleMatches.every((m): m is ParsedWeapon => m !== undefined)) {
+            selection[ci] = Math.min(...bundleMatches.map(m => m.count))
+            bundleMatches.forEach(m => handledBases.add(weaponBaseName(m.name)))
+            anyMatch = true
           }
         }
 
