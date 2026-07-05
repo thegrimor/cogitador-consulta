@@ -339,17 +339,37 @@ export function resolveImportedRoster(
         return null
       }
 
-      // When the unit has ◦ weapon lines, • lines are model sub-type headers (use for count).
-      // When there are no ◦ lines (single-model chars, vehicles), • lines are the weapons.
-      const hasBulletSubgroups = unit.weapons.length > 0
-      const effectiveWeapons = hasBulletSubgroups ? unit.weapons : (unit.bulletItems ?? [])
+      // For genuinely single-model datasheets (characters, vehicles), "• Nx Weapon" bullets
+      // are weapons, not a composition breakdown — some export formats use • instead of ◦
+      // when there are no other bullet lines to disambiguate against.
+      // For actual squads, • lines are always the model-type breakdown (e.g. "• 10x Intercessor"),
+      // regardless of whether the unit also has ◦ weapon lines — a squad with a fully default
+      // loadout exports with no ◦ lines at all, so gating on their presence would wrongly treat
+      // the composition bullet as a lone weapon and lose the real unit size.
+      const isSingleModelDatasheet = datasheet.modelCountMax <= 1
+      const effectiveWeapons = isSingleModelDatasheet
+        ? (unit.weapons.length > 0 ? unit.weapons : (unit.bulletItems ?? []))
+        : unit.weapons
 
-      const parsedModelCount = hasBulletSubgroups
-        ? (unit.bulletItems ?? []).reduce((s, m) => s + m.count, 0)
-        : 0
+      const parsedModelCount = isSingleModelDatasheet
+        ? 0
+        : (unit.bulletItems ?? []).reduce((s, m) => s + m.count, 0)
+
+      // Homogeneous squads (every model carries the same default weapon) can still export
+      // without a "• Nx ModelType" breakdown, so fall back to the quantity on whichever
+      // weapon line matches one of the datasheet's default (one-per-model) weapons —
+      // that's a reliable proxy for the actual unit size. Only the datasheet minimum is
+      // used as a last resort, when nothing in the text tells us the real size.
+      const defaultWeaponBases = new Set(datasheet.defaultWeaponNames.map(weaponBaseName))
+      const modelCountFromWeapons = effectiveWeapons
+        .filter(w => defaultWeaponBases.has(weaponBaseName(w.name)))
+        .reduce((max, w) => Math.max(max, w.count), 0)
+
       const modelCount = parsedModelCount > 0
         ? parsedModelCount
-        : (datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1)
+        : modelCountFromWeapons > 0
+          ? modelCountFromWeapons
+          : (datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1)
 
       const handledBases = new Set<string>()
 
