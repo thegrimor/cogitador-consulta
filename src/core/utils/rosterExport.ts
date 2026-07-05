@@ -110,6 +110,7 @@ export interface ParsedUnit {
   enhancementName?: string
   attachedToUnitName?: string
   attachmentGroupId?: number    // from "Attached unit N" block
+  attachmentRole?: 'Leader' | 'Bodyguard'  // from "• Attached as: Leader/Bodyguard"
 }
 
 export interface ParsedRosterText {
@@ -136,6 +137,8 @@ const NON_WEAPON_BULLET_RE = /^[•◦]/
 const SKIP_RE = /^(Force Dispositions|Total\s+Points|Points\s+Limit|Warlord)/i
 // "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
+// "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
+const ATTACHED_AS_RE = /^[•◦]\s*Attached as:\s*(Leader|Bodyguard)/i
 // "Attached unit 1" / "Attached unit 2" — listhammer group headers
 const ATTACH_GROUP_RE = /^Attached\s+unit\s+(\d+)$/i
 
@@ -232,7 +235,14 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Non-weapon bullet (no count): "• Warlord", "• Attached as: Leader", etc.
+    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
+    const asMatch = line.match(ATTACHED_AS_RE)
+    if (asMatch) {
+      if (currentUnit) currentUnit.attachmentRole = asMatch[1] as 'Leader' | 'Bodyguard'
+      continue
+    }
+
+    // Non-weapon bullet (no count): "• Warlord", etc.
     if (NON_WEAPON_BULLET_RE.test(line)) continue
 
     // "Attached unit 1" / "Attached unit 2" — listhammer group header
@@ -266,6 +276,25 @@ export function parseRosterText(text: string): ParsedRosterText {
   }
   flushUnit()
 
+  // Some exporters list a unit under its "Attached Unit N" group even when that group
+  // has no Leader (just a lone Bodyguard-role unit, i.e. no actual leader/bodyguard pair
+  // was formed) — and then list the identical unit again in its normal role section
+  // (CHARACTERS/BATTLELINE/etc). Genuine Leader+Bodyguard pairs are never repeated this
+  // way, so this only fires for the leaderless case, and only once we've confirmed a
+  // matching duplicate exists elsewhere — dropping it unconditionally could silently
+  // lose a unit that's only ever listed inside its attachment group.
+  for (let i = units.length - 1; i >= 0; i--) {
+    const u = units[i]
+    if (u.attachmentGroupId === undefined || u.attachmentRole !== 'Bodyguard') continue
+    const hasLeaderSibling = units.some(o =>
+      o !== u && o.attachmentGroupId === u.attachmentGroupId && o.attachmentRole === 'Leader')
+    if (hasLeaderSibling) continue
+    const isDuplicateElsewhere = units.some((o, idx) =>
+      idx !== i && o.attachmentGroupId === undefined &&
+      o.name.toLowerCase() === u.name.toLowerCase() && o.points === u.points)
+    if (isDuplicateElsewhere) units.splice(i, 1)
+  }
+
   if (!armyName) {
     armyName = detachmentNames.length > 0 ? detachmentNames[0] : 'Lista Importada'
   }
@@ -278,6 +307,21 @@ export function parseRosterText(text: string): ParsedRosterText {
 }
 
 // ── Resolve ────────────────────────────────────────────────────────────────────
+
+/** Case-insensitive name match that also tolerates a trailing plural "s" mismatch
+ * (some export tools pluralize a datasheet name that's stored singular, e.g.
+ * "Myphitic Blight-haulers" for a datasheet named "Myphitic Blight-hauler") and a
+ * trailing parenthetical annotation some exporters add to enhancement names, e.g.
+ * "Snarling Rivalry (Upgrade)" for an enhancement stored as just "Snarling Rivalry". */
+function namesMatch(a: string, b: string): boolean {
+  const an = a.trim().toLowerCase()
+  const bn = b.trim().toLowerCase()
+  if (an === bn) return true
+  const stripTrailingS = (s: string) => s.endsWith('s') ? s.slice(0, -1) : s
+  const stripParenthetical = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, '')
+  const normalize = (s: string) => stripTrailingS(stripParenthetical(s))
+  return normalize(an) === normalize(bn)
+}
 
 export function resolveImportedRoster(
   parsed: ParsedRosterText,
@@ -331,36 +375,78 @@ export function resolveImportedRoster(
 
   const entries = parsed.units
     .map(unit => {
-      let datasheet = factionDatasheets.find(d => d.name.toLowerCase() === unit.name.toLowerCase())
-      if (!datasheet) datasheet = datasheets.find(d => d.name.toLowerCase() === unit.name.toLowerCase())
+      let datasheet = factionDatasheets.find(d => namesMatch(d.name, unit.name))
+      if (!datasheet) datasheet = datasheets.find(d => namesMatch(d.name, unit.name))
 
       if (!datasheet) {
         warnings.push(`Unidad no encontrada: "${unit.name}"`)
         return null
       }
 
-      // When the unit has ◦ weapon lines, • lines are model sub-type headers (use for count).
-      // When there are no ◦ lines (single-model chars, vehicles), • lines are the weapons.
-      const hasBulletSubgroups = unit.weapons.length > 0
-      const effectiveWeapons = hasBulletSubgroups ? unit.weapons : (unit.bulletItems ?? [])
+      // For genuinely single-model datasheets (characters, vehicles), "• Nx Weapon" bullets
+      // are weapons, not a composition breakdown — some export formats use • instead of ◦
+      // when there are no other bullet lines to disambiguate against.
+      // For actual squads, • lines are the model-type breakdown (e.g. "• 10x Intercessor"),
+      // regardless of whether the unit also has ◦ weapon lines — a squad with a fully default
+      // loadout exports with no ◦ lines at all, so gating on their presence would wrongly treat
+      // the composition bullet as a lone weapon and lose the real unit size.
+      // Some exporters (e.g. Listhammer-style "Attached unit" text) also mark the *first*
+      // weapon line under each model sub-type with "•" instead of "◦"/no bullet, since only
+      // the flattening loses which nesting depth it came from. Those look identical to a
+      // composition bullet ("• 1x Concussion gauntlet"), so anything whose name matches a
+      // weapon this datasheet actually has is excluded from the model-count sum — it's
+      // wargear, not a model type — while still being fed into weapon/wargear matching.
+      // Per-unit wargear tokens (e.g. "Incubi Shrine Token") sit at the same bullet depth as
+      // real composition lines but aren't weapons either — they're named datasheet abilities
+      // ("For every 5 models in this unit, it can be equipped with 1 Incubi Shrine token."),
+      // so datasheet ability names are excluded from the count the same way.
+      const isSingleModelDatasheet = datasheet.modelCountMax <= 1
+      const rawBulletItems = unit.bulletItems ?? []
+      const datasheetWeaponBases = new Set(datasheet.weapons.map(w => weaponBaseName(w.name)))
+      const nonModelBulletBases = new Set([
+        ...datasheetWeaponBases,
+        ...datasheet.abilities.map(a => weaponBaseName(a.name)),
+      ])
+      const bulletWeaponLines = rawBulletItems.filter(b => datasheetWeaponBases.has(weaponBaseName(b.name)))
+      const bulletModelTypeLines = rawBulletItems.filter(b => !nonModelBulletBases.has(weaponBaseName(b.name)))
 
-      const parsedModelCount = hasBulletSubgroups
-        ? (unit.bulletItems ?? []).reduce((s, m) => s + m.count, 0)
-        : 0
+      const effectiveWeapons = isSingleModelDatasheet
+        ? (unit.weapons.length > 0 ? unit.weapons : rawBulletItems)
+        : [...unit.weapons, ...bulletWeaponLines]
+
+      const parsedModelCount = isSingleModelDatasheet
+        ? 0
+        : bulletModelTypeLines.reduce((s, m) => s + m.count, 0)
+
+      // Homogeneous squads (every model carries the same default weapon) can still export
+      // without a "• Nx ModelType" breakdown, so fall back to the quantity on whichever
+      // weapon line matches one of the datasheet's default (one-per-model) weapons —
+      // that's a reliable proxy for the actual unit size. Doesn't apply to single-model
+      // datasheets: a lone vehicle/character mounting two copies of the same default
+      // weapon (e.g. a Venom's twin splinter cannons) would otherwise read as 2 models.
+      const defaultWeaponBases = new Set(datasheet.defaultWeaponNames.map(weaponBaseName))
+      const modelCountFromWeapons = isSingleModelDatasheet ? 0 : effectiveWeapons
+        .filter(w => defaultWeaponBases.has(weaponBaseName(w.name)))
+        .reduce((max, w) => Math.max(max, w.count), 0)
+
       const modelCount = parsedModelCount > 0
         ? parsedModelCount
-        : (datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1)
+        : modelCountFromWeapons > 0
+          ? modelCountFromWeapons
+          : (datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1)
 
       const handledBases = new Set<string>()
 
-      // 1. Wargear with surcharge cost — match by base name (strips "– profile" suffix)
+      // 1. Wargear with surcharge cost — match by base name (strips "– profile" suffix).
+      // Per-instance costs are named "per <Weapon>" in the data (surfaced without that
+      // prefix in the UI), so strip it before comparing against the imported weapon name.
       const availableWargear = wargearCostMap[datasheet.id] ?? []
       const wargearSelections: Record<string, number> = {}
       let wargearSurcharge = 0
 
       for (const pw of effectiveWeapons) {
         const pwBase = weaponBaseName(pw.name)
-        const wc = availableWargear.find(w => weaponBaseName(w.name) === pwBase)
+        const wc = availableWargear.find(w => weaponBaseName(w.name.replace(/^per\s+/i, '')) === pwBase)
         if (wc) {
           wargearSelections[wc.name] = pw.count
           wargearSurcharge += (Number(wc.points) || 0) * pw.count
@@ -415,7 +501,7 @@ export function resolveImportedRoster(
         entry.weaponOptionSelections = weaponOptionSelections
       }
       if (unit.enhancementName) {
-        const enh = enhancements.find(e => e.name.toLowerCase() === unit.enhancementName!.toLowerCase())
+        const enh = enhancements.find(e => namesMatch(e.name, unit.enhancementName!))
         if (enh) {
           entry.enhancementId = enh.id
           // Enhancement cost is NOT stored in pointsCost — RosterEditPage computes it
