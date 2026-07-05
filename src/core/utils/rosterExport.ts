@@ -279,6 +279,17 @@ export function parseRosterText(text: string): ParsedRosterText {
 
 // ── Resolve ────────────────────────────────────────────────────────────────────
 
+/** Case-insensitive name match that also tolerates a trailing plural "s" mismatch
+ * (some export tools pluralize a datasheet name that's stored singular, e.g.
+ * "Myphitic Blight-haulers" for a datasheet named "Myphitic Blight-hauler"). */
+function namesMatch(a: string, b: string): boolean {
+  const an = a.trim().toLowerCase()
+  const bn = b.trim().toLowerCase()
+  if (an === bn) return true
+  const stripTrailingS = (s: string) => s.endsWith('s') ? s.slice(0, -1) : s
+  return stripTrailingS(an) === stripTrailingS(bn)
+}
+
 export function resolveImportedRoster(
   parsed: ParsedRosterText,
   datasheets: Datasheet[],
@@ -331,8 +342,8 @@ export function resolveImportedRoster(
 
   const entries = parsed.units
     .map(unit => {
-      let datasheet = factionDatasheets.find(d => d.name.toLowerCase() === unit.name.toLowerCase())
-      if (!datasheet) datasheet = datasheets.find(d => d.name.toLowerCase() === unit.name.toLowerCase())
+      let datasheet = factionDatasheets.find(d => namesMatch(d.name, unit.name))
+      if (!datasheet) datasheet = datasheets.find(d => namesMatch(d.name, unit.name))
 
       if (!datasheet) {
         warnings.push(`Unidad no encontrada: "${unit.name}"`)
@@ -384,14 +395,16 @@ export function resolveImportedRoster(
 
       const handledBases = new Set<string>()
 
-      // 1. Wargear with surcharge cost — match by base name (strips "– profile" suffix)
+      // 1. Wargear with surcharge cost — match by base name (strips "– profile" suffix).
+      // Per-instance costs are named "per <Weapon>" in the data (surfaced without that
+      // prefix in the UI), so strip it before comparing against the imported weapon name.
       const availableWargear = wargearCostMap[datasheet.id] ?? []
       const wargearSelections: Record<string, number> = {}
       let wargearSurcharge = 0
 
       for (const pw of effectiveWeapons) {
         const pwBase = weaponBaseName(pw.name)
-        const wc = availableWargear.find(w => weaponBaseName(w.name) === pwBase)
+        const wc = availableWargear.find(w => weaponBaseName(w.name.replace(/^per\s+/i, '')) === pwBase)
         if (wc) {
           wargearSelections[wc.name] = pw.count
           wargearSurcharge += (Number(wc.points) || 0) * pw.count
