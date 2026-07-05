@@ -199,20 +199,23 @@ const UNIT_PTS_RE = /^(.+?)\s+\(([\d.]+)\s*(?:[Pp]oints?|[Pp]untos?)\)$/
 const DETACHMENT_RE = /^(.+?)\s+\(\d+\s+(?:Detachment\s+[Pp]oints?|[Pp]untos\s+de\s+destacamento)\)/i
 // Battle size header, English and Spanish labels
 const BATTLE_SIZE_RE = /^(Combat Patrol|Incursion|Strike Force|Onslaught|Patrulla de Combate|Incursi[oó]n|Fuerza de Choque|Ofensiva Total|Asalto Total)\s+\(/i
-// Weapon line: ◦ bullet or bare "Nx Name" — e.g. "◦ 2x Bolter", "1x Lance"
-const WEAPON_RE = /^(?:◦\s*)?(\d+)x\s+(.+)$/
+// Weapon line: ◦ bullet or bare "Nx Name" — e.g. "◦ 2x Bolter", "1x Lance". The "x" itself
+// is optional since some export tools write plain "N Name" (e.g. "2 Bolter") instead.
+const WEAPON_RE = /^(?:◦\s*)?(\d+)x?\s+(.+)$/
 // Model-type line: filled bullet + "Nx Name" — e.g. "• 1x Hesyr", "• 9x Einhyr Hearthguard"
-const MODEL_LINE_RE = /^•\s*(\d+)x\s+(.+)$/
+// (or "• 9 Einhyr Hearthguard" without the "x", same tools as above).
+const MODEL_LINE_RE = /^•\s*(\d+)x?\s+(.+)$/
 // Non-weapon bullet: starts with bullet but no "Nx" — e.g. "• Warlord", "• Enhancement: ..."
 const NON_WEAPON_BULLET_RE = /^[•◦]/
 // Lines to always skip (English and Spanish)
 const SKIP_RE = /^(Force Dispositions|Disposiciones de la fuerza|Total\s+Points|Puntos\s+Totales|Points\s+Limit|L[ií]mite\s+de\s+Puntos|Warlord|Se[ñn]or de la guerra)/i
 // "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
-// "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
-const ATTACHED_AS_RE = /^[•◦]\s*Attached as:\s*(Leader|Bodyguard)/i
-// "Attached unit 1" / "Attached unit 2" — listhammer group headers
-const ATTACH_GROUP_RE = /^Attached\s+unit\s+(\d+)$/i
+// "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)", or the
+// Spanish "• Adjunta como: Líder (Personaje)" / "• Adjunta como: Escolta (Línea de batalla)"
+const ATTACHED_AS_RE = /^[•◦]\s*(?:Attached as|Adjunta como):\s*(Leader|Bodyguard|L[ií]der|Escolta)/i
+// "Attached unit 1" / "Attached unit 2" — listhammer group headers, or Spanish "Unidad adjunta 1"
+const ATTACH_GROUP_RE = /^(?:Attached\s+unit|Unidad\s+adjunta)\s+(\d+)$/i
 
 const KNOWN_SECTIONS = new Set([
   'CHARACTERS', 'BATTLELINE', 'OTHER DATASHEETS', 'DEDICATED TRANSPORTS',
@@ -312,10 +315,12 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
+    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)", or the
+    // Spanish "• Adjunta como: Líder/Escolta"
     const asMatch = line.match(ATTACHED_AS_RE)
     if (asMatch) {
-      if (currentUnit) currentUnit.attachmentRole = asMatch[1] as 'Leader' | 'Bodyguard'
+      const role = /^l[ií]der$/i.test(asMatch[1]) ? 'Leader' : /^escolta$/i.test(asMatch[1]) ? 'Bodyguard' : asMatch[1]
+      if (currentUnit) currentUnit.attachmentRole = role as 'Leader' | 'Bodyguard'
       continue
     }
 
@@ -388,16 +393,22 @@ export function parseRosterText(text: string): ParsedRosterText {
 /** Case-insensitive name match that also tolerates a trailing plural "s" mismatch
  * (some export tools pluralize a datasheet name that's stored singular, e.g.
  * "Myphitic Blight-haulers" for a datasheet named "Myphitic Blight-hauler") and a
- * trailing parenthetical annotation some exporters add to enhancement names, e.g.
- * "Snarling Rivalry (Upgrade)" for an enhancement stored as just "Snarling Rivalry". */
+ * trailing parenthetical annotation some exporters add to enhancement names — which cuts
+ * both ways: "Snarling Rivalry (Upgrade)" is stored as plain "Snarling Rivalry" (the
+ * annotation is pure noise, so it should be dropped), while "Deepening Madness (Upgrade)"
+ * is stored as "Deepening Madness Upgrade" (the annotation is actually part of the real
+ * name, so it should be un-parenthesized instead). Trying both normalizations covers
+ * either case without needing to know which one applies. */
 function namesMatch(a: string, b: string): boolean {
   const an = a.trim().toLowerCase()
   const bn = b.trim().toLowerCase()
   if (an === bn) return true
   const stripTrailingS = (s: string) => s.endsWith('s') ? s.slice(0, -1) : s
   const stripParenthetical = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, '')
-  const normalize = (s: string) => stripTrailingS(stripParenthetical(s))
-  return normalize(an) === normalize(bn)
+  const unparenthesize = (s: string) => s.replace(/\s*\(([^)]*)\)\s*$/, ' $1').trim()
+  const variants = (s: string) => new Set([s, stripParenthetical(s), unparenthesize(s)].map(stripTrailingS))
+  const av = variants(an)
+  return [...variants(bn)].some(v => av.has(v))
 }
 
 export function resolveImportedRoster(
