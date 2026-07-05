@@ -121,20 +121,21 @@ export interface ParsedRosterText {
   units: ParsedUnit[]
 }
 
-// "Name (X Points)" or "Name (1.985 Points)" — European thousands separator
-const UNIT_PTS_RE = /^(.+?)\s+\(([\d.]+)\s*[Pp]oints?\)$/
-// "Name (N Detachment Points)"
-const DETACHMENT_RE = /^(.+?)\s+\(\d+\s+Detachment\s+[Pp]oints?\)/i
-// Battle size header
-const BATTLE_SIZE_RE = /^(Combat Patrol|Incursion|Strike Force|Onslaught)\s+\(/i
+// "Name (X Points)" or "Name (1.985 Points)" — European thousands separator. Also
+// accepts the Spanish "puntos" some export tools use instead of "Points".
+const UNIT_PTS_RE = /^(.+?)\s+\(([\d.]+)\s*(?:[Pp]oints?|[Pp]untos?)\)$/
+// "Name (N Detachment Points)" / Spanish "Name (N puntos de destacamento)"
+const DETACHMENT_RE = /^(.+?)\s+\(\d+\s+(?:Detachment\s+[Pp]oints?|[Pp]untos\s+de\s+destacamento)\)/i
+// Battle size header, English and Spanish labels
+const BATTLE_SIZE_RE = /^(Combat Patrol|Incursion|Strike Force|Onslaught|Patrulla de Combate|Incursi[oó]n|Fuerza de Choque|Ofensiva Total|Asalto Total)\s+\(/i
 // Weapon line: ◦ bullet or bare "Nx Name" — e.g. "◦ 2x Bolter", "1x Lance"
 const WEAPON_RE = /^(?:◦\s*)?(\d+)x\s+(.+)$/
 // Model-type line: filled bullet + "Nx Name" — e.g. "• 1x Hesyr", "• 9x Einhyr Hearthguard"
 const MODEL_LINE_RE = /^•\s*(\d+)x\s+(.+)$/
 // Non-weapon bullet: starts with bullet but no "Nx" — e.g. "• Warlord", "• Enhancement: ..."
 const NON_WEAPON_BULLET_RE = /^[•◦]/
-// Lines to always skip
-const SKIP_RE = /^(Force Dispositions|Total\s+Points|Points\s+Limit|Warlord)/i
+// Lines to always skip (English and Spanish)
+const SKIP_RE = /^(Force Dispositions|Disposiciones de la fuerza|Total\s+Points|Puntos\s+Totales|Points\s+Limit|L[ií]mite\s+de\s+Puntos|Warlord|Se[ñn]or de la guerra)/i
 // "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
 // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
@@ -146,6 +147,10 @@ const KNOWN_SECTIONS = new Set([
   'CHARACTERS', 'BATTLELINE', 'OTHER DATASHEETS', 'DEDICATED TRANSPORTS',
   'FORTIFICATIONS', 'INFANTRY', 'MOUNTED', 'VEHICLES', 'MONSTERS',
   'ALLIED UNITS', 'TRANSPORT', 'ATTACHED UNITS',
+  // Spanish section headers used by some export tools
+  'PERSONAJE', 'PERSONAJES', 'LÍNEA DE BATALLA', 'OTRAS HOJAS DE DATOS',
+  'TRANSPORTES DEDICADOS', 'FORTIFICACIONES', 'UNIDADES ALIADAS',
+  'UNIDADES ADJUNTAS',
 ])
 
 function parsePoints(raw: string): number {
@@ -185,9 +190,9 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Battle size: "Strike Force (2000 Points)"
+    // Battle size: "Strike Force (2000 Points)" / "Fuerza de Choque (2000 puntos)"
     if (BATTLE_SIZE_RE.test(line)) {
-      const m = line.match(/\(([\d.]+)\s*[Pp]oints?\)/)
+      const m = line.match(/\(([\d.]+)\s*(?:[Pp]oints?|[Pp]untos?)\)/)
       if (m) pointsLimit = parsePoints(m[1])
       continue
     }
@@ -219,8 +224,9 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Enhancement bullet: "• Enhancement: Nombre" or "• Enhancements: Nombre" (listhammer uses plural)
-    const enhMatch = line.match(/^[•◦]\s*Enhancements?:\s*(.+)$/i)
+    // Enhancement bullet: "• Enhancement: Nombre" or "• Enhancements: Nombre" (listhammer uses
+    // plural), or the Spanish "• Mejora: Nombre" / "• Mejoras: Nombre"
+    const enhMatch = line.match(/^[•◦]\s*(?:Enhancements?|Mejoras?):\s*(.+)$/i)
     if (enhMatch) {
       if (currentUnit) currentUnit.enhancementName = enhMatch[1].trim()
       continue
