@@ -383,9 +383,12 @@ export function resolveImportedRoster(
         return null
       }
 
-      // For genuinely single-model datasheets (characters, vehicles), "• Nx Weapon" bullets
-      // are weapons, not a composition breakdown — some export formats use • instead of ◦
-      // when there are no other bullet lines to disambiguate against.
+      // For genuinely single-model datasheets (characters, vehicles), every "• Nx Weapon"
+      // bullet is a weapon, never a composition breakdown (there's only one model to break
+      // down). Some exporters bullet only the *first* weapon line and leave the rest bare
+      // (e.g. "• 2x Bright lance" followed by bare "2x Flamer", "1x Ghostglaive"), so both
+      // groups must be combined — picking whichever group is non-empty silently drops the
+      // bulleted line whenever the unit also has bare ones.
       // For actual squads, • lines are the model-type breakdown (e.g. "• 10x Intercessor"),
       // regardless of whether the unit also has ◦ weapon lines — a squad with a fully default
       // loadout exports with no ◦ lines at all, so gating on their presence would wrongly treat
@@ -411,7 +414,7 @@ export function resolveImportedRoster(
       const bulletModelTypeLines = rawBulletItems.filter(b => !nonModelBulletBases.has(weaponBaseName(b.name)))
 
       const effectiveWeapons = isSingleModelDatasheet
-        ? (unit.weapons.length > 0 ? unit.weapons : rawBulletItems)
+        ? [...unit.weapons, ...rawBulletItems]
         : [...unit.weapons, ...bulletWeaponLines]
 
       const parsedModelCount = isSingleModelDatasheet
