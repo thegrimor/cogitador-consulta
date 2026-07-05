@@ -363,11 +363,19 @@ export function resolveImportedRoster(
       // composition bullet ("• 1x Concussion gauntlet"), so anything whose name matches a
       // weapon this datasheet actually has is excluded from the model-count sum — it's
       // wargear, not a model type — while still being fed into weapon/wargear matching.
+      // Per-unit wargear tokens (e.g. "Incubi Shrine Token") sit at the same bullet depth as
+      // real composition lines but aren't weapons either — they're named datasheet abilities
+      // ("For every 5 models in this unit, it can be equipped with 1 Incubi Shrine token."),
+      // so datasheet ability names are excluded from the count the same way.
       const isSingleModelDatasheet = datasheet.modelCountMax <= 1
       const rawBulletItems = unit.bulletItems ?? []
       const datasheetWeaponBases = new Set(datasheet.weapons.map(w => weaponBaseName(w.name)))
+      const nonModelBulletBases = new Set([
+        ...datasheetWeaponBases,
+        ...datasheet.abilities.map(a => weaponBaseName(a.name)),
+      ])
       const bulletWeaponLines = rawBulletItems.filter(b => datasheetWeaponBases.has(weaponBaseName(b.name)))
-      const bulletModelTypeLines = rawBulletItems.filter(b => !datasheetWeaponBases.has(weaponBaseName(b.name)))
+      const bulletModelTypeLines = rawBulletItems.filter(b => !nonModelBulletBases.has(weaponBaseName(b.name)))
 
       const effectiveWeapons = isSingleModelDatasheet
         ? (unit.weapons.length > 0 ? unit.weapons : rawBulletItems)
@@ -380,10 +388,11 @@ export function resolveImportedRoster(
       // Homogeneous squads (every model carries the same default weapon) can still export
       // without a "• Nx ModelType" breakdown, so fall back to the quantity on whichever
       // weapon line matches one of the datasheet's default (one-per-model) weapons —
-      // that's a reliable proxy for the actual unit size. Only the datasheet minimum is
-      // used as a last resort, when nothing in the text tells us the real size.
+      // that's a reliable proxy for the actual unit size. Doesn't apply to single-model
+      // datasheets: a lone vehicle/character mounting two copies of the same default
+      // weapon (e.g. a Venom's twin splinter cannons) would otherwise read as 2 models.
       const defaultWeaponBases = new Set(datasheet.defaultWeaponNames.map(weaponBaseName))
-      const modelCountFromWeapons = effectiveWeapons
+      const modelCountFromWeapons = isSingleModelDatasheet ? 0 : effectiveWeapons
         .filter(w => defaultWeaponBases.has(weaponBaseName(w.name)))
         .reduce((max, w) => Math.max(max, w.count), 0)
 
