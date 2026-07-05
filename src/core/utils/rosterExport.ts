@@ -488,11 +488,18 @@ export function resolveImportedRoster(
         if (anyMatch) weaponOptionSelections[rule.id] = selection
       }
 
-      // Look up base cost from our data (never trust imported points — they may be wrong)
+      // Look up base cost from our data (never trust imported points — they may be wrong).
+      // Costs are only priced at specific breakpoints (e.g. 5 or 10 models) even though a
+      // unit's composition may allow in-between sizes (e.g. "4-9 Hellblasters"): fielding
+      // anywhere above the smaller breakpoint costs the same as the next one up, so an
+      // unmatched size rounds up to the cheapest variant that covers it rather than down
+      // to the cheapest variant overall.
       const unitIndex = (unitIndexCounter.get(datasheet.id) ?? 0) + 1
       unitIndexCounter.set(datasheet.id, unitIndex)
       const allCosts = sortCostVariants(resolveCostsForUnitIndex(pointsCostMap[datasheet.id] ?? [], unitIndex))
-      const matchingCost = allCosts.find(c => resolveModelCount(c, datasheet) === modelCount) ?? allCosts[0]
+      const matchingCost = allCosts.find(c => resolveModelCount(c, datasheet) === modelCount)
+        ?? allCosts.find(c => resolveModelCount(c, datasheet) >= modelCount)
+        ?? allCosts[allCosts.length - 1]
       const baseCost = matchingCost?.points ?? 0
 
       const entry: RosterEntry = {
