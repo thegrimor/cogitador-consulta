@@ -110,6 +110,7 @@ export interface ParsedUnit {
   enhancementName?: string
   attachedToUnitName?: string
   attachmentGroupId?: number    // from "Attached unit N" block
+  attachmentRole?: 'Leader' | 'Bodyguard'  // from "• Attached as: Leader/Bodyguard"
 }
 
 export interface ParsedRosterText {
@@ -136,6 +137,8 @@ const NON_WEAPON_BULLET_RE = /^[•◦]/
 const SKIP_RE = /^(Force Dispositions|Total\s+Points|Points\s+Limit|Warlord)/i
 // "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
+// "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
+const ATTACHED_AS_RE = /^[•◦]\s*Attached as:\s*(Leader|Bodyguard)/i
 // "Attached unit 1" / "Attached unit 2" — listhammer group headers
 const ATTACH_GROUP_RE = /^Attached\s+unit\s+(\d+)$/i
 
@@ -232,7 +235,14 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Non-weapon bullet (no count): "• Warlord", "• Attached as: Leader", etc.
+    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
+    const asMatch = line.match(ATTACHED_AS_RE)
+    if (asMatch) {
+      if (currentUnit) currentUnit.attachmentRole = asMatch[1] as 'Leader' | 'Bodyguard'
+      continue
+    }
+
+    // Non-weapon bullet (no count): "• Warlord", etc.
     if (NON_WEAPON_BULLET_RE.test(line)) continue
 
     // "Attached unit 1" / "Attached unit 2" — listhammer group header
@@ -265,6 +275,25 @@ export function parseRosterText(text: string): ParsedRosterText {
     }
   }
   flushUnit()
+
+  // Some exporters list a unit under its "Attached Unit N" group even when that group
+  // has no Leader (just a lone Bodyguard-role unit, i.e. no actual leader/bodyguard pair
+  // was formed) — and then list the identical unit again in its normal role section
+  // (CHARACTERS/BATTLELINE/etc). Genuine Leader+Bodyguard pairs are never repeated this
+  // way, so this only fires for the leaderless case, and only once we've confirmed a
+  // matching duplicate exists elsewhere — dropping it unconditionally could silently
+  // lose a unit that's only ever listed inside its attachment group.
+  for (let i = units.length - 1; i >= 0; i--) {
+    const u = units[i]
+    if (u.attachmentGroupId === undefined || u.attachmentRole !== 'Bodyguard') continue
+    const hasLeaderSibling = units.some(o =>
+      o !== u && o.attachmentGroupId === u.attachmentGroupId && o.attachmentRole === 'Leader')
+    if (hasLeaderSibling) continue
+    const isDuplicateElsewhere = units.some((o, idx) =>
+      idx !== i && o.attachmentGroupId === undefined &&
+      o.name.toLowerCase() === u.name.toLowerCase() && o.points === u.points)
+    if (isDuplicateElsewhere) units.splice(i, 1)
+  }
 
   if (!armyName) {
     armyName = detachmentNames.length > 0 ? detachmentNames[0] : 'Lista Importada'
