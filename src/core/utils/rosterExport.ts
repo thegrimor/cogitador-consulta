@@ -1,5 +1,5 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
-import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants } from '@/core/utils/roster'
+import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints } from '@/core/utils/roster'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
@@ -19,6 +19,51 @@ function sectionHeader(role: string): string {
   return 'OTHER DATASHEETS'
 }
 
+/** Points cost for `entry` as it should read in exported text: base cost plus any paid
+ * wargear and its enhancement, matching what RosterEditPage shows for the same unit. */
+function entryDisplayPoints(entry: RosterEntry, enhancements: Enhancement[]): number {
+  const enhCost = enhancements.find(e => e.id === entry.enhancementId)?.cost ?? 0
+  return (entry.pointsCost ?? 0) + (entry.wargearSurcharge ?? 0) + enhCost
+}
+
+function entryLines(entry: RosterEntry, datasheet: Datasheet, enhancements: Enhancement[]): string[] {
+  const out: string[] = []
+  const displayName = entry.customName ?? datasheet.name
+  out.push(`${displayName} (${entryDisplayPoints(entry, enhancements)} Points)`)
+
+  if (entry.enhancementId) {
+    const enh = enhancements.find(e => e.id === entry.enhancementId)
+    if (enh) out.push(`• Enhancement: ${enh.name}`)
+  }
+
+  if (entry.modelCount > 1) {
+    out.push(`• ${entry.modelCount}x ${datasheet.name}`)
+  }
+
+  if (entry.wargearSelections) {
+    for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
+      if (count > 0) out.push(`  ◦ ${count}x ${weaponName}`)
+    }
+  }
+
+  // Free (non-costed) weapon replace/add choices — otherwise a re-import of this text
+  // would fall back to the datasheet's plain default loadout and lose the customization.
+  if (entry.weaponOptionSelections) {
+    for (const [ruleId, selection] of Object.entries(entry.weaponOptionSelections)) {
+      const rule = datasheet.weaponOptionRules.find(r => r.id === ruleId)
+      if (!rule) continue
+      selection.forEach((qty, i) => {
+        if (qty <= 0) return
+        rule.choices[i]?.forEach(weaponName => {
+          out.push(`  ◦ ${qty}x ${weaponName}`)
+        })
+      })
+    }
+  }
+
+  return out
+}
+
 export function exportRosterToText(
   roster: RosterList,
   datasheets: Datasheet[],
@@ -28,7 +73,10 @@ export function exportRosterToText(
 ): string {
   const lines: string[] = []
 
-  const totalPoints = roster.totalPoints ?? 0
+  const enhancementsCost = roster.entries.reduce(
+    (sum, e) => sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0), 0,
+  )
+  const totalPoints = (roster.totalPoints ?? 0) + enhancementsCost
   lines.push(`${roster.name} (${totalPoints} Points)`)
   lines.push('')
 
@@ -38,17 +86,57 @@ export function exportRosterToText(
   const detachmentNames = roster.detachmentIds
     .map(id => detachments.find(d => d.id === id)?.name ?? id)
     .join(' + ')
-  lines.push(`${detachmentNames || 'No Detachment'} (0 Detachment Points)`)
+  const detachmentPoints = sumDetachmentPoints(detachments, roster.detachmentIds)
+  lines.push(`${detachmentNames || 'No Detachment'} (${detachmentPoints} Detachment Points)`)
 
   const battleSize = battleSizeLabel(roster.pointsLimit)
   const limitLabel = roster.pointsLimit !== null ? `${roster.pointsLimit} Points` : 'Open Play'
   lines.push(`${battleSize} (${limitLabel})`)
 
-  // Group entries by role priority
+  // Attached leader/bodyguard groups — reproduced as "Attached Unit N" blocks (rather than
+  // a "target unit name" tag) since two copies of the same datasheet can't be told apart
+  // by name alone, which the group-id form sidesteps entirely.
+  const bodyguardIds = new Set(roster.entries.filter(e => e.attachedToEntryId).map(e => e.attachedToEntryId!))
+  const consumed = new Set<string>()
+  const attachmentGroups: RosterEntry[][] = []
+
+  for (const entry of roster.entries) {
+    if (!bodyguardIds.has(entry.id)) continue
+    const leaders = roster.entries.filter(e => e.attachedToEntryId === entry.id)
+    attachmentGroups.push([...leaders, entry])
+    consumed.add(entry.id)
+    leaders.forEach(l => consumed.add(l.id))
+  }
+
+  if (attachmentGroups.length > 0) {
+    lines.push('')
+    lines.push('Attached Units')
+
+    attachmentGroups.forEach((group, idx) => {
+      lines.push('')
+      lines.push(`Attached Unit ${idx + 1}`)
+
+      for (const entry of group) {
+        const datasheet = datasheets.find(d => d.id === entry.datasheetId)
+        if (!datasheet) continue
+        lines.push('')
+        const [nameLine, ...rest] = entryLines(entry, datasheet, enhancements)
+        lines.push(nameLine)
+        const role = bodyguardIds.has(entry.id)
+          ? (datasheet.role === 'Battleline' ? 'Bodyguard (Battleline)' : 'Bodyguard')
+          : 'Leader (Character)'
+        lines.push(`• Attached as: ${role}`)
+        lines.push(...rest)
+      }
+    })
+  }
+
+  // Group remaining (unattached) entries by role priority
   const ROLE_ORDER = ['Characters', 'Battleline', 'Dedicated Transports', 'Fortifications', 'Other']
   const grouped = new Map<string, Array<{ entry: RosterEntry; datasheet: Datasheet }>>()
 
   for (const entry of roster.entries) {
+    if (consumed.has(entry.id)) continue
     const datasheet = datasheets.find(d => d.id === entry.datasheetId)
     if (!datasheet) continue
     const role = ROLE_ORDER.includes(datasheet.role) ? datasheet.role : 'Other'
@@ -65,24 +153,7 @@ export function exportRosterToText(
     lines.push('')
 
     for (const { entry, datasheet } of entries) {
-      const pts = (entry.pointsCost ?? 0) + (entry.wargearSurcharge ?? 0)
-      const displayName = entry.customName ?? datasheet.name
-      lines.push(`${displayName} (${pts} Points)`)
-
-      if (entry.enhancementId) {
-        const enh = enhancements.find(e => e.id === entry.enhancementId)
-        if (enh) lines.push(`• Enhancement: ${enh.name}`)
-      }
-
-      if (entry.modelCount > 1) {
-        lines.push(`• ${entry.modelCount}x ${datasheet.name}`)
-      }
-
-      if (entry.wargearSelections) {
-        for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
-          if (count > 0) lines.push(`  ◦ ${count}x ${weaponName}`)
-        }
-      }
+      lines.push(...entryLines(entry, datasheet, enhancements))
     }
   }
 
