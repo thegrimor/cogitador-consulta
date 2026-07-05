@@ -281,13 +281,17 @@ export function parseRosterText(text: string): ParsedRosterText {
 
 /** Case-insensitive name match that also tolerates a trailing plural "s" mismatch
  * (some export tools pluralize a datasheet name that's stored singular, e.g.
- * "Myphitic Blight-haulers" for a datasheet named "Myphitic Blight-hauler"). */
+ * "Myphitic Blight-haulers" for a datasheet named "Myphitic Blight-hauler") and a
+ * trailing parenthetical annotation some exporters add to enhancement names, e.g.
+ * "Snarling Rivalry (Upgrade)" for an enhancement stored as just "Snarling Rivalry". */
 function namesMatch(a: string, b: string): boolean {
   const an = a.trim().toLowerCase()
   const bn = b.trim().toLowerCase()
   if (an === bn) return true
   const stripTrailingS = (s: string) => s.endsWith('s') ? s.slice(0, -1) : s
-  return stripTrailingS(an) === stripTrailingS(bn)
+  const stripParenthetical = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, '')
+  const normalize = (s: string) => stripTrailingS(stripParenthetical(s))
+  return normalize(an) === normalize(bn)
 }
 
 export function resolveImportedRoster(
@@ -468,7 +472,7 @@ export function resolveImportedRoster(
         entry.weaponOptionSelections = weaponOptionSelections
       }
       if (unit.enhancementName) {
-        const enh = enhancements.find(e => e.name.toLowerCase() === unit.enhancementName!.toLowerCase())
+        const enh = enhancements.find(e => namesMatch(e.name, unit.enhancementName!))
         if (enh) {
           entry.enhancementId = enh.id
           // Enhancement cost is NOT stored in pointsCost — RosterEditPage computes it
