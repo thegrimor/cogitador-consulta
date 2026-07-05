@@ -123,6 +123,7 @@ export function RosterListPage() {
                 roster={roster}
                 factionName={faction?.name ?? roster.factionId}
                 detachmentName={detachmentNames.length > 0 ? detachmentNames.join(' + ') : null}
+                enhancements={enhancements}
                 onDelete={() => handleDelete(roster.id, roster.name)}
                 onExport={() => handleExport(roster)}
                 exported={copiedId === roster.id}

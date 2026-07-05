@@ -1,18 +1,23 @@
 import { NavLink } from 'react-router-dom'
-import type { RosterList } from '@/types'
+import type { RosterList, Enhancement } from '@/types'
 import { rosterEditPath } from '@/core/constants/routes'
 
 interface Props {
   roster: RosterList
   factionName: string
   detachmentName: string | null
+  enhancements: Enhancement[]
   onDelete: () => void
   onExport: () => void
   exported?: boolean
 }
 
-export function RosterCard({ roster, factionName, detachmentName, onDelete, onExport, exported }: Props) {
-  const overLimit = roster.pointsLimit !== null && (roster.totalPoints ?? 0) > roster.pointsLimit
+export function RosterCard({ roster, factionName, detachmentName, enhancements, onDelete, onExport, exported }: Props) {
+  const enhancementsCost = roster.entries.reduce(
+    (sum, e) => sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0), 0,
+  )
+  const combinedTotal = (roster.totalPoints ?? 0) + enhancementsCost
+  const overLimit = roster.pointsLimit !== null && combinedTotal > roster.pointsLimit
 
   return (
     <NavLink
@@ -55,7 +60,7 @@ export function RosterCard({ roster, factionName, detachmentName, onDelete, onEx
         <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
           {roster.entries.length} unidades ·{' '}
           <span className={overLimit ? 'text-crimson-bright' : ''}>
-            {roster.totalPoints ?? 0}
+            {combinedTotal}
             {roster.pointsLimit !== null ? ` / ${roster.pointsLimit}` : ''} pts
           </span>
         </p>

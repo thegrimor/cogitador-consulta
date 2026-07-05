@@ -341,6 +341,28 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       })
     }
 
+    // ── "<subject> can be equipped with <W> or can replace <Y> with <W>" — a vehicle with a
+    // single mount point that's either kept as-is plus an extra <W>, or swapped for <W>.
+    // Both branches end with exactly one more <W> than the base loadout, so it behaves like
+    // a plain add of <W> regardless of which wording the player followed. ──
+    const addOrReplace = head.match(/^(.+?) can be equipped with (.+?) or can replace (.+?) with \2\.?$/i)
+    if (addOrReplace) {
+      const [, subjectRaw, weaponText] = addOrReplace
+      const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
+      return makeRule({
+        raw,
+        scope,
+        roleName,
+        fixedCount,
+        kind: 'add',
+        fromWeapons: [],
+        choices: [splitBundle(weaponText)],
+        exclusive: true,
+        maxStack: 1,
+        allowRepeatChoice: false,
+      })
+    }
+
     // ── "<subject> can/must be equipped with one of the following: <ul>" / "<subject> can be equipped with <weapon>." ──
     m = head.match(/^(.+?) (?:can(?: each)?|must) be equipped with:?\s*(?:one of the following:?|(.+))$/i)
     if (m) {
