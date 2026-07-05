@@ -342,18 +342,29 @@ export function resolveImportedRoster(
       // For genuinely single-model datasheets (characters, vehicles), "• Nx Weapon" bullets
       // are weapons, not a composition breakdown — some export formats use • instead of ◦
       // when there are no other bullet lines to disambiguate against.
-      // For actual squads, • lines are always the model-type breakdown (e.g. "• 10x Intercessor"),
+      // For actual squads, • lines are the model-type breakdown (e.g. "• 10x Intercessor"),
       // regardless of whether the unit also has ◦ weapon lines — a squad with a fully default
       // loadout exports with no ◦ lines at all, so gating on their presence would wrongly treat
       // the composition bullet as a lone weapon and lose the real unit size.
+      // Some exporters (e.g. Listhammer-style "Attached unit" text) also mark the *first*
+      // weapon line under each model sub-type with "•" instead of "◦"/no bullet, since only
+      // the flattening loses which nesting depth it came from. Those look identical to a
+      // composition bullet ("• 1x Concussion gauntlet"), so anything whose name matches a
+      // weapon this datasheet actually has is excluded from the model-count sum — it's
+      // wargear, not a model type — while still being fed into weapon/wargear matching.
       const isSingleModelDatasheet = datasheet.modelCountMax <= 1
+      const rawBulletItems = unit.bulletItems ?? []
+      const datasheetWeaponBases = new Set(datasheet.weapons.map(w => weaponBaseName(w.name)))
+      const bulletWeaponLines = rawBulletItems.filter(b => datasheetWeaponBases.has(weaponBaseName(b.name)))
+      const bulletModelTypeLines = rawBulletItems.filter(b => !datasheetWeaponBases.has(weaponBaseName(b.name)))
+
       const effectiveWeapons = isSingleModelDatasheet
-        ? (unit.weapons.length > 0 ? unit.weapons : (unit.bulletItems ?? []))
-        : unit.weapons
+        ? (unit.weapons.length > 0 ? unit.weapons : rawBulletItems)
+        : [...unit.weapons, ...bulletWeaponLines]
 
       const parsedModelCount = isSingleModelDatasheet
         ? 0
-        : (unit.bulletItems ?? []).reduce((s, m) => s + m.count, 0)
+        : bulletModelTypeLines.reduce((s, m) => s + m.count, 0)
 
       // Homogeneous squads (every model carries the same default weapon) can still export
       // without a "• Nx ModelType" breakdown, so fall back to the quantity on whichever
