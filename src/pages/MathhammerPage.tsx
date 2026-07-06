@@ -55,6 +55,7 @@ export function MathhammerPage() {
   const [attackerIdsArr, setAttackerIdsArr] = useState<string[]>([])
   const [defenderIdsArr, setDefenderIdsArr] = useState<string[]>([])
   const [meltaActive, setMeltaActive] = useState(false)
+  const [rapidFireActive, setRapidFireActive] = useState(false)
   const [overwatchActive, setOverwatchActive] = useState(false)
 
   function handleQuantityChange(key: string, qty: number) {
@@ -90,13 +91,14 @@ export function MathhammerPage() {
         weaponLines: selectedWeapons.map(w => w.line),
         activeModIds: attackerIdsArr,
         meltaActive,
+        rapidFireActive,
         overwatchActive,
         weaponQuantities,
       }))
     } catch {
       // ignore storage errors (quota exceeded, private browsing)
     }
-  }, [selectedWeapons, attackerIdsArr, meltaActive, overwatchActive, weaponQuantities]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [selectedWeapons, attackerIdsArr, meltaActive, rapidFireActive, overwatchActive, weaponQuantities]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Restore attacker state when the selected unit resolves (page load or unit change)
   const [restoredAttackerId, setRestoredAttackerId] = useState<string | null>(null)
@@ -128,12 +130,14 @@ export function MathhammerPage() {
         setSelectedWeapons(restoredWeapons)
         setAttackerIdsArr(saved.activeModIds ?? [])
         setMeltaActive(saved.meltaActive ?? false)
+        setRapidFireActive(saved.rapidFireActive ?? false)
         setOverwatchActive(saved.overwatchActive ?? false)
         setWeaponQuantities(fillMissingQtys(saved.weaponQuantities ?? {}, restoredWeapons))
       } else {
         setSelectedWeapons([])
         setAttackerIdsArr([])
         setMeltaActive(false)
+        setRapidFireActive(false)
         setOverwatchActive(false)
         setWeaponQuantities({})
       }
@@ -141,6 +145,7 @@ export function MathhammerPage() {
       setSelectedWeapons([])
       setAttackerIdsArr([])
       setMeltaActive(false)
+      setRapidFireActive(false)
       setOverwatchActive(false)
       setWeaponQuantities({})
     }
@@ -324,6 +329,8 @@ export function MathhammerPage() {
             defenderKeywords={defenderKeywords}
             meltaActive={meltaActive}
             onMeltaToggle={() => setMeltaActive(v => !v)}
+            rapidFireActive={rapidFireActive}
+            onRapidFireToggle={() => setRapidFireActive(v => !v)}
           />
         )}
         {mobileTab === 'result' && (
@@ -342,6 +349,7 @@ export function MathhammerPage() {
             unitMin={leftPanel.selectedUnit?.modelCountMin}
             unitMax={leftPanel.selectedUnit?.modelCountMax}
             meltaActive={meltaActive}
+            rapidFireActive={rapidFireActive}
             defenderMin={rightPanel.selectedUnit?.modelCountMin}
             defenderMax={rightPanel.selectedUnit?.modelCountMax}
             overwatchActive={overwatchActive}
@@ -380,6 +388,8 @@ export function MathhammerPage() {
             defenderKeywords={defenderKeywords}
             meltaActive={meltaActive}
             onMeltaToggle={() => setMeltaActive(v => !v)}
+            rapidFireActive={rapidFireActive}
+            onRapidFireToggle={() => setRapidFireActive(v => !v)}
           />
         </div>
         <div className="border-r border-rim-bright overflow-y-auto bg-surface-2">
@@ -399,6 +409,7 @@ export function MathhammerPage() {
               unitMin={leftPanel.selectedUnit?.modelCountMin}
               unitMax={leftPanel.selectedUnit?.modelCountMax}
               meltaActive={meltaActive}
+              rapidFireActive={rapidFireActive}
               defenderMin={rightPanel.selectedUnit?.modelCountMin}
               defenderMax={rightPanel.selectedUnit?.modelCountMax}
               overwatchActive={overwatchActive}

@@ -9,6 +9,8 @@ interface Props {
   onHeavyToggle?: () => void
   meltaModActive?: boolean
   onMeltaToggle?: () => void
+  rapidFireModActive?: boolean
+  onRapidFireToggle?: () => void
 }
 
 function Badge({ label }: { label: string }) {
@@ -19,7 +21,10 @@ function Badge({ label }: { label: string }) {
   )
 }
 
-export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHeavyToggle, meltaModActive, onMeltaToggle }: Props) {
+export function WeaponCard({
+  weapon, isSelected, onSelect, heavyModActive, onHeavyToggle, meltaModActive, onMeltaToggle,
+  rapidFireModActive, onRapidFireToggle,
+}: Props) {
   const avgD = parseDiceAverage(weapon.D)
   const avgA = parseDiceAverage(weapon.A)
   const dFixed = parseFloat(weapon.D)
@@ -107,6 +112,18 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
               }`}
             >
               {meltaModActive ? `▶ ½ dist. (+${weapon.meltaValue}D)` : '○ ½ distancia'}
+            </button>
+          )}
+          {weapon.rapidFireValue !== '' && onRapidFireToggle && (
+            <button
+              onClick={e => { e.stopPropagation(); onRapidFireToggle() }}
+              className={`text-[8px] px-1.5 py-0.5 border font-mono transition-colors ${
+                rapidFireModActive
+                  ? 'border-crimson text-crimson bg-crimson/10'
+                  : 'border-rim-bright text-parchment-dim hover:border-gold/50'
+              }`}
+            >
+              {rapidFireModActive ? `▶ ½ dist. (+${weapon.rapidFireValue}A)` : '○ ½ distancia'}
             </button>
           )}
         </div>

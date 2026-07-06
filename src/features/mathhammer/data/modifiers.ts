@@ -36,7 +36,8 @@ const RULES_1: ModifierRule[] = [
   // WA005 Torrent ya manejado en calculateDamage() con weapon.isTorrent.
   // WA013 Twin-linked ya manejado en calculateDamage() con weapon.isTwinLinked (per-arma).
   { id: 'weapon_lance',       label: '[LANCE] — +1 herir si has cargado',          description: '[LANCE]: Each time an attack is made with this weapon, if the attacking unit made a charge move this turn, add 1 to the wound roll.', combatType: 'melee', effects: { woundMod: 1 } },
-  { id: 'weapon_rapid_fire',  label: '[RAPID FIRE 1] — +1 ataque a media distancia', description: '[RAPID FIRE X]: Add X additional attack dice when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { attacksMod: 1 } },
+  // WA-Rapid Fire: gestionado con toggle dedicado por arma (ver rapidFireActive en
+  // DamageCalculator), que escala con el valor real X del arma en vez de un +1 fijo.
   { id: 'weapon_melta',       label: '[MELTA 1] — +1 daño a media distancia',       description: '[MELTA X]: Add X to the weapon\'s D characteristic when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { damageMod: 1 } },
 
   // ── Unit/Core abilities ────────────────────────────────────────────────────
