@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import QrScanner from 'qr-scanner'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
 import { selectAllRosters, deleteRoster, importRosterFromData } from '@/store/rosterSlice'
@@ -7,7 +8,7 @@ import { RosterCard } from '@/shared/components/RosterCard'
 import { RosterQrExportModal, RosterQrScanModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
 import { parseRosterText, resolveImportedRoster } from '@/core/utils/rosterExport'
-import { validateDecodedRoster } from '@/core/utils/rosterQrCode'
+import { decodeRosterFromQr, validateDecodedRoster } from '@/core/utils/rosterQrCode'
 import type { RosterList } from '@/types'
 
 export function RosterListPage() {
@@ -15,9 +16,11 @@ export function RosterListPage() {
   const gameData = useGameDataContext()
   const { factions, detachments, datasheets, enhancements, wargearCostMap, leaderMap, pointsCostMap } = gameData
   const dispatch = useAppDispatch()
+  const qrFileInputRef = useRef<HTMLInputElement>(null)
 
   const [qrExportRoster, setQrExportRoster] = useState<RosterList | null>(null)
   const [qrScanOpen, setQrScanOpen] = useState(false)
+  const [qrImageError, setQrImageError] = useState<string | null>(null)
   const [showImport, setShowImport] = useState(false)
   const [importText, setImportText] = useState('')
   const [importError, setImportError] = useState<string | null>(null)
@@ -32,8 +35,24 @@ export function RosterListPage() {
     const { roster, warnings } = validateDecodedRoster(decoded, gameData)
     dispatch(importRosterFromData(roster))
     setQrScanOpen(false)
+    setShowImport(false)
     if (warnings.length > 0) {
       alert(`Lista importada con advertencias:\n${warnings.join('\n')}`)
+    }
+  }
+
+  async function handleQrFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+    setQrImageError(null)
+    try {
+      const result = await QrScanner.scanImage(file, { returnDetailedScanResult: true })
+      handleScan(decodeRosterFromQr(result.data))
+    } catch (err) {
+      setQrImageError(
+        err instanceof Error ? err.message : 'No se ha encontrado ningún código QR en esa imagen.',
+      )
     }
   }
 
@@ -61,13 +80,7 @@ export function RosterListPage() {
         </h1>
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setQrScanOpen(true)}
-            className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-rim-bright text-parchment-dim hover:bg-surface-3 transition-colors"
-          >
-            Escanear QR
-          </button>
-          <button
-            onClick={() => { setShowImport(v => !v); setImportError(null) }}
+            onClick={() => { setShowImport(v => !v); setImportError(null); setQrImageError(null) }}
             className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-rim-bright text-parchment-dim hover:bg-surface-3 transition-colors"
           >
             Importar Lista
@@ -83,8 +96,34 @@ export function RosterListPage() {
 
       {showImport && (
         <div className="mb-6 bg-surface-2 border border-rim-bright p-4">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <button
+              onClick={() => setQrScanOpen(true)}
+              className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-crimson-bright text-parchment hover:bg-crimson/10 transition-colors"
+            >
+              Escanear QR
+            </button>
+            <button
+              onClick={() => qrFileInputRef.current?.click()}
+              className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-rim-bright text-parchment-dim hover:bg-surface-3 transition-colors"
+            >
+              Subir Foto de QR
+            </button>
+            <input
+              ref={qrFileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleQrFileChange}
+              className="hidden"
+            />
+          </div>
+          {qrImageError && (
+            <p className="text-[10px] font-mono uppercase tracking-widest text-crimson-bright mb-3">
+              {qrImageError}
+            </p>
+          )}
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-2">
-            Pega aquí la lista exportada
+            O pega aquí la lista exportada
           </p>
           <textarea
             value={importText}
@@ -107,7 +146,7 @@ export function RosterListPage() {
               Confirmar
             </button>
             <button
-              onClick={() => { setShowImport(false); setImportText(''); setImportError(null) }}
+              onClick={() => { setShowImport(false); setImportText(''); setImportError(null); setQrImageError(null) }}
               className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-rim-bright text-parchment-dim hover:bg-surface-3 transition-colors"
             >
               Cancelar
