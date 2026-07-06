@@ -36,9 +36,9 @@ const RULES_1: ModifierRule[] = [
   // WA005 Torrent ya manejado en calculateDamage() con weapon.isTorrent.
   // WA013 Twin-linked ya manejado en calculateDamage() con weapon.isTwinLinked (per-arma).
   { id: 'weapon_lance',       label: '[LANCE] — +1 herir si has cargado',          description: '[LANCE]: Each time an attack is made with this weapon, if the attacking unit made a charge move this turn, add 1 to the wound roll.', combatType: 'melee', effects: { woundMod: 1 } },
-  // WA-Rapid Fire: gestionado con toggle dedicado por arma (ver rapidFireActive en
-  // DamageCalculator), que escala con el valor real X del arma en vez de un +1 fijo.
-  { id: 'weapon_melta',       label: '[MELTA 1] — +1 daño a media distancia',       description: '[MELTA X]: Add X to the weapon\'s D characteristic when target within half range. Activa solo cuando el objetivo está dentro de media distancia.', combatType: 'ranged', effects: { damageMod: 1 } },
+  // WA-Rapid Fire y WA-Melta: su valor X depende del arma, así que se aplican con el
+  // toggle dedicado en la tarjeta del arma (rapidFireActive/meltaActive en DamageCalculator),
+  // no con un efecto fijo aquí — un valor fijo no puede reflejar Rapid Fire 2 vs 3, etc.
 
   // ── Unit/Core abilities ────────────────────────────────────────────────────
   { id: 'unit_stealth',              label: 'Stealth — cobertura vs todos los ataques a distancia', description: 'Stealth: if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.', combatType: 'ranged', target: 'defender', effects: { bsMod: 1 } },

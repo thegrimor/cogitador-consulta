@@ -160,7 +160,6 @@ export function UnitPanel({
       if (rule.leaderDatasheetId && rule.leaderDatasheetId !== panel.selection.characterId) return false
       if (rule.combatType && rule.combatType !== combatType) return false
       if (rule.id === 'weapon_heavy'       && !anySelectedHeavy)      return false
-      if (rule.id === 'weapon_melta'       && !anySelectedMelta)      return false
       if (rule.id === 'weapon_lance'       && !anySelectedLance)      return false
       if (rule.id === 'weapon_torrent'     && !anySelectedTorrent)    return false
       if (rule.id === 'weapon_indirect'    && !anySelectedIndirect)   return false
