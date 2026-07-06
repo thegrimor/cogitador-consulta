@@ -9,10 +9,9 @@ interface Props {
   enhancements: Enhancement[]
   onDelete: () => void
   onExport: () => void
-  exported?: boolean
 }
 
-export function RosterCard({ roster, factionName, detachmentName, enhancements, onDelete, onExport, exported }: Props) {
+export function RosterCard({ roster, factionName, detachmentName, enhancements, onDelete, onExport }: Props) {
   const enhancementsCost = roster.entries.reduce(
     (sum, e) => sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0), 0,
   )
@@ -39,7 +38,7 @@ export function RosterCard({ roster, factionName, detachmentName, enhancements, 
               }}
               className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright transition-colors"
             >
-              {exported ? 'Copiado!' : 'Exportar'}
+              Exportar
             </button>
             <button
               onClick={e => {

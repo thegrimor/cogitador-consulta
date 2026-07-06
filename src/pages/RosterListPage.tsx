@@ -4,15 +4,20 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
 import { selectAllRosters, deleteRoster, importRosterFromData } from '@/store/rosterSlice'
 import { RosterCard } from '@/shared/components/RosterCard'
+import { RosterQrExportModal, RosterQrScanModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
-import { exportRosterToText, parseRosterText, resolveImportedRoster } from '@/core/utils/rosterExport'
+import { parseRosterText, resolveImportedRoster } from '@/core/utils/rosterExport'
+import { validateDecodedRoster } from '@/core/utils/rosterQrCode'
+import type { RosterList } from '@/types'
 
 export function RosterListPage() {
   const rosters = useAppSelector(selectAllRosters)
-  const { factions, detachments, datasheets, enhancements, wargearCostMap, leaderMap, pointsCostMap } = useGameDataContext()
+  const gameData = useGameDataContext()
+  const { factions, detachments, datasheets, enhancements, wargearCostMap, leaderMap, pointsCostMap } = gameData
   const dispatch = useAppDispatch()
 
-  const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [qrExportRoster, setQrExportRoster] = useState<RosterList | null>(null)
+  const [qrScanOpen, setQrScanOpen] = useState(false)
   const [showImport, setShowImport] = useState(false)
   const [importText, setImportText] = useState('')
   const [importError, setImportError] = useState<string | null>(null)
@@ -23,14 +28,13 @@ export function RosterListPage() {
     }
   }
 
-  function handleExport(roster: typeof rosters[number]) {
-    const text = exportRosterToText(roster, datasheets, factions, detachments, enhancements)
-    navigator.clipboard.writeText(text).catch(() => {
-      // Fallback: show an alert with the text if clipboard is unavailable
-      alert(text)
-    })
-    setCopiedId(roster.id)
-    setTimeout(() => setCopiedId(prev => prev === roster.id ? null : prev), 1500)
+  function handleScan(decoded: Omit<RosterList, 'id' | 'createdAt' | 'updatedAt'>) {
+    const { roster, warnings } = validateDecodedRoster(decoded, gameData)
+    dispatch(importRosterFromData(roster))
+    setQrScanOpen(false)
+    if (warnings.length > 0) {
+      alert(`Lista importada con advertencias:\n${warnings.join('\n')}`)
+    }
   }
 
   function handleImport() {
@@ -56,6 +60,12 @@ export function RosterListPage() {
           Listas de Ejército
         </h1>
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => setQrScanOpen(true)}
+            className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-rim-bright text-parchment-dim hover:bg-surface-3 transition-colors"
+          >
+            Escanear QR
+          </button>
           <button
             onClick={() => { setShowImport(v => !v); setImportError(null) }}
             className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-rim-bright text-parchment-dim hover:bg-surface-3 transition-colors"
@@ -125,13 +135,17 @@ export function RosterListPage() {
                 detachmentName={detachmentNames.length > 0 ? detachmentNames.join(' + ') : null}
                 enhancements={enhancements}
                 onDelete={() => handleDelete(roster.id, roster.name)}
-                onExport={() => handleExport(roster)}
-                exported={copiedId === roster.id}
+                onExport={() => setQrExportRoster(roster)}
               />
             )
           })}
         </div>
       )}
+
+      {qrExportRoster && (
+        <RosterQrExportModal roster={qrExportRoster} onClose={() => setQrExportRoster(null)} />
+      )}
+      {qrScanOpen && <RosterQrScanModal onScan={handleScan} onClose={() => setQrScanOpen(false)} />}
     </div>
   )
 }
