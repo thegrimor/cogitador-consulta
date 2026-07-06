@@ -23,8 +23,9 @@ interface Props {
   onCombatTypeChange: (t: CombatType) => void
   unitMin?: number
   unitMax?: number
-  meltaActive?: boolean
-  rapidFireActive?: boolean
+  /** Keys (wKey format) of weapons whose Melta/Rapid Fire half-range bonus is active. */
+  meltaActiveKeys?: string[]
+  rapidFireActiveKeys?: string[]
   defenderMin?: number
   defenderMax?: number
   overwatchActive?: boolean
@@ -57,10 +58,17 @@ function wKey(w: Weapon): string {
   return `${w.line}:${w.name}`
 }
 
-/** [RAPID FIRE X]: X is per-weapon (1, 2, 3, D3...) so it can't be a fixed modifier
- * effect — it's applied here directly from the weapon's own value, same as Melta. */
-function rapidFireBonusAttacks(weapon: Weapon, active?: boolean): number {
-  return active && weapon.rapidFireValue !== '' ? parseDiceAverage(weapon.rapidFireValue) : 0
+/** [RAPID FIRE X] / [MELTA X]: X is per-weapon (1, 2, 3, D3...) so neither can be a
+ * fixed modifier effect — each selected weapon gets its own half-range toggle, keyed
+ * by wKey, and the bonus is read directly from that weapon's own value. */
+function rapidFireBonusAttacks(weapon: Weapon, activeKeys: string[] = []): number {
+  return weapon.rapidFireValue !== '' && activeKeys.includes(wKey(weapon))
+    ? parseDiceAverage(weapon.rapidFireValue)
+    : 0
+}
+
+function meltaBonusDamage(weapon: Weapon, activeKeys: string[] = []): number {
+  return weapon.isMelta && activeKeys.includes(wKey(weapon)) ? weapon.meltaValue : 0
 }
 
 function CombatTypeSelector({
@@ -91,21 +99,21 @@ function CombatTypeSelector({
   )
 }
 
-function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, defenderKeywords, meltaActive, rapidFireActive }: {
+function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, defenderKeywords, meltaActiveKeys, rapidFireActiveKeys }: {
   weapon: Weapon
   defenderModel: ModelProfile
   mods: CombatModifiers
   qty: number
   blastTargetModels: number
   defenderKeywords?: string[]
-  meltaActive?: boolean
-  rapidFireActive?: boolean
+  meltaActiveKeys?: string[]
+  rapidFireActiveKeys?: string[]
 }) {
   const [open, setOpen] = useState(false)
   const effectiveMods = {
     ...mods,
-    damageMod: mods.damageMod + (meltaActive && weapon.isMelta ? weapon.meltaValue : 0),
-    attacksMod: mods.attacksMod + rapidFireBonusAttacks(weapon, rapidFireActive),
+    damageMod: mods.damageMod + meltaBonusDamage(weapon, meltaActiveKeys),
+    attacksMod: mods.attacksMod + rapidFireBonusAttacks(weapon, rapidFireActiveKeys),
   }
   const calc = calculateDamage(weapon, defenderModel, effectiveMods, defenderKeywords ?? [], blastTargetModels)
   const total = calc.expectedTotalDamage * qty
@@ -189,7 +197,7 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
 export function DamageCalculator({
   weapons, weaponQuantities = {}, defenderModel, defenderKeywords = [], attackerName, defenderName, mods,
   leaderMods, leaderWeapons, combatType, onCombatTypeChange,
-  unitMin, unitMax, defenderMin, defenderMax, meltaActive, rapidFireActive, overwatchActive = false, onOverwatchToggle,
+  unitMin, unitMax, defenderMin, defenderMax, meltaActiveKeys = [], rapidFireActiveKeys = [], overwatchActive = false, onOverwatchToggle,
 }: Props) {
   function modsFor(w: Weapon): CombatModifiers {
     return leaderMods && leaderWeapons?.includes(w) ? leaderMods : mods
@@ -262,8 +270,8 @@ export function DamageCalculator({
     const baseMods = modsFor(w)
     const wMods = {
       ...baseMods,
-      damageMod: baseMods.damageMod + (meltaActive && w.isMelta ? w.meltaValue : 0),
-      attacksMod: baseMods.attacksMod + rapidFireBonusAttacks(w, rapidFireActive),
+      damageMod: baseMods.damageMod + meltaBonusDamage(w, meltaActiveKeys),
+      attacksMod: baseMods.attacksMod + rapidFireBonusAttacks(w, rapidFireActiveKeys),
     }
     return calculateDamage(w, defenderModel, wMods, defenderKeywords, defenderModels)
   })
@@ -475,8 +483,8 @@ export function DamageCalculator({
               qty={getQty(w)}
               blastTargetModels={defenderModels}
               defenderKeywords={defenderKeywords}
-              meltaActive={meltaActive}
-              rapidFireActive={rapidFireActive}
+              meltaActiveKeys={meltaActiveKeys}
+              rapidFireActiveKeys={rapidFireActiveKeys}
             />
           ))}
         </div>
@@ -520,8 +528,8 @@ export function DamageCalculator({
             {(weapons[0].cleaveValue + displayMods.cleaveBonus) > 0
               && ` [Cleave ${weapons[0].cleaveValue + displayMods.cleaveBonus}]`}
             {weapons[0].isHeavy && ' [Heavy]'}
-            {weapons[0].isMelta && meltaActive && ` [Melta ½ dist. +${weapons[0].meltaValue}D]`}
-            {weapons[0].rapidFireValue !== '' && rapidFireActive && ` [Rapid Fire ½ dist. +${weapons[0].rapidFireValue}A]`}
+            {meltaBonusDamage(weapons[0], meltaActiveKeys) > 0 && ` [Melta ½ dist. +${weapons[0].meltaValue}D]`}
+            {rapidFireBonusAttacks(weapons[0], rapidFireActiveKeys) > 0 && ` [Rapid Fire ½ dist. +${weapons[0].rapidFireValue}A]`}
             {displayMods.attacksMod !== 0 && ` [+${displayMods.attacksMod}A]`}
             {(displayMods.rerollDamageOf1 || displayMods.rerollAllDamage) && ' [RR Daño]'}
             {overwatchActive && ' [Overwatch 6+]'}

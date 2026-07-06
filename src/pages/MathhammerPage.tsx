@@ -54,12 +54,16 @@ export function MathhammerPage() {
   const [combatType, setCombatType] = useLocalStorage<CombatType>('mathhammer-combat-type', 'ranged')
   const [attackerIdsArr, setAttackerIdsArr] = useState<string[]>([])
   const [defenderIdsArr, setDefenderIdsArr] = useState<string[]>([])
-  const [meltaActive, setMeltaActive] = useState(false)
-  const [rapidFireActive, setRapidFireActive] = useState(false)
+  const [meltaActiveKeys, setMeltaActiveKeys] = useState<string[]>([])
+  const [rapidFireActiveKeys, setRapidFireActiveKeys] = useState<string[]>([])
   const [overwatchActive, setOverwatchActive] = useState(false)
 
   function handleQuantityChange(key: string, qty: number) {
     setWeaponQuantities(prev => ({ ...prev, [key]: qty }))
+  }
+
+  function toggleKey(list: string[], key: string): string[] {
+    return list.includes(key) ? list.filter(k => k !== key) : [...list, key]
   }
 
   function handleClearWeapons() {
@@ -90,15 +94,15 @@ export function MathhammerPage() {
       localStorage.setItem(`mathhammer-attacker-${id}`, JSON.stringify({
         weaponLines: selectedWeapons.map(w => w.line),
         activeModIds: attackerIdsArr,
-        meltaActive,
-        rapidFireActive,
+        meltaActiveKeys,
+        rapidFireActiveKeys,
         overwatchActive,
         weaponQuantities,
       }))
     } catch {
       // ignore storage errors (quota exceeded, private browsing)
     }
-  }, [selectedWeapons, attackerIdsArr, meltaActive, rapidFireActive, overwatchActive, weaponQuantities]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [selectedWeapons, attackerIdsArr, meltaActiveKeys, rapidFireActiveKeys, overwatchActive, weaponQuantities]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Restore attacker state when the selected unit resolves (page load or unit change)
   const [restoredAttackerId, setRestoredAttackerId] = useState<string | null>(null)
@@ -129,23 +133,23 @@ export function MathhammerPage() {
         const restoredWeapons = unit.weapons.filter(w => (saved.weaponLines ?? []).includes(w.line))
         setSelectedWeapons(restoredWeapons)
         setAttackerIdsArr(saved.activeModIds ?? [])
-        setMeltaActive(saved.meltaActive ?? false)
-        setRapidFireActive(saved.rapidFireActive ?? false)
+        setMeltaActiveKeys(saved.meltaActiveKeys ?? [])
+        setRapidFireActiveKeys(saved.rapidFireActiveKeys ?? [])
         setOverwatchActive(saved.overwatchActive ?? false)
         setWeaponQuantities(fillMissingQtys(saved.weaponQuantities ?? {}, restoredWeapons))
       } else {
         setSelectedWeapons([])
         setAttackerIdsArr([])
-        setMeltaActive(false)
-        setRapidFireActive(false)
+        setMeltaActiveKeys([])
+        setRapidFireActiveKeys([])
         setOverwatchActive(false)
         setWeaponQuantities({})
       }
     } catch {
       setSelectedWeapons([])
       setAttackerIdsArr([])
-      setMeltaActive(false)
-      setRapidFireActive(false)
+      setMeltaActiveKeys([])
+      setRapidFireActiveKeys([])
       setOverwatchActive(false)
       setWeaponQuantities({})
     }
@@ -327,10 +331,10 @@ export function MathhammerPage() {
             onModifierToggle={toggleAttackerModifier}
             weaponAntiKeywords={selectedWeaponAntiKeywords}
             defenderKeywords={defenderKeywords}
-            meltaActive={meltaActive}
-            onMeltaToggle={() => setMeltaActive(v => !v)}
-            rapidFireActive={rapidFireActive}
-            onRapidFireToggle={() => setRapidFireActive(v => !v)}
+            meltaActiveKeys={meltaActiveKeys}
+            onMeltaToggle={key => setMeltaActiveKeys(prev => toggleKey(prev, key))}
+            rapidFireActiveKeys={rapidFireActiveKeys}
+            onRapidFireToggle={key => setRapidFireActiveKeys(prev => toggleKey(prev, key))}
           />
         )}
         {mobileTab === 'result' && (
@@ -348,8 +352,8 @@ export function MathhammerPage() {
             onCombatTypeChange={setCombatType}
             unitMin={leftPanel.selectedUnit?.modelCountMin}
             unitMax={leftPanel.selectedUnit?.modelCountMax}
-            meltaActive={meltaActive}
-            rapidFireActive={rapidFireActive}
+            meltaActiveKeys={meltaActiveKeys}
+            rapidFireActiveKeys={rapidFireActiveKeys}
             defenderMin={rightPanel.selectedUnit?.modelCountMin}
             defenderMax={rightPanel.selectedUnit?.modelCountMax}
             overwatchActive={overwatchActive}
@@ -386,10 +390,10 @@ export function MathhammerPage() {
             onModifierToggle={toggleAttackerModifier}
             weaponAntiKeywords={selectedWeaponAntiKeywords}
             defenderKeywords={defenderKeywords}
-            meltaActive={meltaActive}
-            onMeltaToggle={() => setMeltaActive(v => !v)}
-            rapidFireActive={rapidFireActive}
-            onRapidFireToggle={() => setRapidFireActive(v => !v)}
+            meltaActiveKeys={meltaActiveKeys}
+            onMeltaToggle={key => setMeltaActiveKeys(prev => toggleKey(prev, key))}
+            rapidFireActiveKeys={rapidFireActiveKeys}
+            onRapidFireToggle={key => setRapidFireActiveKeys(prev => toggleKey(prev, key))}
           />
         </div>
         <div className="border-r border-rim-bright overflow-y-auto bg-surface-2">
@@ -408,8 +412,8 @@ export function MathhammerPage() {
               onCombatTypeChange={setCombatType}
               unitMin={leftPanel.selectedUnit?.modelCountMin}
               unitMax={leftPanel.selectedUnit?.modelCountMax}
-              meltaActive={meltaActive}
-              rapidFireActive={rapidFireActive}
+              meltaActiveKeys={meltaActiveKeys}
+              rapidFireActiveKeys={rapidFireActiveKeys}
               defenderMin={rightPanel.selectedUnit?.modelCountMin}
               defenderMax={rightPanel.selectedUnit?.modelCountMax}
               overwatchActive={overwatchActive}
