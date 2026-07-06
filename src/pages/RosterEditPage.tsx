@@ -22,9 +22,9 @@ import {
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
+import { RosterQrExportModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
-import { exportRosterToText } from '@/core/utils/rosterExport'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 
 export function RosterEditPage() {
@@ -49,15 +49,7 @@ export function RosterEditPage() {
   const [nameDraft, setNameDraft] = useState(roster?.name ?? '')
   const [limitDraft, setLimitDraft] = useState(roster?.pointsLimit ? String(roster.pointsLimit) : '')
   const [detachmentModalOpen, setDetachmentModalOpen] = useState(false)
-  const [exported, setExported] = useState(false)
-
-  function handleExport() {
-    if (!roster) return
-    const text = exportRosterToText(roster, datasheets, factions, detachments, enhancements)
-    navigator.clipboard.writeText(text).catch(() => alert(text))
-    setExported(true)
-    setTimeout(() => setExported(false), 1500)
-  }
+  const [qrModalOpen, setQrModalOpen] = useState(false)
 
   if (!roster || !rosterIdParam) {
     return (
@@ -135,10 +127,10 @@ export function RosterEditPage() {
             className="text-[16px] font-display uppercase tracking-[3px] text-parchment bg-transparent focus:outline-none focus:border-b focus:border-crimson-bright flex-1 min-w-0"
           />
           <button
-            onClick={handleExport}
+            onClick={() => setQrModalOpen(true)}
             className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
           >
-            {exported ? 'Copiado!' : 'Exportar'}
+            Exportar
           </button>
         </div>
         <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
@@ -297,6 +289,8 @@ export function RosterEditPage() {
         pointsLimit={roster.pointsLimit}
         onAdd={handleAddUnit}
       />
+
+      {qrModalOpen && <RosterQrExportModal roster={roster} onClose={() => setQrModalOpen(false)} />}
     </div>
   )
 }
