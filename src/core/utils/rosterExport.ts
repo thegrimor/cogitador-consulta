@@ -1,5 +1,5 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
-import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants } from '@/core/utils/roster'
+import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints } from '@/core/utils/roster'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
@@ -19,6 +19,51 @@ function sectionHeader(role: string): string {
   return 'OTHER DATASHEETS'
 }
 
+/** Points cost for `entry` as it should read in exported text: base cost plus any paid
+ * wargear and its enhancement, matching what RosterEditPage shows for the same unit. */
+function entryDisplayPoints(entry: RosterEntry, enhancements: Enhancement[]): number {
+  const enhCost = enhancements.find(e => e.id === entry.enhancementId)?.cost ?? 0
+  return (entry.pointsCost ?? 0) + (entry.wargearSurcharge ?? 0) + enhCost
+}
+
+function entryLines(entry: RosterEntry, datasheet: Datasheet, enhancements: Enhancement[]): string[] {
+  const out: string[] = []
+  const displayName = entry.customName ?? datasheet.name
+  out.push(`${displayName} (${entryDisplayPoints(entry, enhancements)} Points)`)
+
+  if (entry.enhancementId) {
+    const enh = enhancements.find(e => e.id === entry.enhancementId)
+    if (enh) out.push(`• Enhancement: ${enh.name}`)
+  }
+
+  if (entry.modelCount > 1) {
+    out.push(`• ${entry.modelCount}x ${datasheet.name}`)
+  }
+
+  if (entry.wargearSelections) {
+    for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
+      if (count > 0) out.push(`  ◦ ${count}x ${weaponName}`)
+    }
+  }
+
+  // Free (non-costed) weapon replace/add choices — otherwise a re-import of this text
+  // would fall back to the datasheet's plain default loadout and lose the customization.
+  if (entry.weaponOptionSelections) {
+    for (const [ruleId, selection] of Object.entries(entry.weaponOptionSelections)) {
+      const rule = datasheet.weaponOptionRules.find(r => r.id === ruleId)
+      if (!rule) continue
+      selection.forEach((qty, i) => {
+        if (qty <= 0) return
+        rule.choices[i]?.forEach(weaponName => {
+          out.push(`  ◦ ${qty}x ${weaponName}`)
+        })
+      })
+    }
+  }
+
+  return out
+}
+
 export function exportRosterToText(
   roster: RosterList,
   datasheets: Datasheet[],
@@ -28,7 +73,10 @@ export function exportRosterToText(
 ): string {
   const lines: string[] = []
 
-  const totalPoints = roster.totalPoints ?? 0
+  const enhancementsCost = roster.entries.reduce(
+    (sum, e) => sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0), 0,
+  )
+  const totalPoints = (roster.totalPoints ?? 0) + enhancementsCost
   lines.push(`${roster.name} (${totalPoints} Points)`)
   lines.push('')
 
@@ -38,17 +86,57 @@ export function exportRosterToText(
   const detachmentNames = roster.detachmentIds
     .map(id => detachments.find(d => d.id === id)?.name ?? id)
     .join(' + ')
-  lines.push(`${detachmentNames || 'No Detachment'} (0 Detachment Points)`)
+  const detachmentPoints = sumDetachmentPoints(detachments, roster.detachmentIds)
+  lines.push(`${detachmentNames || 'No Detachment'} (${detachmentPoints} Detachment Points)`)
 
   const battleSize = battleSizeLabel(roster.pointsLimit)
   const limitLabel = roster.pointsLimit !== null ? `${roster.pointsLimit} Points` : 'Open Play'
   lines.push(`${battleSize} (${limitLabel})`)
 
-  // Group entries by role priority
+  // Attached leader/bodyguard groups — reproduced as "Attached Unit N" blocks (rather than
+  // a "target unit name" tag) since two copies of the same datasheet can't be told apart
+  // by name alone, which the group-id form sidesteps entirely.
+  const bodyguardIds = new Set(roster.entries.filter(e => e.attachedToEntryId).map(e => e.attachedToEntryId!))
+  const consumed = new Set<string>()
+  const attachmentGroups: RosterEntry[][] = []
+
+  for (const entry of roster.entries) {
+    if (!bodyguardIds.has(entry.id)) continue
+    const leaders = roster.entries.filter(e => e.attachedToEntryId === entry.id)
+    attachmentGroups.push([...leaders, entry])
+    consumed.add(entry.id)
+    leaders.forEach(l => consumed.add(l.id))
+  }
+
+  if (attachmentGroups.length > 0) {
+    lines.push('')
+    lines.push('Attached Units')
+
+    attachmentGroups.forEach((group, idx) => {
+      lines.push('')
+      lines.push(`Attached Unit ${idx + 1}`)
+
+      for (const entry of group) {
+        const datasheet = datasheets.find(d => d.id === entry.datasheetId)
+        if (!datasheet) continue
+        lines.push('')
+        const [nameLine, ...rest] = entryLines(entry, datasheet, enhancements)
+        lines.push(nameLine)
+        const role = bodyguardIds.has(entry.id)
+          ? (datasheet.role === 'Battleline' ? 'Bodyguard (Battleline)' : 'Bodyguard')
+          : 'Leader (Character)'
+        lines.push(`• Attached as: ${role}`)
+        lines.push(...rest)
+      }
+    })
+  }
+
+  // Group remaining (unattached) entries by role priority
   const ROLE_ORDER = ['Characters', 'Battleline', 'Dedicated Transports', 'Fortifications', 'Other']
   const grouped = new Map<string, Array<{ entry: RosterEntry; datasheet: Datasheet }>>()
 
   for (const entry of roster.entries) {
+    if (consumed.has(entry.id)) continue
     const datasheet = datasheets.find(d => d.id === entry.datasheetId)
     if (!datasheet) continue
     const role = ROLE_ORDER.includes(datasheet.role) ? datasheet.role : 'Other'
@@ -65,24 +153,7 @@ export function exportRosterToText(
     lines.push('')
 
     for (const { entry, datasheet } of entries) {
-      const pts = (entry.pointsCost ?? 0) + (entry.wargearSurcharge ?? 0)
-      const displayName = entry.customName ?? datasheet.name
-      lines.push(`${displayName} (${pts} Points)`)
-
-      if (entry.enhancementId) {
-        const enh = enhancements.find(e => e.id === entry.enhancementId)
-        if (enh) lines.push(`• Enhancement: ${enh.name}`)
-      }
-
-      if (entry.modelCount > 1) {
-        lines.push(`• ${entry.modelCount}x ${datasheet.name}`)
-      }
-
-      if (entry.wargearSelections) {
-        for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
-          if (count > 0) lines.push(`  ◦ ${count}x ${weaponName}`)
-        }
-      }
+      lines.push(...entryLines(entry, datasheet, enhancements))
     }
   }
 
@@ -128,20 +199,23 @@ const UNIT_PTS_RE = /^(.+?)\s+\(([\d.]+)\s*(?:[Pp]oints?|[Pp]untos?)\)$/
 const DETACHMENT_RE = /^(.+?)\s+\(\d+\s+(?:Detachment\s+[Pp]oints?|[Pp]untos\s+de\s+destacamento)\)/i
 // Battle size header, English and Spanish labels
 const BATTLE_SIZE_RE = /^(Combat Patrol|Incursion|Strike Force|Onslaught|Patrulla de Combate|Incursi[oó]n|Fuerza de Choque|Ofensiva Total|Asalto Total)\s+\(/i
-// Weapon line: ◦ bullet or bare "Nx Name" — e.g. "◦ 2x Bolter", "1x Lance"
-const WEAPON_RE = /^(?:◦\s*)?(\d+)x\s+(.+)$/
+// Weapon line: ◦ bullet or bare "Nx Name" — e.g. "◦ 2x Bolter", "1x Lance". The "x" itself
+// is optional since some export tools write plain "N Name" (e.g. "2 Bolter") instead.
+const WEAPON_RE = /^(?:◦\s*)?(\d+)x?\s+(.+)$/
 // Model-type line: filled bullet + "Nx Name" — e.g. "• 1x Hesyr", "• 9x Einhyr Hearthguard"
-const MODEL_LINE_RE = /^•\s*(\d+)x\s+(.+)$/
+// (or "• 9 Einhyr Hearthguard" without the "x", same tools as above).
+const MODEL_LINE_RE = /^•\s*(\d+)x?\s+(.+)$/
 // Non-weapon bullet: starts with bullet but no "Nx" — e.g. "• Warlord", "• Enhancement: ..."
 const NON_WEAPON_BULLET_RE = /^[•◦]/
 // Lines to always skip (English and Spanish)
 const SKIP_RE = /^(Force Dispositions|Disposiciones de la fuerza|Total\s+Points|Puntos\s+Totales|Points\s+Limit|L[ií]mite\s+de\s+Puntos|Warlord|Se[ñn]or de la guerra)/i
 // "Attached Unit 1: Hearthkyn Warriors" or "• Attached Units: Hearthkyn Warriors"
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
-// "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
-const ATTACHED_AS_RE = /^[•◦]\s*Attached as:\s*(Leader|Bodyguard)/i
-// "Attached unit 1" / "Attached unit 2" — listhammer group headers
-const ATTACH_GROUP_RE = /^Attached\s+unit\s+(\d+)$/i
+// "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)", or the
+// Spanish "• Adjunta como: Líder (Personaje)" / "• Adjunta como: Escolta (Línea de batalla)"
+const ATTACHED_AS_RE = /^[•◦]\s*(?:Attached as|Adjunta como):\s*(Leader|Bodyguard|L[ií]der|Escolta)/i
+// "Attached unit 1" / "Attached unit 2" — listhammer group headers, or Spanish "Unidad adjunta 1"
+const ATTACH_GROUP_RE = /^(?:Attached\s+unit|Unidad\s+adjunta)\s+(\d+)$/i
 
 const KNOWN_SECTIONS = new Set([
   'CHARACTERS', 'BATTLELINE', 'OTHER DATASHEETS', 'DEDICATED TRANSPORTS',
@@ -241,10 +315,12 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)"
+    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)", or the
+    // Spanish "• Adjunta como: Líder/Escolta"
     const asMatch = line.match(ATTACHED_AS_RE)
     if (asMatch) {
-      if (currentUnit) currentUnit.attachmentRole = asMatch[1] as 'Leader' | 'Bodyguard'
+      const role = /^l[ií]der$/i.test(asMatch[1]) ? 'Leader' : /^escolta$/i.test(asMatch[1]) ? 'Bodyguard' : asMatch[1]
+      if (currentUnit) currentUnit.attachmentRole = role as 'Leader' | 'Bodyguard'
       continue
     }
 
@@ -317,16 +393,22 @@ export function parseRosterText(text: string): ParsedRosterText {
 /** Case-insensitive name match that also tolerates a trailing plural "s" mismatch
  * (some export tools pluralize a datasheet name that's stored singular, e.g.
  * "Myphitic Blight-haulers" for a datasheet named "Myphitic Blight-hauler") and a
- * trailing parenthetical annotation some exporters add to enhancement names, e.g.
- * "Snarling Rivalry (Upgrade)" for an enhancement stored as just "Snarling Rivalry". */
+ * trailing parenthetical annotation some exporters add to enhancement names — which cuts
+ * both ways: "Snarling Rivalry (Upgrade)" is stored as plain "Snarling Rivalry" (the
+ * annotation is pure noise, so it should be dropped), while "Deepening Madness (Upgrade)"
+ * is stored as "Deepening Madness Upgrade" (the annotation is actually part of the real
+ * name, so it should be un-parenthesized instead). Trying both normalizations covers
+ * either case without needing to know which one applies. */
 function namesMatch(a: string, b: string): boolean {
   const an = a.trim().toLowerCase()
   const bn = b.trim().toLowerCase()
   if (an === bn) return true
   const stripTrailingS = (s: string) => s.endsWith('s') ? s.slice(0, -1) : s
   const stripParenthetical = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, '')
-  const normalize = (s: string) => stripTrailingS(stripParenthetical(s))
-  return normalize(an) === normalize(bn)
+  const unparenthesize = (s: string) => s.replace(/\s*\(([^)]*)\)\s*$/, ' $1').trim()
+  const variants = (s: string) => new Set([s, stripParenthetical(s), unparenthesize(s)].map(stripTrailingS))
+  const av = variants(an)
+  return [...variants(bn)].some(v => av.has(v))
 }
 
 export function resolveImportedRoster(
