@@ -271,10 +271,11 @@ export function parseRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // Detachment line: "Hallowed Martyrs (3 Detachment Points)"
+    // Detachment line: "Hallowed Martyrs (3 Detachment Points)" or the Spanish
+    // "Martillazo de los Tharanatoi y Shield Host (3 puntos de destacamento)"
     const detMatch = line.match(DETACHMENT_RE)
     if (detMatch) {
-      const parts = detMatch[1].split(' + ').map(s => s.trim()).filter(Boolean)
+      const parts = detMatch[1].split(/\s+\+\s+|\s+y\s+/i).map(s => s.trim()).filter(Boolean)
       detachmentNames.push(...parts)
       seenDetachment = true
       continue
@@ -411,6 +412,41 @@ function namesMatch(a: string, b: string): boolean {
   return [...variants(bn)].some(v => av.has(v))
 }
 
+const NAME_STOPWORDS = new Set([
+  'de', 'los', 'las', 'la', 'el', 'y', 'del', 'en', 'con', 'para', 'al',
+  'of', 'the', 'and', 'in', 'with', 'for', 'to', 'a',
+])
+
+/** Distinctive (4+ letter, non-stopword) words in a name, lowercased. Detachment names are
+ * often invented Warhammer terms (e.g. "Tharanatoi", "Moritoi") that survive translation
+ * unchanged even when the surrounding words don't — spotting a shared one is a reliable
+ * signal even across full translations. */
+function significantWords(name: string): string[] {
+  return name
+    .toLowerCase()
+    .split(/\s+/)
+    .map(w => w.replace(/[^\p{L}\p{N}]/gu, ''))
+    .filter(w => w.length >= 4 && !NAME_STOPWORDS.has(w))
+}
+
+/** Finds the single candidate sharing the most distinctive words with `name` (e.g. matching
+ * "Martillazo de los Tharanatoi" to "Tharanatoi Hammerblow" via the shared invented term).
+ * Returns null if nothing shares a word, or if multiple candidates tie for the best score —
+ * an ambiguous guess is worse than surfacing the "not found" warning. */
+function findByDistinctiveWord<T extends { name: string }>(name: string, candidates: T[]): T | null {
+  const words = new Set(significantWords(name))
+  if (words.size === 0) return null
+  let best: T | null = null
+  let bestScore = 0
+  let tied = false
+  for (const c of candidates) {
+    const score = significantWords(c.name).filter(w => words.has(w)).length
+    if (score > bestScore) { best = c; bestScore = score; tied = false }
+    else if (score === bestScore && score > 0) tied = true
+  }
+  return tied ? null : best
+}
+
 export function resolveImportedRoster(
   parsed: ParsedRosterText,
   datasheets: Datasheet[],
@@ -435,21 +471,22 @@ export function resolveImportedRoster(
   const factionId = faction?.id ?? parsed.factionName
 
   const detachmentIds: string[] = []
+  // Some translated exports (e.g. Spanish) translate the detachment name itself, not just
+  // the "and"/"+" joining it ("Martillazo de los Tharanatoi" for "Tharanatoi Hammerblow") —
+  // scope the distinctive-word fallback to this faction's own detachments to keep it safe.
+  const factionDetachmentsForMatch = faction ? detachments.filter(d => d.factionId === factionId) : detachments
   for (const detName of parsed.detachmentNames) {
     const det = detachments.find(d => d.name.toLowerCase() === detName.toLowerCase())
     if (det) {
       detachmentIds.push(det.id)
     } else {
-      // BattleScribe sometimes joins multiple detachments with " and " instead of " + "
-      const parts = detName.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean)
-      if (parts.length > 1) {
-        for (const part of parts) {
-          const d = detachments.find(d2 => d2.name.toLowerCase() === part.toLowerCase())
-          if (d) detachmentIds.push(d.id)
-          else warnings.push(`Destacamento no encontrado: "${part}"`)
-        }
-      } else {
-        warnings.push(`Destacamento no encontrado: "${detName}"`)
+      // BattleScribe sometimes joins multiple detachments with " and "/" y " instead of " + "
+      const parts = detName.split(/\s+(?:and|y)\s+/i).map(s => s.trim()).filter(Boolean)
+      for (const part of parts.length > 1 ? parts : [detName]) {
+        const d = detachments.find(d2 => d2.name.toLowerCase() === part.toLowerCase())
+          ?? findByDistinctiveWord(part, factionDetachmentsForMatch)
+        if (d) detachmentIds.push(d.id)
+        else warnings.push(`Destacamento no encontrado: "${part}"`)
       }
     }
   }
