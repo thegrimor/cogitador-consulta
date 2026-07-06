@@ -29,10 +29,12 @@ interface Props {
   onModifierToggle?: (id: string) => void
   weaponAntiKeywords?: string[]
   defenderKeywords?: string[]
-  meltaActive?: boolean
-  onMeltaToggle?: () => void
-  rapidFireActive?: boolean
-  onRapidFireToggle?: () => void
+  /** Keys (wKey format) of weapons whose Melta/Rapid Fire half-range bonus is currently
+   * active — one independent toggle per selected weapon, since X varies per weapon. */
+  meltaActiveKeys?: string[]
+  onMeltaToggle?: (key: string) => void
+  rapidFireActiveKeys?: string[]
+  onRapidFireToggle?: (key: string) => void
 }
 
 export function UnitPanel({
@@ -40,8 +42,8 @@ export function UnitPanel({
   weaponQuantities = {}, onQuantityChange, onClearWeapons,
   combatType = 'ranged', activeModifierIds, onModifierToggle,
   weaponAntiKeywords = [], defenderKeywords = [],
-  meltaActive, onMeltaToggle,
-  rapidFireActive, onRapidFireToggle,
+  meltaActiveKeys = [], onMeltaToggle,
+  rapidFireActiveKeys = [], onRapidFireToggle,
 }: Props) {
   const [modelIdx, setModelIdx] = useState(0)
   const [showImport, setShowImport] = useState(false)
@@ -102,7 +104,6 @@ export function UnitPanel({
   }
 
   const anySelectedHeavy       = selectedWeapons.some(w => w.isHeavy)
-  const anySelectedMelta       = selectedWeapons.some(w => w.isMelta)
   const anySelectedLance       = selectedWeapons.some(w => w.isLance)
   const anySelectedTorrent     = selectedWeapons.some(w => w.isTorrent)
   const anySelectedIndirect    = selectedWeapons.some(w => w.isIndirectFire)
@@ -170,7 +171,12 @@ export function UnitPanel({
       if (rule.sourceDatasheetId && panel.rosterIds !== null && !panel.rosterIds.includes(rule.sourceDatasheetId)) return false
       return true
     })
-  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedMelta, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
+  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
+
+  const halfRangeWeapons = useMemo(
+    () => selectedWeapons.filter(w => w.isMelta || w.rapidFireValue !== ''),
+    [selectedWeapons],
+  )
 
   const roleLabel = selectedUnit?.role ? ` · ${selectedUnit.role}` : ''
 
@@ -268,10 +274,6 @@ export function UnitPanel({
                         onSelect={handleWeaponSelect}
                         heavyModActive={w.isHeavy ? heavyModActive : undefined}
                         onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
-                        meltaModActive={w.isMelta && anySelectedMelta ? meltaActive : undefined}
-                        onMeltaToggle={w.isMelta ? onMeltaToggle : undefined}
-                        rapidFireModActive={w.rapidFireValue !== '' ? rapidFireActive : undefined}
-                        onRapidFireToggle={w.rapidFireValue !== '' ? onRapidFireToggle : undefined}
                       />
                       {isSelected && onQuantityChange && (
                         <div className="flex items-center justify-between px-3 py-1.5 bg-surface-3 border-b border-rim-bright">
@@ -314,10 +316,6 @@ export function UnitPanel({
                           onSelect={handleWeaponSelect}
                           heavyModActive={w.isHeavy ? heavyModActive : undefined}
                           onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
-                          meltaModActive={w.isMelta && anySelectedMelta ? meltaActive : undefined}
-                          onMeltaToggle={w.isMelta ? onMeltaToggle : undefined}
-                          rapidFireModActive={w.rapidFireValue !== '' ? rapidFireActive : undefined}
-                          onRapidFireToggle={w.rapidFireValue !== '' ? onRapidFireToggle : undefined}
                         />
                         {isSelected && onQuantityChange && (
                           <div className="flex items-center justify-between px-3 py-1.5 bg-surface-3 border-b border-rim-bright">
@@ -353,6 +351,64 @@ export function UnitPanel({
                 </div>
               )}
             </div>
+          )}
+
+          {/* Rapid Fire / Melta — un toggle por arma seleccionada, ya que el valor X
+              depende del arma concreta y solo el usuario sabe si está a media distancia. */}
+          {isAttacker && halfRangeWeapons.length > 0 && (
+            <>
+              <div className="px-3 py-2 text-xs font-display uppercase tracking-wide text-gold border-b border-t border-rim-bright bg-surface-2">
+                Rapid Fire / Melta
+                <span className="text-parchment-dim normal-case tracking-normal font-mono ml-2 text-[9px]">
+                  ¿el objetivo está a media distancia?
+                </span>
+              </div>
+              <div className="px-3 py-2 flex flex-col gap-1.5">
+                {halfRangeWeapons.flatMap(w => {
+                  const key = wKey(w)
+                  const rows = []
+                  if (w.rapidFireValue !== '') {
+                    const active = rapidFireActiveKeys.includes(key)
+                    rows.push(
+                      <button
+                        key={`rf-${key}`}
+                        onClick={() => onRapidFireToggle?.(key)}
+                        className={`w-full text-left px-2 py-1.5 border transition-colors ${
+                          active
+                            ? 'border-crimson bg-crimson/10 text-crimson-bright'
+                            : 'border-rim-bright text-parchment hover:border-crimson-dim hover:text-parchment'
+                        }`}
+                      >
+                        <span className="text-xs font-mono leading-snug">
+                          <span className="mr-1.5">{active ? '▶' : '○'}</span>
+                          Rapid Fire {w.rapidFireValue} — {w.name}
+                        </span>
+                      </button>
+                    )
+                  }
+                  if (w.isMelta) {
+                    const active = meltaActiveKeys.includes(key)
+                    rows.push(
+                      <button
+                        key={`melta-${key}`}
+                        onClick={() => onMeltaToggle?.(key)}
+                        className={`w-full text-left px-2 py-1.5 border transition-colors ${
+                          active
+                            ? 'border-crimson bg-crimson/10 text-crimson-bright'
+                            : 'border-rim-bright text-parchment hover:border-crimson-dim hover:text-parchment'
+                        }`}
+                      >
+                        <span className="text-xs font-mono leading-snug">
+                          <span className="mr-1.5">{active ? '▶' : '○'}</span>
+                          Melta {w.meltaValue} — {w.name}
+                        </span>
+                      </button>
+                    )
+                  }
+                  return rows
+                })}
+              </div>
+            </>
           )}
 
           {activeModifierIds && onModifierToggle && (
