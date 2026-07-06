@@ -31,6 +31,8 @@ interface Props {
   defenderKeywords?: string[]
   meltaActive?: boolean
   onMeltaToggle?: () => void
+  rapidFireActive?: boolean
+  onRapidFireToggle?: () => void
 }
 
 export function UnitPanel({
@@ -39,6 +41,7 @@ export function UnitPanel({
   combatType = 'ranged', activeModifierIds, onModifierToggle,
   weaponAntiKeywords = [], defenderKeywords = [],
   meltaActive, onMeltaToggle,
+  rapidFireActive, onRapidFireToggle,
 }: Props) {
   const [modelIdx, setModelIdx] = useState(0)
   const [showImport, setShowImport] = useState(false)
@@ -100,7 +103,6 @@ export function UnitPanel({
 
   const anySelectedHeavy       = selectedWeapons.some(w => w.isHeavy)
   const anySelectedMelta       = selectedWeapons.some(w => w.isMelta)
-  const anySelectedRapidFire   = selectedWeapons.some(w => w.rapidFireValue !== '')
   const anySelectedLance       = selectedWeapons.some(w => w.isLance)
   const anySelectedTorrent     = selectedWeapons.some(w => w.isTorrent)
   const anySelectedIndirect    = selectedWeapons.some(w => w.isIndirectFire)
@@ -158,7 +160,6 @@ export function UnitPanel({
       if (rule.leaderDatasheetId && rule.leaderDatasheetId !== panel.selection.characterId) return false
       if (rule.combatType && rule.combatType !== combatType) return false
       if (rule.id === 'weapon_heavy'       && !anySelectedHeavy)      return false
-      if (rule.id === 'weapon_rapid_fire'  && !anySelectedRapidFire)  return false
       if (rule.id === 'weapon_melta'       && !anySelectedMelta)      return false
       if (rule.id === 'weapon_lance'       && !anySelectedLance)      return false
       if (rule.id === 'weapon_torrent'     && !anySelectedTorrent)    return false
@@ -170,7 +171,7 @@ export function UnitPanel({
       if (rule.sourceDatasheetId && panel.rosterIds !== null && !panel.rosterIds.includes(rule.sourceDatasheetId)) return false
       return true
     })
-  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedMelta, anySelectedRapidFire, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
+  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedMelta, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
 
   const roleLabel = selectedUnit?.role ? ` · ${selectedUnit.role}` : ''
 
@@ -270,6 +271,8 @@ export function UnitPanel({
                         onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
                         meltaModActive={w.isMelta && anySelectedMelta ? meltaActive : undefined}
                         onMeltaToggle={w.isMelta ? onMeltaToggle : undefined}
+                        rapidFireModActive={w.rapidFireValue !== '' ? rapidFireActive : undefined}
+                        onRapidFireToggle={w.rapidFireValue !== '' ? onRapidFireToggle : undefined}
                       />
                       {isSelected && onQuantityChange && (
                         <div className="flex items-center justify-between px-3 py-1.5 bg-surface-3 border-b border-rim-bright">
@@ -314,6 +317,8 @@ export function UnitPanel({
                           onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
                           meltaModActive={w.isMelta && anySelectedMelta ? meltaActive : undefined}
                           onMeltaToggle={w.isMelta ? onMeltaToggle : undefined}
+                          rapidFireModActive={w.rapidFireValue !== '' ? rapidFireActive : undefined}
+                          onRapidFireToggle={w.rapidFireValue !== '' ? onRapidFireToggle : undefined}
                         />
                         {isSelected && onQuantityChange && (
                           <div className="flex items-center justify-between px-3 py-1.5 bg-surface-3 border-b border-rim-bright">
