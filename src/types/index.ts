@@ -524,13 +524,21 @@ export interface SecondaryMissionCard {
   sections: SecondaryMissionSection[]
 }
 
-// Solo los campos que esta app consume. forceDisposition, terrainLayouts,
-// matrix y rulesSectionIndex existen en missions.json pero quedan fuera
-// de alcance por ahora.
+export interface PrimaryMissionMatrix {
+  description: string
+  rows: string[]
+  columns: string[]
+  grid: Record<string, Record<string, string>>
+}
+
+// Solo los campos que esta app consume. forceDisposition, terrainLayouts
+// y rulesSectionIndex existen en missions.json pero quedan fuera de
+// alcance por ahora.
 export interface MissionsData {
   source: string
   scrapedAt: string
   note: string
   primaryMissions: PrimaryMissionDeck[]
   secondaryMissions: SecondaryMissionCard[]
+  matrix: PrimaryMissionMatrix
 }
