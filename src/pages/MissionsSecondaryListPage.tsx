@@ -3,16 +3,33 @@ import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { missionSecondaryPath, ROUTES } from '@/core/constants/routes'
 import { missionSlug } from '@/core/utils/missionText'
 
-function NavTile({ to, name, subtitle }: { to: string; name: string; subtitle: string }) {
+function NavTile({
+  to,
+  name,
+  subtitle,
+  hasAction,
+}: {
+  to: string
+  name: string
+  subtitle: string
+  hasAction: boolean
+}) {
   return (
     <NavLink
       to={to}
       className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-3 transition-colors"
     >
       <div>
-        <p className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
-          {name}
-        </p>
+        <div className="flex items-center gap-2">
+          <p className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+            {name}
+          </p>
+          {hasAction && (
+            <span className="text-[9px] font-mono uppercase tracking-wide border border-gold/50 text-gold px-1.5 py-px leading-none">
+              Con acción
+            </span>
+          )}
+        </div>
         <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
           {subtitle}
         </p>
@@ -65,6 +82,7 @@ export function MissionsSecondaryListPage() {
               to={missionSecondaryPath(missionSlug(card.url))}
               name={card.name}
               subtitle={card.kindLabel ? 'Fija / Táctica' : `${card.sections.length} secciones`}
+              hasAction={Boolean(card.action)}
             />
           ))}
         </div>
