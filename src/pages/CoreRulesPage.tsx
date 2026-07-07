@@ -152,26 +152,6 @@ export function CoreRulesPage() {
         </NavLink>
       </div>
 
-      {/* Missions NavTile */}
-      <div className="mb-5">
-        <NavLink
-          to={ROUTES.CORE_RULES_MISSIONS}
-          className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-4 transition-colors"
-        >
-          <div>
-            <p className="text-[14px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
-              Misiones
-            </p>
-            <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
-              5 mazos primarios · 18 secundarias
-            </p>
-          </div>
-          <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">
-            ›
-          </span>
-        </NavLink>
-      </div>
-
       {/* Search */}
       <div className="mb-5">
         <input
