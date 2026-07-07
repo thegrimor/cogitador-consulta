@@ -59,7 +59,7 @@ export function MissionPrimaryDetailPage() {
   const navigate = useNavigate()
   const { missions, loading, error } = useMissionsData()
 
-  const back = () => navigate(ROUTES.CORE_RULES_MISSIONS)
+  const back = () => navigate(ROUTES.MISSIONS_PRIMARY)
 
   if (loading || error || !missions) {
     return (
@@ -92,7 +92,7 @@ export function MissionPrimaryDetailPage() {
           onClick={back}
           className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
-          ← Misiones
+          ← Misiones Primarias
         </button>
         <div className="h-1 bg-crimson mb-2" />
         <span className="text-[11px] font-mono uppercase tracking-widest text-crimson-bright">

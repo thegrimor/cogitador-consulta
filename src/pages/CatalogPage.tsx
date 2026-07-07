@@ -28,6 +28,34 @@ export function CatalogPage() {
           </div>
           <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">›</span>
         </NavLink>
+        <NavLink
+          to={ROUTES.MISSIONS_PRIMARY}
+          className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-4 transition-colors mb-3"
+        >
+          <div>
+            <p className="text-[14px] font-display uppercase tracking-widest text-parchment">
+              Misiones Primarias
+            </p>
+            <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
+              5 mazos · 25 cartas
+            </p>
+          </div>
+          <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">›</span>
+        </NavLink>
+        <NavLink
+          to={ROUTES.MISSIONS_SECONDARY}
+          className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-4 transition-colors mb-3"
+        >
+          <div>
+            <p className="text-[14px] font-display uppercase tracking-widest text-parchment">
+              Misiones Secundarias
+            </p>
+            <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
+              18 cartas
+            </p>
+          </div>
+          <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">›</span>
+        </NavLink>
         <input
           type="text"
           placeholder="Buscar facción…"
