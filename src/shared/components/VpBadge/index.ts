@@ -1,0 +1,1 @@
+export { VpBadge } from './VpBadge'
