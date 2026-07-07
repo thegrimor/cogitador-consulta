@@ -2,12 +2,23 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { missionPrimaryPath, ROUTES } from '@/core/constants/routes'
 import { missionSlug } from '@/core/utils/missionText'
+import { DECK_COLORS } from '@/core/constants/missionDeckColors'
 
-function NavTile({ to, name, subtitle }: { to: string; name: string; subtitle: string }) {
+function NavTile({
+  to,
+  name,
+  subtitle,
+  accentClass,
+}: {
+  to: string
+  name: string
+  subtitle: string
+  accentClass: string
+}) {
   return (
     <NavLink
       to={to}
-      className="group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright px-4 py-3 transition-colors"
+      className={`group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright border-l-2 ${accentClass} px-4 py-3 transition-colors`}
     >
       <div>
         <p className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
@@ -59,26 +70,31 @@ export function MissionsPrimaryListPage() {
 
       {missions && (
         <div>
-          {missions.primaryMissions.map(deck => (
-            <div key={deck.name} className="mb-6">
-              <p className="text-[13px] font-display uppercase tracking-widest text-crimson-bright mb-0.5 px-1">
-                {deck.name}
-              </p>
-              <p className="text-[10px] font-mono text-parchment-dim mb-2 px-1">
-                {deck.description}
-              </p>
-              <div className="flex flex-col gap-px">
-                {deck.cards.map(card => (
-                  <NavTile
-                    key={card.name}
-                    to={missionPrimaryPath(missionSlug(card.url))}
-                    name={card.name}
-                    subtitle={`vs ${card.vs.replace(/-/g, ' ')}`}
-                  />
-                ))}
+          {missions.primaryMissions.map(deck => {
+            const deckSlug = missionSlug(deck.url)
+            const colors = DECK_COLORS[deckSlug]
+            return (
+              <div key={deck.name} className="mb-6">
+                <p className={`text-[13px] font-display uppercase tracking-widest ${colors.text} mb-0.5 px-1`}>
+                  {deck.name}
+                </p>
+                <p className="text-[10px] font-mono text-parchment-dim mb-2 px-1">
+                  {deck.description}
+                </p>
+                <div className="flex flex-col gap-px">
+                  {deck.cards.map(card => (
+                    <NavTile
+                      key={card.name}
+                      to={missionPrimaryPath(missionSlug(card.url))}
+                      name={card.name}
+                      subtitle={`vs ${card.vs.replace(/-/g, ' ')}`}
+                      accentClass={colors.borderLeft}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
     </div>

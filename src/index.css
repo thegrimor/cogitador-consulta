@@ -23,6 +23,13 @@
   --color-rim: #2a2218;
   --color-rim-bright: #4a3a28;
 
+  /* Colores fijos por mazo de misión primaria (no varían con el tema de facción) */
+  --color-deck-hold: #3fae55;
+  --color-deck-purge: #e0342f;
+  --color-deck-disruption: #2a4b9e;
+  --color-deck-recon: #4fb8e8;
+  --color-deck-priority: #e0b52a;
+
   /* Tipografías */
   --font-mono: 'Share Tech Mono', monospace;
   --font-display: 'Orbitron', sans-serif;
