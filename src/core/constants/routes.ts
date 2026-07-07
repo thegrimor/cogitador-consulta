@@ -10,6 +10,9 @@ export const ROUTES = {
   CORE_RULES: '/core-rules',
   CORE_RULES_PHASES: '/core-rules/phases',
   CORE_RULES_PHASE_DETAIL: '/core-rules/phases/:phaseId',
+  CORE_RULES_MISSIONS: '/core-rules/missions',
+  CORE_RULES_MISSION_PRIMARY_DETAIL: '/core-rules/missions/primary/:cardId',
+  CORE_RULES_MISSION_SECONDARY_DETAIL: '/core-rules/missions/secondary/:cardId',
   ROSTER: '/roster',
   ROSTER_NEW: '/roster/new',
   ROSTER_EDIT: '/roster/:rosterId',
@@ -46,6 +49,14 @@ export function rosterEditPath(id: string) {
 
 export function corePhasePath(id: string) {
   return `/core-rules/phases/${id}`
+}
+
+export function missionPrimaryPath(id: string) {
+  return `/core-rules/missions/primary/${id}`
+}
+
+export function missionSecondaryPath(id: string) {
+  return `/core-rules/missions/secondary/${id}`
 }
 
 export function mathhammerAttackerPath(

@@ -14,6 +14,9 @@ import { RosterEditPage } from '@/pages/RosterEditPage'
 import { CoreRulesPage } from '@/pages/CoreRulesPage'
 import { PhasesListPage } from '@/pages/PhasesListPage'
 import { PhaseDetailPage } from '@/pages/PhaseDetailPage'
+import { MissionsListPage } from '@/pages/MissionsListPage'
+import { MissionPrimaryDetailPage } from '@/pages/MissionPrimaryDetailPage'
+import { MissionSecondaryDetailPage } from '@/pages/MissionSecondaryDetailPage'
 import { MathhammerPage } from '@/pages/MathhammerPage'
 
 const router = createBrowserRouter([
@@ -40,6 +43,9 @@ const router = createBrowserRouter([
           { index: true, element: <CoreRulesPage /> },
           { path: 'phases', element: <PhasesListPage /> },
           { path: 'phases/:phaseId', element: <PhaseDetailPage /> },
+          { path: 'missions', element: <MissionsListPage /> },
+          { path: 'missions/primary/:cardId', element: <MissionPrimaryDetailPage /> },
+          { path: 'missions/secondary/:cardId', element: <MissionSecondaryDetailPage /> },
         ],
       },
       {

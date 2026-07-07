@@ -454,3 +454,83 @@ export interface CoreRule {
   summary: string
   description: string
 }
+
+// ── Missions (primaryMissions / secondaryMissions from missions.json) ──────
+
+export interface PrimaryMissionTier {
+  text: string
+  vp: number
+  perUnit?: boolean
+  cumulative?: boolean
+  or?: boolean
+  kind?: 'eob'
+}
+
+export interface PrimaryMissionSection {
+  when: string
+  trigger?: string
+  headerKind?: 'eob'
+  tiers: PrimaryMissionTier[]
+}
+
+export interface PrimaryMissionCard {
+  name: string
+  url: string
+  deck: string
+  vs: string
+  sections: PrimaryMissionSection[]
+}
+
+export interface PrimaryMissionDeck {
+  name: string
+  url: string
+  description: string
+  cards: PrimaryMissionCard[]
+}
+
+export interface SecondaryMissionRow {
+  text: string
+  vp: string
+  kind?: 'fixed'
+  plus?: boolean
+  cumulative?: boolean
+  or?: boolean
+  wm?: boolean
+}
+
+export interface SecondaryMissionSection {
+  when: string
+  headerKind?: 'fixed'
+  chip?: 'FIXED' | 'TACTICAL'
+  trigger: string
+  perEvent?: boolean
+  cap?: string
+  rows: SecondaryMissionRow[]
+}
+
+export interface MissionAction {
+  title: string
+  rows: { k: string; v: string }[]
+}
+
+export interface SecondaryMissionCard {
+  name: string
+  url: string
+  nameSize?: number
+  kindLabel?: string
+  whenDrawn?: string
+  designerNote?: string
+  action?: MissionAction
+  sections: SecondaryMissionSection[]
+}
+
+// Solo los campos que esta app consume. forceDisposition, terrainLayouts,
+// matrix y rulesSectionIndex existen en missions.json pero quedan fuera
+// de alcance por ahora.
+export interface MissionsData {
+  source: string
+  scrapedAt: string
+  note: string
+  primaryMissions: PrimaryMissionDeck[]
+  secondaryMissions: SecondaryMissionCard[]
+}

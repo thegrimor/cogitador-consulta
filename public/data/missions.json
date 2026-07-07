@@ -1,0 +1,1918 @@
+{
+  "source": "https://gdmissions.app/11th",
+  "scrapedAt": "2026-07-07T14:37:23.189Z",
+  "note": "Core Rules, Tournament Companion (Event Companion), Detachment Points and Game Tracker were excluded by request (GW rulebook reproduction / client-side-only data / interactive tool with no static data).",
+  "primaryMissions": [
+    {
+      "name": "Take and Hold",
+      "url": "https://gdmissions.app/11th/primary-missions/take-and-hold",
+      "description": "Hold the most objective markers across the battlefield.",
+      "cards": [
+        {
+          "name": "Battlefield Dominance",
+          "url": "https://gdmissions.app/11th/primary-missions/take-and-hold/battlefield-dominance",
+          "deck": "take-and-hold",
+          "vs": "take-and-hold",
+          "sections": [
+            {
+              "when": "FIRST & SECOND BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control more **objectives** than your opponent.",
+                  "vp": 2
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control.",
+                  "vp": 3,
+                  "perUnit": true
+                },
+                {
+                  "text": "For each of those **objectives** (excluding your **home objective**) if you control your **home objective**.",
+                  "vp": 2,
+                  "perUnit": true,
+                  "cumulative": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Determined Acquisition",
+          "url": "https://gdmissions.app/11th/primary-missions/take-and-hold/determined-acquisition",
+          "deck": "take-and-hold",
+          "vs": "disruption",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control that you did not control at the start of the turn (excluding your **home objective**).",
+                  "vp": 2,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control.",
+                  "vp": 3,
+                  "perUnit": true
+                },
+                {
+                  "text": "For each of those **objectives** that is within your opponent's territory.",
+                  "vp": 3,
+                  "perUnit": true,
+                  "cumulative": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Immovable Object",
+          "url": "https://gdmissions.app/11th/primary-missions/take-and-hold/immovable-object",
+          "deck": "take-and-hold",
+          "vs": "purge-the-foe",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **central objectives**.",
+                  "vp": 3
+                }
+              ]
+            },
+            {
+              "when": "SECOND TO FOURTH BATTLE ROUND",
+              "trigger": "End of your Command phase",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 5,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "FIFTH BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 5,
+                  "perUnit": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Inescapable Dominion",
+          "url": "https://gdmissions.app/11th/primary-missions/take-and-hold/inescapable-dominion",
+          "deck": "take-and-hold",
+          "vs": "priority-assets",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control **three or more objectives**.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control **two or more objectives**.",
+                  "vp": 5
+                },
+                {
+                  "text": "You control more **objectives** than your opponent.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "You control your opponent's **home objective**.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Purge and Secure",
+          "url": "https://gdmissions.app/11th/primary-missions/take-and-hold/purge-and-secure",
+          "deck": "take-and-hold",
+          "vs": "reconnaissance",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units were **destroyed** this turn by a friendly unit that was within range of one or more **objectives**.",
+                  "vp": 3
+                },
+                {
+                  "text": "One or more enemy units that started the turn within range of one or more **objectives** were **destroyed** this turn.",
+                  "vp": 3,
+                  "or": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 4,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** you did not control at the start of the turn (excluding your **home objective**).",
+                  "vp": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Purge the Foe",
+      "url": "https://gdmissions.app/11th/primary-missions/purge-the-foe",
+      "description": "Destroy the enemy and dominate the battlefield through force.",
+      "cards": [
+        {
+          "name": "Consecrate",
+          "url": "https://gdmissions.app/11th/primary-missions/purge-the-foe/consecrate",
+          "deck": "purge-the-foe",
+          "vs": "reconnaissance",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "**One or two** objectives are **consecrated**.",
+                  "vp": 3
+                },
+                {
+                  "text": "**Three or more** objectives are **consecrated**.",
+                  "vp": 6,
+                  "or": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                },
+                {
+                  "text": "You control **more** objectives than your opponent.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "The enemy **home objective** has been **consecrated**.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Destroyer's Wrath",
+          "url": "https://gdmissions.app/11th/primary-missions/purge-the-foe/destroyers-wrath",
+          "deck": "purge-the-foe",
+          "vs": "priority-assets",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units were **destroyed** this turn.",
+                  "vp": 3
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                },
+                {
+                  "text": "You control more **objectives** than your opponent.",
+                  "vp": 6
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "More enemy units were **destroyed** this turn than friendly units were **destroyed** in the previous turn.",
+                  "vp": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Meatgrinder",
+          "url": "https://gdmissions.app/11th/primary-missions/purge-the-foe/meatgrinder",
+          "deck": "purge-the-foe",
+          "vs": "purge-the-foe",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units were **destroyed** this turn.",
+                  "vp": 3
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "More enemy units were **destroyed** this turn than friendly units were **destroyed** in the previous turn.",
+                  "vp": 5
+                },
+                {
+                  "text": "You control your opponent's **home objective**.",
+                  "vp": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Punishment",
+          "url": "https://gdmissions.app/11th/primary-missions/purge-the-foe/punishment",
+          "deck": "purge-the-foe",
+          "vs": "disruption",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of a turn",
+              "tiers": [
+                {
+                  "text": "One or more **condemned** enemy units left the battlefield this turn.",
+                  "vp": 5
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                },
+                {
+                  "text": "You control more **objectives** than your opponent.",
+                  "vp": 5
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "You control your opponent's **home objective**.",
+                  "vp": 8,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Unstoppable Force",
+          "url": "https://gdmissions.app/11th/primary-missions/purge-the-foe/unstoppable-force",
+          "deck": "purge-the-foe",
+          "vs": "take-and-hold",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units were **destroyed** this turn.",
+                  "vp": 3
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 4,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** you did not control at the start of the turn (excluding your **home objective**).",
+                  "vp": 3
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "You control one or more **central objectives**.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reconnaissance",
+      "url": "https://gdmissions.app/11th/primary-missions/reconnaissance",
+      "description": "Scout the battlefield and seize key intelligence positions.",
+      "cards": [
+        {
+          "name": "Gather Intel",
+          "url": "https://gdmissions.app/11th/primary-missions/reconnaissance/gather-intel",
+          "deck": "reconnaissance",
+          "vs": "reconnaissance",
+          "sections": [
+            {
+              "when": "FIRST BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **central objectives**.",
+                  "vp": 6
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each friendly unit that **extracted intelligence** this turn (see reverse).",
+                  "vp": 7,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "Three or more of your **operation markers** are on the battlefield.",
+                  "vp": 5,
+                  "kind": "eob"
+                },
+                {
+                  "text": "One of your **operation markers** is within range of your opponent's **home objective**.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Reconnaissance Sweep",
+          "url": "https://gdmissions.app/11th/primary-missions/reconnaissance/reconnaissance-sweep",
+          "deck": "reconnaissance",
+          "vs": "take-and-hold",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "Three or more friendly units are wholly within three different table quarters and not within 6\" of the centre of the battlefield.",
+                  "vp": 3
+                },
+                {
+                  "text": "Four or more friendly units are wholly within four different table quarters and not within 6\" of the centre of the battlefield.",
+                  "vp": 6,
+                  "or": true
+                }
+              ]
+            },
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each enemy unit **destroyed** this turn.",
+                  "vp": 1,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Search and Scour",
+          "url": "https://gdmissions.app/11th/primary-missions/reconnaissance/search-and-scour",
+          "deck": "reconnaissance",
+          "vs": "priority-assets",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **central objectives**.",
+                  "vp": 3
+                },
+                {
+                  "text": "One or more enemy units that started the turn within a **terrain area** are **destroyed**.",
+                  "vp": 2
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 4,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "No enemy units are wholly within your territory.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Surveil the Foe",
+          "url": "https://gdmissions.app/11th/primary-missions/reconnaissance/surveil-the-foe",
+          "deck": "reconnaissance",
+          "vs": "disruption",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units were **surveilled** this turn (see reverse), unless each of those units is within range of one or more **objectives** that have one or more **operation markers** within range of them.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                },
+                {
+                  "text": "You control more **objectives** than your opponent.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "No enemy **operation markers** are on the battlefield.",
+                  "vp": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triangulation",
+          "url": "https://gdmissions.app/11th/primary-missions/reconnaissance/triangulation",
+          "deck": "reconnaissance",
+          "vs": "purge-the-foe",
+          "sections": [
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One **objective** is **triangulated** (see reverse).",
+                  "vp": 3
+                },
+                {
+                  "text": "Two **objectives** are **triangulated**.",
+                  "vp": 6,
+                  "or": true
+                },
+                {
+                  "text": "Three or more **objectives** are **triangulated**.",
+                  "vp": 10,
+                  "or": true
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "You control **four or more objectives**.",
+                  "vp": 10,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Priority Assets",
+      "url": "https://gdmissions.app/11th/primary-missions/priority-assets",
+      "description": "Capture and hold the high value assets scattered across the field.",
+      "cards": [
+        {
+          "name": "Extract Relic",
+          "url": "https://gdmissions.app/11th/primary-missions/priority-assets/extract-relic",
+          "deck": "priority-assets",
+          "vs": "disruption",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "A friendly unit performed a **sensor sweep** this turn (see reverse).",
+                  "vp": 4
+                },
+                {
+                  "text": "One or more enemy units that started the turn within range of one or more **objectives** are **destroyed**.",
+                  "vp": 3
+                },
+                {
+                  "text": "Only one of your opponent's **operation markers** is on the battlefield, if one or more of your units are within the same terrain area as that **operation marker**, and no enemy units are within that terrain area.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "Only one of your opponent's **operation markers** is on the battlefield, if one or more of your units are within the same terrain area as that **operation marker**, and no enemy units are within that terrain area.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sabotage",
+          "url": "https://gdmissions.app/11th/primary-missions/priority-assets/sabotage",
+          "deck": "priority-assets",
+          "vs": "priority-assets",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each friendly unit that **committed sabotage** this turn (see reverse).",
+                  "vp": 3,
+                  "perUnit": true
+                },
+                {
+                  "text": "For each of those **units** that is within range of one or more **objectives** in your opponent's territory.",
+                  "vp": 2,
+                  "perUnit": true,
+                  "cumulative": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Secure Asset",
+          "url": "https://gdmissions.app/11th/primary-missions/priority-assets/secure-asset",
+          "deck": "priority-assets",
+          "vs": "take-and-hold",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "A friendly unit **secured the asset** this turn (see reverse).",
+                  "vp": 4
+                },
+                {
+                  "text": "One or more enemy units that started the turn within range of one or more **central objectives** are **destroyed**.",
+                  "vp": 2
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                },
+                {
+                  "text": "You control **three or more objectives**.",
+                  "vp": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vanguard Operation",
+          "url": "https://gdmissions.app/11th/primary-missions/priority-assets/vanguard-operation",
+          "deck": "priority-assets",
+          "vs": "reconnaissance",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "A friendly unit performed a **vanguard operation** this turn (see reverse).",
+                  "vp": 4
+                },
+                {
+                  "text": "One or more enemy units were **destroyed** this turn.",
+                  "vp": 2
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "You control your opponent's **home objective**.",
+                  "vp": 10,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vital Link",
+          "url": "https://gdmissions.app/11th/primary-missions/priority-assets/vital-link",
+          "deck": "priority-assets",
+          "vs": "purge-the-foe",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **central objectives**.",
+                  "vp": 2
+                },
+                {
+                  "text": "For each of your **operation markers** within range of one of those **objectives** (see reverse).",
+                  "vp": 1,
+                  "perUnit": true,
+                  "cumulative": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                },
+                {
+                  "text": "One or more of those **objectives** is a **central objective**.",
+                  "vp": 4,
+                  "cumulative": true
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "You control your opponent's **home objective**.",
+                  "vp": 10,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disruption",
+      "url": "https://gdmissions.app/11th/primary-missions/disruption",
+      "description": "Disrupt the enemy battle plan and deny them the field.",
+      "cards": [
+        {
+          "name": "Death Trap",
+          "url": "https://gdmissions.app/11th/primary-missions/disruption/death-trap",
+          "deck": "disruption",
+          "vs": "take-and-hold",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each terrain area **trapped** this turn (see reverse).",
+                  "vp": 2,
+                  "perUnit": true
+                },
+                {
+                  "text": "For each of those **terrain areas** that is an **objective**.",
+                  "vp": 3,
+                  "perUnit": true,
+                  "cumulative": true
+                }
+              ]
+            },
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units that started the turn within a terrain area were destroyed, if that terrain area is **trapped**.",
+                  "vp": 3
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delaying Action",
+          "url": "https://gdmissions.app/11th/primary-missions/disruption/delaying-action",
+          "deck": "disruption",
+          "vs": "purge-the-foe",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each enemy unit **destroyed** this turn.",
+                  "vp": 2,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding **home objectives**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control one or more **central objectives** and one or more **expansion objectives**.",
+                  "vp": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Locate and Deny",
+          "url": "https://gdmissions.app/11th/primary-missions/disruption/locate-and-deny",
+          "deck": "disruption",
+          "vs": "priority-assets",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "One or more enemy units that started the turn within range of one or more **objectives** are **destroyed**.",
+                  "vp": 4
+                },
+                {
+                  "text": "Only one of your operation markers remains (see reverse), with a unit of yours in that terrain area and no enemy units there.",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "Only one of your operation markers remains, with a unit of yours in that terrain area and no enemy units there.",
+                  "vp": 5,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Outmanoeuvre",
+          "url": "https://gdmissions.app/11th/primary-missions/disruption/outmanoeuvre",
+          "deck": "disruption",
+          "vs": "disruption",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "You control the enemy **home objective**.",
+                  "vp": 10
+                }
+              ]
+            },
+            {
+              "when": "FIRST BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 4,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND & THIRD BATTLE ROUND",
+              "trigger": "End of your Command phase",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 5,
+                  "perUnit": true
+                }
+              ]
+            },
+            {
+              "when": "FOURTH BATTLE ROUND ONWARDS",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each **objective** you control (excluding your **home objective**).",
+                  "vp": 6,
+                  "perUnit": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Smoke and Mirrors",
+          "url": "https://gdmissions.app/11th/primary-missions/disruption/smoke-and-mirrors",
+          "deck": "disruption",
+          "vs": "reconnaissance",
+          "sections": [
+            {
+              "when": "ANY BATTLE ROUND",
+              "trigger": "End of your turn",
+              "tiers": [
+                {
+                  "text": "For each **objective** that is **decoyed** (see reverse).",
+                  "vp": 2,
+                  "perUnit": true
+                },
+                {
+                  "text": "For each of those **objectives** that is within your opponent's territory.",
+                  "vp": 2,
+                  "perUnit": true,
+                  "cumulative": true
+                }
+              ]
+            },
+            {
+              "when": "SECOND BATTLE ROUND ONWARDS",
+              "trigger": "End of your Command phase (or the end of your turn in the fifth battle round)",
+              "tiers": [
+                {
+                  "text": "You control one or more **objectives** (excluding your **home objective**).",
+                  "vp": 4
+                }
+              ]
+            },
+            {
+              "when": "END OF BATTLE",
+              "headerKind": "eob",
+              "tiers": [
+                {
+                  "text": "**Four or more objectives** are **decoyed**.",
+                  "vp": 10,
+                  "kind": "eob"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "secondaryMissions": [
+    {
+      "name": "A Grievous Blow",
+      "url": "https://gdmissions.app/11th/secondary-missions/a-grievous-blow-defender",
+      "nameSize": 42,
+      "kindLabel": "SECONDARY · FIXED / TACTICAL",
+      "whenDrawn": "<b>WHEN DRAWN:</b> If no enemy units with a <b>Starting Strength</b> of 13 or more are on the battlefield, <u>you may</u> discard this card and draw one new <b>Secondary Mission</b> card.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "headerKind": "fixed",
+          "chip": "FIXED",
+          "trigger": "End of a turn",
+          "perEvent": true,
+          "rows": [
+            {
+              "text": "For each enemy unit with a <b>Starting Strength</b> of 13 or more that is <b>destroyed</b> this turn.",
+              "vp": "4",
+              "kind": "fixed"
+            }
+          ]
+        },
+        {
+          "when": "ANY BATTLE ROUND",
+          "chip": "TACTICAL",
+          "trigger": "End of a turn",
+          "rows": [
+            {
+              "text": "One or more enemy units with a <b>Starting Strength</b> of 13 or more were <b>destroyed</b> this turn.",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A Tempting Target",
+      "url": "https://gdmissions.app/11th/secondary-missions/a-tempting-target-defender",
+      "nameSize": 42,
+      "whenDrawn": "<b>WHEN DRAWN:</b> Your opponent selects one <b>objective</b> (excluding <b>home objectives</b>) within No Man's Land to be your <b>tempting target</b>.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "You control your <b>tempting target</b>.",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Assassination",
+      "url": "https://gdmissions.app/11th/secondary-missions/assassination-defender",
+      "nameSize": 50,
+      "kindLabel": "SECONDARY · FIXED / TACTICAL",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "headerKind": "fixed",
+          "chip": "FIXED",
+          "trigger": "End of a turn",
+          "perEvent": true,
+          "rows": [
+            {
+              "text": "For each enemy <b>CHARACTER</b> model <b>destroyed</b> this turn.",
+              "vp": "3",
+              "kind": "fixed"
+            },
+            {
+              "text": "For each of those models with a <b>Wounds</b> characteristic of 4 or more.",
+              "vp": "+1",
+              "kind": "fixed",
+              "plus": true,
+              "cumulative": true
+            }
+          ]
+        },
+        {
+          "when": "ANY BATTLE ROUND",
+          "chip": "TACTICAL",
+          "trigger": "End of either player's turn",
+          "rows": [
+            {
+              "text": "One or more enemy <b>CHARACTER</b> models were <b>destroyed</b> this turn.",
+              "vp": "5"
+            },
+            {
+              "text": "All enemy <b>CHARACTER</b> models have been <b>destroyed</b> during the battle.",
+              "vp": "5",
+              "or": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Beacon",
+      "url": "https://gdmissions.app/11th/secondary-missions/beacon-defender",
+      "whenDrawn": "<b>WHEN DRAWN:</b> Choose one friendly unit on the battlefield, or embarked within a <b>TRANSPORT</b> on the battlefield, to be your <span class=\"cB__mark\">beacon</span> unit.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your opponent's turn or the end of the fifth battle round (whichever comes first)",
+          "rows": [
+            {
+              "text": "Your <span class=\"cB__mark\">beacon</span> unit is on the battlefield and not within your deployment zone.",
+              "vp": "3"
+            },
+            {
+              "text": "Your <span class=\"cB__mark\">beacon</span> unit is on the battlefield and not within your territory.",
+              "vp": "5",
+              "or": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Behind Enemy Lines",
+      "url": "https://gdmissions.app/11th/secondary-missions/behind-enemy-lines-defender",
+      "nameSize": 42,
+      "whenDrawn": "<b>WHEN DRAWN:</b> During the first battle round, <u>you may</u> shuffle this card back into your <b>Secondary Mission</b> deck and then draw one new <b>Secondary Mission</b> card.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "cap": "MAX 5VP",
+          "rows": [
+            {
+              "text": "For each friendly unit (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) wholly within your opponent's deployment zone.",
+              "vp": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bring It Down",
+      "url": "https://gdmissions.app/11th/secondary-missions/bring-it-down-defender",
+      "kindLabel": "SECONDARY · FIXED / TACTICAL",
+      "whenDrawn": "<b>WHEN DRAWN:</b> If there are no enemy models on the battlefield with a <b>Wounds</b> characteristic of 10 or more, <u>you may</u> discard this card and draw one new <b>Secondary Mission</b> card.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "headerKind": "fixed",
+          "chip": "FIXED",
+          "trigger": "End of a turn",
+          "perEvent": true,
+          "rows": [
+            {
+              "text": "For each enemy model with a <b>Wounds</b> characteristic of 10 or more that is <b>destroyed</b> this turn.",
+              "vp": "4",
+              "kind": "fixed"
+            }
+          ]
+        },
+        {
+          "when": "ANY BATTLE ROUND",
+          "chip": "TACTICAL",
+          "trigger": "End of a turn",
+          "rows": [
+            {
+              "text": "One or more enemy models with a <b>Wounds</b> characteristic of 10 or more were <b>destroyed</b> this turn.",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Burden of Trust",
+      "url": "https://gdmissions.app/11th/secondary-missions/burden-of-trust-defender",
+      "whenDrawn": "<b>WHEN DRAWN / START OF YOUR TURN:</b> For each <b>objective</b>, <u>you may</u> pick one friendly unit on the battlefield to guard that <b>objective</b>. From then until the start of your next turn, that <b>objective</b> counts as <span class=\"cB__mark\">guarded</span> by your army for as long as the chosen unit is within range of it and you control it.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your opponent's turn or the end of the fifth battle round (whichever comes first)",
+          "cap": "MAX 5VP",
+          "rows": [
+            {
+              "text": "For each <b>objective</b> <span class=\"cB__mark\">guarded</span> by your army.",
+              "vp": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Centre Ground",
+      "url": "https://gdmissions.app/11th/secondary-missions/centre-ground-defender",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "One or more friendly units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) are within 3\" of the centre of the battlefield, and <u>no</u> enemy units are within <u>3\"</u> of the centre of the battlefield.",
+              "vp": "3"
+            },
+            {
+              "text": "One or more friendly units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) are within 3\" of the centre of the battlefield, and <u>no</u> enemy units are within <u>6\"</u> of the centre of the battlefield.",
+              "vp": "5",
+              "or": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cleanse",
+      "url": "https://gdmissions.app/11th/secondary-missions/cleanse-defender",
+      "whenDrawn": "<b>WHEN DRAWN:</b> If you have the <b>Plunder</b> Secondary Mission active, <u>you may</u> shuffle this card back into your <b>Secondary Mission</b> deck and then draw one new <b>Secondary Mission</b> card.",
+      "action": {
+        "title": "CLEANSE",
+        "rows": [
+          {
+            "k": "STARTS",
+            "v": "Your Shooting phase."
+          },
+          {
+            "k": "UNITS",
+            "v": "One friendly unit within range of one <b>objective</b> (excluding your <b>home objective</b>)."
+          },
+          {
+            "k": "USE LIMIT",
+            "v": "Unlimited. Each unit that starts this action this phase must be within range of a different <b>objective</b>."
+          },
+          {
+            "k": "COMPLETES",
+            "v": "End of your turn, if that unit is controlling that <b>objective</b>."
+          },
+          {
+            "k": "EFFECT",
+            "v": "That <b>objective</b> is <span class=\"cB__mark\">cleansed</span> by your army."
+          }
+        ]
+      },
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "One <b>objective</b> was <span class=\"cB__mark\">cleansed</span> by your army this turn.",
+              "vp": "2"
+            },
+            {
+              "text": "Two or more <b>objectives</b> were <span class=\"cB__mark\">cleansed</span> by your army this turn.",
+              "vp": "5",
+              "or": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defend Stronghold",
+      "url": "https://gdmissions.app/11th/secondary-missions/defend-stronghold-defender",
+      "nameSize": 42,
+      "whenDrawn": "<b>WHEN DRAWN:</b> During the <u>first battle round</u>, shuffle this card back into your <b>Secondary Mission</b> deck and then draw one new <b>Secondary Mission</b> card.",
+      "sections": [
+        {
+          "when": "SECOND BATTLE ROUND ONWARDS",
+          "trigger": "End of your opponent's turn or the end of the fifth battle round (whichever comes first)",
+          "rows": [
+            {
+              "text": "You control your <b>home objective</b>.",
+              "vp": "3"
+            },
+            {
+              "text": "No enemy units are within your deployment zone.",
+              "vp": "+2",
+              "plus": true,
+              "cumulative": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Display of Might",
+      "url": "https://gdmissions.app/11th/secondary-missions/display-of-might-defender",
+      "nameSize": 44,
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "There are more friendly units than enemy units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) wholly within No Man's Land.",
+              "vp": "2"
+            }
+          ]
+        },
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your opponent's turn",
+          "rows": [
+            {
+              "text": "There are more friendly units than enemy units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) wholly within No Man's Land.",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Engage on All Fronts",
+      "url": "https://gdmissions.app/11th/secondary-missions/engage-on-all-fronts-defender",
+      "nameSize": 38,
+      "kindLabel": "SECONDARY · FIXED / TACTICAL",
+      "whenDrawn": "You have a <span class=\"cB__mark\">presence</span> in a table quarter if one or more friendly units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) are wholly within that table quarter and are not within 6\" of the centre of the battlefield.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "headerKind": "fixed",
+          "chip": "FIXED",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "You have a <span class=\"cB__mark\">presence</span> in <span class=\"cB__wmWord\" data-n=\"3\">three</span> table quarters.",
+              "vp": "2",
+              "kind": "fixed",
+              "wm": true
+            },
+            {
+              "text": "You have a <span class=\"cB__mark\">presence</span> in <span class=\"cB__wmWord\" data-n=\"4\">four</span> table quarters.",
+              "vp": "4",
+              "kind": "fixed",
+              "or": true,
+              "wm": true
+            }
+          ]
+        },
+        {
+          "when": "ANY BATTLE ROUND",
+          "chip": "TACTICAL",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "You have a <span class=\"cB__mark\">presence</span> in <span class=\"cB__wmWord\" data-n=\"3\">three</span> table quarters.",
+              "vp": "3",
+              "wm": true
+            },
+            {
+              "text": "You have a <span class=\"cB__mark\">presence</span> in <span class=\"cB__wmWord\" data-n=\"4\">four</span> table quarters.",
+              "vp": "5",
+              "or": true,
+              "wm": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forward Position",
+      "url": "https://gdmissions.app/11th/secondary-missions/forward-position-defender",
+      "whenDrawn": "<b>WHEN DRAWN:</b> During the first battle round, <u>you may</u> shuffle this card back into your <b>Secondary Mission</b> deck and then draw one new <b>Secondary Mission</b> card.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "You control your opponent's <b>home objective</b> and/or each <b>expansion objective</b>.",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "No Prisoners",
+      "url": "https://gdmissions.app/11th/secondary-missions/no-prisoners-defender",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of a turn",
+          "cap": "MAX 5VP",
+          "rows": [
+            {
+              "text": "For each enemy unit <b>destroyed</b> this turn.",
+              "vp": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Outflank",
+      "url": "https://gdmissions.app/11th/secondary-missions/outflank-defender",
+      "designerNote": "Opposite battlefield edges are the ones that run parallel to each other.",
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "One or more friendly units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) are within 6\" of one or more battlefield edges and not within your territory.",
+              "vp": "3"
+            },
+            {
+              "text": "Two or more friendly units (excluding <b>AIRCRAFT</b> and <b>battle-shocked</b> units) are within 6\" of opposite battlefield edges and one or more of those units is not within your territory.",
+              "vp": "5",
+              "or": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Overwhelming Force",
+      "url": "https://gdmissions.app/11th/secondary-missions/overwhelming-force-defender",
+      "nameSize": 40,
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of a turn",
+          "cap": "MAX 5VP",
+          "rows": [
+            {
+              "text": "For each enemy unit that started the turn within range of one or more <b>objectives</b> and is <b>destroyed</b>.",
+              "vp": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plunder",
+      "url": "https://gdmissions.app/11th/secondary-missions/plunder-defender",
+      "whenDrawn": "<b>WHEN DRAWN:</b> If you have the <b>Cleanse</b> Secondary Mission active, <u>you may</u> shuffle this card back into your <b>Secondary Mission</b> deck and then draw one new <b>Secondary Mission</b> card.",
+      "action": {
+        "title": "PLUNDER",
+        "rows": [
+          {
+            "k": "STARTS",
+            "v": "Your Shooting phase."
+          },
+          {
+            "k": "UNITS",
+            "v": "One unit within a <b>terrain area</b> that is not within your territory."
+          },
+          {
+            "k": "USE LIMIT",
+            "v": "Once per turn."
+          },
+          {
+            "k": "COMPLETES",
+            "v": "Immediately."
+          },
+          {
+            "k": "EFFECT",
+            "v": "That <b>terrain area</b> is <span class=\"cB__mark\">plundered</span>."
+          }
+        ]
+      },
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "A <b>terrain area</b> was <span class=\"cB__mark\">plundered</span> this turn.",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Secure No Man's Land",
+      "url": "https://gdmissions.app/11th/secondary-missions/secure-no-man-s-land-defender",
+      "nameSize": 40,
+      "sections": [
+        {
+          "when": "ANY BATTLE ROUND",
+          "trigger": "End of your turn",
+          "rows": [
+            {
+              "text": "You control two or more <b>objectives</b> within No Man's Land (excluding your <b>home objective</b>).",
+              "vp": "5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "forceDisposition": [
+    {
+      "name": "Take and Hold",
+      "url": "https://gdmissions.app/11th/force-disposition/take-and-hold",
+      "description": "View the Take and Hold force disposition card from Warhammer 40,000 11th edition.",
+      "image": "https://gdmissions.app/assets/11th/force-disposition/take-and-hold.png"
+    },
+    {
+      "name": "Purge the Foe",
+      "url": "https://gdmissions.app/11th/force-disposition/purge-the-foe",
+      "description": "View the Purge the Foe force disposition card from Warhammer 40,000 11th edition.",
+      "image": "https://gdmissions.app/assets/11th/force-disposition/purge-the-foe.png"
+    },
+    {
+      "name": "Reconnaissance",
+      "url": "https://gdmissions.app/11th/force-disposition/reconnaissance",
+      "description": "View the Reconnaissance force disposition card from Warhammer 40,000 11th edition.",
+      "image": "https://gdmissions.app/assets/11th/force-disposition/reconnaissance.png"
+    },
+    {
+      "name": "Priority Assets",
+      "url": "https://gdmissions.app/11th/force-disposition/priority-assets",
+      "description": "View the Priority Assets force disposition card from Warhammer 40,000 11th edition.",
+      "image": "https://gdmissions.app/assets/11th/force-disposition/priority-assets.png"
+    },
+    {
+      "name": "Disruption",
+      "url": "https://gdmissions.app/11th/force-disposition/disruption",
+      "description": "View the Disruption force disposition card from Warhammer 40,000 11th edition.",
+      "image": "https://gdmissions.app/assets/11th/force-disposition/disruption.png"
+    }
+  ],
+  "terrainLayouts": [
+    {
+      "name": "Take and Hold",
+      "url": "https://gdmissions.app/11th/layouts/take-and-hold",
+      "matchups": [
+        {
+          "vsDisposition": "Take and Hold",
+          "url": "https://gdmissions.app/11th/layouts/take-and-hold/take-and-hold",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold Mirror matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-mirror-1.png"
+        },
+        {
+          "vsDisposition": "Purge the Foe",
+          "url": "https://gdmissions.app/11th/layouts/take-and-hold/purge-the-foe",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Purge the Foe matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-purge-the-foe-1.png"
+        },
+        {
+          "vsDisposition": "Reconnaissance",
+          "url": "https://gdmissions.app/11th/layouts/take-and-hold/reconnaissance",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Priority Assets",
+          "url": "https://gdmissions.app/11th/layouts/take-and-hold/priority-assets",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Priority Assets matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-priority-assets-1.png"
+        },
+        {
+          "vsDisposition": "Disruption",
+          "url": "https://gdmissions.app/11th/layouts/take-and-hold/disruption",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Disruption matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-disruption-1.png"
+        }
+      ]
+    },
+    {
+      "name": "Purge the Foe",
+      "url": "https://gdmissions.app/11th/layouts/purge-the-foe",
+      "matchups": [
+        {
+          "vsDisposition": "Take and Hold",
+          "url": "https://gdmissions.app/11th/layouts/purge-the-foe/take-and-hold",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Purge the Foe matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-purge-the-foe-1.png"
+        },
+        {
+          "vsDisposition": "Purge the Foe",
+          "url": "https://gdmissions.app/11th/layouts/purge-the-foe/purge-the-foe",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Purge the Foe Mirror matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/purge-the-foe-vs-purge-the-foe-1.png"
+        },
+        {
+          "vsDisposition": "Reconnaissance",
+          "url": "https://gdmissions.app/11th/layouts/purge-the-foe/reconnaissance",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Purge the Foe vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/purge-the-foe-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Priority Assets",
+          "url": "https://gdmissions.app/11th/layouts/purge-the-foe/priority-assets",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Purge the Foe vs Priority Assets matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/purge-the-foe-vs-priority-assets-1.png"
+        },
+        {
+          "vsDisposition": "Disruption",
+          "url": "https://gdmissions.app/11th/layouts/purge-the-foe/disruption",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption vs Purge the Foe matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-purge-the-foe-1.png"
+        }
+      ]
+    },
+    {
+      "name": "Reconnaissance",
+      "url": "https://gdmissions.app/11th/layouts/reconnaissance",
+      "matchups": [
+        {
+          "vsDisposition": "Take and Hold",
+          "url": "https://gdmissions.app/11th/layouts/reconnaissance/take-and-hold",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Purge the Foe",
+          "url": "https://gdmissions.app/11th/layouts/reconnaissance/purge-the-foe",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Purge the Foe vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/purge-the-foe-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Reconnaissance",
+          "url": "https://gdmissions.app/11th/layouts/reconnaissance/reconnaissance",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Reconnaissance Mirror matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/reconnaissance-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Priority Assets",
+          "url": "https://gdmissions.app/11th/layouts/reconnaissance/priority-assets",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Priority Assets vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/priority-assets-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Disruption",
+          "url": "https://gdmissions.app/11th/layouts/reconnaissance/disruption",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-reconnaissance-1.png"
+        }
+      ]
+    },
+    {
+      "name": "Priority Assets",
+      "url": "https://gdmissions.app/11th/layouts/priority-assets",
+      "matchups": [
+        {
+          "vsDisposition": "Take and Hold",
+          "url": "https://gdmissions.app/11th/layouts/priority-assets/take-and-hold",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Priority Assets matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-priority-assets-1.png"
+        },
+        {
+          "vsDisposition": "Purge the Foe",
+          "url": "https://gdmissions.app/11th/layouts/priority-assets/purge-the-foe",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Purge the Foe vs Priority Assets matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/purge-the-foe-vs-priority-assets-1.png"
+        },
+        {
+          "vsDisposition": "Reconnaissance",
+          "url": "https://gdmissions.app/11th/layouts/priority-assets/reconnaissance",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Priority Assets vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/priority-assets-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Priority Assets",
+          "url": "https://gdmissions.app/11th/layouts/priority-assets/priority-assets",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Priority Assets Mirror matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/priority-assets-vs-priority-assets-1.png"
+        },
+        {
+          "vsDisposition": "Disruption",
+          "url": "https://gdmissions.app/11th/layouts/priority-assets/disruption",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption vs Priority Assets matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-priority-assets-1.png"
+        }
+      ]
+    },
+    {
+      "name": "Disruption",
+      "url": "https://gdmissions.app/11th/layouts/disruption",
+      "matchups": [
+        {
+          "vsDisposition": "Take and Hold",
+          "url": "https://gdmissions.app/11th/layouts/disruption/take-and-hold",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Take and Hold vs Disruption matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/take-and-hold-vs-disruption-1.png"
+        },
+        {
+          "vsDisposition": "Purge the Foe",
+          "url": "https://gdmissions.app/11th/layouts/disruption/purge-the-foe",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption vs Purge the Foe matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-purge-the-foe-1.png"
+        },
+        {
+          "vsDisposition": "Reconnaissance",
+          "url": "https://gdmissions.app/11th/layouts/disruption/reconnaissance",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption vs Reconnaissance matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-reconnaissance-1.png"
+        },
+        {
+          "vsDisposition": "Priority Assets",
+          "url": "https://gdmissions.app/11th/layouts/disruption/priority-assets",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption vs Priority Assets matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-priority-assets-1.png"
+        },
+        {
+          "vsDisposition": "Disruption",
+          "url": "https://gdmissions.app/11th/layouts/disruption/disruption",
+          "description": "View the three recommended Warhammer 40,000 terrain layouts for the Disruption Mirror matchup, with or without set-up measurements.",
+          "image": "https://gdmissions.app/assets/11th/layouts/no-measurements/disruption-vs-disruption-1.png"
+        }
+      ]
+    }
+  ],
+  "matrix": {
+    "description": "Cross-reference of your Force Disposition (rows) vs opponent's (columns) -> resulting Primary Mission card",
+    "rows": [
+      "Take and Hold",
+      "Purge the Foe",
+      "Disruption",
+      "Reconnaissance",
+      "Priority Assets"
+    ],
+    "columns": [
+      "Take and Hold",
+      "Purge the Foe",
+      "Disruption",
+      "Reconnaissance",
+      "Priority Assets"
+    ],
+    "grid": {
+      "Take and Hold": {
+        "Take and Hold": "Battlefield Dominance",
+        "Purge the Foe": "Immovable Object",
+        "Disruption": "Determined Acquisition",
+        "Reconnaissance": "Purge and Secure",
+        "Priority Assets": "Inescapable Dominion"
+      },
+      "Purge the Foe": {
+        "Take and Hold": "Unstoppable Force",
+        "Purge the Foe": "Meatgrinder",
+        "Disruption": "Punishment",
+        "Reconnaissance": "Consecrate",
+        "Priority Assets": "Destroyer's Wrath"
+      },
+      "Disruption": {
+        "Take and Hold": "Death Trap",
+        "Purge the Foe": "Delaying Action",
+        "Disruption": "Outmanoeuvre",
+        "Reconnaissance": "Smoke and Mirrors",
+        "Priority Assets": "Locate and Deny"
+      },
+      "Reconnaissance": {
+        "Take and Hold": "Reconnaissance Sweep",
+        "Purge the Foe": "Triangulation",
+        "Disruption": "Surveil the Foe",
+        "Reconnaissance": "Gather Intel",
+        "Priority Assets": "Search and Scour"
+      },
+      "Priority Assets": {
+        "Take and Hold": "Secure Asset",
+        "Purge the Foe": "Vital Link",
+        "Disruption": "Extract Relic",
+        "Reconnaissance": "Vanguard Operation",
+        "Priority Assets": "Sabotage"
+      }
+    }
+  },
+  "rulesSectionIndex": {
+    "note": "Index only (contents excluded by request)",
+    "sections": [
+      {
+        "name": "Core Rules",
+        "url": "https://gdmissions.app/11th/rules/core-rules",
+        "description": "A simplified, searchable version of the freely available Warhammer 40,000 Core Rules."
+      },
+      {
+        "name": "Tournament Companion",
+        "url": "https://gdmissions.app/11th/rules/event-companion",
+        "description": "The Warhammer Event Companion rules for running and playing in tournaments."
+      },
+      {
+        "name": "Detachment Points",
+        "url": "https://gdmissions.app/11th/rules/detachments",
+        "description": "Every faction's detachments with their force disposition and Detachment Points cost. (Client-side data, not scraped)"
+      },
+      {
+        "name": "Data Changelog",
+        "url": "https://gdmissions.app/11th/rules/changelog",
+        "description": "How the Core Rules data evolved, from the free PDF through every app data version."
+      }
+    ]
+  }
+}
