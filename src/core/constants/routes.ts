@@ -14,6 +14,7 @@ export const ROUTES = {
   MISSIONS_PRIMARY_DETAIL: '/missions/primary/:cardId',
   MISSIONS_SECONDARY: '/missions/secondary',
   MISSIONS_SECONDARY_DETAIL: '/missions/secondary/:cardId',
+  MISSIONS_MATCHER: '/missions/matcher',
   ROSTER: '/roster',
   ROSTER_NEW: '/roster/new',
   ROSTER_EDIT: '/roster/:rosterId',

@@ -18,6 +18,7 @@ import { MissionsPrimaryListPage } from '@/pages/MissionsPrimaryListPage'
 import { MissionsSecondaryListPage } from '@/pages/MissionsSecondaryListPage'
 import { MissionPrimaryDetailPage } from '@/pages/MissionPrimaryDetailPage'
 import { MissionSecondaryDetailPage } from '@/pages/MissionSecondaryDetailPage'
+import { MissionMatcherPage } from '@/pages/MissionMatcherPage'
 import { MathhammerPage } from '@/pages/MathhammerPage'
 
 const router = createBrowserRouter([
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
           { path: 'primary/:cardId', element: <MissionPrimaryDetailPage /> },
           { path: 'secondary', element: <MissionsSecondaryListPage /> },
           { path: 'secondary/:cardId', element: <MissionSecondaryDetailPage /> },
+          { path: 'matcher', element: <MissionMatcherPage /> },
         ],
       },
       {
