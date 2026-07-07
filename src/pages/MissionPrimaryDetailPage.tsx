@@ -3,11 +3,18 @@ import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { ROUTES } from '@/core/constants/routes'
 import { mdBoldToHtml, missionSlug } from '@/core/utils/missionText'
 import { VpBadge } from '@/shared/components/VpBadge'
+import { DECK_COLORS } from '@/core/constants/missionDeckColors'
 import type { PrimaryMissionSection } from '@/types'
 
-function PrimarySectionBlock({ section }: { section: PrimaryMissionSection }) {
+function PrimarySectionBlock({
+  section,
+  accentClass,
+}: {
+  section: PrimaryMissionSection
+  accentClass: string
+}) {
   return (
-    <div className="border border-rim-bright mb-px">
+    <div className={`border border-rim-bright border-l-2 ${accentClass} mb-px`}>
       <div className="px-4 py-2 bg-surface-2 border-b border-rim-bright flex items-center justify-between gap-3">
         <span
           className={`text-[11px] font-mono uppercase tracking-widest ${
@@ -84,6 +91,8 @@ export function MissionPrimaryDetailPage() {
     )
   }
 
+  const colors = DECK_COLORS[card.deck]
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
       {/* Header */}
@@ -94,8 +103,8 @@ export function MissionPrimaryDetailPage() {
         >
           ← Misiones Primarias
         </button>
-        <div className="h-1 bg-crimson mb-2" />
-        <span className="text-[11px] font-mono uppercase tracking-widest text-crimson-bright">
+        <div className={`h-1 ${colors.bar} mb-2`} />
+        <span className={`text-[11px] font-mono uppercase tracking-widest ${colors.text}`}>
           {deck.name}
         </span>
         <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
@@ -109,7 +118,7 @@ export function MissionPrimaryDetailPage() {
       {/* Sections */}
       <div className="flex flex-col gap-px">
         {card.sections.map((section, i) => (
-          <PrimarySectionBlock key={i} section={section} />
+          <PrimarySectionBlock key={i} section={section} accentClass={colors.borderLeft} />
         ))}
       </div>
     </div>
