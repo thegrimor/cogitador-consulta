@@ -9,11 +9,13 @@ function NavTile({
   name,
   subtitle,
   accentClass,
+  hasAction,
 }: {
   to: string
   name: string
   subtitle: string
   accentClass: string
+  hasAction: boolean
 }) {
   return (
     <NavLink
@@ -21,9 +23,16 @@ function NavTile({
       className={`group flex items-center justify-between bg-surface-2 border border-rim-bright hover:border-crimson-bright border-l-2 ${accentClass} px-4 py-3 transition-colors`}
     >
       <div>
-        <p className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
-          {name}
-        </p>
+        <div className="flex items-center gap-2">
+          <p className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
+            {name}
+          </p>
+          {hasAction && (
+            <span className="text-[9px] font-mono uppercase tracking-wide border border-gold/50 text-gold px-1.5 py-px leading-none">
+              Con acción
+            </span>
+          )}
+        </div>
         <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
           {subtitle}
         </p>
@@ -89,6 +98,7 @@ export function MissionsPrimaryListPage() {
                       name={card.name}
                       subtitle={`vs ${card.vs.replace(/-/g, ' ')}`}
                       accentClass={colors.borderLeft}
+                      hasAction={Boolean(card.action)}
                     />
                   ))}
                 </div>

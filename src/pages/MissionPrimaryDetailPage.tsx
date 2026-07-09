@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { ROUTES } from '@/core/constants/routes'
-import { missionSlug } from '@/core/utils/missionText'
+import { mdBoldToHtml, missionSlug } from '@/core/utils/missionText'
 import { PrimaryMissionSections } from '@/shared/components/PrimaryMissionSections'
+import { MissionActionBox } from '@/shared/components/MissionActionBox/MissionActionBox'
 import { DECK_COLORS } from '@/core/constants/missionDeckColors'
 
 export function MissionPrimaryDetailPage() {
@@ -58,6 +59,8 @@ export function MissionPrimaryDetailPage() {
           vs {card.vs.replace(/-/g, ' ')}
         </p>
       </div>
+
+      {card.action && <MissionActionBox action={card.action} formatText={mdBoldToHtml} />}
 
       {/* Sections */}
       <PrimaryMissionSections sections={card.sections} accentClass={colors.borderLeft} />

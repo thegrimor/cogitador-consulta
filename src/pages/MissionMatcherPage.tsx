@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { missionPrimaryPath, ROUTES } from '@/core/constants/routes'
 import { missionSlug } from '@/core/utils/missionText'
@@ -54,7 +54,6 @@ function PlayerPanel({
 }
 
 function ResultCard({ playerName, deck, card }: { playerName: string; deck: string; card: PrimaryMissionCard | null }) {
-  const navigate = useNavigate()
   const colors = DECK_COLORS[card?.deck ?? missionSlug(deck)] ?? DECK_COLORS['take-and-hold']
 
   if (!card) {
@@ -70,17 +69,22 @@ function ResultCard({ playerName, deck, card }: { playerName: string; deck: stri
   return (
     <div>
       <div className={`h-1 ${colors.bar} mb-2`} />
-      <button
-        onClick={() => navigate(missionPrimaryPath(missionSlug(card.url)))}
-        className="block text-left mb-3"
-      >
-        <span className={`text-[11px] font-mono uppercase tracking-widest ${colors.text}`}>
-          {playerName} · {deck}
-        </span>
-        <h2 className="text-[15px] font-display uppercase tracking-[2px] text-parchment hover:text-crimson-bright transition-colors">
-          {card.name}
-        </h2>
-      </button>
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div>
+          <span className={`text-[11px] font-mono uppercase tracking-widest ${colors.text}`}>
+            {playerName} · {deck}
+          </span>
+          <h2 className="text-[15px] font-display uppercase tracking-[2px] text-parchment">
+            {card.name}
+          </h2>
+        </div>
+        <Link
+          to={missionPrimaryPath(missionSlug(card.url))}
+          className="shrink-0 text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright transition-colors mt-1 flex items-center gap-1"
+        >
+          Ver ficha ›
+        </Link>
+      </div>
       <PrimaryMissionSections sections={card.sections} accentClass={colors.borderLeft} />
     </div>
   )
