@@ -498,7 +498,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Extract Intelligence",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase, from the second battle round onwards."
+              },
+              {
+                "k": "Units",
+                "v": "One unit within range of one **objective** (excluding your **home objective**) that does not have any of your **operation markers** within range of it."
+              },
+              {
+                "k": "Use limit",
+                "v": "Unlimited. Each unit that starts this action this phase must be within range of a different **objective**."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "Place one of your **operation markers** within range of that **objective**."
+              }
+            ]
+          }
         },
         {
           "name": "Reconnaissance Sweep",
@@ -628,7 +653,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Surveil the Foe",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit."
+              },
+              {
+                "k": "Use limit",
+                "v": "Unlimited."
+              },
+              {
+                "k": "Completes",
+                "v": "Immediately."
+              },
+              {
+                "k": "Effect",
+                "v": "Select one enemy unit within 18\" of and visible to your unit that has not been **surveilled** this turn: until the end of the turn, that enemy unit is **surveilled**."
+              }
+            ]
+          }
         },
         {
           "name": "Triangulation",
@@ -677,7 +727,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Triangulate",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase, from the second battle round onwards."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **objective** (excluding your **home objective**)."
+              },
+              {
+                "k": "Use limit",
+                "v": "Once per turn."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "That **objective** is **triangulated**: place one of your **operation markers** within range of that **objective**."
+              }
+            ]
+          }
         }
       ]
     },
@@ -731,7 +806,36 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Sensor Sweep",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **central objective**."
+              },
+              {
+                "k": "Use limit",
+                "v": "Once per turn."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "Your unit **performs a sensor sweep**: remove one **operation marker** from the battlefield."
+              },
+              {
+                "k": "Restrictions",
+                "v": "A unit cannot start this action if there is only one **operation marker** on the battlefield."
+              }
+            ]
+          }
         },
         {
           "name": "Sabotage",
@@ -766,7 +870,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Sabotage",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One unit within range of one **objective** (excluding your **home objective**)."
+              },
+              {
+                "k": "Use limit",
+                "v": "Unlimited. Each unit that starts this **action** this phase must be within range of a different **objective**."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if that unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "Your unit **commits sabotage**."
+              }
+            ]
+          }
         },
         {
           "name": "Secure Asset",
@@ -802,7 +931,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Secure Asset",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **objective** (excluding your **home objective**)."
+              },
+              {
+                "k": "Use limit",
+                "v": "Once per turn."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "Your unit **secures the asset**."
+              }
+            ]
+          }
         },
         {
           "name": "Vanguard Operation",
@@ -845,7 +999,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Vanguard Operation",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within one terrain area that is within your **opponent's territory**."
+              },
+              {
+                "k": "Use limit",
+                "v": "Once per turn."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if no enemy units are within that **terrain area**."
+              },
+              {
+                "k": "Effect",
+                "v": "Your unit **performs a vanguard operation**."
+              }
+            ]
+          }
         },
         {
           "name": "Vital Link",
@@ -895,7 +1074,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Maintain Control",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **central objective**."
+              },
+              {
+                "k": "Use limit",
+                "v": "Once per turn."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "Place one of your **operation markers** within range of that **objective**."
+              }
+            ]
+          }
         }
       ]
     },
@@ -947,7 +1151,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Booby Trap",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **objective** (excluding your **home objective**) or within one **terrain area** that is not within your deployment zone, that you have not yet **trapped** (see below)."
+              },
+              {
+                "k": "Use limit",
+                "v": "Unlimited. Each unit that starts this **action** this phase must be within a different **terrain area**."
+              },
+              {
+                "k": "Completes",
+                "v": "Immediately."
+              },
+              {
+                "k": "Effect",
+                "v": "That **terrain area** is **trapped**: place one of your **operation markers** within that **terrain area**."
+              }
+            ]
+          }
         },
         {
           "name": "Delaying Action",
@@ -1029,7 +1258,36 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Sensor Sweep",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **central objective**."
+              },
+              {
+                "k": "Use limit",
+                "v": "Once per turn."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "Your unit **performs a sensor sweep**: remove one **operation marker** from the battlefield."
+              },
+              {
+                "k": "Restriction",
+                "v": "A unit cannot start this **action** if there is only one **operation marker** on the battlefield."
+              }
+            ]
+          }
         },
         {
           "name": "Outmanoeuvre",
@@ -1126,7 +1384,32 @@
                 }
               ]
             }
-          ]
+          ],
+          "action": {
+            "title": "Decoy",
+            "rows": [
+              {
+                "k": "Starts",
+                "v": "Your Shooting phase."
+              },
+              {
+                "k": "Units",
+                "v": "One friendly unit within range of one **objective** (excluding your **home objective**) that is not **decoyed** (see below)."
+              },
+              {
+                "k": "Use limit",
+                "v": "Unlimited. Each unit that starts this **action** this phase must be within range of a different **objective**."
+              },
+              {
+                "k": "Completes",
+                "v": "End of your turn, if your unit controls that **objective**."
+              },
+              {
+                "k": "Effect",
+                "v": "That **objective** is **decoyed**: place one of your **operation markers** within range of that **objective**."
+              }
+            ]
+          }
         }
       ]
     }

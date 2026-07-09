@@ -3,7 +3,8 @@ import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { ROUTES } from '@/core/constants/routes'
 import { cleanMissionHtml, missionSlug } from '@/core/utils/missionText'
 import { VpBadge } from '@/shared/components/VpBadge'
-import type { SecondaryMissionSection, MissionAction } from '@/types'
+import { MissionActionBox } from '@/shared/components/MissionActionBox/MissionActionBox'
+import type { SecondaryMissionSection } from '@/types'
 
 function ChipBadge({ chip }: { chip: 'FIXED' | 'TACTICAL' }) {
   const isFixed = chip === 'FIXED'
@@ -15,27 +16,6 @@ function ChipBadge({ chip }: { chip: 'FIXED' | 'TACTICAL' }) {
     >
       {isFixed ? 'Fija' : 'Táctica'}
     </span>
-  )
-}
-
-function SecondaryActionBox({ action }: { action: MissionAction }) {
-  return (
-    <div className="border border-rim-bright mb-4">
-      <div className="px-4 py-2 bg-surface-2 border-b border-rim-bright">
-        <span className="text-[11px] font-display uppercase tracking-widest text-gold">{action.title}</span>
-      </div>
-      <div className="bg-surface-1 px-4 py-2 flex flex-col gap-1.5">
-        {action.rows.map((row, i) => (
-          <div key={i} className="flex gap-2 text-[11px] font-mono">
-            <span className="text-parchment-dim uppercase w-24 shrink-0">{row.k}</span>
-            <span
-              className="wh-html text-parchment"
-              dangerouslySetInnerHTML={{ __html: cleanMissionHtml(row.v) }}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
   )
 }
 
@@ -154,7 +134,7 @@ export function MissionSecondaryDetailPage() {
         </div>
       )}
 
-      {card.action && <SecondaryActionBox action={card.action} />}
+      {card.action && <MissionActionBox action={card.action} formatText={cleanMissionHtml} />}
 
       {/* Sections */}
       <div className="flex flex-col gap-px">

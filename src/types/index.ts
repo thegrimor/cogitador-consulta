@@ -478,6 +478,7 @@ export interface PrimaryMissionCard {
   url: string
   deck: string
   vs: string
+  action?: MissionAction
   sections: PrimaryMissionSection[]
 }
 
