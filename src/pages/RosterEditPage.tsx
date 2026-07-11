@@ -25,7 +25,11 @@ import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal
 import { RosterQrExportModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
+import { THEMES } from '@/themes/themes'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
+
+/** Agents of the Imperium can be taken as allies by any other Imperium-aligned faction. */
+const ALLY_FACTION_ID = 'AoI'
 
 export function RosterEditPage() {
   const { rosterId: rosterIdParam } = useParams<{ rosterId: string }>()
@@ -50,6 +54,7 @@ export function RosterEditPage() {
   const [limitDraft, setLimitDraft] = useState(roster?.pointsLimit ? String(roster.pointsLimit) : '')
   const [detachmentModalOpen, setDetachmentModalOpen] = useState(false)
   const [qrModalOpen, setQrModalOpen] = useState(false)
+  const [alliesOpen, setAlliesOpen] = useState(false)
 
   if (!roster || !rosterIdParam) {
     return (
@@ -65,6 +70,10 @@ export function RosterEditPage() {
   const faction = factions.find(f => f.id === roster.factionId)
   const factionDetachments = detachments.filter(d => d.factionId === roster.factionId)
   const factionDatasheets = datasheets.filter(d => d.factionId === roster.factionId && !d.isVirtual)
+  const canTakeAllies =
+    roster.factionId !== ALLY_FACTION_ID &&
+    THEMES.find(t => t.faction === roster.factionId)?.group === 'imperium'
+  const allyDatasheets = datasheets.filter(d => d.factionId === ALLY_FACTION_ID && !d.isVirtual)
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
@@ -187,7 +196,7 @@ export function RosterEditPage() {
       )}
 
       {/* Puntos */}
-      <div className="mb-6 flex items-center gap-4">
+      <div className="sticky top-10 z-10 -mx-4 px-4 py-2 mb-6 bg-surface-1 border-b border-rim-bright flex items-center gap-4">
         <p className={`text-[13px] font-mono uppercase tracking-widest ${overLimit ? 'text-crimson-bright' : 'text-parchment'}`}>
           {combinedTotal}
           {roster.pointsLimit !== null ? ` / ${roster.pointsLimit}` : ''} pts
@@ -289,6 +298,33 @@ export function RosterEditPage() {
         pointsLimit={roster.pointsLimit}
         onAdd={handleAddUnit}
       />
+
+      {canTakeAllies && (
+        <div className="mt-4 bg-surface-2 border border-rim-bright">
+          <button
+            onClick={() => setAlliesOpen(open => !open)}
+            className="w-full flex items-center justify-between px-3 py-3 text-left"
+          >
+            <span className="text-[12px] font-display uppercase tracking-widest text-parchment">
+              Aliados · Agentes del Imperio
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+              {alliesOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {alliesOpen && (
+            <div className="px-3 pb-3">
+              <AddUnitPanel
+                datasheets={allyDatasheets}
+                pointsCostMap={pointsCostMap}
+                entries={roster.entries}
+                pointsLimit={roster.pointsLimit}
+                onAdd={handleAddUnit}
+              />
+            </div>
+          )}
+        </div>
+      )}
 
       {qrModalOpen && <RosterQrExportModal roster={roster} onClose={() => setQrModalOpen(false)} />}
     </div>

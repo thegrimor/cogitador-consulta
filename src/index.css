@@ -93,7 +93,6 @@
     background: var(--color-surface);
     color: var(--color-parchment);
     font-family: 'Share Tech Mono', monospace;
-    overflow-x: hidden;
     position: relative;
   }
 
