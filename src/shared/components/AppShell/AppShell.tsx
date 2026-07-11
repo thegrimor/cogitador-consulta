@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { NavBar } from '@/shared/components/NavBar'
 import { ThemePicker } from '@/shared/components/ThemePicker'
@@ -11,17 +11,34 @@ export function AppShell() {
   const [currentTheme, setTheme, themes] = useTheme()
   const { loading, error } = useGameDataContext()
   const { pathname } = useLocation()
+  const headerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [pathname])
+
+  // Header height varies (it wraps to two rows below the `sm` breakpoint), so pages
+  // that stick content below it read this instead of hardcoding an offset.
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+    const setHeight = () =>
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`)
+    setHeight()
+    const observer = new ResizeObserver(setHeight)
+    observer.observe(header)
+    return () => observer.disconnect()
+  }, [loading])
 
   if (loading) return <LoadingScreen />
   if (error) return <ErrorScreen error={error} />
 
   return (
     <div className="min-h-screen bg-surface-1 text-parchment">
-      <header className="sticky top-0 z-20 border-b border-rim-bright bg-surface-2 flex flex-wrap items-center px-4 py-1.5 gap-x-2 gap-y-1 sm:h-10 sm:py-0 sm:gap-x-4">
+      <header
+        ref={headerRef}
+        className="sticky top-0 z-20 border-b border-rim-bright bg-surface-2 flex flex-wrap items-center px-4 py-1.5 gap-x-2 gap-y-1 sm:h-10 sm:py-0 sm:gap-x-4"
+      >
         <svg
           viewBox="0 0 24 24"
           className="w-5 h-5 text-crimson-bright shrink-0 select-none"
