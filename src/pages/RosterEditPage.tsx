@@ -196,7 +196,10 @@ export function RosterEditPage() {
       )}
 
       {/* Puntos */}
-      <div className="sticky top-10 z-10 -mx-4 px-4 py-2 mb-6 bg-surface-1 border-b border-rim-bright flex items-center gap-4">
+      <div
+        className="sticky z-10 -mx-4 px-4 py-2 mb-6 bg-surface border-b border-rim-bright flex items-center gap-4"
+        style={{ top: 'var(--header-h, 2.5rem)' }}
+      >
         <p className={`text-[13px] font-mono uppercase tracking-widest ${overLimit ? 'text-crimson-bright' : 'text-parchment'}`}>
           {combinedTotal}
           {roster.pointsLimit !== null ? ` / ${roster.pointsLimit}` : ''} pts
