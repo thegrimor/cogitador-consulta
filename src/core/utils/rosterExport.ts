@@ -1,5 +1,9 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
-import { weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints } from '@/core/utils/roster'
+import {
+  weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints,
+  ruleSelectionCap,
+} from '@/core/utils/roster'
+import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
@@ -40,12 +44,22 @@ function entryLines(entry: RosterEntry, datasheet: Datasheet, enhancements: Enha
     out.push(`• ${entry.modelCount}x ${datasheet.name}`)
   }
 
+  // A weapon can legitimately show up in both wargearSelections (it carries a per-model
+  // points surcharge) and weaponOptionSelections (it's also the pick for a free structural
+  // replacement rule) at once — e.g. a Knight Crusader's rapid-fire battle cannon. Track
+  // what's already been printed so that shared case gets one line instead of two: re-import
+  // would otherwise parse the same weapon twice and double the surcharge on a second round-trip.
+  const emittedBases = new Set<string>()
+
   if (entry.wargearSelections) {
     for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
       // Per-instance costs are named "per <Weapon>" in the data (stripped for display in the
       // UI) — keep the exported text consistent, and matching what resolveImportedRoster's
       // wargear matcher expects on re-import (it strips "per " from the data side only).
-      if (count > 0) out.push(`  ◦ ${count}x ${weaponName.replace(/^per\s+/i, '')}`)
+      if (count <= 0) continue
+      const displayWeaponName = weaponName.replace(/^per\s+/i, '')
+      out.push(`  ◦ ${count}x ${displayWeaponName}`)
+      emittedBases.add(weaponBaseName(displayWeaponName))
     }
   }
 
@@ -58,6 +72,7 @@ function entryLines(entry: RosterEntry, datasheet: Datasheet, enhancements: Enha
       selection.forEach((qty, i) => {
         if (qty <= 0) return
         rule.choices[i]?.forEach(weaponName => {
+          if (emittedBases.has(weaponBaseName(weaponName))) return
           out.push(`  ◦ ${qty}x ${weaponName}`)
         })
       })
@@ -566,22 +581,28 @@ export function resolveImportedRoster(
           ? modelCountFromWeapons
           : (datasheet.modelCountMin > 0 ? datasheet.modelCountMin : 1)
 
-      const handledBases = new Set<string>()
-
       // 1. Wargear with surcharge cost — match by base name (strips "– profile" suffix).
       // Per-instance costs are named "per <Weapon>" in the data (surfaced without that
-      // prefix in the UI), so strip it before comparing against the imported weapon name.
+      // prefix in the UI). Strip it from both sides: the data name always has it, but the
+      // imported text might too (exports written before this was stripped on export, or any
+      // other source using that phrasing) or might not (the now-fixed export, or a manually
+      // typed list) — stripping only one side would silently miss whichever case doesn't.
+      // This pass is independent from the weapon-option matching below — a weapon can
+      // legitimately be *both* a priced upgrade and part of a free structural replacement
+      // bundle at once (e.g. a Knight Crusader's "replace thermal cannon with 1 rapid-fire
+      // battle cannon and 1 Questoris heavy stubber" bundle, where the battle cannon itself
+      // also carries a per-model points surcharge) — claiming it here must not lock the
+      // weapon-option pass out of also attributing that same physical weapon structurally.
       const availableWargear = wargearCostMap[datasheet.id] ?? []
       const wargearSelections: Record<string, number> = {}
       let wargearSurcharge = 0
 
       for (const pw of effectiveWeapons) {
-        const pwBase = weaponBaseName(pw.name)
+        const pwBase = weaponBaseName(pw.name.replace(/^per\s+/i, ''))
         const wc = availableWargear.find(w => weaponBaseName(w.name.replace(/^per\s+/i, '')) === pwBase)
         if (wc) {
           wargearSelections[wc.name] = pw.count
           wargearSurcharge += (Number(wc.points) || 0) * pw.count
-          handledBases.add(pwBase)
         }
       }
 
@@ -593,22 +614,47 @@ export function resolveImportedRoster(
       // otherwise a squad that just kept its unmodified default (e.g. plain "2x Twin bolt
       // cannon", no ion beamer at all) would look like it chose the bundle that merely
       // happens to still include a twin bolt cannon.
+      // Tracks how many of each imported weapon are still unclaimed by an *already-matched*
+      // rule — a plain count rather than a claimed/unclaimed flag, since two independent
+      // rules can each need their own copy of the same-named weapon (e.g. a Knight Crusader
+      // replacing both its meltagun and its thermal cannon each pull in a Questoris heavy
+      // stubber, so "2x Questoris heavy stubber" must be splittable across both rules).
+      const remainingByBase = new Map<string, number>()
+      for (const w of effectiveWeapons) {
+        // Same "per " stripping as the wargear pass above — a weapon-option choice never
+        // carries that prefix (it's a data-side artifact of the cost row, not the weapon's
+        // real name), so an unstripped parsed name would never match its own choice text.
+        const base = weaponBaseName(w.name.replace(/^per\s+/i, ''))
+        remainingByBase.set(base, (remainingByBase.get(base) ?? 0) + w.count)
+      }
+
       const weaponOptionSelections: Record<string, number[]> = {}
+      // Scratch entry fed to ruleSelectionCap as rules are resolved, so a rule sharing a
+      // "from" weapon with an earlier one (e.g. two independent "replace this gun with a
+      // melee weapon" options on the same model) sees the earlier pick and doesn't also
+      // claim more of the shared base-weapon pool than is actually left.
+      const scratchEntry = { weaponOptionSelections } as RosterEntry
+      const roleCounts = resolveRoleCounts(datasheet.unitSlots, modelCount)
 
       for (const rule of datasheet.weaponOptionRules) {
         if (rule.scope === 'unparsed' || rule.choices.length === 0) continue
 
+        // Caps the total this rule can claim across all its choices combined — without it,
+        // an exclusive "replace X with A or B" rule would happily match BOTH A and B if the
+        // imported text lists both (each destined for a *different* rule instead), pushing
+        // the base weapon's remaining count negative and starving the sibling rule.
+        let remaining = ruleSelectionCap(rule, datasheet.weaponOptionRules, scratchEntry, roleCounts, modelCount)
         const selection = new Array<number>(rule.choices.length).fill(0)
         let anyMatch = false
 
-        for (let ci = 0; ci < rule.choices.length; ci++) {
-          const bundleMatches = rule.choices[ci].map(choiceWeapon => {
-            const cwBase = weaponBaseName(choiceWeapon)
-            return effectiveWeapons.find(w => !handledBases.has(weaponBaseName(w.name)) && weaponBaseName(w.name) === cwBase)
-          })
-          if (bundleMatches.every((m): m is ParsedWeapon => m !== undefined)) {
-            selection[ci] = Math.min(...bundleMatches.map(m => m.count))
-            bundleMatches.forEach(m => handledBases.add(weaponBaseName(m.name)))
+        for (let ci = 0; ci < rule.choices.length && remaining > 0; ci++) {
+          const bundleBases = rule.choices[ci].map(weaponBaseName)
+          const availableForBundle = Math.min(...bundleBases.map(b => remainingByBase.get(b) ?? 0))
+          const claim = Math.min(availableForBundle, remaining)
+          if (claim > 0) {
+            selection[ci] = claim
+            remaining -= claim
+            bundleBases.forEach(b => remainingByBase.set(b, (remainingByBase.get(b) ?? 0) - claim))
             anyMatch = true
           }
         }
