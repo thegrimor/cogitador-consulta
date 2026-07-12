@@ -16,17 +16,14 @@ function Badge({ label }: { label: string }) {
 
 function WeaponStatBox({ label, value, dim }: { label: string; value: string | number; dim?: boolean }) {
   return (
-    <div className={`flex flex-col items-center border px-2 py-1 min-w-[36px] ${dim ? 'border-rim-bright/30 bg-surface-3/30' : 'border-rim-bright bg-surface-3'}`}>
-      <span className={`text-[9px] font-display uppercase tracking-[2px] leading-none mb-0.5 ${dim ? 'text-gold/40' : 'text-gold'}`}>{label}</span>
-      <span className={`text-[12px] font-display font-black leading-tight mt-0.5 whitespace-nowrap ${dim ? 'text-crimson-bright/40' : 'text-crimson-bright'}`}>{value}</span>
+    <div className={`flex flex-col items-center border px-1.5 py-0.5 min-w-[32px] ${dim ? 'border-rim-bright/30 bg-surface-3/30' : 'border-rim-bright bg-surface-3'}`}>
+      <span className={`text-[8px] font-mono uppercase leading-none ${dim ? 'text-parchment-dim/40' : 'text-parchment-dim'}`}>{label}</span>
+      <span className={`text-[11px] font-display leading-tight mt-0.5 whitespace-nowrap ${dim ? 'text-parchment-dim/40' : 'text-parchment'}`}>{value}</span>
     </div>
   )
 }
 
-function WeaponRow({ weapon, qty }: { weapon: Weapon; qty: number }) {
-  const active = qty > 0
-  const isMelee = weapon.range.toLowerCase() === 'melee'
-
+function weaponBadges(weapon: Weapon): string[] {
   const badges: string[] = []
   if (weapon.isTorrent)           badges.push('Torrent')
   if (weapon.isBlast)             badges.push('Blast')
@@ -49,20 +46,21 @@ function WeaponRow({ weapon, qty }: { weapon: Weapon; qty: number }) {
   if (weapon.isLance)             badges.push('Lance')
   if (weapon.isConversion)        badges.push('Conversion')
   if (weapon.cleaveValue > 0)     badges.push(`Cleave ${weapon.cleaveValue}`)
+  return badges
+}
+
+function WeaponRow({ weapon, qty, alt }: { weapon: Weapon; qty: number; alt: boolean }) {
+  const active = qty > 0
+  const isMelee = weapon.range.toLowerCase() === 'melee'
+  const badges = weaponBadges(weapon)
 
   return (
-    <div
-      className={`w-full px-2 py-2 border transition-colors ${
-        active
-          ? 'border-crimson-bright bg-crimson/10'
-          : 'border-rim-bright/40'
-      }`}
-    >
-      <p className={`text-[11px] font-display uppercase tracking-wide mb-1.5 flex items-center gap-1.5 ${active ? 'text-parchment' : 'text-parchment-dim/40'}`}>
+    <div className={`px-2.5 py-1.5 ${alt ? 'bg-surface-3/50' : 'bg-surface-2'}`}>
+      <p className={`text-[11px] font-display uppercase tracking-wide mb-1 flex items-center gap-1.5 ${active ? 'text-parchment' : 'text-parchment-dim/40'}`}>
         {active && <span className="text-crimson-bright font-bold text-[10px]">x{qty}</span>}
         {weapon.name}
       </p>
-      <div className="flex flex-wrap gap-px mb-1.5">
+      <div className="flex flex-wrap gap-px mb-1">
         <WeaponStatBox label="Rango" value={weapon.range} dim={!active} />
         <WeaponStatBox label="A"     value={weapon.A}     dim={!active} />
         <WeaponStatBox label={isMelee ? 'HA' : 'HP'} value={weapon.bsWs} dim={!active} />
@@ -79,6 +77,23 @@ function WeaponRow({ weapon, qty }: { weapon: Weapon; qty: number }) {
   )
 }
 
+function WeaponGroup({ title, weapons, quantities }: { title: string; weapons: Weapon[]; quantities: Map<string, number> }) {
+  if (weapons.length === 0) return null
+
+  return (
+    <div className="border border-rim-bright">
+      <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim px-2.5 py-1 bg-surface-3 border-b border-rim-bright">
+        {title}
+      </p>
+      <div className="divide-y divide-rim-bright/50">
+        {weapons.map((w, i) => (
+          <WeaponRow key={w.line} weapon={w} qty={quantities.get(weaponBaseName(w.name)) ?? 0} alt={i % 2 === 1} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function WeaponSelector({ weapons, quantities }: Props) {
   if (weapons.length === 0) return null
 
@@ -87,26 +102,8 @@ export function WeaponSelector({ weapons, quantities }: Props) {
 
   return (
     <div className="space-y-2">
-      {ranged.length > 0 && (
-        <div>
-          <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">A Distancia</p>
-          <div className="flex flex-col gap-1">
-            {ranged.map(w => (
-              <WeaponRow key={w.line} weapon={w} qty={quantities.get(weaponBaseName(w.name)) ?? 0} />
-            ))}
-          </div>
-        </div>
-      )}
-      {melee.length > 0 && (
-        <div>
-          <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">Cuerpo a Cuerpo</p>
-          <div className="flex flex-col gap-1">
-            {melee.map(w => (
-              <WeaponRow key={w.line} weapon={w} qty={quantities.get(weaponBaseName(w.name)) ?? 0} />
-            ))}
-          </div>
-        </div>
-      )}
+      <WeaponGroup title="A Distancia" weapons={ranged} quantities={quantities} />
+      <WeaponGroup title="Cuerpo a Cuerpo" weapons={melee} quantities={quantities} />
     </div>
   )
 }
