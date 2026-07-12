@@ -42,7 +42,10 @@ function entryLines(entry: RosterEntry, datasheet: Datasheet, enhancements: Enha
 
   if (entry.wargearSelections) {
     for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
-      if (count > 0) out.push(`  ◦ ${count}x ${weaponName}`)
+      // Per-instance costs are named "per <Weapon>" in the data (stripped for display in the
+      // UI) — keep the exported text consistent, and matching what resolveImportedRoster's
+      // wargear matcher expects on re-import (it strips "per " from the data side only).
+      if (count > 0) out.push(`  ◦ ${count}x ${weaponName.replace(/^per\s+/i, '')}`)
     }
   }
 
