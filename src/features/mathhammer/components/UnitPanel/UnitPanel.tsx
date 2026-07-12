@@ -120,13 +120,14 @@ export function UnitPanel({
   const unitMax = selectedUnit?.modelCountMax
   const unitMin = selectedUnit?.modelCountMin
 
-  const defaultWeaponNamesSet = useMemo(
-    () => new Set(selectedUnit?.defaultWeaponNames ?? []),
+  const defaultWeaponCounts = useMemo(
+    () => new Map((selectedUnit?.defaultWeaponNames ?? []).map(d => [d.name, d.count])),
     [selectedUnit],
   )
 
   function defaultQtyFor(w: Weapon): number {
-    return defaultWeaponNamesSet.has(w.name.toLowerCase()) ? (unitMin ?? 1) : 1
+    const perModel = defaultWeaponCounts.get(w.name.toLowerCase())
+    return perModel !== undefined ? perModel * (unitMin ?? 1) : 1
   }
 
   function getQty(w: Weapon): number {

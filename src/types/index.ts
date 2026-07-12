@@ -296,6 +296,11 @@ export interface Stratagem {
   description: string
 }
 
+export interface DefaultWeaponQuantity {
+  name: string
+  count: number
+}
+
 export interface Datasheet {
   id: string
   name: string
@@ -316,7 +321,10 @@ export interface Datasheet {
   unitComposition: string[]
   modelCountMin: number
   modelCountMax: number
-  defaultWeaponNames: string[]
+  /** Weapons named in the datasheet's "This model is equipped with:" text, with however many
+   * of each a single model carries by default (e.g. a Knight Castellan's "2 shieldbreaker
+   * missile launchers") — not just 1-per-model, which only holds for squads. */
+  defaultWeaponNames: DefaultWeaponQuantity[]
   unitSlots: UnitSlot[]
   weaponOptionRules: WeaponOptionRule[]
 }
