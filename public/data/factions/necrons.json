@@ -1453,6 +1453,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Gauntlet of Fire; Staff of the Destroyer.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1616,6 +1617,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> tachyon arrow; Overlord’s blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1861,6 +1863,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Staff of Tomorrow.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2013,6 +2016,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Empathic Obliterator.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2143,6 +2147,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> gauss cannon; staff of light.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2371,6 +2376,7 @@
       "role": "Battleline",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> gauss flayer; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2536,6 +2542,7 @@
       "role": "Battleline",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> gauss blaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2706,6 +2713,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> warscythe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2859,6 +2867,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> synaptic disintegrator; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3005,6 +3014,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> flayer claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3152,6 +3162,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> rod of covenant.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3323,6 +3334,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heat ray; Stalker’s forelimbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3522,6 +3534,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> gaze of death; scythe of the Nightbringer.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3692,6 +3705,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cosmic insanity; golden fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3862,6 +3876,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 gauss flayer arrays; armoured bulk.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3997,6 +4012,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin tesla destructor; armoured bulk.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4144,6 +4160,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy death ray; twin tesla destructor; armoured bulk.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4304,6 +4321,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> vicious claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4482,6 +4500,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin gauss blaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4694,6 +4713,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> automaton claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4865,6 +4885,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 4 gauss flux arcs; particle whip; portal of exile.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5044,6 +5065,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> gauss cannon; twin tesla destructor; armoured bulk.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5216,6 +5238,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> doomsday cannon; 2 gauss flayer arrays; armoured bulk.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5373,6 +5396,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> seismic assault; crackling tendrils.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5542,6 +5566,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 4 tesla spheres; armoured bulk.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and you can only select one of the C’tan Powers weapons in your Shooting phase, instead of two.",
       "models": [
@@ -5729,6 +5754,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 4 tesla spheres; armoured bulk.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5872,6 +5898,7 @@
       "role": "Other",
       "sourceId": "000000359",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 singularity generators; titanic forelimbs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6056,6 +6083,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> eldritch lance; impaling legs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6235,6 +6263,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasmic lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6412,6 +6441,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> enmitic annihilator; flensing claw; hyperphase harvester.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6609,6 +6639,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Skorpekh hyperphase weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6758,6 +6789,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> scouring eye; scythed limbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6900,6 +6932,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 atomiser beams; Reanimator’s claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7036,6 +7069,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> feeder mandibles.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7161,6 +7195,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> doomsday blaster; twin gauss flayer; Doomstalker limbs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7327,6 +7362,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> gauss destructor; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7516,6 +7552,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> relic gauss blaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7677,6 +7714,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> staff of light.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7888,6 +7926,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> staff of light.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8070,6 +8109,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> abyssal lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8241,6 +8281,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> aeonstave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8424,6 +8465,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> enmitic disintegrator pistols; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8617,6 +8659,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> spear of the Void Dragon; voltaic storm; canoptek tail blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8834,6 +8877,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Ophydian hyperphase weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8987,6 +9031,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> gauss cannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9162,6 +9207,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Szarekh is equipped with:</b> Sceptre of Eternal Glory; Staff of Stars; Weapons of the Final Triarch.<br><br><b>Every Triarchal Menhir is equipped with:</b> annihilator beam; armoured bulk.",
       "damagedW": 1,
       "damagedDescription": "While this unit’s Szarekh model has 1-6 wounds remaining, halve the Attacks characteristic of that model’s weapons, and each time this unit makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -9412,6 +9458,7 @@
       "role": "Fortifications",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> transdimensional abductor.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9551,6 +9598,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Overlord’s blade; resurrection orb.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9713,6 +9761,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> gauss scalpel; claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9919,6 +9968,7 @@
       "role": "Other",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin gauss reaper; claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10088,6 +10138,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> tremorglaive.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10284,6 +10335,7 @@
       "role": "Characters",
       "sourceId": "000000029",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> enmitic disintegrators; Unmaker Gauntlet; blade tail and whip coils; nullstone field generator.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

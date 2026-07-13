@@ -768,6 +768,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> exitus pistol; exitus rifle; Vindicare combat knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -956,6 +957,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> neural shredder; phase sword and poison blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1121,6 +1123,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> executioner pistol; power sword and neuro gauntlet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1301,6 +1304,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> animus speculum; life-draining touch.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1486,6 +1490,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Castigation; condemnor stake; master-crafter power sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1675,6 +1680,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Psychic Blast; Nemesis daemon hammer; Glovodan psyber-eagle.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1866,6 +1872,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Inquisitorial melee weapon; blessed wardings.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2102,6 +2109,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Dirgesinger; Psychic Tempest; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2278,6 +2286,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>The Voidmaster is equipped with:</b> artificer shotgun; laspistol; close combat weapon.<br><br><b>One Voidsman is equipped with:</b> laspistol; Voidsman rotor cannon; close combat weapon.<br><br><b>Every other Voidsman is equipped with:</b> lasgun; laspistol; close combat weapon.<br><br><b>The Canid is equipped with:</b> vicious bite.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2489,6 +2498,7 @@
       "role": "Battleline",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>The Navis Sergeant-at-Arms is equipped with:</b> Navis shotgun; close combat weapon.<br><br><b>One Navis Armsman is equipped with:</b> Navis las-volley; close combat weapon.<br><br><b>One other Navis Armsman is equipped with:</b> Navis heavy shotgun; close combat weapon; endurant shield.<br><br><b>Every other model is equipped with:</b> Navis shotgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2854,6 +2864,7 @@
       "role": "Battleline",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>Every Proctor-Vigilant and Vigilant is equipped with:</b> Arbites combat shotgun; Arbites shotpistol; close combat weapon. <br><br><b>The Cyber-mastiff is equipped with:</b> mechanical bite.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3122,6 +3133,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>Every Proctor-Subductor and Subductor is equipped with:</b> Arbites shotpistol; shock maul. <br><br><b>The Cyber-mastiff is equipped with:</b> mechanical bite.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3280,6 +3292,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>Every Proctor-Exactant and Exaction Vigilant is equipped with:</b> Arbites combat shotgun; Arbites shotpistol; close combat weapon.<br><br><b>The Cyber-mastiff is equipped with:</b> mechanical bite.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3583,6 +3596,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>The Rogue Trader is equipped with:</b> household pistol; monomolecular cane-rapier.<br><br><b>The Death Cult Assassin is equipped with:</b> dartmask; Death Cult power blade.<br><br><b>The Lectro-Maester is equipped with:</b> voltaic pistol; close combat weapon.<br><br><b>The Rejuvenat Adept is equipped with:</b> laspistol; close combat weapon; healing serum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3849,6 +3863,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> laspistol; force-orb cane.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3989,6 +4004,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<i>*This unit can only contain 2 Gun Servitors if it also contains 10 Inquisitorial Agents.</i><br><br><b>Every Inquisitorial Agent is equipped with:</b> agent firearm; agent melee weapon.<br><br><b>Every Gun Servitor is equipped with:</b> heavy bolter; agent melee weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4303,6 +4319,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> zealot’s vindictor.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4480,6 +4497,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4711,6 +4729,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hellfire Extremis; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4869,6 +4888,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> vigil spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5010,6 +5030,7 @@
       "role": "Battleline",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5349,6 +5370,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Blackstar rocket launchers; twin assault cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5578,6 +5600,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5989,6 +6012,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; immolation flamers; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6199,6 +6223,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> multi-laser; heavy bolter; lasgun array; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6447,6 +6472,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6597,6 +6623,7 @@
       "role": "Other",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>The Miraculist is equipped with:</b> holy fire; burning hands.<br><br><b>The Salvationist is equipped with:</b> close combat weapon; Salvationist medikit.<br><br><b>The Death Cult Assassin is equipped with:</b> Death Cult blades.<br><br><b>1 Missionary is equipped with:</b> plasma gun; Sanctifier melee weapon.<br><br><b>1 Missionary is equipped with:</b> Ministorum flamer; Sanctifier melee weapon.<br><br><b>Every Sanctifier is equipped with:</b> Ministorum hand flamer; Sanctifier melee weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6932,6 +6959,7 @@
       "role": "Battleline",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>The Kill Team Sergeant is equipped with:</b> plasma pistol; power weapon.<br><br><b>Each Gravis Veteran is equipped with:</b> infernus heavy bolter; bolt pistol; close combat weapon.<br><br><b>For every 5 models in the unit, 1 Deathwatch Veteran is equipped with:</b> stalker bolt rifle; bolt pistol; close combat weapon.<br><br><b>For every 5 models in the unit, 1 Deathwatch Veteran is equipped with:</b> bolt pistol; heavy thunder hammer.<br><br><b>For every 5 models in the unit, 1 Deathwatch Veteran is equipped with:</b> Deathwatch marksman bolt carbine; special-issue bolt pistol; close combat weapon.<br><br><b>If the unit contains 10 models, 1 Deathwatch Veteran is equipped with:</b> special-issue bolt pistol; xenophase blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7429,6 +7457,7 @@
       "role": "Characters",
       "sourceId": "000000259",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Jindarii tox-cycler; stubcarbine; butcher blade; Garralisk’s claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

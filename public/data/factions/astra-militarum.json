@@ -1255,6 +1255,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lascannon; Leman Russ battle cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1669,6 +1670,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolter; laspistol; weapons team close combat weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1913,6 +1915,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> multi-laser; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2218,6 +2221,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> multi-laser; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2516,6 +2520,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> multi-laser; heavy bolter; lasgun array; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2782,6 +2787,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin autocannon; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2937,6 +2943,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy flamer; inferno cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3198,6 +3205,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> earthshaker cannon; heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3399,6 +3407,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; Hydra autocannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3608,6 +3617,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; Wyvern quad stormshard mortar; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3816,6 +3826,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; storm eagle rockets; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4023,6 +4034,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; Deathstrike missile; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4230,6 +4242,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lascannon; Leman Russ battle cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4532,6 +4545,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> demolisher battle cannon; lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4835,6 +4849,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Baneblade cannon; coaxial autocannon; demolisher cannon; heavy stubber; 2 lascannons; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5088,6 +5103,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lascannons; tremor cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5294,6 +5310,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lascannons; quake cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5493,6 +5510,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lascannons; magma cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5701,6 +5719,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> coaxial autocannon; demolisher cannon; heavy stubber; Hellhammer cannon; 2 lascannons; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5961,6 +5980,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "This model is equipped with: 2 lascannons; twin heavy bolter; 2 twin heavy flamers; volcano cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6160,6 +6180,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 heavy stubbers; 2 lascannons; twin heavy bolter; 2 twin heavy flamers; vulcan mega-bolter; armoured tracks",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6385,6 +6406,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lascannons; Stormsword siege cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6584,6 +6606,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6815,6 +6838,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Tempestor Prime is equipped with:</b> bolt pistol; Tempestus dagger. <br><br><b>Every Tempestus Scion is equipped with:</b> hot-shot lasgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7261,6 +7285,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Taurox battle cannon; twin Taurox hot-shot volley gun; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7512,6 +7537,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> ripper gun.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7648,6 +7674,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> grenadier gauntlet; close combat weapon; slabshield.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7840,6 +7867,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> sniper rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8023,6 +8051,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> ripper gun; huge knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8175,6 +8204,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> hellstrike missiles; multi-laser; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8387,6 +8417,7 @@
       "role": "Other",
       "sourceId": "000000375",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> nothing.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8503,6 +8534,7 @@
       "role": "Other",
       "sourceId": "000000375",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Avenger bolt cannon; heavy stubber; 2 lascannons; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8660,6 +8692,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> laspistol; Psychic Maelstrom; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8846,6 +8879,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> zealot’s vindictor.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9022,6 +9056,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; Enginseer axe; servo-arm.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9195,6 +9230,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> ripper gun; close combat weapon; huge knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9421,6 +9457,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> ripper pistol; envenomed blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9598,6 +9635,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Ibram Gaunt is equipped with:</b> bolt pistol; Gaunt’s chainsword. <br><br><b>1 Tanith Ghost is equipped with:</b> Corbec’s hot-shot lascarbine; straight silver knife. <br><br><b>1 Tanith Ghost is equipped with:</b> Rawne’s lascarbine; straight silver knife. <br><br><b>1 Tanith Ghost is equipped with:</b> Larkin’s long-las; straight silver knife. <br><br><b>1 Tanith Ghost is equipped with:</b> Bragg’s autocannon; straight silver knife. <br><br><b>1 Tanith Ghost is equipped with:</b> lascarbine; Mkoll’s straight silver knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9920,6 +9958,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Sol’s Righteous Gaze; Conquest; Konstantin’s hooves.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10088,6 +10127,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Duty and Vengeance; power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10243,6 +10283,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> laspistol; chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10537,6 +10578,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Cadian Commander is equipped with:</b> laspistol; chainsword.<br><br><b>1 Cadian Veteran Guardsman is equipped with:</b> las pistol; chainsword.<br><br><b>1 other Cadian Veteran Guardsman is equipped with:</b> lasgun; master vox; close combat weapon.<br><br><b>1 other Cadian Veteran Guardsman is equipped with:</b> lasgun; medi-pack; close combat weapon.<br><br><b>1 other Cadian Veteran Guardsman is equipped with:</b> lasgun; regimental standard; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10984,6 +11026,7 @@
       "role": "Battleline",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every Shock Trooper Sergeant is equipped with:</b> laspistol; chainsword. <br><br><b>Every Shock Trooper is equipped with:</b> lasgun; close combat weapon.<br><br><i>This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11324,6 +11367,7 @@
       "role": "Battleline",
       "sourceId": "000000335",
       "isVirtual": false,
+      "loadout": "<b>Every Death Korps Watchmaster is equipped with:</b> laspistol; chainsword. <br><br><b>Every Death Korps Trooper is equipped with: lasgun;</b> close combat weapon.<br><br><i>This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11747,6 +11791,7 @@
       "role": "Battleline",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every Jungle Fighter Sergeant is equipped with:</b> laspistol; close combat weapon. <br><br><b>Every Jungle Fighter is equipped with:</b> lasgun; close combat weapon.<br><br><i>This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11964,6 +12009,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Kasrkin Sergeant is equipped with:</b> hot-shot laspistol; chainsword. <br><br><b>Every Kasrkin Trooper is equipped with:</b> hot-shot lasgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12373,6 +12419,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> lasgun; laspistol; hunting lance; steed’s hooves.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12597,6 +12644,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> castigator gatling cannon; heavy stubber; twin battle cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -12888,6 +12936,7 @@
       "role": "Fortifications",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13007,6 +13056,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> eradicator nova cannon; lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -13311,6 +13361,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> executioner plasma cannon; lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -13629,6 +13680,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> exterminator autocannon; lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -13933,6 +13985,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lascannon; punisher gatling cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -14234,6 +14287,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lascannon; vanquisher battle cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -14537,6 +14591,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Tempestor is equipped with:</b> hot-shot laspistol; chainsword. <br><br><b>Every Tempestus Scion is equipped with:</b> hot-shot lasgun; close combat weapon.<br><br><i>This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14942,6 +14997,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Tempestor Aquilon is equipped with:</b> hot-shot lascarbine; sentry flamer; close combat weapon.<br><br><b>Every Tempestus Aquilon is equipped with:</b> hot-shot lascarbine; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15301,6 +15357,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Lord Commissar is equipped with:</b> laspistol; power weapon.<br><br><b>One Veteran Guardsman is equipped with:</b> laspistol; chainsword.<br><br><b>One Veteran Guardsman is equipped with:</b> laspistol; close combat weapon; alchemyk counteragents; servo-scribes.<br><br><b>One Veteran Guardsman is equipped with:</b> lasgun; close combat weapon; master vox.<br><br><b>One Veteran Guardsman is equipped with:</b> lasgun; close combat weapon; regimental standard.<br><br><b>One Veteran Guardsman is equipped with:</b> boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15796,6 +15853,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> laspistol; Sabre of Sacrifice; savage claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15979,6 +16037,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>The Catachan Commander is equipped with:</b> laspistol; close combat weapon.<br><br><b>Every Veteran Guardsman is equipped with:</b> lasgun; laspistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16471,6 +16530,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> castigator gatling cannon; heavy stubber; twin battle cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -16779,6 +16839,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> autopistol; trench club.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17097,6 +17158,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolter; lasgun; weapons team close combat weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17348,6 +17410,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Each Heavy Weapons Gunner is equipped with:</b> lascannon; laspistol; close combat weapon.<br><br><b>The Fire Coordinator is equipped with:</b> laspistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17558,6 +17621,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy mortar; lasgun; crew close combat weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17769,6 +17833,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> malleus rocket launcher; lasgun; laspistol; battery close combat weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17982,6 +18047,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Death Rider lascarbine; frag lance; power sabre; steed’s savage claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18145,6 +18211,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 storm bolter; 1 laspistol; 1 Bale Eye; 1 power klaw; 1 power sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18373,6 +18440,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 chiron gatling cannon; 2 Prefectus heavy stubbers; 1 power sword and Manus Mortis; 1 Enforcer crew; 1 armoured hull; 1 aquiline prow.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18603,6 +18671,7 @@
       "role": "Characters",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 bolt pistol; 1 power sword and Manus Mortis.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18761,6 +18830,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 1 vigilator cannon; 1 heavy stubber; 1 armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18992,6 +19062,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 pintle-mounted heavy stubber; 1 armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -19139,6 +19210,7 @@
       "role": "Other",
       "sourceId": "000000016",
       "isVirtual": false,
+      "loadout": "<b>Each model is equipped with:</b> lasgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

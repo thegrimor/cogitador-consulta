@@ -18,6 +18,7 @@
       "role": "Other",
       "sourceId": "000000270",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Warhound plasma blastgun; Warhound vulcan mega-bolter; Warhound feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-13 wounds remaining, subtract 8 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -210,6 +211,7 @@
       "role": "Other",
       "sourceId": "000000270",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Reaver apocalypse launcher; Reaver gatling blaster; Reaver laser blaster; Reaver feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-20 wounds remaining, subtract 10 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -434,6 +436,7 @@
       "role": "Other",
       "sourceId": "000000270",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 apocalypse launchers; 2 ardex-defensor lascannons; 2 ardex-defensor maulers; macro gatling blaster; arioch power claw; Warlord feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-33 wounds remaining, subtract 15 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -740,6 +743,7 @@
       "role": "Other",
       "sourceId": "000000270",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 anvillus defence batteries; 3 ardex-defensor maulers; Nemesis quake cannon; Reaver gatling blaster; Reaver laser blaster; Nemesis feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-26 wounds remaining, subtract 10 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [

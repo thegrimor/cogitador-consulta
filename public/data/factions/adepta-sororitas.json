@@ -928,6 +928,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> arco-flails.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1057,6 +1058,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> penitent flamers; twin penitent buzz-blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1266,6 +1268,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Saint Celestine is equipped with:</b> the Ardent Blade. <br><br><b>Each Geminae Superia is equipped with:</b> bolt pistol; power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1476,6 +1479,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; hallowed chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1800,6 +1804,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1982,6 +1987,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; chirurgeon’s tools.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2148,6 +2154,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Dialogus staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2304,6 +2311,7 @@
       "role": "Battleline",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2733,6 +2741,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 2 bolt pistols; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2986,6 +2995,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>The Repentia Superior is equipped with:</b> bolt pistol; neural whips. <br><br><b>Each Sister Repentia is equipped with:</b> penitent eviscerator.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3177,6 +3187,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>The Retributor Superior is equipped with:</b> bolt pistol; boltgun; close combat weapon. <br><br><b>Each Retributor is equipped with:</b> bolt pistol; heavy bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3560,6 +3571,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3955,6 +3967,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4126,6 +4139,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; immolation flamers; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4357,6 +4371,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Exorcist missile launcher; heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4562,6 +4577,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> zealot’s vindictor.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4770,6 +4786,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistols; relic weapons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, the Attacks characteristics of all of its weapons are halved, and you can only select one ability when using its Relics of the Matriarchs ability, instead of up to two.",
       "models": [
@@ -4966,6 +4983,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin Ministorum heavy flamer; Mace of Castigation.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5122,6 +5140,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5320,6 +5339,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 2 heavy bolters; twin penitent buzz-blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5557,6 +5577,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Palatine blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5759,6 +5780,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Fidelis; Paragon missile launcher; Lance of Illumination.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5970,6 +5992,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Aestred Thurga is equipped with:</b> bolt pistol; Blade of Vigil. <br><br><b>Agathae Dolan is equipped with:</b> bolt pistol; scribe’s staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6149,6 +6172,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; hallowed mace.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6414,6 +6438,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; mace of the righteous.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6571,6 +6596,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; heavy bolter; Paragon storm bolters; Paragon war blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6831,6 +6857,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Castigator autocannons; 3 heavy bolters; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7061,6 +7088,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>The Novitiate Superior is equipped with:</b> bolt pistol; boltgun; close combat weapon. <br><br><b>Each Sister Novitiate is equipped with:</b> autopistol; autogun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7384,6 +7412,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Ephrael Stern is equipped with:</b> bolt pistol; Sanctity. <br><br><b>Kyganil of the Bloody Tears is equipped with:</b> the Outcast’s Weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7579,6 +7608,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> blessed halberd.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7793,6 +7823,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>The Miraculist is equipped with:</b> holy fire; burning hands.<br><br><b>The Salvationist is equipped with:</b> close combat weapon; Salvationist medikit.<br><br><b>The Death Cult Assassin is equipped with:</b> Death Cult blades.<br><br><b>1 Missionary is equipped with:</b> plasma gun; Sanctifier melee weapon.<br><br><b>1 Missionary is equipped with:</b> Ministorum flamer; Sanctifier melee weapon.<br><br><b>Every Sanctifier is equipped with:</b> Ministorum hand flamer; Sanctifier melee weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8139,6 +8170,7 @@
       "role": "Other",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>Each model is equipped with:</b> condemnor bolt pistol; null mace.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8423,6 +8455,7 @@
       "role": "Characters",
       "sourceId": "000000112",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 heavy bolters, 2 Ministorum heavy flamers; 1 melta missile array; 1 Mace of Saint Praxedes; 1 Throne of Blame.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

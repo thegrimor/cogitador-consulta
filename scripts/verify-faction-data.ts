@@ -16,7 +16,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { parseCsvRaw, parseWeapon } from '../src/infrastructure/data/csvParsers'
+import { parseCsvRaw, parseWeapon, WEAPON_RULE_DEFAULTS } from '../src/infrastructure/data/csvParsers'
 import type { RawDatasheetWargear, Weapon } from '../src/types'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -60,14 +60,6 @@ async function main() {
   const wargearRows = parseCsvRaw(
     fs.readFileSync(path.join(DATA_DIR, 'Datasheets_wargear.csv'), 'utf-8'),
   ) as unknown as RawDatasheetWargear[]
-
-  const WEAPON_RULE_DEFAULTS: Omit<Weapon, 'line' | 'name' | 'description' | 'range' | 'type' | 'A' | 'bsWs' | 'S' | 'AP' | 'D'> = {
-    isTorrent: false, isBlast: false, isDevastatingWounds: false, isLethalHits: false, isHeavy: false,
-    isTwinLinked: false, isMelta: false, meltaValue: 0, cleaveValue: 0, sustainedHitsValue: 0, antiEntries: [],
-    isIgnoresCover: false, isHazardous: false, isAssault: false, isPistol: false, isPsychic: false,
-    isPrecision: false, isOneShot: false, isIndirectFire: false, isExtraAttacks: false, isLance: false,
-    isConversion: false, rapidFireValue: '',
-  }
 
   let weaponsChecked = 0
   for (const { slug, acDatasheets } of results) {

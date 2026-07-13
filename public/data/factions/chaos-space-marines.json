@@ -2303,6 +2303,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Talon of Horus; Drach’nyen.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2558,6 +2559,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b>  Tyrant’s Claw heavy flamer; Tyrant’s Claw and exalted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2770,6 +2772,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Cypher’s bolt pistol; Cypher’s plasma pistol.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3004,6 +3007,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Fabius Bile is equipped with:</b> Xyclos Needler; Chirurgeon; Rod of Torment. <br><br><b>The Surgeon Acolyte is equipped with:</b> Surgeon Acolyte’s tools.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3275,6 +3279,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; daemon hammer.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3594,6 +3599,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-bolter; exalted weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3931,6 +3937,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Dark Apostle is equipped with:</b> bolt pistol; accursed crozius. <br><br><b>Every Dark Disciple is equipped with:</b> close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4215,6 +4222,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> infernal cannon; hellforged weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4486,6 +4494,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Infernal Gaze; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4772,6 +4781,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-bolter; Infernal Gaze; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5106,6 +5116,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> flamer tendril; melta tendril; plasma pistol; forge weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5422,6 +5433,7 @@
       "role": "Battleline",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> autopistol; brutal assault weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5626,6 +5638,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> combi-bolter; accursed weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5957,6 +5970,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; bolt pistol; accursed weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6288,6 +6302,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> hideous mutations.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6482,6 +6497,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> missile launcher; multi-melta; close combat weapon",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6840,6 +6856,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7063,6 +7080,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; combi-bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7436,6 +7454,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7824,6 +7843,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> warp claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8012,6 +8032,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> hideous mutations.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8157,6 +8178,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hades autocannon; Heldrake claws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8368,6 +8390,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 soulshatter lascannons; twin heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8621,6 +8644,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator autocannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8892,6 +8916,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> demolisher cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -9131,6 +9156,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> fleshmetal guns; crushing fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9360,6 +9386,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Havoc Champion is equipped with:</b> flamer; Astartes chainsword.<br><br><b>2 Havocs are equipped with:</b> Havoc autocannon; close combat weapon. <br><br><b>2 Havocs are equipped with:</b> Havoc lascannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9792,6 +9819,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Hades autocannons; Forgefiend jaws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -10014,6 +10042,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lasher tendrils; Maulerfiend fists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -10207,6 +10236,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Hades battle cannon; 2 excruciator cannons; 1 heavy missile launcher; 1 heavy baleflamer; 1 shearing claws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -10578,6 +10608,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> gorestorm cannon; Hades gatling cannon; great cleaver of Khorne.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -10838,6 +10869,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Helspear; Herald’s Talon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11065,6 +11097,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Rite of Possession; staff of possession.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11371,6 +11404,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Helstalker autocannon; techno-virus injector; bladed limbs; impaler chainglaive.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11693,6 +11727,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; axe of dismemberment.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11941,6 +11976,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 excruciator cannons; soulflayer tendrils and claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12121,6 +12157,7 @@
       "role": "Fortifications",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lashing warp energies.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12283,6 +12320,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Fellgor Champion is equipped with:</b> bolt pistol; chainsword. <br><br><b>Every Fellgor Beastman is equipped with:</b> autopistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12581,6 +12619,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Cult Demagogue is equipped with:</b> autopistol; Commune stave. <br><br><b>The Mindwitch is equipped with:</b> Warp Curse; close combat weapon. <br><br><b>The Iconarch is equipped with:</b> autopistol; close combat weapon; Chaos icon. <br><br><b>Every Blessed Blade is equipped with:</b> Commune blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12916,6 +12955,7 @@
       "role": "Battleline",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13415,6 +13455,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every Torment is equipped with:</b> hideous mutations. <br><br><b>Every Mutant is equipped with:</b> blasphemous appendages.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13626,6 +13667,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator twin lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -13897,6 +13939,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Traitor Enforcer is equipped with:</b> bolt pistol; power fist. <br><br><b>The Traitor Ogryn is equipped with:</b> Ogryn weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14150,6 +14193,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Traitor Sergeant is equipped with:</b> corrupted pistol; close combat weapon. <br><br><b>Every Traitor Guardsman is equipped with:</b> lasgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14505,6 +14549,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Vashtorr’s claw; Vashtorr’s hammer.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -14736,6 +14781,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> infernal cannon; hellforged weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15002,6 +15048,7 @@
       "role": "Battleline",
       "sourceId": "000000210",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; chainblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15258,6 +15305,7 @@
       "role": "Battleline",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>The Aspiring Sorcerer is equipped with:</b> inferno bolt pistol; Malefic Curse; force weapon.<br><br><b>Every Rubric Marine is equipped with:</b> inferno boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15600,6 +15648,7 @@
       "role": "Battleline",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; plague knives.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16033,6 +16082,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; accursed weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16361,6 +16411,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> balefire pike, close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16579,6 +16630,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Visionary is equipped with:</b> bolt pistol; Nostraman chainblade.<br><br><b>Each Legionary is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17072,6 +17124,7 @@
       "role": "Other",
       "sourceId": "000000280",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> sonic blaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17323,6 +17376,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Garreon the Corpsemaster is equipped with:</b> absolvor bolt pistol; reductor array.<br><br><b>Garlon Souleater is equipped with:</b> Mind Wrench; force stave.<br><br><b>Katar Garrix is equipped with:</b> bolt pistol; Axe of Ending.<br><br><b>Captain Sargotta is equipped with:</b> laspistol; power sabre.<br><br><b>The Enforcer is equipped with:</b> Londaxi maimer; bionic gauntlet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17701,6 +17755,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Each model is equipped with:</b> boltgun; bolt pistol; reaver’s blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17990,6 +18045,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; power sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18295,6 +18351,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> baleflamer; combi-bolter; servo-harness; Last Argument and power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18561,6 +18618,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 1 fleshmetal weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

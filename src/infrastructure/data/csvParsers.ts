@@ -102,6 +102,17 @@ export function parseAntiEntries(desc: string): AntiEntry[] {
   return entries
 }
 
+/** Defaults for the weapon-rule flags the generator trims off when they're falsy (see
+ * stripWeaponRuleDefaults in scripts/generate-faction-data.ts) — shared so anything
+ * reconstructing a full Weapon from the trimmed `rules` JSON fills the same gaps. */
+export const WEAPON_RULE_DEFAULTS: Omit<Weapon, 'line' | 'name' | 'description' | 'range' | 'type' | 'A' | 'bsWs' | 'S' | 'AP' | 'D'> = {
+  isTorrent: false, isBlast: false, isDevastatingWounds: false, isLethalHits: false, isHeavy: false,
+  isTwinLinked: false, isMelta: false, meltaValue: 0, cleaveValue: 0, sustainedHitsValue: 0, antiEntries: [],
+  isIgnoresCover: false, isHazardous: false, isAssault: false, isPistol: false, isPsychic: false,
+  isPrecision: false, isOneShot: false, isIndirectFire: false, isExtraAttacks: false, isLance: false,
+  isConversion: false, rapidFireValue: '',
+}
+
 export function parseWeapon(raw: RawDatasheetWargear): Weapon {
   const desc = (raw.description ?? '').toLowerCase()
   return {

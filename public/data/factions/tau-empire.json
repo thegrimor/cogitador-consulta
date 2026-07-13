@@ -881,6 +881,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> high-output burst cannon; battlesuit fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1201,6 +1202,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> honour stave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1350,6 +1352,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Fireblade pulse rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1510,6 +1513,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> high-intensity plasma rifle; Dawn Blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1680,6 +1684,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> flechette launcher; 2 high-energy fusion blasters; light missile pod; pulse pistol; battlesuit fists; advanced guardian drone; command-link drone.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1921,6 +1926,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Shade; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2074,6 +2080,7 @@
       "role": "Battleline",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> pulse pistol; pulse rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2272,6 +2279,7 @@
       "role": "Battleline",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> pulse blaster; pulse pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2453,6 +2461,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>The 1 Long-quill is equipped with:</b> Kroot pistol; Kroot rifle; close combat weapon.<br><br><b>Every Kroot Carnivore is equipped with:</b> Kroot rifle; close combat weapon.<br>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2658,6 +2667,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> repeater cannon; close combat weapon; Krootox fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2832,6 +2842,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> ripping fangs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2953,6 +2964,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> burst cannon; battlesuit fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3165,6 +3177,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> fusion collider; twin T’au flamer; Ghostkeel fists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3435,6 +3448,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy burst cannon; twin plasma rifle; Riptide fists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3700,6 +3714,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> pulse carbine; pulse pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3983,6 +3998,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Piranha burst cannon; 2 twin pulse carbines; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4198,6 +4214,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> accelerator burst cannon; 2 twin pulse carbines; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4388,6 +4405,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> accelerator burst cannon; quad ion turret; 2 seeker missiles; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4596,6 +4614,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> missile pod; 2 seeker missiles; 2 twin ion rifles; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4800,6 +4819,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> neutron blaster; stingwing claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4988,6 +5008,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> longshot pulse rifles; pulse pistol; close combat weapons. <br><br><b>Designer’s Note:</b> <i>The Firesight Marksman model and sniper drone models are treated as a single model for all rules purposes. All distances are measured to and from the Farsight Marksman model. The sniper drone models do not count as models for any rules purposes.</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5167,6 +5188,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 seeker missile rack; 2 twin pulse carbines; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5358,6 +5380,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 railgun; 2 twin pulse carbines; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5611,6 +5634,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy rail rifle; crushing bulk.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5860,6 +5884,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cluster rocket system; destroyer missiles; pulse driver cannon; 2 twin smart missile system; twin T’au flamer; thunderous footfalls.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic, and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6164,6 +6189,7 @@
       "role": "Fortifications",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> drone defenders.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6292,6 +6318,7 @@
       "role": "Fortifications",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "This model can be equipped with 1 Tidewall defence platform",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6417,6 +6444,7 @@
       "role": "Fortifications",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> supremacy railgun.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6539,6 +6567,7 @@
       "role": "Other",
       "sourceId": "000000382",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 4 burst cannons; fusion eradicator; 3 pulse ordnance drivers; 4 smart missile systems; tri-axis ion cannon; crushing feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6834,6 +6863,7 @@
       "role": "Other",
       "sourceId": "000000382",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 burst cannons; 2 ion cannons; 2 missile pods; armoured hull; transport bay.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7139,6 +7169,7 @@
       "role": "Other",
       "sourceId": "000000382",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 burst cannons; 2 missile pods; twin heavy rail cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7362,6 +7393,7 @@
       "role": "Other",
       "sourceId": "000000382",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 heavy rail cannons; 6 ion cannons; 2 long-barrelled burst cannon arrays; 2 missile pods; 10 seeker missiles; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-20 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7603,6 +7635,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> burst cannon; battlesuit fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7905,6 +7938,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>The Kroot Kill-broker is equipped with:</b> Farstalker firearm; Kroot pistol; ritual blade. <br><br><b>Every Kroot Farstalker is equipped with:</b> Farstalker firearm; Kroot pistol; close combat weapon. <br><br><b>Every Kroot Hound is equipped with:</b> ripping fangs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8191,6 +8225,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 2 fusion blasters; battlesuit fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8347,6 +8382,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> plasma rifle; missile pod; battlesuit fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8536,6 +8572,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> burst cannon; T’au flamer; battlesuit fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8728,6 +8765,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Kroot rifle; Shaper’s blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8892,6 +8930,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> dart-bow and tri-blade; Kroot pistol; Shaper’s blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9114,6 +9153,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Kroot scattergun; twin ritualistic blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9292,6 +9332,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Kroot long gun; close combat weapon; Kalamandra’s bite.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9511,6 +9552,7 @@
       "role": "Other",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Kroot pistol and hunting javelins; hunting blades; Rampager fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9672,6 +9714,7 @@
       "role": "Characters",
       "sourceId": "000000028",
       "isVirtual": false,
+      "loadout": "<b>Ri’Lantar is equipped with:</b> 1 fusion eliminator; 1 XV pulse pistol; 1 shardstorm burst system; 1 MV15 gun drone.<br><br><b>Ri’Locai is equipped with:</b> 1 ion scattercannon; 1 XV pulse pistol; 1 shardstorm burst system; 1 MV15 gun drone.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

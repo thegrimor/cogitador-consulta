@@ -385,8 +385,7 @@ export interface GameData {
   detachmentAbilities: DetachmentAbility[]
   stratagems: Stratagem[]
   datasheetStratagems: Record<string, string[]>
-  abilitiesMap: Record<string, RawAbility>
-  armyRulesByFaction: Record<string, RawAbility[]>
+  armyRulesByFaction: Record<string, Ability[]>
   /** ability id -> chapter name(s) that use it (SM only; e.g. Templar Vows -> ['Black Templars']). */
   armyRuleChaptersMap: Record<string, string[]>
   pointsCosts: PointsCost[]
@@ -461,7 +460,8 @@ export interface Enhancement {
 }
 
 export interface UnitOption {
-  line: number
+  /** Original CSV row order only — nothing sorts or reads this; array order already reflects it. */
+  line?: number
   button: string
   description: string
 }

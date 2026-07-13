@@ -66,6 +66,7 @@ const rawDsOptions           = readCsv<RawDatasheetOption>('Datasheets_options')
 const rawDsDetachAbils       = readCsv<RawDatasheetDetachmentAbility>('Datasheets_detachment_abilities')
 const rawSources             = readCsv<RawSource>('Source')
 const rawCoreRules           = readCsv<RawCoreRule>('CoreRules')
+const rawLastUpdate          = readCsv<{ last_update: string }>('Last_update')
 
 // ── Same enrichment pipeline useGameData.ts runs, kept identical on purpose ───────────
 
@@ -564,6 +565,7 @@ function generateForFaction(targetFaction: string): void {
       role: ds.role,
       sourceId: ds.sourceId,
       isVirtual: ds.isVirtual,
+      loadout: ds.loadout,
       damagedW: ds.damagedW,
       damagedDescription: ds.damagedDescription,
       models: ds.models,
@@ -669,10 +671,22 @@ rawAbilities
   .filter(a => !a.faction_id && !coreRuleNameSet.has(a.name.toLowerCase()))
   .forEach(a => coreRulesOut.push({ id: a.id, name: a.name, category: 'unit_ability', summary: '', description: stripLore(a.description) }))
 
+const sourcesOut = rawSources.map(s => ({
+  id: s.id,
+  name: s.name,
+  type: s.type,
+  edition: parseInt(s.edition) || 10,
+  version: s.version,
+  errataDate: s.errata_date,
+  errataLink: s.errata_link,
+}))
+
 const catalogOut = {
   coreRules: coreRulesOut,
   coreStratagems: coreStratagemsOut,
   coreRuleEffects,
+  sources: sourcesOut,
+  lastUpdate: rawLastUpdate[0]?.last_update ?? '',
 }
 
 fs.writeFileSync(path.join(OUT_CATALOG_DIR, 'factions.json'), JSON.stringify(factionsCatalog, null, 2))

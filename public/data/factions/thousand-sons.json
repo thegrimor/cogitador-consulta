@@ -1065,6 +1065,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> inferno bolt pistol; Pandaemonic Delusion; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1275,6 +1276,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Gaze of Hate; inferno combi-bolter; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1513,6 +1515,7 @@
       "role": "Battleline",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>The Aspiring Sorcerer is equipped with:</b> inferno bolt pistol; Malefic Curse; force weapon.<br><br><b>Every Rubric Marine is equipped with:</b> inferno boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1820,6 +1823,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> missile launcher; multi-melta; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2131,6 +2135,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> inferno combi-bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2313,6 +2318,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> hideous mutations.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2430,6 +2436,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hades autocannon; Heldrake claws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2586,6 +2593,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 soulshatter lascannons; twin inferno heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2791,6 +2799,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator autocannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3023,6 +3032,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> demolisher cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3215,6 +3225,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Hades autocannons; 1 Forgefiend jaws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3382,6 +3393,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lasher tendrils; Maulerfiend fists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3529,6 +3541,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Hades battle cannon; 2 excruciator cannons; 1 heavy missile launcher; 1 heavy baleflamer; 1 shearing claws",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3857,6 +3870,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Gaze of Magnus; Tzeentch’s Firestorm; blade of Magnus.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4085,6 +4099,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> inferno bolt pistol; Transmogrifying Blast; Black Staff of Ahriman.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4252,6 +4267,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Astral Blast; inferno bolt pistol; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4464,6 +4480,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Tzaangor blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4626,6 +4643,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>The Scarab Occult Sorcerer is equipped with:</b> inferno combi-bolter; Malefic Curse; force weapon.<br><br><b>Every Scarab Occult Terminator is equipped with:</b> inferno combi-bolter; Prosperine khopesh.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4902,6 +4920,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Dark Blessing; infernal cannon; heliforged weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5104,6 +5123,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Baleful Devolution; force stave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5285,6 +5305,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> divining spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5427,6 +5448,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> warp vortex; betentacled maw; Mutalith claws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5610,6 +5632,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> inferno bolt pistol; Fires of the Abyss; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5818,6 +5841,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator twin lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6042,6 +6066,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Arcane Fire; inferno bolt pistol; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6249,6 +6274,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Dark Blessing; infernal cannon; heliforged weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6467,6 +6493,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy warpflamer; hellfyre missile rack; pyreflux meltagun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6670,6 +6697,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> fatecaster greatbow; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6796,6 +6824,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Infernal Gateway; Staff of Tomorrow.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6953,6 +6982,7 @@
       "role": "Characters",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Bolt of Change; staff of Tzeentch.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7153,6 +7183,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> flickering flames; Flamer mouths.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7281,6 +7312,7 @@
       "role": "Other",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> lamprey bite.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7398,6 +7430,7 @@
       "role": "Battleline",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every Pink Horror is equipped with:</b> coruscating pink flames; pink claws. <br><br><b>Every Blue Horror added to this unit using the Split ability is equipped with:</b> coruscating blue flames; blue claws. <br><br><b>Every Brimstone Horror added to this unit using the Split ability is equipped with:</b> coruscating yellow flames; yellow claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7636,6 +7669,7 @@
       "role": "Battleline",
       "sourceId": "000000027",
       "isVirtual": false,
+      "loadout": "<b>Every Blue Horror is equipped with:</b> coruscating blue flames; blue claws.<br><br><b>Every Brimstone Horror added to this unit using the Split ability is equipped with:</b> coruscating yellow flames; yellow claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

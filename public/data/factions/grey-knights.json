@@ -1043,6 +1043,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Searing Purity; storm bolter; Malleus Argyrum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1231,6 +1232,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1483,6 +1485,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1728,6 +1731,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1916,6 +1920,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Purifying Flame; storm bolter; Black Blade of Antwyr.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2113,6 +2118,7 @@
       "role": "Battleline",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2343,6 +2349,7 @@
       "role": "Battleline",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2619,6 +2626,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Purifying Flame; storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2883,6 +2891,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3154,6 +3163,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3381,6 +3391,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; Nemesis force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3615,6 +3626,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> dreadfists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3850,6 +3862,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 godhammer lascannons; twin heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4057,6 +4070,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 hurricane bolters; twin assault cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4269,6 +4283,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 flamestorm cannons; twin assault cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4481,6 +4496,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin heavy bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4673,6 +4689,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4835,6 +4852,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 stormstrike missile launchers; twin assault cannon; typhoon missile launcher; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5132,6 +5150,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> forge bolter; grav-pistol; Omnissian power axe; servo-arm.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5364,6 +5383,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> assault cannon; storm bolter; Dreadnought combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5628,6 +5648,7 @@
       "role": "Other",
       "sourceId": "000000365",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lascannons; Thunderhawk heavy cannon; 4 twin heavy bolters; armoured hull; Thunderhawk cluster bombs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5851,6 +5872,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> dreadfists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6197,6 +6219,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Nemesis force weapon; Vortex of Doom.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6435,6 +6458,7 @@
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6618,6 +6642,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> las-talon; skyhammer missile launcher; twin assault cannon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6866,6 +6891,7 @@
       "role": "Other",
       "sourceId": "000000013",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> skyhammer missile launcher; twin assault cannon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

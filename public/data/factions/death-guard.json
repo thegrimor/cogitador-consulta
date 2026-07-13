@@ -1038,6 +1038,7 @@
       "role": "Battleline",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; plague knives.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1427,6 +1428,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> multi-melta; Helbrute fist; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1771,6 +1773,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1968,6 +1971,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> hideous mutations.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2090,6 +2094,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 soulshatter lascannons; twin heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2312,6 +2317,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator twin lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2547,6 +2553,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> infernal cannon; hellforged weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2721,6 +2728,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lakrimae.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2885,6 +2893,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> manreaper.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3061,6 +3070,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Plague Wind; corrupted staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3266,6 +3276,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> improvised weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3401,6 +3412,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> fleshmower; plague probe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3571,6 +3583,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; cursed plague bell.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3750,6 +3763,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plague sprayer; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3912,6 +3926,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> hyper blight grenades; injector pistol; plague knives.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4111,6 +4126,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; balesword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4275,6 +4291,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4450,6 +4467,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> plaguespurt gauntlet; manreaper.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4660,6 +4678,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> combi-bolter; bubotic blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4954,6 +4973,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bile spurt; missile launcher; multi-melta; gnashing maw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5157,6 +5177,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 entropy cannons; heavy slugger; Plagueburst mortar; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5384,6 +5405,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lantern; Rotwind; Silence.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5607,6 +5629,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin plague spewer; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5795,6 +5818,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> predator autocannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6037,6 +6061,7 @@
       "role": "Fortifications",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> miasmic gouts.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6173,6 +6198,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> infernal cannon; hellforged weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6348,6 +6374,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> boltgun; plague knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6505,6 +6532,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; great plague blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6680,6 +6708,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy blight launcher; plague probe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6824,6 +6853,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> streams of brackish filth; gnarlrod.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6992,6 +7022,7 @@
       "role": "Characters",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plague flail; putrid vomit; bilesword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7219,6 +7250,7 @@
       "role": "Battleline",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> plaguesword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7344,6 +7376,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> death’s heads; foul mouthparts; plaguesword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7519,6 +7552,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> putrid appendages.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7637,6 +7671,7 @@
       "role": "Other",
       "sourceId": "000000014",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> diseased claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7756,6 +7791,7 @@
       "role": "Other",
       "sourceId": "",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Hades battle cannon; 2 excruciator cannons; 1 heavy missile launcher; 1 heavy baleflamer; 1 shearing claws",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [

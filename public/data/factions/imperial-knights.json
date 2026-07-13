@@ -1084,6 +1084,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> meltagun; Questoris heavy stubber; rapid-fire battlecannon; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1434,6 +1435,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> meltagun; thermal cannon; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1775,6 +1777,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> avenger gatling cannon; heavy flamer; meltagun; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2132,6 +2135,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> meltagun; thunderstrike gauntlet; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2460,6 +2464,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> avenger gatling cannon; heavy flamer; meltagun; thermal cannon; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2826,6 +2831,7 @@
       "role": "Other",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Acastus autocannons; Acastus ironstorm missile pod; 2 twin magna lascannons; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3079,6 +3085,7 @@
       "role": "Characters",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Acheron flame cannon; twin heavy bolter; reaper chainfist.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3309,6 +3316,7 @@
       "role": "Characters",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Atrapos lascutter; graviton singularity cannon.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3581,6 +3589,7 @@
       "role": "Characters",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Castigator bolt cannon; tempest warblade.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3802,6 +3811,7 @@
       "role": "Characters",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Cerastus shock lance.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4010,6 +4020,7 @@
       "role": "Characters",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lightning cannon; phased plasma-fusil; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4306,6 +4317,7 @@
       "role": "Characters",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> graviton crusher; volkite chierovile; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4594,6 +4606,7 @@
       "role": "Other",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Armiger autocannons; Questoris heavy stubber; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4785,6 +4798,7 @@
       "role": "Other",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Questoris heavy stubber; thermal spear; reaper chain-cleaver.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4991,6 +5005,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> las-impulsor; Preceptor multi-laser; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5361,6 +5376,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>Canis Rex is equipped with:</b> las-impulsor; Questoris multi-laser; Freedom’s Hand.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5583,6 +5599,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma decimator; 2 shieldbreaker missile launchers; 2 twin meltaguns; twin siegebreaker cannon; volcano lance; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5898,6 +5915,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> conflagration cannon; 2 shieldbreaker missile launchers; thundercoil harpoon; 2 twin meltaguns; twin siegebreaker cannon; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6186,6 +6204,7 @@
       "role": "Other",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Asterius volkite culverins; karacnos mortar battery; 2 twin conversion beam cannons; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6430,6 +6449,7 @@
       "role": "Other",
       "sourceId": "000000370",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> graviton pulsar; volkite veuglaire; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6689,6 +6709,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>Sir Hekhtur is equipped with:</b> Hekhtur’s pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6796,6 +6817,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> macrostubber; volkite blaster; Omnissian axe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6997,6 +7019,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> magnarail lance; Omnissian staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7148,6 +7171,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; control stave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7276,6 +7300,7 @@
       "role": "Battleline",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> galvanic rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7535,6 +7560,7 @@
       "role": "Battleline",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> radium carbine; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7795,6 +7821,7 @@
       "role": "Characters",
       "sourceId": "000000034",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> conversion beam obliterator; plasma executor; twin incendine combustor; phosphor blaster; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1‑9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8087,6 +8114,7 @@
       "role": "Characters",
       "sourceId": "",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 chastiser gatling cannon;<br>1 frag bombard; 1 Questoris heavy stubber; 1 titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, subtract 4 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [

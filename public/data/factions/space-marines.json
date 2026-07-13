@@ -6908,6 +6908,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7309,6 +7310,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin heavy bolter; 2 godhammer lascannons; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7677,6 +7679,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 hurricane bolters; twin assault cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8050,6 +8053,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> accelerator autocannon; bolt pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8378,6 +8382,7 @@
       "role": "Battleline",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9102,6 +9107,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolt pistol; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9502,6 +9508,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; master-crafted bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10033,6 +10040,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-weapon; paired combat blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10475,6 +10483,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Smite; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10993,6 +11002,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11527,6 +11537,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin assault cannon; skyhammer missile launcher; las-talon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11919,6 +11930,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin Firestrike las-talon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12217,6 +12229,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12484,6 +12497,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Ballistus missile launcher; Ballistus lascannon; twin storm bolter; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -12815,6 +12829,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; twin bolt rifle; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13228,6 +13243,7 @@
       "role": "Fortifications",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hammerfall heavy bolter array; Hammerfall missile launcher.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -13542,6 +13558,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; melta rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13899,6 +13916,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14475,6 +14493,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hammerstrike missile launcher; 2 krakstorm grenade launchers; melta destroyer; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14789,6 +14808,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15251,6 +15271,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> assault cannon; storm bolter; Dreadnought combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15674,6 +15695,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> thunder hammer; storm shield.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16028,6 +16050,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Smite; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16483,6 +16506,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Invictus; Sword of Idaeus.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16808,6 +16832,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 fragstorm grenade launchers; onslaught gatling cannon; twin ironhail heavy stubber; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17132,6 +17157,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> assault bolters; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17489,6 +17515,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; pyreblaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -17825,6 +17852,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Gorgon’s Wrath; Harrowhand; Medusan manipuli.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18191,6 +18219,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; marksman bolt carbine; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18553,6 +18582,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin heavy bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -18901,6 +18931,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; relic weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -19388,6 +19419,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin Icarus ironhail heavy stubber; twin heavy bolter; Brutalis bolt rifles; Brutalis fists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -19767,6 +19799,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hand of Dominion; Emperor’s Sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -20074,6 +20107,7 @@
       "role": "Other",
       "sourceId": "000000362",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lascannons; Thunderhawk heavy cannon; 4 twin heavy bolters; armoured hull; Thunderhawk cluster bombs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -20448,6 +20482,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> forge bolter; grav-pistol; Omnissian power axe; servo-arm.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -20898,6 +20933,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; Vanguard Veteran weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -21342,6 +21378,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Perdition; the Axe Mortalis.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -21674,6 +21711,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; Fury of the Ancients; Vitarus.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -22056,6 +22094,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> encarmine broadsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -22365,6 +22404,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> the Executioner’s Axe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -22685,6 +22725,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -23091,6 +23132,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; the Blood Crozius.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -23435,6 +23477,7 @@
       "role": "Other",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Angelus boltgun; encarmine blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -23831,6 +23874,7 @@
       "role": "Other",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin Icarus ironhail heavy stubber; twin heavy bolter; blood fist bolt rifles; blood fists.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -24234,6 +24278,7 @@
       "role": "Other",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin assault cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -24613,6 +24658,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lion’s Wrath; the Sword of Secrets; the Lion Helm.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -24954,6 +25000,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> master-crafted storm bolter; the Sword of Silence.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -25294,6 +25341,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolt pistol; crozius arcanum and power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -25630,6 +25678,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> the Deliverer; Mind Wipe; Traitor’s Bane; Book of Salvation.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -26019,6 +26068,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>The Deathwing Sergeant is equipped with:</b> storm bolter; power weapon. <br><br><b>Every Deathwing Terminator is equipped with:</b> storm bolter; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -26517,6 +26567,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>The Knight Master is equipped with:</b> great weapon of the Unforgiven.<br><br><b>Every Deathwing Knight is equipped with:</b> mace of absolution.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -26928,6 +26979,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -27218,6 +27270,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> avenger mega bolter; blacksword missiles; twin heavy bolter; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-3 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -27565,6 +27618,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> rift cannon; 2 hurricane bolters; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-3 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -27863,6 +27917,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; plasma talon; Black Knight combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -28233,6 +28288,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolter; plasma storm battery; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -28564,6 +28620,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; Axe Morkai; Tyrnak and Fenrir.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -28941,6 +28998,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Frostfang.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -29266,6 +29324,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Living Lightning; Staff of the Stormcaller.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -29626,6 +29685,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; artificer crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -29982,6 +30042,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> assault cannon; heavy flamer; Trueclaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -30352,6 +30413,7 @@
       "role": "Battleline",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -30722,6 +30784,7 @@
       "role": "Battleline",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt carbine; bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -31123,6 +31186,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> helfrost pistol; tempest hammer and servo-arm.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -31563,6 +31627,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Wulfen weapons; death totem.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -31904,6 +31969,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy flamer; storm bolter; Murderclaws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -32232,6 +32298,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Foehammer.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -32595,6 +32662,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>The Wolf Guard Terminator Pack Leader is equipped with:</b> storm bolter; master-crafted power weapon.<br><br><b>Every Wolf Guard Terminator is equipped with:</b> storm bolter; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -33020,6 +33088,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; teeth and claws; Wolf Guard weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -33397,6 +33466,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> teeth and claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -33651,6 +33721,7 @@
       "role": "Other",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Blackstar rocket launchers; twin assault cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -34033,6 +34104,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> fragstorm grenade launcher; heavy bolter; incendium cannon; twin ironhail heavy stubber; Invictor fist.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -34383,6 +34455,7 @@
       "role": "Battleline",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -34885,6 +34958,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol, twin bolt rifle; onslaught gatling cannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -35215,6 +35289,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; occulus bolt carbine; paired combat blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -35566,6 +35641,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -36016,6 +36092,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolt pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -36443,6 +36520,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> master-crafted heavy bolt rifle; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -36922,6 +37000,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -37329,6 +37408,7 @@
       "role": "Battleline",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; heavy bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -37677,6 +37757,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -38127,6 +38208,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> demolisher cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -38450,6 +38532,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> skyhammer missile launcher; twin assault cannon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -38822,6 +38905,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 stormstrike missile launchers; twin assault cannon; typhoon missile launcher; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -39275,6 +39359,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> grav-cannon; Centurion bolters; Centurion fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -39653,6 +39738,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> master-crafted special issue bolt pistol; combat knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -40066,6 +40152,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; master-crafted bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -40594,6 +40681,7 @@
       "role": "Battleline",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -41027,6 +41115,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> stormfury missiles; Thunderstrike las-talon; twin Icarus rocket pod; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -41352,6 +41441,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Storm of the Emperor’s Wrath; Rod of Tigurius.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -41707,6 +41797,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 tempest bolters; twin heavy onslaught gatling cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -42048,6 +42139,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; bolt sniper rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -42417,6 +42509,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 multi-meltas; twin las-talon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -42758,6 +42851,7 @@
       "role": "Other",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -43237,6 +43331,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; plasma incinerator; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -43622,6 +43717,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> flamestorm gauntlets; twin power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -43973,6 +44069,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Drakkis; Malleus Noctum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -44287,6 +44384,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Fist of Dorn.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -44617,6 +44715,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 flamestorm cannons; twin assault cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -44990,6 +45089,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -45604,6 +45704,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Sternguard bolt pistol; Sternguard bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -46083,6 +46184,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Smite; force weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -46530,6 +46632,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; castellan launcher; superfrag rocket launcher; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -46910,6 +47013,7 @@
       "role": "Other",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt pistol; bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -47455,6 +47559,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; master-crafted plasma cannon; twin storm bolter; the Raven Sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -47790,6 +47895,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Enmity’s Edge.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -48117,6 +48223,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> artificer grav-gun; Hand of Defiance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -48443,6 +48550,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; master-crafted scoped bolt carbine; paired combat blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -48882,6 +48990,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 storm bolters; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -49301,6 +49410,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -49842,6 +49952,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Arma Luminis; Fealty.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -50182,6 +50293,7 @@
       "role": "Other",
       "sourceId": "000000362",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Astraeus las-rippers; ironhail heavy stubber; storm bolter; twin heavy bolter; twin macro-accelerator cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -50594,6 +50706,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; instigator bolt carbine; combat knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -51025,6 +51138,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin flamer; siege drills; Centurion bolters.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -51379,6 +51493,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lancer laser destroyer; 2 storm bolters; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -51748,6 +51863,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; executioner relic blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -52153,6 +52269,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Blackout; the Raven’s Talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -52495,6 +52612,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Moonfang.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -52810,6 +52928,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>The Outrider Sergeant and every Outrider is equipped with:</b> heavy bolt pistol; twin bolt rifle; Astartes chainsword.<br><br><b>An Invader ATV is equipped with:</b> bolt pistol; twin bolt rifle; onslaught gatling cannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -53217,6 +53336,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Dorn’s Arrow; Fist of Retribution.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -53550,6 +53670,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator twin lascannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -53905,6 +54026,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Predator autocannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -54260,6 +54382,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Twin fragstorm grenade launcher; heavy flamer; heavy onslaught gatling cannon; Redemptor fist.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -54685,6 +54808,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> special issue bolt pistol; combat knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -55056,6 +55180,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy onslaught gatling cannon; hunter-slayer missile; Repulsor defensive array; twin heavy bolter; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -55440,6 +55565,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy onslaught gatling cannon; macro plasma incinerator; Repulsor Executioner defensive array; twin heavy bolter; twin Icarus ironhail heavy stubber; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -55890,6 +56016,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -56199,6 +56326,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 bolt pistol; 1 Gauntlet of the Forge; 1 Spear of Vulkan.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -56552,6 +56680,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Whirlwind vengeance launcher; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -56870,6 +56999,7 @@
       "role": "Other",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -57347,6 +57477,7 @@
       "role": "Characters",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>The Ravenwing Champion is equipped with:</b> bolt pistol; plasma talon; master-crafted power weapon.<br><br><b>Every other model is equipped with:</b> bolt pistol; plasma talon; Black Knight combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -57828,6 +57959,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>The Ancient is equipped with:</b> bolt pistol; bolt rifle; close combat weapon. <br><br><b>The Company Champion is equipped with:</b> bolt pistol; master-crafted power weapon. <br><br><b>One Company Veteran is equipped with:</b> bolt pistol; master-crafted heavy bolter; close combat weapon. <br><br><b>One Company Veteran is equipped with:</b> bolt pistol; master-crafted bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -58228,6 +58360,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; reductor pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -58641,6 +58774,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -59084,6 +59218,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Each model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -59491,6 +59626,7 @@
       "role": "Other",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>Every Kill Team Infiltrator is equipped with:</b> bolt pistol; Deathwatch marksman bolt carbine; close combat weapon.<br><br><b>Every Kill Team Infiltrator with bolt sniper rifle is equipped with:</b> bolt pistol; bolt sniper rifle; close combat weapon.<br><br><b>Every Kill Team Infiltrator with Deathwatch occulus bolt carbine is equipped with:</b> bolt pistol; Deathwatch occulus bolt carbine; paired combat blades.<br><br><b>Every Kill Team Infiltrator with combat knife is equipped with:</b> special-issue bolt pistol; combat knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -60027,6 +60163,7 @@
       "role": "Other",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>The Kill Team Sergeant and every Kill Team Intercessor is equipped with:</b> bolt pistol; Deathwatch bolt rifle; close combat weapon.<br><br><b>Every Kill Team Intercessor with plasma incinerator is equipped with:</b> bolt pistol; plasma incinerator; close combat weapon.<br><br><b>Every Kill Team Intercessor with heavy bolt pistol is equipped with:</b> heavy bolt pistol; Astartes chainsword.<br><br><b>Every Kill Team Intercessor with pyreblaster is equipped with:</b> bolt pistol; pyreblaster; close combat weapon.<br><br><b>Every Kill Team Intercessor with superfrag rocket launcher is equipped with:</b> bolt pistol; castellan launcher; superfrag rocket launcher; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -60705,6 +60842,7 @@
       "role": "Other",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>Every Kill Team Heavy Intercessor is equipped with:</b> bolt pistol; Deathwatch heavy bolt rifle; close combat weapon.<br><br><b>Every Kill Team Heavy Intercessor with power fists is equipped with:</b> flamestorm gauntlets; twin power fists.<br><br><b>Every Kill Team Heavy Intercessor with melta rifle is equipped with:</b> bolt pistol; melta rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -61195,6 +61333,7 @@
       "role": "Battleline",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -61745,6 +61884,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 storm bolters; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -62181,6 +62321,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lancer laser destroyer; 2 storm bolters; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -62567,6 +62708,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 multi-meltas; twin las-talon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -62909,6 +63051,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 tempest bolters; twin heavy onslaught gatling cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -63267,6 +63410,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy onslaught gatling cannon; macro plasma incinerator; Repulsor Executioner defensive array; twin heavy bolter; twin Icarus ironhail heavy stubber; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -63731,6 +63875,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy onslaught gatling cannon; hunter-slayer missile; Repulsor defensive array; twin heavy bolter; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -64132,6 +64277,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<i>* If this unit’s Chaplain Grimaldus model is ever destroyed, all of this unit’s remaining Cenobyte Servitor models are also destroyed. While embarking within a Transport and while embarked within a <span class=\"kwb\">TRANSPORT</span>, each Cenobyte Servitor model in this unit takes up the space of 0 models.</i><br><br><b>Chaplain Grimaldus is equipped with:</b> plasma pistol; artificer crozius. <br><br><b>Every Cenobyte Servitor is equipped with:</b> close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -64514,6 +64660,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-weapon; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -64966,6 +65113,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Ferocity; Sword of the High Marshals.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -65306,6 +65454,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; Black Sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -65780,6 +65929,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> plasma pistol; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -66237,6 +66387,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -66706,6 +66857,7 @@
       "role": "Battleline",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>The Sword Brother is equipped with:</b> heavy bolt pistol; master-crafted power weapon.<br><br><b>Every Initiate is equipped with:</b> bolt pistol; bolt rifle; close combat weapon.<br><br><b>Every Neophyte is equipped with:</b> bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -67212,6 +67364,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> assault cannon; storm bolter; Dreadnought combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -67620,6 +67773,7 @@
       "role": "Other",
       "sourceId": "000000023",
       "isVirtual": false,
+      "loadout": "<b>Every Inner Circle Companion is equipped with:</b> heavy bolt pistol; Calibanite greatsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -67995,6 +68149,7 @@
       "role": "",
       "sourceId": "",
       "isVirtual": true,
+      "loadout": "",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [],
@@ -68051,6 +68206,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolt pistol; master-crafted chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -68516,6 +68672,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolt pistol; master-crafted chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -68999,6 +69156,7 @@
       "role": "Characters",
       "sourceId": "000000021",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> heavy bolt pistol; Astartes chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -69531,6 +69689,7 @@
       "role": "Characters",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> vigil spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -69932,6 +70091,7 @@
       "role": "Characters",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Hellfire Extremis; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -70263,6 +70423,7 @@
       "role": "Other",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> power fist; storm bolter.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -70783,6 +70944,7 @@
       "role": "Other",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>The Kill Team Sergeant with Jump Pack is equipped with:</b> heavy bolt pistol; Astartes chainsword.<br><br><b>Every Kill Team Intercessor with Jump Pack is equipped with:</b> heavy bolt pistol; Astartes chainsword.<br><br><b>Every Kill Team Heavy Intercessor with Jump Pack is equipped with:</b> assault bolters; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -71296,6 +71458,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -71713,6 +71876,7 @@
       "role": "Characters",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> master-crafted power weapon; storm shield.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -72206,6 +72370,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every Wolf Guard Headtaker is equipped with:</b> heavy bolt pistol; master-crafted power weapon; storm shield.<br><br><b>Every Hunting Wolf is equipped with:</b> teeth and claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -72630,6 +72795,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> thunder hammer; death totem.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -72974,6 +73140,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; Fenrisian greataxe; great wolf claw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -73336,6 +73503,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -73798,6 +73966,7 @@
       "role": "Characters",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -74205,6 +74374,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Sternguard bolt pistol; Sternguard bolt rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -74676,6 +74846,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> storm bolter; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -75113,6 +75284,7 @@
       "role": "Other",
       "sourceId": "000000162",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 hurricane bolters; twin assault cannon; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -75496,6 +75668,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 heavy bolt pistol; 1 Claws of Severax.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -75832,6 +76005,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 storm bolter; 1 Axiom",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -76186,6 +76360,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 heavy bolt pistol; 1 onslaught gatling cannon; Stormtooth; power sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -76523,6 +76698,7 @@
       "role": "Battleline",
       "sourceId": "000000035",
       "isVirtual": false,
+      "loadout": "<b>The Kill Team Sergeant is equipped with:</b> plasma pistol; power weapon.<br><br><b>Each Gravis Veteran is equipped with:</b> infernus heavy bolter; bolt pistol; close combat weapon.<br><br><b>For every 5 models in the unit, 1 Deathwatch Veteran is equipped with:</b> stalker bolt rifle; bolt pistol; close combat weapon.<br><br><b>For every 5 models in the unit, 1 Deathwatch Veteran is equipped with:</b> bolt pistol; heavy thunder hammer.<br><br><b>For every 5 models in the unit, 1 Deathwatch Veteran is equipped with:</b> Deathwatch marksman bolt carbine; special-issue bolt pistol; close combat weapon.<br><br><b>If the unit contains 10 models, 1 Deathwatch Veteran is equipped with:</b> special-issue bolt pistol; xenophase blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -77215,6 +77391,7 @@
       "role": "Characters",
       "sourceId": "000000385",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; executioner relic blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -77526,6 +77703,7 @@
       "role": "Characters",
       "sourceId": "000000385",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> absolvor bolt pistol; crozius arcanum.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -77847,6 +78025,7 @@
       "role": "Other",
       "sourceId": "000000036",
       "isVirtual": false,
+      "loadout": "<b>The Wolf Scout Pack Leader model is equipped with:</b> plasma pistol; power weapon.<br><br><b>Every Wolf Scout model is equipped with:</b> plasma pistol; combat blade.<br><br><b>Every Hunting Wolf model is equipped with:</b> teeth and claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -78363,6 +78542,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Gauntlets of Ultramar.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -78691,6 +78871,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 artisan plasma pistol; 1 Talassarian tempest blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -79030,6 +79211,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>The Chapter Ancient is equipped with:</b> 1 master-crafted power weapon; banner of Macragge.<br><br><b>The Chapter Champion is equipped with:</b> 1 blades of honour.<br><br><b>Each Victrix Honour Guard model is equipped with:</b> 1 master-crafted bolt carbine; 1 master-crafted power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -79402,6 +79584,7 @@
       "role": "Characters",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bolt pistol; master-crafted bolter; master-crafted chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -79753,6 +79936,7 @@
       "role": "Other",
       "sourceId": "000000139",
       "isVirtual": false,
+      "loadout": "<b>Ancient Gadriel is equipped with:</b> bolt rifle; close combat weapon.<br><br><b>Veteran Sergeant Metaurus is equipped with:</b> heavy bolt pistol; master-crafted power weapon; storm shield.<br><br><b>Gaius Silva is equipped with:</b> archeotech laspistol; power weapon; refractor field.<br><br><b>Aemelia Minervas is equipped with:</b> archeotech laspistol; power weapon.<br><br><b>Dainal Kornelius is equipped with:</b> Astropathic Blast; force stave.<br><br><b>Lucia Vestha is equipped with:</b> archeotech laspistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

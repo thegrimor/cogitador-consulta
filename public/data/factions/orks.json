@@ -1628,6 +1628,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> kombi-weapon; twin slugga; big choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1870,6 +1871,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> big shoota; ’uge choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2050,6 +2052,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> ’Eadbanger; weirdboy staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2238,6 +2241,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> kustom-mega blaster; power klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2511,6 +2515,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Ghazghkull Thraka is equipped with:</b> Mork’s Roar; Gork’s Klaw. <br><br><b>Makari is equipped with:</b> Makari’s stabba.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2722,6 +2727,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> slugga; Mork’s Teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2889,6 +2895,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> kustom mega-slugga; wrench.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3087,6 +3094,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> power klaw; ’urty syringe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3276,6 +3284,7 @@
       "role": "Battleline",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>The Boss Nob is equipped with:</b> slugga; big choppa. <br><br><b>Every Boy is equipped with:</b> slugga; choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3574,6 +3583,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every Runtherd is equipped with:</b> slugga; Runtherd tools. <br><br><b>Every Gretchin is equipped with:</b> grot blasta; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3765,6 +3775,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every Spanner is equipped with:</b> close combat weapon; big shoota. <br><br><b>Every Burna Boy is equipped with:</b> burna; cuttin’ flames.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3980,6 +3991,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>The Boss Nob is equipped with:</b> 2 rokkit pistols; choppa.<br><br><b>Each Tankbusta is equipped with:</b> rokkit launcha; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4215,6 +4227,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> slugga; big choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4446,6 +4459,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> kustom shoota; power klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4678,6 +4692,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> slugga; choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4983,6 +4998,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> big shoota; spiked wheels.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5148,6 +5164,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> slugga; choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5324,6 +5341,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> kopta rokkits; slugga; spinnin’ blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5513,6 +5531,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 twin supa-shootas; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5664,6 +5683,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin big shoota; twin supa-shoota; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5851,6 +5871,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> big shoota; twin supa-shoota; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6016,6 +6037,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> smasha gun; twin wazbom mega-kannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6240,6 +6262,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin dakkagun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6469,6 +6492,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> smasha gun; grot crew. <br><br><b>Designer’s Note:</b> <i>Place five Grot Crew tokens next to each Mek Gun model when this unit is first set up, removing one each time its Mek Gun model loses a wound (a Mek Gun model itself is considered to represent its final wound).</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6723,6 +6747,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> tracks and wheels.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7018,6 +7043,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 big shootas; 2 dread klaws; stompy feet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7242,6 +7268,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Kan shoota; Kan klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7456,6 +7483,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> kustom mega-blasta; kustom mega-zappa; 2 rokkit launchas; 2 twin big shootas; klaw of Mork.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, subtract 4 from this model’s Objective Control characteristic, and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7689,6 +7717,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> deffstorm mega-shoota; 2 rokkit launchas; skorcha; 2 twin big shootas; klaw of Gork.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, subtract 4 from this model’s Objective Control characteristic, and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7922,6 +7951,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every Spanner is equipped with:</b> big shoota; close combat weapon. <br><br><b>Every Loota is equipped with:</b> deffgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8131,6 +8161,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> snazzgun; choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8288,6 +8319,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 3 big shootas; deffkannon; skorcha; supa-gatler; supa-rokkits; twin big shoota; mega-choppa.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 6 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8553,6 +8585,7 @@
       "role": "Other",
       "sourceId": "000000378",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> huge tusks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 6 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8758,6 +8791,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> close combat weapon, shokk attack gun.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8953,6 +8987,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> defkilla boomsticks; killajet; snagga klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9174,6 +9209,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> burna exhausts; grot blasta; rivet kannon; spiked ram..",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9365,6 +9401,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> kustom shokk rifle; rokkit launcha; saw blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9529,6 +9566,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> big shoota; grot blasta; Mek speshul; spiked wheels.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9725,6 +9763,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> rokkit kannon; 2 twin big shootas; wing missiles; nose drill.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9905,6 +9944,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> sawn-off shotgun; squig-launchas; saw blades.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10075,6 +10115,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Da Grabzappa; slugga.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10238,6 +10279,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shoota; beastchoppa; Beast Snagga klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10471,6 +10513,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> slugga; beastchoppa; Squigosaur’s jaws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10697,6 +10740,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Beast Snagga klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10886,6 +10930,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Eyez of Mork; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11078,6 +11123,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> thump gun; Big Chompa’s jaws; gutrippa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11271,6 +11317,7 @@
       "role": "Battleline",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>The Beast Snagga Nob is equipped with:</b> slugga; power snappa. <br><br><b>Every Beast Snagga Boy is equipped with:</b> slugga; choppa.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11493,6 +11540,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>Every Nob on Smasha Squig is equipped with:</b> slugga; big choppa; squig jaws.<br><br><b>Every Squighog Boy is equipped with:</b> saddlegit weapons; stikka; squig jaws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11768,6 +11816,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> ’eavy lobba; stikka kannon; wurrtower; butcha boyz; savage horns and hooves; saw blades.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -12027,6 +12076,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> ’eavy lobba; stikka kannon; butcha boyz; savage horns and hooves; saw blades.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -12268,6 +12318,7 @@
       "role": "Fortifications",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> big shoota; Gaze of Gork.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12447,6 +12498,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> kustom-mega blaster; power klaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12675,6 +12727,7 @@
       "role": "Other",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>The Boss Nob is equipped with:</b> rokkit pistol; smash hammer; choppa.<br><br><b>Each Breaka Boy is equipped with:</b> smash hammer.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12923,6 +12976,7 @@
       "role": "Characters",
       "sourceId": "000000046",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 grabba dragga; 1 psyko-gatler; 1 Fixit’s wrench; 1 speeding bulk and flaming exhaust.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

@@ -1031,5 +1031,656 @@
         "combatType": "ranged"
       }
     }
-  ]
+  ],
+  "sources": [
+    {
+      "id": "000000285",
+      "name": "Boarding Actions",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "09.07.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_09-07_warhammer40000_other_rules_boarding_actions_companion-hyatd8cog7-wpqvdzf1mt.pdf"
+    },
+    {
+      "id": "000000166",
+      "name": "Balance Dataslate",
+      "type": "Rulebook",
+      "edition": 10,
+      "version": "3.4",
+      "errataDate": "04.03.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_04-03_wh40k_core&key_balance_dataslate-ysn1jjtd9x-qogz1pqkky.pdf"
+    },
+    {
+      "id": "000000233",
+      "name": "Munitorum Field Manual",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "4.3",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_core&key_munitorum_field_manual-fgt8lqklvr-5bzc9woucs.pdf"
+    },
+    {
+      "id": "000000259",
+      "name": "Imperial Agents",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.3",
+      "errataDate": "22.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-04_wh40k_faction-pack_imperial_agents-c7eul3sg1w-bebpeeqrtv.pdf"
+    },
+    {
+      "id": "000000016",
+      "name": "Astra Militarum",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.6",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_faction_pack_astra_militarum-kxlmmwpxfk-kauuyhnusx.pdf"
+    },
+    {
+      "id": "000000053",
+      "name": "Genestealer Cults",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_warhammer40000_faction_pack_genestealer_cults-qytbcd1u66-tch87rzd76.pdf"
+    },
+    {
+      "id": "000000029",
+      "name": "Necrons",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_04-03_warhammer40000_faction_pack_necrons-oit9xyrlza-eqprrhthph.pdf"
+    },
+    {
+      "id": "000000186",
+      "name": "Aeldari",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "11.02.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_11-02_warhammer_40000_faction_pack_aeldari-tmtx4nmkgp-ksodwfy7uo.pdf"
+    },
+    {
+      "id": "000000270",
+      "name": "Adeptus Titanicus (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "08.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_08-10_warhammer40000_faction_pack_adeptus_titanicus-ovucwiw1o6-jmk9dpdulj.pdf"
+    },
+    {
+      "id": "000000046",
+      "name": "Orks",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.3",
+      "errataDate": "22.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-04_wh40k_faction-pack_orks-hkgrrrimae-j5rdbqknu5.pdf"
+    },
+    {
+      "id": "000000271",
+      "name": "Legends: Unaligned Forces",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "17.09.2024 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/warhammer40000_legends_unaligned_eng_24.09-5ssd1gtiok.pdf"
+    },
+    {
+      "id": "000000235",
+      "name": "Legends Field Manual",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "2.1",
+      "errataDate": "12.03.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_warhammer40000_legends_field_manual_march_2025-uvwunjcopz-uo7n0c9fuk.pdf"
+    },
+    {
+      "id": "000000013",
+      "name": "Grey Knights",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_warhammer40000_faction_pack_grey_knights-zqnts28ptt-zsxdvbmvik.pdf"
+    },
+    {
+      "id": "000000028",
+      "name": "T’au Empire",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_0906_warhammer40000_faction_pack_tau_empireavmkx2gg8ijezqgeb55k.pdf"
+    },
+    {
+      "id": "000000203",
+      "name": "Leagues of Votann",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.4",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_leagues_of_votann-bnjtiibaxz-yexor54fbk.pdf"
+    },
+    {
+      "id": "000000015",
+      "name": "Adeptus Mechanicus",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_adeptus_mechanicus-nh181csxvf-e4ye5z23jl.pdf"
+    },
+    {
+      "id": "000000027",
+      "name": "Thousand Sons",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "01.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_thousand_sons-g5bgk0rgrv-wce6qeshza.pdf"
+    },
+    {
+      "id": "000000014",
+      "name": "Death Guard",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_death_guard-lp8dafzobs-shnagjdk5b.pdf"
+    },
+    {
+      "id": "000000280",
+      "name": "Emperor’s Children",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.4",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_emperors_children-ehx6dskmke-uque7oypup.pdf"
+    },
+    {
+      "id": "000000210",
+      "name": "World Eaters",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_world_eaters-1don2dzeun-zxlbftajex.pdf"
+    },
+    {
+      "id": "000000070",
+      "name": "Chaos Knights",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "01.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_chaos_knights-fkn0neaf5f-yfjckxxmkj.pdf"
+    },
+    {
+      "id": "000000025",
+      "name": "Chaos Daemons",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "11.02.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_11-02_warhammer_40000_faction_pack_chaos_daemons-xjdr0v2gia-pegn6mif0x.pdf"
+    },
+    {
+      "id": "000000034",
+      "name": "Imperial Knights",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "01.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_imperial_knights-ghqb5ptegp-nn5zi5y301.pdf"
+    },
+    {
+      "id": "000000139",
+      "name": "Space Marines",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.8",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_faction_pack_space_marines-x64jvocbpe-got9m0shcn.pdf"
+    },
+    {
+      "id": "000000020",
+      "name": "Tyranids",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_0906_warhammer40000_faction_pack_tyranids-avhhzmcte8j-0kseag7td.pdf"
+    },
+    {
+      "id": "000000024",
+      "name": "Adeptus Custodes",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000112",
+      "name": "Adepta Sororitas",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.4",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-04_wh40k_faction-pack_adepta_sororitas-mpqm32we8r-ogeo0gu7sj.pdf"
+    },
+    {
+      "id": "000000012",
+      "name": "Chaos Space Marines",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.6",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_faction_pack_chaos_space_marines-ntn8woe3um-4rvlantroc.pdf"
+    },
+    {
+      "id": "000000031",
+      "name": "Drukhari",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_wh40k_faction-pack_drukhari-6uxdycfi7j-maudf7cqmp.pdf"
+    },
+    {
+      "id": "000000100",
+      "name": "Legends: Tyranids",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "17.09.2024 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/warhammer40000_legends_tyranids_eng_24.09-zhzcfdwafm.pdf"
+    },
+    {
+      "id": "000000162",
+      "name": "Black Templars",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_warhammer40000_faction_pack_black_templars-ycacnrihzp-ybeyjrio3d.pdf"
+    },
+    {
+      "id": "000000287",
+      "name": "Legends: Ultramarines",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "17.09.2024 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/warhammer40000_legends_ultramarines_eng_24.09-2yceq0oswk.pdf"
+    },
+    {
+      "id": "000000335",
+      "name": "Death Korps of Krieg",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "",
+      "errataDate": "23.04.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_23-04_warhammer40000_other_rules_astra_militarum_death_korp_of_krieg_datasheet-w4jezt0twq-hdnqb0dxdf.pdf"
+    },
+    {
+      "id": "000000353",
+      "name": "Adepta Sororitas (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000354",
+      "name": "Adeptus Custodes (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000355",
+      "name": "Chaos Space Marines (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000356",
+      "name": "Space Marines (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000357",
+      "name": "Chaos Daemons (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000358",
+      "name": "Necrons (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000359",
+      "name": "Necrons (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000360",
+      "name": "Space Wolves (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000362",
+      "name": "Space Marines (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000363",
+      "name": "Imperial Agents (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000364",
+      "name": "Grey Knights (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000365",
+      "name": "Grey Knights (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000366",
+      "name": "Aeldari (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000367",
+      "name": "Aeldari (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000368",
+      "name": "Death Guard (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000369",
+      "name": "Chaos Knights (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000370",
+      "name": "Imperial Knights (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000371",
+      "name": "Adeptus Mechanicus (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000372",
+      "name": "Black Templars (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000373",
+      "name": "Dark Angels (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000374",
+      "name": "Astra Militarum (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000375",
+      "name": "Astra Militarum (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000376",
+      "name": "Blood Angels (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000377",
+      "name": "Orks (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000378",
+      "name": "Orks (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000379",
+      "name": "Tyranids (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000380",
+      "name": "Tyranids (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000381",
+      "name": "T’au Empire (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000382",
+      "name": "T’au Empire (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000383",
+      "name": "Genestealer Cults (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000384",
+      "name": "Drukhari (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000385",
+      "name": "Warhammer 40,000: Dawn of War – Onslaught",
+      "type": "Boxset",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.07.2025 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000386",
+      "name": "Da Red Gobbo’s Tinboy (Warhammer Legends)",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.10.2025 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000387",
+      "name": "500 Worlds: Dread Incursions",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.2026 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000036",
+      "name": "Space Wolves",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "10.12.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_10-12_wh40k_faction_pack_space_wolves-a4cmfwecry-2pqnq2mppi.pdf"
+    },
+    {
+      "id": "000000021",
+      "name": "Blood Angels",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "07.12.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_7-12_wh40k_faction_pack_blood_angels-hpaptywczw-czi18baub9.pdf"
+    },
+    {
+      "id": "000000023",
+      "name": "Dark Angels",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "08.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_08-10_warhammer40000_faction_pack_dark_angels-0arksfusu7-omyedadlas.pdf"
+    },
+    {
+      "id": "000000035",
+      "name": "Deathwatch",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "12.11.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_12-11_wh40k_faction_pack_deathwatch-fln838xhgr-j2ypjxdmqj.pdf"
+    },
+    {
+      "id": "000000389",
+      "name": "Boarding Actions: Sublime Strike",
+      "type": "White Dwarf",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.04.2025 0:00:00",
+      "errataLink": ""
+    }
+  ],
+  "lastUpdate": "2026-06-17 00:00:00"
 }

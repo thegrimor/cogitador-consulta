@@ -1028,6 +1028,7 @@
       "role": "Characters",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Acheron flame cannon; twin heavy bolter; reaper chainfist.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1247,6 +1248,7 @@
       "role": "Characters",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Cerastus shock lance.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1444,6 +1446,7 @@
       "role": "Characters",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Castigator bolt cannon; tempest warblade.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1648,6 +1651,7 @@
       "role": "Characters",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Atrapos lascutter; graviton singularity cannon.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1902,6 +1906,7 @@
       "role": "Characters",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> lightning cannon; phased plasma-fusil; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2174,6 +2179,7 @@
       "role": "Other",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Acastus autocannons; Acastus ironstorm missile pod; 2 twin magna lascannons; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2413,6 +2419,7 @@
       "role": "Characters",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> graviton crusher; volkite chierovile; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic  and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2691,6 +2698,7 @@
       "role": "Characters",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> daemonbreath meltagun; reaper chainsword; titanic feet; warpstrike claw.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3104,6 +3112,7 @@
       "role": "Characters",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> brimstone volcano lance; ectoplasma decimator; 2 gheiststrike missile launchers; 2 twin daemonbreath meltaguns; twin Desecrator cannon; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3430,6 +3439,7 @@
       "role": "Characters",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> desecrator laser destructor; diabolus heavy stubber; reaper chainsword.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3683,6 +3693,7 @@
       "role": "Characters",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> diabolus heavy stubber; reaper chainsword; warpstrike claw.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3926,6 +3937,7 @@
       "role": "Other",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 Asterius volkite culverins; karacnos mortar battery; 2 twin conversion beam cannons; titanic feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4156,6 +4168,7 @@
       "role": "Other",
       "sourceId": "000000369",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> graviton pulsar; volkite veuglaire; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4419,6 +4432,7 @@
       "role": "Other",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> diabolus heavy stubber; 2 War Dog autocannons; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4610,6 +4624,7 @@
       "role": "Other",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> avenger chaincannon; diabolus heavy stubber; slaughterclaw.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4856,6 +4871,7 @@
       "role": "Other",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> diabolus heavy stubber; reaper chaintalon; slaughterclaw.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5045,6 +5061,7 @@
       "role": "Other",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> avenger chaincannon; daemonbreath spear; diabolus heavy stubber; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5250,6 +5267,7 @@
       "role": "Other",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> daemonbreath spear; diabolus heavy stubber; reaper chaintalon.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, subtract 3 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5456,6 +5474,7 @@
       "role": "Characters",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> diabolus heavy stubber; volkite combustor; balemace; electroscourge.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5684,6 +5703,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> balefire pike, close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5796,6 +5816,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Cult Demagogue is equipped with:</b> autopistol; Commune stave. <br><br><b>The Mindwitch is equipped with:</b> Warp Curse; close combat weapon. <br><br><b>The Iconarch is equipped with:</b> autopistol; close combat weapon; Chaos icon. <br><br><b>Every Blessed Blade is equipped with:</b> Commune blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6022,6 +6043,7 @@
       "role": "Characters",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Traitor Enforcer is equipped with:</b> bolt pistol; power fist. <br><br><b>The Traitor Ogryn is equipped with:</b> Ogryn weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6173,6 +6195,7 @@
       "role": "Battleline",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> autopistol; brutal assault weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6304,6 +6327,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>Every Torment is equipped with:</b> hideous mutations. <br><br><b>Every Mutant is equipped with:</b> blasphemous appendages.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6434,6 +6458,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Fellgor Champion is equipped with:</b> bolt pistol; chainsword. <br><br><b>Every Fellgor Beastman is equipped with:</b> autopistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6662,6 +6687,7 @@
       "role": "Other",
       "sourceId": "000000012",
       "isVirtual": false,
+      "loadout": "<b>The Traitor Sergeant is equipped with:</b> corrupted pistol; close combat weapon. <br><br><b>Every Traitor Guardsman is equipped with:</b> lasgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6947,6 +6973,7 @@
       "role": "Characters",
       "sourceId": "000000070",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> darkflame lance; terrorpulse missiles; fellbore.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [

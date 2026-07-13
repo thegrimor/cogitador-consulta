@@ -1146,6 +1146,7 @@
       "role": "Battleline",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> guardian spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1372,6 +1373,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> combi-bolter; multi-melta; Contemptor combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1551,6 +1553,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 godhammer lascannons; twin heavy bolter; armoured tracks.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -1755,6 +1758,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Watcher’s Axe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1927,6 +1931,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> guardian spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2192,6 +2197,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> balistus grenade launcher; guardian spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2419,6 +2425,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> salvo launcher; interceptor lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2608,6 +2615,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> guardian spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2815,6 +2823,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> balistus grenade launcher; guardian spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3046,6 +3055,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> salvo launcher; interceptor lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3208,6 +3218,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 lastrum storm bolters; Achillus dreadspear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3398,6 +3409,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin iliastus accelerator cannon; twin lastrum bolt cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3587,6 +3599,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin arachnus blaze cannon; twin lastrum bolt cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3753,6 +3766,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 iliastus accelerator culverins; spiculus bolt launcher; armoured feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3969,6 +3983,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Galatus warblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4113,6 +4128,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> lastrum storm bolter; solerite power gauntlet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4323,6 +4339,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> adrasite spear.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4511,6 +4528,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> lastrum bolt cannon; interceptor lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4688,6 +4706,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Venatari lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4877,6 +4896,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin arachnus blaze cannon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5019,6 +5039,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> adrastus bolt caliver; misericordia.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5170,6 +5191,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 arachnus heavy blaze cannons; 2 twin lastrum bolt cannons; 2 spiculus heavy bolt launchers; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5348,6 +5370,7 @@
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 arachnus heavy blaze cannons; arachnus magna-blaze cannon; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5504,6 +5527,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Somnus.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5658,6 +5682,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> vaultswords.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5843,6 +5868,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Gnosis.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6006,6 +6032,7 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> executioner greatblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6219,6 +6246,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6369,6 +6397,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> executioner greatblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6515,6 +6544,7 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Witchseeker flamer; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6672,6 +6702,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000024",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

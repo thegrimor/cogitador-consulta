@@ -1238,6 +1238,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> volkanite disintegrator; Blade of the Ancestors; rampart crest.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1414,6 +1415,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Autoch-pattern combi-bolter; forgewrought plasma axe; rampart crest.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1642,6 +1644,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Autoch-pattern combi-bolter; mass hammer; weavefield crest.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1854,6 +1857,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<i>* If this unit’s Grimnyr model is ever destroyed, all of this unit’s remaining CORV models are also destroyed. While embarking within a Transport and while embarked within a <span class=\"kwb\">TRANSPORT</span>, each CORV model takes up the space of 0 models.</i><br><br><b>The Grimnyr is equipped with:</b> Ancestral Wrath; ancestral ward stave. <br><br><b>Every CORV is equipped with:</b> Autoch-pattern bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2088,6 +2092,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<i>* If this unit’s Brôkhyr Iron-master model is ever destroyed, all of this unit’s remaining E-COG models are also destroyed. While embarking within a Transport and while embarked within a <span class=\"kwb\">TRANSPORT</span>, each E-COG model takes up the space of 0 models.</i><br><br><b>The Brôkhyr Iron-master is equipped with:</b> graviton rifle; graviton hammer. <br><br><b>The Ironkin Assistant is equipped with:</b> las-beam cutter; close combat weapon. <br><br><b>One E-COG is equipped with:</b> Autoch-pattern bolt pistol; close combat weapon. <br><br><b>One other E-COG is equipped with:</b> plasma torch. <br><br><b>One other E-COG is equipped with:</b> manipulator arms.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2401,6 +2406,7 @@
       "role": "Battleline",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>The Theyn is equipped with:</b> Autoch-pattern bolt pistol; Autoch-pattern bolter; close combat weapon; weavefield crest.<br><br><b>Every Hearthkyn Warrior is equipped with:</b> Autoch-pattern bolt pistol; Autoch-pattern bolter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2751,6 +2757,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> EtaCarn plasma gun; exoarmour grenade launcher; concussion gauntlet.<br><br><b>The Hesyr is additionally equipped with:</b> weavefield crest.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3011,6 +3018,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy plasma axe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3217,6 +3225,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt revolver; bolt shotgun; magna-coil autocannon; plasma knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3493,6 +3502,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> HYLas beam cannon; twin bolt cannon; armoured wheels.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3708,6 +3718,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt cannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3933,6 +3944,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cyclic ion cannon; MATR autocannon; 2 twin bolt cannons; armoured wheels; pan spectral scanner.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4243,6 +4255,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> bolt shotgun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4467,6 +4480,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Autoch-pattern bolt pistol; Bane.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4633,6 +4647,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Autoch-pattern bolt pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4800,6 +4815,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> transmatter inverter; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5009,6 +5025,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>The Steeljack Theyn is equipped with:</b> heavy volkanite disintegrator; plasma knife; preymark crest.<br><br><b>Every Ironkin Steeljack is equipped with:</b> heavy volkanite disintegrator; plasma knife.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5212,6 +5229,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>The Steeljack Theyn is equipped with:</b> Autoch-pattern bolter; plasma sword; preymark crest.<br><br><b>Every Ironkin Steeljack is equipped with:</b> Autoch-pattern bolter; plasma sword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5396,6 +5414,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 2 Autoch-pattern bolt pistols, breacher ordnance; plasma picks.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5579,6 +5598,7 @@
       "role": "Other",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> magna-rail cannon; twin magna-coil autocannon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5773,6 +5793,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> magna-coil autocannon; twin magna-coil autocannon; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5957,6 +5978,7 @@
       "role": "Characters",
       "sourceId": "000000203",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Kromlôk’s Revenge; Warforge Gauntlets.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

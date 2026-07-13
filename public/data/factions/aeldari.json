@@ -1839,6 +1839,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mind War; shuriken pistol; Staff of Ulthamar and witchblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2024,6 +2025,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Bloody Twins; Sword of Asur.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2183,6 +2185,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Silent Death; Blade of Destruction.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2346,6 +2349,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Searsong; Fire Axe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2516,6 +2520,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Fury of the Tempest; Shining Blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2677,6 +2682,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Maugetar.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2819,6 +2825,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shuriken pistol; star glaive.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3105,6 +3112,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> the Wailing Doom",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3247,6 +3255,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Eldritch Storm; shuriken pistol; witchblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3478,6 +3487,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Eldritch Storm; shuriken pistol; twin shuriken catapult; witchblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3731,6 +3741,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Destructor; shuriken pistol; witchblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3952,6 +3963,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Destructor; shuriken pistol; witchblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4185,6 +4197,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Destructor; shuriken pistol; twin shuriken catapult; witchblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4421,6 +4434,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shuriken pistol; witch staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4605,6 +4619,7 @@
       "role": "Battleline",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every Guardian Defender is equipped with:</b> shuriken catapult; close combat weapon.<br><br><b>The Heavy Weapon Platform is equipped with:</b> shuriken cannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4856,6 +4871,7 @@
       "role": "Battleline",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every Storm Guardian is equipped with:</b> shuriken pistol; close combat weapon.<br><br><b>The Serpent’s Scale Platform is equipped with:</b> close combat weapon; Serpent shield.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5092,6 +5108,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin shuriken catapult; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5261,6 +5278,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> long rifle; shuriken pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5427,6 +5445,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Avenger shuriken catapult; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5659,6 +5678,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shuriken pistol; Banshee blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5923,6 +5943,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>The Striking Scorpion Exarch is equipped with:</b> shuriken pistol; Scorpion chainsword; Scorpion’s claw.<br><br><b>Every Striking Scorpion is equipped with:</b> shuriken pistol; Scorpion chainsword.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6179,6 +6200,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>The Fire Dragon Exarch is equipped with:</b> Exarch’s Dragon fusion gun; close combat weapon.<br><br><b>Every Fire Dragon is equipped with:</b> Dragon fusion gun; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6448,6 +6470,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> wraithcannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6593,6 +6616,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> ghostswords.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6727,6 +6751,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> twin shuriken cannon; twin shuriken catapult; wraithbone hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6985,6 +7010,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>The Swooping Hawk Exarch is equipped with:</b> Hawk’s talon; close combat weapon.<br><br><b>Every Swooping Hawk is equipped with:</b> lasblaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7246,6 +7272,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>The Warp Spider Exarch is equipped with:</b> Exarch’s death spinner; close combat weapon.<br><br><b>Every Warp Spider is equipped with:</b> death spinner; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7511,6 +7538,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> laser lance; twin shuriken catapult.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7776,6 +7804,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 starcannons; pulse laser; wraithbone hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7937,6 +7966,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shuriken cannon; bright lance; wraithbone hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8161,6 +8191,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 heavy D-scythes; wraithbone hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8283,6 +8314,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Reaper launcher; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8532,6 +8564,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> pulse laser; scatter laser; twin shuriken catapult; wraithbone hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8787,6 +8820,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> prism cannon; twin shuriken catapult; wraithbone hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -8979,6 +9013,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> doomweaver; twin shuriken catapult; wraithbone hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -9151,6 +9186,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> 2 shuriken cannons; War Walker feet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9360,6 +9396,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 shuriken catapults; wraithbone fists.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9631,6 +9668,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> suncannon; titanic feet; scattershield.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -9859,6 +9897,7 @@
       "role": "Other",
       "sourceId": "000000367",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cloudburst missile launcher; Revenant pulsar; sonic lance; Revenant feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 8 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -10053,6 +10092,7 @@
       "role": "Other",
       "sourceId": "000000367",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> D-bombard; Phantom pulsar; Phantom starcannon; voidstorm missile launcher; Phantom feet.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-16 wounds remaining, subtract 10 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -10292,6 +10332,7 @@
       "role": "Battleline",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shuriken pistol; power sword; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -10596,6 +10637,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every Corsair Voidscarred and Voidscarred Felarch is equipped with:</b> shuriken pistol; power sword; close combat weapon.<br><br><b>A Shade Runner is equipped with:</b> shuriken pistol; paired Hekatarii blades.<br><br><b>A Soul Weaver is equipped with:</b> shuriken pistol; power sword; channeller stones.<br><br><b>A Way Seeker is equipped with:</b> shuriken pistol; Executioner; witch staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11041,6 +11083,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> long rifle; scatter laser; shuriken pistol; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11222,6 +11265,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shuriken pistol; Troupe Master’s blade; flip belt.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11463,6 +11507,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shuriken pistol; miststave; flip belt.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11670,6 +11715,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shuriken pistol; Harlequin’s blade, flip belt.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -11921,6 +11967,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shrieker cannon; Jester’s blade; flip belt.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12091,6 +12138,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Solitaire weapons, flip belt.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12253,6 +12301,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shuriken cannon; star bolas; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12451,6 +12500,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 shuriken cannons; Voidweaver haywire cannon; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12661,6 +12711,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 shuriken cannons; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12809,6 +12860,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Storm of Whispers; Kha-vir.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -12972,6 +13024,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Asu-var.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13144,6 +13197,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> swirling soul energy; Vilith-zhar.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13309,6 +13363,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shuriken pistol; star glaive.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13595,6 +13650,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Brood Twain; Spider’s Fangs; Weaverender.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13776,6 +13832,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> D-cannon; shuriken catapult; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -13939,6 +13996,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> shadow weaver; shuriken catapult; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14091,6 +14149,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> vibro cannon; shuriken catapult; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14248,6 +14307,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> titanic ghostglaive; scattershield.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-6 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -14453,6 +14513,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> splinter pistol; huskblade; shadow field.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14645,6 +14706,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Succubus weapons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -14824,6 +14886,7 @@
       "role": "Battleline",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> splinter rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15122,6 +15185,7 @@
       "role": "Battleline",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> splinter pistol; Hekatarii blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15282,6 +15346,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> klaive.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15443,6 +15508,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> splinter pistol; splinter rifle; bladevanes.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15679,6 +15745,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> dark lance; bladevanes.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -15843,6 +15910,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> splinter cannon; twin splinter rifle; bladevanes.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16035,6 +16103,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Eye of Wrath; shuriken pistol; Spear of Twilight.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16225,6 +16294,7 @@
       "role": "Characters",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Dread of the Deep Void; Waystave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16414,6 +16484,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> disintegrator cannon; Starfang grenade launcher; wraithbone hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -16586,6 +16657,7 @@
       "role": "Other",
       "sourceId": "000000186",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shuriken pistol; Corsair blade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

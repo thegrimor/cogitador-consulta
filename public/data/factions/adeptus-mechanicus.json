@@ -1326,6 +1326,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> solar atomiser; arc scourge; Cawl’s Omnissian axe; mechadendrite hive.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1551,6 +1552,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> macrostubber; volkite blaster; Omnissian axe.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1794,6 +1796,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; Omnissian axe; servo-arm.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1992,6 +1995,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy arc rifle; arc claw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2191,6 +2195,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> heavy grav-cannon; phosphor blaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2413,6 +2418,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> electroleech stave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2547,6 +2553,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> electrostatic gauntlets.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2687,6 +2694,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> incendine combustor; twin Kastelan fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2928,6 +2936,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; power fist.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3093,6 +3102,7 @@
       "role": "Battleline",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> galvanic rifle; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3376,6 +3386,7 @@
       "role": "Battleline",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> radium carbine; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3660,6 +3671,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> stubcarbine; power weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3862,6 +3874,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> transonic razor and chordclaw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4053,6 +4066,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> twin cognis autocannon; Ironstrider feet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4247,6 +4261,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> phosphor serpenta; taser lance.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4419,6 +4434,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> eradication beamer; Dunecrawler legs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4695,6 +4711,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> magnarail lance; Omnissian staff.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4890,6 +4907,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cognis heavy stubber array; armoured hull.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5054,6 +5072,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> belleros energy cannon; 3 cognis heavy stubbers; disruptor missile launcher; armoured hull.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5267,6 +5286,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>The Serberys Sulphurhound Alpha model is equipped with:</b> Mechanicus pistol; sulphur breath; cavalry arc maul; clawed limbs.<br><br><b>Every Serberys Sulphurhound model is equipped with:</b> 2 phosphor pistols; sulphur breath; clawed limbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5489,6 +5509,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>The Serberys Raider Alpha model is equipped with:</b> Mechanicus pistol; galvanic carbine; cavalry sabre and clawed limbs. <br><br><b>Every Serberys Raider model is equipped with:</b> galvanic carbine; cavalry sabre and clawed limbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5659,6 +5680,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>The Pteraxii Sterylizor Alpha model is equipped with:</b> flechette blaster; Pteraxii talons; taser goad. <br><br><b>Every Pteraxii Sterylizor model is equipped with:</b> phosphor torch; Pteraxii talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5859,6 +5881,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>The Pteraxii Skystalker Alpha model is equipped with:</b> flechette blaster; taser goad. <br><br><b>Every Pteraxii Skystalker model is equipped with:</b> flechette carbine; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6052,6 +6075,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cognis heavy stubber array; armoured hull; command uplink.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6228,6 +6252,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 cognis heavy stubbers; 2 heavy phosphor blasters; twin cognis lascannon; armoured hull; command uplink.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6439,6 +6464,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> cognis heavy stubber array; armoured hull; command uplink.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6606,6 +6632,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; servo-arc claw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6781,6 +6808,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; control stave.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6946,6 +6974,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> phosphor serpenta; radium jezzail; Ironstrider feet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7140,6 +7169,7 @@
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Mechanicus pistol; radium jezzail; Sydonian feet.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7373,6 +7403,7 @@
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
+      "loadout": "<b>The Servitor Underseer is equipped with:</b> Mechanicus pistol; dataspikes.<br><br><b>1 Gun Servitor is equipped with:</b> heavy arc rifle; servo-claw.<br><br><b>1 Gun Servitor is equipped with:</b> heavy bolter; servo-claw.<br><br><b>Every Combat Servitor is equipped with:</b> phosphor blaster; servo-claw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7656,6 +7687,7 @@
       "role": "Characters",
       "sourceId": "",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Jericho-class conversion resonator; Rod of the War Forge.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7858,6 +7890,7 @@
       "role": "Other",
       "sourceId": "",
       "isVirtual": false,
+      "loadout": "<b>The Hastarii Exterminator Alpha is equipped with:</b> Hastarii arc blaster; eradication caster; power weapon.<br><br><b>Every Hastarii Exterminator is equipped with:</b> Hastarii arc blaster; eradication caster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8080,6 +8113,7 @@
       "role": "Other",
       "sourceId": "",
       "isVirtual": false,
+      "loadout": "<b>The Hastarii Fusilier Alpha is equipped with:</b> neutron fusil; Hastarii phosphor blaster; power weapon.<br><br><b>Every Hastarii Fusiller is equipped with:</b> neutron fusil; Hastarii phosphor blaster; close combat weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [

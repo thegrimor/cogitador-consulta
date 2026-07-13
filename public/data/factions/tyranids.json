@@ -1250,6 +1250,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> monstrous bonesword and lash whip; monstrous scything talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1489,6 +1490,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Synaptic pulse; bone sabres.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1661,6 +1663,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Old One Eye’s claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1810,6 +1813,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Broodlord claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -1984,6 +1988,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> stinger salvoes; massive scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -2201,6 +2206,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Genestealer claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2336,6 +2342,7 @@
       "role": "Battleline",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> fleshborer; chitinous claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2575,6 +2582,7 @@
       "role": "Battleline",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Hormagaunt talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2696,6 +2704,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> chitinous claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2841,6 +2850,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> scything talons and rending claws.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2992,6 +3002,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> shockcannon; chitinous claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3160,6 +3171,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lictor claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3301,6 +3313,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> psychic overload; massive scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -3473,6 +3486,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Warp Blast; chitinous claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3646,6 +3660,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> toxic lashes.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3769,6 +3784,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> flamespurt; chitin-barbed limbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -3927,6 +3943,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> grasping tongue; ravenous maw; shovelling claws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4092,6 +4109,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Lictor claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4241,6 +4259,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Ravener claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4365,6 +4384,7 @@
       "role": "Battleline",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> fleshborer; blinding venom.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -4516,6 +4536,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> stinger salvoes; twin stranglethorn cannon; scything wings.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4698,6 +4719,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> drool cannon; stinger salvoes; tentaclids; scything wings; thorax spur.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -4914,6 +4936,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> nothing.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5034,6 +5057,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> nothing.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5154,6 +5178,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Tyrannocyte bio-weapons; flensing whips.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5302,6 +5327,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Carnifex scything talons; Carnifex extra scything talons; chitinous claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5578,6 +5604,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Spore Mine launcher; chitin-barbed limbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5719,6 +5746,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bio-electric pulse; Trygon scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -5864,6 +5892,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> distensible jaw; Mawloc scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6014,6 +6043,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bio-plasmic cannon; powerful limbs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6161,6 +6191,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> fleshborer hive; stinger salvoes; powerful limbs.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6370,6 +6401,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> massive toxic lashes.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6520,6 +6552,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Sporocyst bio-weapons; flensing whips.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -6660,6 +6693,7 @@
       "role": "Other",
       "sourceId": "000000380",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 2 dire bio-cannons; gargantuan scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -6815,6 +6849,7 @@
       "role": "Other",
       "sourceId": "000000380",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bio-plasma torrent; 2 dire bio-cannons; lashwhip pods; titanic scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-10 wounds remaining, subtract 6 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -7008,6 +7043,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> monstrous bonesword and lash whip; Tyrant talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7255,6 +7291,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> barbed ovipositor; clawed limbs.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7450,6 +7487,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> barblauncher; chitinous claws and teeth.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7579,6 +7617,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> chitinous claws and teeth. <br><br><i>*This unit can only contain 2 Neurogaunt Nodebeasts if it contains 20 Neurogaunts.</i>",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7700,6 +7739,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Psychic Scream; Neurotyrant claws and lashes.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -7897,6 +7937,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> psychoclastic torrent; talons and betentacled maw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8073,6 +8114,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> bio-plasmic scream; Screamer-Killer talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8214,6 +8256,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Tyranid Warrior claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8349,6 +8392,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> devourer; Tyranid Warrior claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8567,6 +8611,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Leaper’s talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8698,6 +8743,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Prime talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -8869,6 +8915,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Psychic Tendril; monstrous scything talons; monstrous rending claws.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -9093,6 +9140,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> toxinjector harpoon; monstrous scything talons.",
       "damagedW": 1,
       "damagedDescription": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.",
       "models": [
@@ -9283,6 +9331,7 @@
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> piercing claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9446,6 +9495,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>The Ravener Prime is equipped with:</b> Prime claws and talons.<br><br><b>3 Raveners are equipped with:</b> Ravener heavy claws and talons.<br><br><b>1 Ravener is equipped with:</b> venom bolt; Ravener heavy claws and talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9694,6 +9744,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 rending claw; 1 lash whip; 1 scything talons.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -9893,6 +9944,7 @@
       "role": "Characters",
       "sourceId": "000000020",
       "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> scything talons, gaping maw.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
