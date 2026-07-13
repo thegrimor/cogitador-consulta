@@ -161,8 +161,19 @@ function normalizeText(s: string): string {
 
 interface MatchCandidate { key: string; name: string; description: string }
 
+/** Strips a trailing "— gloss" / "[Detail]" / "(cost)" annotation to recover the real name, e.g.
+ * "WITCH HUNTERS [Lethal Hits] (1CP)" -> "witch hunters", "Martial Mastery — crítico 5+ (CaC)" -> "martial mastery". */
+function extractRuleName(label: string): string {
+  return label
+    .split(/—|-{2,}/)[0]
+    .replace(/\s*\[[^\]]*\]/g, '')
+    .replace(/\s*\([^)]*\)/g, '')
+    .trim()
+    .toLowerCase()
+}
+
 function tryMatch(rule: ModifierRule, candidates: MatchCandidate[]): string | null {
-  const labelPrefix = rule.label.split(/—|-{2,}/)[0]?.trim().toLowerCase()
+  const labelPrefix = extractRuleName(rule.label)
   if (labelPrefix) {
     const byName = candidates.find(c => c.name.trim().toLowerCase() === labelPrefix)
     if (byName) return byName.key
@@ -336,9 +347,11 @@ function pushFallback(list: FallbackEffect[], rule: ModifierRule) {
 for (const rule of acRules) {
   report.totalConsidered++
 
-  // 1. datasheetId → attach to a named ability on that datasheet, else datasheet.combatEffects[]
-  if (rule.datasheetId) {
-    const ds = acDatasheets.find(d => d.id === rule.datasheetId)
+  // 1. datasheetId (or leaderDatasheetId — an aura printed on the leading character's own
+  //    sheet) → attach to a named ability on that datasheet, else datasheet.combatEffects[]
+  const ownerDatasheetId = rule.datasheetId ?? rule.leaderDatasheetId
+  if (ownerDatasheetId) {
+    const ds = acDatasheets.find(d => d.id === ownerDatasheetId)
     if (!ds) { pushFallback(factionFallbacks, rule); continue }
     const dsSlug = datasheetSlugByOldId.get(ds.id)!
     const candidates: MatchCandidate[] = ds.abilities.map((a, i) => ({ key: String(i), name: a.name, description: a.description }))
@@ -419,7 +432,7 @@ for (const rule of acRules) {
   const matchKey = tryMatch(rule, candidates)
   if (matchKey !== null) {
     const ar = armyRules[Number(matchKey)]
-    const optionName = rule.label.split(/—|-{2,}/)[0]?.trim() || rule.label
+    const optionName = rule.label.split(/—|-{2,}/)[0]?.replace(/\s*\([^)]*\)/g, '').trim() || rule.label
     if (!ar.effect && !ar.options) {
       ar.effect = toEffectShape(rule)
     } else {

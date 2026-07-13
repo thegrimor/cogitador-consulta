@@ -29,46 +29,6 @@
         },
         "combatType": "melee"
       }
-    },
-    {
-      "sourceRuleId": "ldr_000002088_tenacious_spirit",
-      "label": "Aleya — +1 impactar (+1 herir a media vida) (Líder)",
-      "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength.",
-      "effect": {
-        "effects": {
-          "hitMod": 1
-        }
-      }
-    },
-    {
-      "sourceRuleId": "ldr_000002088_tenacious_spirit_2",
-      "label": "Aleya — +1 herir (unidad ≤ media vida) (Líder)",
-      "effect": {
-        "effects": {
-          "woundMod": 1
-        }
-      }
-    },
-    {
-      "sourceRuleId": "ldr_000002519_golden_laurels",
-      "label": "Valerian — empeora PA atacante (Líder)",
-      "description": "While this model is leading a unit, each time a melee attack targets that unit, worsen the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": -1
-        },
-        "combatType": "melee",
-        "target": "defender"
-      }
-    },
-    {
-      "sourceRuleId": "opb_000001446_trajann",
-      "label": "[OPB] Trajann Valoris — +12 ataques",
-      "effect": {
-        "effects": {
-          "attacksMod": 12
-        }
-      }
     }
   ],
   "detachments": [
@@ -457,7 +417,14 @@
       "type": "Null Maiden Vigil – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Anathema Psykana unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability, but models in your unit can only target <span class=\"kwb\">PSYKER</span> units with their attacks."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Anathema Psykana unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability, but models in your unit can only target <span class=\"kwb\">PSYKER</span> units with their attacks.",
+      "effect": {
+        "effects": {
+          "sustainedHitsBonus": 1
+        },
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "psy-chaff-volley",
@@ -506,7 +473,15 @@
       "type": "Shield Host  – Wargear Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> unit from your army (excluding Anathema Psykana units) that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase ranged weapons equipped by models in your unit have the selected ability."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> unit from your army (excluding Anathema Psykana units) that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase ranged weapons equipped by models in your unit have the selected ability.",
+      "effect": {
+        "effects": {
+          "sustainedHitsBonus": 1
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "arcane-genetic-alchemy",
@@ -2084,7 +2059,18 @@
         "revered-companions",
         "assemblage-of-might"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "combatEffects": [
+        {
+          "sourceRuleId": "opb_000001446_trajann",
+          "label": "[OPB] Trajann Valoris — +12 ataques",
+          "effect": {
+            "effects": {
+              "attacksMod": 12
+            }
+          }
+        }
+      ]
     },
     {
       "id": "shield-captain",
@@ -5894,7 +5880,12 @@
         {
           "name": "Tenacious Spirit",
           "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            }
+          }
         },
         {
           "name": "Daughter of the Abyss",
@@ -5981,7 +5972,18 @@
         "assemblage-of-might",
         "creeping-dread-aura"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "combatEffects": [
+        {
+          "sourceRuleId": "ldr_000002088_tenacious_spirit_2",
+          "label": "Aleya — +1 herir (unidad ≤ media vida) (Líder)",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            }
+          }
+        }
+      ]
     },
     {
       "id": "blade-champion",
@@ -6257,7 +6259,14 @@
         {
           "name": "Golden Laurels",
           "description": "While this model is leading a unit, each time a melee attack targets that unit, worsen the Armour Penetration characteristic of that attack by 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         },
         {
           "name": "Hero of Lion’s Gate",
@@ -7299,56 +7308,6 @@
         },
         "combatType": "melee",
         "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "sourceRuleId": "ac_witch_hunters_lh",
-      "label": "WITCH HUNTERS [Lethal Hits] (1CP)",
-      "description": "Null Maiden Vigil: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability, but models in your unit can only target PSYKER units with their attacks.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "sourceRuleId": "ac_witch_hunters_sh",
-      "label": "WITCH HUNTERS [Sustained Hits 1] (1CP)",
-      "description": "Null Maiden Vigil: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability, but models in your unit can only target PSYKER units with their attacks.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "sourceRuleId": "ac_archeotech_munitions_lh",
-      "label": "ARCHEOTECH MUNITIONS [Lethal Hits] (1CP)",
-      "description": "Shield Host: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase ranged weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
-        },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "sourceRuleId": "ac_archeotech_munitions_sh",
-      "label": "ARCHEOTECH MUNITIONS [Sustained Hits 1] (1CP)",
-      "description": "Shield Host: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase ranged weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
-        },
-        "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
       }
