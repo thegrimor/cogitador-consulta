@@ -570,7 +570,7 @@ export function resolveImportedRoster(
       // that's a reliable proxy for the actual unit size. Doesn't apply to single-model
       // datasheets: a lone vehicle/character mounting two copies of the same default
       // weapon (e.g. a Venom's twin splinter cannons) would otherwise read as 2 models.
-      const defaultWeaponBases = new Set(datasheet.defaultWeaponNames.map(weaponBaseName))
+      const defaultWeaponBases = new Set(datasheet.defaultWeaponNames.map(d => weaponBaseName(d.name)))
       const modelCountFromWeapons = isSingleModelDatasheet ? 0 : effectiveWeapons
         .filter(w => defaultWeaponBases.has(weaponBaseName(w.name)))
         .reduce((max, w) => Math.max(max, w.count), 0)

@@ -3,7 +3,7 @@ import Papa from 'papaparse'
 import type {
   GameData, Faction, Detachment, DetachmentAbility, Stratagem, Datasheet,
   ModelProfile, Weapon, Ability, AntiEntry, Enhancement, UnitOption, Source, CoreRule,
-  PointsCost, WargearCost,
+  PointsCost, WargearCost, DefaultWeaponQuantity,
   RawFaction, RawDatasheet, RawDatasheetModel, RawDatasheetWargear,
   RawDatasheetAbility, RawAbility, RawDetachment, RawDetachmentChapter, RawDetachmentAbility,
   RawStratagem, RawDatasheetStratagem, RawDatasheetKeyword, RawDatasheetUnitComposition,
@@ -42,19 +42,23 @@ function stripHtml(s: string): string {
   return s.replace(/<[^>]+>/g, '')
 }
 
-function parseDefaultWeaponNames(loadout: string): string[] {
+function parseDefaultWeaponNames(loadout: string): DefaultWeaponQuantity[] {
   const clean = stripHtml(loadout)
-  const names: string[] = []
+  const counts = new Map<string, number>()
   const RE = /equipped with:\s*([^.]+)/gi
   let m: RegExpExecArray | null
   while ((m = RE.exec(clean)) !== null) {
-    const parts = m[1]
-      .split(';')
-      .map(s => s.trim().toLowerCase().replace(/^\d+\s+/, ''))
-      .filter(Boolean)
-    names.push(...parts)
+    const parts = m[1].split(';').map(s => s.trim()).filter(Boolean)
+    for (const part of parts) {
+      // "2 shieldbreaker missile launchers" — a single model can carry more than one of the
+      // same weapon by default; a bare "titanic feet" with no leading number means 1.
+      const countMatch = part.match(/^(\d+)\s+(.+)$/)
+      const name = (countMatch ? countMatch[2] : part).trim().toLowerCase()
+      if (!name) continue
+      counts.set(name, countMatch ? parseInt(countMatch[1], 10) : 1)
+    }
   }
-  return [...new Set(names)]
+  return [...counts.entries()].map(([name, count]) => ({ name, count }))
 }
 
 function parseUnitCompositionRange(lines: string[]): { min: number; max: number } {

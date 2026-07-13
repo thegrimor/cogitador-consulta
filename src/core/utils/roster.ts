@@ -200,7 +200,9 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
     return profileBases.has(singular) ? singular : base
   }
 
-  datasheet.defaultWeaponNames.forEach(name => counts.set(canonicalKey(name), entry.modelCount))
+  datasheet.defaultWeaponNames.forEach(({ name, count }) =>
+    counts.set(canonicalKey(name), count * entry.modelCount),
+  )
 
   for (const rule of datasheet.weaponOptionRules) {
     if (rule.scope === 'unparsed' || rule.choices.length === 0) continue

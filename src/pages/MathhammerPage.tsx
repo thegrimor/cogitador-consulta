@@ -115,12 +115,13 @@ export function MathhammerPage() {
       weapons: Weapon[],
     ): Record<string, number> {
       const result = { ...qty }
-      const defaultNames = new Set(unit.defaultWeaponNames)
+      const defaultCounts = new Map(unit.defaultWeaponNames.map(d => [d.name, d.count]))
       const unitMin = unit.modelCountMin
       for (const w of weapons) {
         const key = `${w.line}:${w.name}`
         if (!(key in result)) {
-          result[key] = defaultNames.has(w.name.toLowerCase()) ? unitMin : 1
+          const perModel = defaultCounts.get(w.name.toLowerCase())
+          result[key] = perModel !== undefined ? perModel * unitMin : 1
         }
       }
       return result
