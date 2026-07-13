@@ -1,5 +1,5 @@
 /**
- * Adds `disposition` and `dp` columns to public/data/Detachments.csv
+ * Adds `disposition` and `dp` columns to data-source/Detachments.csv
  * using data scraped from mfm-data.json.
  *
  * Usage: node scripts/update-detachments.mjs
@@ -10,7 +10,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.join(__dirname, '..', 'public', 'data');
+const ROOT = path.join(__dirname, '..', 'data-source');
 
 // Same faction slug → CSV faction_id mapping as update-costs.mjs
 const FACTION_MAP = {

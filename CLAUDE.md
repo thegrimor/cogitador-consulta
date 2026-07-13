@@ -19,11 +19,14 @@ No test suite yet.
 
 ### Data layer
 
-All game data lives in `/public/data/*.csv` (pipe-delimited). `src/infrastructure/data/useGameData.ts` loads all 12 files in parallel with PapaParse, parses them into domain types, and exposes them via `GameDataContext`. Every page reads data exclusively through `useGameDataContext()` — there is no Redux store yet (Phase 2 will add one for rosters).
+Runtime data is JSON, generated from source CSVs — the app never parses CSV at runtime. There are two layers:
 
-CSV files: `Factions`, `Datasheets`, `Datasheets_models`, `Datasheets_wargear`, `Datasheets_abilities`, `Abilities`, `Detachments`, `Detachment_abilities`, `Stratagems`, `Datasheets_stratagems`, `Datasheets_keywords`, `Datasheets_unit_composition`.
+- **Source (build-time only, not shipped):** `data-source/*.csv` (pipe-delimited wahapedia scrape, kept up to date by `scrape-mfm.mjs`/`update-costs.mjs`/`sync-enhancement-costs.mjs`/`update-detachments.mjs`/`update-wargear-costs.mjs`) plus the hand-authored combat-modifier catalog `src/features/mathhammer/data/modifiers.ts` (`MODIFIER_RULES`). `scripts/generate-faction-data.ts` reads both, folds each `ModifierRule` into the real named entity it describes (a datasheet ability, stratagem, enhancement, or detachment ability — matched by id first, then by name/description text), and writes the runtime artifact below. Run `npm run generate:faction-data` after editing either source, then `npm run verify:faction-data` (checks deterministic regeneration, lossless weapon-rule round-tripping, and that every modifier rule was accounted for — merged, in fallback, or deliberately excluded as Boarding Actions/Combat Patrol or Legends).
+- **Runtime artifact (shipped, fetched by the app):** `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json`. `src/infrastructure/data/useGameData.ts` fetches all of these in parallel, flattens them back into the same `GameData` shape the app has always used, and exposes it via `GameDataContext`. Every page reads data exclusively through `useGameDataContext()` — there is no Redux store yet (Phase 2 will add one for rosters).
 
-All domain types are in `src/types/index.ts`. Raw CSV row types (`Raw*`) and clean domain types are both defined there.
+Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
+
+All domain types are in `src/types/index.ts`. Raw CSV row types (`Raw*`) are used only by `csvParsers.ts` and the generator/verify scripts under `scripts/`; clean domain types (`Datasheet`, `Ability`, `CombatEffect`, etc.) are what the live app consumes.
 
 ### Theme system
 

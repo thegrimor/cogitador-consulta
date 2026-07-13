@@ -2,7 +2,8 @@
  * Verifica el JSON generado por generate-faction-data.ts, para todas las facciones, sin
  * fiarse de la misma pasada:
  *  1. Regenera todo en un directorio temporal y compara byte a byte contra lo ya escrito
- *     en public/data — confirma que la generación es determinista.
+ *     en public/data (los CSV fuente viven en data-source/) — confirma que la generación
+ *     es determinista.
  *  2. Reconstruye cada Weapon completo a partir de los campos base + `rules` recortados
  *     del JSON y lo compara contra parseWeapon() aplicado a la fila CSV original — confirma
  *     que recortar los valores por defecto de `rules` no pierde ningún dato real.
@@ -20,7 +21,8 @@ import { parseCsvRaw, parseWeapon, WEAPON_RULE_DEFAULTS } from '../src/infrastru
 import type { RawDatasheetWargear, Weapon } from '../src/types'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = path.join(__dirname, '..', 'public', 'data')
+const JSON_DIR = path.join(__dirname, '..', 'public', 'data')
+const SOURCE_DIR = path.join(__dirname, '..', 'data-source')
 
 const tmpOut = fs.mkdtempSync(path.join(os.tmpdir(), 'faction-data-verify-'))
 process.env.FACTION_DATA_OUT_DIR = tmpOut
@@ -36,7 +38,7 @@ async function main() {
   //    por facción, más los catálogos compartidos.
   let deterministic = true
   for (const { slug } of results) {
-    const committedPath = path.join(DATA_DIR, 'factions', `${slug}.json`)
+    const committedPath = path.join(JSON_DIR, 'factions', `${slug}.json`)
     const freshPath = path.join(tmpOut, 'factions', `${slug}.json`)
     const committed = JSON.parse(fs.readFileSync(committedPath, 'utf-8'))
     const fresh = JSON.parse(fs.readFileSync(freshPath, 'utf-8'))
@@ -46,7 +48,7 @@ async function main() {
     }
   }
   for (const catalogFile of ['factions.json', 'core-rules.json']) {
-    const a = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'catalog', catalogFile), 'utf-8'))
+    const a = JSON.parse(fs.readFileSync(path.join(JSON_DIR, 'catalog', catalogFile), 'utf-8'))
     const b = JSON.parse(fs.readFileSync(path.join(tmpOut, 'catalog', catalogFile), 'utf-8'))
     if (JSON.stringify(a) !== JSON.stringify(b)) {
       errors.push(`catalog/${catalogFile} difiere entre la versión commiteada y la regenerada.`)
@@ -58,12 +60,12 @@ async function main() {
   // 2. Round-trip de reglas de arma: reconstruir Weapon completo desde el JSON y comparar
   //    contra parseWeapon() aplicado directamente a la fila CSV original, para TODAS las facciones.
   const wargearRows = parseCsvRaw(
-    fs.readFileSync(path.join(DATA_DIR, 'Datasheets_wargear.csv'), 'utf-8'),
+    fs.readFileSync(path.join(SOURCE_DIR, 'Datasheets_wargear.csv'), 'utf-8'),
   ) as unknown as RawDatasheetWargear[]
 
   let weaponsChecked = 0
   for (const { slug, acDatasheets } of results) {
-    const committed = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'factions', `${slug}.json`), 'utf-8'))
+    const committed = JSON.parse(fs.readFileSync(path.join(JSON_DIR, 'factions', `${slug}.json`), 'utf-8'))
     for (const ds of acDatasheets) {
       const dsSlug = datasheetSlugByOldId.get(ds.id)
       const jsonDs = committed.datasheets.find((d: { id: string }) => d.id === dsSlug)

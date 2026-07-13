@@ -1,6 +1,6 @@
 /**
  * Genera public/data/factions/<slug>.json + public/data/catalog/*.json a partir de los
- * CSV actuales (public/data/*.csv, ya con las correcciones de MFM aplicadas) y de las
+ * CSV fuente (data-source/*.csv, ya con las correcciones de MFM aplicadas) y de las
  * reglas de combate hoy en src/features/mathhammer/data/modifiers.ts.
  *
  * Procesa todas las facciones jugables (excluye "Unaligned Forces" y cualquiera sin
@@ -29,8 +29,8 @@ import { MODIFIER_RULES } from '../src/features/mathhammer/data/modifiers'
 import type { ModifierRule } from '../src/features/mathhammer/types'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = path.join(__dirname, '..', 'public', 'data')
-const OUT_DIR = process.env.FACTION_DATA_OUT_DIR ?? DATA_DIR
+const DATA_DIR = path.join(__dirname, '..', 'data-source')
+const OUT_DIR = process.env.FACTION_DATA_OUT_DIR ?? path.join(__dirname, '..', 'public', 'data')
 const OUT_FACTIONS_DIR = path.join(OUT_DIR, 'factions')
 const OUT_CATALOG_DIR = path.join(OUT_DIR, 'catalog')
 const REPORT_DIR = process.env.FACTION_DATA_REPORT_DIR ?? path.join(__dirname, 'reports')

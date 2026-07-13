@@ -15,7 +15,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.join(__dirname, '..', 'public', 'data');
+const ROOT = path.join(__dirname, '..', 'data-source');
 
 // MFM slug → CSV faction_id(s)
 const FACTION_MAP = {
