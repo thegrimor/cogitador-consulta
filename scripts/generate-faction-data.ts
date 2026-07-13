@@ -139,19 +139,30 @@ const detachmentAbilitySlugByOldId = new Map<string, string>()
 export const acDatasheets = allDatasheets.filter(d => d.factionId === TARGET_FACTION)
 acDatasheets.forEach(d => datasheetSlugByOldId.set(d.id, makeSlug(d.name, acSlug)))
 
+// Excludes non-standard game modes (Boarding Actions, Combat Patrol, or any future `type`
+// wahapedia adds) — those play by their own separate ruleset, out of scope for this app.
 const acDetachments = rawDetachments.filter(d => d.faction_id === TARGET_FACTION && d.type === '')
 acDetachments.forEach(d => detachmentSlugByOldId.set(d.id, makeSlug(d.name, acSlug)))
+const includedDetachmentIds = new Set(acDetachments.map(d => d.id))
 
-const acStratagems = rawStratagems.filter(s => s.faction_id === TARGET_FACTION)
+const acStratagems = rawStratagems.filter(s => s.faction_id === TARGET_FACTION && includedDetachmentIds.has(s.detachment_id))
 const universalStratagems = rawStratagems.filter(s => !s.faction_id)
 acStratagems.forEach(s => stratagemSlugByOldId.set(s.id, makeSlug(s.name, acSlug)))
 universalStratagems.forEach(s => stratagemSlugByOldId.set(s.id, makeSlug(s.name, 'core')))
 
-const acEnhancements = rawEnhancements.filter(e => e.faction_id === TARGET_FACTION)
+const acEnhancements = rawEnhancements.filter(e => e.faction_id === TARGET_FACTION && includedDetachmentIds.has(e.detachment_id))
 acEnhancements.forEach(e => enhancementSlugByOldId.set(e.id, makeSlug(e.name, acSlug)))
 
-const acDetachAbils = rawDetachAbils.filter(da => da.faction_id === TARGET_FACTION)
+const acDetachAbils = rawDetachAbils.filter(da => da.faction_id === TARGET_FACTION && includedDetachmentIds.has(da.detachment_id))
 acDetachAbils.forEach(da => detachmentAbilitySlugByOldId.set(da.id, makeSlug(da.name, acSlug)))
+
+/** Drops embedded flavour-text paragraphs (wahapedia marks these with a "ShowFluff" CSS class,
+ * e.g. `<p class="ShowFluff legend2">Some units make their way to battle...</p>`) so only the
+ * mechanical rules text remains. Separate `legend` CSV columns (pure flavour text) are never
+ * read into any output field in the first place, so this only needs to catch text mixed inline. */
+function stripLore(html: string): string {
+  return html.replace(/<p[^>]*\bclass="[^"]*ShowFluff[^"]*"[^>]*>[\s\S]*?<\/p>/gi, '')
+}
 
 // ── Text matching helpers for folding ModifierRule effects into named entities ────────
 
@@ -249,6 +260,7 @@ interface MatchReport {
   mergedIntoEnhancement: string[]
   mergedIntoArmyRule: string[]
   fallback: string[]
+  excludedGameMode: string[]
   crossFactionLeadersOmitted: number
 }
 
@@ -260,6 +272,7 @@ export const report: MatchReport = {
   mergedIntoEnhancement: [],
   mergedIntoArmyRule: [],
   fallback: [],
+  excludedGameMode: [],
   crossFactionLeadersOmitted: 0,
 }
 
@@ -278,7 +291,7 @@ rawDsAbilities
     if (armyRuleIds.has(a.ability_id)) return
     armyRuleIds.add(a.ability_id)
     const ref = abilitiesMap[a.ability_id]
-    if (ref) armyRules.push({ name: ref.name, description: ref.description, type: 'Faction' })
+    if (ref) armyRules.push({ name: ref.name, description: stripLore(ref.description), type: 'Faction' })
   })
 
 // ── Detachments (AC only) ──────────────────────────────────────────────────────────
@@ -303,7 +316,7 @@ const detachments: OutDetachment[] = acDetachments.map(d => ({
   chapters: chaptersByDetachment[d.id] ?? [],
   abilities: acDetachAbils
     .filter(da => da.detachment_id === d.id)
-    .map(da => ({ id: detachmentAbilitySlugByOldId.get(da.id)!, name: da.name, description: da.description })),
+    .map(da => ({ id: detachmentAbilitySlugByOldId.get(da.id)!, name: da.name, description: stripLore(da.description) })),
 }))
 
 // ── Stratagems (AC-scoped only; Core ones go to the shared catalog) ───────────────────
@@ -323,7 +336,7 @@ function toOutStratagem(s: RawStratagem): OutStratagem {
     type: s.type,
     turn: s.turn,
     phase: s.phase,
-    description: s.description,
+    description: stripLore(s.description),
   }
 }
 
@@ -343,7 +356,7 @@ const enhancementsOut: OutEnhancement[] = acEnhancements.map(e => ({
   cost: parseInt(e.cost) || 0,
   detachmentId: e.detachment_id ? (detachmentSlugByOldId.get(e.detachment_id) ?? null) : null,
   detachmentName: e.detachment,
-  description: e.description,
+  description: stripLore(e.description),
 }))
 
 // ── Fold MODIFIER_RULES into the entities above ───────────────────────────────────────
@@ -402,6 +415,11 @@ for (const rule of acRules) {
 
   // 2. enhancementId → attach effect to that Enhancement directly (hard id match)
   if (rule.enhancementId) {
+    const rawEnh = rawEnhancements.find(e => e.id === rule.enhancementId)
+    if (rawEnh && !includedDetachmentIds.has(rawEnh.detachment_id)) {
+      report.excludedGameMode.push(rule.id)
+      continue
+    }
     const enh = enhancementsOut.find(e => e.id === enhancementSlugByOldId.get(rule.enhancementId!))
     if (enh) {
       enh.effect = toEffectShape(rule)
@@ -414,6 +432,12 @@ for (const rule of acRules) {
 
   // 3. detachmentId, no datasheetId → try stratagem first (if isStratagem), else detachment ability
   if (rule.detachmentId) {
+    if (!includedDetachmentIds.has(rule.detachmentId)) {
+      // Belongs to a Boarding Actions / Combat Patrol / other non-standard detachment we don't
+      // carry at all — not a matching failure, deliberately out of scope.
+      report.excludedGameMode.push(rule.id)
+      continue
+    }
     const detSlug = detachmentSlugByOldId.get(rule.detachmentId)
     if (rule.isStratagem) {
       const candidates: MatchCandidate[] = acStratagemsOut
@@ -548,7 +572,7 @@ const datasheetsOut = acDatasheets.map(ds => {
     damagedDescription: ds.damagedDescription,
     models: ds.models,
     weapons: ds.weapons.map(stripWeaponRuleDefaults),
-    abilities: ds.abilities,
+    abilities: ds.abilities.map(a => ({ ...a, description: stripLore(a.description) })),
     keywords: ds.keywords,
     factionKeywords: ds.factionKeywords,
     unitComposition: ds.unitComposition,
@@ -593,12 +617,12 @@ const factionsCatalog = rawFactions
   .map(f => ({ id: f.id === TARGET_FACTION ? acSlug : slugify(f.name), name: f.name }))
 
 const coreRulesOut = rawCoreRules.map(r => ({
-  id: r.id, name: r.name, category: r.category, summary: r.summary, description: r.description,
+  id: r.id, name: r.name, category: r.category, summary: r.summary, description: stripLore(r.description),
 }))
 const coreRuleNameSet = new Set(coreRulesOut.map(r => r.name.toLowerCase()))
 rawAbilities
   .filter(a => !a.faction_id && !coreRuleNameSet.has(a.name.toLowerCase()))
-  .forEach(a => coreRulesOut.push({ id: a.id, name: a.name, category: 'unit_ability', summary: '', description: a.description }))
+  .forEach(a => coreRulesOut.push({ id: a.id, name: a.name, category: 'unit_ability', summary: '', description: stripLore(a.description) }))
 
 const catalogOut = {
   coreRules: coreRulesOut,
@@ -633,6 +657,7 @@ console.log(`  Fusionadas en stratagem:                     ${report.mergedIntoS
 console.log(`  Fusionadas en enhancement:                   ${report.mergedIntoEnhancement.length}`)
 console.log(`  Fusionadas en army rule (options incluidas):  ${report.mergedIntoArmyRule.length}`)
 console.log(`  Sin match de alta confianza (combatEffects[] de respaldo): ${report.fallback.length}`)
+console.log(`  Excluidas por modo de juego (Boarding Actions/Combat Patrol): ${report.excludedGameMode.length}`)
 console.log(`  Líderes de otra facción omitidos en canBeLedBy: ${report.crossFactionLeadersOmitted}`)
 if (report.fallback.length) {
   console.log('\n  Reglas en fallback (revisar):')

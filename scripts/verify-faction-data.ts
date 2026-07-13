@@ -97,13 +97,13 @@ async function main() {
 
   // 3. Invariante de conteo de modifiers.ts: cada regla con factionId=AC debe quedar fusionada
   //    en algún sitio o registrada como fallback — ninguna desaparece en silencio.
-  const accountedFor = report.mergedIntoAbility.length + report.mergedIntoDetachmentAbility.length
-    + report.mergedIntoStratagem.length + report.mergedIntoEnhancement.length
-    + report.mergedIntoArmyRule.length + report.fallback.length
+  const merged = report.mergedIntoAbility.length + report.mergedIntoDetachmentAbility.length
+    + report.mergedIntoStratagem.length + report.mergedIntoEnhancement.length + report.mergedIntoArmyRule.length
+  const accountedFor = merged + report.fallback.length + report.excludedGameMode.length
   if (accountedFor !== report.totalConsidered) {
-    errors.push(`Invariante de conteo roto: ${report.totalConsidered} reglas de modifiers.ts consideradas, pero solo ${accountedFor} contabilizadas (fusionadas + fallback).`)
+    errors.push(`Invariante de conteo roto: ${report.totalConsidered} reglas de modifiers.ts consideradas, pero solo ${accountedFor} contabilizadas (fusionadas + fallback + excluidas por modo de juego).`)
   } else {
-    console.log(`✓ Invariante de conteo: ${report.totalConsidered} reglas de modifiers.ts (AC) todas contabilizadas (${accountedFor - report.fallback.length} fusionadas, ${report.fallback.length} en fallback).`)
+    console.log(`✓ Invariante de conteo: ${report.totalConsidered} reglas de modifiers.ts (AC) todas contabilizadas (${merged} fusionadas, ${report.fallback.length} en fallback, ${report.excludedGameMode.length} excluidas por modo de juego).`)
   }
 
   fs.rmSync(tmpOut, { recursive: true, force: true })
