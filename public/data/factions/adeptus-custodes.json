@@ -3128,7 +3128,12 @@
         {
           "name": "Slayers of Tyrants",
           "description": "Each time a model in this unit makes an attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
         },
         {
           "name": "From Golden Light",
@@ -3236,18 +3241,6 @@
       ],
       "canBeLedBy": [
         "shield-captain-in-allarus-terminator-armour"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000001453_slayers_of_tyrants",
-          "label": "Allarus Custodians — repetir heridas",
-          "description": "Each time a model in this unit makes an attack that targets a CHARACTER, MONSTER or VEHICLE unit, you can re-roll the Wound roll.",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
-            }
-          }
-        }
       ]
     },
     {
@@ -5872,7 +5865,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1
+              "hitMod": 1,
+              "woundMod": 1
             }
           }
         },
@@ -5961,18 +5955,7 @@
         "assemblage-of-might",
         "creeping-dread-aura"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "ldr_000002088_tenacious_spirit_2",
-          "label": "Aleya — +1 herir (unidad ≤ media vida) (Líder)",
-          "effect": {
-            "effects": {
-              "woundMod": 1
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "blade-champion",

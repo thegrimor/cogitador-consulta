@@ -156,7 +156,11 @@ acDetachAbils.forEach(da => detachmentAbilitySlugByOldId.set(da.id, makeSlug(da.
 // ── Text matching helpers for folding ModifierRule effects into named entities ────────
 
 function normalizeText(s: string): string {
-  return s.replace(/<[^>]+>/g, ' ').replace(/[’]/g, "'").toLowerCase().replace(/\s+/g, ' ').trim()
+  // Tags like <span class="kwb">CHARACTER</span>, leave a stray space before the following
+  // punctuation once stripped ("character , monster") — collapse that back so a rule's
+  // hand-typed prose ("character, monster") still lines up with the source HTML.
+  return s.replace(/<[^>]+>/g, ' ').replace(/[’]/g, "'").toLowerCase()
+    .replace(/\s+/g, ' ').replace(/\s+([,.;:])/g, '$1').trim()
 }
 
 interface MatchCandidate { key: string; name: string; description: string }
@@ -358,6 +362,14 @@ function pushFallback(list: FallbackEffect[], rule: ModifierRule) {
   report.fallback.push(rule.id)
 }
 
+/** Combines two EffectShapes for the "second half of the same ability" case (e.g. modifiers.ts
+ * splits one ability into a described rule and a bare-label continuation with no description). */
+function mergeEffectShapes(a: EffectShape, b: EffectShape): EffectShape {
+  return { ...a, ...b, effects: { ...a.effects, ...b.effects } }
+}
+
+const lastMergedAbilityIndexByDatasheet = new Map<string, number>()
+
 for (const rule of acRules) {
   report.totalConsidered++
 
@@ -373,6 +385,14 @@ for (const rule of acRules) {
     if (matchKey !== null) {
       (ds.abilities[Number(matchKey)] as OutAbility).effect = toEffectShape(rule)
       report.mergedIntoAbility.push(`${dsSlug}::${ds.abilities[Number(matchKey)].name}`)
+      lastMergedAbilityIndexByDatasheet.set(dsSlug, Number(matchKey))
+    } else if (!rule.description && lastMergedAbilityIndexByDatasheet.has(dsSlug)) {
+      // No description of its own — almost certainly the second half of the ability we just
+      // matched for this same datasheet (e.g. a below-half-strength bonus tacked onto an aura).
+      const priorIdx = lastMergedAbilityIndexByDatasheet.get(dsSlug)!
+      const ability = ds.abilities[priorIdx] as OutAbility
+      ability.effect = mergeEffectShapes(ability.effect!, toEffectShape(rule))
+      report.mergedIntoAbility.push(`${dsSlug}::${ability.name} (continuación)`)
     } else {
       if (!datasheetFallbacksById.has(dsSlug)) datasheetFallbacksById.set(dsSlug, [])
       pushFallback(datasheetFallbacksById.get(dsSlug)!, rule)
