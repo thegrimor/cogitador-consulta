@@ -752,7 +752,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One unit from your army that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Select one enemy unit that is not within Engagement Range of one or more units from your army and is within 6\" of and visible to your unit. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
     },
     {
-      "id": "burst-of-speed",
+      "id": "burst-of-speed-core",
       "name": "BURST OF SPEED",
       "detachmentId": null,
       "cpCost": 1,
@@ -882,7 +882,7 @@
       "description": "<b>WHEN:</b> Fight step of your opponent's Fight phase, just after an enemy unit has resolved its attacks.<br><br><b>TARGET:</b> One friendly unit that is eligible to fight.<br><br><b>EFFECT:</b> Until the end of the phase, your unit has the Fights First ability and it must be the next unit you select to fight."
     },
     {
-      "id": "crushing-impact",
+      "id": "crushing-impact-core",
       "name": "CRUSHING IMPACT",
       "detachmentId": null,
       "cpCost": 1,
