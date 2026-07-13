@@ -188,6 +188,19 @@ function tryMatch(rule: ModifierRule, candidates: MatchCandidate[]): string | nu
       return candNorm.includes(rulePrefix) || ruleNorm.includes(candNorm.slice(0, Math.min(80, candNorm.length)))
     })
     if (byDesc) return byDesc.key
+
+    // Some hand-authored rules glue together two non-adjacent clauses from a longer ability
+    // (e.g. a stance table where GW's own flavour paragraph sits between the stance name and
+    // its mechanical effect). Require every clause to appear independently in the candidate,
+    // rather than as one contiguous substring.
+    const clauses = ruleNorm.split(/[:.]/).map(c => c.trim()).filter(c => c.length >= 12)
+    if (clauses.length >= 2) {
+      const byClauses = candidates.find(c => {
+        const candNorm = normalizeText(c.description)
+        return candNorm.length > 0 && clauses.every(clause => candNorm.includes(clause))
+      })
+      if (byClauses) return byClauses.key
+    }
   }
   return null
 }
@@ -335,6 +348,7 @@ const acRules = MODIFIER_RULES.filter(r => r.factionId === TARGET_FACTION)
 const universalRules = MODIFIER_RULES.filter(r => !r.factionId)
 
 const armyRuleFallbacks: FallbackEffect[] = []
+const pendingArmyRuleOptions = new Map<string, { name: string; effect: EffectShape }[]>()
 const detachmentFallbacksById = new Map<string, FallbackEffect[]>()
 const datasheetFallbacksById = new Map<string, FallbackEffect[]>()
 const factionFallbacks: FallbackEffect[] = []
@@ -433,16 +447,20 @@ for (const rule of acRules) {
   if (matchKey !== null) {
     const ar = armyRules[Number(matchKey)]
     const optionName = rule.label.split(/—|-{2,}/)[0]?.replace(/\s*\([^)]*\)/g, '').trim() || rule.label
-    if (!ar.effect && !ar.options) {
-      ar.effect = toEffectShape(rule)
-    } else {
-      if (!ar.options) { ar.options = ar.effect ? [{ name: ar.name, effect: ar.effect }] : []; delete ar.effect }
-      ar.options.push({ name: optionName, effect: toEffectShape(rule) })
-    }
+    if (!pendingArmyRuleOptions.has(matchKey)) pendingArmyRuleOptions.set(matchKey, [])
+    pendingArmyRuleOptions.get(matchKey)!.push({ name: optionName, effect: toEffectShape(rule) })
     report.mergedIntoArmyRule.push(`${ar.name}::${optionName}`)
   } else {
     pushFallback(armyRuleFallbacks, rule)
   }
+}
+
+// A single matched rule becomes the army rule's own `effect`; two or more (mutually-exclusive
+// stances, e.g. Martial Ka'tah) become `options[]`, each keeping its own real name.
+for (const [key, options] of pendingArmyRuleOptions) {
+  const ar = armyRules[Number(key)]
+  if (options.length === 1) ar.effect = options[0].effect
+  else ar.options = options
 }
 
 // Universal rules (no factionId at all) → shared core-rules catalog

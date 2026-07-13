@@ -4,31 +4,27 @@
   "armyRules": [
     {
       "name": "Martial Ka’tah",
-      "description": "Each time a unit from your army with this ability is selected to fight, select one of the Ka’tah Stances below. Until that unit has finished making its attacks, the selected Stance is active for it and it gains the relevant ability:<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Dacatarai Stance</p><p class=\"ShowFluff legend2\">Those Custodians skilled in the Dacatarai Ka'tah are able to turn their enemies numerical advantage against them. Reserved for when the Custodians must battle seething hordes of foes, this stance sees them reap a terrible tally</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Rendax Stance</p><p class=\"ShowFluff legend2\">Masters of Rendax are superlative monster and war machine hunters. They have studied every aspect of how to do battle with a foe far larger than themselves, how to evade its powerful attacks, exploit its blind spots and lay it low.</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>"
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "ac_katah_dacatarai",
-      "label": "Ka'tah Dacatarai — Sustained Hits 1 (CaC)",
-      "description": "Dacatarai Stance: melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "description": "Each time a unit from your army with this ability is selected to fight, select one of the Ka’tah Stances below. Until that unit has finished making its attacks, the selected Stance is active for it and it gains the relevant ability:<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Dacatarai Stance</p><p class=\"ShowFluff legend2\">Those Custodians skilled in the Dacatarai Ka'tah are able to turn their enemies numerical advantage against them. Reserved for when the Custodians must battle seething hordes of foes, this stance sees them reap a terrible tally</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Rendax Stance</p><p class=\"ShowFluff legend2\">Masters of Rendax are superlative monster and war machine hunters. They have studied every aspect of how to do battle with a foe far larger than themselves, how to evade its powerful attacks, exploit its blind spots and lay it low.</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
+      "options": [
+        {
+          "name": "Ka'tah Dacatarai",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee"
+          }
         },
-        "combatType": "melee"
-      }
-    },
-    {
-      "sourceRuleId": "ac_katah_rendax",
-      "label": "Ka'tah Rendax — Lethal Hits (CaC)",
-      "description": "Rendax Stance: melee weapons equipped by models in this unit have the [LETHAL HITS] ability.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
-        },
-        "combatType": "melee"
-      }
+        {
+          "name": "Ka'tah Rendax",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee"
+          }
+        }
+      ]
     }
   ],
   "detachments": [
@@ -2464,7 +2460,13 @@
         {
           "name": "Auramite and Adamantine",
           "description": "Once per battle, at the start of any phase, this model can use this ability If it does, until the end of the phase, each time an attack is allocated to this model, change the Damage characteristic of that attack to 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "damageReduction": 1
+            },
+            "target": "defender"
+          }
         },
         {
           "name": "Strategic Mastery",
@@ -2583,20 +2585,7 @@
         "against-all-odds",
         "assemblage-of-might"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_ac_auramite_and_adamantine",
-          "label": "Shield-captain In Allarus Terminator Armour — Damage a 1 (Defensor)",
-          "description": "Once per battle, at the start of any phase, this model can use this ability. If it does, until the end of the phase, each time an attack is allocated to this model, change the Damage characteristic of that attack to 1.",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "shield-captain-on-dawneagle-jetbike",
