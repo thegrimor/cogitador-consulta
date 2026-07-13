@@ -120,13 +120,6 @@
       "description": "Each time an attack is made with a [LANCE] weapon, if the attacking model's unit made a charge move this turn, add 1 to the wound roll."
     },
     {
-      "id": "WA018",
-      "name": "Cumbersome",
-      "category": "weapon_ability",
-      "summary": "Not present in the current Core Rules.",
-      "description": "[CUMBERSOME] no longer appears in the Core Abilities list (section 24) of the current Core Rules. No datasheet in this app's data currently uses it."
-    },
-    {
       "id": "WA019",
       "name": "Hazardous",
       "category": "weapon_ability",
