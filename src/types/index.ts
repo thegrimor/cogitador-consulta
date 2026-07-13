@@ -319,6 +319,11 @@ export interface CombatEffect {
   bearerOnly?: boolean
   isStratagem?: boolean
   cpCost?: number
+  /** This ability's effect is an aura for OTHER nearby units, not for its own bearer's unit
+   * (e.g. a support Dreadnought's "Wisdom of the Ancients") — surface it as available for any
+   * unit's calculator when the bearer datasheet is present in the roster (or always, if no
+   * roster is loaded), not just when the bearer itself is the selected unit. */
+  appliesToNearby?: boolean
   effects: Partial<CombatModifiers>
 }
 
@@ -402,8 +407,18 @@ export interface GameData {
   lastUpdate: string
   coreRules: CoreRule[]
   coreRulesMap: Record<string, CoreRule>
+  /** Universal combat effects with no faction (Cover, Heavy, Command Re-Roll...) — always
+   * available in the mathhammer calculator regardless of which faction is selected. */
+  coreCombatEffects: CoreCombatEffect[]
   loading: boolean
   error: string | null
+}
+
+export interface CoreCombatEffect {
+  id: string
+  name: string
+  description?: string
+  effect: CombatEffect
 }
 
 // ── Roster types ───────────────────────────────────────────────────────────────

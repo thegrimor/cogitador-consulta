@@ -4783,7 +4783,8 @@
             "effects": {
               "feelNoPainThreshold": 6
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -6171,7 +6172,8 @@
             "effects": {
               "apMod": -1
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -9336,7 +9338,8 @@
           "effect": {
             "effects": {
               "strengthMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -9506,7 +9509,8 @@
             "effects": {
               "feelNoPainThreshold": 6
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -10432,7 +10436,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -10443,7 +10448,8 @@
           "effect": {
             "effects": {
               "rerollWoundsOf1": true
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {

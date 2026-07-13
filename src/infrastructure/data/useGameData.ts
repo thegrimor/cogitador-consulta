@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import type {
   GameData, Faction, Detachment, DetachmentAbility, Stratagem, Datasheet,
   Enhancement, Source, CoreRule, UnitOption, PointsCost, WargearCost, Ability,
-  ModelProfile, Weapon, DefaultWeaponQuantity,
+  ModelProfile, Weapon, DefaultWeaponQuantity, CoreCombatEffect,
 } from '@/types'
 import { WEAPON_RULE_DEFAULTS } from './csvParsers'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
@@ -50,6 +50,7 @@ interface FactionJson {
 interface CatalogJson {
   coreRules: CoreRule[]
   coreStratagems: Stratagem[]
+  coreRuleEffects: CoreCombatEffect[]
   sources: Source[]
   lastUpdate: string
 }
@@ -92,6 +93,7 @@ const EMPTY_STATE: GameData = {
   lastUpdate: '',
   coreRules: [],
   coreRulesMap: {},
+  coreCombatEffects: [],
   loading: true,
   error: null,
 }
@@ -236,6 +238,7 @@ export function useGameData(): GameData {
             sources, sourceMap,
             lastUpdate: catalog.lastUpdate,
             coreRules, coreRulesMap,
+            coreCombatEffects: catalog.coreRuleEffects,
             loading: false, error: null,
           })
         }

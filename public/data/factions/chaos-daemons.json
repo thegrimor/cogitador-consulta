@@ -1294,7 +1294,8 @@
             "effects": {
               "attacksMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -2894,7 +2895,8 @@
             "effects": {
               "strengthMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -4917,7 +4919,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -5971,7 +5974,8 @@
           "effect": {
             "effects": {
               "rerollHitsOf1": true
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],
@@ -9330,7 +9334,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -15452,7 +15457,8 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {

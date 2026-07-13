@@ -5,8 +5,8 @@ import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { usePanelState } from '@/features/mathhammer/hooks/usePanelState'
 import { UnitPanel } from '@/features/mathhammer/components/UnitPanel'
 import { DamageCalculator } from '@/features/mathhammer/components/DamageCalculator'
-import { resolveModifiers, mergeMods, combineAttackerMods, DEFAULT_MODS } from '@/features/mathhammer/utils/mathhammer'
-import { MODIFIER_RULES, getInnateFeelNoPain } from '@/features/mathhammer/data/modifiers'
+import { resolveModifiers, mergeMods, combineAttackerMods, DEFAULT_MODS, getInnateFeelNoPain } from '@/features/mathhammer/utils/mathhammer'
+import { deriveModifierRules } from '@/features/mathhammer/utils/deriveRules'
 import { useAppSelector } from '@/store/hooks'
 import { selectRosterById } from '@/store/rosterSlice'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
@@ -18,6 +18,28 @@ export function MathhammerPage() {
   const gameData = useGameDataContext()
   const leftPanel = usePanelState(gameData, 'mathhammer-left-panel')
   const rightPanel = usePanelState(gameData, 'mathhammer-right-panel')
+  const {
+    selection: leftSelection, detachmentAbilities: leftDetachmentAbilities, applicableStratagems: leftApplicableStratagems,
+    selectedUnit: leftSelectedUnit, selectedCharacter: leftSelectedCharacter, rosterIds: leftRosterIds,
+  } = leftPanel
+  const {
+    selection: rightSelection, detachmentAbilities: rightDetachmentAbilities, applicableStratagems: rightApplicableStratagems,
+    selectedUnit: rightSelectedUnit, selectedCharacter: rightSelectedCharacter, rosterIds: rightRosterIds,
+  } = rightPanel
+  const leftRules = useMemo(
+    () => deriveModifierRules(gameData, {
+      selection: leftSelection, detachmentAbilities: leftDetachmentAbilities, applicableStratagems: leftApplicableStratagems,
+      selectedUnit: leftSelectedUnit, selectedCharacter: leftSelectedCharacter, rosterIds: leftRosterIds,
+    }),
+    [gameData, leftSelection, leftDetachmentAbilities, leftApplicableStratagems, leftSelectedUnit, leftSelectedCharacter, leftRosterIds],
+  )
+  const rightRules = useMemo(
+    () => deriveModifierRules(gameData, {
+      selection: rightSelection, detachmentAbilities: rightDetachmentAbilities, applicableStratagems: rightApplicableStratagems,
+      selectedUnit: rightSelectedUnit, selectedCharacter: rightSelectedCharacter, rosterIds: rightRosterIds,
+    }),
+    [gameData, rightSelection, rightDetachmentAbilities, rightApplicableStratagems, rightSelectedUnit, rightSelectedCharacter, rightRosterIds],
+  )
   const [searchParams, setSearchParams] = useSearchParams()
   const presetRosterId = searchParams.get('roster')
   const presetRoster = useAppSelector(state =>
@@ -190,27 +212,27 @@ export function MathhammerPage() {
   useEffect(() => {
     const enhancementId = leftPanel.selection.enhancementId
     if (enhancementId === prevAttackerEnhancementId.current) return
-    const prevRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === prevAttackerEnhancementId.current).map(r => r.id)
-    const nextRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === enhancementId).map(r => r.id)
+    const prevRuleIds = leftRules.filter(r => r.enhancementId === prevAttackerEnhancementId.current).map(r => r.id)
+    const nextRuleIds = leftRules.filter(r => r.enhancementId === enhancementId).map(r => r.id)
     prevAttackerEnhancementId.current = enhancementId
     setAttackerIdsArr(prev => {
       const withoutOld = prev.filter(id => !prevRuleIds.includes(id))
       return Array.from(new Set([...withoutOld, ...nextRuleIds]))
     })
-  }, [leftPanel.selection.enhancementId])
+  }, [leftPanel.selection.enhancementId, leftRules])
 
   const prevDefenderEnhancementId = useRef<string | null>(null)
   useEffect(() => {
     const enhancementId = rightPanel.selection.enhancementId
     if (enhancementId === prevDefenderEnhancementId.current) return
-    const prevRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === prevDefenderEnhancementId.current).map(r => r.id)
-    const nextRuleIds = MODIFIER_RULES.filter(r => r.enhancementId === enhancementId).map(r => r.id)
+    const prevRuleIds = rightRules.filter(r => r.enhancementId === prevDefenderEnhancementId.current).map(r => r.id)
+    const nextRuleIds = rightRules.filter(r => r.enhancementId === enhancementId).map(r => r.id)
     prevDefenderEnhancementId.current = enhancementId
     setDefenderIdsArr(prev => {
       const withoutOld = prev.filter(id => !prevRuleIds.includes(id))
       return Array.from(new Set([...withoutOld, ...nextRuleIds]))
     })
-  }, [rightPanel.selection.enhancementId])
+  }, [rightPanel.selection.enhancementId, rightRules])
 
   function toggleAttackerModifier(id: string) {
     setAttackerIdsArr(prev => {
@@ -232,9 +254,9 @@ export function MathhammerPage() {
   // enhancements phrased as "this model's melee attacks have +1 A") so a character's own
   // bonus doesn't leak onto the unit it's attached to when both share a weapon selection.
   const attackerIdsList = Array.from(attackerActiveIds)
-  const attackerUnitMods = resolveModifiers(attackerIdsList, MODIFIER_RULES.filter(r => !r.bearerOnly))
-  const attackerBearerMods = resolveModifiers(attackerIdsList, MODIFIER_RULES.filter(r => r.bearerOnly))
-  const defenderMods = resolveModifiers(Array.from(defenderActiveIds), MODIFIER_RULES)
+  const attackerUnitMods = resolveModifiers(attackerIdsList, leftRules.filter(r => !r.bearerOnly))
+  const attackerBearerMods = resolveModifiers(attackerIdsList, leftRules.filter(r => r.bearerOnly))
+  const defenderMods = resolveModifiers(Array.from(defenderActiveIds), rightRules)
 
   // When no character is attached, the selected unit IS the bearer — bearer-only effects
   // apply to it directly, same as a unit-wide effect would.

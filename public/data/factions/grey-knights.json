@@ -4772,7 +4772,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 6
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -5264,7 +5265,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {

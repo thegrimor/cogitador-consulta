@@ -15473,7 +15473,8 @@
           "effect": {
             "effects": {
               "rerollHitsOf1": true
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],
@@ -17968,7 +17969,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -20584,7 +20586,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -50089,7 +50092,8 @@
             "effects": {
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {

@@ -1541,7 +1541,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ]
@@ -1887,7 +1888,8 @@
             "effects": {
               "feelNoPainThreshold": 5
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -4615,7 +4617,8 @@
               "feelNoPainThreshold": 4
             },
             "combatType": "ranged",
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {

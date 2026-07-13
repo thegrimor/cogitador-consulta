@@ -2638,7 +2638,8 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {

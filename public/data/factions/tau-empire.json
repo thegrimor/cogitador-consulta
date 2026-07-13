@@ -1825,7 +1825,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {

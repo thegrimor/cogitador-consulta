@@ -4884,7 +4884,8 @@
           "effect": {
             "effects": {
               "rerollWoundsOf1": true
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -4896,7 +4897,8 @@
             "effects": {
               "feelNoPainThreshold": 6
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -4908,7 +4910,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         }
       ],

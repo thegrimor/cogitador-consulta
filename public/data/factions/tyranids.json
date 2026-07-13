@@ -1369,7 +1369,8 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -2093,7 +2094,8 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -3578,7 +3580,8 @@
             "effects": {
               "feelNoPainThreshold": 6
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         }
       ],

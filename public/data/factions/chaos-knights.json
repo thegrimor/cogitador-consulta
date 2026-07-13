@@ -1540,7 +1540,8 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -1795,7 +1796,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],
@@ -3572,7 +3574,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -3821,7 +3824,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         }
       ],
@@ -7093,7 +7097,8 @@
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],

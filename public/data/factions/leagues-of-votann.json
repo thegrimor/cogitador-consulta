@@ -3821,7 +3821,8 @@
             "effects": {
               "bsMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {

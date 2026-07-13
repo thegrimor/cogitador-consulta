@@ -3617,7 +3617,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -5564,7 +5565,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {

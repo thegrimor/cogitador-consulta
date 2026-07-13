@@ -2412,7 +2412,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -14658,7 +14659,8 @@
           "effect": {
             "effects": {
               "strengthMod": 2
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {

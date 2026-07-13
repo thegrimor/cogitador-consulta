@@ -226,6 +226,10 @@ function toEffectShape(rule: ModifierRule): CombatEffect {
   if (rule.bearerOnly) shape.bearerOnly = true
   if (rule.isStratagem) shape.isStratagem = true
   if (rule.cpCost !== undefined) shape.cpCost = rule.cpCost
+  // sourceDatasheetId means this ability is an aura for OTHER nearby units, not its own bearer —
+  // only set this when sourceDatasheetId is the one actually resolving the ability owner (not
+  // merely present alongside a datasheetId/leaderDatasheetId, which take priority in the fold-in).
+  if (rule.sourceDatasheetId && !rule.datasheetId && !rule.leaderDatasheetId) shape.appliesToNearby = true
   return shape
 }
 

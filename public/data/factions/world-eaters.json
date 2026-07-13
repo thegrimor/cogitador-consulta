@@ -1261,7 +1261,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         }
       ]
@@ -2866,7 +2867,8 @@
               "hitMod": 1,
               "woundMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         }
       ],
@@ -5787,7 +5789,8 @@
             "effects": {
               "attacksMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -5996,7 +5999,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
