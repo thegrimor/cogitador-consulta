@@ -165,10 +165,20 @@ export const NON_STANDARD_TYPE_LABELS = new Set([
   'Wargear', 'Wargear profile', 'Primarch',
 ])
 
+export function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/['’]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 export function resolveAbility(
   row: RawDatasheetAbility,
   abilitiesMap: Record<string, RawAbility>,
-): Ability | null {
+): Omit<Ability, 'id'> | null {
   const rawType = NON_STANDARD_TYPE_LABELS.has(row.type) ? 'Datasheet' : row.type
   const type = rawType as 'Core' | 'Faction' | 'Datasheet'
   if (row.name) {
@@ -198,10 +208,19 @@ export function enrichDatasheet(
     .sort((a, b) => parseInt(a.line) - parseInt(b.line))
     .map(parseWeapon)
 
+  const abilityIdCounts = new Map<string, number>()
+  function nextAbilityId(name: string): string {
+    const base = slugify(name)
+    const count = abilityIdCounts.get(base) ?? 0
+    abilityIdCounts.set(base, count + 1)
+    return count === 0 ? base : `${base}-${count + 1}`
+  }
+
   const abilities: Ability[] = (abilitiesByDs[raw.id] ?? [])
     .sort((a, b) => parseInt(a.line) - parseInt(b.line))
     .map(row => resolveAbility(row, abilitiesMap))
-    .filter((a): a is Ability => a !== null)
+    .filter((a): a is Omit<Ability, 'id'> => a !== null)
+    .map(a => ({ id: nextAbilityId(a.name), ...a }))
 
   const kwRows = keywordsByDs[raw.id] ?? []
   const keywords = kwRows

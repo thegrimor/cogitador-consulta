@@ -3,6 +3,7 @@
   "name": "Adeptus Titanicus",
   "armyRules": [
     {
+      "id": "super-heavy-walker",
       "name": "Super-heavy Walker",
       "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move over models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features that are 4\" or less in height as if they were not there."
     }
@@ -127,21 +128,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-2d6",
           "name": "Deadly Demise 2D6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
           "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move over models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features that are 4\" or less in height as if they were not there.",
           "type": "Faction"
         },
         {
+          "id": "striding-colossus",
           "name": "Striding Colossus",
           "description": "Each time you target this model with a Stratagem, you must spend twice that Stratagem’s stated CP cost to do so.",
           "type": "Datasheet"
         },
         {
+          "id": "flank-speed",
           "name": "Flank Speed",
           "description": "Each time this model Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 8\" to the Move characteristic of this model.",
           "type": "Datasheet"
@@ -343,21 +348,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6-6",
           "name": "Deadly Demise D6+6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
           "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move over models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features that are 4\" or less in height as if they were not there.",
           "type": "Faction"
         },
         {
+          "id": "striding-colossus",
           "name": "Striding Colossus",
           "description": "Each time you target this model with a Stratagem, you must spend three times that Stratagem’s stated CP cost to do so.",
           "type": "Datasheet"
         },
         {
+          "id": "god-machine",
           "name": "God-machine",
           "description": "This model is eligible to shoot and declare a charge in a turn in which it Fell Back.",
           "type": "Datasheet"
@@ -633,21 +642,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-2d6-6",
           "name": "Deadly Demise 2D6+6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
           "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move over models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features that are 4\" or less in height as if they were not there.",
           "type": "Faction"
         },
         {
+          "id": "striding-colossus",
           "name": "Striding Colossus",
           "description": "Each time you target this model with a Stratagem, you must spend four times that Stratagem’s stated CP cost to do so.",
           "type": "Datasheet"
         },
         {
+          "id": "wrath-of-the-omnissiah",
           "name": "Wrath of the Omnissiah",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. That unit must take a Battle-shock test.",
           "type": "Datasheet"
@@ -887,21 +900,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6-6",
           "name": "Deadly Demise D6+6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
           "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move over models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features that are 4\" or less in height as if they were not there.",
           "type": "Faction"
         },
         {
+          "id": "striding-colossus",
           "name": "Striding Colossus",
           "description": "Each time you target this model with a Stratagem, you must spend three times that Stratagem’s stated CP cost to do so.",
           "type": "Datasheet"
         },
         {
+          "id": "titanic-fire-support",
           "name": "Titanic Fire Support",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly Imperium model makes an attack that targets that enemy unit, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
           "type": "Datasheet",

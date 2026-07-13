@@ -3,10 +3,12 @@
   "name": "Emperor’s Children",
   "armyRules": [
     {
+      "id": "thrill-seekers",
       "name": "Thrill Seekers",
       "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>"
     },
     {
+      "id": "pact-of-excess",
       "name": "Pact of Excess",
       "description": "When mustering your army, unless specifically stated otherwise, you cannot select Legions of Excess as your Army Faction."
     }
@@ -1337,36 +1339,43 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6",
           "name": "Deadly Demise D6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "daemonic-poisons",
           "name": "Daemonic Poisons",
           "description": "In your Shooting phase and the Fight phase, after this model has finished making its attacks, select one enemy unit hit by one or more of those attacks. Until the end of the battle, that enemy unit is poisoned. At the start of each player’s Command phase, roll one D6 for each poisoned enemy unit on the battlefield: on a 4+,that enemy unit suffers D3 mortal wounds.",
           "type": "Datasheet"
         },
         {
+          "id": "daemon-primarch-of-slaanesh",
           "name": "Daemon Primarch of Slaanesh",
           "description": "At the start of your opponent’s Command phase, select one of the abilities in the Daemon Primarch of Slaanesh section. Until the start of your opponent’s next Command phase, this model has that ability.",
           "type": "Datasheet"
         },
         {
+          "id": "serpentine",
           "name": "Serpentine",
           "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over sections of terrain features that are 4\" or less in height.",
           "type": "Datasheet"
         },
         {
+          "id": "beguiling-form",
           "name": "Beguiling Form",
           "description": "Each time a model makes an attack that targets this model, subtract 1 from the Hit roll.",
           "type": "Datasheet",
@@ -1378,16 +1387,19 @@
           }
         },
         {
+          "id": "daemonic-speed",
           "name": "Daemonic Speed",
           "description": "This model has the Fights First ability.",
           "type": "Datasheet"
         },
         {
+          "id": "enthralling-hypnosis-aura",
           "name": "Enthralling Hypnosis (Aura)",
           "description": "While an enemy unit is within 6\" of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead.",
           "type": "Datasheet"
         },
         {
+          "id": "supreme-commander",
           "name": "SUPREME COMMANDER",
           "description": "If this model is in your army, it must be your <span class=\"kwb\">WARLORD</span>.",
           "type": "Datasheet"
@@ -1637,16 +1649,19 @@
       ],
       "abilities": [
         {
+          "id": "leader",
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "perfectionists",
           "name": "Perfectionists",
           "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability.",
           "type": "Datasheet",
@@ -1659,11 +1674,13 @@
           }
         },
         {
+          "id": "euphoric-strikes",
           "name": "Euphoric Strikes",
           "description": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and improve the Armour Penetration characteristic of those weapons by 1.",
           "type": "Datasheet"
         },
         {
+          "id": "lord-of-the-host",
           "name": "LORD OF THE HOST",
           "description": "If this model is attached to an Emperor’s Children Battleline unit during the Declare Battle Formations step, this model has the Infiltrators and Scouts 6\" abilities.",
           "type": "Datasheet"
@@ -1983,21 +2000,25 @@
       ],
       "abilities": [
         {
+          "id": "infiltrators",
           "name": "Infiltrators",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">INFILTRATORS</div></div></div>During deployment, if every model in a unit has this ability, then when you set it up, it can be set up anywhere on the battlefield that is more than 9\" horizontally away from the enemy deployment zone and all enemy models.</div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "objective-defiled",
           "name": "Objective Defiled",
           "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
           "type": "Datasheet"
         },
         {
+          "id": "icon-of-excess",
           "name": "Icon of Excess",
           "description": "At the end of your Shooting phase or the Fight phase, if the bearer’s unit destroyed one or more enemy units that phase, the bearer’s unit takes a Leadership test. If that test is passed, you gain 1CP.",
           "type": "Datasheet"
@@ -2234,16 +2255,19 @@
       ],
       "abilities": [
         {
+          "id": "scouts-6",
           "name": "Scouts 6\"",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "excessive-assault",
           "name": "Excessive Assault",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
@@ -2255,6 +2279,7 @@
           }
         },
         {
+          "id": "icon-of-excess",
           "name": "Icon of Excess",
           "description": "At the end of your Shooting phase or the Fight phase, if the bearer’s unit destroyed one or more enemy units that phase, the bearer’s unit takes a Leadership test. If that test is passed, you gain 1CP.",
           "type": "Datasheet"
@@ -2518,16 +2543,19 @@
       ],
       "abilities": [
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "lethal-obsession",
           "name": "Lethal Obsession",
           "description": "In your Shooting phase, each time this unit is selected to shoot, if it makes one or more ranged attacks and all of those attacks target the same enemy unit, until the end of the turn, each time this unit declares a charge, if that enemy unit is a target of that charge, you can re-roll the Charge roll.",
           "type": "Datasheet"
@@ -2755,16 +2783,19 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6",
           "name": "Deadly Demise D6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "assault-ramp",
           "name": "Assault Ramp",
           "description": "Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn.",
           "type": "Datasheet"
@@ -2917,26 +2948,31 @@
       ],
       "abilities": [
         {
+          "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "leader",
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "lone-operative",
           "name": "Lone Operative",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LONE OPERATIVE</div></div></div>Unless part of an Attached unit (see <span class=\"tooltip00018\" data-tooltip-content=\"#tooltip_content00018\"><span class=\"tt kwbu\">Leader</span></span>), this unit can only be selected as the target of a ranged attack if the attacking model is within 12\".</div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "a-challenge-worthy-of-skill",
           "name": "A Challenge Worthy of Skill",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">WALKER</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
           "type": "Datasheet",
@@ -2948,6 +2984,7 @@
           }
         },
         {
+          "id": "duellists-hubris",
           "name": "Duellist’s Hubris",
           "description": "At the start of the Fight phase; if this model is not leading a unit, until the end of the phase, it has the Fights First ability.",
           "type": "Datasheet"
@@ -3105,16 +3142,19 @@
       ],
       "abilities": [
         {
+          "id": "leader",
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "obsessive-annunciation",
           "name": "Obsessive Annunciation",
           "description": "While this model is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
           "type": "Datasheet",
@@ -3126,6 +3166,7 @@
           }
         },
         {
+          "id": "doom-siren",
           "name": "Doom Siren",
           "description": "In your Shooting phase, after this model’s unit has shot, select one enemy <span class=\"kwb\">INFANTRY</span> unit hit by one or more of those attacks and roll three D6: for each 4+, that enemy unit suffers 1 mortal wound. If an enemy unit suffers one or more mortal wounds as a result of this ability, it must take a Battle-shock test.",
           "type": "Datasheet"
@@ -3335,21 +3376,25 @@
       ],
       "abilities": [
         {
+          "id": "leader",
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "warped-interference-psychic",
           "name": "Warped Interference (Psychic)",
           "description": "While this model is leading a unit, each time a ranged attack targets that unit, models in it have the Benefit of Cover against that attack.",
           "type": "Datasheet"
         },
         {
+          "id": "wracking-agonies-psychic",
           "name": "Wracking Agonies (Psychic)",
           "description": "In your Shooting phase, after this model has shot, select one <span class=\"kwb\">INFANTRY</span> unit hit by one or more of those attacks made with its Agonising Energies. Until the start of your next turn, that unit is wracked with agonies. While a unit is wracked with agonies, subtract 2\" from its Move characteristic and subtract 2 from Charge rolls made for it.",
           "type": "Datasheet"
@@ -3536,21 +3581,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d3",
           "name": "Deadly Demise D3",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "lord-of-excess",
           "name": "Lord of Excess",
           "description": "While this model is within 3\" of one or more friendly Slaanesh Infantry units, this model has the Lone Operative ability.",
           "type": "Datasheet"
         },
         {
+          "id": "excessive-vigour-aura",
           "name": "Excessive Vigour (Aura)",
           "description": "While a friendly Slaanesh unit is within 6\" of this model, if that unit made a Charge move this turn, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.",
           "type": "Datasheet",
@@ -3562,6 +3611,7 @@
           }
         },
         {
+          "id": "ecstatic-death",
           "name": "Ecstatic Death",
           "description": "If this model is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 2+, do not remove it from play. This model can fight after the attacking unit has finished making its attacks, and is then removed from play.",
           "type": "Datasheet"
@@ -3736,26 +3786,31 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d3",
           "name": "Deadly Demise D3",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "daemonic-destruction",
           "name": "Daemonic Destruction",
           "description": "Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6 for each of this model’s remaining wounds: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).",
           "type": "Datasheet"
         },
         {
+          "id": "stimulated-by-pain",
           "name": "Stimulated by Pain",
           "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
           "type": "Datasheet",
@@ -3984,11 +4039,13 @@
       ],
       "abilities": [
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "terrifying-crescendo",
           "name": "Terrifying Crescendo",
           "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next Shooting phase, each time a Battle-shock or Leadership test is taken for that enemy unit, subtract 1 from that test.",
           "type": "Datasheet"
@@ -4140,11 +4197,13 @@
       ],
       "abilities": [
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "daemonic-patrons",
           "name": "Daemonic Patrons",
           "description": "Each time this unit is selected to fight, it can call upon daemonic patrons. If it does, until the end of the phase, each time a model in this unit makes an attack, an unmodified Wound roll of 3+ scores a Critical Wound. At the end of the Fight phase, if this unit called upon daemonic patrons this phase and no enemy models were destroyed by attacks made by models in this unit this phase, one model in this unit is destroyed.",
           "type": "Datasheet",
@@ -4277,16 +4336,19 @@
       ],
       "abilities": [
         {
+          "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "scuttling-horrors",
           "name": "Scuttling Horrors",
           "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, this unit can make a Normal move of up to 6\".",
           "type": "Datasheet"
@@ -4425,16 +4487,19 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d3",
           "name": "Deadly Demise D3",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "glutton-for-punishment",
           "name": "Glutton for Punishment",
           "description": "Each time this model makes an attack, if it is below its Starting Strength, add 1 to the Hit roll. If this model is also Below Half-strength, add 1 to the Wound roll as well.",
           "type": "Datasheet",
@@ -4602,21 +4667,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d3",
           "name": "Deadly Demise D3",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "hover",
           "name": "Hover",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">HOVER</div></div></div>Some <a href=\"/wh40k10ed/the-rules/core-rules/#Aircraft\"><span class=\"kwb\">AIRCRAFT</span></a> models have ‘Hover’ listed in their abilities. When you are instructed to <a href=\"/wh40k10ed/the-rules/core-rules/#Declare-Battle-Formations\">Declare Battle Formations</a>, before doing anything else, you must first declare which models from your army with this ability will be in Hover mode.<br><br>If a model is in Hover mode, then until the end of the battle, its Move characteristic is changed to 20\", it loses the <span class=\"kwb\">AIRCRAFT</span> keyword and it loses all associated rules for being an <span class=\"kwb\">AIRCRAFT</span> model. Models in Hover mode do not start the battle in <a href=\"/wh40k10ed/the-rules/core-rules/#2.-Reinforcements\">Reserves</a>, but you can choose to place them into <a href=\"/wh40k10ed/the-rules/core-rules/#Strategic-Reserves\">Strategic Reserves</a> following the normal rules if you wish.</div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "airborne-predator",
           "name": "Airborne Predator",
           "description": "Each time this model ends a Normal move, you can select one enemy unit that it moved over during that move and roll two D6, adding 1 to each result if that enemy unit can <span class=\"kwb\">FLY</span>: for each 4+, that enemy unit suffers D3 mortal wounds.",
           "type": "Datasheet"
@@ -4789,21 +4858,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d3",
           "name": "Deadly Demise D3",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "firing-deck-2",
           "name": "Firing Deck 2",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FIRING DECK</div></div></div>Some <span class=\"kwb\">TRANSPORT</span> models have ‘Firing Deck x’ listed in their abilities. Each time such a model is selected to shoot in the <a href=\"/wh40k10ed/the-rules/core-rules/#SHOOTING-PHASE\">Shooting phase</a>, you can select up to ‘x’ models <span class=\"tooltip00025\" data-tooltip-content=\"#tooltip_content00025\"><span class=\"tt kwbu\">embarked</span></span> within it whose units have not already shot this phase. Then, for each of those embarked models, you can select one ranged weapon that embarked model is equipped with (excluding weapons with the <span class=\"kwb2 bluefont\">[ONE SHOT]</span> ability). Until that <span class=\"kwb\">TRANSPORT</span> model has resolved all of its attacks, it counts as being equipped with all of the weapons you selected in this way, in addition to its other weapons. Until the end of the phase, those selected models’ units are not eligible to shoot.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Firing Deck ‘x’:</b> Each time this <span class=\"kwb\">TRANSPORT</span> shoots, select one weapon (excluding weapons with the <span class=\"kwb2 bluefont\">[ONE SHOT]</span> ability) from up to ‘x’ models embarked within it whose units have not shot this phase; this <span class=\"kwb\">TRANSPORT</span> counts as being equipped with those weapons as well. Until the end of the phase, those selected models’ units are not eligible to shoot.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "assault-vehicle",
           "name": "Assault Vehicle",
           "description": "Units can disembark from this <span class=\"kwb\">TRANSPORT</span> after it has Advanced. Units that do so count as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally.",
           "type": "Datasheet"
@@ -4999,26 +5072,31 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6",
           "name": "Deadly Demise D6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "pact-of-excess",
           "name": "Pact of Excess",
           "description": "When mustering your army, unless specifically stated otherwise, you cannot select Legions of Excess as your Army Faction.",
           "type": "Faction"
         },
         {
+          "id": "no-prey-can-evade",
           "name": "No Prey Can Evade",
           "description": "You can re-roll Advance and Charge rolls made for this model.",
           "type": "Datasheet"
         },
         {
+          "id": "monarch-of-the-hunt",
           "name": "Monarch of the Hunt",
           "description": "At the start of the first battle round, select one enemy unit to be this model’s quarry. Each time this model makes a melee attack that targets its quarry, you can re-roll the Hit roll and you can re-roll the Wound roll. Each time this model’s quarry is destroyed, select one new enemy unit to be this model’s quarry.",
           "type": "Datasheet",
@@ -5127,31 +5205,37 @@
       ],
       "abilities": [
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "fights-first",
           "name": "Fights First",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FIGHTS FIRST</div></div></div>Units with this ability that are eligible to fight do so in the <a href=\"/wh40k10ed/the-rules/core-rules/#1.-Fights-First\">Fights First</a> step, provided every model in the unit has this ability.</div>",
           "type": "Core"
         },
         {
+          "id": "pact-of-excess",
           "name": "Pact of Excess",
           "description": "When mustering your army, unless specifically stated otherwise, you cannot select Legions of Excess as your Army Faction.",
           "type": "Faction"
         },
         {
+          "id": "horrifying-beauty",
           "name": "Horrifying Beauty",
           "description": "At the start of the Fight phase, each enemy unit within Engagement Range of one or more units from your army with this ability must take a Battle-shock test, subtracting 1 from the result if that enemy unit is Below Half-strength.",
           "type": "Datasheet"
         },
         {
+          "id": "daemonic-icon",
           "name": "Daemonic Icon",
           "description": "Models in the bearer’s unit have a Leadership characteristic of 6+.",
           "type": "Datasheet"
         },
         {
+          "id": "instrument-of-chaos",
           "name": "Instrument of Chaos",
           "description": "Add 1 to Charge rolls made for the bearer’s unit.",
           "type": "Datasheet"
@@ -5251,16 +5335,19 @@
       ],
       "abilities": [
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "pact-of-excess",
           "name": "Pact of Excess",
           "description": "When mustering your army, unless specifically stated otherwise, you cannot select Legions of Excess as your Army Faction.",
           "type": "Faction"
         },
         {
+          "id": "soporific-musk",
           "name": "Soporific Musk",
           "description": "Each time an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) within Engagement Range of one or more units from your army with this ability Falls Back, models in that enemy unit must take Desperate Escape tests. When doing so, if that enemy unit is also Battle-shocked, subtract 1 from each of those Desperate Escape tests.",
           "type": "Datasheet"
@@ -5430,21 +5517,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6",
           "name": "Deadly Demise D6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "pact-of-excess",
           "name": "Pact of Excess",
           "description": "When mustering your army, unless specifically stated otherwise, you cannot select Legions of Excess as your Army Faction.",
           "type": "Faction"
         },
         {
+          "id": "daemon-lord-of-slaanesh-aura",
           "name": "Daemon Lord of Slaanesh (Aura)",
           "description": "While a friendly Legions of Excess unit is within 6\" of this model, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.",
           "type": "Datasheet",
@@ -5456,11 +5547,13 @@
           }
         },
         {
+          "id": "mesmerising-form",
           "name": "Mesmerising Form",
           "description": "Each time an attack targets this model, subtract 1 from the Hit roll.",
           "type": "Datasheet"
         },
         {
+          "id": "shining-aegis",
           "name": "Shining Aegis",
           "description": "The bearer has a Save characteristic of 3+.",
           "type": "Datasheet"
@@ -5584,31 +5677,37 @@
       ],
       "abilities": [
         {
+          "id": "deep-strike",
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "scouts-9",
           "name": "Scouts 9\"",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "pact-of-excess",
           "name": "Pact of Excess",
           "description": "When mustering your army, unless specifically stated otherwise, you cannot select Legions of Excess as your Army Faction.",
           "type": "Faction"
         },
         {
+          "id": "unholy-speed",
           "name": "Unholy Speed",
           "description": "You can re-roll Advance and Charge rolls made for this unit.",
           "type": "Datasheet"
         },
         {
+          "id": "daemonic-icon",
           "name": "Daemonic Icon",
           "description": "Models in the bearer’s unit have a Leadership characteristic of 6+.",
           "type": "Datasheet"
         },
         {
+          "id": "instrument-of-chaos",
           "name": "Instrument of Chaos",
           "description": "Add 1 to Charge rolls made for the bearer’s unit.",
           "type": "Datasheet"
@@ -5875,21 +5974,25 @@
       ],
       "abilities": [
         {
+          "id": "deadly-demise-d6",
           "name": "Deadly Demise D6",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
         },
         {
+          "id": "thrill-seekers",
           "name": "Thrill Seekers",
           "description": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:<br><ul><li>It cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>It cannot target a unit that was the target of another units charge or attack this phase.</li></ul>",
           "type": "Faction"
         },
         {
+          "id": "scuttling-walker",
           "name": "Scuttling Walker",
           "description": "Each time this unit makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed.",
           "type": "Datasheet"
         },
         {
+          "id": "revel-in-desecration",
           "name": "Revel in Desecration",
           "description": "Each time this model makes an attack that targets an enemy unit that is not below Half-strength, add 1 to the Hit roll.",
           "type": "Datasheet",

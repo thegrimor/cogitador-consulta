@@ -16,17 +16,17 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { parseCsvRaw, groupBy, enrichDatasheet } from '../src/infrastructure/data/csvParsers'
+import { parseCsvRaw, groupBy, enrichDatasheet, slugify } from '../src/infrastructure/data/csvParsers'
 import type {
   RawFaction, RawDatasheet, RawDatasheetModel, RawDatasheetWargear, RawDatasheetAbility,
   RawAbility, RawDetachment, RawDetachmentChapter, RawDetachmentAbility, RawStratagem,
   RawDatasheetStratagem, RawDatasheetKeyword, RawDatasheetUnitComposition, RawModelCost,
   RawWargearCost, RawDatasheetLeader, RawEnhancement, RawDatasheetEnhancement,
   RawDatasheetOption, RawDatasheetDetachmentAbility, RawSource, RawCoreRule,
-  Datasheet, UnitOption, Ability, Weapon,
+  Datasheet, UnitOption, Ability, Weapon, CombatEffect,
 } from '../src/types'
 import { MODIFIER_RULES } from '../src/features/mathhammer/data/modifiers'
-import type { ModifierRule, CombatModifiers } from '../src/features/mathhammer/types'
+import type { ModifierRule } from '../src/features/mathhammer/types'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = path.join(__dirname, '..', 'public', 'data')
@@ -104,17 +104,8 @@ const playableFactions = rawFactions
 
 // ── Slugs (one shared registry across every faction, so cross-faction references —
 //    e.g. an Inquisitor leading an Adeptus Custodes unit — resolve to final, stable
-//    slugs immediately instead of needing a later re-run). ─────────────────────────────
-
-function slugify(name: string): string {
-  return name
-    .toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/['’]/g, '')
-    .replace(/&/g, ' and ')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
+//    slugs immediately instead of needing a later re-run). slugify() itself lives in
+//    csvParsers.ts (shared with per-ability ids assigned in enrichDatasheet). ─────────
 
 const usedSlugs = new Set<string>()
 
@@ -224,20 +215,8 @@ function tryMatch(rule: ModifierRule, candidates: MatchCandidate[]): string | nu
   return null
 }
 
-interface EffectShape {
-  combatType?: string
-  target?: string
-  requiresAntiKeyword?: string
-  requiresTargetKeyword?: string
-  requiresAttackerKeyword?: string
-  bearerOnly?: boolean
-  isStratagem?: boolean
-  cpCost?: number
-  effects: Partial<CombatModifiers>
-}
-
-function toEffectShape(rule: ModifierRule): EffectShape {
-  const shape: EffectShape = { effects: rule.effects }
+function toEffectShape(rule: ModifierRule): CombatEffect {
+  const shape: CombatEffect = { effects: rule.effects }
   if (rule.combatType) shape.combatType = rule.combatType
   if (rule.target) shape.target = rule.target
   if (rule.requiresAntiKeyword) shape.requiresAntiKeyword = rule.requiresAntiKeyword
@@ -249,9 +228,9 @@ function toEffectShape(rule: ModifierRule): EffectShape {
   return shape
 }
 
-/** Combines two EffectShapes for the "second half of the same ability" case (e.g. modifiers.ts
+/** Combines two CombatEffects for the "second half of the same ability" case (e.g. modifiers.ts
  * splits one ability into a described rule and a bare-label continuation with no description). */
-function mergeEffectShapes(a: EffectShape, b: EffectShape): EffectShape {
+function mergeEffectShapes(a: CombatEffect, b: CombatEffect): CombatEffect {
   return { ...a, ...b, effects: { ...a.effects, ...b.effects } }
 }
 
@@ -259,7 +238,7 @@ interface FallbackEffect {
   sourceRuleId: string
   label: string
   description?: string
-  effect: EffectShape
+  effect: CombatEffect
 }
 
 interface MatchReport {
@@ -275,8 +254,8 @@ interface MatchReport {
 }
 
 interface OutAbility extends Ability {
-  effect?: EffectShape
-  options?: { name: string; effect?: EffectShape }[]
+  effect?: CombatEffect
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 function stripWeaponRuleDefaults(w: Weapon) {
@@ -344,7 +323,7 @@ function generateForFaction(targetFaction: string): void {
       if (armyRuleIds.has(a.ability_id)) return
       armyRuleIds.add(a.ability_id)
       const ref = abilitiesMap[a.ability_id]
-      if (ref) armyRules.push({ name: ref.name, description: stripLore(ref.description), type: 'Faction' })
+      if (ref) armyRules.push({ id: slugify(ref.name), name: ref.name, description: stripLore(ref.description), type: 'Faction' })
     })
 
   // ── Detachments ────────────────────────────────────────────────────────────────────
@@ -354,7 +333,7 @@ function generateForFaction(targetFaction: string): void {
     chaptersByDetachment[r.detachment_id].push(r.chapter)
   })
 
-  interface OutDetachmentAbility { id: string; name: string; description: string; effect?: EffectShape }
+  interface OutDetachmentAbility { id: string; name: string; description: string; effect?: CombatEffect }
   interface OutDetachment {
     id: string; name: string; disposition: string; dp: number; chapters: string[]
     abilities: OutDetachmentAbility[]
@@ -375,7 +354,7 @@ function generateForFaction(targetFaction: string): void {
   interface OutStratagem {
     id: string; name: string; detachmentId: string | null
     cpCost: number; type: string; turn: string; phase: string; description: string
-    effect?: EffectShape
+    effect?: CombatEffect
   }
 
   function toOutStratagem(s: RawStratagem): OutStratagem {
@@ -396,7 +375,7 @@ function generateForFaction(targetFaction: string): void {
   // ── Enhancements ───────────────────────────────────────────────────────────────────
   interface OutEnhancement {
     id: string; name: string; cost: number; detachmentId: string | null; detachmentName: string
-    description: string; effect?: EffectShape
+    description: string; effect?: CombatEffect
   }
 
   const enhancementsOut: OutEnhancement[] = factionEnhancements.map(e => ({
@@ -412,7 +391,7 @@ function generateForFaction(targetFaction: string): void {
   const factionRules = MODIFIER_RULES.filter(r => r.factionId === targetFaction)
 
   const armyRuleFallbacks: FallbackEffect[] = []
-  const pendingArmyRuleOptions = new Map<string, { name: string; effect: EffectShape }[]>()
+  const pendingArmyRuleOptions = new Map<string, { name: string; effect: CombatEffect }[]>()
   const detachmentFallbacksById = new Map<string, FallbackEffect[]>()
   const datasheetFallbacksById = new Map<string, FallbackEffect[]>()
   const factionFallbacks: FallbackEffect[] = []
@@ -610,7 +589,7 @@ function generateForFaction(targetFaction: string): void {
   const factionOut = {
     id: factionSlug,
     name: faction.name,
-    armyRules: armyRules.map(ar => ({ name: ar.name, description: ar.description, effect: ar.effect, options: ar.options })),
+    armyRules: armyRules.map(ar => ({ id: ar.id, name: ar.name, description: ar.description, effect: ar.effect, options: ar.options })),
     armyRuleCombatEffects: armyRuleFallbacks.length ? armyRuleFallbacks : undefined,
     detachments: detachments.map(d => ({
       ...d,
@@ -655,13 +634,13 @@ function toOutStratagem(s: RawStratagem) {
     turn: s.turn,
     phase: s.phase,
     description: stripLore(s.description),
-    effect: undefined as EffectShape | undefined,
+    effect: undefined as CombatEffect | undefined,
   }
 }
 const coreStratagemsOut = universalStratagems.map(toOutStratagem)
 
 const universalRules = MODIFIER_RULES.filter(r => !r.factionId)
-interface CoreRuleOut { id: string; name: string; description?: string; effect: EffectShape }
+interface CoreRuleOut { id: string; name: string; description?: string; effect: CombatEffect }
 const coreRuleEffects: CoreRuleOut[] = []
 for (const rule of universalRules) {
   if (rule.isStratagem) {

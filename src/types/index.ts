@@ -219,6 +219,7 @@ export interface DetachmentAbility {
   detachmentId: string
   name: string
   description: string
+  effect?: CombatEffect
 }
 
 export interface ModelProfile {
@@ -277,11 +278,58 @@ export interface Weapon {
 
 export type CombatType = 'ranged' | 'melee' | 'any'
 
+/** Combat-math modifiers a rule can contribute to the mathhammer damage calculator. Every
+ * field is additive/absolute per its own semantics; see mathhammer/utils/mathhammer.ts for how
+ * they're combined and applied. */
+export interface CombatModifiers {
+  hitMod: number
+  bsMod: number
+  wsMod: number
+  rerollHitsOf1: boolean
+  rerollAllHits: boolean
+  critThreshold: number
+  overwatchHit: boolean
+  overwatchThreshold: number
+  strengthMod: number
+  woundMod: number
+  rerollWoundsOf1: boolean
+  rerollAllWounds: boolean
+  lethalHitsBonus: boolean
+  sustainedHitsBonus: number
+  cleaveBonus: number
+  apMod: number
+  saveMod: number
+  attacksMod: number
+  damageMod: number
+  damageReduction: number
+  rerollDamageOf1: boolean
+  rerollAllDamage: boolean
+  feelNoPainThreshold: number | null
+  woundCritThreshold: number
+  devastatingWoundsBonus: boolean
+}
+
+/** A combat-math effect embedded directly on the ability/stratagem/enhancement it belongs to. */
+export interface CombatEffect {
+  combatType?: CombatType
+  target?: 'attacker' | 'defender'
+  requiresAntiKeyword?: string
+  requiresTargetKeyword?: string
+  requiresAttackerKeyword?: string
+  bearerOnly?: boolean
+  isStratagem?: boolean
+  cpCost?: number
+  effects: Partial<CombatModifiers>
+}
+
 export interface Ability {
+  id: string
   name: string
   description: string
   type: 'Core' | 'Faction' | 'Datasheet'
   model?: string
+  effect?: CombatEffect
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 export interface Stratagem {
@@ -294,6 +342,7 @@ export interface Stratagem {
   turn: string
   phase: string
   description: string
+  effect?: CombatEffect
 }
 
 export interface DefaultWeaponQuantity {
@@ -408,6 +457,7 @@ export interface Enhancement {
   detachmentId: string
   detachmentName: string
   description: string
+  effect?: CombatEffect
 }
 
 export interface UnitOption {

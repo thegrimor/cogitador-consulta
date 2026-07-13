@@ -1,32 +1,9 @@
-import type { CombatType } from '@/types'
+import type { CombatType, CombatModifiers } from '@/types'
 
-export interface CombatModifiers {
-  hitMod: number           // modificador al dado (cap neto ±1)
-  bsMod: number            // modificador a la característica BS ranged (cobertura: +1; no tiene cap)
-  wsMod: number            // modificador a la característica WS melee (sin cap)
-  rerollHitsOf1: boolean
-  rerollAllHits: boolean
-  critThreshold: number
-  overwatchHit: boolean        // true = modo Overwatch; threshold base dado por overwatchThreshold
-  overwatchThreshold: number   // umbral de impacto en overwatch (6 por defecto; 5 si una regla lo permite)
-  strengthMod: number
-  woundMod: number
-  rerollWoundsOf1: boolean
-  rerollAllWounds: boolean
-  lethalHitsBonus: boolean
-  sustainedHitsBonus: number
-  cleaveBonus: number          // X de [CLEAVE X]: ataques extra por cada 5 modelos del objetivo (igual que Blast)
-  apMod: number
-  saveMod: number
-  attacksMod: number
-  damageMod: number
-  damageReduction: number
-  rerollDamageOf1: boolean
-  rerollAllDamage: boolean
-  feelNoPainThreshold: number | null
-  woundCritThreshold: number  // 7 = desactivado; valores activos 2–6 (paralelo a critThreshold)
-  devastatingWoundsBonus: boolean  // [DEVASTATING WOUNDS] otorgado por una regla (no inherente al arma)
-}
+// CombatModifiers now lives in @/types (it's stored directly on abilities/stratagems/
+// enhancements as part of CombatEffect, not just used within mathhammer) — re-exported here
+// so existing imports from this module keep working unchanged.
+export type { CombatModifiers }
 
 export interface ModifierRule {
   id: string
