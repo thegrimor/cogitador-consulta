@@ -426,25 +426,32 @@ function generateForFaction(targetFaction: string): void {
     else options.push({ name, effect })
   }
 
-  // Doctrina Imperatives (Adeptus Mechanicus + Imperial Knights, identical CSV text in both):
-  // modifiers.ts paraphrases each Imperative's bullet points ("ranged weapons... by 1") slightly
-  // differently than the source HTML ("ranged weapons equipped by models in this unit... by 1"),
-  // which breaks tryMatch's substring/clause checks for every one of these ids. The ability is
-  // real and its two Imperatives are mutually exclusive, but each one bundles effects of
-  // different scope (ranged buff for the bearer + a melee defence debuff for attackers), so they
-  // can't collapse into a single CombatEffect per Imperative — group by scope instead.
-  const DOCTRINA_IMPERATIVES_OPTIONS: Record<string, string> = {
-    adm_protector_doctrina_bs: 'Protector Imperative (disparo)',
-    adm_protector_doctrina_heavy: 'Protector Imperative (disparo)',
-    adm_protector_doctrina_def: 'Protector Imperative (defensa CaC)',
-    adm_conqueror_doctrina: 'Conqueror Imperative (CaC)',
-    adm_conqueror_doctrina_ap: 'Conqueror Imperative (CaC)',
-    adm_conqueror_doctrina_ap_mech: 'Conqueror Imperative (mech)',
-    qi_protector_doctrina_bs: 'Protector Imperative (disparo)',
-    qi_protector_doctrina_heavy: 'Protector Imperative (disparo)',
-    qi_protector_doctrina_def: 'Protector Imperative (defensa CaC)',
-    qi_conqueror_doctrina: 'Conqueror Imperative (CaC)',
-    qi_conqueror_doctrina_ap: 'Conqueror Imperative (CaC)',
+  // Rules that fail tryMatch purely because modifiers.ts paraphrases the real ability's wording
+  // (e.g. Doctrina Imperatives' "ranged weapons... by 1" vs the source HTML's "ranged weapons
+  // equipped by models in this unit... by 1", or Oath of Moment's differently-structured sentence)
+  // rather than because the ability doesn't exist or isn't real — mapped directly by hand to the
+  // ability they belong to, with an option name that names the actual effect (not just a vague
+  // scope tag) so it reads informatively in the mathhammer panel. `merge: true` combines several
+  // ids into one option's `effects` when they're genuinely the same scoped bundle (Protector
+  // Imperative's two ranged buffs); omitted, each id keeps its own independent toggle (Oath of
+  // Moment's re-roll and its conditional +1 to wound are two separate, stackable bonuses, not one
+  // combined effect — the wound bonus doesn't apply for chapters with their own Vows/Doctrines).
+  interface ArmyRuleOverride { abilityName: string; optionName: string; merge?: boolean }
+  const ARMY_RULE_OVERRIDES: Record<string, ArmyRuleOverride> = {
+    adm_protector_doctrina_bs: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — +1 BS, [HEAVY] (disparo)', merge: true },
+    adm_protector_doctrina_heavy: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — +1 BS, [HEAVY] (disparo)', merge: true },
+    adm_protector_doctrina_def: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — −1 impactar recibido en CaC' },
+    adm_conqueror_doctrina: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
+    adm_conqueror_doctrina_ap: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
+    adm_conqueror_doctrina_ap_mech: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 PA adicional' },
+    qi_protector_doctrina_bs: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — +1 BS, [HEAVY] (disparo)', merge: true },
+    qi_protector_doctrina_heavy: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — +1 BS, [HEAVY] (disparo)', merge: true },
+    qi_protector_doctrina_def: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — −1 impactar recibido en CaC' },
+    qi_conqueror_doctrina: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
+    qi_conqueror_doctrina_ap: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
+    sm_oath_of_moment: { abilityName: 'Oath of Moment', optionName: 'Repetir impactos vs objetivo' },
+    sm_oath_of_moment_wound: { abilityName: 'Oath of Moment', optionName: '+1 herir vs objetivo (sin capítulo especial)' },
+    sm_templar_vows_wound: { abilityName: 'Templar Vows', optionName: 'Accept Any Challenge — +1 herir (F≤T, CaC)' },
   }
 
   const lastMergedAbilityIndexByDatasheet = new Map<string, number>()
@@ -564,12 +571,13 @@ function generateForFaction(targetFaction: string): void {
     }
 
     // 5. only factionId → army rule (possibly one of several mutually-exclusive options, e.g. Ka'tah stances)
-    const overrideOptionName = DOCTRINA_IMPERATIVES_OPTIONS[rule.id]
-    if (overrideOptionName) {
-      const arIndex = armyRules.findIndex(a => a.name === 'Doctrina Imperatives')
+    const override = ARMY_RULE_OVERRIDES[rule.id]
+    if (override) {
+      const arIndex = armyRules.findIndex(a => a.name === override.abilityName)
       if (arIndex !== -1) {
-        pushArmyRuleOptionMerged(String(arIndex), overrideOptionName, toEffectShape(rule))
-        report.mergedIntoArmyRule.push(`Doctrina Imperatives::${overrideOptionName}`)
+        if (override.merge) pushArmyRuleOptionMerged(String(arIndex), override.optionName, toEffectShape(rule))
+        else pushArmyRuleOption(String(arIndex), override.optionName, toEffectShape(rule))
+        report.mergedIntoArmyRule.push(`${override.abilityName}::${override.optionName}`)
         continue
       }
     }

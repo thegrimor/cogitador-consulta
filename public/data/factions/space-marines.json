@@ -5,7 +5,25 @@
     {
       "id": "oath-of-moment",
       "name": "Oath of Moment",
-      "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Black Templars, Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, add 1 to the Wound roll as well.</li></ul>"
+      "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Black Templars, Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, add 1 to the Wound roll as well.</li></ul>",
+      "options": [
+        {
+          "name": "Repetir impactos vs objetivo",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        },
+        {
+          "name": "+1 herir vs objetivo (sin capítulo especial)",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            }
+          }
+        }
+      ]
     },
     {
       "id": "curse-of-the-wulfen",
@@ -20,7 +38,13 @@
     {
       "id": "templar-vows",
       "name": "Templar Vows",
-      "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of the first battle round, select one of the following Vows to be active for <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army. While a Vow is active for a unit from your army, that unit has the associated ability shown below.<br><br><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Abhor the Witch, Destroy the Witch</p><p>Each time this unit <span class=\"tooltip00041\" data-tooltip-content=\"#tooltip_content00041\"><span class=\"tt kwbu\">declares</span> <span class=\"tt kwbu\">a</span> <span class=\"tt kwbu\">charge</span></span>, if one or more targets of that charge have the <span class=\"kwb\">PSYKER</span> keyword, you can re-roll the <span class=\"tooltip00041\" data-tooltip-content=\"#tooltip_content00041\"><span class=\"tt kwbu\">Charge</span> <span class=\"tt kwbu\">roll</span></span>. Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability while targeting <span class=\"kwb\">PSYKER</span> units.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Accept Any Challenge, No Matter the Odds</p><p>Each time a model in this unit makes a melee attack, if the Strength characteristic of that attack is less than or equal to the Toughness characteristic of the target, add 1 to the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Suffer Not the Unclean to Live</p><p>This unit is eligible to <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a> in a turn in which it <span class=\"tooltip00013\" data-tooltip-content=\"#tooltip_content00013\"><span class=\"tt kwbu\">Fell</span> <span class=\"tt kwbu\">Back</span></span>, and each time a model in this unit makes a <span class=\"tooltip00042\" data-tooltip-content=\"#tooltip_content00042\"><span class=\"tt kwbu\">Pile-in</span></span> or <span class=\"tooltip00043\" data-tooltip-content=\"#tooltip_content00043\"><span class=\"tt kwbu\">Consolidation</span> <span class=\"tt kwbu\">move</span></span>, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Uphold the Honour of the Emperor</p><p>If this unit has the <span class=\"tooltip00051\" data-tooltip-content=\"#tooltip_content00051\" data-tooltip-anchor=\"#tooltip_content00051\"><span class=\"kwb kwbu\">INFANTRY</span></span> keyword:<br><ul><li>At the end of your <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, if this unit is within range of an <span class=\"tooltip00048\" data-tooltip-content=\"#tooltip_content00048\"><span class=\"tt kwbu\">objective</span> <span class=\"tt kwbu\">marker</span></span> you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</li><li>If the mission you are playing features <a href=\"/wh40k10ed/the-rules/chapter-approved-2025-26/#Actions\">Actions</a>, this unit is eligible to start to perform an Action in a turn in which it <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advanced</span></span>.</li></ul></p></td></tr></tbody></tbody></table></div>"
+      "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of the first battle round, select one of the following Vows to be active for <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army. While a Vow is active for a unit from your army, that unit has the associated ability shown below.<br><br><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Abhor the Witch, Destroy the Witch</p><p>Each time this unit <span class=\"tooltip00041\" data-tooltip-content=\"#tooltip_content00041\"><span class=\"tt kwbu\">declares</span> <span class=\"tt kwbu\">a</span> <span class=\"tt kwbu\">charge</span></span>, if one or more targets of that charge have the <span class=\"kwb\">PSYKER</span> keyword, you can re-roll the <span class=\"tooltip00041\" data-tooltip-content=\"#tooltip_content00041\"><span class=\"tt kwbu\">Charge</span> <span class=\"tt kwbu\">roll</span></span>. Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability while targeting <span class=\"kwb\">PSYKER</span> units.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Accept Any Challenge, No Matter the Odds</p><p>Each time a model in this unit makes a melee attack, if the Strength characteristic of that attack is less than or equal to the Toughness characteristic of the target, add 1 to the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Suffer Not the Unclean to Live</p><p>This unit is eligible to <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a> in a turn in which it <span class=\"tooltip00013\" data-tooltip-content=\"#tooltip_content00013\"><span class=\"tt kwbu\">Fell</span> <span class=\"tt kwbu\">Back</span></span>, and each time a model in this unit makes a <span class=\"tooltip00042\" data-tooltip-content=\"#tooltip_content00042\"><span class=\"tt kwbu\">Pile-in</span></span> or <span class=\"tooltip00043\" data-tooltip-content=\"#tooltip_content00043\"><span class=\"tt kwbu\">Consolidation</span> <span class=\"tt kwbu\">move</span></span>, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Uphold the Honour of the Emperor</p><p>If this unit has the <span class=\"tooltip00051\" data-tooltip-content=\"#tooltip_content00051\" data-tooltip-anchor=\"#tooltip_content00051\"><span class=\"kwb kwbu\">INFANTRY</span></span> keyword:<br><ul><li>At the end of your <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, if this unit is within range of an <span class=\"tooltip00048\" data-tooltip-content=\"#tooltip_content00048\"><span class=\"tt kwbu\">objective</span> <span class=\"tt kwbu\">marker</span></span> you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</li><li>If the mission you are playing features <a href=\"/wh40k10ed/the-rules/chapter-approved-2025-26/#Actions\">Actions</a>, this unit is eligible to start to perform an Action in a turn in which it <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advanced</span></span>.</li></ul></p></td></tr></tbody></tbody></table></div>",
+      "effect": {
+        "effects": {
+          "woundMod": 1
+        },
+        "combatType": "melee"
+      }
     },
     {
       "id": "assigned-agents",
@@ -31,39 +55,6 @@
       "id": "kill-team",
       "name": "Kill Team",
       "description": "Each time an attack targets this unit, if it contains models with different Toughness characteristics, until the attacking unit has finished making its attacks, use the Toughness characteristic of the majority of the models in that unit when determining what roll is required for that attack to successfully wound. If two or more Toughness characteristics are tied for majority, use the highest value.<br><br>For the purposes of determining which models in this unit can embark within a Transport, Kill Team Terminator models, Kill Team Outrider models, Kill Team Biker models and models equipped with a jump pack each take up the space of 2 models, but can otherwise embark within any <span class=\"kwb\">TRANSPORT</span> their unit can embark within, even though similar models in other units have the Terminator, Mounted or Jump Pack keywords.<br><br>For the purposes of interacting with terrain features, all models in units with this ability are considered <span class=\"kwb\">INFANTRY</span> models, even though similar models in other units may have the <span class=\"kwb\">MOUNTED</span> or <span class=\"kwb\">JUMP</span> <span class=\"kwb\">PACK</span> keywords.<br><br><b>Designer’s Note:</b> <i>While the abstractions in the above rule cause some models to behave differently to similar models in other units, they are designed to minimise complicated movement, <span class=\"kwb\">TRANSPORT</span> and Benefit of Cover rules.</i>"
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "sm_oath_of_moment",
-      "label": "Juramento del Momento — re-roll impactar",
-      "description": "Army rule: at the start of your Command phase, select one enemy unit as your Oath of Moment target. Each time a model with this ability makes an attack that targets that unit, you can re-roll the Hit roll.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        }
-      }
-    },
-    {
-      "sourceRuleId": "sm_oath_of_moment_wound",
-      "label": "Juramento del Momento — +1 herir (Codex, sin capítulos especiales)",
-      "description": "Army rule: if using a Codex SM Detachment without Black Templars, Blood Angels, Dark Angels, Deathwatch or Space Wolves, also add 1 to the Wound roll against your Oath of Moment target.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
-        }
-      }
-    },
-    {
-      "sourceRuleId": "sm_templar_vows_wound",
-      "label": "Black Templars — Templar Vows: Accept Any Challenge — +1 herir (F ≤ T, CaC)",
-      "description": "Templar Vows (Accept Any Challenge): each time a BLACK TEMPLARS model makes a melee attack, if the weapon's Strength characteristic is equal to or less than the target's Toughness characteristic, add 1 to the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
-        },
-        "combatType": "melee"
-      }
     }
   ],
   "detachments": [
