@@ -5629,7 +5629,13 @@
           "id": "titan-hunter",
           "name": "Titan Hunter",
           "description": "Each time a ranged attack made by this model is allocated to a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> model, you can re-roll the Damage roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllDamage": true
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -5757,20 +5763,7 @@
         "knights-of-legend",
         "dauntless-defenders"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_qi_titan_hunter",
-          "label": "Knight Castellan — repetir Daño disparo (Titan Hunter)",
-          "description": "Each time this model makes a ranged attack that targets a MONSTER or VEHICLE unit, you can re-roll the Damage roll.",
-          "effect": {
-            "effects": {
-              "rerollAllDamage": true
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "knight-valiant",
@@ -6171,13 +6164,26 @@
           "id": "sunderer-of-fortresses",
           "name": "Sunderer of Fortresses",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">VEHICLE</span>, improve the Strength and Damage characteristics of that attack by 1. If that attack targets a <span class=\"kwb\">FORTIFICATION</span>, improve the Strength and Damage characteristics of that attack by 2 instead.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "damageMod": 1
+            },
+            "combatType": "ranged"
+          }
         },
         {
           "id": "conversion",
           "name": "Conversion",
           "description": "Each time an attack is made with this weapon, if the target is more than 24\" from the bearer, an unmodified successful Hit roll of 4+ scores a Critical Hit.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "critThreshold": 4
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -6269,32 +6275,7 @@
         "valours-reward",
         "knightly-teachings"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_qi_sunderer_of_fortresses_000001664",
-          "label": "Acastus Knight Asterius — +1 F/Daño disparo vs FORTIFICATION (Sunderer of Fortresses)",
-          "description": "Each time this model makes a ranged attack that targets a FORTIFICATION unit, improve the Strength and Damage characteristics of that attack by 1.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "damageMod": 1
-            },
-            "combatType": "ranged"
-          }
-        },
-        {
-          "sourceRuleId": "gap_qi_conversion_000001664",
-          "label": "Acastus Knight Asterius — crítico impacto 4+ (Conversion)",
-          "description": "Each time this model makes a ranged attack, an unmodified Hit roll of 4+ scores a Critical Hit.",
-          "effect": {
-            "effects": {
-              "critThreshold": 4
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "armiger-moirax",

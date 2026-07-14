@@ -1,4 +1,4 @@
-import type { GameData, Ability, CombatEffect, Datasheet, DetachmentAbility, Stratagem } from '@/types'
+import type { GameData, CombatEffect, Datasheet, DetachmentAbility, Stratagem } from '@/types'
 import type { ModifierRule } from '../types'
 import type { PanelSelection } from '../types'
 
@@ -38,9 +38,18 @@ function effectToRule(
   }
 }
 
-/** An ability's own effect, plus one rule per mutually-exclusive option it offers (e.g. the
- * Ka'tah stances under Martial Ka'tah), each still toggleable independently like today. */
-function abilityRules(ability: Ability, extra: Partial<ModifierRule>): ModifierRule[] {
+interface EffectBearer {
+  id: string
+  name: string
+  description: string
+  effect?: CombatEffect
+  options?: { name: string; effect?: CombatEffect }[]
+}
+
+/** An ability's (or detachment ability's) own effect, plus one rule per mutually-exclusive
+ * option it offers (e.g. the Ka'tah stances under Martial Ka'tah, or Doctrina Imperatives'
+ * Protector/Conqueror Imperatives), each still toggleable independently like today. */
+function abilityRules(ability: EffectBearer, extra: Partial<ModifierRule>): ModifierRule[] {
   const rules: ModifierRule[] = []
   if (ability.effect) rules.push(effectToRule(ability.id, ability.name, ability.description, ability.effect, extra))
   ability.options?.forEach((opt, i) => {
@@ -77,7 +86,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   }
 
   for (const da of panel.detachmentAbilities) {
-    if (da.effect) rules.push(effectToRule(da.id, da.name, da.description, da.effect))
+    rules.push(...abilityRules(da, {}))
   }
 
   for (const s of panel.applicableStratagems) {

@@ -197,14 +197,7 @@
         {
           "id": "transdimensional-deployment",
           "name": "Transdimensional Deployment",
-          "description": "<ul><li>Friendly <span class=\"kwb\">TOMB BLADES</span> units have Deep Strike.</li><li>When a friendly <span class=\"kwb\">TOMB BLADES</span> unit is selected to shoot, if that unit made an ingress move this turn, that unit’s ranged attacks have +1 to hit rolls.</li></ul>"
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "nec_transdimensional",
-          "label": "Skyshroud Spearhead — Transdimensional Deployment: +1 impactar (tras ingress)",
-          "description": "Transdimensional Deployment: each time a model in your unit makes a ranged attack, if your unit was set up on the battlefield this turn using the Ingress rule, add 1 to the Hit roll.",
+          "description": "<ul><li>Friendly <span class=\"kwb\">TOMB BLADES</span> units have Deep Strike.</li><li>When a friendly <span class=\"kwb\">TOMB BLADES</span> unit is selected to shoot, if that unit made an ingress move this turn, that unit’s ranged attacks have +1 to hit rolls.</li></ul>",
           "effect": {
             "effects": {
               "hitMod": 1
@@ -1736,7 +1729,13 @@
           "id": "implacable-resilience",
           "name": "Implacable Resilience",
           "description": "Each time an attack is allocated to this model, subtract 1 from that attack’s Damage characteristic.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "damageReduction": 1
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "one-shot",
@@ -1842,20 +1841,7 @@
         "relentless-onslaught",
         "command-protocols"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_nec_implacable_resilience",
-          "label": "Overlord — -1 Daño recibido (Implacable Resilience)",
-          "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "orikan-the-diviner",
@@ -9885,7 +9871,12 @@
           "id": "harassment-swarm-aura",
           "name": "Harassment Swarm (Aura)",
           "description": "While an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) is within 3\" of this unit, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            }
+          }
         },
         {
           "id": "accelerator-mandible",
@@ -9979,18 +9970,6 @@
       ],
       "canBeLedBy": [
         "geomancer"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000004176_harassment_swarm_aura",
-          "label": "Canoptek Macrocytes — -1 impactar",
-          "description": "While an enemy unit (excluding MONSTERS and VEHICLES) is within 3\" of this unit, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            }
-          }
-        }
       ]
     },
     {
@@ -10071,7 +10050,13 @@
           "id": "weapon-sentinels",
           "name": "Weapon Sentinels",
           "description": "Each time a model in this unit makes a ranged attack that targets a unit within 12\", you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll; the Wound roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         },
         {
           "id": "canoptek-retinue",
@@ -10148,20 +10133,7 @@
         "hyperphasing",
         "relentless-onslaught"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_nec_weapon_sentinels",
-          "label": "Canoptek Tomb Crawlers — +1 impactar disparo (Weapon Sentinels)",
-          "description": "Each time a model in this unit makes a ranged attack, you can ignore any or all modifiers to the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "geomancer",

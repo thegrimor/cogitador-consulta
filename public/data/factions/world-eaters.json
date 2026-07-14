@@ -17,6 +17,15 @@
           }
         },
         {
+          "name": "Warp Blades — Lethal Hits (CaC)",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee"
+          }
+        },
+        {
           "name": "Blessings of Khorne: Decapitating Strikes",
           "effect": {
             "effects": {
@@ -32,19 +41,6 @@
       "id": "pact-of-blood",
       "name": "Pact of Blood",
       "description": "When mustering your army, unless specifically stated otherwise, you cannot select Blood Legions as your Army Faction."
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "we_blessings_warp_blades",
-      "label": "Blessings of Khorne: Warp Blades — Lethal Hits (CaC)",
-      "description": "WARP BLADES: melee weapons equipped by models in this unit have the [LETHAL HITS] ability.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
-        },
-        "combatType": "melee"
-      }
     }
   ],
   "detachments": [
@@ -1057,7 +1053,14 @@
           "id": "driven-by-ultimate-rage-aura",
           "name": "Driven by Ultimate Rage (Aura)",
           "description": "While a friendly World Eaters unit is within 6\" of this model, you can ignore any or all modifiers to that unit’s Move characteristic and to Advance and Charge rolls made for it, and each time a model in that unit makes a melee attack, you can ignore any or all modifiers to that attack’s Weapon Skill characteristic and/or any or all modifiers to the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "melee",
+            "appliesToNearby": true
+          }
         }
       ],
       "keywords": [
@@ -1111,21 +1114,7 @@
         "rush-to-the-fray",
         "blood-tithe"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_we_driven_by_ultimate_rage",
-          "label": "Angron — +1 impactar CaC (aura, Driven by Ultimate Rage)",
-          "description": "While a friendly WORLD EATERS unit is within 6\" of this model, each time a model in that unit makes a melee attack, you can ignore any or all modifiers to the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "melee",
-            "appliesToNearby": true
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "kharn-the-betrayer",
@@ -2840,7 +2829,13 @@
           "id": "rend-and-tear",
           "name": "Rend and Tear",
           "description": "Each time a model in this unit makes a melee attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, until the end of the phase, improve the Damage characteristic of that attack by 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -2915,19 +2910,6 @@
         "lord-invocatus",
         "lord-on-juggernaut",
         "slaughterbound"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_we_rend_and_tear",
-          "label": "Exalted Eightbound — +1 Daño CaC (Rend and Tear)",
-          "description": "Each time a model in this unit makes a melee attack, add 1 to the Damage characteristic of that attack.",
-          "effect": {
-            "effects": {
-              "damageMod": 1
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {
@@ -4380,21 +4362,7 @@
         "relentless-rage",
         "blood-tithe"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "we_talons_of_butchery",
-          "label": "Talons of Butchery — [CLEAVE 2] (Maulerfiend)",
-          "description": "MAULERFIEND unit only. This unit’s Maulerfiend Fists have [CLEAVE 2].",
-          "effect": {
-            "effects": {
-              "cleaveBonus": 2
-            },
-            "combatType": "melee",
-            "target": "attacker"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "chaos-rhino-world-eaters",

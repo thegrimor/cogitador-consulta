@@ -52,19 +52,6 @@
             "combatType": "ranged"
           }
         }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "aoi_ignis_judicium",
-          "label": "Ignis Judicium — Devastating Wounds, Melta 1, Precision (disparo)",
-          "description": "Ignis Judicium: Inquisitor or Ministorum Priest model only. The bearer’s ranged weapons have the [DEVASTATING WOUNDS], [MELTA 1] and [PRECISION] abilities.",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "ranged"
-          }
-        }
       ]
     },
     {

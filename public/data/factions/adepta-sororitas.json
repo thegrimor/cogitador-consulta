@@ -114,31 +114,27 @@
         {
           "id": "holy-quest",
           "name": "Holy Quest",
-          "description": "Friendly <span class=\"kwb\">CELESTIAN SACRESANTS</span> units' attacks have +1 BS and WS. This detachment has the REVEREND tag and cannot be taken with another REVEREND detachment."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "as_holy_quest_bs",
-          "label": "Sacred Champions — Holy Quest: +1 BS (CELESTIAN SACRESANTS, disparo)",
-          "description": "Holy Quest: Each time a CELESTIAN SACRESANTS model makes a ranged attack, improve its Ballistic Skill characteristic by 1.",
-          "effect": {
-            "effects": {
-              "bsMod": -1
+          "description": "Friendly <span class=\"kwb\">CELESTIAN SACRESANTS</span> units' attacks have +1 BS and WS. This detachment has the REVEREND tag and cannot be taken with another REVEREND detachment.",
+          "options": [
+            {
+              "name": "+1 BS (CELESTIAN SACRESANTS, disparo)",
+              "effect": {
+                "effects": {
+                  "bsMod": -1
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
-        },
-        {
-          "sourceRuleId": "as_holy_quest_ws",
-          "label": "Sacred Champions — Holy Quest: +1 WS (CELESTIAN SACRESANTS, CaC)",
-          "description": "Holy Quest: Each time a CELESTIAN SACRESANTS model makes a melee attack, improve its Weapon Skill characteristic by 1.",
-          "effect": {
-            "effects": {
-              "wsMod": -1
-            },
-            "combatType": "melee"
-          }
+            {
+              "name": "+1 WS (CELESTIAN SACRESANTS, CaC)",
+              "effect": {
+                "effects": {
+                  "wsMod": -1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },

@@ -220,6 +220,7 @@ export interface DetachmentAbility {
   name: string
   description: string
   effect?: CombatEffect
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 export interface ModelProfile {

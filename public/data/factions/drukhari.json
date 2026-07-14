@@ -125,14 +125,7 @@
         {
           "id": "exacting-cruelty",
           "name": "Exacting Cruelty",
-          "description": "Friendly <span class=\"kwb\">WYCH CULT</span> units' melee attacks have [LETHAL HITS] against non-MONSTER/VEHICLE units.<br><br>This detachment has the <span class=\"kwb\">WYCH CULT</span> tag and cannot be taken with another <span class=\"kwb\">WYCH CULT</span> detachment."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "dru_exacting_cruelty",
-          "label": "Exhibition of Slaughter — Lethal Hits CaC (vs non-MONSTER/VEHICLE)",
-          "description": "Wych Cult melee attacks have the [LETHAL HITS] ability while targeting units that are not MONSTERS or VEHICLES.",
+          "description": "Friendly <span class=\"kwb\">WYCH CULT</span> units' melee attacks have [LETHAL HITS] against non-MONSTER/VEHICLE units.<br><br>This detachment has the <span class=\"kwb\">WYCH CULT</span> tag and cannot be taken with another <span class=\"kwb\">WYCH CULT</span> detachment.",
           "effect": {
             "effects": {
               "lethalHitsBonus": true
@@ -152,14 +145,7 @@
         {
           "id": "contracted-harvest",
           "name": "Contracted Harvest",
-          "description": "Friendly <span class=\"kwb\">BLADES FOR HIRE</span>/<span class=\"kwb\">KABAL</span> units' ranged attacks have [SUSTAINED HITS 1] against non-MONSTER/VEHICLE units.<br><br>This detachment has the <span class=\"kwb\">KABAL</span> tag and cannot be taken with another <span class=\"kwb\">KABAL</span> detachment."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "dru_contracted_harvest",
-          "label": "Kabalite Agonysts — Sustained Hits 1 disparo (vs non-MONSTER/VEHICLE)",
-          "description": "Kabalite Cartel ranged attacks have the [SUSTAINED HITS 1] ability while targeting units that are not MONSTERS or VEHICLES.",
+          "description": "Friendly <span class=\"kwb\">BLADES FOR HIRE</span>/<span class=\"kwb\">KABAL</span> units' ranged attacks have [SUSTAINED HITS 1] against non-MONSTER/VEHICLE units.<br><br>This detachment has the <span class=\"kwb\">KABAL</span> tag and cannot be taken with another <span class=\"kwb\">KABAL</span> detachment.",
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1

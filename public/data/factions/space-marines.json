@@ -1111,14 +1111,7 @@
         {
           "id": "black-winged-vigilance",
           "name": "Black-Winged Vigilance",
-          "description": "Friendly <span class=\"kwb\">RAVENWING FLY</span> units' ranged attacks have [IGNORES COVER].<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">DARK ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "sm_black_winged_vc",
-          "label": "Dark Angels Darkflight — Black-Winged Vigilance: IGNORES COVER (RAVENWING FLY, disparo)",
-          "description": "Black-Winged Vigilance: each time a RAVENWING FLY model makes a ranged attack, that attack has the [IGNORES COVER] ability.",
+          "description": "Friendly <span class=\"kwb\">RAVENWING FLY</span> units' ranged attacks have [IGNORES COVER].<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">DARK ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter.",
           "effect": {
             "effects": {
               "bsMod": -1
@@ -11986,7 +11979,13 @@
           "id": "sentinel-protocols",
           "name": "Sentinel Protocols",
           "description": "Each time you select this unit for the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 4+ when resolving that Stratagem.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "overwatchThreshold": 4
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -12191,20 +12190,7 @@
         "rapid-deployment",
         "chant-of-deathless-devotion"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_sentinel_protocols_000000086",
-          "label": "Firestrike Servo-turrets — Overwatch 4+ (Sentinel Protocols)",
-          "description": "Each time this unit fires Overwatch, hit rolls of 4+ are successful (instead of only 6s).",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 4
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "drop-pod",
@@ -22480,7 +22466,13 @@
           "id": "mass-of-doom",
           "name": "Mass of Doom",
           "description": "Each time this model’s unit makes a Charge move, until the end of the turn, melee weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -22715,20 +22707,7 @@
         "in-the-lions-claws",
         "dutiful-tenacity"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_mass_of_doom",
-          "label": "Astorath — Devastating Wounds CaC (Mass of Doom)",
-          "description": "This model’s melee weapons have the [DEVASTATING WOUNDS] ability.",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "sanguinary-priest",
@@ -31682,7 +31661,13 @@
           "id": "death-totem",
           "name": "Death Totem",
           "description": "Each time the bearer makes a melee attack, re-roll a Hit roll of 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -31929,20 +31914,7 @@
         "wrath-of-dorn",
         "armoured-wrath"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_death_totem",
-          "label": "Wulfen — repetir impacto de 1 CaC (Death Totem)",
-          "description": "Each time a model in this unit makes a melee attack, you can re-roll a Hit roll of 1.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "murderfang",
@@ -48290,7 +48262,15 @@
           "id": "siege-captain",
           "name": "Siege Captain",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">MONSTER</span>, <span class=\"kwb\">VEHICLE</span>, or <span class=\"kwb\">FORTIFICATION</span> unit, improve the Strength, Armour Penetration and Damage characteristics of that attack by 2.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 2,
+              "apMod": 2,
+              "damageMod": 2
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -48518,22 +48498,7 @@
         "lightning-assault",
         "combat-doctrines"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_siege_captain",
-          "label": "Tor Garadon — +2 F/PA/Daño CaC",
-          "description": "Add 2 to the Strength, Armour Penetration and Damage characteristics of this model’s melee weapons.",
-          "effect": {
-            "effects": {
-              "strengthMod": 2,
-              "apMod": 2,
-              "damageMod": 2
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "lieutenant-in-phobos-armour",
@@ -49160,7 +49125,13 @@
           "id": "shield-dome",
           "name": "Shield Dome",
           "description": "The bearer has a 5+ invulnerable save.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -49383,20 +49354,7 @@
         "master-of-wolves",
         "storm-swift-onslaught"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_shield_dome_000002568",
-          "label": "Impulsor — FNP 5+ (Shield Dome)",
-          "description": "This model’s unit has a 5+ invulnerable save.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "ancient-in-terminator-armour",
@@ -51610,7 +51568,15 @@
           "id": "aquilon-optics",
           "name": "Aquilon Optics",
           "description": "Each time this model is selected to shoot, you can re-roll one Hit roll, you can re-roll one Wound roll and you can re-roll one Damage roll when resolving those attacks.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true,
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -51829,22 +51795,7 @@
         "close-range-eradication",
         "storm-swift-onslaught"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_aquilon_optics_000002705",
-          "label": "Gladiator Lancer — repetir impacto/herida/daño disparo (Aquilon Optics)",
-          "description": "Each time this model makes a ranged attack, you can re-roll the Hit roll, you can re-roll the Wound roll, and you can re-roll the Damage roll.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "judiciar",
@@ -53057,7 +53008,14 @@
           "id": "thunderous-impact",
           "name": "Thunderous Impact",
           "description": "Each time a model in this unit makes a melee attack, if this unit made a Charge move this turn, improve the Strength and Damage characteristics of that attack by 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "damageMod": 1
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -53303,20 +53261,6 @@
         "ravenwing-command-squad",
         "chaplain-on-bike",
         "suboden-khan"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_thunderous_impact",
-          "label": "Outrider Squad — +1 F/Daño CaC (Thunderous Impact)",
-          "description": "Each time a model in this unit makes a melee attack, improve the Strength and Damage characteristics of that attack by 1.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "damageMod": 1
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {
@@ -61028,7 +60972,12 @@
           "id": "indomitor-doctrines",
           "name": "Indomitor Doctrines",
           "description": "Each time a model in this unit makes a ranged attack that targets the closest eligible target, or makes a melee attack in a turn in which it made a Charge move, improve the Strength characteristic of that attack by 2.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            }
+          }
         },
         {
           "id": "attached-unit",
@@ -61303,18 +61252,6 @@
         "iron-father-feirros",
         "apothecary-biologis",
         "marneus-calgar-in-armour-of-antilochus"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_indomitor_doctrines",
-          "label": "Indomitor Kill Team — +2 Fuerza (Indomitor Doctrines)",
-          "description": "Add 2 to the Strength characteristic of this unit’s weapons.",
-          "effect": {
-            "effects": {
-              "strengthMod": 2
-            }
-          }
-        }
       ]
     },
     {
@@ -62069,7 +62006,13 @@
           "id": "shield-dome",
           "name": "Shield Dome",
           "description": "The bearer has a 5+ invulnerable save.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -62293,20 +62236,7 @@
         "grim-resolve",
         "masters-of-manoeuvre"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_shield_dome_000002786",
-          "label": "Impulsor — FNP 5+ (Shield Dome)",
-          "description": "This model’s unit has a 5+ invulnerable save.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "gladiator-lancer-space-marines",
@@ -62459,7 +62389,15 @@
           "id": "aquilon-optics",
           "name": "Aquilon Optics",
           "description": "Each time this model is selected to shoot, you can re-roll one Hit roll, you can re-roll one Wound roll and you can re-roll one Damage roll when resolving its attacks.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true,
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -62679,22 +62617,7 @@
         "adaptive-defence",
         "combat-doctrines"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_aquilon_optics_000002787",
-          "label": "Gladiator Lancer — repetir impacto/herida/daño disparo (Aquilon Optics)",
-          "description": "Each time this model makes a ranged attack, you can re-roll the Hit roll, you can re-roll the Wound roll, and you can re-roll the Damage roll.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "gladiator-valiant-space-marines",
@@ -65196,7 +65119,14 @@
           "id": "crusade-of-wrath",
           "name": "Crusade of Wrath",
           "description": "While this model is leading a unit, add 1 to the Attacks and Strength characteristics of melee weapons equipped by models in that unit.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "high-marshal",
@@ -65431,21 +65361,7 @@
         "in-the-lions-claws",
         "chant-of-deathless-devotion"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_crusade_of_wrath",
-          "label": "High Marshal Helbrecht — +1 A/F CaC (Líder, Crusade of Wrath)",
-          "description": "While this model is leading a unit, each time that unit ends a Charge move, until the end of the turn, add 1 to the Attacks and Strength characteristics of melee weapons equipped by models in that unit.",
-          "effect": {
-            "effects": {
-              "attacksMod": 1,
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "emperors-champion",
@@ -65877,17 +65793,6 @@
       ],
       "canBeLedBy": [],
       "combatEffects": [
-        {
-          "sourceRuleId": "sm_guiding_omens",
-          "label": "Guiding Omens — Devastating Wounds, CaC (Emperor's Champion)",
-          "description": "Guiding Omens: EMPEROR'S CHAMPION model only. Instrument of the God-Emperor (once per battle): if engaged with an enemy CHARACTER unit, this model's melee attacks have [DEVASTATING WOUNDS].",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        },
         {
           "sourceRuleId": "sm_anointed_champion_hit",
           "label": "Anointed Champion — repetir 1 impactar, CaC (EMPEROR'S CHAMPION, aprox.)",
@@ -72458,7 +72363,13 @@
           "id": "headhunters",
           "name": "Headhunters",
           "description": "At the start of the battle, select one unit from your opponent’s army to be this unit’s quarry. Weapons equipped by <span class=\"kwb\">HEADTAKERS</span> models in this unit have the [DEVASTATING WOUNDS] and [PRECISION] abilities while targeting its quarry. Each time this unit’s quarry is destroyed, select one new enemy unit to be this unit’s quarry. This ability can be used even if this unit is embarked within a Transport.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "hunting-hounds",
@@ -72759,19 +72670,6 @@
         "ulrik-the-slayer",
         "wolf-priest",
         "wolf-guard-battle-leader"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_sm_headhunters",
-          "label": "Wolf Guard Headtakers — Devastating Wounds CaC (Headhunters)",
-          "description": "Each time a model in this unit makes a melee attack that targets a CHARACTER unit, that attack has the [DEVASTATING WOUNDS] ability.",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {
@@ -73926,21 +73824,7 @@
         "oath-of-reclamation",
         "recalculating"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "sm_adaptable_executioner_cleave",
-          "label": "Adaptable Executioner — [CLEAVE 1] (o Precisión, sin efecto en el cálculo)",
-          "description": "EXECRATOR model only. When this unit is selected to fight, this model’s melee attacks have [CLEAVE 1] or [PRECISION] (your choice each time).",
-          "effect": {
-            "effects": {
-              "cleaveBonus": 1
-            },
-            "combatType": "melee",
-            "target": "attacker"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "crusade-ancient",

@@ -3593,7 +3593,13 @@
           "id": "nova-charge",
           "name": "Nova Charge",
           "description": "Once per battle, when this unit is selected to shoot in your Shooting phase, select one ranged weapon equipped by this model. Until the end of the phase, that weapon has the [DEVASTATING WOUNDS] ability.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "ranged"
+          }
         },
         {
           "id": "weapon-support-system",
@@ -3694,20 +3700,7 @@
         "patient-hunter",
         "superior-craftsmanship-tau-empire"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_tau_nova_charge",
-          "label": "Riptide Battlesuit — Devastating Wounds disparo (Nova Charge)",
-          "description": "Each time this model makes a ranged attack with its riptide fists/heavy weapon, that attack has the [DEVASTATING WOUNDS] ability.",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "pathfinder-team",
@@ -9155,19 +9148,7 @@
         "integrated-command-structure",
         "hunters-instincts-tau-empire"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "tau_root_carved_weapons",
-          "label": "Root-carved Weapons — Devastating Wounds, Precision (Kroot War Shaper)",
-          "description": "Root-carved Weapons: Kroot War Shaper model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities.",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "kroot-flesh-shaper",

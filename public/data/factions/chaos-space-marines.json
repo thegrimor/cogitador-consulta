@@ -346,24 +346,7 @@
         {
           "id": "prey-on-the-weak-chaos-space-marines",
           "name": "Prey on the Weak",
-          "description": "Friendly <span class=\"kwb\">HERETIC ASTARTES INFANTRY FLY</span> units' attacks that target a battle-shocked unit or a unit at or below half-strength can re-roll hit rolls of 1. When an enemy unit's attacks target a friendly <span class=\"kwb\">HERETIC ASTARTES INFANTRY FLY</span> unit, if that enemy unit is battle-shocked or at or below half-strength, those attacks have -1 to hit rolls.<br><br>This detachment has the <span class=\"kwb\">NIGHTMARE</span> tag and cannot be taken with another <span class=\"kwb\">NIGHTMARE</span> detachment."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "csm_murdertalon_hits",
-          "label": "Murdertalon Raiders — Prey on the Weak: repetir impactos 1 (vs Battle-shocked/Half)",
-          "description": "Prey on the Weak: each time a model in your unit makes an attack that targets a Battle-shocked unit or a unit that is Below Half-strength, re-roll a Hit roll of 1.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            }
-          }
-        },
-        {
-          "sourceRuleId": "csm_murdertalon_def",
-          "label": "Murdertalon Raiders — Prey on the Weak: −1 impactar (defensor Battle-shocked/Half)",
-          "description": "Prey on the Weak: each time a model in a Battle-shocked unit or a unit that is Below Half-strength makes an attack that targets your unit, subtract 1 from the Hit roll.",
+          "description": "Friendly <span class=\"kwb\">HERETIC ASTARTES INFANTRY FLY</span> units' attacks that target a battle-shocked unit or a unit at or below half-strength can re-roll hit rolls of 1. When an enemy unit's attacks target a friendly <span class=\"kwb\">HERETIC ASTARTES INFANTRY FLY</span> unit, if that enemy unit is battle-shocked or at or below half-strength, those attacks have -1 to hit rolls.<br><br>This detachment has the <span class=\"kwb\">NIGHTMARE</span> tag and cannot be taken with another <span class=\"kwb\">NIGHTMARE</span> detachment.",
           "effect": {
             "effects": {
               "hitMod": -1

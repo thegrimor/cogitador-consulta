@@ -87,32 +87,28 @@
         {
           "id": "benedictions-of-the-omnissiah",
           "name": "Benedictions Of The Omnissiah",
-          "description": "At the start of the first battle round, select one of the following Benedictions of the Omnissiah to be active for CULT MECHANICUS units from your army until the end of the battle:<br><br><span class=\"hi_custom\">Panegyric Procession</span><br>Each time a <span class=\"kwb\">CULT</span> <span class=\"kwb\">MECHANICUS</span> model from your army makes a ranged attack that targets a unit within half range, improve the Armour Penetration characteristic of that attack by 1.<br><br><span class=\"hi_custom\">Citation in Savagery</span><br>Each time a <span class=\"kwb\">CULT</span> <span class=\"kwb\">MECHANICUS</span> unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "adm_benedictions_panegyric",
-          "label": "Benedictions — Panegyric Procession: +1 PA disparo (media distancia)",
-          "description": "Data-Psalm Conclave: Each time a CULT MECHANICUS model makes a ranged attack that targets a unit within half range of that weapon, improve the Armour Penetration characteristic of that attack by 1.",
-          "effect": {
-            "effects": {
-              "apMod": 1
+          "description": "At the start of the first battle round, select one of the following Benedictions of the Omnissiah to be active for CULT MECHANICUS units from your army until the end of the battle:<br><br><span class=\"hi_custom\">Panegyric Procession</span><br>Each time a <span class=\"kwb\">CULT</span> <span class=\"kwb\">MECHANICUS</span> model from your army makes a ranged attack that targets a unit within half range, improve the Armour Penetration characteristic of that attack by 1.<br><br><span class=\"hi_custom\">Citation in Savagery</span><br>Each time a <span class=\"kwb\">CULT</span> <span class=\"kwb\">MECHANICUS</span> unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit.",
+          "options": [
+            {
+              "name": "Panegyric Procession — +1 PA disparo (media distancia)",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
-        },
-        {
-          "sourceRuleId": "adm_benedictions_citation",
-          "label": "Benedictions — Citation in Savagery: +1 F y +1 A CaC (si cargó)",
-          "description": "Data-Psalm Conclave: Each time a CULT MECHANICUS model makes a melee attack, if that model's unit made a Charge move this turn, add 1 to the Strength and Attacks characteristics of that weapon.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "attacksMod": 1
-            },
-            "combatType": "melee"
-          }
+            {
+              "name": "Citation in Savagery — +1 F/A CaC (si cargó)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1,
+                  "attacksMod": 1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
@@ -206,14 +202,7 @@
         {
           "id": "war-form-mantles",
           "name": "War-Form Mantles",
-          "description": "Friendly <span class=\"kwb\">TECH-PRIEST</span> models have:<br><ul><li>4+ InSv.</li><li>Feel No Pain 5+.</li></ul><br>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><span class=\"hi_custom\">Baffling Data Screed:</span> In your Shooting phase, when this unit is selected to shoot, if this unit is not battle-shocked, you can use this ability. If you do, roll one D6: On a 2+, select one enemy <span class=\"kwb\">VEHICLE</span> unit within 12\" of this unit. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll. A unit cannot be selected for this ability more than once per turn. Or: On 2+, those ranged attacks do not prevent this unit from being hidden."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "adm_war_form_fnp",
-          "label": "Lords of the Forge — FNP 5+ (TECH-PRIEST)",
-          "description": "Forge-Blessed: TECH-PRIEST models in your army have the Feel No Pain 5+ ability.",
+          "description": "Friendly <span class=\"kwb\">TECH-PRIEST</span> models have:<br><ul><li>4+ InSv.</li><li>Feel No Pain 5+.</li></ul><br>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><span class=\"hi_custom\">Baffling Data Screed:</span> In your Shooting phase, when this unit is selected to shoot, if this unit is not battle-shocked, you can use this ability. If you do, roll one D6: On a 2+, select one enemy <span class=\"kwb\">VEHICLE</span> unit within 12\" of this unit. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll. A unit cannot be selected for this ability more than once per turn. Or: On 2+, those ranged attacks do not prevent this unit from being hidden.",
           "effect": {
             "effects": {
               "feelNoPainThreshold": 5
@@ -233,14 +222,7 @@
         {
           "id": "cyber-static-canticles",
           "name": "Cyber-Static Canticles",
-          "description": "Friendly <span class=\"kwb\">CORPUSCARII</span> units' ranged attacks have [LETHAL HITS]. When a friendly <span class=\"kwb\">FULGURITE</span> unit has fought, that unit heals D3 wounds. This detachment has the DATA-PSALM tag and cannot be taken with another DATA-PSALM detachment."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "adm_luminen_lethal",
-          "label": "Luminen Auto-choir — Lethal Hits disparo (CORPUSCARII)",
-          "description": "Luminen Auto-choir: each time a CORPUSCARII ELECTRO-PRIESTS model makes a ranged attack, that attack has the [LETHAL HITS] ability.",
+          "description": "Friendly <span class=\"kwb\">CORPUSCARII</span> units' ranged attacks have [LETHAL HITS]. When a friendly <span class=\"kwb\">FULGURITE</span> unit has fought, that unit heals D3 wounds. This detachment has the DATA-PSALM tag and cannot be taken with another DATA-PSALM detachment.",
           "effect": {
             "effects": {
               "lethalHitsBonus": true
@@ -482,7 +464,15 @@
       "type": "Eradication Cohort – Wargear Stratagem",
       "turn": "Either player’s turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability."
+      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability.",
+      "effect": {
+        "effects": {
+          "woundMod": 1
+        },
+        "combatType": "melee",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "priority-reclamation",
@@ -1418,7 +1408,13 @@
           "id": "invocation-of-machine-vengeance",
           "name": "Invocation of Machine Vengeance",
           "description": "At the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Machine Vengeance target. Each time a model in a friendly Adeptus Mechanicus unit makes an attack that targets your Machine Vengeance target, you can re-roll the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "appliesToNearby": true
+          }
         },
         {
           "id": "mantra-of-discipline",
@@ -1505,20 +1501,7 @@
         "acquisition-at-any-cost",
         "rad-bombardment"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "adm_cawl_machine_vengeance",
-          "label": "Cawl — Venganza Máquina (re-roll impactar)",
-          "description": "Invocation of Machine Vengeance: Each time a model in a friendly ADEPTUS MECHANICUS unit makes an attack that targets your Machine Vengeance target, you can re-roll the Hit roll.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "appliesToNearby": true
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "tech-priest-dominus",
@@ -8289,19 +8272,6 @@
           "rerollAllDamage": true
         },
         "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "sourceRuleId": "adm_servo_driven_charge",
-      "label": "SERVO-DRIVEN CHARGE — LANCE CaC: +1 herir vs MONSTER/VEHICLE (1CP)",
-      "description": "Eradication Cohort: Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. (LANCE: each time the bearer makes an attack targeting a MONSTER or VEHICLE, add 1 to the Wound roll.)",
-      "effect": {
-        "effects": {
-          "woundMod": 1
-        },
-        "combatType": "melee",
         "isStratagem": true,
         "cpCost": 1
       }
