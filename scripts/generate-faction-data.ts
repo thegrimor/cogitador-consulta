@@ -406,6 +406,47 @@ function generateForFaction(targetFaction: string): void {
     report.fallback.push(rule.id)
   }
 
+  function pushArmyRuleOption(matchKey: string, name: string, effect: CombatEffect) {
+    if (!pendingArmyRuleOptions.has(matchKey)) pendingArmyRuleOptions.set(matchKey, [])
+    pendingArmyRuleOptions.get(matchKey)!.push({ name, effect })
+  }
+
+  /** Same as pushArmyRuleOption, but merges into an existing same-named option instead of
+   * appending a duplicate — only for the DOCTRINA_IMPERATIVES_OPTIONS override below, where
+   * several ModifierRule ids deliberately describe the same scoped bundle of effects (e.g.
+   * Protector Imperative's two ranged buffs). NOT used for the generic tryMatch path: there,
+   * two matches sharing a label (e.g. Orks' "WAAAGH!" split into a melee-attacker rule and a
+   * defender-save rule) are genuinely separate simultaneous effects, not one combined effect —
+   * merging them would wrongly force one's combatType/target onto the other. */
+  function pushArmyRuleOptionMerged(matchKey: string, name: string, effect: CombatEffect) {
+    if (!pendingArmyRuleOptions.has(matchKey)) pendingArmyRuleOptions.set(matchKey, [])
+    const options = pendingArmyRuleOptions.get(matchKey)!
+    const existing = options.find(o => o.name === name)
+    if (existing) existing.effect = mergeEffectShapes(existing.effect, effect)
+    else options.push({ name, effect })
+  }
+
+  // Doctrina Imperatives (Adeptus Mechanicus + Imperial Knights, identical CSV text in both):
+  // modifiers.ts paraphrases each Imperative's bullet points ("ranged weapons... by 1") slightly
+  // differently than the source HTML ("ranged weapons equipped by models in this unit... by 1"),
+  // which breaks tryMatch's substring/clause checks for every one of these ids. The ability is
+  // real and its two Imperatives are mutually exclusive, but each one bundles effects of
+  // different scope (ranged buff for the bearer + a melee defence debuff for attackers), so they
+  // can't collapse into a single CombatEffect per Imperative — group by scope instead.
+  const DOCTRINA_IMPERATIVES_OPTIONS: Record<string, string> = {
+    adm_protector_doctrina_bs: 'Protector Imperative (disparo)',
+    adm_protector_doctrina_heavy: 'Protector Imperative (disparo)',
+    adm_protector_doctrina_def: 'Protector Imperative (defensa CaC)',
+    adm_conqueror_doctrina: 'Conqueror Imperative (CaC)',
+    adm_conqueror_doctrina_ap: 'Conqueror Imperative (CaC)',
+    adm_conqueror_doctrina_ap_mech: 'Conqueror Imperative (mech)',
+    qi_protector_doctrina_bs: 'Protector Imperative (disparo)',
+    qi_protector_doctrina_heavy: 'Protector Imperative (disparo)',
+    qi_protector_doctrina_def: 'Protector Imperative (defensa CaC)',
+    qi_conqueror_doctrina: 'Conqueror Imperative (CaC)',
+    qi_conqueror_doctrina_ap: 'Conqueror Imperative (CaC)',
+  }
+
   const lastMergedAbilityIndexByDatasheet = new Map<string, number>()
 
   for (const rule of factionRules) {
@@ -523,13 +564,21 @@ function generateForFaction(targetFaction: string): void {
     }
 
     // 5. only factionId → army rule (possibly one of several mutually-exclusive options, e.g. Ka'tah stances)
+    const overrideOptionName = DOCTRINA_IMPERATIVES_OPTIONS[rule.id]
+    if (overrideOptionName) {
+      const arIndex = armyRules.findIndex(a => a.name === 'Doctrina Imperatives')
+      if (arIndex !== -1) {
+        pushArmyRuleOptionMerged(String(arIndex), overrideOptionName, toEffectShape(rule))
+        report.mergedIntoArmyRule.push(`Doctrina Imperatives::${overrideOptionName}`)
+        continue
+      }
+    }
     const candidates: MatchCandidate[] = armyRules.map((a, i) => ({ key: String(i), name: a.name, description: a.description }))
     const matchKey = tryMatch(rule, candidates)
     if (matchKey !== null) {
       const ar = armyRules[Number(matchKey)]
       const optionName = rule.label.split(/—|-{2,}/)[0]?.replace(/\s*\([^)]*\)/g, '').trim() || rule.label
-      if (!pendingArmyRuleOptions.has(matchKey)) pendingArmyRuleOptions.set(matchKey, [])
-      pendingArmyRuleOptions.get(matchKey)!.push({ name: optionName, effect: toEffectShape(rule) })
+      pushArmyRuleOption(matchKey, optionName, toEffectShape(rule))
       report.mergedIntoArmyRule.push(`${ar.name}::${optionName}`)
     } else {
       pushFallback(armyRuleFallbacks, rule)

@@ -33,65 +33,39 @@
     {
       "id": "doctrina-imperatives",
       "name": "Doctrina Imperatives",
-      "description": "At the start of the battle round, you can select one of the Doctrina Imperatives below. Until the end of the battle round, that Doctrina Imperative is active for your army, and all units from your army that have the Doctrina Imperatives ability gain the relevant abilities shown below.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Protector Imperative</p><p><ul><li>Ranged weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00031\" data-tooltip-content=\"#tooltip_content00031\"><span class=\"tt kwbu\">[HEAVY]</span></span></span> ability.</li><li>Improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1.</li><li>Each time a melee attack targets this unit, if this unit has the <span class=\"kwb\">BATTLELINE</span> keyword and/or it is within 6\" of one or more friendly <span class=\"tooltip00032\" data-tooltip-content=\"#tooltip_content00032\" data-tooltip-anchor=\"#tooltip_content00032\"><span class=\"kwb kwbu\">ADEPTUS</span> <span class=\"kwb kwbu\">MECHANICUS</span> <span class=\"kwb kwbu\">BATTLELINE</span></span> units, subtract 1 from the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</li></ul></p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Conqueror Imperative</p><p><ul><li>Ranged weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00033\" data-tooltip-content=\"#tooltip_content00033\"><span class=\"tt kwbu\">[ASSAULT]</span></span></span> ability.</li><li>Improve the Weapon Skill characteristic of melee weapons equipped by models in this unit by 1.</li><li>Each time a model in this unit makes an attack, if this unit has the <span class=\"kwb\">BATTLELINE</span> keyword and/or it is within 6\" of one or more friendly <span class=\"tooltip00032\" data-tooltip-content=\"#tooltip_content00032\" data-tooltip-anchor=\"#tooltip_content00032\"><span class=\"kwb kwbu\">ADEPTUS</span> <span class=\"kwb kwbu\">MECHANICUS</span> <span class=\"kwb kwbu\">BATTLELINE</span></span> units, improve the Armour Penetration characteristic of that attack by 1.</li></ul></p></td></tr></tbody></tbody></table></div>"
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "qi_protector_doctrina_bs",
-      "label": "Doctrina Protectora — +1 BS (característica, siempre)",
-      "description": "Protector Imperative: improve the Ballistic Skill characteristic of ranged weapons by 1.",
-      "effect": {
-        "effects": {
-          "bsMod": -1
+      "description": "At the start of the battle round, you can select one of the Doctrina Imperatives below. Until the end of the battle round, that Doctrina Imperative is active for your army, and all units from your army that have the Doctrina Imperatives ability gain the relevant abilities shown below.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Protector Imperative</p><p><ul><li>Ranged weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00031\" data-tooltip-content=\"#tooltip_content00031\"><span class=\"tt kwbu\">[HEAVY]</span></span></span> ability.</li><li>Improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1.</li><li>Each time a melee attack targets this unit, if this unit has the <span class=\"kwb\">BATTLELINE</span> keyword and/or it is within 6\" of one or more friendly <span class=\"tooltip00032\" data-tooltip-content=\"#tooltip_content00032\" data-tooltip-anchor=\"#tooltip_content00032\"><span class=\"kwb kwbu\">ADEPTUS</span> <span class=\"kwb kwbu\">MECHANICUS</span> <span class=\"kwb kwbu\">BATTLELINE</span></span> units, subtract 1 from the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</li></ul></p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Conqueror Imperative</p><p><ul><li>Ranged weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00033\" data-tooltip-content=\"#tooltip_content00033\"><span class=\"tt kwbu\">[ASSAULT]</span></span></span> ability.</li><li>Improve the Weapon Skill characteristic of melee weapons equipped by models in this unit by 1.</li><li>Each time a model in this unit makes an attack, if this unit has the <span class=\"kwb\">BATTLELINE</span> keyword and/or it is within 6\" of one or more friendly <span class=\"tooltip00032\" data-tooltip-content=\"#tooltip_content00032\" data-tooltip-anchor=\"#tooltip_content00032\"><span class=\"kwb kwbu\">ADEPTUS</span> <span class=\"kwb kwbu\">MECHANICUS</span> <span class=\"kwb kwbu\">BATTLELINE</span></span> units, improve the Armour Penetration characteristic of that attack by 1.</li></ul></p></td></tr></tbody></tbody></table></div>",
+      "options": [
+        {
+          "name": "Protector Imperative (disparo)",
+          "effect": {
+            "effects": {
+              "bsMod": -1,
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         },
-        "combatType": "ranged"
-      }
-    },
-    {
-      "sourceRuleId": "qi_protector_doctrina_heavy",
-      "label": "Doctrina Protectora — quieto, +1 dado impactar ([HEAVY])",
-      "description": "Protector Imperative: ranged weapons gain [HEAVY]; +1 to Hit roll when the unit has not moved this turn.",
-      "effect": {
-        "effects": {
-          "hitMod": 1
+        {
+          "name": "Protector Imperative (defensa CaC)",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         },
-        "combatType": "ranged"
-      }
-    },
-    {
-      "sourceRuleId": "qi_protector_doctrina_def",
-      "label": "Doctrina Protectora — −1 impactar melee recibido (posición Battleline)",
-      "description": "Protector Imperative (conditional): each time a melee attack targets this unit, if BATTLELINE or within 6\" of AdM/QI BATTLELINE, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "combatType": "melee",
-        "target": "defender"
-      }
-    },
-    {
-      "sourceRuleId": "qi_conqueror_doctrina",
-      "label": "Doctrina Conquistadora — +1 WS (característica, CaC)",
-      "description": "Conqueror Imperative: improve the Weapon Skill characteristic of melee weapons by 1.",
-      "effect": {
-        "effects": {
-          "wsMod": -1
-        },
-        "combatType": "melee"
-      }
-    },
-    {
-      "sourceRuleId": "qi_conqueror_doctrina_ap",
-      "label": "Doctrina Conquistadora — +1 PA, CaC (posición Battleline)",
-      "description": "Conqueror Imperative (conditional): if BATTLELINE or within 6\" of AdM/QI BATTLELINE, improve the AP of melee attacks by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        },
-        "combatType": "melee"
-      }
+        {
+          "name": "Conqueror Imperative (CaC)",
+          "effect": {
+            "effects": {
+              "wsMod": -1,
+              "apMod": 1
+            },
+            "combatType": "melee"
+          }
+        }
+      ]
     }
   ],
   "detachments": [
