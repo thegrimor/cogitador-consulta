@@ -5,54 +5,46 @@
     {
       "id": "cabal-of-sorcerers",
       "name": "Cabal of Sorcerers",
-      "description": "If your Army Faction is Thousand Sons, at the start of your Shooting phase, one or more models from your army with this ability can attempt Rituals from those listed below. To do so, select one model from your army with this ability that has not yet attempted a Ritual this turn and select one Ritual no model from your army has attempted to manifest this turn, then take a Psychic test for that model by following the sequence below.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td colspan=\"2\" style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(0,60,112);color:rgb(192,217,236);text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>PSYCHIC TEST SEQUENCE</b></td></tr><tr><td colspan=\"2\" style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:center;vertical-align:middle;width:240px;height:0px;\"><b>Roll 2D6</b><br><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/d6ts.png\" style=\"padding:4px;\"></div></div><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/d6ts.png\" style=\"padding:4px;\"></div></div></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:center;vertical-align:middle;width:240px;height:0px;\"><b>Channel the Warp</b><br>(Optional)<br><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/plusts.png\" style=\"padding:4px;\"></div></div><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/d6ts.png\" style=\"padding:4px;\"></div></div></td><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:left;vertical-align:middle;width:240px;height:0px;\">Then, if one or more doubles or triples were rolled during this test, that model’s unit suffers D3 mortal wounds.</td></tr><tr><td colspan=\"2\" style=\"border-width:0 0 1px 0;border-style:none none dotted none;vertical-align:bottom;width:240px;height:0px;\">If that model is not destroyed, the combined total of all the dice rolled during this test is the Psychic test result. If this equals or exceeds the Warp Charge value of the Ritual being attempted, that model manifests that Ritual and you resolve its effects.</td></tr></tbody></table></td></tr></tbody></table></div><br><div class=\"BreakInsideAvoid\"><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">DESTINY’S RUIN (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">5</div></div></div>Select one enemy unit within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model. Until the end of the phase, each time a <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> or <span class=\"tooltip00037\" data-tooltip-content=\"#tooltip_content00037\" data-tooltip-anchor=\"#tooltip_content00037\"><span class=\"kwb kwbu\">SCINTILLATING</span> <span class=\"kwb kwbu\">LEGIONS</span></span> model from your army makes an attack that targets that unit, re-roll a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span> of 1. If the Psychic test result for this Ritual was 10+, you can re-roll the Hit roll instead.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">TEMPORAL SURGE (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">6</div></div></div>Select one friendly <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> or <span class=\"tooltip00037\" data-tooltip-content=\"#tooltip_content00037\" data-tooltip-anchor=\"#tooltip_content00037\"><span class=\"kwb kwbu\">SCINTILLATING</span> <span class=\"kwb kwbu\">LEGIONS</span></span> unit that is not within <span class=\"tooltip00038\" data-tooltip-content=\"#tooltip_content00038\"><span class=\"tt kwbu\">Engagement</span> <span class=\"tt kwbu\">Range</span></span> of one or more enemy units and is within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model. That unit can make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span> of up to D6\". If the Psychic test result for this Ritual was 10+, that unit can make a Normal move of up to 6\" instead. In either case, until the end of the turn, that unit is not eligible to <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">DOOMBOLT (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">7</div></div></div>Select one enemy unit within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model (excluding units with the <span class=\"tooltip00040\" data-tooltip-content=\"#tooltip_content00040\"><span class=\"tt kwbu\">Lone</span> <span class=\"tt kwbu\">Operative</span></span> ability that are not part of an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">Attached</span> <span class=\"tt kwbu\">unit</span></span> and are not within 12\" of the manifesting model); that unit suffers D3 <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>. If the Psychic test result for this Ritual was 11+, that unit suffers D3+3 mortal wounds instead.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">TWIST OF FATE (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">9</div></div></div>Select one enemy unit within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model. Until the end of the phase, each time a <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> or <span class=\"tooltip00037\" data-tooltip-content=\"#tooltip_content00037\" data-tooltip-anchor=\"#tooltip_content00037\"><span class=\"kwb kwbu\">SCINTILLATING</span> <span class=\"kwb kwbu\">LEGIONS</span></span> model from your army makes an attack that targets that unit, improve the Armour Penetration characteristic of that attack by 1. If the Psychic test result for this Ritual was 12+, improve the Armour Penetration characteristic of that attack by 2 instead.</p></td></tr></tbody></tbody></table></div></div>"
+      "description": "If your Army Faction is Thousand Sons, at the start of your Shooting phase, one or more models from your army with this ability can attempt Rituals from those listed below. To do so, select one model from your army with this ability that has not yet attempted a Ritual this turn and select one Ritual no model from your army has attempted to manifest this turn, then take a Psychic test for that model by following the sequence below.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td colspan=\"2\" style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(0,60,112);color:rgb(192,217,236);text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>PSYCHIC TEST SEQUENCE</b></td></tr><tr><td colspan=\"2\" style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:center;vertical-align:middle;width:240px;height:0px;\"><b>Roll 2D6</b><br><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/d6ts.png\" style=\"padding:4px;\"></div></div><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/d6ts.png\" style=\"padding:4px;\"></div></div></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:center;vertical-align:middle;width:240px;height:0px;\"><b>Channel the Warp</b><br>(Optional)<br><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/plusts.png\" style=\"padding:4px;\"></div></div><div style=\"display:inline-block;\"><div><img border=\"0\" src=\"/wh40k10ed/img/d6ts.png\" style=\"padding:4px;\"></div></div></td><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:left;vertical-align:middle;width:240px;height:0px;\">Then, if one or more doubles or triples were rolled during this test, that model’s unit suffers D3 mortal wounds.</td></tr><tr><td colspan=\"2\" style=\"border-width:0 0 1px 0;border-style:none none dotted none;vertical-align:bottom;width:240px;height:0px;\">If that model is not destroyed, the combined total of all the dice rolled during this test is the Psychic test result. If this equals or exceeds the Warp Charge value of the Ritual being attempted, that model manifests that Ritual and you resolve its effects.</td></tr></tbody></table></td></tr></tbody></table></div><br><div class=\"BreakInsideAvoid\"><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">DESTINY’S RUIN (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">5</div></div></div>Select one enemy unit within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model. Until the end of the phase, each time a <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> or <span class=\"tooltip00037\" data-tooltip-content=\"#tooltip_content00037\" data-tooltip-anchor=\"#tooltip_content00037\"><span class=\"kwb kwbu\">SCINTILLATING</span> <span class=\"kwb kwbu\">LEGIONS</span></span> model from your army makes an attack that targets that unit, re-roll a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span> of 1. If the Psychic test result for this Ritual was 10+, you can re-roll the Hit roll instead.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">TEMPORAL SURGE (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">6</div></div></div>Select one friendly <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> or <span class=\"tooltip00037\" data-tooltip-content=\"#tooltip_content00037\" data-tooltip-anchor=\"#tooltip_content00037\"><span class=\"kwb kwbu\">SCINTILLATING</span> <span class=\"kwb kwbu\">LEGIONS</span></span> unit that is not within <span class=\"tooltip00038\" data-tooltip-content=\"#tooltip_content00038\"><span class=\"tt kwbu\">Engagement</span> <span class=\"tt kwbu\">Range</span></span> of one or more enemy units and is within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model. That unit can make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span> of up to D6\". If the Psychic test result for this Ritual was 10+, that unit can make a Normal move of up to 6\" instead. In either case, until the end of the turn, that unit is not eligible to <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">DOOMBOLT (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">7</div></div></div>Select one enemy unit within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model (excluding units with the <span class=\"tooltip00040\" data-tooltip-content=\"#tooltip_content00040\"><span class=\"tt kwbu\">Lone</span> <span class=\"tt kwbu\">Operative</span></span> ability that are not part of an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">Attached</span> <span class=\"tt kwbu\">unit</span></span> and are not within 12\" of the manifesting model); that unit suffers D3 <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>. If the Psychic test result for this Ritual was 11+, that unit suffers D3+3 mortal wounds instead.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">TWIST OF FATE (PSYCHIC)</p><p><div class=\"cruWarpChargeWrap\"><div class=\"cruWarpChargeName\">WARP CHARGE</div><div class=\"cruWarpChargeTS\"><div class=\"cruWarpChargeTSNumber\">9</div></div></div>Select one enemy unit within 24\" of and <a href=\"/wh40k10ed/the-rules/core-rules/#Determining-Visibility\">visible</a> to the manifesting model. Until the end of the phase, each time a <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> or <span class=\"tooltip00037\" data-tooltip-content=\"#tooltip_content00037\" data-tooltip-anchor=\"#tooltip_content00037\"><span class=\"kwb kwbu\">SCINTILLATING</span> <span class=\"kwb kwbu\">LEGIONS</span></span> model from your army makes an attack that targets that unit, improve the Armour Penetration characteristic of that attack by 1. If the Psychic test result for this Ritual was 12+, improve the Armour Penetration characteristic of that attack by 2 instead.</p></td></tr></tbody></tbody></table></div></div>",
+      "options": [
+        {
+          "name": "Destiny's Ruin — repetir 1 al impactar",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
+        },
+        {
+          "name": "Destiny's Ruin (10+) — repetir impactar",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        },
+        {
+          "name": "Twist of Fate — +1 PA",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            }
+          }
+        },
+        {
+          "name": "Twist of Fate (12+) — +2 PA",
+          "effect": {
+            "effects": {
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "pact-of-sorcery",
       "name": "Pact of Sorcery",
       "description": "When mustering your army, unless specifically stated otherwise, you cannot select Scintillating Legions as your Army Faction."
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "ts_cabal_destinys_ruin",
-      "label": "Cabal: Destiny's Ruin — repetir impactos 1",
-      "description": "Destiny's Ruin (Warp Charge 5): re-roll a Hit roll of 1 each time a TS model makes an attack targeting the selected enemy unit.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
-        }
-      }
-    },
-    {
-      "sourceRuleId": "ts_cabal_destinys_ruin_full",
-      "label": "Cabal: Destiny's Ruin (10+) — repetir impactos",
-      "description": "Destiny's Ruin (Warp Charge 5, result 10+): re-roll the Hit roll each time a TS model makes an attack targeting the selected enemy unit.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        }
-      }
-    },
-    {
-      "sourceRuleId": "ts_cabal_twist_of_fate",
-      "label": "Cabal: Twist of Fate — +1 PA",
-      "description": "Twist of Fate (Warp Charge 9): improve the Armour Penetration characteristic of each attack that targets the selected enemy unit by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        }
-      }
-    },
-    {
-      "sourceRuleId": "ts_cabal_twist_of_fate_full",
-      "label": "Cabal: Twist of Fate (12+) — +2 PA",
-      "description": "Twist of Fate (Warp Charge 9, result 12+): improve the Armour Penetration characteristic of each attack that targets the selected enemy unit by 2.",
-      "effect": {
-        "effects": {
-          "apMod": 2
-        }
-      }
     }
   ],
   "detachments": [
@@ -2413,22 +2405,7 @@
         "flow-of-magic",
         "warpmeld-sacrifice"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "ts_thicket_bladed_bone",
-          "label": "Thicket of Bladed Bone — +1 PA, [CLEAVE 1]",
-          "description": "SPAWN unit only. This unit’s melee attacks have +1 AP and [CLEAVE 1].",
-          "effect": {
-            "effects": {
-              "apMod": 1,
-              "cleaveBonus": 1
-            },
-            "combatType": "melee",
-            "target": "attacker"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "heldrake-thousand-sons",
@@ -2937,7 +2914,14 @@
           "id": "ensorcelled-destruction",
           "name": "Ensorcelled Destruction",
           "description": "Each time this model makes a ranged attack that targets a unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that was hit by one or more Psychic Attacks made by a Thousand Sons Psyker model from your army this phase (including the Doombolt Ritual), improve the Strength and Armour Penetration characteristics of that attack by 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -3010,21 +2994,7 @@
         "warpfire-infusion",
         "flow-of-magic"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_ts_ensorcelled_destruction",
-          "label": "Chaos Predator Destructor — +1 F/PA disparo (Ensorcelled Destruction)",
-          "description": "Each time this model makes a ranged attack, improve the Strength and Armour Penetration characteristics of that attack by 1.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "apMod": 1
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "chaos-vindicator-thousand-sons",
@@ -3988,7 +3958,13 @@
           "id": "impossible-form-psychic",
           "name": "Impossible Form (Psychic)",
           "description": "Each time an attack is made against this <span class=\"kwb\">PSYKER</span> (excluding Psychic Attacks), subtract 1 from the Damage characteristic of that attack.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "damageReduction": 1
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "treason-of-tzeentch-psychic",
@@ -4078,20 +4054,7 @@
         "kindred-sorcery",
         "flow-of-magic"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_ts_impossible_form",
-          "label": "Magnus The Red — -1 Daño recibido (Impossible Form)",
-          "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "ahriman",

@@ -5,45 +5,39 @@
     {
       "id": "nurgles-gift-aura",
       "name": "Nurgle’s Gift (Aura)",
-      "description": "<div class=\"BreakInsideAvoid\">If your Army Faction is <span class=\"kwb\">DEATH</span> <span class=\"kwb\">GUARD</span>, while an enemy unit is within Contagion Range of one or more Death Guard models from your army, it is Afflicted (see below).<br><br><span class=\"hi_custom\">CONTAGION RANGE</span><br>Contagion Range changes over the course of the battle:<br><br><div class=\" img-opa\"><img border=\"0\" src=\"/wh40k10ed/img/ContagionRange1.png\" style=\"margin:0px\"></div><br><div class=\" img-opa\"><img border=\"0\" src=\"/wh40k10ed/img/ContagionRange2.png\" style=\"margin:0px\"></div><br><div class=\" img-opa\"><img border=\"0\" src=\"/wh40k10ed/img/ContagionRange3.png\" style=\"margin:0px\"></div><br><br></div><span class=\"hi_custom\">AFFLICTED</span><br>During the Declare Battle Formations step, select one of the Plagues below. Until the end of the battle, while an enemy unit is Afflicted, subtract 1 from the Toughness characteristic of models in that unit, and that unit has the effect of your chosen Plague.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Skullsquirm Blight</p><p>Each time a model in this unit makes an attack, subtract 1 from the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Rattlejoint Ague</p><p>Worsen the Save characteristic of models in this unit by 1.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Scabrous Soulrot</p><p>Worsen the Move, Leadership, and Objective Control characteristics of models in this unit by 1 (this rule can only worsen a model’s Objective Control characteristic to a minimum of 1).</p></td></tr></tbody></tbody></table></div>"
+      "description": "<div class=\"BreakInsideAvoid\">If your Army Faction is <span class=\"kwb\">DEATH</span> <span class=\"kwb\">GUARD</span>, while an enemy unit is within Contagion Range of one or more Death Guard models from your army, it is Afflicted (see below).<br><br><span class=\"hi_custom\">CONTAGION RANGE</span><br>Contagion Range changes over the course of the battle:<br><br><div class=\" img-opa\"><img border=\"0\" src=\"/wh40k10ed/img/ContagionRange1.png\" style=\"margin:0px\"></div><br><div class=\" img-opa\"><img border=\"0\" src=\"/wh40k10ed/img/ContagionRange2.png\" style=\"margin:0px\"></div><br><div class=\" img-opa\"><img border=\"0\" src=\"/wh40k10ed/img/ContagionRange3.png\" style=\"margin:0px\"></div><br><br></div><span class=\"hi_custom\">AFFLICTED</span><br>During the Declare Battle Formations step, select one of the Plagues below. Until the end of the battle, while an enemy unit is Afflicted, subtract 1 from the Toughness characteristic of models in that unit, and that unit has the effect of your chosen Plague.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Skullsquirm Blight</p><p>Each time a model in this unit makes an attack, subtract 1 from the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Rattlejoint Ague</p><p>Worsen the Save characteristic of models in this unit by 1.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Scabrous Soulrot</p><p>Worsen the Move, Leadership, and Objective Control characteristics of models in this unit by 1 (this rule can only worsen a model’s Objective Control characteristic to a minimum of 1).</p></td></tr></tbody></tbody></table></div>",
+      "options": [
+        {
+          "name": "−1 Resistencia enemiga (aprox. +1 Fuerza atacante)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            }
+          }
+        },
+        {
+          "name": "Skullsquirm Blight — −1 impactar recibido",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "name": "Rattlejoint Ague — −1 salvación enemiga",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            }
+          }
+        }
+      ]
     },
     {
       "id": "pact-of-decay",
       "name": "Pact of Decay",
       "description": "When mustering your army, unless specifically stated otherwise, you cannot select Plague Legions as your Army Faction."
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "dg_contagions_toughness",
-      "label": "Contagions of Nurgle — −1 Resistencia enemiga",
-      "description": "Nurgle's Gift (Aura): while an enemy unit is within Contagion Range, subtract 1 from its Toughness characteristic. Modelled as +1 Strength for DG attacker.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1
-        }
-      }
-    },
-    {
-      "sourceRuleId": "dg_plague_skullsquirm",
-      "label": "Plaga: Skullsquirm Blight — −1 impactar recibido",
-      "description": "Skullsquirm Blight: each time an Afflicted enemy model makes an attack, subtract 1 from the Hit roll. Activate on the DG unit being attacked.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "target": "defender"
-      }
-    },
-    {
-      "sourceRuleId": "dg_plague_rattlejoint",
-      "label": "Plaga: Rattlejoint Ague — −1 salvación enemiga",
-      "description": "Rattlejoint Ague: worsen the Save characteristic of Afflicted models by 1. Modelled as +1 AP for DG attacker.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        }
-      }
     }
   ],
   "detachments": [
@@ -72,21 +66,6 @@
           "id": "worldblight",
           "name": "Worldblight",
           "description": "If you control an objective marker at the end of your Command phase and a Death Guard unit from your army (excluding Battle-shocked units) is within range of that objective marker, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase. In addition, until you lose control of that objective marker, it has the Nurgle’s Gift ability as if it were a <span class=\"kwb\">DEATH</span> <span class=\"kwb\">GUARD</span> model from your army."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "dg_furnace_of_plagues",
-          "label": "Furnace of Plagues — +1F/+1A, Devastating Wounds (CaC)",
-          "description": "Furnace of Plagues: DEATH GUARD model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons, and the bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "attacksMod": 1,
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
         }
       ]
     },

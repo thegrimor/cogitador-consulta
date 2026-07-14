@@ -211,14 +211,7 @@
         {
           "id": "frantic-focus",
           "name": "Frantic Focus",
-          "description": "When a friendly <span class=\"kwb\">EMPEROR'S CHILDREN BATTLELINE</span> unit is selected to make an advance/fall-back move, that unit's attacks have +1 S until the end of the turn. This detachment has the HOST tag and cannot be taken with another HOST detachment."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "ec_frantic_focus",
-          "label": "Frenzied Host — Frantic Focus: +1 Fuerza BATTLELINE (Advance/Fall Back)",
-          "description": "Frantic Focus: each time a BATTLELINE model from your army makes an attack, if the attacking unit Advanced or Fell Back this turn, add 1 to the Strength characteristic of that attack.",
+          "description": "When a friendly <span class=\"kwb\">EMPEROR'S CHILDREN BATTLELINE</span> unit is selected to make an advance/fall-back move, that unit's attacks have +1 S until the end of the turn. This detachment has the HOST tag and cannot be taken with another HOST detachment.",
           "effect": {
             "effects": {
               "strengthMod": 1

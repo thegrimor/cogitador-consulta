@@ -10,14 +10,7 @@
     {
       "id": "synapse",
       "name": "Synapse",
-      "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>"
-    }
-  ],
-  "armyRuleCombatEffects": [
-    {
-      "sourceRuleId": "tyr_synapse",
-      "label": "Sinapse — +1 Fuerza (CaC)",
-      "description": "Synapse: while a TYRANIDS unit is within 6\" of one or more friendly Synapse models, add 1 to the Strength characteristic of each melee attack made by models in that unit.",
+      "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
       "effect": {
         "effects": {
           "strengthMod": 1
@@ -170,14 +163,7 @@
         {
           "id": "mindhunger",
           "name": "Mindhunger",
-          "description": "<ul><li>Friendly <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span> units have Deep Strike.</li><li>Friendly <span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span> units' attacks that target a <span class=\"kwb\">CHARACTER</span> unit can re-roll hit rolls of 1.</li></ul>"
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "tyr_mindhunger",
-          "label": "Ambush Predators — Mindhunger: repetir impactos 1 vs CHARACTER",
-          "description": "Mindhunger: each time a model in this unit makes an attack that targets a CHARACTER unit, re-roll a Hit roll of 1.",
+          "description": "<ul><li>Friendly <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span> units have Deep Strike.</li><li>Friendly <span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span> units' attacks that target a <span class=\"kwb\">CHARACTER</span> unit can re-roll hit rolls of 1.</li></ul>",
           "effect": {
             "effects": {
               "rerollHitsOf1": true

@@ -8705,7 +8705,13 @@
           "id": "walking-bastion",
           "name": "Walking Bastion",
           "description": "This model does not suffer the penalty to its Hit rolls for making ranged attacks while enemy units are within Engagement Range of it.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -8771,20 +8777,7 @@
         "eager-for-the-fight",
         "get-stuck-in"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_ork_walking_bastion",
-          "label": "Gargantuan Squiggoth — +1 impactar disparo (Walking Bastion)",
-          "description": "Each time this model makes a ranged attack, it does not suffer the penalty to the Hit roll for being within Engagement Range of one or more enemy units.",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "big-mek-with-shokk-attack-gun",
@@ -9663,7 +9656,12 @@
           "id": "dust-trails-aura",
           "name": "Dust Trails (Aura)",
           "description": "While an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) is within 6\" of this model, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            }
+          }
         }
       ],
       "keywords": [
@@ -9744,19 +9742,7 @@
         "adrenaline-junkies",
         "get-stuck-in"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000001540_dust_trails_aura",
-          "label": "Boomdakka Snazzwagon — -1 impactar",
-          "description": "While an enemy unit (excluding MONSTERS and VEHICLES) is within 6\" of this model, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "megatrakk-scrapjet",
