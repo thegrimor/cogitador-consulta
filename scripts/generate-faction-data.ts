@@ -444,11 +444,13 @@ function generateForFaction(targetFaction: string): void {
     adm_conqueror_doctrina: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
     adm_conqueror_doctrina_ap: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
     adm_conqueror_doctrina_ap_mech: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 PA adicional' },
-    qi_protector_doctrina_bs: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — +1 BS, [HEAVY] (disparo)', merge: true },
-    qi_protector_doctrina_heavy: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — +1 BS, [HEAVY] (disparo)', merge: true },
-    qi_protector_doctrina_def: { abilityName: 'Doctrina Imperatives', optionName: 'Protector Imperative — −1 impactar recibido en CaC' },
-    qi_conqueror_doctrina: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
-    qi_conqueror_doctrina_ap: { abilityName: 'Doctrina Imperatives', optionName: 'Conqueror Imperative — +1 WS, +1 PA (CaC)', merge: true },
+    // Doctrina Imperatives is scraped onto 5 Adeptus Mechanicus-keyword auxiliary datasheets
+    // (Tech-priest Dominus/Manipulus, Skitarii Marshal/Rangers/Vanguard) that Imperial Knights
+    // armies can also include, but it does not apply while those units are fielded as part of an
+    // Imperial Knights army — only when taken in an actual Adeptus Mechanicus army. Deliberately
+    // NOT overridden for QI: the qi_* rules fall through to fallback (no toggle), same as if they
+    // hadn't matched at all — the ability still shows as printed text on those datasheets, just
+    // without an active effect.
     sm_oath_of_moment: { abilityName: 'Oath of Moment', optionName: 'Repetir impactos vs objetivo' },
     sm_oath_of_moment_wound: { abilityName: 'Oath of Moment', optionName: '+1 herir vs objetivo (sin capítulo especial)' },
     sm_templar_vows_wound: { abilityName: 'Templar Vows', optionName: 'Accept Any Challenge — +1 herir (F≤T, CaC)' },
