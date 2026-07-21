@@ -113,17 +113,26 @@ export function hitProbabilityWithMods(bsWs: string, mods: CombatModifiers, isMe
   return baseP
 }
 
+function woundThreshold(S: number, T: number): number {
+  if (S >= T * 2) return 2
+  if (S > T)      return 3
+  if (S === T)    return 4
+  if (S * 2 <= T) return 6
+  return 5
+}
+
 export function woundProbability(S: number, T: number): number {
-  if (S >= T * 2) return 5 / 6
-  if (S > T)      return 4 / 6
-  if (S === T)    return 3 / 6
-  if (S * 2 <= T) return 1 / 6
-  return 2 / 6
+  return Math.min(5 / 6, Math.max(1 / 6, (7 - woundThreshold(S, T)) / 6))
 }
 
 export function woundProbabilityWithMods(S: number, T: number, mods: CombatModifiers): number {
-  const effectiveS = S + mods.strengthMod + mods.woundMod
-  const baseP = woundProbability(effectiveS, T)
+  // strengthMod shifts which wound-chart bracket applies (2+/3+/4+/5+/6+ vs T); woundMod is a
+  // modifier to the Wound roll itself, applied on top of that threshold with a capped ±1 net
+  // (same rule as hitMod), since "+1 to the Wound roll" isn't the same mechanic as +1 Strength.
+  const baseThreshold = woundThreshold(S + mods.strengthMod, T)
+  const cappedWoundMod = Math.max(-1, Math.min(1, mods.woundMod))
+  const effectiveThreshold = Math.min(6, Math.max(2, baseThreshold - cappedWoundMod))
+  const baseP = Math.min(5 / 6, Math.max(1 / 6, (7 - effectiveThreshold) / 6))
   if (mods.rerollAllWounds)  return baseP + (1 - baseP) * baseP
   if (mods.rerollWoundsOf1)  return baseP + (1 / 6) * baseP
   return baseP
