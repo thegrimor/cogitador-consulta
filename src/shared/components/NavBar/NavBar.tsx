@@ -19,6 +19,9 @@ export function NavBar() {
       <NavLink to="/mathhammer" className={linkClass}>
         Mathhammer
       </NavLink>
+      <NavLink to="/battles" className={linkClass}>
+        Partidas
+      </NavLink>
     </nav>
   )
 }

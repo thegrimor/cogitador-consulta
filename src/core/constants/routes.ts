@@ -19,6 +19,9 @@ export const ROUTES = {
   ROSTER_NEW: '/roster/new',
   ROSTER_EDIT: '/roster/:rosterId',
   MATHHAMMER: '/mathhammer',
+  BATTLES: '/battles',
+  BATTLE_NEW: '/battles/new',
+  BATTLE_SCORE: '/battles/:battleId',
 } as const
 
 export function factionPath(id: string) {
@@ -47,6 +50,10 @@ export function detachmentPath(id: string) {
 
 export function rosterEditPath(id: string) {
   return `/roster/${id}`
+}
+
+export function battleScorePath(id: string) {
+  return `/battles/${id}`
 }
 
 export function corePhasePath(id: string) {

@@ -2,68 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { ROUTES } from '@/core/constants/routes'
 import { cleanMissionHtml, missionSlug } from '@/core/utils/missionText'
-import { VpBadge } from '@/shared/components/VpBadge'
 import { MissionActionBox } from '@/shared/components/MissionActionBox/MissionActionBox'
-import type { SecondaryMissionSection } from '@/types'
-
-function ChipBadge({ chip }: { chip: 'FIXED' | 'TACTICAL' }) {
-  const isFixed = chip === 'FIXED'
-  return (
-    <span
-      className={`text-[10px] font-mono uppercase tracking-wide border px-1.5 py-px leading-none ${
-        isFixed ? 'border-gold/50 text-gold' : 'border-crimson/60 text-crimson-bright'
-      }`}
-    >
-      {isFixed ? 'Fija' : 'Táctica'}
-    </span>
-  )
-}
-
-function SecondarySectionBlock({ section }: { section: SecondaryMissionSection }) {
-  return (
-    <div className="border border-rim-bright mb-px">
-      <div className="px-4 py-2 bg-surface-2 border-b border-rim-bright flex items-center justify-between gap-3 flex-wrap">
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">
-            {section.when}
-          </span>
-          {section.chip && <ChipBadge chip={section.chip} />}
-        </div>
-        <div className="flex items-center gap-2">
-          {section.cap && (
-            <span className="text-[10px] font-mono uppercase text-parchment-dim">{section.cap}</span>
-          )}
-          <span className="text-[10px] font-mono text-parchment-dim italic text-right">{section.trigger}</span>
-        </div>
-      </div>
-      <div className="bg-surface-1">
-        {section.rows.map((row, i) => (
-          <div key={i}>
-            {row.or && i > 0 && (
-              <div className="text-center text-[10px] font-mono uppercase text-parchment-dim py-0.5">o</div>
-            )}
-            <div
-              className={`flex items-start justify-between gap-3 px-4 py-2 ${
-                i > 0 && !row.or ? 'border-t border-rim-bright/50' : ''
-              }`}
-            >
-              <div className="flex-1">
-                <p
-                  className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: cleanMissionHtml(row.text) }}
-                />
-                {row.cumulative && (
-                  <p className="text-[10px] font-mono text-gold italic mt-0.5">Acumulable con el anterior</p>
-                )}
-              </div>
-              <VpBadge value={row.vp} />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+import { SecondaryMissionSections } from '@/shared/components/SecondaryMissionSections'
 
 export function MissionSecondaryDetailPage() {
   const { cardId } = useParams<{ cardId: string }>()
@@ -137,11 +77,7 @@ export function MissionSecondaryDetailPage() {
       {card.action && <MissionActionBox action={card.action} formatText={cleanMissionHtml} />}
 
       {/* Sections */}
-      <div className="flex flex-col gap-px">
-        {card.sections.map((section, i) => (
-          <SecondarySectionBlock key={i} section={section} />
-        ))}
-      </div>
+      <SecondaryMissionSections sections={card.sections} />
     </div>
   )
 }

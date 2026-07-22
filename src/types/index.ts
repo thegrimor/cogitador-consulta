@@ -551,3 +551,61 @@ export interface MissionsData {
   secondaryMissions: SecondaryMissionCard[]
   matrix: PrimaryMissionMatrix
 }
+
+// ── Battle scorer (battles / Redux battleSlice) ─────────────────────────
+
+export type SecondaryMode = 'fixed' | 'tactical'
+
+/** `${sectionIndex}-${itemIndex}` dentro de las `sections` de una carta; las tiers/rows no traen id propio. */
+export type ConditionKey = string
+
+export interface ConditionSelectionState {
+  checked: Record<ConditionKey, boolean> // checkbox / ganador de un grupo `or`
+  counts: Record<ConditionKey, number> // contadores (`perUnit` primaria / `perEvent` secundaria)
+}
+
+/** Mazo/mano/descarte de secundarias tácticas de un jugador (solo si secondaryMode === 'tactical'). */
+export interface TacticalDeckState {
+  deck: string[] // slugs de cartas aún no robadas, orden barajado
+  hand: string[] // exactamente hasta 2 slugs en mano
+  discard: string[] // slugs descartados (se re-barajan al mazo si este se vacía)
+}
+
+export interface BattlePlayerSetup {
+  name: string
+  primaryDeck: string // nombre del mazo, como en missions.matrix.rows
+  secondaryMode: SecondaryMode
+  fixedSecondaryCardIds?: [string, string] // solo si secondaryMode === 'fixed'
+}
+
+export interface BattleRoundPlayerState {
+  primarySelection: ConditionSelectionState
+  /** Claveado por slug de carta: para 'fixed' son los 2 fijos; para 'tactical' son los que estén en `hand` esa ronda. */
+  secondarySelections: Record<string, ConditionSelectionState>
+}
+
+export interface BattleRound {
+  roundNumber: 1 | 2 | 3 | 4 | 5
+  player1: BattleRoundPlayerState
+  player2: BattleRoundPlayerState
+}
+
+/** Puntuación de fin de partida (tiers/rows con kind/headerKind 'eob'), un slot compartido por jugador. */
+export interface BattleEobState {
+  player1Primary: ConditionSelectionState
+  player2Primary: ConditionSelectionState
+}
+
+export interface Battle {
+  id: string
+  player1: BattlePlayerSetup
+  player2: BattlePlayerSetup
+  player1Tactical?: TacticalDeckState
+  player2Tactical?: TacticalDeckState
+  rounds: BattleRound[] // crece de a una hasta 5 con `advanceRound`
+  eob: BattleEobState
+  currentRound: 1 | 2 | 3 | 4 | 5
+  finished: boolean
+  createdAt: string
+  updatedAt: string
+}

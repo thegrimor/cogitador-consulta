@@ -2,22 +2,15 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useMissionsData } from '@/infrastructure/data/useMissionsData'
 import { missionPrimaryPath, ROUTES } from '@/core/constants/routes'
-import { missionSlug } from '@/core/utils/missionText'
+import { missionSlug, resolveCard } from '@/core/utils/missionText'
 import { DECK_COLORS } from '@/core/constants/missionDeckColors'
 import { PrimaryMissionSections } from '@/shared/components/PrimaryMissionSections'
-import type { MissionsData, PrimaryMissionCard } from '@/types'
+import type { PrimaryMissionCard } from '@/types'
 
 const selectCls =
   'w-full bg-surface-2 border border-rim-bright text-parchment font-mono text-xs ' +
   'px-2 py-1.5 rounded-none outline-none cursor-pointer ' +
   'focus:border-gold transition-colors'
-
-function resolveCard(missions: MissionsData, ownDeck: string, opponentDeck: string): PrimaryMissionCard | null {
-  const cardName = missions.matrix.grid[ownDeck]?.[opponentDeck]
-  if (!cardName) return null
-  const deck = missions.primaryMissions.find(d => d.name === ownDeck)
-  return deck?.cards.find(c => c.name === cardName) ?? null
-}
 
 function PlayerPanel({
   label,
@@ -162,6 +155,19 @@ export function MissionMatcherPage() {
               card={deck1 && deck2 ? resolveCard(missions, deck2, deck1) : null}
             />
           </div>
+
+          {deck1 && deck2 && resolveCard(missions, deck1, deck2) && resolveCard(missions, deck2, deck1) && (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={() => navigate(ROUTES.BATTLE_NEW, {
+                  state: { player1Name, player2Name, deck1, deck2 },
+                })}
+                className="text-[12px] font-mono uppercase tracking-widest px-4 py-2.5 border border-crimson-bright text-parchment hover:bg-crimson/10 transition-colors"
+              >
+                Iniciar Partida →
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>
