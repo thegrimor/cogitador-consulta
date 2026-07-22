@@ -1226,7 +1226,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000510|2|000008346||||Core||
 000000510|3|000008344||||Core|6"|
 000000510|4|||Nexus of Devotion|While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Hybrid Metamorphs keyword, models in that unit have the Feel No Pain 4+ ability instead.|Datasheet||
-000000510|5|||Summon the Cult|Once per battle, when you have to remove a Cult Ambush marker because your opponent has moved too close to it, if one or more models from your army with this ability are on the battlefield, you can use this ability. If you do, instead of removing that marker, you can place it anywhere on the battlefield that is within 12" of a model from your army with this ability and more than 9" horizontally away from all enemy units (if this is not possible, this ability is not considered to have been used and that marker is removed as normal).|Datasheet||
+000000510|5|||Summon the Cult|Once per battle, when you have to remove a Cult Ambush marker because your opponent has moved too close to it, if one or more models from your army with this ability are on the battlefield, you can use this ability. If you do, instead of removing that marker, you can place it anywhere on the battlefield that is within 12" of a model from your army with this ability and more than 8" horizontally away from all enemy units (if this is not possible, this ability is not considered to have been used and that marker is removed as normal).|Datasheet||
 000000511|1|000008343||||Core||
 000000511|2|000008501||||Faction||
 000000511|3|||Claimed for the Cult|At the start of your Command phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it. If one or more of the results is a 4+, you gain 1CP.|Datasheet||
@@ -1239,7 +1239,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000513|2|000008338||||Core|5+|
 000000513|3|000008344||||Core|6"|
 000000513|4|000008501||||Faction||
-000000513|5|||Brood Surge|Each time an enemy unit is selected to shoot, after that unit has shot, if any models from this unit were destroyed as a result of those attacks, this unit can make a Brood Surge move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but it must end that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, those models can be moved within Engagement Range of that enemy unit.<br><br>If, at the start of the battle, no model in this unit is equipped with a hand flamer, each time this unit makes a Brood Surge move, it can be moved up to 6" instead of up to D6". A unit cannot make a Brood Surge move while it is Battle-shocked.|Datasheet||
+000000513|5|||Brood Surge|In your opponent's Shooting phase, when an enemy unit has shot, if a model in this unit was destroyed as a result of those attacks, this unit can make a surge move of up to D6".|Datasheet||
 000000513|6|||Cult Icon|In your Command phase, you can return up to D3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to 3 destroyed models to that unit instead. This ability cannot be used to return destroyed Character models in Attached units and any <span class="kwb2 bluefont">[ONE SHOT]</span> weapons equipped by returned models that were shot before they were destroyed are still considered to have been shot.|Wargear||
 000000514|1|000008343||||Core||
 000000514|2|000008338||||Core|5+|
@@ -3544,13 +3544,13 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001569|2|000008345||||Core||
 000001569|3|000008336||||Core||
 000001569|4|000008337||||Core||
-000001569|5|||Creeping Shadow|If this model is equipped with a cult sniper rifle, once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this model, if this model is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6".|Datasheet||
-000001569|6|||Cloaked Assassin|If this model is equipped with a Sanctus bio-dagger, enemy units cannot use the Fire Overwatch Stratagem to shoot at this model.|Datasheet||
+000001569|5|||Creeping Shadow|If this model is equipped with a Cult Sniper Rifle, in your opponent's Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6".|Datasheet||
+000001569|6|||Cloaked Assassin|If this model is equipped with a Sanctus bio-dagger, enemy units cannot target this unit with snap shooting attacks.|Datasheet||
 000001569|7|||Psychic Spoor|At the start of the first battle round, select one enemy unit to be this model’s prey. Each time this model makes an attack that targets its prey, you can re-roll the Hit roll and you can re-roll the Wound roll.|Datasheet||
 000001570|1|000008343||||Core||
 000001570|2|000008336||||Core||
 000001570|3|||Heroic Fusillade|Once per turn, after one model from your army with this ability has shot, you can select one <span class="kwb">INFANTRY</span> unit hit by one or more of those attacks. That unit must take a Battle-shock test.|Datasheet||
-000001570|4|||Hypersensory Abilities|Once per turn, in your opponent’s Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this model, if this model is not within Engagement Range of one or more enemy units, it can shoot at that unit as if it were your Shooting phase and then make a Normal move of up to D6" (it cannot embark within a <span class="kwb">TRANSPORT</span> as part of this move).|Datasheet||
+000001570|4|||Hypersensory Abilities|Once per turn, in your opponent’s Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this model, if this model is not within Engagement Range of one or more enemy units, it can shoot at that unit as if it were your Shooting phase and then make a Normal move of up to D6" (it cannot embark within a <span class="kwb">TRANSPORT</span> as part of this move).|Datasheet||
 000001571|1|000008343||||Core||
 000001571|2|000008346||||Core||
 000001571|3|||Battlefield Analysis|Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
@@ -3573,7 +3573,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001574|5|||Demolition Run|Once per turn, in your Movement phase, when this unit ends a Normal, Advance or Fall Back move, you can select one enemy unit within 6" of and visible to this unit and roll one D6 for each <span class="kwb">ATALAN</span> <span class="kwb">JACKALS</span> model in this unit: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).|Datasheet||
 000001576|1|000008339||||Core|D3|
 000001576|2|||Tectonic Fragdrill|Friendly Genestealer Cult Infantry models can be set up or end any type of move on top of the floor sections of this <span class="kwb">FORTIFICATION</span>.|Datasheet||
-000001576|3|||Underground Egress|Each time one of your Cult Ambush markers is removed as the result of an enemy unit ending any kind of move within 9" of it, you can instead move that marker so that it is wholly within 9" of this <span class="kwb">FORTIFICATION</span> and more than 9" horizontally away from all enemy units (if this is not possible, that marker is removed as normal).|Datasheet||
+000001576|3|||Underground Egress|Each time one of your Cult Ambush markers is removed as the result of an enemy unit ending any kind of move within 8" of it, you can instead move that marker so that it is wholly within 8" of this <span class="kwb">FORTIFICATION</span> and more than 8" horizontally away from all enemy units (if this is not possible, that marker is removed as normal).|Datasheet||
 000001576|4|||Manufactorum Cover|Each time a ranged attack is allocated to a model, if that model is not fully visible to every model in the attacking unit because of this <span class="kwb">FORTIFICATION</span>, that model has the Benefit of Cover against that attack.|Datasheet||
 000001576|5|||FORTIFICATION|While an enemy unit is only within Engagement Range of one or more Fortifications from your army: <br><ul><li>That unit can still be selected as the target of ranged attacks, but each time such an attack is made, unless it is made with a Pistol, subtract 1 from the Hit roll. </li><li>Models in that unit do not need to take Desperate Escape tests due to Falling Back while Battle-shocked, except for those that will move over enemy models when doing so.</li></ul>|Fortification (левая колонка)||
 000001577|1|000008339||||Core|D6+2|
@@ -4234,7 +4234,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002525|3|000008336||||Core||
 000002525|4|000008337||||Core||
 000002525|5|||Primed and Ready|In your Shooting phase, you can select one model from your army with this ability as the target of the Grenade Stratagem for 0CP, provided that model has not already been the target of that Stratagem this phase.|Datasheet||
-000002525|6|||Planted Explosives|Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 9” of this model, this model can use its Reductus mine. If it does, roll one D6: on a 2+, that enemy unit suffers D3+3 mortal wounds. Only one model from your army with this ability can use it in the same battle round.<br><br><b>Designer’s Note:</b> <i>Place a Reductus Mine token next to the model, removing it once this ability has been used.</i>|Datasheet||
+000002525|6|||Planted Explosives|Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 8” of this model, this model can use its Reductus mine. If it does, roll one D6: on a 2+, that enemy unit suffers D3+3 mortal wounds. Only one model from your army with this ability can use it in the same battle round.<br><br><b>Designer’s Note:</b> <i>Place a Reductus Mine token next to the model, removing it once this ability has been used.</i>|Datasheet||
 000002525|7|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
 000002528|1|000008339||||Core|D3|
 000002528|2|000008343||||Core||
