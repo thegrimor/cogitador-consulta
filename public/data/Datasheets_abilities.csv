@@ -1639,7 +1639,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000634|3|||Hatred Eternal (Pain)|In your Shooting phase or the Fight phase, when you select this model’s unit to shoot or fight, you can spend 1 Pain token to Empower that unit. While that unit is Empowered, each time a model in that unit makes an attack, you can re-roll the Hit roll.|Datasheet||
 000000634|4|||Overlord|Once per battle, at the start of any phase, you can select one friendly Drukhari unit that is Battle-shocked and within 12" of this model. That unit is no longer Battle-shocked.|Datasheet||
 000000634|5|||Devious Mastermind|Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
-000000634|6|||Shadowfield|You cannot re-roll invulnerable saving throws made for the bearer. The first time an invulnerable saving throw made for the bearer is failed, until the end of the battle, the bearer has no invulnerable save.|Wargear||
+000000634|6|||Shadowfield|While this model has an InSv, this unit cannot re-roll save rolls. When this model loses a wound (excluding from mortal wounds), this model has no InSv until the end of the battle.|Wargear||
 000000634|7|||Soul Trap|Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. The first time the bearer makes a melee attack that destroys an enemy model, after all the bearer’s attacks have been resolved, until the end of the battle, add an additional 1 to the Attacks and Strength characteristics of the bearer’s melee weapons.|Wargear||
 000000639|1|000008346||||Core||
 000000639|2|000008507||||Faction||
@@ -1716,7 +1716,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000657|4|000008337||||Core||
 000000657|5|000008507||||Faction||
 000000657|6|||Rapid Deployment (Pain)|In your Movement phase, when you select this model to Advance, you can spend 1 Pain token to Empower this model. While Empowered, units can disembark from this model after it has Advanced. Units that do so count as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally in the remainder of the turn.|Datasheet||
-000000657|7|||Aerialists|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Drukhari Infantry unit that has 6 or fewer models that is wholly within 6" of this <span class="kwb">TRANSPORT</span> (you cannot select a unit that can Fly). Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>.|Datasheet||
+000000657|7|||Aerialists|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Drukhari Infantry unit that has 6 or fewer models that is wholly within 6" of this <span class="kwb">TRANSPORT</span> (you cannot select a unit that can Fly). Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>. That unit can embark within this <span class="kwb">TRANSPORT</span> in a turn it disembarked from this <span class="kwb">TRANSPORT</span>.|Datasheet||
 000000658|1|000008507||||Faction||
 000000658|2|||Matchless Swiftness (Pain)|In your Movement phase, when you select this unit to Advance, you can spend 1 Pain token to Empower this unit. While Empowered, each time this unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 8" to the Move characteristic of models in this unit.|Datasheet||
 000000658|3|||Eviscerating Fly-by|Each time this unit ends a Normal or Advance move, you can select one enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) that it moved over during that move, then roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound.|Datasheet||
@@ -1725,7 +1725,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000659|1|000008343||||Core||
 000000659|2|000008507||||Faction||
 000000659|3|||Battlefield Butchery (Pain)|In the Fight phase, when you select this unit to fight, you can spend 1 Pain token to Empower this unit. While Empowered, add 1 to the Attacks and Strength characteristics of this unit’s melee weapons.|Datasheet||
-000000659|4|||Skyboard Evasion|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, this unit can make a Normal move of up to D6".|Datasheet||
+000000659|4|||Skyboard Evasion|In your opponent's Movement phase, if an enemy unit ends a move within 8” of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6”.|Datasheet||
 000000659|5|||Phantasm Grenade Launcher|The bearer’s unit has the Smoke and Grenades keywords.|Wargear||
 000000660|1|000008339||||Core|D3|
 000000660|2|000008337||||Core||
@@ -1736,7 +1736,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000661|2|000008337||||Core||
 000000661|3|000008507||||Faction||
 000000661|4|||Nowhere to Hide (Pain)|In your Shooting phase, when you select this unit to shoot, you can spend 1 Pain token to Empower this unit. While Empowered, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, that enemy unit cannot have the Benefit of Cover.|Datasheet||
-000000661|5|||Void Mine|Once per battle, after this unit ends a Normal move, you can select one enemy model that it moved over during that move, then roll one D6 for each enemy unit within D6" of that model: on a 4+, that enemy unit suffers D6 mortal wounds.|Datasheet||
+000000661|5|||Void Mine|At the end of your opponent's Fight phase, select one visible enemy model (excluding Lone Operative units) within 24" of this unit, and roll one D6 for each enemy unit within D6" of that model:<ul><li>For each 4+, that enemy unit suffers D6 mortal wounds.</li></ul>|Datasheet||
 000000662|1|000008343||||Core||
 000000662|2|000008507||||Faction||
 000000662|3|||Winged Strike (Pain)|In your Shooting phase, when you select this unit to shoot, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit makes a ranged attack, you can re-roll the Hit roll.|Datasheet||
@@ -6748,7 +6748,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004155|3|000008507||||Faction||
 000004155|4|||Archon of the Poisoned Tongue (Pain)|In your Shooting phase or the Fight phase, when you select this model’s<br>unit to shoot or fight, you can spend 1 Pain token to Empower that unit. If you do, select one of the following abilities: [SUSTAINED HITS 1]; [LETHAL HITS]. Until the end of the phase, while that unit is Empowered, weapons equipped by models in that unit have that selected ability.|Datasheet||
 000004155|5|||Precognisant|If your army includes this model, after both players have deployed their armies, select up to three Drukhari units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.|Datasheet||
-000004155|6|||Mind Like a Steel Trap (Aura)|Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12" of this model, increase the cost of that use of that Stratagem by 1CP.|Datasheet||
+000004155|6|||Mind Like a Steel Trap (Aura)|Once per turn, when your opponent targets a unit from their army within 12" of this model with a stratagem, you can use this ability. If you do, increase the CP cost of that use of that stratagem by 1CP.|Datasheet||
 000004156|1|000008344||||Core|7"|
 000004156|2|000008507||||Faction||
 000004156|3|||Assassins’ Poisons (Pain)|In your Shooting phase or the Fight phase, when you select this unit to shoot or fight, you can spend 1 Pain token to Empower this unit. While Empowered, weapons equipped by models in this unit (excluding blast pistols, blasters and dark lances) have the [LETHAL HITS] and [PRECISION] abilities.|Datasheet||
@@ -6759,7 +6759,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004156|8|||ARCHON’S RETINUE|If this unit has a Leader unit attached to it during the Declare Battle Formations step, that Leader unit gains the Scouts 7" ability.|Special (правая колонка)||
 000004157|1|000008343||||Core||
 000004157|2|000008507||||Faction||
-000004157|3|||Swooping Descent (Pain)|In your Movement phase, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit is set up on the battlefield using the Deep Strike ability, it can be set up anywhere on the battlefield that is more than 6" horizontally away from all enemy units. When doing so, if this unit is set up within 9" of one or more enemy units, until the end of the turn, it is not eligible to declare a charge.|Datasheet||
+000004157|3|||Swooping Descent (Pain)|In your Movement phase, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit is set up on the battlefield using the Deep Strike ability, it can be set up anywhere on the battlefield that is more than 6" horizontally away from all enemy units. When doing so, if this unit is set up within 8" of one or more enemy units, until the end of the turn, it is not eligible to declare a charge.|Datasheet||
 000004157|4|||Murderous Crossfire|After this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly Drukhari unit makes a ranged attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. The same enemy unit can only be affected by this ability once per turn.|Datasheet||
 000004158|1|000008336||||Core||
 000004158|2|000009894||||Faction||

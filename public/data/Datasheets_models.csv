@@ -436,8 +436,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000657|1|Venom|14"|6|4+|6||6|7+|1|60mm flying base||
 000000658|1|Reavers|16"|4|4+|6||2|7+|2|32mm flying base||
 000000659|1|Hellions|14"|4|4+|6||2|7+|1|32mm flying base||
-000000660|1|Razorwing Jetfighter|20+"|8|4+|6||10|7+|0|120 x 92mm flying base||
-000000661|1|Voidraven Bomber|20+"|9|4+|6||12|7+|0|120 x 92mm flying base||
+000000660|1|Razorwing Jetfighter|20+"|8|4+|6||10|7+|-|120 x 92mm flying base||
+000000661|1|Voidraven Bomber|20+"|9|4+|6||12|7+|-|120 x 92mm flying base||
 000000662|1|Scourges|14"|3|4+|5||1|7+|1|32mm||
 000000663|1|Talos|7"|7|3+|6||7|7+|2|60mm flying base||
 000000664|1|Cronos|7"|7|3+|6||7|7+|2|60mm flying base||
