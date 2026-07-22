@@ -14821,7 +14821,6 @@
 000004092|Chaos||false|
 000004092|Fly||false|
 000004092|Vehicle||false|
-000004092|Aircraft||false|
 000004092|Slaanesh||false|
 000004092|Heldrake||false|
 000004092|Daemon||false|
@@ -15910,3 +15909,4 @@
 000001047|Frame||false|
 000002462|Frame||false|
 000001376|Frame||false|
+000004077|Mobile||false|

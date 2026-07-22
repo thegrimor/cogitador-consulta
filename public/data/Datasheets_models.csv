@@ -1669,7 +1669,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000004089|1|Flawless Blades|8"|5|3+|5||3|6+|1|40mm||
 000004090|1|Chaos Spawn|10"|5|4+|-||4|7+|1|50mm||
 000004091|1|Maulerfiend|10"|10|3+|5||12|6+|3|120 x 92mm||
-000004092|1|Heldrake|20+"|10|3+|5||14|7+|0|120 x 92mm flying base||
+000004092|1|Heldrake|12"|10|3+|5||14|7+|-|120 x 92mm flying base||
 000004093|1|Chaos Rhino|12"|9|3+|-||10|6+|2|Use model||
 000004094|1|Shalaxi Helbane|14"|10|3+|4||20|6+|5|100mm||
 000004095|1|Daemonettes|9"|3|7+|5||1|7+|1|25mm||

@@ -6435,7 +6435,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004080|4|||Icon of Excess|At the end of your Shooting phase or the Fight phase, if the bearer’s unit destroyed one or more enemy units that phase, the bearer’s unit takes a Leadership test. If that test is passed, you gain 1CP.|Wargear||
 000004081|1|000008343||||Core||
 000004081|2|000009994||||Faction||
-000004081|3|||Lethal Obsession|In your Shooting phase, each time this unit is selected to shoot, if it makes one or more ranged attacks and all of those attacks target the same enemy unit, until the end of the turn, each time this unit declares a charge, if that enemy unit is a target of that charge, you can re-roll the Charge roll.|Datasheet||
+000004081|3|||Lethal Obsession|In your Shooting phase, after this unit has shot, you can use this ability. If you do, select one enemy unit hit by those ranged attacks. Until the end of the turn, when this unit declares a charge:<ul><li>This unit can re-roll that Charge roll.</li><li>This unit must end that charge move engaged with that enemy unit.</li></ul>|Datasheet||
 000004082|1|000008339||||Core|D6|
 000004082|2|000009994||||Faction||
 000004082|3|||Assault Ramp|Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn.|Datasheet||
@@ -6469,7 +6469,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004089|2|||Daemonic Patrons|Each time this unit is selected to fight, it can call upon daemonic patrons. If it does, until the end of the phase, each time a model in this unit makes an attack, an unmodified Wound roll of 3+ scores a Critical Wound. At the end of the Fight phase, if this unit called upon daemonic patrons this phase and no enemy models were destroyed by attacks made by models in this unit this phase, one model in this unit is destroyed.|Datasheet||
 000004090|1|000008338||||Core|5+|
 000004090|2|000009994||||Faction||
-000004090|3|||Scuttling Horrors|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, this unit can make a Normal move of up to 6".|Datasheet||
+000004090|3|||Scuttling Horrors|In your opponent's Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6".|Datasheet||
 000004091|1|000008339||||Core|D3|
 000004091|2|000009994||||Faction||
 000004091|3|||Glutton for Punishment|Each time this model makes an attack, if it is below its Starting Strength, add 1 to the Hit roll. If this model is also Below Half-strength, add 1 to the Wound roll as well.|Datasheet||
