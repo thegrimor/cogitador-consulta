@@ -1,6 +1,8 @@
 /**
- * Adds `disposition` and `dp` columns to public/data/Detachments.csv
- * using data scraped from mfm-data.json.
+ * Adds/refreshes `disposition` and `dp` columns on public/data/Detachments.csv
+ * using data scraped from mfm-data.json. Safe to run repeatedly — the base
+ * column set is fixed rather than read off the file's current header, so a
+ * prior run's appended columns are replaced, not appended to again.
  *
  * Usage: node scripts/update-detachments.mjs
  */
@@ -57,10 +59,9 @@ function main() {
   const raw = fs.readFileSync(path.join(ROOT, 'Detachments.csv'), 'utf8');
   const lines = raw.split('\n');
 
-  // Parse header
-  const headerLine = lines[0].replace(/^﻿/, '');
-  const headers = headerLine.split('|').map(h => h.trim()).filter(Boolean);
-  // headers = ['id', 'faction_id', 'name', 'legend', 'type']
+  // Fixed base columns — deliberately not derived from the file's current
+  // header, so re-running this script never re-appends disposition/dp.
+  const BASE_HEADERS = ['id', 'faction_id', 'name', 'legend', 'type'];
 
   // Parse rows into objects
   const rows = lines.slice(1)
@@ -114,8 +115,8 @@ function main() {
     }
   }
 
-  // Serialize: add disposition and dp columns
-  const newHeaders = [...headers, 'disposition', 'dp'];
+  // Serialize: (re)add disposition and dp columns
+  const newHeaders = [...BASE_HEADERS, 'disposition', 'dp'];
   const csvLines = [newHeaders.join('|') + '|'];
   for (const row of rows) {
     csvLines.push(

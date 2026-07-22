@@ -1,22 +1,32 @@
 /**
  * Scraper for https://mfm.warhammer-community.com/en
- * Extracts unit points from the RSC (React Server Components) payload embedded in HTML.
  *
- * Each faction page embeds RSC data in self.__next_f.push([1, "..."]) fragments.
- * The RSC payload contains:
- *   - Hex-keyed entries: "89:["$","span",null,{"children":"50 pts"}]"
- *   - Size+cost patterns: [false,"N model(s)"]}],"$L{hexId}"
- *   - Unit name patterns: bg-slate-500 ... text-xl text-white","children":"UNIT NAME"
+ * Uses a headless browser (Puppeteer) to load each faction page and read the
+ * fully-hydrated DOM directly. The site renders via React Suspense streaming,
+ * so a plain HTTP fetch returns raw SSR markup full of unresolved <template>
+ * placeholders and duplicate print/screen layout copies — a real browser
+ * hydrates it into a single clean DOM, which is far more robust to scrape
+ * than reverse-engineering the streaming payload with regex.
+ *
+ * Cost values are sometimes decorated with a balance-update indicator, e.g.
+ * "▼ (-5) 70 pts" or "▲ (+10) 50 pts" — we always take the trailing number.
+ *
+ * Both unit cards and detachment cards use the same container class
+ * (div.flex.flex-col.space-y-1.m-1); we tell them apart by whether the
+ * header contains a "NDP" span. Enhancements are scoped to the detachment
+ * card they appear in, since the same enhancement name can recur across
+ * different detachments with different costs (e.g. Astra Militarum's
+ * "Grand Strategist" is 15pts in one detachment and 25pts in another).
  *
  * Output: scripts/mfm-data.json
  *
  * Usage: node scripts/scrape-mfm.mjs
  */
 
-import https from 'https';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import puppeteer from 'puppeteer';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -53,147 +63,6 @@ const FACTIONS = [
   { slug: 'world-eaters', name: 'World Eaters' },
 ];
 
-function fetchPage(slug) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      hostname: 'mfm.warhammer-community.com',
-      path: `/en/${slug}`,
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; scraper)',
-        'Accept': 'text/html',
-      },
-    };
-    https.get(options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(data));
-      res.on('error', reject);
-    }).on('error', reject);
-  });
-}
-
-function extractRscPayload(html) {
-  const matches = [...html.matchAll(/self\.__next_f\.push\(\[(\d+),(.*?)\]\)/gs)];
-  return matches
-    .filter(m => m[1] === '1')
-    .map(m => { try { return JSON.parse(m[2]); } catch { return m[2]; } })
-    .join('');
-}
-
-/**
- * Build a map of rscId → points value (number)
- * RSC entries look like: 89:["$","span",null,{"children":"50 pts"}]
- */
-function buildCostMap(payload) {
-  const costMap = new Map();
-  const lines = payload.split('\n');
-  for (const line of lines) {
-    const m = line.match(/^([0-9a-f]+):.*"children":"(\d+) pts"/);
-    if (m) {
-      costMap.set(m[1], parseInt(m[2], 10));
-    }
-  }
-  return costMap;
-}
-
-/**
- * Parse unit data from the RSC payload.
- *
- * Unit names appear in: bg-slate-500...text-xl text-white","children":"UNIT NAME"
- * Size+cost pairs appear as: [false,"N model(s)"]}],"$L{hexId}"
- *
- * We find all unit names with their positions, then for each unit's section
- * extract the size+cost pairs using the costMap.
- */
-function parseUnits(payload, costMap) {
-  const units = [];
-
-  // Unit names are in dark slate-500 header divs
-  const unitNameRegex = /bg-slate-500[^"]*text-xl text-white","children":"([^"]+)"/g;
-  const unitPositions = [];
-  let match;
-  while ((match = unitNameRegex.exec(payload)) !== null) {
-    unitPositions.push({ name: match[1], pos: match.index });
-  }
-
-  // The size+cost pattern in the RSC:
-  // [false,"SIZE"]}],"$L{hexId}"  -- 1st-unit / single-tier rows
-  // ["$undefined","SIZE"]}],"$L{hexId}"  -- 2nd+/3rd+ unit surcharge tiers
-  // Where ]}] closes children array, span element, and span's parent
-  const sizeRegex = /\[(?:false|"\$undefined"),"([^"]+)"\]}\],"?\$L([0-9a-f]+)"?/g;
-
-  // Collect ALL size+cost pairs with their positions
-  const allPairs = [];
-  let pairMatch;
-  while ((pairMatch = sizeRegex.exec(payload)) !== null) {
-    const size = pairMatch[1];
-    const refId = pairMatch[2];
-    const pts = costMap.get(refId);
-    if (pts !== undefined) {
-      allPairs.push({ size, pts, pos: pairMatch.index });
-    }
-  }
-
-  // Also collect cost section headers ("YOUR UNIT COSTS", "YOUR 1ST TO 2ND UNITS COST", etc.)
-  // to group multi-size units properly
-  const headerRegex = /"children":"(YOUR [^"]+COST[S]?)"/g;
-  const allHeaders = [];
-  let hMatch;
-  while ((hMatch = headerRegex.exec(payload)) !== null) {
-    allHeaders.push({ header: hMatch[1], pos: hMatch.index });
-  }
-
-  // WARGEAR OPTIONS surcharges ("per Hades lascannon", "per Heavy reaper
-  // autocannon", etc.) - same {"children":"X"}],"$Lid" shape as enhancements,
-  // but scoped per-unit by position so we know which datasheet they belong to.
-  const wargearRegex = /\{"children":"(per [^"]+)"\}\],"?\$L([0-9a-f]+)"?/g;
-  const allWargearCosts = [];
-  let wMatch;
-  while ((wMatch = wargearRegex.exec(payload)) !== null) {
-    const pts = costMap.get(wMatch[2]);
-    if (pts !== undefined) {
-      allWargearCosts.push({ name: wMatch[1], pts, pos: wMatch.index });
-    }
-  }
-
-  // For each unit, find the pairs that fall within its section
-  for (let i = 0; i < unitPositions.length; i++) {
-    const { name, pos } = unitPositions[i];
-    const nextUnitPos = unitPositions[i + 1]?.pos ?? payload.length;
-
-    // Find cost headers within this unit's section
-    const unitHeaders = allHeaders.filter(h => h.pos > pos && h.pos < nextUnitPos);
-
-    // Per-weapon wargear surcharges anywhere within this unit's section
-    const wargearCosts = allWargearCosts
-      .filter(w => w.pos > pos && w.pos < nextUnitPos)
-      .map(w => ({ name: w.name, pts: w.pts }));
-
-    if (unitHeaders.length === 0) {
-      // No cost sections for this unit (maybe Legends-only or no points)
-      units.push({ name, costSections: [], wargearCosts });
-      continue;
-    }
-
-    const costSections = [];
-    for (let j = 0; j < unitHeaders.length; j++) {
-      const { header, pos: hPos } = unitHeaders[j];
-      const nextHPos = unitHeaders[j + 1]?.pos ?? nextUnitPos;
-
-      // Find pairs within this cost section
-      const sectionPairs = allPairs.filter(p => p.pos > hPos && p.pos < nextHPos);
-      if (sectionPairs.length > 0) {
-        costSections.push({ header, costs: sectionPairs.map(p => ({ size: p.size, pts: p.pts })) });
-      }
-    }
-
-    units.push({ name, costSections, wargearCosts });
-  }
-
-  return units.filter(u => u.costSections.some(s => s.costs.length > 0));
-}
-
-// The 5 official 10th-edition battle dispositions shown on the MFM
 const DISPOSITIONS = new Set([
   'TAKE AND HOLD',
   'PURGE THE FOE',
@@ -202,97 +71,108 @@ const DISPOSITIONS = new Set([
   'PRIORITY ASSETS',
 ]);
 
-/**
- * Parse detachments with their DP cost and battle disposition from RSC payload.
- * Text-children sequence: DETACHMENT_NAME → XDP → DISPOSITION
- */
-function parseDetachments(payload) {
-  const detachments = [];
-  const textChildren = [];
-  const textRegex = /"children":"([^"$\\]+)"/g;
-  let m;
-  while ((m = textRegex.exec(payload)) !== null) {
-    textChildren.push(m[1]);
-  }
+async function scrapeFactionPage(page, faction) {
+  await page.goto(`https://mfm.warhammer-community.com/en/${faction.slug}`, {
+    waitUntil: 'networkidle0',
+    timeout: 60000,
+  });
 
-  for (let i = 0; i < textChildren.length - 1; i++) {
-    const dpMatch = textChildren[i + 1]?.match(/^(\d+)DP$/);
-    if (dpMatch && textChildren[i].length > 2 && textChildren[i] === textChildren[i].toUpperCase()) {
-      const disposition = DISPOSITIONS.has(textChildren[i + 2]) ? textChildren[i + 2] : '';
-      detachments.push({
-        name: textChildren[i],
-        dp: parseInt(dpMatch[1], 10),
-        disposition,
-      });
+  return page.evaluate((dispositionList) => {
+    const DISPOSITIONS = new Set(dispositionList);
+
+    function extractPts(text) {
+      const m = (text || '').trim().match(/(\d+)\s*pts?\s*$/i);
+      return m ? parseInt(m[1], 10) : NaN;
     }
-  }
 
-  return detachments;
-}
+    const units = [];
+    const detachments = [];
+    const enhancements = [];
 
-/**
- * Parse enhancements with their cost.
- * Enhancement entries have the name as text followed by a pts span.
- * Pattern in RSC: "children":"Enhancement Name"...}],"$L{hexId}"
- */
-function parseEnhancements(payload, costMap) {
-  const enhancements = [];
-  // Enhancement li items: span with name text, then cost ref
-  // Structure: {"children":"Name"}],"$L{hexId}"
-  const enhRegex = /"children":"([^"]+)"\}],"?\$L([0-9a-f]+)"?/g;
-  let m;
-  while ((m = enhRegex.exec(payload)) !== null) {
-    const name = m[1];
-    const refId = m[2];
-    const pts = costMap.get(refId);
-    // Filter: title case (not all-caps), not a CSS class, not pts content,
-    // not a per-weapon wargear surcharge (those are captured per-unit in parseUnits)
-    if (
-      pts !== undefined && name !== name.toUpperCase() && name.length < 80 &&
-      !name.includes(':') && !name.includes('px-') && !name.startsWith('per ')
-    ) {
-      enhancements.push({ name, pts });
+    const containers = [...document.querySelectorAll('div.flex.flex-col.space-y-1.m-1')];
+    for (const c of containers) {
+      const headerDiv = c.querySelector(':scope > div:first-child');
+      if (!headerDiv) continue;
+      const dpSpan = headerDiv.querySelector('span');
+      const dpText = dpSpan ? dpSpan.textContent.trim() : '';
+      const nameSpan = headerDiv.querySelector('span.keep-all') || headerDiv.querySelector('span.text-xl') || headerDiv.querySelector('span:first-child');
+      const name = (nameSpan ? nameSpan.textContent : headerDiv.textContent).trim();
+      if (!name) continue;
+
+      // Detect detachment cards by the "NDP" span anywhere in the header.
+      // The DP text can be decorated with a balance-update arrow (e.g.
+      // "2DP ▼" with an HTML comment in between), so match the leading
+      // digits rather than anchoring the whole string.
+      const allHeaderSpansText = [...headerDiv.querySelectorAll('span')].map(s => s.textContent.trim());
+      const dpSpanText = allHeaderSpansText.find(t => /^\d+DP\b/.test(t));
+
+      if (dpSpanText) {
+        const dp = parseInt(dpSpanText, 10);
+        const dispositionEl = headerDiv.nextElementSibling;
+        const dispositionText = dispositionEl?.textContent?.trim() ?? '';
+        const disposition = DISPOSITIONS.has(dispositionText) ? dispositionText : '';
+        detachments.push({ name, dp, disposition });
+
+        const enhHeaders = [...c.querySelectorAll('div')].filter(d => d.textContent.trim() === 'ENHANCEMENTS' && d.children.length === 0);
+        for (const h of enhHeaders) {
+          const ul = h.nextElementSibling;
+          if (!ul || ul.tagName !== 'UL') continue;
+          for (const li of ul.querySelectorAll('li')) {
+            const spans = li.querySelectorAll('span');
+            const enhName = spans[0]?.textContent.trim();
+            const pts = extractPts(spans[spans.length - 1]?.textContent ?? '');
+            if (enhName && !isNaN(pts)) enhancements.push({ name: enhName, pts, detachment: name });
+          }
+        }
+        continue;
+      }
+
+      // Otherwise treat as a unit card.
+      const costSections = [];
+      const headers = [...c.querySelectorAll('div')].filter(d => /^YOUR .*COSTS?$/.test(d.textContent.trim()));
+      for (const h of headers) {
+        const ul = h.nextElementSibling;
+        if (!ul || ul.tagName !== 'UL') continue;
+        const costs = [...ul.querySelectorAll('li')]
+          .map(li => {
+            const spans = li.querySelectorAll('span');
+            const size = spans[0]?.textContent.trim();
+            const pts = extractPts(spans[spans.length - 1]?.textContent ?? '');
+            return { size, pts };
+          })
+          .filter(x => x.size && !isNaN(x.pts));
+        if (costs.length) costSections.push({ header: h.textContent.trim(), costs });
+      }
+      if (costSections.length === 0) continue;
+
+      const wargearCosts = [];
+      for (const li of c.querySelectorAll('ul:not(.bg-yellow) li')) {
+        const spans = li.querySelectorAll('span');
+        const text = spans[0]?.textContent.trim() ?? '';
+        const pts = extractPts(spans[spans.length - 1]?.textContent ?? '');
+        if (text.toLowerCase().startsWith('per ') && !isNaN(pts)) wargearCosts.push({ name: text, pts });
+      }
+
+      units.push({ name, costSections, wargearCosts });
     }
-  }
 
-  return enhancements;
-}
-
-async function scrapeFaction(faction) {
-  console.log(`Scraping ${faction.name}...`);
-  const html = await fetchPage(faction.slug);
-  const payload = extractRscPayload(html);
-
-  if (payload.length < 100) {
-    console.warn(`  Warning: very short payload for ${faction.name} (${payload.length} chars)`);
-    return { faction: faction.name, units: [], detachments: [], enhancements: [] };
-  }
-
-  const costMap = buildCostMap(payload);
-  const units = parseUnits(payload, costMap);
-  const detachments = parseDetachments(payload);
-  const enhancements = parseEnhancements(payload, costMap);
-
-  console.log(`  Found ${units.length} units, ${detachments.length} detachments, ${enhancements.length} enhancements`);
-
-  return {
-    faction: faction.name,
-    slug: faction.slug,
-    units,
-    detachments,
-    enhancements,
-  };
+    return { units, detachments, enhancements };
+  }, [...DISPOSITIONS]);
 }
 
 async function main() {
   const outputPath = path.join(__dirname, 'mfm-data.json');
-  const results = [];
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1280, height: 900 });
 
+  const results = [];
   for (const faction of FACTIONS) {
+    console.log(`Scraping ${faction.name}...`);
     try {
-      const data = await scrapeFaction(faction);
-      results.push(data);
-      // Small delay to be polite
+      const data = await scrapeFactionPage(page, faction);
+      console.log(`  Found ${data.units.length} units, ${data.detachments.length} detachments, ${data.enhancements.length} enhancements`);
+      results.push({ faction: faction.name, slug: faction.slug, ...data });
       await new Promise(r => setTimeout(r, 300));
     } catch (err) {
       console.error(`Error scraping ${faction.name}:`, err.message);
@@ -300,10 +180,11 @@ async function main() {
     }
   }
 
+  await browser.close();
+
   fs.writeFileSync(outputPath, JSON.stringify(results, null, 2), 'utf8');
   console.log(`\nDone! Saved to ${outputPath}`);
 
-  // Summary
   const totalUnits = results.reduce((s, r) => s + r.units.length, 0);
   const totalEnh = results.reduce((s, r) => s + r.enhancements.length, 0);
   console.log(`Total: ${totalUnits} unit entries, ${totalEnh} enhancements across ${results.length} factions`);
