@@ -4557,14 +4557,14 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002626|3|||Forwards, for Blood!|While this model is leading a unit, you can re-roll Advance rolls made for that unit and each time that unit makes a Blood Surge move, you can re-roll the D6 used to determine how far models in that unit move.|Datasheet||
 000002626|4|||A Worthy Skull|Each time this model makes a melee attack that targets a <span class="kwb">CHARACTER</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll. Each time this model’s unit destroys a <span class="kwb">CHARACTER</span> model, you gain 1CP.|Datasheet||
 000002627|1|000008428||||Faction||
-000002627|2|||Blood Surge|In your opponent’s Shooting phase, each time an enemy unit has shot, if any models from this unit were destroyed as a result of those attacks, this unit can make a Blood Surge move. To do so, roll one D6 and add 2 to the roll: models in this unit move a number of inches up to this result, but this unit must end that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>), When doing so, those models can be moved within Engagement Range of that enemy unit. This unit cannot make a Blood Surge move while it is Battle-shocked or within Engagement Range of one or more enemy units, and can only make one Blood Surge move per phase.|Datasheet||
+000002627|2|||Blood Surge|In your opponent’s Shooting phase, when an enemy unit has shot, if a model in this unit was destroyed as a result of those attacks, this unit can make a surge move of up to D6+2".|Datasheet||
 000002627|3|||Icon of Khorne|If the bearer’s unit contains one or more Icons of Khorne, each time the bearer’s unit destroys an enemy unit, you gain 1 Bloodshed point. Each time you make a Blessings of Khorne roll, roll one additional D6 for each Bloodshed point you have, after which, all your Bloodshed points are lost.|Wargear||
 000002628|1|000008428||||Faction||
 000002628|2|||Objective Ravaged|At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.|Datasheet||
 000002628|3|||Icon of Khorne|If the bearer’s unit contains one or more Icons of Khorne, each time the bearer’s unit destroys an enemy unit, you gain 1 Bloodshed point. Each time you make a Blessings of Khorne roll, roll one additional D6 for each Bloodshed point you have, after which, all your Bloodshed points are lost.|Wargear||
 000002629|1|000008343||||Core||
 000002629|2|000008428||||Faction||
-000002629|3|||Bloody Fury|Each time a model in this unit makes a ranged attack that targets the closest enemy unit, you can re-roll the Hit roll. Each time this unit declares a charge that targets the closest eligible enemy unit, you can re-roll the Charge roll.|Datasheet||
+000002629|3|||Bloody Fury|<ul><li>This unit's ranged attacks that target the closest eligible target can re-roll Hit rolls.</li><li>When this unit declares a charge, you can use this part of this ability. If you do:<ul><li>This unit can re-roll that Charge roll.</li><li>This unit must end that charge move engaged with the closest charge target.</li></ul></li></ul>|Datasheet||
 000002630|1|000008344||||Core|6"|
 000002630|2|000008428||||Faction||
 000002630|3|||Beacons of Rage (Aura)|While a friendly <span class="kwb">WORLD</span> <span class="kwb">EATERS</span> unit is within 6" of this unit, each time a model in that unit makes a melee attack that targets a unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>), add 1 to the Hit roll. If that attack targets a unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) that is Below Half-strength, add 1 to the Wound roll as well.|Datasheet||
@@ -4574,7 +4574,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002632|1|000008339||||Core|1|
 000002632|2|000008428||||Faction||
 000002632|3|||Devoted to Destruction|If this model is equipped with two melee weapons in addition to its close combat weapon, add 2 to the Attacks characteristic of those two weapons.|Datasheet||
-000002632|4|||Frenzy|In your opponent’s Shooting phase, and in the Fight phase, each time an enemy unit targets this model, after that unit has finished making its attacks, this model can either shoot or fight, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).|Datasheet||
+000002632|4|||Frenzy|(Once per turn, per unit) In the Fight phase, when an enemy unit targets this unit, after that unit has resolved its attacks, you can use this ability. If you do, this unit is eligible to fight (even if it has already fought this phase) and must be selected to fight next.|Datasheet||
 000002633|1|000008338||||Core|5+|
 000002633|2|000008344||||Core|8"|
 000002633|3|000008428||||Faction||
@@ -4593,12 +4593,12 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002638|3|||Furious Onslaught|Each time this model makes a ranged attack that targets the closest eligible target within 18", you can re-roll the Hit roll.|Datasheet||
 000002639|1|000008339||||Core|D3|
 000002639|2|000008428||||Faction||
-000002639|3|||The Scent of Blood|Each time this model declares a charge that targets one or more units below Starting Strength, add 1 to the Charge roll. If one or more of the targets of that charge are Below Half-strength, add 2 to the Charge roll instead.|Datasheet||
+000002639|3|||The Scent of Blood|In the Charge phase, when this unit declares a charge:<ul><li>If an enemy unit below starting strength is within 9" of this unit, this unit has +1 to Charge rolls.</li><li>Or: If an enemy unit below half strength is within 9" of this unit, this unit has +2 to Charge rolls.</li></ul>|Datasheet||
 000002639|4|||Savage Exaltation|Each time this model makes a melee attack that targets an enemy unit that is below its Starting Strength, add 1 to the Hit roll and, if that attack targets an enemy unit that is Below Half-strength, add 1 to the Wound roll as well.|Datasheet||
 000002640|1|000008339||||Core|D3|
 000002640|2|000008334||||Core|2|
 000002640|3|000008428||||Faction||
-000002640|4|||Meet Any Challenge|In your opponent’s Movement phase, each time an enemy unit is set up or ends a Normal, Advance or Fall Back move within 9" of this model, any units embarked within it can disembark.|Datasheet||
+000002640|4|||Meet Any Challenge|In your opponent’s Movement phase, each time an enemy unit is set up or ends a Normal, Advance or Fall Back move within 8" of this model, any units embarked within it can disembark.|Datasheet||
 000002641|1|000008339||||Core|D3|
 000002641|2|000008342||||Core||
 000002641|3|000008428||||Faction||
@@ -6409,7 +6409,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004075|8|||Simulacrum Imperialis|At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.|Wargear||
 000004076|1|000008345||||Core||
 000004076|2|000008428||||Faction||
-000004076|3|||Loping Speed|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
+000004076|3|||Loping Speed|In your opponent's Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6".|Datasheet||
 000004077|1|000008339||||Core|D6|
 000004077|2|000008343||||Core||
 000004077|3|000009994||||Faction||
@@ -7006,7 +7006,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004207|1|000008339||||Core|D6|
 000004207|2|000008428||||Faction||
 000004207|3|||Scuttling Walker|Each time this unit makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class="kwb">TITANIC</span> models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed.|Datasheet||
-000004207|4|||Unleash Wrath|At the end of your opponent’s Movement phase, you can select one enemy unit that was set up on the battlefield within 12" of this model; this model can then either:<br><ul><li>Shoot at that unit, but only if it is an eligible target.</li><li>Declare a charge against that unit (note that even if this charge is successful, this model does not receive any Charge bonus this turn).</li></ul>|Datasheet||
+000004207|4|||Unleash Wrath|At the end of your opponent’s Movement phase, you can select one enemy unit that was set up on the battlefield within 12" of this model; this model can then either:<br><ul><li>Shoot at that unit, but only if it is an eligible target.</li><li>Declare a charge. This unit must end that charge move engaged with the enemy unit you selected (note that even if this charge is successful, this unit does not receive any Charge bonus this turn).</li></ul>|Datasheet||
 000004208|1|000008339||||Core|D6|
 000004208|2|000009994||||Faction||
 000004208|3|||Scuttling Walker|Each time this unit makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class="kwb">TITANIC</span> models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed.|Datasheet||

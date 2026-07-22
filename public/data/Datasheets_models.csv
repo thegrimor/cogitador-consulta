@@ -1133,7 +1133,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000002638|1|Forgefiend|10"|10|3+|5||12|6+|3|120 x 92mm||
 000002639|1|Maulerfiend|12"|10|3+|5||12|6+|3|120 x 92mm||
 000002640|1|Chaos Rhino|12"|9|3+|-||10|6+|2|Use model||
-000002641|1|Heldrake|20+"|9|3+|5||12|6+|0|120 x 92mm flying base||
+000002641|1|Heldrake|12"|9|3+|5||12|6+|-|120 x 92mm flying base||
 000002642|1|Khorne Lord of Skulls|12"|13|3+|5||24|6+|8|Use model||
 000002677|1|Ancient In Terminator Armour|5"|5|2+|4||5|6+|1|40mm||
 000002678|1|Chaplain Cassius|6"|4|3+|4||4|5+|1|32mm||
