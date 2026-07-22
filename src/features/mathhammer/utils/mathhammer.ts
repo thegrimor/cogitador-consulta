@@ -13,6 +13,16 @@ function normalCDF(z: number): number {
   return (1 + erf(z / Math.sqrt(2))) / 2
 }
 
+/** P(deal ≥ `wounds` damage) for a Gaussian-approximated damage total, with continuity
+ * correction. Reused to get a kill-probability both for a single weapon copy and for a
+ * whole weapon group (mean/standardDeviation scaled up by quantity beforehand). */
+export function killProbabilityForDamage(meanDamage: number, standardDeviation: number, wounds: number): number {
+  const W = wounds || 1
+  return standardDeviation > 0
+    ? 1 - normalCDF((W - 0.5 - meanDamage) / standardDeviation)
+    : (meanDamage >= W ? 1 : 0)
+}
+
 // Variance of a dice expression, accounting for reroll mode.
 // Formula for XdN: coeff × Var[single die]
 // Bonus (+B) does not affect variance.
@@ -384,10 +394,7 @@ export function calculateDamage(
   const percentile90 = expectedTotalDamage + 1.2816 * standardDeviation
 
   // P(deal ≥ W damage to one defending model), with continuity correction
-  const W = defenderModel.W || 1
-  const killProbability = standardDeviation > 0
-    ? 1 - normalCDF((W - 0.5 - expectedTotalDamage) / standardDeviation)
-    : (expectedTotalDamage >= W ? 1 : 0)
+  const killProbability = killProbabilityForDamage(expectedTotalDamage, standardDeviation, defenderModel.W)
 
   return {
     weaponName: weapon.name,

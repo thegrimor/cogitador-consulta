@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { calculateDamage, getBlastBonusAttacks, parseDiceAverage } from '../../utils/mathhammer'
+import { calculateDamage, getBlastBonusAttacks, parseDiceAverage, killProbabilityForDamage } from '../../utils/mathhammer'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
 import type { CombatModifiers } from '../../types'
 import { GaussianChart } from './GaussianChart'
@@ -116,7 +116,13 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
     attacksMod: mods.attacksMod + rapidFireBonusAttacks(weapon, rapidFireActiveKeys),
   }
   const calc = calculateDamage(weapon, defenderModel, effectiveMods, defenderKeywords ?? [], blastTargetModels)
+  // Todas las cantidades del desglose se escalan ×qty: representan el grupo de armas
+  // completo (todas las copias en la unidad), no una sola mini.
   const total = calc.expectedTotalDamage * qty
+  const groupSigma = calc.standardDeviation * Math.sqrt(qty)
+  const groupP10 = Math.max(0, total - 1.2816 * groupSigma)
+  const groupP90 = total + 1.2816 * groupSigma
+  const groupKillProbability = killProbabilityForDamage(total, groupSigma, defenderModel.W)
 
   return (
     <div className="border border-rim-bright bg-surface-2">
@@ -138,55 +144,66 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
       {open && (
         <div className="px-3 py-2 border-t border-rim-bright">
           {calc.blastBonusAttacks != null && (
-            <Row label="↳ Blast bonus" value={`+${calc.blastBonusAttacks}A`} highlight />
+            <Row label="↳ Blast bonus" value={`+${fmt(calc.blastBonusAttacks * qty)}A`} highlight />
           )}
           {calc.cleaveBonusAttacks != null && (
-            <Row label="↳ Cleave bonus" value={`+${calc.cleaveBonusAttacks}A`} highlight />
+            <Row label="↳ Cleave bonus" value={`+${fmt(calc.cleaveBonusAttacks * qty)}A`} highlight />
           )}
-          <Row label="Ataques" value={fmt(calc.avgAttacks)} />
+          <Row label="Ataques" value={fmt(calc.avgAttacks * qty)} detail={qty > 1 ? `${fmt(calc.avgAttacks)} × ${qty}` : undefined} />
           <Row
             label="Impactos"
-            value={fmt(calc.expectedHits)}
-            detail={`${fmt(calc.avgAttacks)} × ${pct(calc.hitProbability)}`}
+            value={fmt(calc.expectedHits * qty)}
+            detail={`${fmt(calc.avgAttacks * qty)} × ${pct(calc.hitProbability)}`}
           />
           {calc.sustainedExtraHits > 0 && (
-            <Row label="↳ Extra (Sustained)" value={`+${fmt(calc.sustainedExtraHits)}`} highlight />
+            <Row label="↳ Extra (Sustained)" value={`+${fmt(calc.sustainedExtraHits * qty)}`} highlight />
           )}
           {calc.autoWoundsFromCrits > 0 && (
-            <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits)}`} highlight />
+            <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits * qty)}`} highlight />
           )}
           {calc.antiCritWounds > 0 && (
-            <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds)}`} highlight />
+            <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds * qty)}`} highlight />
           )}
           <Row
             label="Heridas"
-            value={fmt(calc.expectedWounds)}
+            value={fmt(calc.expectedWounds * qty)}
             detail={calc.autoWoundsFromCrits > 0
-              ? `+${fmt(calc.autoWoundsFromCrits)} auto`
-              : `${fmt(calc.expectedHits)} × ${pct(calc.woundProbability)}`}
+              ? `+${fmt(calc.autoWoundsFromCrits * qty)} auto`
+              : `${fmt(calc.expectedHits * qty)} × ${pct(calc.woundProbability)}`}
           />
           <Row
             label="Salv. fallidas"
-            value={fmt(calc.expectedFailedSaves)}
-            detail={`${fmt(calc.expectedWounds)} × ${pct(calc.saveFailProbability)}`}
+            value={fmt(calc.expectedFailedSaves * qty)}
+            detail={`${fmt(calc.expectedWounds * qty)} × ${pct(calc.saveFailProbability)}`}
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapon.D} />
           {calc.fnpProbability > 0 && (
             <Row
               label={`↳ FNP ${calc.feelNoPainThreshold}+`}
-              value={`−${fmt(calc.damageBeforeFNP - calc.expectedTotalDamage)}`}
-              detail={`${fmt(calc.damageBeforeFNP)} × ${pct(calc.fnpProbability)} ignorado`}
+              value={`−${fmt((calc.damageBeforeFNP - calc.expectedTotalDamage) * qty)}`}
+              detail={`${fmt(calc.damageBeforeFNP * qty)} × ${pct(calc.fnpProbability)} ignorado`}
               highlight
             />
           )}
-          <Row label="Bajas esperadas" value={fmt(calc.expectedKills * qty)} detail={`/${defenderModel.W}H · ×${qty}`} highlight />
-          {calc.standardDeviation > 0 && (
-            <Row label="Desv. típica (σ)" value={`±${calc.standardDeviation.toFixed(2)}`} detail="por modelo atacante" />
+          {calc.autoWoundsFromCrits > 0 && calc.expectedWounds > 0 && (
+            <Row
+              label="Contribución críticos"
+              value={pct(calc.autoWoundsFromCrits / calc.expectedWounds)}
+              detail="heridas auto / total"
+            />
+          )}
+          <Row label="Bajas esperadas" value={fmt(calc.expectedKills * qty)} detail={`/${defenderModel.W}H · grupo ×${qty}`} highlight />
+          {groupSigma > 0 && (
+            <>
+              <Row label="Desv. típica (σ)" value={`±${groupSigma.toFixed(2)}`} detail="grupo completo" />
+              <Row label="Rango P10–P90" value={`${groupP10.toFixed(2)} – ${groupP90.toFixed(2)}`} detail="grupo completo" />
+            </>
           )}
           <Row
-            label={`P(matar /${defenderModel.W}H)`}
-            value={`${(calc.killProbability * 100).toFixed(0)}%`}
-            detail="por modelo atacante"
+            label={`P(≥1 baja /${defenderModel.W}H)`}
+            value={`${(groupKillProbability * 100).toFixed(0)}%`}
+            detail="grupo completo"
+            highlight
           />
         </div>
       )}
@@ -394,101 +411,31 @@ export function DamageCalculator({
         )}
       </div>
 
-      {/* Single weapon breakdown */}
-      {isSingle && (
-        <div className="border border-rim-bright bg-surface-2 px-3 py-2">
-          <p className="text-xs font-display uppercase tracking-wide text-gold-bright mb-1">
-            Desglose
-          </p>
-          {calc.blastBonusAttacks != null && (
-            <Row label="↳ Blast bonus" value={`+${calc.blastBonusAttacks}A`} highlight />
-          )}
-          {calc.cleaveBonusAttacks != null && (
-            <Row label="↳ Cleave bonus" value={`+${calc.cleaveBonusAttacks}A`} highlight />
-          )}
-          <Row label="Ataques" value={fmt(calc.avgAttacks)} />
-          <Row
-            label="Impactos"
-            value={fmt(calc.expectedHits)}
-            detail={`${fmt(calc.avgAttacks)} × ${pct(calc.hitProbability)}`}
-          />
-          {calc.sustainedExtraHits > 0 && (
-            <Row label="↳ Extra (Sustained)" value={`+${fmt(calc.sustainedExtraHits)}`} highlight />
-          )}
-          {calc.autoWoundsFromCrits > 0 && (
-            <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits)}`} highlight />
-          )}
-          {calc.antiCritWounds > 0 && (
-            <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds)}`} highlight />
-          )}
-          <Row
-            label="Heridas"
-            value={fmt(calc.expectedWounds)}
-            detail={calc.autoWoundsFromCrits > 0
-              ? `+${fmt(calc.autoWoundsFromCrits)} auto`
-              : `${fmt(calc.expectedHits)} × ${pct(calc.woundProbability)}`}
-          />
-          <Row
-            label="Salv. fallidas"
-            value={fmt(calc.expectedFailedSaves)}
-            detail={`${fmt(calc.expectedWounds)} × ${pct(calc.saveFailProbability)}`}
-          />
-          <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapons[0].D} />
-          {calc.fnpProbability > 0 && (
-            <Row
-              label={`↳ FNP ${calc.feelNoPainThreshold}+`}
-              value={`−${fmt(calc.damageBeforeFNP - calc.expectedTotalDamage)}`}
-              detail={`${fmt(calc.damageBeforeFNP)} × ${pct(calc.fnpProbability)} ignorado`}
-              highlight
-            />
-          )}
-          <Row label="Bajas esperadas" value={fmt(calc.expectedKills * singleQty)} detail={`/${defenderModel.W}H por modelo`} highlight />
-          {calc.autoWoundsFromCrits > 0 && calc.expectedWounds > 0 && (
-            <Row
-              label="Contribución críticos"
-              value={pct(calc.autoWoundsFromCrits / calc.expectedWounds)}
-              detail="heridas auto / total"
-            />
-          )}
-          {calc.standardDeviation > 0 && (
-            <>
-              <Row label="Desv. típica (σ)" value={`±${calc.standardDeviation.toFixed(2)}`} detail="por modelo atacante" />
-              <Row label="Rango P10–P90" value={`${calc.percentile10.toFixed(2)} – ${calc.percentile90.toFixed(2)}`} detail="por modelo atacante" />
-            </>
-          )}
-          <Row
-            label={`P(matar 1 modelo /${defenderModel.W}H)`}
-            value={`${(calc.killProbability * 100).toFixed(0)}%`}
-            detail="por modelo atacante"
-            highlight
-          />
-        </div>
-      )}
-
-      {/* Multi-weapon breakdown */}
-      {!isSingle && (
-        <div className="flex flex-col gap-2">
-          <p className="text-xs font-display uppercase tracking-wide text-gold-bright">
-            Desglose por arma
+      {/* Desglose por grupo de armas — cada arma es su propio grupo colapsable; el daño
+          total del grupo (todas sus copias en la unidad) se ve sin necesidad de abrirlo. */}
+      <div className="flex flex-col gap-2">
+        <p className="text-xs font-display uppercase tracking-wide text-gold-bright">
+          Desglose por arma
+          {!isSingle && (
             <span className="normal-case tracking-normal font-mono text-parchment-dim ml-2 text-[9px]">
               · ajusta ×cantidad por arma
             </span>
-          </p>
-          {weapons.map((w, i) => (
-            <WeaponBreakdown
-              key={`${w.name}-${i}`}
-              weapon={w}
-              defenderModel={defenderModel}
-              mods={modsFor(w)}
-              qty={getQty(w)}
-              blastTargetModels={defenderModels}
-              defenderKeywords={defenderKeywords}
-              meltaActiveKeys={meltaActiveKeys}
-              rapidFireActiveKeys={rapidFireActiveKeys}
-            />
-          ))}
-        </div>
-      )}
+          )}
+        </p>
+        {weapons.map((w, i) => (
+          <WeaponBreakdown
+            key={`${w.name}-${i}`}
+            weapon={w}
+            defenderModel={defenderModel}
+            mods={modsFor(w)}
+            qty={getQty(w)}
+            blastTargetModels={defenderModels}
+            defenderKeywords={defenderKeywords}
+            meltaActiveKeys={meltaActiveKeys}
+            rapidFireActiveKeys={rapidFireActiveKeys}
+          />
+        ))}
+      </div>
 
       {/* Overwatch notice */}
       {overwatchActive && (
