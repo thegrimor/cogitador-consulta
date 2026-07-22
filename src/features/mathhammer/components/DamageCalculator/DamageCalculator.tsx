@@ -513,13 +513,14 @@ export function DamageCalculator({
           <p>
             <span className="text-gold">Atacante</span>
             {' '}— F:{weapons[0].S}
-            {displayMods.strengthMod !== 0 || displayMods.woundMod !== 0
-              ? ` (ef.${weapons[0].S + displayMods.strengthMod + displayMods.woundMod})`
+            {displayMods.strengthMod !== 0
+              ? ` (ef.${weapons[0].S + displayMods.strengthMod})`
               : ''}
             {' '}AP:{weapons[0].AP}
             {(displayMods.apMod !== 0 || displayMods.saveMod !== 0)
               ? ` (PA ef.${calc.effectiveAP})`
               : ''}
+            {displayMods.woundMod !== 0 && ` [${displayMods.woundMod > 0 ? '+' : ''}${displayMods.woundMod} herir]`}
             {weapons[0].isTorrent && ' [Torrent]'}
             {(weapons[0].isDevastatingWounds || displayMods.devastatingWoundsBonus) && ' [Devastating Wounds]'}
             {(weapons[0].isLethalHits || displayMods.lethalHitsBonus) && ' [Lethal Hits]'}
