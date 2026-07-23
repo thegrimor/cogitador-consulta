@@ -647,7 +647,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000001021|1|Helbrute|8"|9|2+|5||8|6+|3|60mm||
 000001022|1|Chaos Rhino|12"|9|3+|-||10|6+|2|Use model||
 000001023|1|Chaos Spawn|8"|5|4+|5||4|7+|1|50mm||
-000001024|1|Heldrake|20+"|9|3+|5||12|6+|0|120 x 92mm flying base||
+000001024|1|Heldrake|12"|9|3+|5||12|6+|-|120 x 92mm flying base||
 000001025|1|Chaos Land Raider|10"|12|2+|-||16|6+|5|Use model||
 000001026|1|Chaos Predator Destructor|10"|10|3+|-||11|6+|3|Use model||
 000001027|1|Chaos Vindicator|9"|11|2+|-||11|6+|3|Use model||

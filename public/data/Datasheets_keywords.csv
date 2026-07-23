@@ -4022,6 +4022,7 @@
 000001022|Chaos||false|
 000001022|Vehicle||false|
 000001022|Rhino||false|
+000001022|Frame||false|
 000001022|Tzeentch||false|
 000001023|Thousand Sons||true|
 000001023|||true|
@@ -4032,7 +4033,6 @@
 000001023|Chaos||false|
 000001024|||true|
 000001024|Thousand Sons||true|
-000001024|Aircraft||false|
 000001024|Vehicle||false|
 000001024|Heldrake||false|
 000001024|Tzeentch||false|
@@ -4043,6 +4043,7 @@
 000001025|||true|
 000001025|Vehicle||false|
 000001025|Land Raider||false|
+000001025|Frame||false|
 000001025|Tzeentch||false|
 000001025|Chaos||false|
 000001025|Smoke||false|
@@ -4053,12 +4054,14 @@
 000001026|Smoke||false|
 000001026|Vehicle||false|
 000001026|Predator Destructor||false|
+000001026|Frame||false|
 000001026|Tzeentch||false|
 000001027|Thousand Sons||true|
 000001027|||true|
 000001027|Chaos||false|
 000001027|Tzeentch||false|
 000001027|Vindicator||false|
+000001027|Frame||false|
 000001027|Vehicle||false|
 000001027|Smoke||false|
 000001028|||true|
@@ -6589,6 +6592,7 @@
 000002501|Smoke||false|
 000002501|Vehicle||false|
 000002501|Predator Annihilator||false|
+000002501|Frame||false|
 000002501|Chaos||false|
 000002507|Adepta Sororitas||true|
 000002507|Infantry||false|
