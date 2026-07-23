@@ -2283,7 +2283,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000909|1|000008344||||Core|6"|
 000000909|2|000008466||||Faction||
 000000909|3|||Cherub|Once per battle, after this unit has performed an Act of Faith, you gain 1 Miracle dice. <br><b>Designer’s Note:</b> <i>Place a Cherub token next to the unit, removing it once this ability has been used.</i>|Datasheet||
-000000909|4|||Righteous Awareness|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
+000000909|4|||Righteous Awareness|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
 000000909|5|||Holy Vanguard|If this unit has a Leader unit attached to it during the Declare Battle Formations step and this unit starts the battle embarked within a TRANSPORT, that Leader unit gains the Scouts 6" ability.|Special (правая колонка)||
 000000909|6|||Simulacrum Imperialis|At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.|Wargear||
 000000910|1|000008339||||Core|D3|
