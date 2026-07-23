@@ -5557,7 +5557,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003709|4|||Gargantsmasha|Each time this model makes an attack that targets a <span class="kwb">TITANIC</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll. |Datasheet||
 000003710|1|000008345||||Core||
 000003710|2|000010432||||Faction||
-000003710|3|||Pragmatic Hunters|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, it can make a Normal move of up to D6".|Datasheet||
+000003710|3|||Pragmatic Hunters|In your opponent’s Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6".|Datasheet||
 000003711|1|000008343||||Core||
 000003711|2|000008346||||Core||
 000003711|3|000008359||||Faction||
@@ -6692,11 +6692,11 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004140|2|000008337||||Core||
 000004140|3|000010432||||Faction||
 000004140|4|||Grudge-fuelled Fortitude|The first time this model is destroyed, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with its full wounds remaining.|Datasheet||
-000004140|5|||Unhinged Vengeance|In your opponent’s Shooting phase, each time an enemy unit has shot, if this model lost one or more wounds as a result of those attacks, this model can make a Vengeance move. To do so, roll one D6 and add 2 to the result: it moves a number of inches up to this result, but it must end that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, it can be moved within Engagement Range of that enemy unit. This model cannot make a Vengeance move while it is Battle-shocked or within Engagement Range of one or more enemy units, and can only make one Vengeance move per phase.|Datasheet||
+000004140|5|||Unhinged Vengeance|In your opponent’s Shooting phase, when an enemy unit has shot, if this model lost one or more wounds as a result of those attacks, this unit can make a surge move of up to D6+2".|Datasheet||
 000004141|1|000008346||||Core||
 000004141|2|000010432||||Faction||
 000004141|3|||Computational Mastermind|At the end of your Command phase, before you determine if units from your army have Hostile Acquisition or Fortify Takeover, for each objective marker you control that has one or more models with this ability within range of it, you can spend 1YP or gain 1YP.|Datasheet||
-000004141|4|||Predictive Guidance|Once per battle round, this model can use this ability. If it does, you can target this unit with the Fire Overwatch or Heroic Intervention Stratagem for 0CP.|Datasheet||
+000004141|4|||Predictive Guidance|Once per battle round, when you target this unit with the Fire Overwatch/Heroic Intervention Stratagem, you can use this ability. If you do, that use of that Stratagem is -1 CP.|Datasheet||
 000004142|1|000008339||||Core|1|
 000004142|2|000010432||||Faction||
 000004142|3|||Science Guild Support|While this model is within 3" of one or more other friendly Leagues of Votann Infantry units (excluding units with the Lone Operative ability), this model has the Lone Operative ability.|Datasheet||
