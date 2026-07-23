@@ -202,7 +202,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000395|1|Razorback|12"|9|3+|-||10|6+|2|Use model||
 000000396|1|Rhino|12"|9|3+|-||10|6+|2|Use model||
 000000397|1|Servitors|6"|4|4+|6||1|8+|0|25mm||
-000000398|1|Stormraven Gunship|20+"|10|3+|-||14|6+|0|120 x 92mm flying base||
+000000398|1|Stormraven Gunship|14"|10|3+|-||14|6+|0|120 x 92mm flying base||
 000000399|1|Brotherhood Techmarine|6"|4|2+|-||4|6+|1|32mm||
 000000400|1|Venerable Dreadnought|8"|9|2+|-||8|6+|3|60mm||
 000000402|1|Commander In Coldstar Battlesuit|12"|5|3+|-||6|7+|2|60mm||
@@ -786,8 +786,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000001360|1|Grand Master In Nemesis Dreadknight|8"|8|2+|4||13|6+|4|120 x 92mm||
 000001361|1|Brotherhood Librarian|5"|5|2+|4||5|6+|1|40mm||
 000001362|1|Brotherhood Chaplain|5"|5|2+|4||5|5+|1|40mm||
-000001363|1|Stormhawk Interceptor|20+"|9|3+|-||10|6+|0|120 x 92mm flying base||
-000001364|1|Stormtalon Gunship|20+"|9|3+|-||10|6+|0|120 x 92mm flying base||
+000001363|1|Stormhawk Interceptor|-|9|3+|-||10|6+|-|120 x 92mm flying base||
+000001364|1|Stormtalon Gunship|-|9|3+|-||10|6+|-|120 x 92mm flying base||
 000001367|1|Foul Blightspawn|5"|6|3+|-||4|6+|1|40mm||
 000001368|1|Biologus Putrifier|5"|6|3+|-||4|6+|1|40mm||
 000001369|1|Plague Surgeon|5"|6|3+|-||4|6+|1|40mm||

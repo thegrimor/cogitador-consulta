@@ -1308,6 +1308,7 @@
 000000392|Transport||false|
 000000392|Vehicle||false|
 000000392|Crusader||false|
+000000392|Frame||false|
 000000393|Grey Knights||true|
 000000393|Imperium||false|
 000000393|Land Raider||false|
@@ -1316,6 +1317,7 @@
 000000393|Transport||false|
 000000393|Vehicle||false|
 000000393|Redeemer||false|
+000000393|Frame||false|
 000000395|Grey Knights||true|
 000000395|Dedicated Transport||false|
 000000395|Smoke||false|
@@ -1323,6 +1325,7 @@
 000000395|Imperium||false|
 000000395|Vehicle||false|
 000000395|Transport||false|
+000000395|Frame||false|
 000000396|Grey Knights||true|
 000000396|Vehicle||false|
 000000396|Imperium||false|
@@ -1339,7 +1342,6 @@
 000000398|Imperium||false|
 000000398|Stormraven Gunship||false|
 000000398|Vehicle||false|
-000000398|Aircraft||false|
 000000398|Transport||false|
 000000399|Grey Knights||true|
 000000399|Infantry||false|
