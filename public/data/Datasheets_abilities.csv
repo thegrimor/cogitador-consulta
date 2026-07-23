@@ -478,7 +478,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000153|2|000008338||||Core|6+|
 000000153|3|000008350||||Faction||
 000000153|4|||Forlorn Hero|While this model is leading a unit, that unit is eligible to declare a charge in a turn in which it Advanced.|Datasheet||
-000000153|5|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000000153|5|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000000153|6|||Death Vision of Sanguinius|If this model is destroyed by a melee attack, after the attacking unit has finished making its attacks, you can roll one D6, adding 2 to the result if the attacking unit contains the enemy <span class="kwb">WARLORD</span>: on a 2-3, that enemy unit suffers 3 mortal wounds; on a 4-5, that enemy unit suffers D3+3 mortal wounds; on a 6+, that enemy unit suffers D6+3 mortal wounds.|Datasheet||
 000000153|7|||TYCHO|Your army cannot contain both Captain Tycho and <span class="kwb">TYCHO</span> <span class="kwb2">THE</span> <span class="kwb">LOST</span>.|Special (правая колонка)||
 000000154|1|000008339||||Core|1|
@@ -496,7 +496,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000156|3|000008336||||Core||
 000000156|4|000008350||||Faction||
 000000156|5|||Aura of Fervour (Aura)|While a friendly <span class="kwb">ADEPTUS</span> <span class="kwb">ASTARTES</span> unit is within 6" of this model, you can re-roll Battle-shock and Leadership tests taken for that unit.|Datasheet||
-000000156|6|||Miraculous Saviour|Once per battle, at the end of your opponent’s Charge phase, if this model is still in Reserves, you can select one enemy unit that made a Charge move this phase. Set this model up on the battlefield within Engagement Range of that enemy unit.|Datasheet||
+000000156|6|||Miraculous Saviour|(Once per battle, per army) At the end of your opponent’s Charge phase (excluding the first battle round), you can select one enemy unit that made a Charge move this phase. This unit can make an ingress move and must be set up engaged with that enemy unit. That move does not prevent this unit from being eligible to move.|Datasheet||
 000000157|1|000008343||||Core||
 000000157|2|000008346||||Core||
 000000157|3|000008350||||Faction||
@@ -529,8 +529,8 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000166|1|000008339||||Core|D3|
 000000166|2|000008338||||Core|6+|
 000000166|3|000008350||||Faction||
-000000166|4|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
-000000166|5|||Driven by Fury|In your opponent’s Shooting phase, each time an enemy unit has shot, if this model was hit by one or more of those attacks, it can make a Driven by Fury move. To do so, roll one D6 and add 2 to the roll: this model moves a number of inches up to the result, but must finish as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, this model can be moved within Engagement Range of that enemy unit. A model cannot make a Driven by Fury move while it is Battle-shocked or within Engagement Range of one or more enemy units, and can only make one Driven by Fury move per phase.|Datasheet||
+000000166|4|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000000166|5|||Driven by Fury|In your opponent’s Shooting phase, when an enemy unit has shot, if this model lost a wound as a result of those attacks, this unit can make a surge move of up to D6+2".|Datasheet||
 000000167|1|000008339||||Core|1|
 000000167|2|000008350||||Faction||
 000000167|3|||Wrathful Rampage|Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a Charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds.|Datasheet||
@@ -3765,7 +3765,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001994|3|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
 000001997|1|000008338||||Core|6+|
 000001997|2|000008350||||Faction||
-000001997|3|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000001997|3|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000001997|4|||An Honourable Death in Combat|Each time a model in this unit makes an attack, that attack has the [SUSTAINED HITS 1] ability if this unit is below its Starting Strength, or the [SUSTAINED HITS 2] ability if this unit is Below Half-strength.|Datasheet||
 000001997|5|||ATTACHED UNIT|If a Chaplain model from your army with the Leader ability can be attached to an Assault Intercessor Squad unit, it can be attached to this unit instead.|Special (правая колонка)||
 000002063|1|000008346||||Core||
@@ -3951,8 +3951,8 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002270|2|||Targeter Optics|Each time this unit Remains Stationary, until the start of your next Movement phase, ranged weapons equipped by models in this unit have the [IGNORES COVER] ability.|Datasheet||
 000002285|1|000008338||||Core|6+|
 000002285|2|000008350||||Faction||
-000002285|3|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
-000002285|4|||Visions of Heresy|Once per turn, you can target this unit with the Fire Overwatch or the Heroic Intervention Stratagem for 0CP. While resolving that Stratagem, each time a model in this unit makes a ranged attack you can re-roll the Hit roll, or you can re-roll the Charge roll made for this unit (whichever applies).|Datasheet||
+000002285|3|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000002285|4|||Visions of Heresy|This unit can re-roll Charge rolls. When you target this unit with the Fire Overwatch/Heroic Intervention Stratagem, that use is -1 CP.|Datasheet||
 000002285|5|||ATTACHED UNIT|If a Chaplain model from your army with the Leader ability can be attached to an Intercessor Squad unit, it can be attached to this unit instead.|Special (правая колонка)||
 000002291|1|000008346||||Core||
 000002291|2|000008350||||Faction||
@@ -4831,7 +4831,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002737|1|000008343||||Core||
 000002737|2|000008338||||Core|6+|
 000002737|3|000008350||||Faction||
-000002737|4|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000002737|4|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000002737|5|||Savage Fury|You can re-roll Charge rolls made for this unit.|Datasheet||
 000002737|6|||ATTACHED UNIT|If a Chaplain model from your army with the Leader ability can be attached to Assault Intercessors with Jump Packs, it can be attached to this unit instead.|Special (правая колонка)||
 000002738|1|000008343||||Core||
@@ -5698,14 +5698,14 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003832|2|000008346||||Core||
 000003832|3|000008350||||Faction||
 000003832|4|||Forlorn Hero|While this model is leading a unit, unless that unit starts the battle embarked within a Transport, models in that unit have the Scouts 6" ability.|Datasheet||
-000003832|5|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000003832|5|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000003832|6|||Death Vision of Sanguinius|If this model is destroyed by a melee attack, after the attacking unit has finished making its attacks, you can roll one D6, adding 2 to the result if the attacking unit contains the enemy <span class="kwb">WARLORD</span>: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds.|Datasheet||
 000003833|1|000008343||||Core||
 000003833|2|000008338||||Core|6+|
 000003833|3|000008346||||Core||
 000003833|4|000008350||||Faction||
 000003833|5|||Lost to Fury|While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.|Datasheet||
-000003833|6|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000003833|6|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000003833|7|||Death Vision of Sanguinius|If this model is destroyed by a melee attack, after the attacking unit has finished making its attacks, you can roll one D6, adding 2 to the result if the attacking unit contains the enemy <span class="kwb">WARLORD</span>: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds.|Datasheet||
 000003834|1|000008343||||Core||
 000003834|2|||Precision Drop|In your Movement phase, when this unit is set up on the battlefield using the Deep Strike ability, it can perform a precision drop. If it does, this unit can be set up anywhere on the battlefield that is more than 6" horizontally away from all enemy units, but until the end of the turn, it is not eligible to declare a charge.|Datasheet||
@@ -5713,19 +5713,19 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003835|1|000008339||||Core|1|
 000003835|2|000008338||||Core|6+|
 000003835|3|000008350||||Faction||
-000003835|4|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000003835|4|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000003835|5|||Frenzied Reprisal|Each time an enemy unit targets this model, after that unit has finished making its attacks, this model can either shoot as if it were your Shooting phase or fight as if it were the Fight phase.|Datasheet||
 000003835|6|||Magna-grapple|Add 2 to Charge rolls made for this model if one or more of the targets of that charge is a <span class="kwb">MONSTER</span> or <span class="kwb">VEHICLE</span> unit.|Datasheet||
 000003835|7|||Smoke Launchers|The bearer loses the Magna-grapple ability and gains the <span class="kwb">SMOKE</span> keyword.|Wargear||
 000003836|1|000008338||||Core|6+|
 000003836|2|000008350||||Faction||
-000003836|3|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000003836|3|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000003836|4|||An Honourable Death in Combat|Each time a model in this unit makes an attack, that attack has the [SUSTAINED HITS 1] ability if this unit is below its Starting Strength, or the [SUSTAINED HITS 2] ability if this unit is Below Half-strength.|Datasheet||
 000003836|5|||DEATH COMPANY|If a Chaplain model from your army with the Leader ability can be attached to a Tactical Squad, it can be attached to this unit instead.<br><br>If a Character unit from your army with the Leader ability can be attached to a Death Company Marines unit, it can be attached to this unit instead.|Special (правая колонка)||
 000003837|1|000008343||||Core||
 000003837|2|000008338||||Core|6+|
 000003837|3|000008350||||Faction||
-000003837|4|||Black Rage|Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6" of one or more friendly Blood Angels Character models, or 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
+000003837|4|||Black Rage|Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6" of one or more friendly Blood Angels Character models, or not within 12" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.|Datasheet||
 000003837|5|||Berserk Fury|You can re-roll Charge rolls made for this unit.|Datasheet||
 000003837|6|||DEATH COMPANY|If a Chaplain model from your army with the Leader ability can be attached to Assault Intercessors with Jump Packs or an Assault Squad with Jump Packs, it can be attached to this unit instead.<br><br>If a Character unit from your army with the Leader ability can be attached to a Death Company Marines with Jump Packs unit, it can be attached to this unit instead.|Special (правая колонка)||
 000003839|1|000008382||||Faction||
