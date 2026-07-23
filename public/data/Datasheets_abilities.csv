@@ -1368,7 +1368,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000555|2|000008343||||Core||
 000000555|3|000008338||||Core|5+|
 000000555|4|000008369||||Faction||
-000000555|5|||Transdimensional Displacement|Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9" horizontally away from all enemy units.|Datasheet||
+000000555|5|||Transdimensional Displacement|Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 8" horizontally away from all enemy units.|Datasheet||
 000000555|6|||Necrodermis|Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.|Datasheet||
 000000555|7|||ENSLAVED STAR GOD|This model cannot be your <span class="kwb">WARLORD</span>.|Fortification (левая колонка)||
 000000555|8|||C’TAN SHARD|This model cannot be given Enhancements.|Fortification (левая колонка)||
@@ -4007,7 +4007,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002358|1|000008343||||Core||
 000002358|2|000008369||||Faction||
 000002358|3|||Plasmacyte|Once per battle for each Plasmacyte this unit has, when this unit is selected to fight, you can use this ability. If you do, until the end of the phase, melee weapons equipped by models in this unit have the [DEVASTATING WOUNDS] ability.<br><br><b>Designer’s Note:</b> <i>Place the relevant number of Plasmacyte tokens next to the unit, removing one each time this unit uses this ability.</i>|Wargear||
-000002358|4|||Tunnelling Horrors|At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9" horizontally away from all enemy models.|Datasheet||
+000002358|4|||Tunnelling Horrors|At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 8" horizontally away from all enemy models.|Datasheet||
 000002359|1|000008369||||Faction||
 000002359|2|||Hard-wired for Destruction|Each time a model in this unit makes a ranged attack that targets the closest eligible enemy unit, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker your opponent controls, you can re-roll the Hit roll instead.|Datasheet||
 000002360|1|000008339||||Core|D6+3 (Szarekh model only)|
@@ -4127,7 +4127,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002485|4|000008337||||Core||
 000002485|5|000008377||||Faction||
 000002485|6|||Tanith Camo-cloaks|Models in this unit have the Benefit of Cover.|Datasheet||
-000002485|7|||Covert Stealth Team|At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9" horizontally away from all enemy models.|Datasheet||
+000002485|7|||Covert Stealth Team|At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 8" horizontally away from all enemy models.|Datasheet||
 000002485|8|||ORDERS|This unit’s <span class="kwb">OFFICER</span> can issue up to 2 Orders to Regiment or <span class="kwb">GAUNT’S</span> <span class="kwb">GHOSTS</span> units.|Special (правая колонка)||
 000002488|1|000008338||||Core|6+|
 000002488|2|000008346||||Core||
