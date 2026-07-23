@@ -935,7 +935,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000425|4|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
 000000426|1|000008339||||Core|D3|
 000000426|2|000008439||||Faction||
-000000426|3|||Pulse Bombs|Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 4+, that unit suffers 1 mortal wound.|Datasheet||
+000000426|3|||Pulse Bombs|At the end of your opponent’s Fight phase, select one visible enemy unit (excluding Lone Operative units) within 24" of this unit, and roll six D6 for that unit: For each 4+, that unit suffers 1 mortal wound.|Datasheet||
 000000426|4|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
 000000427|1|000008343||||Core||
 000000427|2|||Airborne Agility|At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.|Datasheet||
@@ -6983,7 +6983,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004203|2|000008344||||Core|8"|
 000004203|3|000008439||||Faction||
 000004203|4|||Exemplars of Mont’ka|Each time a model in this unit makes a ranged attack that targets the closest eligible target, that attack has the [SUSTAINED HITS 1] and [IGNORES COVER] abilities.|Datasheet||
-000004203|5|||Neocapacitor Shields|At the start of your opponent’s Charge phase, you can select one enemy unit (excluding <span class="kwb">MONSTER</span> and <span class="kwb">VEHICLE</span> units) within 12" of this unit. That unit must take a Battle-shock test and, until the end of the turn, subtract 1 from Charge rolls made for that unit.|Datasheet||
+000004203|5|||Neocapacitor Shields|At the start of your opponent’s Charge phase, you can select one visible enemy unit (excluding <span class="kwb">MONSTER</span> and <span class="kwb">VEHICLE</span> units) within 12" of this unit. That unit must take a Battle-shock test and, until the end of the turn, subtract 1 from Charge rolls made for that unit.|Datasheet||
 000004203|6|||Retro-thrusters|At the end of the Fight phase, if this unit was eligible to fight this phase, this unit can either make a Normal move of up to 6" or a Fall Back move.|Datasheet||
 000004203|7|||MV15 Gun Drone|The bearer is equipped with 1 twin pulse blaster.|Wargear||
 000004204|1|000008346||||Core||

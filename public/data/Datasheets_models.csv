@@ -227,8 +227,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000422|1|Pathfinder Team|7"|3|4+|-||1|7+|1|25mm||
 000000423|1|Piranha|14"|7|4+|-||7|7+|2|60mm flying base||
 000000424|1|Devilfish|12"|9|3+|-||13|7+|2|60mm flying base||
-000000425|1|Razorshark Strike Fighter|20+"|10|3+|-||12|7+|0|120 x 92mm flying base||
-000000426|1|Sun Shark Bomber|20+"|9|3+|-||12|7+|0|120 x 92mm flying base||
+000000425|1|Razorshark Strike Fighter|-|10|3+|-||12|7+|-|120 x 92mm flying base||
+000000426|1|Sun Shark Bomber|-|9|3+|-||12|7+|-|120 x 92mm flying base||
 000000427|1|Vespid Stingwings|12"|4|4+|-||1|7+|1|28.5mm||
 000000428|1|Firesight Team|6"|3|4+|-||4|7+|3|40mm||
 000000430|1|Sky Ray Gunship|10"|10|3+|-||14|7+|3|60mm flying base||

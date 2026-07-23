@@ -1472,6 +1472,7 @@
 000000423|Vehicle||false|
 000000423|Fly||false|
 000000423|Piranhas||false|
+000000423|Frame||false|
 000000424|T’au Empire||true|
 000000424|Transport||false|
 000000424|Devilfish||false|
@@ -1529,18 +1530,21 @@
 000000435|Fly||false|
 000000435|Transport||false|
 000000435|Vehicle||false|
+000000435|Frame||false|
 000000436|T’au Empire||true|
 000000436|Fortification||false|
 000000436|Vehicle||false|
 000000436|Transport||false|
 000000436|Fly||false|
 000000436|Tidewall Shieldline||false|
+000000436|Frame||false|
 000000437|T’au Empire||true|
 000000437|Fortification||false|
 000000437|Vehicle||false|
 000000437|Transport||false|
 000000437|Tidewall Gunrig||false|
 000000437|Fly||false|
+000000437|Frame||false|
 000000439|T’au Empire||true|
 000000439|Character||false|
 000000439|Markerlight||false|
