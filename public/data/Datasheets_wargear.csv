@@ -4,6 +4,8 @@
 000000001|3|1||Attack squig|extra attacks|Melee|Melee|2|4|4|0|1|
 000000001|4|1||Big choppa||Melee|Melee|5|2|8|-1|2|
 000000001|5|1||Power klaw||Melee|Melee|4|3|10|-2|2|
+000000001|6|1||Kustom shoota|rapid fire 2|18|Ranged|4|5|4|0|1|
+000000001|7|1||Kustom choppa|cleave 1|Melee|Melee|6|2|8|-2|2|
 000000002|1|1||Big shoota|rapid fire 2|36|Ranged|3|4|5|0|1|
 000000002|2|1||’Uge choppa||Melee|Melee|4|2|12|-2|2|
 000000003|1|1||Twin dakkagun|assault, rapid fire 2, twin-linked|18|Ranged|3|5|5|0|1|
@@ -63,6 +65,9 @@
 000000016|7|1||Choppa||Melee|Melee|3|3|4|-1|1|
 000000016|8|1||Close combat weapon||Melee|Melee|2|3|4|0|1|
 000000016|9|1||Power klaw||Melee|Melee|3|4|9|-2|2|
+000000016|10|1||Kombi-rokkit||24|Ranged|1|5|10|-2|3|
+000000016|11|1||Kombi-shoota||24|Ranged|2|5|4|0|1|
+000000016|12|1||Kustom shoota|rapid fire 2|18|Ranged|4|5|4|0|1|
 000000017|1|1||Grot blasta|pistol|12|Ranged|1|4|3|0|1|
 000000017|2|1||Slugga|pistol|12|Ranged|1|5|4|0|1|
 000000017|3|1||Close combat weapon||Melee|Melee|1|5|2|0|1|

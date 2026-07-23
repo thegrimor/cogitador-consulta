@@ -47,8 +47,8 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000011|3|000008336||||Core||
 000000011|4|000008337||||Core||
 000000011|5|000003676||||Faction||
-000000011|6|||Red Skull Kommandos|While this model is leading a unit, models in that unit have the Benefit of Cover.|Datasheet||
-000000011|7|||Kunnin’ Infiltrator|Once per battle, in your Movement phase, instead of making a Normal move with this model’s unit, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 8" horizontally away from all enemy models.|Datasheet||
+000000011|6|||Red Skulls Kommandos|This unit has +1 Sv against ranged attacks.|Datasheet||
+000000011|7|||Kunnin’ Infiltrator (Once per battle, per army)|In your Movement phase, if this unit is unengaged, you can use this ability. If you do: place this unit in strategic reserves; this unit has Deep Strike; this unit must make an ingress move this phase (including in your first turn).|Datasheet||
 000000012|1|000008346||||Core||
 000000012|2|000003676||||Faction||
 000000012|3|||Mekboy|While this model is within 3" of one or more friendly Orks Vehicle units, this model has the Lone Operative ability.|Datasheet||
@@ -69,7 +69,6 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000015|5|||One Scalpel Short of a Medpack|While this model is leading a unit, that unit is eligible to declare a charge in a turn in which it Fell Back.|Datasheet||
 000000016|1|000003676||||Faction||
 000000016|2|||Get Da Good Bitz|At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.|Datasheet||
-000000016|3|||BODYGUARD|If this unit has a Starting Strength of 20, you can attach up to two Leader units to it instead of one (but only if one of those is a Warboss unit). If you do, and this unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths.|Special (правая колонка)||
 000000017|1|000003676||||Faction||
 000000017|2|||Runtherd|While this unit contains one or more Gretchin models, each time an attack targets this unit, Runtherd models in this unit have a Toughness characteristic of 2.|Datasheet||
 000000017|3|||Thievin’ Scavengers|At the start of your Movement phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it (excluding Battle-shocked units). If one or more of those rolls is a 4+, you gain 1CP.|Datasheet||
@@ -97,7 +96,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000025|3|000003676||||Faction||
 000000025|4|||Distraction Grot|Once per battle, in your opponent’s Shooting phase, before making a saving throw for a model in this unit, it can deploy the distraction grot. If it does, until the end of the phase, models in this unit have a 5+ invulnerable save.<br><br><b>Designer’s Note:</b> <i>Place a Distraction Grot token next to the unit, removing it when this unit uses this ability.</i>|Wargear||
 000000025|5|||Bomb Squigs|Once per battle, for each bomb squig this unit has, after this unit ends a Normal move, you can use one Bomb Squig. If you do, select one enemy unit within 12" and visible to this unit and roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds.<br><br><b>Designer’s Note:</b> <i>Place a Bomb Squig token next to the unit, removing it when this unit uses this ability.</i>|Wargear||
-000000025|6|||Sneaky Surprise|Enemy units cannot use the Fire Overwatch Stratagem to shoot at this unit.|Datasheet||
+000000025|6|||Sneaky Gitz|Enemy units cannot target this unit with snap shooting attacks.|Datasheet||
 000000025|7|||PATROL SQUAD|At the start of the Declare Battle Formations step this unit can be split into two units, each containing five models.<br>(when splitting a unit in this way, make a note of which models form each of the two new units. If you are splitting a unit that is equipped with 1 bomb squig and/or 1 distraction grot, only one of the new units can use that ability during the battle – make a note of which of the new units this will be).|Fortification (левая колонка)||
 000000026|1|000008339||||Core|D3|
 000000026|2|000008334||||Core|12|
@@ -114,10 +113,10 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000029|3|||Dakkastorm|Each time this model makes a ranged attack, every successful Hit roll scores a Critical Hit.|Datasheet||
 000000030|1|000008339||||Core|D3|
 000000030|2|000003676||||Faction||
-000000030|3|||Burna Bomb|Each time this model ends a Normal move, you can select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover. In addition, roll one D6 for each model in that unit: for each 6, that unit suffers 1 mortal wound.|Datasheet||
+000000030|3|||Burna Bomb|At the end of your opponent’s Fight phase, you can select one visible enemy unit (excluding Lone Operative units) within 24" of this unit: friendly Orks units’ ranged attacks that target that enemy unit have [IGNORES COVER] until the end of your next turn. Roll one D6 for each model in that enemy unit: for each 6, that enemy unit suffers 1 mortal wound.|Datasheet||
 000000031|1|000008339||||Core|D3|
 000000031|2|000003676||||Faction||
-000000031|3|||Boom Bomb|Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll one D6: on a 4+, that unit suffers D6 mortal wounds.|Datasheet||
+000000031|3|||Boom Bomb|At the end of your opponent’s Fight phase, select one visible enemy unit (excluding Lone Operative units) within 24" of this unit, and roll one D6 for that unit: on a 4+, that unit suffers D6 mortal wounds.|Datasheet||
 000000032|1|000008339||||Core|D3|
 000000032|2|000003676||||Faction||
 000000032|3|||Blastajet Attack Run|Each time this model makes a ranged attack that targets a unit that cannot <span class="kwb">FLY</span>, re-roll a Hit roll of 1.|Datasheet||
@@ -3457,10 +3456,10 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001538|3|||Rivetin’ Dakka|In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks made with a rivet kannon. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes a ranged attack, subtract 1 from the Hit roll.|Datasheet||
 000001539|1|000008339||||Core|1|
 000001539|2|000003676||||Faction||
-000001539|3|||Shokk Tunnel|Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 8" horizontally away from all enemy models instead of making an Advance move (this model is still considered to have Advanced this turn).|Datasheet||
+000001539|3|||Shokk Tunnel|In your Movement phase, when this unit is selected to make an Advance move, you can use this ability. If you do: that move has no maximum distance; this unit can move through all types of model (including enemy models and Monster/Vehicle models); after moving, your unit must be more than 8" horizontally from all enemy units.|Datasheet||
 000001540|1|000008339||||Core|1|
 000001540|2|000003676||||Faction||
-000001540|3|||Dust Trails (Aura)|While an enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) is within 6" of this model, each time a model in that unit makes an attack, subtract 1 from the Hit roll.|Datasheet||
+000001540|3|||Billowing Fumes|While an enemy unit (excluding <span class="kwb">MONSTER</span>/<span class="kwb">VEHICLE</span> units) is within 6" of this unit, when that enemy unit is selected to shoot, that unit’s targets have the Benefit of Cover until that unit has shot.|Datasheet||
 000001541|1|000008339||||Core|1|
 000001541|2|000003676||||Faction||
 000001541|3|||Drill Through|Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds.|Datasheet||
@@ -4142,7 +4141,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002490|2|000008346||||Core||
 000002490|3|000003676||||Faction||
 000002490|4|||Thundering Stampede|While this model is leading a unit, add 1 to Charge rolls made for that unit.|Datasheet||
-000002490|5|||Single-minded Predator|You can target this model's unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.|Datasheet||
+000002490|5|||Single-minded Predator|You can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do: that use is -1 CP. That use does not prevent any uses of that Stratagem on other units this phase.|Datasheet||
 000002491|1|000008338||||Core|5+|
 000002491|2|000008346||||Core||
 000002491|3|000003676||||Faction||
@@ -7073,7 +7072,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004221|5|||Fixit da Grot|At the start of your Command phase, this model regains up to D3 lost wounds.|Datasheet||
 000004221|6|||Throttlerokkit Shokka Engine|In your Command phase, select one of the abilities in the Throttlerokkit Shokka Engine section (see below). Until the start of your next Command phase, this model has that ability.|Datasheet||
 000004221|7|||Turbo Engine|This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back.|Primarch||
-000004221|8|||Shokk Attack Engine|In your Command phase, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.|Primarch||
+000004221|8|||Shokk Attack Engine|In your Command phase, if this unit is unengaged, you can use this ability. If you do: place this unit in strategic reserves; this unit can make an ingress move in your next Movement phase (including in your first turn).|Primarch||
 000004221|9|||Pulse Jet|Each time this unit Advances, do not make an Advance roll for it. Instead, until the end of the phase:<br><ul><li>Add 6" to the Move characteristic of models in this unit.</li><li>Models in this unit can move through models and terrain features.</li></ul>|Primarch||
 000004221|10|||WAAAGH! WAZDAKKA|If this model is your <span class="kwb">WARLORD</span>, Warbiker units from your army have the Battleline keyword.|Special (правая колонка)||
 000004222|1|000008339||||Core|D3|

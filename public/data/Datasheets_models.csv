@@ -6,7 +6,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000006|1|Big Mek In Mega Armour|5"|6|2+|-||5|7+|1|40mm||
 000000007|1|Big Mek On Warbike|12"|6|4+|6||6|7+|2|90 x 52mm||
 000000008|1|GHAZGHKULL THRAKA|5"|6|2+|4||10|6+|4|80mm||
-000000008|2|MAKARI|5"|6|7+|2|You cannot re-roll invulnerable saving throws made for this model.|1|8+|1|25mm||
+000000008|2|MAKARI|5"|6|7+|2|While a friendly Makari model is on the battlefield, you cannot re-roll save rolls for this unit.|1|8+|1|25mm||
 000000009|1|Kaptin Badrukk|6"|5|3+|4||6|7+|1|40mm||
 000000010|1|Boss Zagstruk|12"|5|4+|5||6|6+|1|40mm||
 000000011|1|Boss Snikrot|6"|5|5+|5||6|6+|1|40mm||
@@ -30,10 +30,10 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000027|1|STORMBOY|12"|5|5+|-||1|7+|1|32mm||
 000000027|2|BOSS NOB|12"|5|5+|-||2|7+|1|32mm||
 000000028|1|Deffkoptas|12"|6|4+|6||4|7+|2|75 x 42mm||
-000000029|1|Dakkajet|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
-000000030|1|Burna-bommer|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
-000000031|1|Blitza-bommer|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
-000000032|1|Wazbom Blastajet|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
+000000029|1|Dakkajet|-|9|3+|6||12|7+|-|120 x 92mm flying base||
+000000030|1|Burna-bommer|-|9|3+|6||12|7+|-|120 x 92mm flying base||
+000000031|1|Blitza-bommer|-|9|3+|6||12|7+|-|120 x 92mm flying base||
+000000032|1|Wazbom Blastajet|-|9|3+|6||12|7+|-|120 x 92mm flying base||
 000000033|1|WARBIKER|12"|6|4+|6||3|7+|2|75 x 42mm||
 000000033|2|BOSS NOB ON WARBIKE|12"|6|4+|6||4|7+|2|75 x 42mm||
 000000034|1|Wartrakks|12"|6|4+|6||6|7+|2|Use model||
