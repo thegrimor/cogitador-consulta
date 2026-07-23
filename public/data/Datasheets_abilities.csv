@@ -285,7 +285,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000087|1|000008339||||Core|1|
 000000087|2|000008343||||Core||
 000000087|3|000008350||||Faction||
-000000087|4|||Drop Pod Assault|This model must start the battle in Reserves and can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 9" away from all enemy models.|Datasheet||
+000000087|4|||Drop Pod Assault|This model must start the battle in Reserves and can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 8" away from all enemy models.|Datasheet||
 000000087|5|||Combat Disembarkation|Each time a unit disembarks from this model after it has been set up on the battlefield, that unit is still eligible to declare a charge this turn.|Datasheet||
 000000087|6|||Deployment Complete|Once this unit is set up on the battlefield and all units within it have disembarked, until the end of the battle, units cannot embark within this <span class="kwb">TRANSPORT</span>.|Datasheet||
 000000087|7|||Designer’s Note|<i>The highlighted portions of this model are the only parts that are considered to make up its hull. Models can be set up or end a move on any part of this model that is not highlighted in red. If any models are on non-highlighted sections of this model when it is destroyed, place those models as close to their original position as possible, on the battlefield, after removing this model.</i><br><br>$000003426|Без заголовка||
@@ -384,7 +384,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000122|1|000008339||||Core|1|
 000000122|2|000008343||||Core||
 000000122|3|000008350||||Faction||
-000000122|4|||Drop Pod Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 9" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.|Datasheet||
+000000122|4|||Drop Pod Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 8" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.|Datasheet||
 000000123|1|000008339||||Core|D3|
 000000123|2|000008350||||Faction||
 000000123|3|||Rotating Death|This model’s Punisher rotary cannon has the [SUSTAINED HITS 1] ability when targeting <span class="kwb">INFANTRY</span> units.|Datasheet||
@@ -1154,7 +1154,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000489|1|000008339||||Core|D3|
 000000489|2|000008343||||Core||
 000000489|3|000000705||||Faction||
-000000489|4|||Aerial Seeding|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 9" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.|Datasheet||
+000000489|4|||Aerial Seeding|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 8" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.|Datasheet||
 000000490|1|000008339||||Core|1|
 000000490|2|000000705||||Faction||
 000000490|3|||Blistering Assault|In your opponent's Shooting phase, when an enemy unit has shot, if a model in this unit lost a wound as a result of those attacks, this unit can make a surge move of up to D6+2".|Datasheet||
@@ -3040,11 +3040,11 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001310|1|000008339||||Core|1|
 000001310|2|000008343||||Core||
 000001310|3|000008359||||Faction||
-000001310|4|||Dreadclaw Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000001310|4|||Dreadclaw Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000001311|1|000008343||||Core||
 000001311|2|000008339||||Core|D6+2|
 000001311|3|000008359||||Faction||
-000001311|4|||Kharybdis Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000001311|4|||Kharybdis Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000001317|1|000008339||||Core|D3|
 000001317|2|000008359||||Faction||
 000001317|3|||Interceptor|Each time this model makes a ranged attack that targets a unit that can <span class="kwb">FLY</span>, add 1 to the Hit roll.|Datasheet||
@@ -3442,7 +3442,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001533|1|000008339||||Core|D3|
 000001533|2|000008343||||Core||
 000001533|3|000008382||||Faction||
-000001533|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000001533|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000001536|1|000008346||||Core||
 000001536|2|000003676||||Faction||
 000001536|3|||More Dakka|While this model is leading a unit, each time a model in that unit makes a ranged attack, re-roll a Hit roll of 1.|Datasheet||
@@ -3756,7 +3756,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001991|1|000008339||||Core|D3|
 000001991|2|000008343||||Core||
 000001991|3|000008350||||Faction||
-000001991|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000001991|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000001993|1|000008346||||Core||
 000001993|2|000003676||||Faction||
 000001993|3|||Da Revolushun!|While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll.|Datasheet||
@@ -3814,7 +3814,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002082|1|000008344||||Core|9"|
 000002082|2|000008382||||Faction||
 000002082|3|||Enhanced data-tether|Each time you select the bearer’s unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.|Wargear||
-000002082|4|||Tactica Obliqua|<ul></ul>Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can do one of the following: <br><ul><li>Make a Normal move of up to D6". </li><li>Make a Normal move of up to 6", provided every model in this unit ends that move wholly within 6" of one or more friendly Adeptus Mechanicus Battleline units.</li></ul>|Datasheet||
+000002082|4|||Tactica Obliqua|<ul></ul>Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can do one of the following: <br><ul><li>Make a Normal move of up to D6". </li><li>Make a Normal move of up to 6", provided every model in this unit ends that move wholly within 6" of one or more friendly Adeptus Mechanicus Battleline units.</li></ul>|Datasheet||
 000002083|1|000008343||||Core||
 000002083|2|000008382||||Faction||
 000002083|3|||Searing Conflagration|Each time a model in this unit makes an attack with a phosphor torch that targets an enemy unit within range of an objective marker, re-roll a Wound roll of 1. If this unit is also within 6" of one or more friendly ADEPTUS MECHANICUS BATTLELINE units, each time such an attack targets such a unit, you can re-roll the Wound roll instead.|Datasheet||
@@ -5201,19 +5201,19 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003602|3|||Bomb Rack|Each time this model ends a Normal move, you can select one enemy unit it moved across during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound.|Datasheet||
 000003603|1|000008339||||Core|D3|
 000003603|2|000008343||||Core||
-000003603|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000003603|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000003604|1|000008339||||Core|D3|
 000003604|2|000008343||||Core||
 000003604|3|000008396||||Faction||
-000003604|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000003604|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000003605|1|000008339||||Core|D3|
 000003605|2|000008343||||Core||
 000003605|3|000008428||||Faction||
-000003605|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000003605|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000003606|1|000008339||||Core|D3|
 000003606|2|000008343||||Core||
 000003606|3|000008359||||Faction||
-000003606|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 9" away from all enemy models.|Datasheet||
+000003606|4|||Termite Assault|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model can disembark after it has been set up on the battlefield, and if they do they must be set up more than 8" away from all enemy models.|Datasheet||
 000003607|1|000008339||||Core|D6|
 000003607|3|||Assault Ramp|Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn.|Datasheet||
 000003607|4|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
@@ -5861,7 +5861,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003882|1|000008339||||Core|D3|
 000003882|2|000008343||||Core||
 000003882|3|000000705||||Faction||
-000003882|4|||Aerial Seeding|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 9" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.|Datasheet||
+000003882|4|||Aerial Seeding|This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 8" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.|Datasheet||
 000003883|1|000008340||||Core||
 000003883|2|000008345||||Core||
 000003883|3|000008336||||Core||
