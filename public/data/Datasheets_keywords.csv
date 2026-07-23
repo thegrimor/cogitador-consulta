@@ -2723,6 +2723,7 @@
 000000680|Character||false|
 000000680|Vehicle||false|
 000000680|Smoke||false|
+000000680|Frame||false|
 000000686|Astra Militarum||true|
 000000686|Cadian Heavy Weapons Squad||false|
 000000686|Regiment||false|
@@ -2753,6 +2754,7 @@
 000000692|Transport||false|
 000000692|Imperium||false|
 000000692|Smoke||false|
+000000692|Frame||false|
 000000693|Astra Militarum||true|
 000000693|Dedicated Transport||false|
 000000693|Taurox||false|
@@ -2760,12 +2762,14 @@
 000000693|Vehicle||false|
 000000693|Imperium||false|
 000000693|Transport||false|
+000000693|Frame||false|
 000000694|Astra Militarum||true|
 000000694|Smoke||false|
 000000694|Squadron||false|
 000000694|Hellhound||false|
 000000694|Imperium||false|
 000000694|Vehicle||false|
+000000694|Frame||false|
 000000695|Astra Militarum||true|
 000000695|Vehicle||false|
 000000695|Artillery||false|
@@ -2773,12 +2777,14 @@
 000000695|Squadron||false|
 000000695|Basilisk||false|
 000000695|Imperium||false|
+000000695|Frame||false|
 000000696|Astra Militarum||true|
 000000696|Hydra||false|
 000000696|Squadron||false|
 000000696|Imperium||false|
 000000696|Vehicle||false|
 000000696|Smoke||false|
+000000696|Frame||false|
 000000697|Astra Militarum||true|
 000000697|Wyvern||false|
 000000697|Squadron||false|
@@ -2786,6 +2792,7 @@
 000000697|Smoke||false|
 000000697|Artillery||false|
 000000697|Vehicle||false|
+000000697|Frame||false|
 000000698|Astra Militarum||true|
 000000698|Artillery||false|
 000000698|Manticore||false|
@@ -2793,6 +2800,7 @@
 000000698|Imperium||false|
 000000698|Smoke||false|
 000000698|Vehicle||false|
+000000698|Frame||false|
 000000699|Astra Militarum||true|
 000000699|Deathstrike||false|
 000000699|Squadron||false|
@@ -2800,24 +2808,28 @@
 000000699|Smoke||false|
 000000699|Artillery||false|
 000000699|Vehicle||false|
+000000699|Frame||false|
 000000700|Astra Militarum||true|
 000000700|Imperium||false|
 000000700|Smoke||false|
 000000700|Vehicle||false|
 000000700|Squadron||false|
 000000700|Leman Russ Battle Tank||false|
+000000700|Frame||false|
 000000701|Astra Militarum||true|
 000000701|Leman Russ Demolisher||false|
 000000701|Squadron||false|
 000000701|Imperium||false|
 000000701|Smoke||false|
 000000701|Vehicle||false|
+000000701|Frame||false|
 000000702|Astra Militarum||true|
 000000702|Titanic||false|
 000000702|Vehicle||false|
 000000702|Smoke||false|
 000000702|Imperium||false|
 000000702|Baneblade||false|
+000000702|Frame||false|
 000000703|Astra Militarum||true|
 000000703|Vehicle||false|
 000000703|Titanic||false|
@@ -2825,12 +2837,14 @@
 000000703|Imperium||false|
 000000703|Transport||false|
 000000703|Banehammer||false|
+000000703|Frame||false|
 000000704|Astra Militarum||true|
 000000704|Titanic||false|
 000000704|Smoke||false|
 000000704|Imperium||false|
 000000704|Banesword||false|
 000000704|Vehicle||false|
+000000704|Frame||false|
 000000705|Astra Militarum||true|
 000000705|Smoke||false|
 000000705|Titanic||false|
@@ -2838,18 +2852,21 @@
 000000705|Doomhammer||false|
 000000705|Transport||false|
 000000705|Imperium||false|
+000000705|Frame||false|
 000000706|Astra Militarum||true|
 000000706|Smoke||false|
 000000706|Imperium||false|
 000000706|Hellhammer||false|
 000000706|Vehicle||false|
 000000706|Titanic||false|
+000000706|Frame||false|
 000000707|Astra Militarum||true|
 000000707|Shadowsword||false|
 000000707|Imperium||false|
 000000707|Titanic||false|
 000000707|Smoke||false|
 000000707|Vehicle||false|
+000000707|Frame||false|
 000000708|Astra Militarum||true|
 000000708|Titanic||false|
 000000708|Vehicle||false|
@@ -2857,12 +2874,14 @@
 000000708|Imperium||false|
 000000708|Stormlord||false|
 000000708|Smoke||false|
+000000708|Frame||false|
 000000709|Astra Militarum||true|
 000000709|Titanic||false|
 000000709|Imperium||false|
 000000709|Stormsword||false|
 000000709|Vehicle||false|
 000000709|Smoke||false|
+000000709|Frame||false|
 000000713|Astra Militarum||true|
 000000713|Officer||false|
 000000713|Grenades||false|
@@ -2900,6 +2919,7 @@
 000000721|Transport||false|
 000000721|Dedicated Transport||false|
 000000721|Taurox Prime||false|
+000000721|Frame||false|
 000000722|Astra Militarum||true|
 000000722|Ogryn Squad||false|
 000000722|Infantry||false|
@@ -2927,7 +2947,6 @@
 000000725|Character||false|
 000000727|Astra Militarum||true|
 000000727|Fly||false|
-000000727|Aircraft||false|
 000000727|Transport||false|
 000000727|Valkyrie||false|
 000000727|Imperium||false|
@@ -7058,10 +7077,12 @@
 000002617|Imperium||false|
 000002617|Rogal Dorn Battle Tank||false|
 000002617|Squadron||false|
+000002617|Frame||false|
 000002619|Astra Militarum||true|
 000002619|Aegis Defence Line||false|
 000002619|Imperium||false|
 000002619|Fortification||false|
+000002619|Frame||false|
 000002621|||true|
 000002621|World Eaters||true|
 000002621|Daemon||false|
@@ -7606,30 +7627,35 @@
 000002741|Leman Russ Eradicator||false|
 000002741|Vehicle||false|
 000002741|Imperium||false|
+000002741|Frame||false|
 000002742|Astra Militarum||true|
 000002742|Smoke||false|
 000002742|Imperium||false|
 000002742|Squadron||false|
 000002742|Leman Russ Executioner||false|
 000002742|Vehicle||false|
+000002742|Frame||false|
 000002743|Astra Militarum||true|
 000002743|Vehicle||false|
 000002743|Smoke||false|
 000002743|Imperium||false|
 000002743|Squadron||false|
 000002743|Leman Russ Exterminator||false|
+000002743|Frame||false|
 000002744|Astra Militarum||true|
 000002744|Imperium||false|
 000002744|Leman Russ Punisher||false|
 000002744|Squadron||false|
 000002744|Smoke||false|
 000002744|Vehicle||false|
+000002744|Frame||false|
 000002745|Astra Militarum||true|
 000002745|Imperium||false|
 000002745|Vehicle||false|
 000002745|Squadron||false|
 000002745|Leman Russ Vanquisher||false|
 000002745|Smoke||false|
+000002745|Frame||false|
 000002746|Astra Militarum||true|
 000002746|Infantry||false|
 000002746|Grenades||false|
@@ -11998,6 +12024,7 @@
 000003892|Rogal Dorn Commander||false|
 000003892|Officer||false|
 000003892|Imperium||false|
+000003892|Frame||false|
 000003893|Astra Militarum||true|
 000003893|Krieg Combat Engineers||false|
 000003893|Grenades||false|
