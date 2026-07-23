@@ -2284,7 +2284,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000909|1|000008344||||Core|6"|
 000000909|2|000008466||||Faction||
 000000909|3|||Cherub|Once per battle, after this unit has performed an Act of Faith, you gain 1 Miracle dice. <br><b>Designer’s Note:</b> <i>Place a Cherub token next to the unit, removing it once this ability has been used.</i>|Datasheet||
-000000909|4|||Righteous Awareness|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
+000000909|4|||Righteous Awareness|In your opponent’s Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units it can make a Normal move of up to D6".|Datasheet||
 000000909|5|||Holy Vanguard|If this unit has a Leader unit attached to it during the Declare Battle Formations step and this unit starts the battle embarked within a TRANSPORT, that Leader unit gains the Scouts 6" ability.|Special (правая колонка)||
 000000909|6|||Simulacrum Imperialis|At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6: on a 4+, you gain 1 Miracle dice showing a value equal to that result.|Wargear||
 000000910|1|000008339||||Core|D3|
@@ -3781,7 +3781,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002064|1|000008339||||Core|1|
 000002064|2|000008346||||Core||
 000002064|3|000008466||||Faction||
-000002064|4|||The Pulpit of Saint Holline’s Basilica|While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.|Datasheet||
+000002064|4|||The Pulpit of Saint Holline’s Basilica|This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.|Datasheet||
 000002064|5|||Fiery Conviction|If this model is on the battlefield at the start of your Command phase, you can choose one of the following:<br><ul><li>Discard 1 Miracle dice and gain 1CP.</li><li>Take a Leadership test for this model, if that test is passed, gain 1CP.</li></ul>|Datasheet||
 000002066|1|000008343||||Core||
 000002066|2|000008466||||Faction||
@@ -4973,7 +4973,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002771|3|000008336||||Core||
 000002771|4|000008466||||Faction||
 000002771|5|||Holy Judgement|At the start of your Shooting phase, select one enemy unit within 12" of and visible to this unit's Ephrael Stern model. That unit must take a Battle-shock test, subtracting 2 from the result if it is a <span class="kwb">CHAOS</span> unit. If the test is failed, that enemy unit suffers 3 mortal wounds.|Datasheet||
-000002771|6|||Mysterious Saviours|You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.|Datasheet||
+000002771|6|||Mysterious Saviours|You can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do: that use is -1 CP. That use does not prevent any uses of that Stratagem on other units this phase.|Datasheet||
 000002772|1|000008350||||Faction||
 000002772|2|||Astartes Banner|While this unit contains an Ancient, add 1 to the Objective Control characteristic of models in this unit.|Datasheet||
 000002772|3|||Command Squad|While a CHARACTER model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll.|Datasheet||
