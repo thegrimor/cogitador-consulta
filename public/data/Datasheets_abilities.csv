@@ -5559,7 +5559,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003709|4|||Gargantsmasha|Each time this model makes an attack that targets a <span class="kwb">TITANIC</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll. |Datasheet||
 000003710|1|000008345||||Core||
 000003710|2|000010432||||Faction||
-000003710|3|||Pragmatic Hunters|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, it can make a Normal move of up to D6".|Datasheet||
+000003710|3|||Pragmatic Hunters|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, it can make a Normal move of up to D6".|Datasheet||
 000003711|1|000008343||||Core||
 000003711|2|000008346||||Core||
 000003711|3|000008359||||Faction||
