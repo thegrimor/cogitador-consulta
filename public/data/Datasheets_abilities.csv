@@ -1498,7 +1498,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000592|1|000008345||||Core||
 000000592|2|000008337||||Core||
 000000592|3|000009894||||Faction||
-000000592|4|||Path of the Outcast|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, it can make a Normal move of up to D6".|Datasheet||
+000000592|4|||Path of the Outcast|In your opponent’s Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6".|Datasheet||
 000000593|1|000009894||||Faction||
 000000593|2|||Bladestorm|Ranged weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability while targeting an enemy unit within half range.|Datasheet||
 000000593|3|||Shimmershield|The bearer has a 4+ invulnerable save.|Wargear||
@@ -4304,7 +4304,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002538|9|||Flip Belt|Each time the bearer’s unit makes a Normal, Advance, Fall Back or Charge move, ignore any vertical distance when determining the total distance the bearer can be moved during that move.|Wargear||
 000002539|1|000009894||||Faction||
 000002539|2|000009896||||Faction||
-000002539|3|||Acrobatic Grace|Each time an attack targets this unit, subtract 1 from the Hit roll.|Datasheet||
+000002539|3|||Acrobatic Grace|This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.|Datasheet||
 000002540|1|000008339||||Core|1|
 000002540|2|000008337||||Core||
 000002540|3|000009894||||Faction||
@@ -4314,7 +4314,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002541|2|000008334||||Core|6|
 000002541|3|000009894||||Faction||
 000002541|4|000009896||||Faction||
-000002541|5|||Rapid Embarkation|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6" of this <span class="kwb">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>.|Datasheet||
+000002541|5|||Rapid Embarkation|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6" of this <span class="kwb">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>. That unit can embark within this <span class="kwb">TRANSPORT</span> in a turn it disembarked from this <span class="kwb">TRANSPORT</span>.|Datasheet||
 000002542|1|000008346||||Core||
 000002542|2|000009894||||Faction||
 000002542|3|000009896||||Faction||
@@ -4331,7 +4331,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002544|2|000008343||||Core||
 000002544|3|000009894||||Faction||
 000002544|4|000009896||||Faction||
-000002544|5|||Inevitable Death|Once in each of your opponent’s turns, if this model is on the battlefield when another friendly <span class="kwb">AELDARI</span> unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units.|Datasheet||
+000002544|5|||Inevitable Death|Once in each of your opponent’s turns, if this model is on the battlefield when another friendly <span class="kwb">AELDARI</span> unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units. Doing so does not prevent this model from being eligible to move.|Datasheet||
 000002544|6|||Ethereal Form|Each time this model destroys an enemy unit, it regains up to D3 lost wounds.|Datasheet||
 000002544|7|||AVATAR OF THE WHISPERING GOD|If your army includes <span class="kwb">THE</span> <span class="kwb">YNCARNE</span>, it cannot include any Epic Hero units (excluding Ynnari units). If your army includes any <span class="kwb">EPIC</span> <span class="kwb">HERO</span> units (excluding <span class="kwb">YNNARI</span> units), it cannot include <span class="kwb">THE</span> <span class="kwb">YNCARNE</span>.|Fortification (левая колонка)||
 000002562|1|000008339||||Core|D3|
@@ -5983,7 +5983,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003921|4|000008337||||Core||
 000003921|5|000009894||||Faction||
 000003921|6|000009896||||Faction||
-000003921|7|||Lithe Embarkation|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Ynnari Infantry unit that only includes models from the units listed in this unit’s Transport section, that has 6 or fewer models and that is wholly within 6" of this <span class="kwb">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>.|Datasheet||
+000003921|7|||Lithe Embarkation|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Ynnari Infantry unit that only includes models from the units listed in this unit’s Transport section, that has 6 or fewer models and that is wholly within 6" of this <span class="kwb">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>. That unit can embark within this <span class="kwb">TRANSPORT</span> in a turn it disembarked from this <span class="kwb">TRANSPORT</span>.|Datasheet||
 000003922|1|000008346||||Core||
 000003922|2|000008377||||Faction||
 000003922|3|||Heroic Example|While this unit’s Minka Lesk model is on the battlefield, each time a model in this unit makes an attack, you can re-roll the Hit roll.|Datasheet||
@@ -6792,10 +6792,10 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004162|2|000008334||||Core|6|
 000004162|3|000009894||||Faction||
 000004162|4|000009896||||Faction||
-000004162|5|||Rapid Embarkation|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6" of this <span class="kwb">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>.|Datasheet||
+000004162|5|||Rapid Embarkation|At the end of the Fight phase, if there are no models currently embarked within this <span class="kwb">TRANSPORT</span>, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6" of this <span class="kwb">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class="kwb">TRANSPORT</span>. That unit can embark within this <span class="kwb">TRANSPORT</span> in a turn it disembarked from this <span class="kwb">TRANSPORT</span>.|Datasheet||
 000004163|1|000009894||||Faction||
 000004163|2|000009896||||Faction||
-000004163|3|||Acrobatic Grace|Each time an attack targets this unit, subtract 1 from the Hit roll.|Datasheet||
+000004163|3|||Acrobatic Grace|This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.|Datasheet||
 000004164|1|000009894||||Faction||
 000004164|2|000009896||||Faction||
 000004164|3|||Dance of Death|At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase:<br><ul><li><b>Hero’s Prowess:</b> Each time a model in this unit makes an attack, re-roll a Hit roll of 1.</li><li><b>Villain’s Doom:</b> Each time a model in this unit makes an attack, add 1 to the Wound roll.</li><li><b>Trickster’s Grace:</b> Each time an attack targets this unit, subtract 1 from the Hit roll.</li></ul>|Datasheet||

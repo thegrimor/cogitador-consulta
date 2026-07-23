@@ -6783,6 +6783,7 @@
 000002540|Aeldari||false|
 000002540|Fly||false|
 000002540|Voidweaver||false|
+000002540|Frame||false|
 000002541|||true|
 000002541|Harlequins||true|
 000002541|Dedicated Transport||false|
@@ -6792,6 +6793,7 @@
 000002541|Vehicle||false|
 000002541|Aeldari||false|
 000002541|Transport||false|
+000002541|Frame||false|
 000002542|Ynnari||true|
 000002542|||true|
 000002542|Infantry||false|
@@ -12105,18 +12107,21 @@
 000003910|Infantry||false|
 000003910|Aeldari||false|
 000003910|Support Weapon||false|
+000003910|Frame||false|
 000003911|Asuryani||true|
 000003911|||true|
 000003911|Support Weapon||false|
 000003911|Infantry||false|
 000003911|Aeldari||false|
 000003911|Shadow Weaver Platform||false|
+000003911|Frame||false|
 000003912|Asuryani||true|
 000003912|||true|
 000003912|Infantry||false|
 000003912|Aeldari||false|
 000003912|Support Weapon||false|
 000003912|Vibro Cannon Platform||false|
+000003912|Frame||false|
 000003913|||true|
 000003913|Asuryani||true|
 000003913|Titanic||false|
@@ -12170,6 +12175,7 @@
 000003920|Aeldari||false|
 000003920|Transport||false|
 000003920|Vehicle||false|
+000003920|Frame||false|
 000003921|Ynnari||true|
 000003921|||true|
 000003921|Dedicated Transport||false|
@@ -12178,6 +12184,7 @@
 000003921|Vehicle||false|
 000003921|Venom||false|
 000003921|Fly||false|
+000003921|Frame||false|
 000003922|Astra Militarum||true|
 000003922|Character|MINKA LESK ONLY|false|
 000003922|Hell’s Last| ALL MODELS|false|
