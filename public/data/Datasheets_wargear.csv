@@ -1430,7 +1430,7 @@
 000000495|2|1||Powerful limbs||Melee|Melee|3|3|7|0|2|
 000000496|1|1||Acid spray|torrent|18|Ranged|D6+6|N/A|6|-2|2|
 000000496|2|1||Fleshborer hive|heavy, sustained hits 1, twin-linked|24|Ranged|20|3|5|0|1|
-000000496|3|1||Rupture cannon|heavy|48|Ranged|2|3|18|-4|D6+6|
+000000496|3|1||Rupture cannon|heavy|48|Ranged|2|3|18|-1|D6+6|
 000000496|4|1||Stinger salvoes||24|Ranged|8|3|5|0|1|
 000000496|5|1||Powerful limbs||Melee|Melee|4|3|8|0|2|
 000000497|1|1||Massive toxic lashes|anti-infantry 2+|9|Ranged|2D6|3|6|-1|2|

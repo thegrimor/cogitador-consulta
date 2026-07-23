@@ -1112,7 +1112,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000475|4|||Warp Field (Aura, Psychic)|While a friendly Tyranids unit is within 6" of this unit, models in that unit have a 6+ invulnerable save.|Datasheet||
 000000476|1|000008337||||Core||
 000000476|2|000000705||||Faction||
-000000476|3|||Foul Spores (Aura)|While a friendly <span class="kwb">TYRANIDS</span> unit is within 6" of this unit, each time a ranged attack targets that unit, models in that unit have the Benefit of Cover against that attack. In addition, while a friendly <span class="kwb">TYRANIDS</span> unit (excluding Monsters) is within 6" of this unit, models in that unit have the Stealth ability.|Datasheet||
+000000476|3|||Foul Spores|Friendly <span class="kwb">TYRANIDS</span> units within 6" of this unit have Stealth.|Datasheet||
 000000477|1|000008339||||Core|1|
 000000477|2|000000705||||Faction||
 000000477|3|||Burning Spray|In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, that enemy unit cannot have the Benefit of Cover.|Datasheet||
@@ -4661,7 +4661,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002690|3|||Death Scream|In your Shooting phase, after this model has shot, select one unit hit by one or more of those attacks. That unit must take a Battle-shock test, subtracting 1 from that test.|Datasheet||
 000002691|1|000000707||||Faction||
 000002691|2|000000705||||Faction||
-000002691|3|||Adaptive Instincts|At the start of the Fight phase, select one of the following:<br><ul><li><b>Aggression Imperative:</b> Until the end of the phase, each time a model in this unit makes an attack, re-roll a Hit roll of 1.</li><li><b>Bioregeneration:</b> Until the end of the phase, each time a saving throw is made for a model in this unit, re-roll a saving throw of 1.</li></ul>|Datasheet||
+000002691|3|||Adaptive Instincts (Once per turn, per unit)|In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:<br><ul><li>This unit’s melee attacks have +1 S.</li><li>Or: This unit has +1 T.</li></ul>|Datasheet||
 000002692|1|000000707||||Faction||
 000002692|2|000000705||||Faction||
 000002692|3|||Adaptable Predators|This unit is eligible to shoot and declare a charge in a turn in which it Fell Back.|Datasheet||
@@ -7089,7 +7089,6 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004225|2|000000705||||Faction||
 000004225|3|||Swallow Whole|Each time an attack with this model’s gaping maw targets an <span class="kwb">INFANTRY</span>, <span class="kwb">MOUNTED</span> or <span class="kwb">BEASTS</span> unit, each successful unmodified Wound roll is a Critical Wound. Each time an <span class="kwb">INFANTRY</span>, <span class="kwb">MOUNTED</span> or <span class="kwb">BEASTS</span> model is destroyed as a result of an attack made by this model’s gaping maw, this model regains up to D3+2 lost wounds.|Datasheet||
 000004225|4|||Subterranean Hunter|At the end of the Fight phase, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.|Datasheet||
-000004225|5|||Serpentine Fiend|This model can move through terrain features, but cannot end a move within a wall, a floor, etc. This model can be set up or end a move on any floor level of <span class="kwb">RUINS</span>, but if that level is not the ground floor, it can only do so if its base does not overhang the floor at that level.|Datasheet||
 000004226|1|000008343||||Core||
 000004226|2|000000705||||Faction||
 000004226|3|||Swallow Whole|Each time an attack with this model’s gaping maw targets an <span class="kwb">INFANTRY</span>, <span class="kwb">MOUNTED</span> or <span class="kwb">BEASTS</span> unit, each successful unmodified Wound roll is a Critical Wound. Each time an <span class="kwb">INFANTRY</span>, <span class="kwb">MOUNTED</span> or <span class="kwb">BEASTS</span> model is destroyed as a result of an attack made by this model’s gaping maw, this model regains up to D3+2 lost wounds.|Datasheet||
