@@ -1498,7 +1498,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000592|1|000008345||||Core||
 000000592|2|000008337||||Core||
 000000592|3|000009894||||Faction||
-000000592|4|||Path of the Outcast|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, it can make a Normal move of up to D6".|Datasheet||
+000000592|4|||Path of the Outcast|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, it can make a Normal move of up to D6".|Datasheet||
 000000593|1|000009894||||Faction||
 000000593|2|||Bladestorm|Ranged weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability while targeting an enemy unit within half range.|Datasheet||
 000000593|3|||Shimmershield|The bearer has a 4+ invulnerable save.|Wargear||
@@ -1628,7 +1628,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000631|3|||Titanic Advance|Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4" or less in height as if they were not there.|Datasheet||
 000000631|4|||Towering Wraith Construct|Each time you target this model with a Stratagem, you must spend three times that Stratagem’s stated CP cost to do so.|Datasheet||
 000000631|5|||Flawless Poise|This model is eligible to shoot and declare a charge in a turn in which it Fell Back.|Datasheet||
-000000632|1|||Reaver Band|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
+000000632|1|||Reaver Band|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
 000000632|2|||CORSAIRS|If a model from your army with the Leader ability can be attached to a Corsair Voidreavers unit, it can be attached to this unit instead.|Special (правая колонка)||
 000000633|1|000008343||||Core||
 000000633|2|||Skyleap|At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield and place it into Strategic Reserves.|Datasheet||
@@ -3629,7 +3629,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001598|3|000008337||||Core||
 000001598|4|000009894||||Faction||
 000001598|5|||The Path Least Travelled|If your army includes this model, after both players have deployed their armies and determined who has the first turn, you can select one Rangers or Shroud Runners unit from your army and redeploy that unit. When doing so, that unit can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves.|Datasheet||
-000001598|6|||Path of the Outcast|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this model, if this model is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
+000001598|6|||Path of the Outcast|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this model, if this model is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6".|Datasheet||
 000001600|1|000008346||||Core||
 000001600|2|000008359||||Faction||
 000001600|3|||Cursed Wardings (Psychic)|While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks.|Datasheet||
