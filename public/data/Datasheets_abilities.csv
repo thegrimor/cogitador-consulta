@@ -3709,7 +3709,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001660|1|000008339||||Core|D6|
 000001660|2|000008512||||Faction||
 000001660|3|000008513||||Faction||
-000001660|4|||Obsessive Ruthlessness|Each time this model makes a ranged attack that targets a <span class="kwb">MONSTER</span> or <span class="kwb">VEHICLE</span> unit, that attack has the [DEVASTATING WOUNDS] ability.|Datasheet||
+000001660|4|||Obsessive Ruthlessness|This unit’s ranged attacks that target a <span class="kwb">MONSTER</span>/<span class="kwb">VEHICLE</span> unit can ignore modifiers to this unit’s:<br><ul><li>BS.</li><li>Hit rolls and Wound rolls.</li></ul>|Datasheet||
 000001660|5|||Taskmaster (Aura)|While a friendly War Dog model is within 9" of this model, each time that <span class="kwb">WAR</span> <span class="kwb">DOG</span> model makes a ranged attack, re-roll a Hit roll of 1.|Datasheet||
 000001661|1|000008339||||Core|D6|
 000001661|2|000008512||||Faction||

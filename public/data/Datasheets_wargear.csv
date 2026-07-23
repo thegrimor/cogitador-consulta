@@ -4357,7 +4357,7 @@
 000001659|7|1||Twin Desecrator cannon|blast, twin-linked|36|Ranged|D6|3|6|0|1|
 000001659|8|1||Warpshock harpoon|blast, devastating wounds|12|Ranged|D3|3|24|-6|12|
 000001659|9|1||Titanic feet||Melee|Melee|4|4|8|-1|2|
-000001660|1|1||Desecrator laser destructor||72|Ranged|3|2|18|-4|D6+3|
+000001660|1|1||Desecrator laser destructor|devastating wounds: monster/vehicle|72|Ranged|3|2|18|-4|D6+3|
 000001660|2|1||Diabolus heavy stubber|rapid fire 3|36|Ranged|3|2|5|0|1|
 000001660|3|1||Reaper chainsword – strike||Melee|Melee|4|3|14|-4|6|
 000001660|4|2||Reaper chainsword – sweep||Melee|Melee|12|3|9|-3|2|
@@ -5018,7 +5018,7 @@
 000002566|4|1||Reaper chaintalon – strike||Melee|Melee|4|3|10|-3|3|
 000002566|5|2||Reaper chaintalon – sweep||Melee|Melee|8|3|8|-2|1|
 000002567|1|1||Diabolus heavy stubber|rapid fire 3|36|Ranged|3|3|5|0|1|
-000002567|2|1||Volkite combustor|devastating wounds|30|Ranged|12|3|12|0|3|
+000002567|2|1||Volkite combustor|ignores cover, devastating wounds|30|Ranged|12|3|12|0|3|
 000002567|3|1||Balemace|extra attacks|Melee|Melee|3|3|8|-1|2|
 000002567|4|1||Electroscourge|sustained hits 1|Melee|Melee|9|3|10|-2|3|
 000002568|1|1||Bellicatus missile array – frag|blast|48|Ranged|D6|3|4|0|1|
@@ -8837,8 +8837,8 @@
 000004133|3|1||Fenrisian greataxe – strike||Melee|Melee|6|3|10|-2|D6+1|
 000004133|4|2||Fenrisian greataxe – sweep||Melee|Melee|12|3|6|-2|1|
 000004133|5|1||Great wolf claw||Melee|Melee|6|3|10|-3|3|
-000004134|1|1||Darkflame lance|ignores cover, torrent|18|Ranged|2D6|N/A|8|-1|2|
-000004134|2|1||Terrorpulse missiles|blast|36|Ranged|2D6|3|8|-2|2|
+000004134|1|1||Darkflame lance|ignores cover, torrent|18|Ranged|D6+6|N/A|8|-1|2|
+000004134|2|1||Terrorpulse missiles|blast|36|Ranged|D6+6|3|8|-2|2|
 000004134|3|1||Fellbore – strike|anti-monster 2+, anti-vehicle 2+|Melee|Melee|4|3|14|-3|6|
 000004134|4|2||Fellbore – sweep||Melee|Melee|10|3|9|-2|2|
 000004135|1|1||Absolvor bolt pistol|pistol|18|Ranged|1|3|5|-1|2|
