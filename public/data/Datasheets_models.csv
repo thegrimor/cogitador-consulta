@@ -146,8 +146,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000230|1|Deathwing Terminator Squad|5"|5|2+|4||3|6+|1|40mm||
 000000231|1|Deathwing Knights|5"|5|2+|4||4|6+|1|40mm||
 000000238|1|Ravenwing Darkshroud|14"|8|3+|5||10|6+|3|60mm flying base||
-000000239|1|Nephilim Jetfighter|20+"|8|3+|5||11|6+|0|120 x 92mm flying base||
-000000240|1|Ravenwing Dark Talon|20+"|8|3+|5||11|6+|0|120 x 92mm flying base||
+000000239|1|Nephilim Jetfighter|20+"|8|3+|5||11|6+|-|120 x 92mm flying base||
+000000240|1|Ravenwing Dark Talon|20+"|8|3+|5||11|6+|-|120 x 92mm flying base||
 000000241|1|Ravenwing Black Knights|12"|5|3+|5||3|6+|2|75 x 42mm||
 000000242|1|Land Speeder Vengeance|14"|8|3+|5||10|6+|3|60mm flying base||
 000000243|1|Fortress Of Redemption|-|13|2+|-||30|7+|0|Use model||
