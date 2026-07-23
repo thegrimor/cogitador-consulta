@@ -3965,7 +3965,6 @@
 000000961|Heldrake||false|
 000000961|Daemon||false|
 000000961|Chaos||false|
-000000961|Aircraft||false|
 000000962|Heretic Astartes||true|
 000000962|Chaos||false|
 000000962|Vehicle||false|
@@ -3982,6 +3981,7 @@
 000000964|Chaos||false|
 000000964|Vindicator||false|
 000000964|Vehicle||false|
+000000964|Frame||false|
 000000965|Heretic Astartes||true|
 000000965|Obliterators||false|
 000000965|Infantry||false|
@@ -4017,6 +4017,7 @@
 000000970|Chaos||false|
 000000970|Daemon||false|
 000000970|Lord of Skulls||false|
+000000970|Frame||false|
 000001016|Thousand Sons||true|
 000001016|||true|
 000001016|Chaos||false|
@@ -5768,6 +5769,7 @@
 000001587|Noctilith Crown||false|
 000001587|Chaos||false|
 000001587|Fortification||false|
+000001587|Frame||false|
 000001588|Legiones Daemonica||true|
 000001588|Chaos||false|
 000001588|Fortification||false|

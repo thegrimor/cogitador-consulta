@@ -630,7 +630,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000958|1|Raptors|12"|4|3+|-||2|6+|1|32mm||
 000000959|1|Warp Talons|12"|4|3+|5||2|6+|1|32mm||
 000000960|1|Chaos Spawn|8"|5|4+|-||4|7+|0|50mm||
-000000961|1|Heldrake|20+"|9|3+|5||12|6+|0|120 x 92mm flying base||
+000000961|1|Heldrake|12"|9|3+|5||12|6+|-|120 x 92mm flying base||
 000000962|1|Chaos Land Raider|10"|12|2+|-||16|6+|5|Use model||
 000000963|1|Chaos Predator Destructor|10"|10|3+|-||11|6+|3|Use model||
 000000964|1|Chaos Vindicator|9"|11|2+|-||11|6+|3|Use model||

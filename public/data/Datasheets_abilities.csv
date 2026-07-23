@@ -2367,14 +2367,14 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000925|6|||Hamadrya’s Knowledge (Psychic)|Once per battle round, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this model’s unit, if this model’s unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D3+3".|Datasheet||
 000000926|1|000008336||||Core||
 000000926|2|000008359||||Faction||
-000000926|3|||Agent of Discord (Aura)|Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12" of this model, increase the cost of that use of that Stratagem by 1CP (this is not cumulative with any other rules that would increase the CP cost of that Stratagem).|Datasheet||
+000000926|3|||Agent of Discord|Once per turn, when your opponent targets a unit from their army within 12" of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000000926|4|||Guns Blazing|Once per turn, in your opponent's Shooting phase, when an enemy unit makes a ranged attack that targets a friendly <span class="kwb">HERETIC</span> <span class="kwb">ASTARTES</span> unit within 3" of this model, after that enemy unit has shot, this model can shoot as if it were your Shooting phase, but it must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.|Datasheet||
 000000928|1|000008338||||Core|5+|
 000000928|2|000008346||||Core||
 000000928|3|000008359||||Faction||
 000000928|4|||Enhanced Warriors|If this unit is attached to a unit at the start of the battle, until the end of the battle, add 1 to the Strength characteristic of melee weapons equipped by Bodyguard models in that unit and add 1 to the Toughness characteristic of Bodyguard models in that unit.|Datasheet||
 000000928|5|||Surgeon Acolyte|Once per turn, when an attack is allocated to a model in this unit, if this unit contains <span class="kwb">FABIUS</span> <span class="kwb">BILE</span>, you can change the Damage characteristic of that attack to 0.|Datasheet||
-000000928|6|||Chirurgeon|The first time this unit’s <span class="kwb">FABIUS</span> <span class="kwb">BILE</span> model is destroyed, at the end of the phase roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining. If that model was attached to a unit when it was destroyed, it must be set up attached to that unit.|Datasheet||
+000000928|6|||Chirurgeon|The first time this unit’s <span class="kwb">FABIUS</span> <span class="kwb">BILE</span> model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining.|Datasheet||
 000000929|1|000008346||||Core||
 000000929|2|000008359||||Faction||
 000000929|3|||Lord of Chaos|Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.|Datasheet||
@@ -2501,7 +2501,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000964|3|||Siege Shield|When making ranged attacks with its demolisher cannon, this model can target enemy units within Engagement Range of it (provided no other friendly units are also within Engagement Range of that enemy unit). In addition, when making ranged attacks, this model does not suffer the penalty to its Hit rolls for being within Engagement Range of one or more enemy units.|Datasheet||
 000000965|1|000008343||||Core||
 000000965|2|000008359||||Faction||
-000000965|3|||Warp Rift Firepower|Once per battle, during the shooting phase, this unit can use this ability. If it does, until the end of the phase, ranged weapons equipped by models in this unit have the [INDIRECT FIRE] ability.|Datasheet||
+000000965|3|||Warp Rift Firepower (Once per battle, per unit)|In your Shooting phase, when this unit is selected to shoot, you can use this ability. If you do, this unit’s ranged attacks have [INDIRECT FIRE].|Datasheet||
 000000966|1|000008359||||Faction||
 000000966|2|||Stabilisation Talons|Each time a model in this unit makes an attack with a ranged weapon, you can ignore any or all modifiers to the Hit roll and any or all modifiers to the Ballistic Skill characteristic of that weapon.|Datasheet||
 000000967|1|000008339||||Core|D3|
@@ -2513,7 +2513,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000969|1|000008339||||Core|D6|
 000000969|2|000008359||||Faction||
 000000969|3|||Scuttling Walker|Each time this unit makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class="kwb">TITANIC</span> models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed.|Datasheet||
-000000969|4|||Daemonforge|Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1. In addition, once per battle, when this unit makes a Dark Pact, before making the resulting Leadership test, you can declare it will overcharge its daemonforge. If it does:<br><ul><li>If the resulting Leadership test is failed, this model suffers 3 mortal wounds instead of D3 mortal wounds.</li><li>Until the end of the phase, each time this model makes an attack, you can re-roll the Wound roll.</li></ul>|Datasheet||
+000000969|4|||Daemonforge|Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1.|Datasheet||
 000000970|1|000008339||||Core|D6+2|
 000000970|2|000008359||||Faction||
 000000970|3|||Plough Through the Enemy|In the Fight phase, after this model has finished making its attacks, if this model destroyed one or more enemy units this phase, each enemy unit within 6" of this model must take a Battle-shock test.|Datasheet||
@@ -4372,7 +4372,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002571|1|000008338||||Core|6+|
 000002571|2|000008344||||Core|6"|
 000002571|3|000008359||||Faction||
-000002571|4|||Accursed Horde|Each time an enemy unit has shot, if one or more models from this unit were destroyed as a result of those attacks, this unit can make a Horde move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Horde move while it is Battle-shocked.|Datasheet||
+000002571|4|||Howling Horde|In your opponent’s Shooting phase, when an enemy unit has shot, if a model from this unit was destroyed as a result of those attacks, this unit can make a surge move of up to D6".|Datasheet||
 000002572|1|000008339||||Core|D3|
 000002572|2|000008359||||Faction||
 000002572|3|||Annihilator|Each time a ranged attack made by this model is allocated to a <span class="kwb">MONSTER</span> or <span class="kwb">VEHICLE</span> model, you can re-roll the Damage roll.|Datasheet||
@@ -4409,7 +4409,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002589|3|||Brutal Example|Once per turn, while this unit is leading a unit and contains a <span class="kwb">TRAITOR</span> <span class="kwb">ENFORCER</span> model, you can target that unit with the Fire Overwatch Stratagem for 0CP, and can do so even if you have already targeted a different unit from your army with that Stratagem this turn. Each time you use this ability, one Bodyguard model in that unit is destroyed.|Datasheet||
 000002589|4|||Mutated Bodyguard|While this unit contains a Traitor Ogryn model, <span class="kwb">CHARACTER</span> models in this unit have the Feel No Pain 4+ ability.|Datasheet||
 000002590|1|000008359||||Faction||
-000002590|2|||Twisted Defence Force|While this unit is within range of an objective marker, each time a ranged attack targets this unit, models in this unit have the Benefit of Cover against that attack.|Datasheet||
+000002590|2|||Twisted Defence Force|While this unit is within range of an objective, this unit has +1 Sv against ranged attacks.|Datasheet||
 000002591|1|000008338||||Core|6+|
 000002591|2|000008359||||Faction||
 000002591|3|||Mischief Makers (Aura)|While an enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) is within 6" of this unit, each time a model in that unit makes a melee attack, subtract 1 from the Hit roll.|Datasheet||
@@ -5771,7 +5771,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000003851|2|000008344||||Core|6"|
 000003851|4|||Accursed Horde|Each time an enemy unit has shot, if one or more models from this unit were destroyed as a result of those attacks, this unit can make a Horde move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Horde move while it is Battle-shocked.|Datasheet||
 000003852|2|||Bestial Raiders|If this unit starts the game in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. If this unit is in Strategic Reserves, for the purposes of setting up this unit on the battlefield, treat the current battle round number as being one higher than it actually is.|Datasheet||
-000003853|2|||Twisted Defence Force|While this unit is within range of an objective marker, each time a ranged attack targets this unit, models in this unit have the Benefit of Cover against that attack.|Datasheet||
+000003853|2|||Twisted Defence Force|While this unit is within range of an objective, this unit has +1 Sv against ranged attacks.|Datasheet||
 000003854|1|000008338||||Core|5+|
 000003854|3|||Fearsome (Aura)|While an enemy unit is within 6" of this unit, each time that enemy unit takes a Battle-shock or Leadership test, subtract 1 from the result.|Datasheet||
 000003855|1|000008338||||Core|6+|
@@ -6337,7 +6337,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000004052|2|000008344||||Core|6"|
 000004052|4|||Accursed Horde|Each time an enemy unit has shot, if one or more models from this unit were destroyed as a result of those attacks, this unit can make a Horde move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding <span class="kwb">AIRCRAFT</span>). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Horde move while it is Battle-shocked.|Datasheet||
 000004053|2|||Bestial Raiders|If this unit starts the game in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. If this unit is in Strategic Reserves, for the purposes of setting up this unit on the battlefield, treat the current battle round number as being one higher than it actually is.|Datasheet||
-000004054|2|||Twisted Defence Force|While this unit is within range of an objective marker, each time a ranged attack targets this unit, models in this unit have the Benefit of Cover against that attack.|Datasheet||
+000004054|2|||Twisted Defence Force|While this unit is within range of an objective, this unit has +1 Sv against ranged attacks.|Datasheet||
 000004055|1|000008338||||Core|5+|
 000004055|3|||Fearsome (Aura)|While an enemy unit is within 6" of this unit, each time that enemy unit takes a Battle-shock or Leadership test, subtract 1 from the result.|Datasheet||
 000004056|1|000008338||||Core|6+|
