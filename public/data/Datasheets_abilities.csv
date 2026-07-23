@@ -2730,7 +2730,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001117|3|000008433||||Faction||
 000001117|4|||Greater Daemon of Tzeentch (Aura)|While a friendly Tzeentch Legiones Daemonica unit is within 6" of this model, that unit is within your army’s Shadow of Chaos.|Datasheet||
 000001117|5|||One Head Looks Forward|At the end of your Command phase, if this model is on the battlefield, take a Leadership test for this model; if that test is passed, you gain 1CP.|Datasheet||
-000001117|6|||One Head Looks Back (Aura)|Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12" of this model, increase the cost of that use of that Stratagem by 1CP (this is not cumulative with any other rules that would increase the CP cost of that Stratagem).|Datasheet||
+000001117|6|||One Head Looks Back|Once per turn, when your opponent targets a unit from their army within 12" of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000001118|1|000008343||||Core||
 000001118|2|000008336||||Core||
 000001118|3|000008337||||Core||
@@ -3325,7 +3325,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001464|1|000008343||||Core||
 000001464|2|000008346||||Core||
 000001464|3|000008433||||Faction||
-000001464|4|||Fluxmaster|While this model is leading a unit, each time an attack is made against that unit, subtract 1 form the Hit roll.|Datasheet||
+000001464|4|||Fluxmaster|This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.|Datasheet||
 000001464|5|||Altered Reality (Psychic)|Once per battle round, after a Hit roll, a Wound roll, or a saving throw is made for this model, you can change the result of that roll to a 6.|Datasheet||
 000001465|1|000008339||||Core|D6|
 000001465|2|000008343||||Core||
