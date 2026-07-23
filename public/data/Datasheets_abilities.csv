@@ -15,7 +15,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000004|2|000008346||||Core||
 000000004|3|000003676||||Faction||
 000000004|4|||Waaagh! Energy|While this model is leading a unit, add 1 to the Strength and Damage characteristics of this model’s ’Eadbanger weapon for every 5 models in that unit (rounding down), but while that unit contains 10 or more models, that weapon has the [HAZARDOUS] ability.|Datasheet||
-000000004|5|||Da Jump (Psychic)|Once per turn, at the end of your Movement phase, one <span class="kwb">WEIRDBOY</span> from your army can use this ability. If it does, roll one D6: on a 1, that <span class="kwb">WEIRDBOY</span>’s unit suffers D6 mortal wounds; on a 2+, remove this <span class="kwb">WEIRDBOY</span>’s unit from the battlefield and set it up again anywhere on the battlefield that is more than 9" horizontally away from all enemy models.|Datasheet||
+000000004|5|||Da Jump (Psychic)|Once per turn, at the end of your Movement phase, one <span class="kwb">WEIRDBOY</span> from your army can use this ability. If it does, roll one D6: on a 1, that <span class="kwb">WEIRDBOY</span>’s unit suffers D6 mortal wounds; on a 2+, remove this <span class="kwb">WEIRDBOY</span>’s unit from the battlefield and set it up again anywhere on the battlefield that is more than 8" horizontally away from all enemy models.|Datasheet||
 000000006|1|000008346||||Core||
 000000006|2|000003676||||Faction||
 000000006|3|||More Dakka|While this model is leading a unit, each time a model in that unit makes a ranged attack, re-roll a Hit roll of 1.|Datasheet||
@@ -48,7 +48,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000011|4|000008337||||Core||
 000000011|5|000003676||||Faction||
 000000011|6|||Red Skull Kommandos|While this model is leading a unit, models in that unit have the Benefit of Cover.|Datasheet||
-000000011|7|||Kunnin’ Infiltrator|Once per battle, in your Movement phase, instead of making a Normal move with this model’s unit, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9" horizontally away from all enemy models.|Datasheet||
+000000011|7|||Kunnin’ Infiltrator|Once per battle, in your Movement phase, instead of making a Normal move with this model’s unit, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 8" horizontally away from all enemy models.|Datasheet||
 000000012|1|000008346||||Core||
 000000012|2|000003676||||Faction||
 000000012|3|||Mekboy|While this model is within 3" of one or more friendly Orks Vehicle units, this model has the Lone Operative ability.|Datasheet||
@@ -170,7 +170,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000046|4|||Stompin’ Forward|Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding <span class="kwb">TITANIC</span> models) and terrain features that are 4" or less in height as if they were not there.|Datasheet||
 000000049|1|000008339||||Core|1|
 000000049|2|000003676||||Faction||
-000000049|3|||Scatter!|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6".|Datasheet||
+000000049|3|||Scatter!|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6".|Datasheet||
 000000050|1|000008339||||Core|D3|
 000000050|2|000003676||||Faction||
 000000050|3|||Bizarrely Resilient|Each time an attack targets this model, worsen the Armour Penetration characteristic of that attack by 1.|Datasheet||
@@ -3458,7 +3458,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001538|3|||Rivetin’ Dakka|In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks made with a rivet kannon. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes a ranged attack, subtract 1 from the Hit roll.|Datasheet||
 000001539|1|000008339||||Core|1|
 000001539|2|000003676||||Faction||
-000001539|3|||Shokk Tunnel|Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9" horizontally away from all enemy models instead of making an Advance move (this model is still considered to have Advanced this turn).|Datasheet||
+000001539|3|||Shokk Tunnel|Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 8" horizontally away from all enemy models instead of making an Advance move (this model is still considered to have Advanced this turn).|Datasheet||
 000001540|1|000008339||||Core|1|
 000001540|2|000003676||||Faction||
 000001540|3|||Dust Trails (Aura)|While an enemy unit (excluding <span class="kwb">MONSTERS</span> and <span class="kwb">VEHICLES</span>) is within 6" of this model, each time a model in that unit makes an attack, subtract 1 from the Hit roll.|Datasheet||
