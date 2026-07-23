@@ -940,9 +940,9 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000002082|1|Serberys Raiders|12"|4|4+|5||2|7+|2|60 x 35.5mm||
 000002083|1|Pteraxii Sterylizors|12"|4|4+|5||2|7+|1|40mm||
 000002084|1|Pteraxii Skystalkers|12"|4|4+|5||2|7+|1|40mm||
-000002085|1|Archaeopter Transvector|20+"|9|3+|-||10|7+|0|170 x 109mm||
-000002086|1|Archaeopter Stratoraptor|20+"|9|3+|-||10|7+|0|170 x 109mm||
-000002087|1|Archaeopter Fusilave|20+"|9|3+|-||10|7+|0|170 x 109mm||
+000002085|1|Archaeopter Transvector|14"|9|3+|-||10|7+|0|170 x 109mm||
+000002086|1|Archaeopter Stratoraptor|-|9|3+|-||10|7+|-|170 x 109mm||
+000002087|1|Archaeopter Fusilave|-|9|3+|-||10|7+|-|170 x 109mm||
 000002088|1|Aleya|6"|3|3+|5||4|6+|1|32mm||
 000002090|1|Inquisitor Draxus|6"|3|3+|5||4|6+|1|32mm||
 000002092|1|Illuminor Szeras|8"|8|2+|4||9|6+|3|80mm||

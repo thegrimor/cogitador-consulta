@@ -3275,6 +3275,7 @@
 000000838|Imperium||false|
 000000838|Epic Hero||false|
 000000838|Character||false|
+000000838|Mobile||false|
 000000839|Adeptus Mechanicus||true|
 000000839|Imperium||false|
 000000839|Infantry||false|
@@ -6104,7 +6105,6 @@
 000002085|Imperium||false|
 000002085|Fly||false|
 000002085|Transport||false|
-000002085|Aircraft||false|
 000002085|Vehicle||false|
 000002086|Adeptus Mechanicus||true|
 000002086|Imperium||false|
@@ -15812,6 +15812,7 @@
 000004210|Cult Mechanicus||false|
 000004210|Tech-Priest||false|
 000004210|Thulia Ghuld||false|
+000004210|Mobile||false|
 000004211|Adeptus Mechanicus||true|
 000004211|Infantry||false|
 000004211|Imperium||false|
@@ -15947,7 +15948,9 @@
 000000911|FRAME||false|
 000000910|FRAME||false|
 000001651|FRAME||false|
+000001651|Frame||false|
 000001650|FRAME||false|
+000001650|Frame||false|
 000002786|Frame||false|
 000002787|Frame||false|
 000002788|Frame||false|
