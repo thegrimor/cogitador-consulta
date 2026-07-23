@@ -304,6 +304,7 @@
 000000065|Transport||false|
 000000065|Vehicle||false|
 000000065|Smoke||false|
+000000065|Frame||false|
 000000066|Adeptus Astartes||true|
 000000066|Deathwing||false|
 000000066|Land Raider Crusader||false|
@@ -313,6 +314,7 @@
 000000066|Grenades||false|
 000000066|Smoke||false|
 000000066|Vehicle||false|
+000000066|Frame||false|
 000000067|Adeptus Astartes||true|
 000000067|Transport||false|
 000000067|Land Raider Excelsior||false|
@@ -405,6 +407,7 @@
 000000087|Imperium||false|
 000000087|Dedicated Transport||false|
 000000087|Transport||false|
+000000087|Frame||false|
 000000091|Adeptus Astartes||true|
 000000091|Ballistus Dreadnought||false|
 000000091|Deathwing||false|
@@ -450,6 +453,7 @@
 000000097|Imperium||false|
 000000097|Vehicle||false|
 000000097|Fortification||false|
+000000097|Frame||false|
 000000098|Adeptus Astartes||true|
 000000098|Imperium||false|
 000000098|Tarantula Sentry Battery||false|
@@ -510,6 +514,7 @@
 000000114|Imperium||false|
 000000114|Ravenwing||false|
 000000114|Fly||false|
+000000114|Frame||false|
 000000115|Adeptus Astartes||true|
 000000115|Deathwing||false|
 000000115|Imperium||false|
@@ -577,6 +582,7 @@
 000000124|Storm Speeder Hailstrike||false|
 000000124|Ravenwing||false|
 000000124|Vehicle||false|
+000000124|Frame||false|
 000000125|Adeptus Astartes||true|
 000000125|Fly||false|
 000000125|Jump Pack||false|
@@ -612,6 +618,7 @@
 000000129|Razorback||false|
 000000129|Vehicle||false|
 000000129|Smoke||false|
+000000129|Frame||false|
 000000131|Adeptus Astartes||true|
 000000131|Dreadnought||false|
 000000131|Walker||false|
@@ -661,13 +668,13 @@
 000000138|Roboute Guilliman||false|
 000000138|Primarch||false|
 000000138|Monster||false|
+000000138|Mobile||false|
 000000139|Adeptus Astartes||true|
 000000139|Thunderhawk Gunship||false|
 000000139|Ravenwing||false|
 000000139|Vehicle||false|
 000000139|Titanic||false|
 000000139|Fly||false|
-000000139|Aircraft||false|
 000000139|Transport||false|
 000000139|Imperium||false|
 000000140|Adeptus Astartes||true|
@@ -4688,6 +4695,7 @@
 000001158|Imperium||false|
 000001158|Invader ATV||false|
 000001158|Mounted||false|
+000001158|Frame||false|
 000001159|Adeptus Astartes||true|
 000001159|Infantry||false|
 000001159|Grenades||false|
@@ -4826,6 +4834,7 @@
 000001188|Imperium||false|
 000001188|Smoke||false|
 000001188|Vehicle||false|
+000001188|Frame||false|
 000001189|Adeptus Astartes||true|
 000001189|Vehicle||false|
 000001189|Titanic||false|
@@ -4843,7 +4852,6 @@
 000001191|Adeptus Astartes||true|
 000001191|Fly||false|
 000001191|Vehicle||false|
-000001191|Aircraft||false|
 000001191|Ravenwing||false|
 000001191|Stormraven Gunship||false|
 000001191|Imperium||false|
@@ -5831,6 +5839,7 @@
 000001610|Storm Speeder Thunderstrike||false|
 000001610|Vehicle||false|
 000001610|Fly||false|
+000001610|Frame||false|
 000001611|Adeptus Astartes||true|
 000001611|Ultramarines||true|
 000001611|Tacticus||false|
@@ -5953,6 +5962,7 @@
 000001667|Imperium||false|
 000001667|Gladiator Reaper||false|
 000001667|Smoke||false|
+000001667|Frame||false|
 000001668|Adeptus Astartes||true|
 000001668|Imperium||false|
 000001668|Infantry||false|
@@ -5977,6 +5987,7 @@
 000001825|Vehicle||false|
 000001825|Gladiator Valiant||false|
 000001825|Smoke||false|
+000001825|Frame||false|
 000001991|Adeptus Astartes||true|
 000001991|Imperium||false|
 000001991|Vehicle||false|
@@ -6219,6 +6230,7 @@
 000002173|Land Raider Redeemer||false|
 000002173|Deathwing||false|
 000002173|Smoke||false|
+000002173|Frame||false|
 000002202|Adeptus Astartes||true|
 000002202|Infantry||false|
 000002202|Devastator Squad||false|
@@ -6847,6 +6859,7 @@
 000002568|Vehicle||false|
 000002568|Transport||false|
 000002568|Impulsor||false|
+000002568|Frame||false|
 000002569|Heretic Astartes||true|
 000002569|Infantry|ALL MODELS|false|
 000002569|Grenades|ALL MODELS|false|
@@ -7385,6 +7398,7 @@
 000002705|Smoke||false|
 000002705|Imperium||false|
 000002705|Gladiator Lancer||false|
+000002705|Frame||false|
 000002706|Adeptus Astartes||true|
 000002706|Deathwing||false|
 000002706|Ironclad Dreadnought||false|
@@ -7452,11 +7466,13 @@
 000002714|Smoke||false|
 000002714|Imperium||false|
 000002714|Predator Annihilator||false|
+000002714|Frame||false|
 000002715|Adeptus Astartes||true|
 000002715|Imperium||false|
 000002715|Predator Destructor||false|
 000002715|Vehicle||false|
 000002715|Smoke||false|
+000002715|Frame||false|
 000002717|Adeptus Astartes||true|
 000002717|Vehicle||false|
 000002717|Imperium||false|
@@ -7492,6 +7508,7 @@
 000002721|Smoke||false|
 000002721|Imperium||false|
 000002721|Deathwing||false|
+000002721|Frame||false|
 000002722|Adeptus Astartes||true|
 000002722|Deathwing||false|
 000002722|Repulsor Executioner||false|
@@ -7499,6 +7516,7 @@
 000002722|Transport||false|
 000002722|Smoke||false|
 000002722|Vehicle||false|
+000002722|Frame||false|
 000002723|Adeptus Astartes||true|
 000002723|Smoke||false|
 000002723|Vehicle||false|
@@ -7506,6 +7524,7 @@
 000002723|Dedicated Transport||false|
 000002723|Imperium||false|
 000002723|Transport||false|
+000002723|Frame||false|
 000002724|Adeptus Astartes||true|
 000002724|Aircraft||false|
 000002724|Fly||false|
@@ -7536,6 +7555,7 @@
 000002727|Imperium||false|
 000002727|Whirlwind||false|
 000002727|Vehicle||false|
+000002727|Frame||false|
 000002728|Adeptus Astartes||true|
 000002728|Vehicle||false|
 000002728|Smoke||false|

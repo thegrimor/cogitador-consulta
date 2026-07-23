@@ -74,7 +74,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000076|1|Lieutenant With Combi-weapon|6"|4|3+|-||4|6+|1|40mm||
 000000079|1|Librarian In Terminator Armour|5"|5|2+|4||5|6+|1|40mm||
 000000083|1|Captain With Jump Pack|12"|4|3+|4||5|6+|1|40mm||
-000000084|1|Stormhawk Interceptor|20+"|9|3+|-||10|6+|0|120 x 92mm flying base||
+000000084|1|Stormhawk Interceptor|-|9|3+|-||10|6+|-|120 x 92mm flying base||
 000000085|1|Rhino Primaris|12"|9|3+|-||10|6+|3|Use model||
 000000086|1|Firestrike Servo-turrets|3"|6|2+|-||6|6+|2|80mm||
 000000087|1|Drop Pod|-|7|3+|-||8|6+|0|Use model||
@@ -751,8 +751,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000001185|1|Sicaran Battle Tank|10"|11|2+|-||14|6+|4|Use model||
 000001188|1|Vindicator|9"|11|2+|-||11|6+|3|Use model||
 000001189|1|Mastodon|9"|14|2+|-||30|6+|12|Use model||
-000001190|1|Stormtalon Gunship|20+"|8|3+|-||10|6+|0|120 x 92mm flying base||
-000001191|1|Stormraven Gunship|20+"|10|3+|-||14|6+|0|120 x 92mm flying base||
+000001190|1|Stormtalon Gunship|-|8|3+|-||10|6+|-|120 x 92mm flying base||
+000001191|1|Stormraven Gunship|14"|10|3+|-||14|6+|0|120 x 92mm flying base||
 000001192|1|Chaplain Venerable Dreadnought|6"|9|2+|5||8|6+|3|60mm||
 000001193|1|Centurion Devastator Squad|4"|7|2+|-||4|6+|2|50mm||
 000001197|1|Grey Knights Thunderhawk Gunship|20+"|12|2+|-||30|6+|0|Use model||

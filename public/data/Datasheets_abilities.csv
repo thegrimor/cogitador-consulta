@@ -243,7 +243,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000070|1|000008350||||Faction||
 000000070|2|||Combat Squads|At the start of the Declare Battle Formations step, before any units have been set up, this unit can be split into two units, each containing five models.|Datasheet||
 000000071|1|000008350||||Faction||
-000000071|2|||Bladeguard|At the start of the Fight phase, you can select one of the following abilities to apply to models in this unit until the end of the phase: <br><ul><li><b>Swords of the Chapter:</b> Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1. </li><li><b>Shields of the Chapter:</b> Each time an invulnerable saving throw is made for a model in this unit, re-roll a saving throw of 1.</li></ul>|Datasheet||
+000000071|2|||Bladeguard (Once per turn, per unit)|In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:<br><ul><li>This unit’s melee attacks have +1 to Hit rolls.</li><li>Or: Attacks that target this unit have -1 to Hit rolls.</li></ul>|Datasheet||
 000000072|1|000008339||||Core|D6|
 000000072|2|000008342||||Core||
 000000072|3|000008350||||Faction||
@@ -259,7 +259,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000076|4|000008337||||Core||
 000000076|5|000008350||||Faction||
 000000076|6|||Priority Objective Identified|At the start of the first battle round, if your army includes one or more models with this ability, you can select one objective marker on the battlefield. Until the end of the battle, while one or more models with this ability are on the battlefield, each time a friendly <span class="kwb">ADEPTUS</span> <span class="kwb">ASTARTES</span> model makes an attack that targets an enemy unit that is within range of that objective marker, re-roll a Wound roll of 1.|Datasheet||
-000000076|7|||Evade and Survive|Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move.|Datasheet||
+000000076|7|||Evade and Survive|In your opponent’s Movement phase, if an enemy unit ends a move within 8" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6".|Datasheet||
 000000076|8|||LAST SURVIVOR|This model cannot be selected as your Warlord.|Special (правая колонка)||
 000000079|1|000008343||||Core||
 000000079|2|000008346||||Core||
@@ -379,7 +379,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000000120|3|||Wisdom of the Ancients (Aura)|While a friendly Adeptus Astartes Infantry unit is within 6" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1.|Datasheet||
 000000121|1|000008346||||Core||
 000000121|2|000008350||||Faction||
-000000121|3|||Unorthodox Strategist (Aura)|Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12" of this model, increase the cost of that use of that Stratagem by 1CP (this is not cumulative with any other rules that would increase the CP cost of that Stratagem).|Datasheet||
+000000121|3|||Unorthodox Strategist|Once per turn, when your opponent targets a unit from their army within 12" of this model with a Stratagem, this model can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.|Datasheet||
 000000121|4|||Master of the Fleet|During the Declare Battle Formations step, if your army includes this model, select one Phobos, Gravis or Tacticus Adeptus Astartes Infantry unit from your army. That unit gains the Deep Strike ability.|Datasheet||
 000000122|1|000008339||||Core|1|
 000000122|2|000008343||||Core||
@@ -2892,7 +2892,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001156|4|||Combat Support|Once per turn, in your opponent’s Shooting phase, when a friendly Adeptus Astartes Phobos Infantry unit within 6" of this model is selected as the target of an attack, one model from your army with this ability can use it. If it does, after that enemy unit has finished making its attacks, that model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit [and only if it is an eligible target).|Datasheet||
 000001157|1|000008350||||Faction||
 000001157|2|||Objective Secured|If you control an objective marker at the end of your Command phase and this unit is within range of that objective marker, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.|Datasheet||
-000001157|3|||Target Elimination|Each time this unit is selected to shoot, it can use this ability. If it does, until the end of the phase, add 2 to the Attacks characteristic of bolt rifles equipped by models in this unit and you can only select one enemy unit as the target of all of this unit’s attacks.|Datasheet||
+000001157|3|||Hail of Bolts|In your Shooting phase, when this unit is selected to shoot, select up to one visible enemy unit. While making those attacks, this unit’s Bolt Rifle attacks that targeted that enemy unit have +2 A.|Datasheet||
 000001158|1|000008350||||Faction||
 000001158|2|||Outrider Escort|Once per turn, in your opponent’s Shooting phase, when another friendly ADEPTUS ASTARTES MOUNTED unit within 6" of this model is selected as the target of an attack, one model from your army with this ability can use it. If it does, after that enemy unit has finished making its attacks, that model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).|Datasheet||
 000001159|1|000008344||||Core|6"|
@@ -2987,7 +2987,6 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001189|2|000008350||||Faction||
 000001189|3|||Inviolable Transport|Once per battle round, when an attack is allocated to this model, you can change the Damage characteristic of that attack to 0.|Datasheet||
 000001190|1|000008339||||Core|D3|
-000001190|2|000008342||||Core||
 000001190|3|000008350||||Faction||
 000001190|4|||Strafing Run|Each time this model makes a ranged attack that targets a unit that cannot Fly, add 1 to the Hit roll.|Datasheet||
 000001191|1|000008339||||Core|D6|
@@ -3664,7 +3663,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000001611|1|000008346||||Core||
 000001611|2|000008350||||Faction||
 000001611|3|||Hood of Hellfire|While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks and mortal wounds.|Datasheet||
-000001611|4|||Master of Prescience (Psychic)|While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll. In addition, once per battle round, you can target that unit with one of the following Stratagems for OCP: Counter-offensive; Fire Overwatch; Go to Ground; Heroic Intervention|Datasheet||
+000001611|4|||Master of Prescience (Psychic)|This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls. (Once per battle round, per army) When you target this unit with the Counteroffensive/Fire Overwatch/Heroic Intervention Stratagem, that use is -1 CP.|Datasheet||
 000001630|1|000008537||||Faction||
 000001630|2|000008343||||Core||
 000001630|3|000008338||||Core|5+|
@@ -4977,7 +4976,6 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002772|1|000008350||||Faction||
 000002772|2|||Astartes Banner|While this unit contains an Ancient, add 1 to the Objective Control characteristic of models in this unit.|Datasheet||
 000002772|3|||Command Squad|While a CHARACTER model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll.|Datasheet||
-000002772|4|||COMPANY HEROES|<i>You must attach one CAPTAIN or CHAPTER MASTER model to this unit. If this is not possible, this unit does not take part in the battle and counts as having been destroyed.</i>|Special (правая колонка)||
 000002773|1|000008346||||Core||
 000002773|2|000008350||||Faction||
 000002773|3|||Narthecium|While this model is leading a unit, in your Command phase, you can return 1 destroyed model (excluding <span class="kwb">CHARACTER</span> models) to that unit.|Datasheet||

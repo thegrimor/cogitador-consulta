@@ -138,6 +138,7 @@
 000000110|1|•|This model’s quad heavy bolter can be replaced with one of the following<ul style="list-style-type:circle"><li>1 graviton cannon</li><li>1 laser destroyer</li><li>1 quad launcher</li></ul>|
 000000111|1|•|This model’s 2 twin heavy bolters can be replaced with one of the following:<ul style="list-style-type:circle"><li>2 assault cannons</li><li>2 Dreadnought inferno cannons</li><li>2 heavy plasma cannons</li><li>2 missile launchers</li><li>2 multi-meltas</li><li>2 twin autocannons</li><li>2 twin lascannons</li></ul>|
 000000112|1|•|This model’s bolt pistol can be replaced with one of the following:<ul style="list-style-type:circle"><li>1 boltgun</li><li>1 combi-weapon</li><li>1 grav-pistol</li><li>1 hand flamer</li><li>1 inferno pistol</li><li>1 plasma pistol</li><li>1 storm bolter</li><li>1 power fist</li></ul>|
+000000112|2|•|This model can be equipped with 1 Absolvor bolt pistol.|
 000000113|1|•|This model’s twin heavy bolter can be replaced with one of the following:<ul style="list-style-type:circle"><li>1 twin multi-melta</li><li>1 typhoon missile launcher</li></ul>|
 000000113|2|•|This model’s 2 twin hellstrike missile launchers can be replaced with 2 twin lascannons|
 000000115|1|•|This model’s storm bolter can be replaced with 1 relic shield.|
@@ -177,6 +178,8 @@
 000000146|1|•|This model can be equipped with 1 hunter-killer missile.|
 000000146|2|•|This model can be equipped with 1 storm bolter.|
 000000147|1|•|Any number of models can each have their bolt pistol replaced one of the following:<ul style="list-style-type:circle"><li>1 storm shield</li><li>1 grav-pistol</li><li>1 hand flamer</li><li>1 inferno pistol</li><li>1 plasma pistol</li></ul>|
+000000147|2|•|All models can each have their Bolt Pistol and Vanguard Veteran Weapon replaced with 1 Heavy Bolt Pistol and 1 Master-crafted Power Weapon.|
+000000147|3|•|For every 5 models in this unit, 1 model can replace their Heavy Bolt Pistol with 1 Plasma Pistol.|
 000000148|1|•|None|
 000000152|1|•|None|
 000000153|1|•|None|
