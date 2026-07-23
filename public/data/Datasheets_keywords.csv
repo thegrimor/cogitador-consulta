@@ -11444,7 +11444,6 @@
 000003817|Agents of the Imperium||true|
 000003817|Vehicle||false|
 000003817|Deathwatch||false|
-000003817|Aircraft||false|
 000003817|Fly||false|
 000003817|Corvus Blackstar||false|
 000003817|Transport||false|
@@ -11466,6 +11465,7 @@
 000003819|Imperium||false|
 000003819|Ordo Hereticus||false|
 000003819|Immolator||false|
+000003819|Frame||false|
 000003820|Agents of the Imperium||true|
 000003820|Transport||false|
 000003820|Smoke||false|
@@ -11473,6 +11473,7 @@
 000003820|Inquisitorial Chimera||false|
 000003820|Imperium||false|
 000003820|Dedicated Transport||false|
+000003820|Frame||false|
 000003821|Agents of the Imperium||true|
 000003821|Infantry|ALL|false|
 000003821|Kill Team|ALL|false|
@@ -11555,6 +11556,7 @@
 000003830|Transport||false|
 000003830|Dedicated Transport||false|
 000003830|Imperial Rhino||false|
+000003830|Frame||false|
 000003831|Adeptus Astartes||true|
 000003831|Blood Angels||true|
 000003831|Infantry||false|
