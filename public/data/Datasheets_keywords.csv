@@ -2002,6 +2002,7 @@
 000000540|Walker||false|
 000000540|Triarch||false|
 000000540|Stalker||false|
+000000540|Frame||false|
 000000541|Necrons||true|
 000000541|Character||false|
 000000541|Epic Hero||false|
@@ -2022,7 +2023,6 @@
 000000543|Vehicle||false|
 000000544|Necrons||true|
 000000544|Night Scythe||false|
-000000544|Aircraft||false|
 000000544|Fly||false|
 000000544|Vehicle||false|
 000000544|Transport||false|
@@ -2051,6 +2051,7 @@
 000000552|Vehicle||false|
 000000552|Titanic||false|
 000000552|Fly||false|
+000000552|Frame||false|
 000000553|Necrons||true|
 000000553|Vehicle||false|
 000000553|Annihilation Barge||false|
@@ -2070,12 +2071,14 @@
 000000556|Titanic||false|
 000000556|Vehicle||false|
 000000556|Fly||false|
+000000556|Frame||false|
 000000557|Necrons||true|
 000000557|Fly||false|
 000000557|Obelisk||false|
 000000557|Towering||false|
 000000557|Titanic||false|
 000000557|Vehicle||false|
+000000557|Frame||false|
 000000558|Necrons||true|
 000000558|Monster||false|
 000000558|Canoptek||false|
@@ -5719,6 +5722,7 @@
 000001577|Vehicle||false|
 000001577|Seraptek Heavy Construct||false|
 000001577|Towering||false|
+000001577|Frame||false|
 000001579|Agents of the Imperium||true|
 000001579|Psyker||false|
 000001579|Grenades||false|
@@ -6392,6 +6396,7 @@
 000002361|Fortification||false|
 000002361|Vehicle||false|
 000002361|Convergence of Dominion||false|
+000002361|Frame||false|
 000002362|Necrons||true|
 000002362|Tomb Citadel||false|
 000002362|Fortification||false|
@@ -16008,6 +16013,7 @@
 000000543|Frame||false|
 000000554|Frame||false|
 000000533|Frame||false|
+000000533|Noble||false|
 000000553|Frame||false|
 000000956|Frame||false|
 000000962|Frame||false|

@@ -325,8 +325,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000541|1|C’tan Shard of the Nightbringer|10"|11|3+|4||16|6+|4|90mm||
 000000542|1|C’tan Shard of the Deceiver|8"|11|3+|4||16|6+|4|40mm||
 000000543|1|Ghost Ark|10"|9|3+|4||14|7+|3|60mm||
-000000544|1|Night Scythe|20+"|9|3+|-||12|7+|0|120 x 92mm flying base||
-000000545|1|Doom Scythe|20+"|9|3+|-||12|7+|0|120 x 92mm flying base||
+000000544|1|Night Scythe|14"|9|3+|-||12|7+|0|120 x 92mm flying base||
+000000545|1|Doom Scythe|-|9|3+|-||12|7+|-|120 x 92mm flying base||
 000000546|1|Canoptek Wraiths|10"|6|3+|4||4|8+|2|50mm||
 000000548|1|Tomb Blades|12"|5|4+|-||2|7+|2|32mm flying base||
 000000551|1|Canoptek Spyders|5"|7|3+|-||6|8+|2|60mm flying base||
