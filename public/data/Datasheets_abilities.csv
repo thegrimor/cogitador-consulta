@@ -4965,7 +4965,7 @@ datasheet_id|line|ability_id|model|name|description|type|parameter|
 000002768|3|||One Shot|The bearer can only shoot with this weapon once per battle.|Wargear profile||
 000002769|1|000008339||||Core|D3|
 000002769|2|000008458||||Faction||
-000002769|3|||Protection Protocols|You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.|Datasheet||
+000002769|3|||Protection Protocols|You can target this unit with the Heroic Intervention stratagem, regardless of any other uses of that stratagem this phase. If you do:<ul><li>That use is -1 CP.</li><li>That use does not prevent any uses of that stratagem on other units this phase.</li></ul>|Datasheet||
 000002769|4|||Conversion|Each time an attack made with this weapon targets a unit more than 12" from the bearer, an unmodified successful Hit roll of 4+ scores a Critical Hit.|Wargear profile||
 000002770|1|000008336||||Core||
 000002770|2|||USING SIR HEKHTUR|If your Canis Rex model is destroyed, this model is treated as a model disembarking from a destroyed <span class="kwb">TRANSPORT</span> and must perform an Emergency Disembarkation. Sir Hekhtur cannot be selected as the target of any of your Stratagems other than Core Stratagems. Your Canis Rex unit is not considered to be destroyed until Sir Hekhtur is also destroyed.|Fortification (левая колонка)||
