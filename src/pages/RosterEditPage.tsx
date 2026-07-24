@@ -78,6 +78,10 @@ export function RosterEditPage() {
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
   const activeDetachmentAbilities = detachmentAbilities.filter(da => selectedDetachmentIds.has(da.detachmentId))
+  // Some enhancements have no rows in Datasheets_enhancements.csv (a scrape gap, mostly
+  // keyword-restricted enhancements like "TERMINATOR model only") — without a fallback
+  // they'd never be selectable by anyone. Treat those as unrestricted within their detachment.
+  const mappedEnhancementIds = new Set(Object.values(datasheetEnhancements).flat())
 
   const sortedEntries = roster.entries
     .map(entry => ({ entry, datasheet: datasheetById.get(entry.datasheetId) }))
@@ -233,7 +237,8 @@ export function RosterEditPage() {
             const costs = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
             const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
             const availableEnhancements = enhancements.filter(
-              e => selectedDetachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id),
+              e => selectedDetachmentIds.has(e.detachmentId) &&
+                (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
             )
             const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
             const enhancementTargetIds = new Set(

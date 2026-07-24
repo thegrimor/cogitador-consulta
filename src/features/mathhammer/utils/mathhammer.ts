@@ -29,6 +29,16 @@ function normalCDF(z: number): number {
   return (1 + erf(z / Math.sqrt(2))) / 2
 }
 
+/** P(deal ≥ `wounds` damage) for a Gaussian-approximated damage total, with continuity
+ * correction. Reused to get a kill-probability both for a single weapon copy and for a
+ * whole weapon group (mean/standardDeviation scaled up by quantity beforehand). */
+export function killProbabilityForDamage(meanDamage: number, standardDeviation: number, wounds: number): number {
+  const W = wounds || 1
+  return standardDeviation > 0
+    ? 1 - normalCDF((W - 0.5 - meanDamage) / standardDeviation)
+    : (meanDamage >= W ? 1 : 0)
+}
+
 // Variance of a dice expression, accounting for reroll mode.
 // Formula for XdN: coeff × Var[single die]
 // Bonus (+B) does not affect variance.
@@ -129,17 +139,26 @@ export function hitProbabilityWithMods(bsWs: string, mods: CombatModifiers, isMe
   return baseP
 }
 
+function woundThreshold(S: number, T: number): number {
+  if (S >= T * 2) return 2
+  if (S > T)      return 3
+  if (S === T)    return 4
+  if (S * 2 <= T) return 6
+  return 5
+}
+
 export function woundProbability(S: number, T: number): number {
-  if (S >= T * 2) return 5 / 6
-  if (S > T)      return 4 / 6
-  if (S === T)    return 3 / 6
-  if (S * 2 <= T) return 1 / 6
-  return 2 / 6
+  return Math.min(5 / 6, Math.max(1 / 6, (7 - woundThreshold(S, T)) / 6))
 }
 
 export function woundProbabilityWithMods(S: number, T: number, mods: CombatModifiers): number {
-  const effectiveS = S + mods.strengthMod + mods.woundMod
-  const baseP = woundProbability(effectiveS, T)
+  // strengthMod shifts which wound-chart bracket applies (2+/3+/4+/5+/6+ vs T); woundMod is a
+  // modifier to the Wound roll itself, applied on top of that threshold with a capped ±1 net
+  // (same rule as hitMod), since "+1 to the Wound roll" isn't the same mechanic as +1 Strength.
+  const baseThreshold = woundThreshold(S + mods.strengthMod, T)
+  const cappedWoundMod = Math.max(-1, Math.min(1, mods.woundMod))
+  const effectiveThreshold = Math.min(6, Math.max(2, baseThreshold - cappedWoundMod))
+  const baseP = Math.min(5 / 6, Math.max(1 / 6, (7 - effectiveThreshold) / 6))
   if (mods.rerollAllWounds)  return baseP + (1 - baseP) * baseP
   if (mods.rerollWoundsOf1)  return baseP + (1 / 6) * baseP
   return baseP
@@ -391,10 +410,7 @@ export function calculateDamage(
   const percentile90 = expectedTotalDamage + 1.2816 * standardDeviation
 
   // P(deal ≥ W damage to one defending model), with continuity correction
-  const W = defenderModel.W || 1
-  const killProbability = standardDeviation > 0
-    ? 1 - normalCDF((W - 0.5 - expectedTotalDamage) / standardDeviation)
-    : (expectedTotalDamage >= W ? 1 : 0)
+  const killProbability = killProbabilityForDamage(expectedTotalDamage, standardDeviation, defenderModel.W)
 
   return {
     weaponName: weapon.name,

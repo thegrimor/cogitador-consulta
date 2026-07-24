@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Maintenance rule
+
+**Update this file as part of the task, not after.** When a task adds a route, a data file, a store slice, or changes an architectural pattern described below, update the relevant section in the same change. Stale docs here have previously caused wrong assumptions about what's implemented — don't let this file drift from the code again.
+
 ## Commands
 
 ```bash
@@ -35,6 +39,12 @@ To correct or add data (fix a rule, add a new codex release, patch an errata), e
 Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances or Doctrina Imperatives) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
 
 All domain types are in `src/types/index.ts` (`Datasheet`, `Ability`, `CombatEffect`, etc.) — these are what both the JSON files and the live app agree on.
+
+### Roster/army builder state (Redux)
+
+`src/store/index.ts` configures a Redux store (RTK) with a single `roster` slice (`src/store/rosterSlice.ts`). State is persisted to `localStorage` (key `cogitador-consulta-rosters`) via a subscribe callback in `store/index.ts` — not a generic hook. `App` is wrapped in `<Provider store={store}>` in `main.tsx`. Roster pages read/write through `store/hooks.ts` (typed `useAppDispatch`/`useAppSelector`).
+
+Implemented: create/edit/list rosters with points limits, detachment selection (with Detachment Points cost), enhancements, wargear-option legality enforcement and per-weapon surcharges, multi-tier unit costs, leader attachment, allies for Imperium factions, and import/export in Munitorum text format plus QR (scan or photo upload).
 
 ### Theme system
 
