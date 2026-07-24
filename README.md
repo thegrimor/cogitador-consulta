@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Cogitador de Consulta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web (React + TypeScript + Vite) para consultar datos de Warhammer 40.000 (10ª edición), construir listas de ejército y calcular daño esperado en combate. Toda la interfaz está en español.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Archivo (catálogo)** — facciones, datasheets, detachments, stratagems y mejoras (enhancements), con la maquetación al estilo de la app oficial de GW.
+- **Reglamento** — glosario de reglas y referencia de fases de juego.
+- **Misiones** — misiones primarias y secundarias, más un emparejador que cruza los mazos de misión primaria de dos jugadores.
+- **Ejército (army builder)** — creación y edición de listas, gestión de wargear/opciones, detachments y mejoras, exportación en texto estilo Wahapedia, e importación/exportación por código QR.
+- **Mathhammer** — calculadora probabilística de daño (impactos → heridas → salvaciones → daño → Feel No Pain) entre una unidad atacante y una defensora, con panel de modificadores para auras, stratagems y habilidades.
+- 24 temas visuales por facción, persistidos en `localStorage`.
 
-## React Compiler
+## Comandos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run dev      # servidor de desarrollo (Vite HMR)
+npm run build    # tsc -b && vite build
+npm run lint     # ESLint
+npm run preview  # previsualizar el build de producción
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+npm run scrape:mfm    # scrapea puntos/costes desde mfm.warhammer-community.com
+npm run update:costs  # aplica scripts/mfm-data.json sobre Datasheets_models_cost.csv
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Otros scripts de datos (`node scripts/<archivo>.mjs`, uso puntual):
+- `scrape-mission-actions.mjs`, `sync-enhancement-costs.mjs`, `update-detachments.mjs`, `update-wargear-costs.mjs`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Sin suite de tests todavía.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Datos
+
+La app en tiempo de ejecución consume JSON estático (`public/data/factions/<slug>.json` + catálogo + `missions.json`), generado en build-time a partir de `data-source/*.csv`. Ver `CLAUDE.md` para el detalle de arquitectura y el pipeline de generación.
+
+## Stack
+
+React 19, React Router 7, Redux Toolkit (roster), Tailwind CSS 4, PapaParse, `qrcode.react` / `qr-scanner` / `lz-string` (QR de listas), Vite 8, TypeScript.
