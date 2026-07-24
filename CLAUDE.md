@@ -9,16 +9,10 @@ npm run dev      # Dev server (Vite HMR)
 npm run build    # tsc -b && vite build
 npm run lint     # ESLint
 npm run preview  # Preview production build
-
-npm run scrape:mfm    # Scrape mfm.warhammer-community.com points/costs into scripts/mfm-data.json
-npm run update:costs  # Apply scripts/mfm-data.json onto Datasheets_models_cost.csv
 ```
 
-Other one-off data scripts (run manually with `node scripts/<file>.mjs`, not wired to package.json):
+One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
-- `sync-enhancement-costs.mjs` — syncs `Enhancements.csv` cost column from `mfm-data.json`
-- `update-detachments.mjs` — adds `disposition`/`dp` columns to `Detachments.csv`
-- `update-wargear-costs.mjs` — populates `Datasheets_wargear_cost.csv` per-weapon surcharges
 
 No test suite yet.
 
@@ -34,16 +28,13 @@ No test suite yet.
 
 ### Data layer
 
-Runtime data is JSON, generated from source CSVs — the app never parses CSV at runtime. There are two layers:
+All game data is JSON, hand-maintained directly — there is no CSV, no scraper, and no generator script (there used to be; the CSV source, the `modifiers.ts` combat-modifier catalog, and the build pipeline that folded one into the other were deleted once the JSON was verified correct and the app fully migrated onto it). The JSON *is* the source of truth: `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json` + `public/data/missions.json`. `src/infrastructure/data/useGameData.ts` fetches all of the faction/catalog JSON in parallel, flattens them into the `GameData` shape the app has always used, and exposes it via `GameDataContext` (read through `useGameDataContext()`). `src/infrastructure/data/useMissionsData.ts` separately fetches `missions.json` for the Misiones pages.
 
-- **Source (build-time only, not shipped):** `data-source/*.csv` (pipe-delimited wahapedia scrape — `Factions`, `Datasheets`, `Datasheets_models`, `Datasheets_models_cost`, `Datasheets_wargear`, `Datasheets_wargear_cost`, `Datasheets_abilities`, `Datasheets_detachment_abilities`, `Abilities`, `Detachments`, `Detachments_chapters`, `Detachment_abilities`, `Stratagems`, `Datasheets_stratagems`, `Datasheets_keywords`, `Datasheets_unit_composition`, `Datasheets_leader`, `Datasheets_options`, `Datasheets_enhancements`, `Enhancements`, `CoreRules`, `Source`, `Last_update` — kept up to date by `scrape-mfm.mjs`/`update-costs.mjs`/`sync-enhancement-costs.mjs`/`update-detachments.mjs`/`update-wargear-costs.mjs`) plus the hand-authored combat-modifier catalog `src/features/mathhammer/data/modifiers.ts` (`MODIFIER_RULES`). `scripts/generate-faction-data.ts` reads both, folds each `ModifierRule` into the real named entity it describes (a datasheet ability, stratagem, enhancement, or detachment ability — matched by id first, then by name/description text), and writes the runtime artifact below. Run `npm run generate:faction-data` after editing either source, then `npm run verify:faction-data` (checks deterministic regeneration, lossless weapon-rule round-tripping, and that every modifier rule was accounted for — merged, in fallback, or deliberately excluded as Boarding Actions/Combat Patrol or Legends).
-- **Runtime artifact (shipped, fetched by the app):** `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json` + `public/data/missions.json`. `src/infrastructure/data/useGameData.ts` fetches all of the faction/catalog JSON in parallel, flattens them back into the same `GameData` shape the app has always used, and exposes it via `GameDataContext` (read through `useGameDataContext()`). `src/infrastructure/data/useMissionsData.ts` separately fetches `missions.json` for the Misiones pages.
-
-Some faction JSON files carry hand-authored fixes beyond what the generator alone would produce (rule-coverage corrections matched by hand where automatic id/text matching fell short) — `verify:faction-data`'s determinism check will flag those files as differing from a fresh regeneration; that's expected while both layers coexist, not a bug.
+To correct or add data (fix a rule, add a new codex release, patch an errata), edit the relevant `public/data/factions/<slug>.json` (or `public/data/catalog/*.json`) file directly — there's no regeneration step to run afterward.
 
 Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
 
-All domain types are in `src/types/index.ts`. Raw CSV row types (`Raw*`) are used only by `csvParsers.ts` and the generator/verify scripts under `scripts/`; clean domain types (`Datasheet`, `Ability`, `CombatEffect`, etc.) are what the live app consumes.
+All domain types are in `src/types/index.ts` (`Datasheet`, `Ability`, `CombatEffect`, etc.) — these are what both the JSON files and the live app agree on.
 
 ### Theme system
 
@@ -102,7 +93,7 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
 Standalone feature folder at `src/features/mathhammer/`. Computes expected-value damage output (hits → wounds → saves → damage → Feel No Pain, with full probability distribution — stddev/percentiles/kill probability) for an attacker unit's weapons against a defender profile.
 
 - `types.ts` — `CombatModifiers` (every numeric/boolean modifier a rule can apply), `ModifierRule` (a single rule's targeting conditions + effects, keyed by faction/detachment/enhancement/datasheet/leader/keyword), `DamageBreakdown` (per-weapon calculation output).
-- `data/modifiers.ts` — the hand-authored `ModifierRule` catalog; only consumed at build time by `scripts/generate-faction-data.ts` (see Data layer above). At runtime the modifier panel gets its rule list from `deriveRules.ts` reading the `effect`/`options` fields already folded into the selected Ability/Stratagem/Enhancement/DetachmentAbility, not from this file directly.
+- `utils/deriveRules.ts` — derives the modifier panel's toggleable rule list directly from the `effect`/`options` fields on whichever Ability/Stratagem/Enhancement/DetachmentAbility are in scope for the current selection (see Data layer above) — there's no separate flat rule catalog.
 - `utils/mathhammer.ts` — the core probability math.
 - `components/`: `UnitSelector` (pick attacker/defender), `UnitPanel`, `ModifierPanel` (toggle applicable rules/stratagems), `DamageCalculator` + `GaussianChart` (results + distribution chart), plus `StatsBar`/`WeaponCard`/`AbilityList`/`StratList` variants local to this feature.
 - `hooks/usePanelState.ts` — panel selection state, synced to the `?faction=&datasheet=&detachments=&character=&roster=` query params via `mathhammerAttackerPath`.

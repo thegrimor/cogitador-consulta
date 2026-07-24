@@ -14,9 +14,7 @@ dist-ssr
 
 # Reference PDFs (large source documents, not app data)
 public/pdf/
-
-# Dev-only sidecar reports from scripts/generate-faction-data.ts (regenerable)
-scripts/reports/
+public/data/pdf/
 
 # Editor directories and files
 .vscode/*

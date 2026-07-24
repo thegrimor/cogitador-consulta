@@ -4,14 +4,21 @@ import type {
   Enhancement, Source, CoreRule, UnitOption, PointsCost, WargearCost, Ability,
   ModelProfile, Weapon, DefaultWeaponQuantity, CoreCombatEffect,
 } from '@/types'
-import { WEAPON_RULE_DEFAULTS } from './csvParsers'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
 import { SM_CHAPTERS } from '@/core/constants/chapters'
 
-// ── Shapes written by scripts/generate-faction-data.ts (public/data/factions/*.json,
-//    public/data/catalog/*.json) — see that script for how each field is derived. ──────
+// ── Shapes written to public/data/factions/*.json, public/data/catalog/*.json ──────────
 
 type WeaponRulesJson = Partial<Omit<Weapon, 'line' | 'name' | 'description' | 'range' | 'type' | 'A' | 'bsWs' | 'S' | 'AP' | 'D'>>
+
+/** Defaults for the weapon-rule flags trimmed off the JSON when falsy, to keep the payload small. */
+const WEAPON_RULE_DEFAULTS: Omit<Weapon, 'line' | 'name' | 'description' | 'range' | 'type' | 'A' | 'bsWs' | 'S' | 'AP' | 'D'> = {
+  isTorrent: false, isBlast: false, isDevastatingWounds: false, isLethalHits: false, isHeavy: false,
+  isTwinLinked: false, isMelta: false, meltaValue: 0, cleaveValue: 0, sustainedHitsValue: 0, antiEntries: [],
+  isIgnoresCover: false, isHazardous: false, isAssault: false, isPistol: false, isPsychic: false,
+  isPrecision: false, isOneShot: false, isIndirectFire: false, isExtraAttacks: false, isLance: false,
+  isConversion: false, rapidFireValue: '',
+}
 
 interface WeaponJson {
   line: number; name: string; description: string; range: string; type: string
