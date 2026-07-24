@@ -59,7 +59,7 @@
       "id": "combined-arms",
       "name": "Combined Arms",
       "disposition": "TAKE AND HOLD",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -115,7 +115,7 @@
     {
       "id": "mechanised-assault",
       "name": "Mechanised Assault",
-      "disposition": "PURGE THE FOE",
+      "disposition": "RECONNAISSANCE",
       "dp": 2,
       "chapters": [],
       "abilities": [
@@ -155,7 +155,7 @@
         {
           "id": "masters-of-camouflage",
           "name": "Masters of Camouflage",
-          "description": "Astra Militarum Walker and Regiment models from your army have the Benefit of Cover. While such a model has the Benefit of Cover for any other reason (e.g. because it is wholly within a <span class=\"kwb\">RUIN</span>), improve the Save characteristic of that model by 1 (to a maximum of 3+)."
+          "description": "Astra Militarum Walker and Regiment units from your army have the Benefit of Cover. While such a unit has the Benefit of Cover for any other reason (e.g. because it is wholly within a <span class=\"kwb\">RUIN</span>), improve the Save characteristic of that unit by 1 (to a maximum of 3+)."
         }
       ]
     },
@@ -202,7 +202,7 @@
         {
           "id": "squadron-command",
           "name": "Squadron Command",
-          "description": "Add Squadron to the list of units each Officer unit from your army can issue Orders to. Add the Order below to those listed in the Voice of Command ability.<br><br><span class=\"hi_custom\">ON MY SIGNAL</span><br>This Order can only be issued to Armoured Skirmisher units (see below). Each time an enemy unit ends a Normal or Advance move within 9\" of this unit, this unit can make a Normal move of up to D6\". Each unit can only move in this way once per turn.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Astra Militarum Squadron units from your army have the <span class=\"kwb\">ARMOURED</span> <span class=\"kwb\">SKIRMISHER</span> keyword (excluding Artillery units and units containing one or more models with a Wounds characteristic of 13 or higher)."
+          "description": "Add Squadron to the list of units each Officer unit from your army can issue Orders to. Add the Order below to those listed in the Voice of Command ability.<br><br><span class=\"hi_custom\">ON MY SIGNAL</span><br>This Order can only be issued to Armoured Skirmisher units (see below). Each time an enemy unit ends a Normal or Advance move within 8\" of this unit, this unit can make a Normal move of up to D6\". Each unit can only move in this way once per turn.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Astra Militarum Squadron units from your army have the <span class=\"kwb\">ARMOURED</span> <span class=\"kwb\">SKIRMISHER</span> keyword (excluding Artillery units and units containing one or more models with a Wounds characteristic of 13 or higher)."
         }
       ]
     }
@@ -627,7 +627,7 @@
       "type": "Mechanised Assault – Battle Tactic Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Transport unit from your army (excluding AIRCRAFT and TiTANic units) that is not within Engagement Range of one or more enemy units, and is within 9\" of the enemy unit that just ended that move.<br><br><b>EFFECT:</b> Your <span class=\"kwb\">TRANSPORT</span> can make a Normal move of up to 6\"."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Transport unit from your army (excluding AIRCRAFT and TITANIC units) that is not within Engagement Range of one or more enemy units, and is within 8\" of the enemy unit that just ended that move.<br><br><b>EFFECT:</b> Your <span class=\"kwb\">TRANSPORT</span> can make a Normal move of up to 6\"."
     },
     {
       "id": "hasty-extraction",
@@ -687,7 +687,7 @@
       "type": "Recon Element – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Platoon unit from your army that is within 9\" of that enemy unit, and is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Platoon unit from your army that is within 8\" of that enemy unit, and is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
     },
     {
       "id": "courageous-diversion",
@@ -727,7 +727,7 @@
       "type": "Recon Element – Wargear Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Charge phase",
-      "description": "<b>WHEN:</b> Start of your opponent’s Charge phase.<br><br><b>TARGET:</b> One Astra Militarum Grenades unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time an enemy unit selects your unit as the target of a charge, subtract 2 from the Charge roll (this is not cumulative with any other negative modifiers to that Charge roll)."
+      "description": "<b>WHEN:</b> Start of your opponent’s Charge phase.<br><br><b>TARGET:</b> One Astra Militarum Grenades unit from your army.<br><br><b>EFFECT:</b> Select one visible enemy unit within 12\" of your unit. When that enemy unit declares a charge, that enemy unit has -1 to Charge rolls."
     },
     {
       "id": "trench-fighters",
@@ -1199,7 +1199,7 @@
     {
       "id": "grand-strategist-astra-militarum",
       "name": "Grand Strategist",
-      "cost": 15,
+      "cost": 25,
       "detachmentId": "armoured-infantry",
       "detachmentName": "Armoured Infantry",
       "description": "Officer model only. After both players have deployed their armies, if the bearer’s unit (or any Transport it is embarked within) is on the battlefield, select up to two units with the Regiment or Squadron keywords from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
@@ -1218,7 +1218,7 @@
       "cost": 20,
       "detachmentId": "recon-element",
       "detachmentName": "Recon Element",
-      "description": "Astra Militarum Infantry model only. Each time an enemy <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">MOUNTED</span> unit ends a Normal, Advance, Charge or Fall Back move within 9\" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
+      "description": "Astra Militarum Infantry model only. Each time an enemy <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">MOUNTED</span> unit ends a Normal, Advance, Charge or Fall Back move within 8\" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
       "effect": {
         "effects": {
           "hitMod": -1
@@ -1231,7 +1231,7 @@
       "cost": 15,
       "detachmentId": "combined-arms",
       "detachmentName": "Combined Arms",
-      "description": "Officer model only. Each time an enemy unit is set up within 9\" of the bearer’s unit, the bearer can issue one Order. This is not counted towards the number of Orders the bearer can issue in a battle round."
+      "description": "Officer model only. Each time an enemy unit is set up within 8\" of the bearer’s unit, the bearer can issue one Order. This is not counted towards the number of Orders the bearer can issue in a battle round."
     },
     {
       "id": "stalwarts-honours",
@@ -1535,7 +1535,7 @@
         {
           "id": "death-befitting-an-officer",
           "name": "Death Befitting An Officer",
-          "description": "When this model is destroyed, roll one D6: on a 2+, do not remove it from play - it can, after the attacking model’s unit has finished making its attacks, shoot as if it were your Shooting phase and as if it had its full wounds remaining. This model is then removed from play.",
+          "description": "In your opponent’s Shooting phase, when this unit is destroyed, before this unit’s deadly demise roll, roll one D6: on a 2+, do not remove this unit from the battlefield. After the attacking unit has shot, this unit can shoot using normal shooting, but while doing so this unit can only target that enemy unit. When this unit has shot, or at the end of the phase (whichever comes first), resolve this unit’s deadly demise roll, then this unit is removed from the battlefield.",
           "type": "Datasheet"
         },
         {
@@ -1558,7 +1558,8 @@
         "Squadron",
         "Character",
         "Vehicle",
-        "Smoke"
+        "Smoke",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -1607,14 +1608,19 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 235
+          "points": 215
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 250
+          "points": 230
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Demolisher battle cannon",
+          "points": 15
+        }
+      ],
       "stratagemIds": [
         "veteran-sharpshooters",
         "opening-salvo",
@@ -2689,7 +2695,8 @@
         "Vehicle",
         "Transport",
         "Imperium",
-        "Smoke"
+        "Smoke",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -2741,7 +2748,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 75
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 85
         }
       ],
@@ -2869,7 +2880,8 @@
         "Squadron",
         "Vehicle",
         "Imperium",
-        "Transport"
+        "Transport",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -2897,7 +2909,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 75
         }
       ],
@@ -3116,7 +3132,8 @@
         "Squadron",
         "Hellhound",
         "Imperium",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -3325,7 +3342,8 @@
         "Smoke",
         "Squadron",
         "Basilisk",
-        "Imperium"
+        "Imperium",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -3536,7 +3554,8 @@
         "Squadron",
         "Imperium",
         "Vehicle",
-        "Smoke"
+        "Smoke",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -3744,7 +3763,8 @@
         "Imperium",
         "Smoke",
         "Artillery",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -3952,7 +3972,8 @@
         "Squadron",
         "Imperium",
         "Smoke",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -4160,7 +4181,8 @@
         "Imperium",
         "Smoke",
         "Artillery",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -4455,7 +4477,8 @@
         "Smoke",
         "Vehicle",
         "Squadron",
-        "Leman Russ Battle Tank"
+        "Leman Russ Battle Tank",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -4759,7 +4782,8 @@
         "Squadron",
         "Imperium",
         "Smoke",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -4804,11 +4828,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 190
+          "points": 180
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 200
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -5004,7 +5028,8 @@
         "Vehicle",
         "Smoke",
         "Imperium",
-        "Baneblade"
+        "Baneblade",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -5061,11 +5086,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 450
+          "points": 415
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 470
+          "points": 450
         }
       ],
       "wargearCosts": [],
@@ -5222,7 +5247,8 @@
         "Smoke",
         "Imperium",
         "Transport",
-        "Banehammer"
+        "Banehammer",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -5267,11 +5293,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 420
+          "points": 385
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 440
+          "points": 420
         }
       ],
       "wargearCosts": [],
@@ -5423,7 +5449,8 @@
         "Smoke",
         "Imperium",
         "Banesword",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -5468,11 +5495,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 450
+          "points": 415
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 470
+          "points": 450
         }
       ],
       "wargearCosts": [],
@@ -5631,7 +5658,8 @@
         "Vehicle",
         "Doomhammer",
         "Transport",
-        "Imperium"
+        "Imperium",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -5676,11 +5704,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 415
+          "points": 380
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 435
+          "points": 410
         }
       ],
       "wargearCosts": [],
@@ -5881,7 +5909,8 @@
         "Imperium",
         "Hellhammer",
         "Vehicle",
-        "Titanic"
+        "Titanic",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -5938,11 +5967,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 420
+          "points": 385
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 440
+          "points": 415
         }
       ],
       "wargearCosts": [],
@@ -6093,7 +6122,8 @@
         "Imperium",
         "Titanic",
         "Smoke",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -6138,11 +6168,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 410
+          "points": 375
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 430
+          "points": 405
         }
       ],
       "wargearCosts": [],
@@ -6314,7 +6344,8 @@
         "Transport",
         "Imperium",
         "Stormlord",
-        "Smoke"
+        "Smoke",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -6363,11 +6394,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 430
+          "points": 395
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 450
+          "points": 430
         }
       ],
       "wargearCosts": [],
@@ -6519,7 +6550,8 @@
         "Imperium",
         "Stormsword",
         "Vehicle",
-        "Smoke"
+        "Smoke",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -6564,11 +6596,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 465
+          "points": 430
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 485
+          "points": 465
         }
       ],
       "wargearCosts": [],
@@ -7451,7 +7483,8 @@
         "Squadron",
         "Transport",
         "Dedicated Transport",
-        "Taurox Prime"
+        "Taurox Prime",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -7491,7 +7524,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 75
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 85
         }
       ],
@@ -8211,7 +8248,7 @@
         {
           "line": 1,
           "name": "Valkyrie",
-          "M": "20+\"",
+          "M": "14\"",
           "T": 10,
           "Sv": "2+",
           "invSv": "-",
@@ -8334,7 +8371,6 @@
       ],
       "keywords": [
         "Fly",
-        "Aircraft",
         "Transport",
         "Valkyrie",
         "Imperium",
@@ -9840,7 +9876,7 @@
         {
           "id": "covert-stealth-team",
           "name": "Covert Stealth Team",
-          "description": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.",
+          "description": "At the end of your opponent’s turn, if this unit is unengaged, you can use this ability. If you do: Place this unit in strategic reserves. This unit has Deep Strike until the start of your next Shooting phase. This unit must make an ingress move in your next Movement phase (including in your first turn).",
           "type": "Datasheet"
         },
         {
@@ -10844,7 +10880,7 @@
         {
           "id": "cadia-stands",
           "name": "Cadia Stands!",
-          "description": "While this unit contains an <span class=\"kwb\">OFFICER</span>, each time a ranged attack targets this unit, if this unit is within range of an objective marker you control, models in this unit have the Benefit of Cover against that attack.",
+          "description": "While this unit contains an <span class=\"kwb\">OFFICER</span> model and this unit is within range of an objective, this unit can re-roll Battle-shock tests.",
           "type": "Datasheet"
         },
         {
@@ -10950,7 +10986,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -12201,7 +12237,7 @@
           "range": "12",
           "type": "Ranged",
           "A": "1",
-          "bsWs": "4",
+          "bsWs": "3",
           "S": 7,
           "AP": -2,
           "D": "1",
@@ -12216,7 +12252,7 @@
           "range": "12",
           "type": "Ranged",
           "A": "1",
-          "bsWs": "4",
+          "bsWs": "3",
           "S": 8,
           "AP": -3,
           "D": "2",
@@ -12248,19 +12284,6 @@
           "bsWs": "4",
           "S": 3,
           "AP": 0,
-          "D": "1",
-          "rules": {}
-        },
-        {
-          "line": 15,
-          "name": "Power weapon",
-          "description": "",
-          "range": "Melee",
-          "type": "Melee",
-          "A": "3",
-          "bsWs": "4",
-          "S": 4,
-          "AP": -2,
           "D": "1",
           "rules": {}
         }
@@ -12358,11 +12381,11 @@
       "pointsCosts": [
         {
           "description": "10 models (1st-2nd units)",
-          "points": 115
+          "points": 105
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 125
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -12829,7 +12852,8 @@
         "Vehicle",
         "Imperium",
         "Rogal Dorn Battle Tank",
-        "Squadron"
+        "Squadron",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -13014,7 +13038,8 @@
       "keywords": [
         "Aegis Defence Line",
         "Imperium",
-        "Fortification"
+        "Fortification",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -13271,7 +13296,8 @@
         "Squadron",
         "Leman Russ Eradicator",
         "Vehicle",
-        "Imperium"
+        "Imperium",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -13590,7 +13616,8 @@
         "Imperium",
         "Squadron",
         "Leman Russ Executioner",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -13895,7 +13922,8 @@
         "Smoke",
         "Imperium",
         "Squadron",
-        "Leman Russ Exterminator"
+        "Leman Russ Exterminator",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -14197,7 +14225,8 @@
         "Leman Russ Punisher",
         "Squadron",
         "Smoke",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -14501,7 +14530,8 @@
         "Vehicle",
         "Squadron",
         "Leman Russ Vanquisher",
-        "Smoke"
+        "Smoke",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -14616,7 +14646,7 @@
           "range": "12",
           "type": "Ranged",
           "A": "1",
-          "bsWs": "4",
+          "bsWs": "3",
           "S": 4,
           "AP": 0,
           "D": "1",
@@ -14933,7 +14963,7 @@
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 155
+          "points": 150
         },
         {
           "description": "5 models (3rd+ unit)",
@@ -14941,7 +14971,7 @@
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 165
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -15022,7 +15052,7 @@
           "range": "12",
           "type": "Ranged",
           "A": "1",
-          "bsWs": "4",
+          "bsWs": "3",
           "S": 4,
           "AP": 0,
           "D": "1",
@@ -15308,7 +15338,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 100
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -15777,7 +15807,7 @@
       "pointsCosts": [
         {
           "description": "6 models",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -16727,7 +16757,8 @@
         "Vehicle",
         "Rogal Dorn Commander",
         "Officer",
-        "Imperium"
+        "Imperium",
+        "Frame"
       ],
       "factionKeywords": [
         "Astra Militarum"
@@ -18128,7 +18159,7 @@
         {
           "id": "screening-line",
           "name": "Screening Line",
-          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\".",
+          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\".",
           "type": "Datasheet"
         }
       ],
@@ -18335,7 +18366,7 @@
         {
           "id": "counterstrategist",
           "name": "Counterstrategist",
-          "description": "At the end of your opponent’s Movement phase, you can select one enemy unit that was set up or ended a move within 9\" of this model, and one friendly Regiment unit within 6\" of and visible to this model that has not made a Normal move or been targeted with the Fire Overwatch Stratagem this phase. That <span class=\"kwb\">REGIMENT</span> unit can then either:<br><ul><li>Make a Normal move of up to D6\".</li><li>Shoot at that enemy unit, but only if it is an eligible target. Until the end of the phase, each time a model in that unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers.</li><li>Make a Surge move. To do so, roll one D6: models in that unit move a number of inches up to the result, but that unit must end that move as close as possible to the closest enemy unit (excluding <span class=\"kwb\">AIRCRAFT</span>). When doing so, those models can be moved within %000015002Engageme",
+          "description": "At the end of your opponent’s Movement phase, you can select one enemy unit that was set up or ended a move within 8\" of this model, and one friendly Regiment unit within 6\" of and visible to this model that has not made a Normal move or been targeted with the Fire Overwatch Stratagem this phase. That <span class=\"kwb\">REGIMENT</span> unit can then either:<br><ul><li>Make a Normal move of up to D6\".</li><li>Shoot at that enemy unit, but only if it is an eligible target. Until the end of the phase, each time a model in that unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers.</li><li>Make a Surge move. To do so, roll one D6: models in that unit move a number of inches up to the result, but that unit must end that move as close as possible to the closest enemy unit (excluding <span class=\"kwb\">AIRCRAFT</span>). When doing so, those models can be moved within %000015002Engageme",
           "type": "Datasheet"
         },
         {
@@ -18393,7 +18424,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -19164,7 +19195,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 75
         }
       ],

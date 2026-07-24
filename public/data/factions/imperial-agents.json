@@ -17,8 +17,8 @@
     {
       "id": "ordo-xenos-alien-hunters",
       "name": "Ordo Xenos Alien Hunters",
-      "disposition": "PURGE THE FOE",
-      "dp": 3,
+      "disposition": "",
+      "dp": 0,
       "chapters": [],
       "abilities": [
         {
@@ -37,8 +37,8 @@
     {
       "id": "ordo-hereticus-purgation-force",
       "name": "Ordo Hereticus Purgation Force",
-      "disposition": "PURGE THE FOE",
-      "dp": 3,
+      "disposition": "",
+      "dp": 0,
       "chapters": [],
       "abilities": [
         {
@@ -70,8 +70,8 @@
     {
       "id": "ordo-malleus-daemon-hunters",
       "name": "Ordo Malleus Daemon Hunters",
-      "disposition": "PRIORITY ASSETS",
-      "dp": 3,
+      "disposition": "",
+      "dp": 0,
       "chapters": [],
       "abilities": [
         {
@@ -90,8 +90,8 @@
     {
       "id": "imperialis-fleet",
       "name": "Imperialis Fleet",
-      "disposition": "DISRUPTION",
-      "dp": 3,
+      "disposition": "RECONNAISSANCE",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -109,8 +109,8 @@
     {
       "id": "veiled-blade-elimination-force",
       "name": "Veiled Blade Elimination Force",
-      "disposition": "RECONNAISSANCE",
-      "dp": 3,
+      "disposition": "DISRUPTION",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -158,7 +158,7 @@
       "type": "Alien Hunters – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> End of your opponent’s Fight phase.<br><br><b>TARGET:</b> One INQUISITOR or DEATHwATCH INFANTRy unit from your army.<br><br><b>EFFECT:</b> Remove your unit from the battlefield. In the Reinforcements step of your next Movement phase, set your unit up anywhere on the battlefield that is more than 9” horizontally away from all enemy models.<br><br><b>RESTRICTIONS:</b> You cannot select a unit that is within Engagement Range of one or more enemy units."
+      "description": "<b>WHEN:</b> End of your opponent’s Fight phase.<br><br><b>TARGET:</b> One INQUISITOR or DEATHwATCH INFANTRy unit from your army.<br><br><b>EFFECT:</b> Remove your unit from the battlefield. In the Reinforcements step of your next Movement phase, set your unit up anywhere on the battlefield that is more than 8” horizontally away from all enemy models.<br><br><b>RESTRICTIONS:</b> You cannot select a unit that is within Engagement Range of one or more enemy units."
     },
     {
       "id": "hellfire-rounds",
@@ -574,7 +574,7 @@
     {
       "id": "decoy-targets",
       "name": "Decoy Targets",
-      "cost": 40,
+      "cost": 15,
       "detachmentId": "veiled-blade-elimination-force",
       "detachmentName": "Veiled Blade Elimination Force",
       "description": "Callidus Assassin models only. Twice per battle, in your Movement phase, you can select one other friendly Infantry model that is on the battlefield and not within Engagement Range of one or more enemy units. The selected model is destroyed (ignoring any rules that are triggered when a model is destroyed) and this model is removed from the battlefield and set up again as close as possible to where that destroyed model was and not within Engagement Range of one or more enemy units. This ability cannot be used more than once in the same battle round."
@@ -630,7 +630,7 @@
     {
       "id": "esoteric-explosives",
       "name": "Esoteric Explosives",
-      "cost": 40,
+      "cost": 10,
       "detachmentId": "veiled-blade-elimination-force",
       "detachmentName": "Veiled Blade Elimination Force",
       "description": "Culexus Assassin models only. Each time this model is targeted with the Grenades Stratagem, 1 mortal wound is inflicted for each D6 roll of 3+ instead of for each 4+."
@@ -680,7 +680,7 @@
       "cost": 20,
       "detachmentId": "ordo-malleus-daemon-hunters",
       "detachmentName": "Ordo Malleus Daemon Hunters",
-      "description": "INqUISITOR model only. Once per battle, if the bearer is on the battlefield, you can use the Rapid Ingress Stratagem for 0CP. When doing so, you must target a GREy KNIGHTS TERMINATOR SqUAD unit from your army, and when using that Stratagem, that unit can be set up anywhere on the battlefield that is more than 3\" away from all enemy units."
+      "description": "INqUISITOR model only. Once per battle, if the bearer is on the battlefield, you can use the Rapid Ingress Stratagem for 0CP. When doing so, you must target a GREy KNIGHTS TERMINATOR SqUAD unit from your army, and when using that Stratagem, that unit can be set up anywhere on the battlefield that is more than 6\" away from all enemy units."
     },
     {
       "id": "no-escape-aura",
@@ -693,7 +693,7 @@
     {
       "id": "micromelta-rounds",
       "name": "Micromelta Rounds",
-      "cost": 45,
+      "cost": 20,
       "detachmentId": "veiled-blade-elimination-force",
       "detachmentName": "Veiled Blade Elimination Force",
       "description": "Vindicare Assassin models only. This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.",
@@ -862,9 +862,9 @@
           "type": "Faction"
         },
         {
-          "id": "deadshot",
-          "name": "Deadshot",
-          "description": "Each time this model makes a ranged attack, when selecting targets for that attack, you can ignore the Lone Operative ability.",
+          "id": "dead-shot",
+          "name": "Dead Shot",
+          "description": "When this unit is selected to shoot, until this unit has shot: enemy units do not have Lone Operative. Hidden enemy units have +15\" detection range.",
           "type": "Datasheet"
         },
         {
@@ -1048,13 +1048,13 @@
         {
           "id": "acrobatic-escape",
           "name": "Acrobatic Escape",
-          "description": "At the end of the Fight phase, if this model is within Engagement Range of one or more enemy units, it can make a Fall Back move of up to D6\". In addition, at the end of your opponent’s turn, if this model is not within 3\" of one or more enemy units, you can remove it from the battlefield and then, in the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the battle ends and this model is not on the battlefield, it is destroyed.",
+          "description": "At the end of the Fight phase, if this unit is engaged, this unit can make a fall-back move of up to D6\". At the end of your opponent’s turn, if this unit is more than 3\" from all enemy units, you can use this ability. If you do: Place this unit in strategic reserves. This unit must make an ingress move in your next Movement phase (including in your first turn).",
           "type": "Datasheet"
         },
         {
-          "id": "lord-of-deceit-aura",
-          "name": "Lord of Deceit (Aura)",
-          "description": "Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that use of that Stratagem by 1CP.",
+          "id": "reign-of-confusion",
+          "name": "Reign of Confusion",
+          "description": "Once per turn, when your opponent targets a unit from their army within 12\" of this model with a Stratagem, this model can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.",
           "type": "Datasheet"
         },
         {
@@ -1262,7 +1262,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -4687,7 +4687,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 210
+          "points": 190
         }
       ],
       "wargearCosts": [
@@ -4988,7 +4988,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 105
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -5331,6 +5331,10 @@
         {
           "description": "5 models",
           "points": 100
+        },
+        {
+          "description": "10 models",
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -5356,10 +5360,8 @@
         "at-all-costs"
       ],
       "canBeLedBy": [
-        "inquisitor-draxus",
         "inquisitor-greyfax",
         "inquisitor-coteaz",
-        "inquisitor",
         "watch-captain-artemis",
         "watch-master"
       ]
@@ -5377,7 +5379,7 @@
         {
           "line": 1,
           "name": "Corvus Blackstar",
-          "M": "20+\"",
+          "M": "14\"",
           "T": 10,
           "Sv": "3+",
           "invSv": "-",
@@ -5524,7 +5526,6 @@
       "keywords": [
         "Vehicle",
         "Deathwatch",
-        "Aircraft",
         "Fly",
         "Corvus Blackstar",
         "Transport",
@@ -5976,7 +5977,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 115
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -6156,7 +6157,8 @@
         "Dedicated Transport",
         "Imperium",
         "Ordo Hereticus",
-        "Immolator"
+        "Immolator",
+        "Frame"
       ],
       "factionKeywords": [
         "Agents of the Imperium"
@@ -6192,7 +6194,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 105
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 115
         }
       ],
@@ -6397,7 +6403,8 @@
         "Vehicle",
         "Inquisitorial Chimera",
         "Imperium",
-        "Dedicated Transport"
+        "Dedicated Transport",
+        "Frame"
       ],
       "factionKeywords": [
         "Agents of the Imperium"
@@ -6449,7 +6456,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 60
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 70
         }
       ],
@@ -6572,7 +6583,8 @@
         "Smoke",
         "Transport",
         "Dedicated Transport",
-        "Imperial Rhino"
+        "Imperial Rhino",
+        "Frame"
       ],
       "factionKeywords": [
         "Agents of the Imperium"
@@ -6600,7 +6612,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 75
         }
       ],

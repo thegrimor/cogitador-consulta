@@ -18,7 +18,7 @@
     {
       "id": "kauyon",
       "name": "Kauyon",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "RECONNAISSANCE",
       "dp": 2,
       "chapters": [],
       "abilities": [
@@ -38,7 +38,7 @@
     {
       "id": "montka",
       "name": "Mont’ka",
-      "disposition": "PURGE THE FOE",
+      "disposition": "PRIORITY ASSETS",
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -59,7 +59,7 @@
       "id": "retaliation-cadre",
       "name": "Retaliation Cadre",
       "disposition": "PURGE THE FOE",
-      "dp": 2,
+      "dp": 3,
       "chapters": [],
       "abilities": [
         {
@@ -171,7 +171,7 @@
       "type": "Auxiliary Cadre – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">T'AU EMPIRE</span> unit (excluding <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> units) is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">T'AU EMPIRE</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks that target a unit within 9\" of a friendly <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> unit have [LETHAL HITS].",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">T'AU EMPIRE</span> unit (excluding <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> units) is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">T'AU EMPIRE</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks that target a unit within 8\" of a friendly <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> unit have [LETHAL HITS].",
       "effect": {
         "effects": {
           "lethalHitsBonus": true
@@ -262,7 +262,7 @@
       "type": "Kauyon – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within 9\", improve the Armour Penetration characteristic of that attack by 1.<br><br><b>RESTRICTIONS:</b> You cannot use this Stratagem during the first or second battle rounds.",
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within 8\", improve the Armour Penetration characteristic of that attack by 1.<br><br><b>RESTRICTIONS:</b> You cannot use this Stratagem during the first or second battle rounds.",
       "effect": {
         "effects": {
           "apMod": 1
@@ -855,7 +855,7 @@
       "cost": 25,
       "detachmentId": "auxiliary-cadre",
       "detachmentName": "Auxiliary Cadre",
-      "description": "T’au Empire Walker model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. During your first Movement phase, when you set up the bearer’s unit, it must be set up within 12\" of one or more friendly Kroot or Vespid Stingwings units and not within 9\" horizontally of one or more enemy units."
+      "description": "T’au Empire Walker model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. During your first Movement phase, when you set up the bearer’s unit, it must be set up within 12\" of one or more friendly Kroot or Vespid Stingwings units and not within 8\" horizontally of one or more enemy units."
     },
     {
       "id": "negation-emitters-upgrade",
@@ -1593,7 +1593,7 @@
         {
           "id": "way-of-the-short-blade",
           "name": "Way of the Short Blade",
-          "description": "While this model is leading a unit, each time a model in that unit makes an attack that targets an enemy unit within 9\", add 1 to the Wound roll.",
+          "description": "While this model is leading a unit, each time a model in that unit makes an attack that targets an enemy unit within 8\", add 1 to the Wound roll.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -1645,7 +1645,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -3076,7 +3076,7 @@
         {
           "id": "homing-beacon",
           "name": "Homing Beacon",
-          "description": "Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3\" of the bearer’s unit and more than 9\" away from all enemy units.<br><br><b>Designer’s Note:</b> <i>Place a Homing Beacon token next to this unit, removing it once this ability is used.</i>",
+          "description": "Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3\" of the bearer’s unit and more than 8\" away from all enemy units.<br><br><b>Designer’s Note:</b> <i>Place a Homing Beacon token next to this unit, removing it once this ability is used.</i>",
           "type": "Datasheet"
         }
       ],
@@ -3404,13 +3404,13 @@
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 160
+          "points": 165
         }
       ],
       "wargearCosts": [
         {
           "name": "per Cyclic Ion Raker",
-          "points": 10
+          "points": 15
         }
       ],
       "stratagemIds": [
@@ -3654,17 +3654,17 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 180
+          "points": 190
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 210
+          "points": 220
         }
       ],
       "wargearCosts": [
         {
           "name": "per Ion accelerator",
-          "points": 20
+          "points": 25
         }
       ],
       "stratagemIds": [
@@ -3956,8 +3956,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "10 models",
-          "points": 80
+          "description": "10 models (1st-2nd units)",
+          "points": 85
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 100
         }
       ],
       "wargearCosts": [
@@ -4126,7 +4130,8 @@
       "keywords": [
         "Vehicle",
         "Fly",
-        "Piranhas"
+        "Piranhas",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -4337,7 +4342,8 @@
         "Devilfish",
         "Vehicle",
         "Fly",
-        "Dedicated Transport"
+        "Dedicated Transport",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -4373,7 +4379,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 75
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 85
         }
       ],
@@ -4413,7 +4423,7 @@
         {
           "line": 1,
           "name": "Razorshark Strike Fighter",
-          "M": "20+\"",
+          "M": "-",
           "T": 10,
           "Sv": "3+",
           "invSv": "-",
@@ -4546,7 +4556,8 @@
         "Razorshark Strike Fighter",
         "Fly",
         "Aircraft",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -4622,7 +4633,7 @@
         {
           "line": 1,
           "name": "Sun Shark Bomber",
-          "M": "20+\"",
+          "M": "-",
           "T": 9,
           "Sv": "3+",
           "invSv": "-",
@@ -4737,7 +4748,7 @@
         {
           "id": "pulse-bombs",
           "name": "Pulse Bombs",
-          "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 4+, that unit suffers 1 mortal wound.",
+          "description": "At the end of your opponent’s Fight phase, select one visible enemy unit (excluding Lone Operative units) within 24\" of this unit, and roll six D6 for that unit: For each 4+, that unit suffers 1 mortal wound.",
           "type": "Datasheet"
         },
         {
@@ -4751,7 +4762,8 @@
         "Fly",
         "Aircraft",
         "Vehicle",
-        "Sun Shark Bomber"
+        "Sun Shark Bomber",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -5316,7 +5328,8 @@
         "Vehicle",
         "Fly",
         "Markerlight",
-        "Sky Ray Gunship"
+        "Sky Ray Gunship",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -5558,7 +5571,8 @@
       "keywords": [
         "Hammerhead Gunship",
         "Fly",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -5599,11 +5613,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 140
+          "points": 150
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 150
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -5830,7 +5844,7 @@
         },
         {
           "description": "3 models (1st-2nd units)",
-          "points": 240
+          "points": 255
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -5842,7 +5856,7 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 260
+          "points": 275
         }
       ],
       "wargearCosts": [
@@ -6154,11 +6168,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 360
+          "points": 375
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 385
+          "points": 400
         }
       ],
       "wargearCosts": [],
@@ -6267,7 +6281,8 @@
         "Tidewall Droneport",
         "Fly",
         "Transport",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -6393,7 +6408,8 @@
         "Vehicle",
         "Transport",
         "Fly",
-        "Tidewall Shieldline"
+        "Tidewall Shieldline",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -6414,6 +6430,10 @@
         {
           "description": "1 model",
           "points": 85
+        },
+        {
+          "description": "+ 1 Tidewall Defence Platform",
+          "points": 20
         }
       ],
       "wargearCosts": [],
@@ -6516,7 +6536,8 @@
         "Vehicle",
         "Transport",
         "Tidewall Gunrig",
-        "Fly"
+        "Fly",
+        "Frame"
       ],
       "factionKeywords": [
         "T’au Empire"
@@ -7134,11 +7155,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 325
+          "points": 375
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 375
+          "points": 425
         }
       ],
       "wargearCosts": [],
@@ -7604,7 +7625,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 2100
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -8841,7 +8862,7 @@
         {
           "id": "trail-finding",
           "name": "Trail Finding",
-          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model’s unit, if this model’s unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6\".",
+          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model’s unit, if this model’s unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6\".",
           "type": "Datasheet"
         },
         {
@@ -9904,7 +9925,7 @@
         {
           "id": "neocapacitor-shields",
           "name": "Neocapacitor Shields",
-          "description": "At the start of your opponent’s Charge phase, you can select one enemy unit (excluding <span class=\"kwb\">MONSTER</span> and <span class=\"kwb\">VEHICLE</span> units) within 12\" of this unit. That unit must take a Battle-shock test and, until the end of the turn, subtract 1 from Charge rolls made for that unit.",
+          "description": "At the start of your opponent’s Charge phase, you can select one visible enemy unit (excluding <span class=\"kwb\">MONSTER</span> and <span class=\"kwb\">VEHICLE</span> units) within 12\" of this unit. That unit must take a Battle-shock test and, until the end of the turn, subtract 1 from Charge rolls made for that unit.",
           "type": "Datasheet"
         },
         {
@@ -9969,7 +9990,7 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 205
+          "points": 220
         }
       ],
       "wargearCosts": [],

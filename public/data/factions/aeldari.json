@@ -31,7 +31,7 @@
     {
       "id": "warhost",
       "name": "Warhost",
-      "disposition": "PURGE THE FOE",
+      "disposition": "RECONNAISSANCE",
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -119,7 +119,7 @@
         {
           "id": "strength-from-death",
           "name": "Strength from Death",
-          "description": "You can use the following rules:<br><br><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Lethal Intent</p><p>At the end of your opponent’s <a href=\"/wh40k10ed/the-rules/core-rules/#SHOOTING-PHASE\">Shooting phase</a>, if one or more <span class=\"tooltip00056\" data-tooltip-content=\"#tooltip_content00056\" data-tooltip-anchor=\"#tooltip_content00056\"><span class=\"kwb kwbu\">YNNARI</span></span> units from your army were destroyed this phase, select one <span class=\"tooltip00057\" data-tooltip-content=\"#tooltip_content00057\" data-tooltip-anchor=\"#tooltip_content00057\"><span class=\"kwb kwbu\">YNNARI</span> <span class=\"kwb kwbu\">INFANTRY</span></span> or <a class=\"kwbOne\" href=\"/wh40k10ed/factions/aeldari/Ynnari-Reavers\"><span class=\"kwb kwbo\">YNNARI</span> <span class=\"kwb kwbo\">MOUNTED</span></a> unit from your army that was within 6\" of your destroyed unit. That unit can make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span> of up to D6+1\".</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Lethal Surge</p><p>Once per turn, when a <span class=\"tooltip00056\" data-tooltip-content=\"#tooltip_content00056\" data-tooltip-anchor=\"#tooltip_content00056\"><span class=\"kwb kwbu\">YNNARI</span></span> unit from your army performs the <span class=\"tooltip00058\" data-tooltip-content=\"#tooltip_content00058\"><span class=\"tt kwbu\">Fade</span> <span class=\"tt kwbu\">Back</span></span> Agile Manoeuvre, it can make a Lethal Surge move instead of a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span>. If it does, roll one D6 and add 1 to the result: that unit can be moved a number of inches up to the total. When doing so, those models can be moved within <span class=\"tooltip00038\" data-tooltip-content=\"#tooltip_content00038\"><span class=\"tt kwbu\">Engagement</span> <span class=\"tt kwbu\">Range</span></span> of the enemy unit that just triggered that Agile Manoeuvre.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Lethal Reprisal</p><p>At the start of the <a href=\"/wh40k10ed/the-rules/core-rules/#FIGHT-PHASE\">Fight phase</a>, select one <span class=\"tooltip00056\" data-tooltip-content=\"#tooltip_content00056\" data-tooltip-anchor=\"#tooltip_content00056\"><span class=\"kwb kwbu\">YNNARI</span></span> unit from your army (excluding <span class=\"kwb\">TITANIC</span> units) that is below its <span class=\"tooltip00049\" data-tooltip-content=\"#tooltip_content00049\"><span class=\"tt kwbu\">Starting</span> <span class=\"tt kwbu\">Strength</span></span>. Until the end of the phase, that unit has the <span class=\"tooltip00059\" data-tooltip-content=\"#tooltip_content00059\"><span class=\"tt kwbu\">Fights</span> <span class=\"tt kwbu\">First</span></span> ability.</p></td></tr></tbody></tbody></table></div><br><span class=\"hi_custom\">SERVANTS OF THE WHISPERING GOD</span><br><ul><li>You can include Ynnari units in your army, even though they do not have the <span class=\"kwb\">ASURYANI</span> Faction keyword.</li><li>Asuryani units (excluding Epic Heroes) from your army gain the <span class=\"kwb\">YNNARI</span> keyword.</li><li>You must include Yvraine and/or The Yncarne in your army, and one of those models must be your <span class=\"kwb\">WARLORD</span>.</li></ul>"
+          "description": "You can use the following rules:<br><br><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Lethal Intent</p><p>At the end of your opponent’s <a href=\"/wh40k10ed/the-rules/core-rules/#SHOOTING-PHASE\">Shooting phase</a>, if one or more <span class=\"tooltip00056\" data-tooltip-content=\"#tooltip_content00056\" data-tooltip-anchor=\"#tooltip_content00056\"><span class=\"kwb kwbu\">YNNARI</span></span> units from your army were destroyed this phase, select one <span class=\"tooltip00057\" data-tooltip-content=\"#tooltip_content00057\" data-tooltip-anchor=\"#tooltip_content00057\"><span class=\"kwb kwbu\">YNNARI</span> <span class=\"kwb kwbu\">INFANTRY</span></span> or <a class=\"kwbOne\" href=\"/wh40k10ed/factions/aeldari/Ynnari-Reavers\"><span class=\"kwb kwbo\">YNNARI</span> <span class=\"kwb kwbo\">MOUNTED</span></a> unit from your army that was within 6\" of your destroyed unit. That unit can make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span> of up to D6+1\".</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Lethal Surge</p><p>Once per turn, when a <span class=\"tooltip00056\" data-tooltip-content=\"#tooltip_content00056\" data-tooltip-anchor=\"#tooltip_content00056\"><span class=\"kwb kwbu\">YNNARI</span></span> unit from your army performs the <span class=\"tooltip00058\" data-tooltip-content=\"#tooltip_content00058\"><span class=\"tt kwbu\">Fade</span> <span class=\"tt kwbu\">Back</span></span> Agile Manoeuvre, it can make a surge move of up to D6+1\" instead of a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Lethal Reprisal</p><p>At the start of the <a href=\"/wh40k10ed/the-rules/core-rules/#FIGHT-PHASE\">Fight phase</a>, select one <span class=\"tooltip00056\" data-tooltip-content=\"#tooltip_content00056\" data-tooltip-anchor=\"#tooltip_content00056\"><span class=\"kwb kwbu\">YNNARI</span></span> unit from your army (excluding <span class=\"kwb\">TITANIC</span> units) that is below its <span class=\"tooltip00049\" data-tooltip-content=\"#tooltip_content00049\"><span class=\"tt kwbu\">Starting</span> <span class=\"tt kwbu\">Strength</span></span>. Until the end of the phase, that unit has the <span class=\"tooltip00059\" data-tooltip-content=\"#tooltip_content00059\"><span class=\"tt kwbu\">Fights</span> <span class=\"tt kwbu\">First</span></span> ability.</p></td></tr></tbody></tbody></table></div><br><span class=\"hi_custom\">SERVANTS OF THE WHISPERING GOD</span><br><ul><li>You can include Ynnari units in your army, even though they do not have the <span class=\"kwb\">ASURYANI</span> Faction keyword.</li><li>Asuryani units (excluding Epic Heroes) from your army gain the <span class=\"kwb\">YNNARI</span> keyword.</li><li>You must include Yvraine and/or The Yncarne in your army, and one of those models must be your <span class=\"kwb\">WARLORD</span>.</li></ul>"
         }
       ]
     },
@@ -178,7 +178,7 @@
     {
       "id": "eldritch-raiders",
       "name": "Eldritch Raiders",
-      "disposition": "DISRUPTION",
+      "disposition": "PURGE THE FOE",
       "dp": 2,
       "chapters": [],
       "abilities": [
@@ -401,7 +401,7 @@
       "type": "Aspect Host – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One Asuryani unit from your army that was eligible to fight this phase and one friendly Transport it is able to embark within.<br><br><b>EFFECT:</b> If your <span class=\"kwb\">ASURYANI</span> unit is not within Engagement Range of one or more enemy units and is wholly within 6\" of that <span class=\"kwb\">TRANSPORT</span>, it can embark within it."
+      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One unengaged Asuryani unit from your army that was eligible to fight this phase, and one friendly Transport it is able to embark within.<br><br><b>EFFECT:</b> If your <span class=\"kwb\">ASURYANI</span> unit is wholly within 6\" of that <span class=\"kwb\">TRANSPORT</span>, it can embark within it."
     },
     {
       "id": "pirates-due",
@@ -685,7 +685,7 @@
       "type": "Ghosts of the Webway – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Troupe unit from your army that is within 9\" of that enemy unit.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Troupe unit from your army that is within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
     },
     {
       "id": "exit-the-stage",
@@ -705,7 +705,7 @@
       "type": "Ghosts of the Webway – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Harlequins Character model from your army that was just destroyed. You can use this Stratagem on that model even though it was just destroyed.<br><br><b>EFFECT:</b> At the end of the phase, set your model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with half of its starting number of wounds remaining.<br><br><b>RESTRICTIONS:</b> Each model can only be targeted with this Stratagem once per battle."
+      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Harlequins Character model from your army that was just destroyed. You can use this Stratagem on that model even though it was just destroyed.<br><br><b>EFFECT:</b> At the end of the phase, set up the destroyed model on the battlefield, unengaged and as close as possible to where it was destroyed. That model is not part of an attached unit and its unit has a starting strength of 1. That model has half of its starting number of wounds remaining.<br><br><b>RESTRICTIONS:</b> Each model can only be targeted with this Stratagem once per battle."
     },
     {
       "id": "blades-of-asuryan",
@@ -808,7 +808,7 @@
       "type": "Seer Council – Epic Deed Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Asuryani Psyker model from your army within 9\" of that enemy unit.<br><br><b>EFFECT:</b> Roll six D6: for each 3+, that enemy unit suffers 1 mortal wound."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Asuryani Psyker model from your army within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Roll six D6: for each 3+, that enemy unit suffers 1 mortal wound."
     },
     {
       "id": "psychic-shield",
@@ -828,7 +828,7 @@
       "type": "Seer Council – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Asuryani Infantry unit from your army (excluding Wraith Construct units) that has not been selected to move this phase, was not set up on the battlefield this phase, and is within 9\" of one or more friendly Asuryani Psyker models.<br><br><b>EFFECT:</b> Remove your unit from the battlefield and set it up again anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.<br><br><b>RESTRICTIONS:</b> Until the end of the phase, your unit is not eligible to be selected to move."
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Asuryani Infantry unit from your army (excluding Wraith Construct units) that has not been selected to move this phase, was not set up on the battlefield this phase, and is within 9\" of one or more friendly Asuryani Psyker models.<br><br><b>EFFECT:</b> Place your unit in strategic reserves. Your unit has Deep Strike. Your unit must make an ingress move this phase."
     },
     {
       "id": "presentiment-of-dread",
@@ -868,7 +868,7 @@
       "type": "Serpent’s Brood – Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Harlequins Infantry unit from your army that is within 9\" of that enemy unit.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Harlequins Infantry unit from your army that is within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
     },
     {
       "id": "fangs-of-the-brood",
@@ -1041,7 +1041,7 @@
       "type": "Warhost – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One Asuryani unit from your army that was eligible to fight this phase and one friendly Transport it is able to embark within.<br><br><b>EFFECT:</b> If your <span class=\"kwb\">ASURYANI</span> unit is not within Engagement Range of one or more enemy units and is wholly within 6\" of that <span class=\"kwb\">TRANSPORT</span>, it can embark within it."
+      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One unengaged Asuryani unit from your army that was eligible to fight this phase, and one friendly Transport it is able to embark within.<br><br><b>EFFECT:</b> If your <span class=\"kwb\">ASURYANI</span> unit is wholly within 6\" of that <span class=\"kwb\">TRANSPORT</span>, it can embark within it."
     },
     {
       "id": "feigned-retreat",
@@ -1154,7 +1154,7 @@
       "type": "Windrider Host – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> The Reinforcements step of your Movement phase.<br><br><b>TARGET:</b> One Asuryani Mounted or VYPER unit from your army in Reserves.<br><br><b>EFFECT:</b> Until the end of the phase, when setting up your unit on the battlefield from Reserves, it can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units. When doing so, if your unit is set up within 9\" horizontally of one or more enemy units, until the end of the turn, it is not eligible to declare a charge."
+      "description": "<b>WHEN:</b> The Reinforcements step of your Movement phase.<br><br><b>TARGET:</b> One Asuryani Mounted or VYPER unit from your army in Reserves.<br><br><b>EFFECT:</b> Until the end of the phase, when setting up your unit on the battlefield from Reserves, it can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units. When doing so, if your unit is set up within 8\" horizontally of one or more enemy units, until the end of the turn, it is not eligible to declare a charge."
     },
     {
       "id": "heroes-fall-aeldari",
@@ -1690,7 +1690,7 @@
       "cost": 25,
       "detachmentId": "spirit-conclave",
       "detachmentName": "Spirit Conclave",
-      "description": "Spiritseer model only. Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of the bearer, the bearer’s unit can make a Normal move of up to 6\"."
+      "description": "Spiritseer model only. In your opponent’s Movement phase, if an enemy unit ends a move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6\"."
     },
     {
       "id": "morbid-might",
@@ -1787,7 +1787,7 @@
     {
       "id": "mistweave-aeldari",
       "name": "Mistweave",
-      "cost": 15,
+      "cost": 20,
       "detachmentId": "fateful-performance",
       "detachmentName": "Fateful Performance",
       "description": "<span class=\"kwb\">SHADOWSEER</span> model only. This unit has Infiltrators."
@@ -3062,7 +3062,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 85
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -3225,7 +3225,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 265
+          "points": 250
         }
       ],
       "wargearCosts": [],
@@ -3428,7 +3428,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -3682,7 +3682,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -4393,7 +4393,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 45
+          "points": 55
         },
         {
           "description": "2 models",
@@ -5244,7 +5244,7 @@
         },
         {
           "description": "6 models",
-          "points": 160
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -5364,7 +5364,7 @@
         {
           "id": "path-of-the-outcast",
           "name": "Path of the Outcast",
-          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, it can make a Normal move of up to D6\".",
+          "description": "In your opponent’s Movement phase, if an enemy unit ends a move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6\".",
           "type": "Datasheet"
         }
       ],
@@ -6940,7 +6940,8 @@
         "Transport",
         "Dedicated Transport",
         "Fly",
-        "Wave Serpent"
+        "Wave Serpent",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -6977,7 +6978,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 115
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 125
         }
       ],
@@ -7218,7 +7223,7 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 100
+          "points": 95
         },
         {
           "description": "10 models (1st-2nd units)",
@@ -7226,7 +7231,7 @@
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 115
+          "points": 110
         },
         {
           "description": "10 models (3rd+ unit)",
@@ -7484,7 +7489,7 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 115
+          "points": 105
         },
         {
           "description": "10 models (1st-2nd units)",
@@ -7492,11 +7497,11 @@
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 130
+          "points": 125
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 215
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -7763,11 +7768,11 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 105
+          "points": 100
         },
         {
           "description": "6 models",
-          "points": 210
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -7811,7 +7816,7 @@
         {
           "line": 1,
           "name": "Crimson Hunter",
-          "M": "20+\"",
+          "M": "-",
           "T": 8,
           "Sv": "3+",
           "invSv": "5",
@@ -8198,7 +8203,7 @@
         {
           "line": 1,
           "name": "Hemlock Wraithfighter",
-          "M": "20+\"",
+          "M": "-",
           "T": 8,
           "Sv": "3+",
           "invSv": "-",
@@ -8746,7 +8751,8 @@
         "Fly",
         "Falcon",
         "Vehicle",
-        "Aeldari"
+        "Aeldari",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -8948,7 +8954,8 @@
         "Vehicle",
         "Aeldari",
         "Fire Prism",
-        "Fly"
+        "Fly",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -9117,7 +9124,8 @@
         "Aeldari",
         "Night Spinner",
         "Vehicle",
-        "Fly"
+        "Fly",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -9366,7 +9374,7 @@
         },
         {
           "description": "2 models",
-          "points": 170
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -9861,11 +9869,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 415
+          "points": 385
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 435
+          "points": 405
         }
       ],
       "wargearCosts": [
@@ -10067,7 +10075,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 1100
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -10307,7 +10315,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 2100
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -11018,11 +11026,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 80
+          "points": 70
         },
         {
           "description": "10 models",
-          "points": 160
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -11224,7 +11232,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 95
+          "points": 90
         },
         {
           "description": "6 models",
@@ -11669,7 +11677,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 50
         }
       ],
       "wargearCosts": [],
@@ -12095,7 +12103,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -12411,14 +12419,8 @@
         {
           "id": "acrobatic-grace",
           "name": "Acrobatic Grace",
-          "description": "Each time an attack targets this unit, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
+          "description": "This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.",
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -12464,11 +12466,11 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 105
+          "points": 95
         },
         {
           "description": "4 models",
-          "points": 210
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -12492,7 +12494,20 @@
         "strands-of-fate",
         "martial-grace"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "combatEffects": [
+        {
+          "sourceRuleId": "unit_000002539_acrobatic_grace",
+          "label": "Skyweavers — -1 impactar",
+          "description": "Each time an attack targets this unit, subtract 1 from the Hit roll.",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender"
+          }
+        }
+      ]
     },
     {
       "id": "voidweaver",
@@ -12632,7 +12647,8 @@
         "Vehicle",
         "Aeldari",
         "Fly",
-        "Voidweaver"
+        "Voidweaver",
+        "Frame"
       ],
       "factionKeywords": [
         "Harlequins",
@@ -12667,14 +12683,6 @@
         {
           "description": "1 model",
           "points": 115
-        },
-        {
-          "description": "5 models (3rd+ unit)",
-          "points": 90
-        },
-        {
-          "description": "10 models (3rd+ unit)",
-          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -12786,7 +12794,7 @@
         {
           "id": "rapid-embarkation",
           "name": "Rapid Embarkation",
-          "description": "At the end of the Fight phase, if there are no models currently embarked within this <span class=\"kwb\">TRANSPORT</span>, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6\" of this <span class=\"kwb\">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class=\"kwb\">TRANSPORT</span>.",
+          "description": "At the end of the Fight phase, if there are no models currently embarked within this <span class=\"kwb\">TRANSPORT</span>, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6\" of this <span class=\"kwb\">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class=\"kwb\">TRANSPORT</span>. That unit can embark within this <span class=\"kwb\">TRANSPORT</span> in a turn it disembarked from this <span class=\"kwb\">TRANSPORT</span>.",
           "type": "Datasheet"
         }
       ],
@@ -12797,7 +12805,8 @@
         "Starweaver",
         "Vehicle",
         "Aeldari",
-        "Transport"
+        "Transport",
+        "Frame"
       ],
       "factionKeywords": [
         "",
@@ -12821,7 +12830,11 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 70
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 80
         }
       ],
@@ -13287,7 +13300,7 @@
         {
           "id": "inevitable-death",
           "name": "Inevitable Death",
-          "description": "Once in each of your opponent’s turns, if this model is on the battlefield when another friendly <span class=\"kwb\">AELDARI</span> unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units.",
+          "description": "Once in each of your opponent’s turns, if this model is on the battlefield when another friendly <span class=\"kwb\">AELDARI</span> unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units. Doing so does not prevent this model from being eligible to move.",
           "type": "Datasheet"
         },
         {
@@ -13602,7 +13615,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -13926,7 +13939,8 @@
         "D-cannon Platform",
         "Infantry",
         "Aeldari",
-        "Support Weapon"
+        "Support Weapon",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -14083,7 +14097,8 @@
         "Support Weapon",
         "Infantry",
         "Aeldari",
-        "Shadow Weaver Platform"
+        "Shadow Weaver Platform",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -14241,7 +14256,8 @@
         "Infantry",
         "Aeldari",
         "Support Weapon",
-        "Vibro Cannon Platform"
+        "Vibro Cannon Platform",
+        "Frame"
       ],
       "factionKeywords": [
         "Asuryani",
@@ -14484,11 +14500,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 405
+          "points": 380
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 425
+          "points": 400
         }
       ],
       "wargearCosts": [],
@@ -15467,12 +15483,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
+          "description": "5 models (1st-2nd units)",
           "points": 80
         },
         {
-          "description": "10 models",
-          "points": 80
+          "description": "10 models (1st-2nd units)",
+          "points": 160
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 90
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -15847,7 +15871,8 @@
         "Raider",
         "Aeldari",
         "Transport",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Ynnari",
@@ -15876,7 +15901,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 70
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 80
         }
       ],
@@ -16026,7 +16055,7 @@
         {
           "id": "lithe-embarkation",
           "name": "Lithe Embarkation",
-          "description": "At the end of the Fight phase, if there are no models currently embarked within this <span class=\"kwb\">TRANSPORT</span>, you can select one friendly Ynnari Infantry unit that only includes models from the units listed in this unit’s Transport section, that has 6 or fewer models and that is wholly within 6\" of this <span class=\"kwb\">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class=\"kwb\">TRANSPORT</span>.",
+          "description": "At the end of the Fight phase, if there are no models currently embarked within this <span class=\"kwb\">TRANSPORT</span>, you can select one friendly Ynnari Infantry unit that only includes models from the units listed in this unit’s Transport section, that has 6 or fewer models and that is wholly within 6\" of this <span class=\"kwb\">TRANSPORT</span>. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this <span class=\"kwb\">TRANSPORT</span>. That unit can embark within this <span class=\"kwb\">TRANSPORT</span> in a turn it disembarked from this <span class=\"kwb\">TRANSPORT</span>.",
           "type": "Datasheet"
         }
       ],
@@ -16036,7 +16065,8 @@
         "Aeldari",
         "Vehicle",
         "Venom",
-        "Fly"
+        "Fly",
+        "Frame"
       ],
       "factionKeywords": [
         "Ynnari",
@@ -16069,8 +16099,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 70
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -16892,20 +16926,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st-2nd units)",
-          "points": 80
+          "description": "5 models",
+          "points": 75
         },
         {
-          "description": "10 models (1st-2nd units)",
-          "points": 150
-        },
-        {
-          "description": "5 models (3rd+ unit)",
-          "points": 90
-        },
-        {
-          "description": "10 models (3rd+ unit)",
-          "points": 160
+          "description": "10 models",
+          "points": 140
         }
       ],
       "wargearCosts": [],

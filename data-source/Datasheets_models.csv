@@ -6,7 +6,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000006|1|Big Mek In Mega Armour|5"|6|2+|-||5|7+|1|40mm||
 000000007|1|Big Mek On Warbike|12"|6|4+|6||6|7+|2|90 x 52mm||
 000000008|1|GHAZGHKULL THRAKA|5"|6|2+|4||10|6+|4|80mm||
-000000008|2|MAKARI|5"|6|7+|2|You cannot re-roll invulnerable saving throws made for this model.|1|8+|1|25mm||
+000000008|2|MAKARI|5"|6|7+|2|While a friendly Makari model is on the battlefield, you cannot re-roll save rolls for this unit.|1|8+|1|25mm||
 000000009|1|Kaptin Badrukk|6"|5|3+|4||6|7+|1|40mm||
 000000010|1|Boss Zagstruk|12"|5|4+|5||6|6+|1|40mm||
 000000011|1|Boss Snikrot|6"|5|5+|5||6|6+|1|40mm||
@@ -30,10 +30,10 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000027|1|STORMBOY|12"|5|5+|-||1|7+|1|32mm||
 000000027|2|BOSS NOB|12"|5|5+|-||2|7+|1|32mm||
 000000028|1|Deffkoptas|12"|6|4+|6||4|7+|2|75 x 42mm||
-000000029|1|Dakkajet|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
-000000030|1|Burna-bommer|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
-000000031|1|Blitza-bommer|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
-000000032|1|Wazbom Blastajet|20+"|9|3+|6||12|7+|0|120 x 92mm flying base||
+000000029|1|Dakkajet|-|9|3+|6||12|7+|-|120 x 92mm flying base||
+000000030|1|Burna-bommer|-|9|3+|6||12|7+|-|120 x 92mm flying base||
+000000031|1|Blitza-bommer|-|9|3+|6||12|7+|-|120 x 92mm flying base||
+000000032|1|Wazbom Blastajet|-|9|3+|6||12|7+|-|120 x 92mm flying base||
 000000033|1|WARBIKER|12"|6|4+|6||3|7+|2|75 x 42mm||
 000000033|2|BOSS NOB ON WARBIKE|12"|6|4+|6||4|7+|2|75 x 42mm||
 000000034|1|Wartrakks|12"|6|4+|6||6|7+|2|Use model||
@@ -74,7 +74,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000076|1|Lieutenant With Combi-weapon|6"|4|3+|-||4|6+|1|40mm||
 000000079|1|Librarian In Terminator Armour|5"|5|2+|4||5|6+|1|40mm||
 000000083|1|Captain With Jump Pack|12"|4|3+|4||5|6+|1|40mm||
-000000084|1|Stormhawk Interceptor|20+"|9|3+|-||10|6+|0|120 x 92mm flying base||
+000000084|1|Stormhawk Interceptor|-|9|3+|-||10|6+|-|120 x 92mm flying base||
 000000085|1|Rhino Primaris|12"|9|3+|-||10|6+|3|Use model||
 000000086|1|Firestrike Servo-turrets|3"|6|2+|-||6|6+|2|80mm||
 000000087|1|Drop Pod|-|7|3+|-||8|6+|0|Use model||
@@ -146,8 +146,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000230|1|Deathwing Terminator Squad|5"|5|2+|4||3|6+|1|40mm||
 000000231|1|Deathwing Knights|5"|5|2+|4||4|6+|1|40mm||
 000000238|1|Ravenwing Darkshroud|14"|8|3+|5||10|6+|3|60mm flying base||
-000000239|1|Nephilim Jetfighter|20+"|8|3+|5||11|6+|0|120 x 92mm flying base||
-000000240|1|Ravenwing Dark Talon|20+"|8|3+|5||11|6+|0|120 x 92mm flying base||
+000000239|1|Nephilim Jetfighter|20+"|8|3+|5||11|6+|-|120 x 92mm flying base||
+000000240|1|Ravenwing Dark Talon|20+"|8|3+|5||11|6+|-|120 x 92mm flying base||
 000000241|1|Ravenwing Black Knights|12"|5|3+|5||3|6+|2|75 x 42mm||
 000000242|1|Land Speeder Vengeance|14"|8|3+|5||10|6+|3|60mm flying base||
 000000243|1|Fortress Of Redemption|-|13|2+|-||30|7+|0|Use model||
@@ -202,7 +202,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000395|1|Razorback|12"|9|3+|-||10|6+|2|Use model||
 000000396|1|Rhino|12"|9|3+|-||10|6+|2|Use model||
 000000397|1|Servitors|6"|4|4+|6||1|8+|0|25mm||
-000000398|1|Stormraven Gunship|20+"|10|3+|-||14|6+|0|120 x 92mm flying base||
+000000398|1|Stormraven Gunship|14"|10|3+|-||14|6+|0|120 x 92mm flying base||
 000000399|1|Brotherhood Techmarine|6"|4|2+|-||4|6+|1|32mm||
 000000400|1|Venerable Dreadnought|8"|9|2+|-||8|6+|3|60mm||
 000000402|1|Commander In Coldstar Battlesuit|12"|5|3+|-||6|7+|2|60mm||
@@ -227,8 +227,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000422|1|Pathfinder Team|7"|3|4+|-||1|7+|1|25mm||
 000000423|1|Piranha|14"|7|4+|-||7|7+|2|60mm flying base||
 000000424|1|Devilfish|12"|9|3+|-||13|7+|2|60mm flying base||
-000000425|1|Razorshark Strike Fighter|20+"|10|3+|-||12|7+|0|120 x 92mm flying base||
-000000426|1|Sun Shark Bomber|20+"|9|3+|-||12|7+|0|120 x 92mm flying base||
+000000425|1|Razorshark Strike Fighter|-|10|3+|-||12|7+|-|120 x 92mm flying base||
+000000426|1|Sun Shark Bomber|-|9|3+|-||12|7+|-|120 x 92mm flying base||
 000000427|1|Vespid Stingwings|12"|4|4+|-||1|7+|1|28.5mm||
 000000428|1|Firesight Team|6"|3|4+|-||4|7+|3|40mm||
 000000430|1|Sky Ray Gunship|10"|10|3+|-||14|7+|3|60mm flying base||
@@ -325,8 +325,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000541|1|C’tan Shard of the Nightbringer|10"|11|3+|4||16|6+|4|90mm||
 000000542|1|C’tan Shard of the Deceiver|8"|11|3+|4||16|6+|4|40mm||
 000000543|1|Ghost Ark|10"|9|3+|4||14|7+|3|60mm||
-000000544|1|Night Scythe|20+"|9|3+|-||12|7+|0|120 x 92mm flying base||
-000000545|1|Doom Scythe|20+"|9|3+|-||12|7+|0|120 x 92mm flying base||
+000000544|1|Night Scythe|14"|9|3+|-||12|7+|0|120 x 92mm flying base||
+000000545|1|Doom Scythe|-|9|3+|-||12|7+|-|120 x 92mm flying base||
 000000546|1|Canoptek Wraiths|10"|6|3+|4||4|8+|2|50mm||
 000000548|1|Tomb Blades|12"|5|4+|-||2|7+|2|32mm flying base||
 000000551|1|Canoptek Spyders|5"|7|3+|-||6|8+|2|60mm flying base||
@@ -384,9 +384,9 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000601|2|WARP SPIDER EXARCH|12"|3|3+|5||2|6+|1|28.5mm||
 000000602|1|SHINING SPEAR|14"|4|3+|5||2|6+|2|60mm flying base||
 000000602|2|SHINING SPEAR EXARCH|14"|4|3+|5||3|6+|2|60mm flying base||
-000000603|1|Crimson Hunter|20+"|8|3+|5||12|6+|0|120 x 92mm flying base||
+000000603|1|Crimson Hunter|-|8|3+|5||12|6+|-|120 x 92mm flying base||
 000000605|1|Vypers|14"|6|3+|-||6|7+|2|105 x 70mm||
-000000606|1|Hemlock Wraithfighter|20+"|8|3+|-||12|6+|0|120 x 92mm flying base||
+000000606|1|Hemlock Wraithfighter|-|8|3+|-||12|6+|-|120 x 92mm flying base||
 000000607|1|DARK REAPER|6"|3|3+|5||1|6+|1|28.5mm||
 000000607|2|DARK REAPER EXARCH|6"|3|3+|5||2|6+|1|28.5mm||
 000000609|1|Falcon|14"|9|3+|-||12|7+|3|60mm flying base||
@@ -436,8 +436,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000657|1|Venom|14"|6|4+|6||6|7+|1|60mm flying base||
 000000658|1|Reavers|16"|4|4+|6||2|7+|2|32mm flying base||
 000000659|1|Hellions|14"|4|4+|6||2|7+|1|32mm flying base||
-000000660|1|Razorwing Jetfighter|20+"|8|4+|6||10|7+|0|120 x 92mm flying base||
-000000661|1|Voidraven Bomber|20+"|9|4+|6||12|7+|0|120 x 92mm flying base||
+000000660|1|Razorwing Jetfighter|20+"|8|4+|6||10|7+|-|120 x 92mm flying base||
+000000661|1|Voidraven Bomber|20+"|9|4+|6||12|7+|-|120 x 92mm flying base||
 000000662|1|Scourges|14"|3|4+|5||1|7+|1|32mm||
 000000663|1|Talos|7"|7|3+|6||7|7+|2|60mm flying base||
 000000664|1|Cronos|7"|7|3+|6||7|7+|2|60mm flying base||
@@ -476,7 +476,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000723|1|Bullgryn Squad|6"|6|3+|-||3|7+|1|40mm||
 000000724|1|Ratlings|6"|2|6+|-||1|8+|1|25mm||
 000000725|1|Nork Deddog|6"|6|4+|-||6|7+|1|40mm||
-000000727|1|Valkyrie|20+"|10|2+|-||14|7+|0|120 x 92mm flying base||
+000000727|1|Valkyrie|14"|10|2+|-||14|7+|-|120 x 92mm flying base||
 000000728|1|Atlas Recovery Vehicle|10"|9|3+|-||10|7+|3|Use model||
 000000729|1|Salamander Command Vehicle|12"|8|3+|-||10|7+|3|Use model||
 000000730|1|Hades Breaching Drill|6"|9|3+|-||8|7+|2|Use model||
@@ -630,7 +630,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000000958|1|Raptors|12"|4|3+|-||2|6+|1|32mm||
 000000959|1|Warp Talons|12"|4|3+|5||2|6+|1|32mm||
 000000960|1|Chaos Spawn|8"|5|4+|-||4|7+|0|50mm||
-000000961|1|Heldrake|20+"|9|3+|5||12|6+|0|120 x 92mm flying base||
+000000961|1|Heldrake|12"|9|3+|5||12|6+|-|120 x 92mm flying base||
 000000962|1|Chaos Land Raider|10"|12|2+|-||16|6+|5|Use model||
 000000963|1|Chaos Predator Destructor|10"|10|3+|-||11|6+|3|Use model||
 000000964|1|Chaos Vindicator|9"|11|2+|-||11|6+|3|Use model||
@@ -647,7 +647,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000001021|1|Helbrute|8"|9|2+|5||8|6+|3|60mm||
 000001022|1|Chaos Rhino|12"|9|3+|-||10|6+|2|Use model||
 000001023|1|Chaos Spawn|8"|5|4+|5||4|7+|1|50mm||
-000001024|1|Heldrake|20+"|9|3+|5||12|6+|0|120 x 92mm flying base||
+000001024|1|Heldrake|12"|9|3+|5||12|6+|-|120 x 92mm flying base||
 000001025|1|Chaos Land Raider|10"|12|2+|-||16|6+|5|Use model||
 000001026|1|Chaos Predator Destructor|10"|10|3+|-||11|6+|3|Use model||
 000001027|1|Chaos Vindicator|9"|11|2+|-||11|6+|3|Use model||
@@ -751,8 +751,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000001185|1|Sicaran Battle Tank|10"|11|2+|-||14|6+|4|Use model||
 000001188|1|Vindicator|9"|11|2+|-||11|6+|3|Use model||
 000001189|1|Mastodon|9"|14|2+|-||30|6+|12|Use model||
-000001190|1|Stormtalon Gunship|20+"|8|3+|-||10|6+|0|120 x 92mm flying base||
-000001191|1|Stormraven Gunship|20+"|10|3+|-||14|6+|0|120 x 92mm flying base||
+000001190|1|Stormtalon Gunship|-|8|3+|-||10|6+|-|120 x 92mm flying base||
+000001191|1|Stormraven Gunship|14"|10|3+|-||14|6+|0|120 x 92mm flying base||
 000001192|1|Chaplain Venerable Dreadnought|6"|9|2+|5||8|6+|3|60mm||
 000001193|1|Centurion Devastator Squad|4"|7|2+|-||4|6+|2|50mm||
 000001197|1|Grey Knights Thunderhawk Gunship|20+"|12|2+|-||30|6+|0|Use model||
@@ -786,8 +786,8 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000001360|1|Grand Master In Nemesis Dreadknight|8"|8|2+|4||13|6+|4|120 x 92mm||
 000001361|1|Brotherhood Librarian|5"|5|2+|4||5|6+|1|40mm||
 000001362|1|Brotherhood Chaplain|5"|5|2+|4||5|5+|1|40mm||
-000001363|1|Stormhawk Interceptor|20+"|9|3+|-||10|6+|0|120 x 92mm flying base||
-000001364|1|Stormtalon Gunship|20+"|9|3+|-||10|6+|0|120 x 92mm flying base||
+000001363|1|Stormhawk Interceptor|-|9|3+|-||10|6+|-|120 x 92mm flying base||
+000001364|1|Stormtalon Gunship|-|9|3+|-||10|6+|-|120 x 92mm flying base||
 000001367|1|Foul Blightspawn|5"|6|3+|-||4|6+|1|40mm||
 000001368|1|Biologus Putrifier|5"|6|3+|-||4|6+|1|40mm||
 000001369|1|Plague Surgeon|5"|6|3+|-||4|6+|1|40mm||
@@ -940,9 +940,9 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000002082|1|Serberys Raiders|12"|4|4+|5||2|7+|2|60 x 35.5mm||
 000002083|1|Pteraxii Sterylizors|12"|4|4+|5||2|7+|1|40mm||
 000002084|1|Pteraxii Skystalkers|12"|4|4+|5||2|7+|1|40mm||
-000002085|1|Archaeopter Transvector|20+"|9|3+|-||10|7+|0|170 x 109mm||
-000002086|1|Archaeopter Stratoraptor|20+"|9|3+|-||10|7+|0|170 x 109mm||
-000002087|1|Archaeopter Fusilave|20+"|9|3+|-||10|7+|0|170 x 109mm||
+000002085|1|Archaeopter Transvector|14"|9|3+|-||10|7+|0|170 x 109mm||
+000002086|1|Archaeopter Stratoraptor|-|9|3+|-||10|7+|-|170 x 109mm||
+000002087|1|Archaeopter Fusilave|-|9|3+|-||10|7+|-|170 x 109mm||
 000002088|1|Aleya|6"|3|3+|5||4|6+|1|32mm||
 000002090|1|Inquisitor Draxus|6"|3|3+|5||4|6+|1|32mm||
 000002092|1|Illuminor Szeras|8"|8|2+|4||9|6+|3|80mm||
@@ -1133,7 +1133,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000002638|1|Forgefiend|10"|10|3+|5||12|6+|3|120 x 92mm||
 000002639|1|Maulerfiend|12"|10|3+|5||12|6+|3|120 x 92mm||
 000002640|1|Chaos Rhino|12"|9|3+|-||10|6+|2|Use model||
-000002641|1|Heldrake|20+"|9|3+|5||12|6+|0|120 x 92mm flying base||
+000002641|1|Heldrake|12"|9|3+|5||12|6+|-|120 x 92mm flying base||
 000002642|1|Khorne Lord of Skulls|12"|13|3+|5||24|6+|8|Use model||
 000002677|1|Ancient In Terminator Armour|5"|5|2+|4||5|6+|1|40mm||
 000002678|1|Chaplain Cassius|6"|4|3+|4||4|5+|1|32mm||
@@ -1395,7 +1395,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000003814|1|Watch Captain Artemis|6"|4|3+|4||4|6+|1|32mm||
 000003815|1|Watch Master|6"|4|2+|4||5|6+|1|32mm||
 000003816|1|Deathwatch Veterans|6"|4|3+|-||2|6+|2|32mm||
-000003817|1|Corvus Blackstar|20+"|10|3+|-||14|6+|0|120 x 92mm flying base||
+000003817|1|Corvus Blackstar|14"|10|3+|-||14|6+|0|120 x 92mm flying base||
 000003818|1|Battle Sisters Squad|6"|3|3+|6||1|7+|2|32mm||
 000003819|1|Immolator|12"|10|3+|6||11|7+|2|Use model||
 000003820|1|Chimera|10"|9|3+|-||11|7+|2|Use model||
@@ -1669,7 +1669,7 @@ datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_de
 000004089|1|Flawless Blades|8"|5|3+|5||3|6+|1|40mm||
 000004090|1|Chaos Spawn|10"|5|4+|-||4|7+|1|50mm||
 000004091|1|Maulerfiend|10"|10|3+|5||12|6+|3|120 x 92mm||
-000004092|1|Heldrake|20+"|10|3+|5||14|7+|0|120 x 92mm flying base||
+000004092|1|Heldrake|12"|10|3+|5||14|7+|-|120 x 92mm flying base||
 000004093|1|Chaos Rhino|12"|9|3+|-||10|6+|2|Use model||
 000004094|1|Shalaxi Helbane|14"|10|3+|4||20|6+|5|100mm||
 000004095|1|Daemonettes|9"|3|7+|5||1|7+|1|25mm||

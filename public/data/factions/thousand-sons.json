@@ -60,7 +60,7 @@
       "id": "hexwarp-thrallband",
       "name": "Hexwarp Thrallband",
       "disposition": "TAKE AND HOLD",
-      "dp": 2,
+      "dp": 3,
       "chapters": [],
       "abilities": [
         {
@@ -146,7 +146,7 @@
     {
       "id": "warpforged-cabal",
       "name": "Warpforged Cabal",
-      "disposition": "DISRUPTION",
+      "disposition": "PRIORITY ASSETS",
       "dp": 2,
       "chapters": [],
       "abilities": [
@@ -160,7 +160,7 @@
     {
       "id": "ritual-of-regeneration",
       "name": "Ritual of Regeneration",
-      "disposition": "PURGE THE FOE",
+      "disposition": "TAKE AND HOLD",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -174,7 +174,7 @@
     {
       "id": "sekhetar-cohort",
       "name": "Sekhetar Cohort",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "DISRUPTION",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -233,7 +233,7 @@
       "type": "Changehost of Deceit – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Scintillating Legions unit from your army that is within 9\" of that enemy unit and not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to D6\", or a Normal move of up to 6\" instead if it is wholly within 6\" of one or more friendly Thousand Sons units."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Scintillating Legions unit from your army that is within 8\" of that enemy unit and not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to D6\", or a Normal move of up to 6\" instead if it is wholly within 6\" of one or more friendly Thousand Sons units."
     },
     {
       "id": "deceptive-glamour",
@@ -263,7 +263,7 @@
       "type": "Changehost of Deceit – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Charge phase",
-      "description": "<b>WHEN:</b> Your opponent’s Charge phase, just after an enemy unit has declared a charge.<br><br><b>TARGET:</b> One Thousand Sons Psyker or Scintillating Legions unit from your army that was selected as a target of that charge.<br><br><b>EFFECT:</b> Until the end of the phase, subtract 2 from Charge rolls made for that enemy unit (this is not cumulative with any other negative modifiers to that Charge roll)."
+      "description": "<b>WHEN:</b> Start of your opponent's Charge phase.<br><br><b>TARGET:</b> One friendly unengaged Thousand Sons Psyker/Scintillating Legions unit.<br><br><b>EFFECT:</b> Select one visible enemy unit within 12\" of your unit. When that enemy unit declares a charge, that enemy unit has -1 to Charge rolls."
     },
     {
       "id": "fractal-disjunction",
@@ -368,7 +368,7 @@
       "type": "Hexwarp Thrallband – Battle Tactic Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Thousand Sons Psyker unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, your unit has the Stealth ability, and, if your unit is wholly within your army’s Flow of Magic, each time an attack targets your unit, it has the Benefit of Cover against that attack."
+      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Thousand Sons Psyker unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Your unit has Stealth. If your unit is wholly within your army’s Flow of Magic, your unit has -3 detection range."
     },
     {
       "id": "through-the-veil",
@@ -519,7 +519,7 @@
       "id": "ensorcelled-infusion",
       "name": "ENSORCELLED INFUSION",
       "detachmentId": "warpforged-cabal",
-      "cpCost": 1,
+      "cpCost": 2,
       "type": "Warpforged Cabal – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
@@ -639,7 +639,7 @@
       "type": "Warpmeld Pact – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Reinforcements step of your Movement phase.<br><br><b>TARGET:</b> One Tzeentch Mutant unit from your army that is arriving from Strategic Reserves this phase.<br><br><b>EFFECT:</b> Your unit can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units, or anywhere on the battlefield that is more than 9\" horizontally away from all enemy units if it is a Monster unit. In either case, until the end of the turn, it is not eligible to declare a charge."
+      "description": "<b>WHEN:</b> Reinforcements step of your Movement phase.<br><br><b>TARGET:</b> One Tzeentch Mutant unit from your army that is arriving from Strategic Reserves this phase.<br><br><b>EFFECT:</b> Your unit can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units, or anywhere on the battlefield that is more than 8\" horizontally away from all enemy units if it is a Monster unit. In either case, until the end of the turn, it is not eligible to declare a charge."
     },
     {
       "id": "relentless-rebirth",
@@ -916,7 +916,7 @@
       "cost": 20,
       "detachmentId": "grand-coven",
       "detachmentName": "Grand Coven",
-      "description": "<span class=\"kwb\">THOUSAND</span> <span class=\"kwb\">SONS</span> model only. Once per battle, in your Command phase, if the bearer’s unit is not within Engagement Range of one or more enemy units, you can remove that unit from the battlefield and place it into Strategic Reserves. In the Reinforcements step of your next Movement phase, set that unit back up anywhere on the battlefield that is more than 9\" horizontally away from all enemy units."
+      "description": "<span class=\"kwb\">THOUSAND</span> <span class=\"kwb\">SONS</span> model only. (Once per battle, per army) In your Command phase, if this unit is unengaged, you can use this ability. If you do: Place this unit in strategic reserves. This unit has Deep Strike until the start of your next Shooting phase. This unit must make an ingress move in your next Movement phase (including in your first turn)."
     },
     {
       "id": "tome-of-true-names",
@@ -1001,7 +1001,7 @@
       "cost": 35,
       "detachmentId": "ritual-of-regeneration",
       "detachmentName": "Ritual of Regeneration",
-      "description": "<span class=\"kwb\">INFANTRY/MOUNTED THOUSAND SONS PSYKER</span> model only. The first time this model is destroyed, at the end of the phase, roll one D6: On a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining."
+      "description": "<span class=\"kwb\">INFANTRY/MOUNTED THOUSAND SONS PSYKER</span> model only. (Once per battle, per army) When this model is destroyed, at the end of the phase, roll one D6: On a 2+, set up this model on the battlefield, unengaged and as close as possible to where it was destroyed. This model is not part of an attached unit and its unit has a starting strength of 1. This model has 3 wounds remaining."
     },
     {
       "id": "curse-of-life",
@@ -1214,8 +1214,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 85
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -2253,6 +2257,7 @@
         "Chaos",
         "Vehicle",
         "Rhino",
+        "Frame",
         "Tzeentch"
       ],
       "factionKeywords": [
@@ -2286,7 +2291,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 80
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 90
         }
       ],
@@ -2443,7 +2452,7 @@
         {
           "line": 1,
           "name": "Heldrake",
-          "M": "20+\"",
+          "M": "12\"",
           "T": 9,
           "Sv": "3+",
           "invSv": "5",
@@ -2526,7 +2535,6 @@
         }
       ],
       "keywords": [
-        "Aircraft",
         "Vehicle",
         "Heldrake",
         "Tzeentch",
@@ -2723,6 +2731,7 @@
       "keywords": [
         "Vehicle",
         "Land Raider",
+        "Frame",
         "Tzeentch",
         "Chaos",
         "Smoke",
@@ -2945,6 +2954,7 @@
         "Smoke",
         "Vehicle",
         "Predator Destructor",
+        "Frame",
         "Tzeentch"
       ],
       "factionKeywords": [
@@ -2983,11 +2993,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 130
+          "points": 140
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 140
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -3155,6 +3165,7 @@
         "Chaos",
         "Tzeentch",
         "Vindicator",
+        "Frame",
         "Vehicle",
         "Smoke"
       ],
@@ -3365,7 +3376,12 @@
           "points": 145
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Ectoplasma cannon",
+          "points": 5
+        }
+      ],
       "stratagemIds": [
         "cyberspirit-machinations",
         "warpflame-gargoyles",
@@ -3466,7 +3482,7 @@
         {
           "id": "snarling-protector",
           "name": "Snarling Protector",
-          "description": "You can target this model with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase. In addition, each time this model declares a charge that targets an enemy unit within Engagement Range of one or more Thousand Sons Psyker units from your army, you can re-roll the Charge roll.",
+          "description": "You can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do, that use is -1 CP and does not prevent any uses of that Stratagem on other units this phase. When this unit declares a charge, if a friendly engaged Psyker unit is within 12\" of this unit, you can re-roll that Charge roll, but this unit must then end that charge move engaged with an enemy unit engaged with that friendly Psyker unit.",
           "type": "Datasheet"
         }
       ],
@@ -3742,28 +3758,16 @@
           "type": "Core"
         },
         {
-          "id": "feel-no-pain-6",
-          "name": "Feel No Pain 6+",
-          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
-        },
-        {
           "id": "scuttling-walker",
           "name": "Scuttling Walker",
           "description": "Each time this unit makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class=\"kwb\">TITANIC</span> models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed.",
           "type": "Datasheet"
         },
         {
-          "id": "destroyer-of-futures",
-          "name": "Destroyer of Futures",
-          "description": "Each time you target this unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ when resolving that Stratagem. For each of those attacks that targets an enemy unit within 9\" of one or more Thousand Sons Psyker units from your army, a hit is scored on an unmodified Hit roll of 4+ instead.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
-            },
-            "combatType": "ranged"
-          }
+          "id": "destroyer-of-futures-once-per-phase-per-unit",
+          "name": "Destroyer of Futures (Once per phase, per unit)",
+          "description": "You can target this unit with the Counteroffensive Stratagem, regardless of any other uses of that Stratagem this phase. If you do, that use is -1 CP and does not prevent any uses of that Stratagem on other units this phase.",
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -3826,21 +3830,21 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 290
+          "points": 300
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 320
+          "points": 340
         }
       ],
       "wargearCosts": [
         {
           "name": "per Hades lascannon",
-          "points": 10
+          "points": 15
         },
         {
           "name": "per Heavy reaper autocannon",
-          "points": 10
+          "points": 15
         }
       ],
       "stratagemIds": [
@@ -3862,7 +3866,20 @@
         "warpfire-infusion",
         "flow-of-magic"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "combatEffects": [
+        {
+          "sourceRuleId": "ds_000001030_destroyer_of_futures",
+          "label": "Defiler — overwatch 5+ (Destroyer of Futures)",
+          "description": "Each time you target this unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ when resolving that Stratagem. For each of those attacks that targets an enemy unit within 9\" of one or more Thousand Sons Psyker units from your army, a hit is scored on an unmodified Hit roll of 4+ instead.",
+          "effect": {
+            "effects": {
+              "overwatchThreshold": 5
+            },
+            "combatType": "ranged"
+          }
+        }
+      ]
     },
     {
       "id": "magnus-the-red",
@@ -4867,7 +4884,7 @@
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 370
+          "points": 385
         },
         {
           "description": "5 models (3rd+ unit)",
@@ -4875,7 +4892,7 @@
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 385
+          "points": 400
         }
       ],
       "wargearCosts": [],
@@ -5239,7 +5256,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -5411,7 +5428,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 45
+          "points": 50
         },
         {
           "description": "6 models",
@@ -5993,6 +6010,7 @@
         "Smoke",
         "Vehicle",
         "Predator Annihilator",
+        "Frame",
         "Chaos"
       ],
       "factionKeywords": [
@@ -6031,11 +6049,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 130
+          "points": 140
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 140
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -6615,7 +6633,7 @@
         {
           "id": "prophetic-sentinels",
           "name": "Prophetic Sentinels",
-          "description": "Once per battle round, you can target this unit with the Fire Overwatch or Heroic Intervention Stratagem for 0CP.",
+          "description": "Once per turn, when you target this unit with the Fire Overwatch/Heroic Intervention Stratagem, that use is -1 CP.",
           "type": "Datasheet"
         }
       ],
@@ -6661,12 +6679,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models",
-          "points": 80
+          "description": "2 models (1st-2nd units)",
+          "points": 85
         },
         {
-          "description": "4 models",
-          "points": 160
+          "description": "4 models (1st-2nd units)",
+          "points": 175
+        },
+        {
+          "description": "2 models (3rd+ unit)",
+          "points": 100
+        },
+        {
+          "description": "4 models (3rd+ unit)",
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -6750,7 +6776,7 @@
         {
           "id": "malign-trickery",
           "name": "Malign Trickery",
-          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6\".",
+          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6\".",
           "type": "Datasheet"
         }
       ],
@@ -6921,7 +6947,7 @@
         {
           "id": "one-head-looks-back-aura",
           "name": "One Head Looks Back (Aura)",
-          "description": "Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that use of that Stratagem by 1CP.",
+          "description": "Once per turn, when your opponent targets a unit from their army within 12\" of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.",
           "type": "Datasheet"
         }
       ],
@@ -6960,7 +6986,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 295
+          "points": 305
         }
       ],
       "wargearCosts": [],
@@ -7155,11 +7181,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 300
+          "points": 320
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 315
+          "points": 340
         }
       ],
       "wargearCosts": [],

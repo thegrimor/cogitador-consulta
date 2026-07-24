@@ -144,7 +144,7 @@
     {
       "id": "might-of-the-moritoi",
       "name": "Might of the Moritoi",
-      "disposition": "PURGE THE FOE",
+      "disposition": "TAKE AND HOLD",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -956,7 +956,7 @@
     {
       "id": "from-the-hall-of-armouries",
       "name": "From the Hall of Armouries",
-      "cost": 25,
+      "cost": 20,
       "detachmentId": "shield-host",
       "detachmentName": "Shield Host",
       "description": "Shield-Captain model only. Add 1 to the Strength and Damage characteristics of the bearer’s melee weapons.",
@@ -1024,7 +1024,7 @@
     {
       "id": "admonimortis",
       "name": "Admonimortis",
-      "cost": 20,
+      "cost": 30,
       "detachmentId": "lions-of-the-emperor",
       "detachmentName": "Lions of the Emperor",
       "description": "Shield-Captain model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 3, and improve the Armour Penetration and Damage characteristics of those weapons by 1.",
@@ -2766,19 +2766,19 @@
       "pointsCosts": [
         {
           "description": "4 models (1st unit)",
-          "points": 210
+          "points": 200
         },
         {
           "description": "5 models (1st unit)",
-          "points": 260
+          "points": 250
         },
         {
           "description": "4 models (2nd+ unit)",
-          "points": 230
+          "points": 220
         },
         {
           "description": "5 models (2nd+ unit)",
-          "points": 280
+          "points": 270
         }
       ],
       "wargearCosts": [],
@@ -4851,15 +4851,28 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
+          "points": 150
+        },
+        {
+          "description": "6 models (1st-2nd units)",
+          "points": 300
+        },
+        {
+          "description": "3 models (3rd+ unit)",
           "points": 160
         },
         {
-          "description": "6 models",
-          "points": 320
+          "description": "6 models (3rd+ unit)",
+          "points": 310
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Venatari lance",
+          "points": 5
+        }
+      ],
       "stratagemIds": [
         "emperors-vengeance",
         "unwavering-sentinels",
@@ -5637,7 +5650,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 55
         }
       ],
       "wargearCosts": [],
@@ -6837,7 +6850,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 75
         }
       ],

@@ -1,6 +1,12 @@
 /**
  * Sync Enhancements.csv `cost` column from mfm-data.json.
- * Only updates cost for rows that already exist (matched by faction + normalized name).
+ * Only updates cost for rows that already exist. Matched by faction +
+ * detachment + normalized name first (the same enhancement name can recur
+ * across different detachments at different costs, e.g. Astra Militarum's
+ * "Grand Strategist" is 15pts in one detachment and 25pts in another); falls
+ * back to faction + name only when that's unambiguous (a single CSV row, or
+ * the detachment isn't present in this run's scrape — e.g. a retired
+ * detachment no longer listed on the MFM page).
  * Never creates new rows (rules text isn't in the MFM source, only name + cost).
  *
  * Usage: node scripts/sync-enhancement-costs.mjs
@@ -67,14 +73,23 @@ const rows = bodyLines.map(line => {
   return { faction_id: p[0], id: p[1], name: p[2], cost: p[3], detachment: p[4], detachment_id: p[5], legend: p[6], description: p[7] };
 });
 
-const lookup = new Map();
+// Primary lookup: faction + detachment + name (disambiguates same-name
+// enhancements that cost differently across detachments).
+const detachmentLookup = new Map();
+// Secondary lookup: faction + name only, used when a row's detachment
+// doesn't appear in this scrape, or only one row shares that faction+name.
+const nameLookup = new Map();
 rows.forEach((row, idx) => {
-  const key = `${row.faction_id}::${normalName(row.name)}`;
-  if (!lookup.has(key)) lookup.set(key, []);
-  lookup.get(key).push(idx);
+  const nameKey = `${row.faction_id}::${normalName(row.name)}`;
+  if (!nameLookup.has(nameKey)) nameLookup.set(nameKey, []);
+  nameLookup.get(nameKey).push(idx);
+
+  const detKey = `${row.faction_id}::${normalName(row.detachment)}::${normalName(row.name)}`;
+  detachmentLookup.set(detKey, idx);
 });
 
 let updated = 0;
+let skippedAmbiguous = 0;
 const changes = [];
 
 for (const factionData of mfmData) {
@@ -82,13 +97,27 @@ for (const factionData of mfmData) {
   for (const enh of factionData.enhancements ?? []) {
     if (/^per\s/i.test(enh.name.trim())) continue;
     const norm = normalName(enh.name);
+    const detNorm = normalName(enh.detachment ?? '');
     for (const fId of factionIds) {
-      const key = `${fId}::${norm}`;
-      const idxs = lookup.get(key) ?? [];
+      const detKey = `${fId}::${detNorm}::${norm}`;
+      let idxs;
+      if (detachmentLookup.has(detKey)) {
+        idxs = [detachmentLookup.get(detKey)];
+      } else {
+        const nameKey = `${fId}::${norm}`;
+        const candidates = nameLookup.get(nameKey) ?? [];
+        if (candidates.length > 1) {
+          // Ambiguous: multiple CSV rows share this name but none match this
+          // detachment. Don't guess which one to update.
+          skippedAmbiguous++;
+          continue;
+        }
+        idxs = candidates;
+      }
       for (const idx of idxs) {
         const row = rows[idx];
         if (String(row.cost) !== String(enh.pts)) {
-          changes.push(`${factionData.faction} / ${row.name}: ${row.cost} -> ${enh.pts}`);
+          changes.push(`${factionData.faction} / ${row.detachment} / ${row.name}: ${row.cost} -> ${enh.pts}`);
           row.cost = String(enh.pts);
           updated++;
         }
@@ -104,4 +133,5 @@ for (const row of rows) {
 fs.writeFileSync(path.join(ROOT, 'Enhancements.csv'), csvLines.join('\n') + '\n', 'utf8');
 
 console.log(`Updated ${updated} enhancement costs.`);
+if (skippedAmbiguous > 0) console.log(`Skipped ${skippedAmbiguous} ambiguous same-name matches (no detachment match, multiple candidates).`);
 changes.forEach(c => console.log(' -', c));

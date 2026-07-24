@@ -31,7 +31,7 @@
     {
       "id": "penitent-host",
       "name": "Penitent Host",
-      "disposition": "TAKE AND HOLD",
+      "disposition": "PURGE THE FOE",
       "dp": 2,
       "chapters": [],
       "abilities": [
@@ -45,8 +45,8 @@
     {
       "id": "bringers-of-flame",
       "name": "Bringers of Flame",
-      "disposition": "PURGE THE FOE",
-      "dp": 3,
+      "disposition": "PRIORITY ASSETS",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -145,7 +145,7 @@
     {
       "id": "sanctified-orators",
       "name": "Sanctified Orators",
-      "disposition": "PURGE THE FOE",
+      "disposition": "DISRUPTION",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -207,7 +207,7 @@
       "id": "light-of-the-emperor",
       "name": "LIGHT OF THE EMPEROR",
       "detachmentId": "army-of-faith",
-      "cpCost": 1,
+      "cpCost": 2,
       "type": "Army of Faith – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Command phase",
@@ -452,7 +452,7 @@
       "type": "Hallowed Martyrs – Epic Deed Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Adepta Sororitas Character unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.<br><br><b>EFFECT:</b> You can discard 1-3 Miracle dice. At the end of the phase, set the last destroyed model from your unit back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models. Roll one D3, adding 1 to the result for each Miracle dice you discarded. That model is set back up with that number of wounds remaining (up to its starting number of wounds).<br><br><b>RESTRICTIONS:</b> You cannot select Saint Celestine as the target of this Stratagem. You cannot select the same <span class=\"kwb\">CHARACTER</span> as the target of this Stratagem more than once per battle. "
+      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Adepta Sororitas Character unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.<br><br><b>EFFECT:</b> You can discard 1-3 Miracle dice. At the end of the phase, set up one destroyed <span class=\"kwb\">CHARACTER</span> model from your unit on the battlefield, unengaged and as close as possible to where it was destroyed. That model is not part of an attached unit and its unit has a starting strength of 1. Roll one D3, adding 1 to the result for each Miracle dice you discarded. That model has that number of wounds remaining (up to its starting number of wounds).<br><br><b>RESTRICTIONS:</b> You cannot select Saint Celestine as the target of this Stratagem. You cannot select the same <span class=\"kwb\">CHARACTER</span> as the target of this Stratagem more than once per battle. "
     },
     {
       "id": "suffering-and-sacrifice",
@@ -558,7 +558,7 @@
       "type": "Penitent Host – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has shot.<br><br><b>TARGET:</b> One PENITENT unit from your army that was selected as the target as one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Roll one D6: your unit can be moved a distance in inches up to the result, but it must end that move as close as possible to the closest enemy unit (excluding <span class=\"kwb\">AIRCRAFT</span>). When doing so, models in your unit can be moved within Engagement Range of enemy units."
+      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has shot.<br><br><b>TARGET:</b> One PENITENT unit from your army that was selected as the target as one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Your unit can make a surge move of up to D6\"."
     },
     {
       "id": "boundless-zeal",
@@ -588,7 +588,7 @@
       "type": "Chorus of Condemnation – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">EXORCIST</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">EXORCIST</span> unit.<br><br><b>EFFECT:</b> Select one unit visible to and within 9\" of a friendly <span class=\"kwb\">ADEPTA SORORITAS INFANTRY FLY</span> unit. Your unit's ranged attacks that target that unit have +1 to hit rolls.",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">EXORCIST</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">EXORCIST</span> unit.<br><br><b>EFFECT:</b> Select one unit visible to and within 8\" of a friendly <span class=\"kwb\">ADEPTA SORORITAS INFANTRY FLY</span> unit. Your unit's ranged attacks that target that unit have +1 to hit rolls.",
       "effect": {
         "effects": {
           "hitMod": 1
@@ -667,7 +667,7 @@
     {
       "id": "psalm-of-righteous-judgement",
       "name": "Psalm of Righteous Judgement",
-      "cost": 30,
+      "cost": 20,
       "detachmentId": "penitent-host",
       "detachmentName": "Penitent Host",
       "description": "<span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> model only. While the bearer is on the battlefield, each time an enemy unit is destroyed by a penitent unit from you army, you can discard 1 Miracle dice then gain 1 Miracle dice showing a value of 6."
@@ -771,7 +771,7 @@
     {
       "id": "refrain-of-enduring-faith",
       "name": "Refrain of Enduring Faith",
-      "cost": 25,
+      "cost": 15,
       "detachmentId": "penitent-host",
       "detachmentName": "Penitent Host",
       "description": "PENITENT model only. While the bearer is leading a unit, models in that unit have a 5+ invulnerable save.",
@@ -846,10 +846,10 @@
     {
       "id": "catechism-of-divine-penitence",
       "name": "Catechism of Divine Penitence",
-      "cost": 20,
+      "cost": 15,
       "detachmentId": "penitent-host",
       "detachmentName": "Penitent Host",
-      "description": "CANONESS, PALATINE or MINISTORUM PRIEST model only. The bearer gains the PENITENT keyword and, during the Declare Battle Formations step, can be attached to a REPENTIA SOUAD unit."
+      "description": "CANONESS, PALATINE or MINISTORUM PRIEST model only. The bearer gains the PENITENT keyword."
     },
     {
       "id": "iron-surplice-of-saint-istalela",
@@ -912,7 +912,7 @@
       "cost": 25,
       "detachmentId": "sanctified-orators",
       "detachmentName": "Sanctified Orators",
-      "description": "<span class=\"kwb\">ADEPTA SORORITAS CHARACTER</span> unit only (excluding <span class=\"kwb\">PENITENT</span> units). (Once per turn, per unit) At the start of a phase, you can use this ability. If you do, select one of the abilities below:<br><ul><li>Rite of Revelation: While this unit is shooting, enemy units have +6\" detection range.</li><li>Sermon of Intolerance: This unit's battle-shock rolls automatically succeed.</li><li>Catechism of Raging Fervour: This unit has +1\" M.</li><li>Psalm of Righteous Smiting: This unit's attacks have +1 S.</li><li>Chorus of Repudiation: Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls.</li></ul>",
+      "description": "<span class=\"kwb\">ADEPTA SORORITAS CHARACTER</span> model only (excluding <span class=\"kwb\">PENITENT</span> units). (Once per turn, per unit) At the start of a phase, you can use this ability. If you do, select one of the abilities below:<br><ul><li>Rite of Revelation: While this unit is shooting, enemy units have +6\" detection range.</li><li>Sermon of Intolerance: This unit's battle-shock rolls automatically succeed.</li><li>Catechism of Raging Fervour: This unit has +1\" M.</li><li>Psalm of Righteous Smiting: This unit's attacks have +1 S.</li><li>Chorus of Repudiation: Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls.</li></ul>",
       "effect": {
         "effects": {
           "woundMod": -1
@@ -1931,7 +1931,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 55
         }
       ],
       "wargearCosts": [],
@@ -2094,11 +2094,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 75
+          "points": 65
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 85
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -2939,19 +2939,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 85
+          "points": 75
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 160
+          "points": 150
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 95
+          "points": 85
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 170
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -3137,11 +3137,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 75
+          "points": 70
         },
         {
           "description": "10 models",
-          "points": 160
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -3842,7 +3842,7 @@
         {
           "id": "righteous-awareness",
           "name": "Righteous Awareness",
-          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6\".",
+          "description": "In your opponent’s Movement phase, if an enemy unit ends a move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units it can make a Normal move of up to D6\".",
           "type": "Datasheet"
         },
         {
@@ -3908,11 +3908,11 @@
       "pointsCosts": [
         {
           "description": "10 models (1st-2nd units)",
-          "points": 100
+          "points": 90
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [
@@ -4096,7 +4096,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 75
         }
       ],
@@ -4320,11 +4324,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st to 3rd units)",
-          "points": 110
+          "points": 100
         },
         {
           "description": "1 model (4th + unit)",
-          "points": 120
+          "points": 115
         }
       ],
       "wargearCosts": [
@@ -5057,14 +5061,8 @@
         {
           "id": "the-pulpit-of-saint-hollines-basilica",
           "name": "The Pulpit of Saint Holline’s Basilica",
-          "description": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
+          "description": "This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.",
+          "type": "Datasheet"
         },
         {
           "id": "fiery-conviction",
@@ -5103,7 +5101,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 115
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -5135,7 +5133,20 @@
         "righteous-purpose",
         "the-blood-of-martyrs"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "combatEffects": [
+        {
+          "sourceRuleId": "ldr_000002064_the_pulpit_of_saint_holline_s_basilica",
+          "label": "Junith Eruita — -1 impactar (Líder)",
+          "description": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender"
+          }
+        }
+      ]
     },
     {
       "id": "zephyrim-squad",
@@ -5293,11 +5304,19 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 80
+          "description": "5 models (1st-2nd units)",
+          "points": 75
         },
         {
-          "description": "10 models",
+          "description": "10 models (1st-2nd units)",
+          "points": 150
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 85
+        },
+        {
+          "description": "10 models (3rd+ unit)",
           "points": 160
         }
       ],
@@ -5953,7 +5972,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 185
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -6387,11 +6406,11 @@
         },
         {
           "description": "5 models (2nd+ unit)",
-          "points": 90
+          "points": 85
         },
         {
           "description": "10 models (2nd+ unit)",
-          "points": 165
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -7367,7 +7386,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 100
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -7531,7 +7550,7 @@
         {
           "id": "mysterious-saviours",
           "name": "Mysterious Saviours",
-          "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.",
+          "description": "You can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do: that use is -1 CP. That use does not prevent any uses of that Stratagem on other units this phase.",
           "type": "Datasheet"
         }
       ],
@@ -8630,7 +8649,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 150
+          "points": 135
         }
       ],
       "wargearCosts": [],
