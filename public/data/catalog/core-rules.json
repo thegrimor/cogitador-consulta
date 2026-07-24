@@ -1,0 +1,1714 @@
+{
+  "coreRules": [
+    {
+      "id": "WA001",
+      "name": "Assault",
+      "category": "weapon_ability",
+      "summary": "Units with [ASSAULT] weapons can shoot using assault shooting, even after Advancing.",
+      "description": "Units containing one or more models with an [ASSAULT] weapon can shoot using assault shooting (10.05)."
+    },
+    {
+      "id": "WA002",
+      "name": "Heavy",
+      "category": "weapon_ability",
+      "summary": "+1 to hit if the unit is unengaged, was not set up this turn, and no model moved more than 3\" this turn.",
+      "description": "In your Shooting phase, each time an attack is made with a [HEAVY] weapon, add 1 to the hit roll if all of the following apply to the attacking unit: That unit is unengaged; That unit was not set up on the battlefield this turn; No model in that unit has moved more than 3\" this turn."
+    },
+    {
+      "id": "WA003",
+      "name": "Pistol",
+      "category": "weapon_ability",
+      "summary": "Identical to [CLOSE-QUARTERS] for all rules purposes.",
+      "description": "[PISTOL] and [CLOSE-QUARTERS] are identical for all rules purposes. See [CLOSE-QUARTERS]. Designer's Note: [PISTOL] is a pre-existing ability that will be superseded by [CLOSE-QUARTERS] as this edition of Warhammer 40,000 progresses. Both are functionally the same, but the latter is a more suitable term for weapons that function in this way."
+    },
+    {
+      "id": "WA004",
+      "name": "Rapid Fire",
+      "category": "weapon_ability",
+      "summary": "Add X attack dice when the target is within half range.",
+      "description": "This ability always takes the form [RAPID FIRE X]. Each time you gather attack dice for a [RAPID FIRE] weapon, add X additional attack dice if the target unit was within half range of that weapon in the Select Targets step."
+    },
+    {
+      "id": "WA005",
+      "name": "Torrent",
+      "category": "weapon_ability",
+      "summary": "Automatically hits the target; no hit roll is made.",
+      "description": "Each time an attack is made with a [TORRENT] weapon, that attack automatically hits the target."
+    },
+    {
+      "id": "WA006",
+      "name": "Indirect Fire",
+      "category": "weapon_ability",
+      "summary": "Can target units not visible to the attacking model; target has benefit of cover; unmodified 1–5 fails.",
+      "description": "Units containing one or more models with an [INDIRECT FIRE] weapon can shoot using indirect shooting (10.07). While doing so, [INDIRECT FIRE] weapons can target units not visible to the attacking model. Each time an [INDIRECT FIRE] weapon makes an attack: the target has the benefit of cover; hit rolls cannot be re-rolled; and an unmodified hit roll of 1–5 fails, unless your unit Remained Stationary this turn and the target is visible to one or more friendly units, in which case an unmodified hit roll of 1–3 fails instead."
+    },
+    {
+      "id": "WA007",
+      "name": "Psychic",
+      "category": "weapon_ability",
+      "summary": "Ignore any or all modifiers to BS/WS and the hit roll; attacks count as psychic attacks.",
+      "description": "Each time an attack is made with a [PSYCHIC] weapon, you can ignore any or all modifiers to that attack's BS or WS characteristic and any or all modifiers to the hit roll. Attacks made with [PSYCHIC] weapons are known as psychic attacks (this can be important for the triggering of other rules)."
+    },
+    {
+      "id": "WA008",
+      "name": "Blast",
+      "category": "weapon_ability",
+      "summary": "Add 1 extra attack dice per 5 models in the target unit (rounding down).",
+      "description": "Each time you gather attack dice for a [BLAST] weapon, add one additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down). If this ability takes the form [BLAST X], each time you gather attack dice for such a weapon, add X additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down) instead."
+    },
+    {
+      "id": "WA009",
+      "name": "Devastating Wounds",
+      "category": "weapon_ability",
+      "summary": "A critical wound ends the attack sequence; the target instead suffers mortal wounds equal to the weapon's D (one model max per critical wound).",
+      "description": "Each time an attack made with a [DEVASTATING WOUNDS] weapon results in a critical wound, the attack sequence for that attack ends and the target unit suffers a number of mortal wounds equal to the D characteristic of that weapon. These are inflicted after resolving any normal damage inflicted by those attacks. Mortal wounds inflicted by [DEVASTATING WOUNDS] weapons can damage a maximum of one model for each critical wound; any remaining mortal wounds inflicted by that attack are lost."
+    },
+    {
+      "id": "WA010",
+      "name": "Lethal Hits",
+      "category": "weapon_ability",
+      "summary": "A critical hit lets you automatically wound the target without making a wound roll.",
+      "description": "Each time an attack made with a [LETHAL HITS] weapon results in a critical hit, you can choose for that attack to automatically wound the target. Designer's Note: Choosing to automatically wound the target means that no wound roll is made for that attack. You may decide against this, as it means that attack cannot result in a critical wound and so cannot trigger other abilities such as [DEVASTATING WOUNDS]."
+    },
+    {
+      "id": "WA011",
+      "name": "Melta",
+      "category": "weapon_ability",
+      "summary": "Add X to the weapon's D characteristic when the target is within half range.",
+      "description": "This ability always takes the form [MELTA X]. Each time a model makes an attack with a [MELTA] weapon, if the target unit was within half range of that weapon in the Select Targets step, add X to that weapon's D characteristic until those attacks have been resolved."
+    },
+    {
+      "id": "WA012",
+      "name": "Sustained Hits",
+      "category": "weapon_ability",
+      "summary": "A critical hit generates X additional hits on the target.",
+      "description": "This ability always takes the form [SUSTAINED HITS X]. Each time an attack made with a [SUSTAINED HITS] weapon results in a critical hit, that attack results in a number of additional hits on the target as denoted by X."
+    },
+    {
+      "id": "WA013",
+      "name": "Twin-linked",
+      "category": "weapon_ability",
+      "summary": "You can re-roll the wound roll.",
+      "description": "Each time an attack is made with a [TWIN-LINKED] weapon, you can re-roll the wound roll."
+    },
+    {
+      "id": "WA014",
+      "name": "Anti",
+      "category": "weapon_ability",
+      "summary": "Against units with keyword X, an unmodified wound roll of Y+ is a critical wound.",
+      "description": "This ability always takes the form [ANTI-X Y+]. Each time an attack is made with an [ANTI] weapon, if the target unit has the keyword denoted by X, an unmodified wound roll of Y+ is a critical wound."
+    },
+    {
+      "id": "WA015",
+      "name": "Precision",
+      "category": "weapon_ability",
+      "summary": "At the start of the Allocation Order step, the active player can select an allocation group containing a visible CHARACTER model.",
+      "description": "While resolving attacks made with one or more [PRECISION] weapons, at the start of the Allocation Order step, if the target unit contains one or more CHARACTER models visible to one or more of the attacking models, the active player can select one allocation group that contains one of those visible CHARACTER models. If they do, until those attacks are resolved or until that CHARACTER group is destroyed (whichever happens first), that CHARACTER group is the current allocation group."
+    },
+    {
+      "id": "WA016",
+      "name": "Ignores Cover",
+      "category": "weapon_ability",
+      "summary": "The target cannot have the benefit of cover against this attack, including from rules like Stealth.",
+      "description": "Each time an attack is made with an [IGNORES COVER] weapon, the target cannot have the benefit of cover against that attack (13.08), including from rules that give a model or unit the benefit of cover (e.g. Stealth)."
+    },
+    {
+      "id": "WA017",
+      "name": "Lance",
+      "category": "weapon_ability",
+      "summary": "Add 1 to the wound roll if the attacking model's unit made a charge move this turn.",
+      "description": "Each time an attack is made with a [LANCE] weapon, if the attacking model's unit made a charge move this turn, add 1 to the wound roll."
+    },
+    {
+      "id": "WA019",
+      "name": "Hazardous",
+      "category": "weapon_ability",
+      "summary": "After attacking, make one hazard roll per [HAZARDOUS] weapon selected in the Select Weapons step.",
+      "description": "Each time a unit is selected to shoot or selected to fight, after that unit has resolved all of its attacks, make a number of hazard rolls (06.03) for that unit equal to the number of [HAZARDOUS] weapons you selected in the Select Weapons step."
+    },
+    {
+      "id": "WA020",
+      "name": "One Shot",
+      "category": "weapon_ability",
+      "summary": "Each weapon with this ability can only be selected to make attacks with once per battle.",
+      "description": "Each weapon with this ability can only be selected to make attacks with once per battle. If a destroyed model is returned to a unit, all of its [ONE SHOT] weapons that have already been selected to make attacks with during the battle cannot be selected again. If a new unit is added to an army, all [ONE SHOT] weapons in that unit can be selected to make attacks with once per battle."
+    },
+    {
+      "id": "WA021",
+      "name": "Extra Attacks",
+      "category": "weapon_ability",
+      "summary": "Models fight with [EXTRA ATTACKS] weapons in addition to any others; must select all [EXTRA ATTACKS] weapons plus one other melee weapon.",
+      "description": "Each time a unit containing one or more models with an [EXTRA ATTACKS] weapon fights, those models will make attacks with those weapons in addition to any others. In the Select Weapons step (04.01), for each of those models, you must select: all of that model's [EXTRA ATTACKS] weapons; and one of that model's other melee weapons, if possible."
+    },
+    {
+      "id": "WA022",
+      "name": "Cleave",
+      "category": "weapon_ability",
+      "summary": "If targeting a single unit, add X attack dice per 5 models in the target unit (rounding down).",
+      "description": "This ability always takes the form [CLEAVE X]. Each time you gather attack dice for a [CLEAVE] weapon, if you only selected one target for all of that weapon's attacks, add X additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down)."
+    },
+    {
+      "id": "WA023",
+      "name": "Close-Quarters",
+      "category": "weapon_ability",
+      "summary": "Units can shoot into close combat; non-MONSTER/VEHICLE models must choose either [CLOSE-QUARTERS] weapons or other ranged weapons, not both.",
+      "description": "Units containing one or more models with a [CLOSE-QUARTERS] weapon can shoot using close-quarters shooting (10.06). When using another shooting type, for each model in that unit (excluding MONSTER/VEHICLE models), you can only select one of the following to make attacks with: one or more of its [CLOSE-QUARTERS] weapons; or one or more of its other ranged weapons."
+    },
+    {
+      "id": "UA001",
+      "name": "Deadly Demise",
+      "category": "unit_ability",
+      "summary": "On a 6 when destroyed, each unit within 6\" suffers X mortal wounds.",
+      "description": "This ability always takes the form Deadly Demise X. Each time a model in this unit is destroyed, after the units embarked within it (if any) have made their emergency disembark moves, roll one D6. On a 6, that model suffers a deadly demise; each unit within 6\" of that model suffers a number of mortal wounds denoted by X (if this is a random number, roll separately for each unit within 6\")."
+    },
+    {
+      "id": "UA002",
+      "name": "Deep Strike",
+      "category": "unit_ability",
+      "summary": "Can set up anywhere on battlefield more than 8\" from all enemy units when making an ingress move.",
+      "description": "Each time this unit makes an ingress move (20.04), if every model in this unit has this ability, it can be set up anywhere on the battlefield that is more than 8\" horizontally from all enemy units, even if that is within your opponent's deployment zone."
+    },
+    {
+      "id": "UA003",
+      "name": "Feel No Pain",
+      "category": "unit_ability",
+      "summary": "Roll D6 each time model would lose a wound; on X+ that wound is not lost.",
+      "description": "This ability always takes the form Feel No Pain X+. Each time a model with this ability would lose a wound, roll one D6: on an X+, that wound is not lost."
+    },
+    {
+      "id": "UA004",
+      "name": "Fights First",
+      "category": "unit_ability",
+      "summary": "Unit fights in the Resolve Fights First Combats step of the Fight phase.",
+      "description": "While every model in a unit has this ability, that unit is a Fights First unit. See the Resolve Fights First Combats step in the Fight phase (12.04)."
+    },
+    {
+      "id": "UA005",
+      "name": "Firing Deck",
+      "category": "unit_ability",
+      "summary": "TRANSPORT can use weapons of up to X embarked models when it shoots each turn.",
+      "description": "This ability always takes the form Firing Deck X. In your Shooting phase, each time this TRANSPORT is selected to shoot, if one or more units are embarked within it, resolve the following sequence: 1. Select up to X models embarked within this TRANSPORT (excluding models whose units have already been selected to shoot this phase). 2. For each selected model, select one of its ranged weapons (excluding [ONE SHOT] weapons). 3. Until this TRANSPORT has resolved all of its attacks, it has all of those selected weapons in addition to its other weapons. 4. Until the end of the turn, units embarked within this TRANSPORT are not eligible to shoot."
+    },
+    {
+      "id": "UA006",
+      "name": "Hover",
+      "category": "unit_ability",
+      "summary": "Do not subtract 2\" from movement when taking to the skies.",
+      "description": "Each time this unit takes to the skies (21.03), do not subtract 2\" from the maximum distance."
+    },
+    {
+      "id": "UA007",
+      "name": "Infiltrators",
+      "category": "unit_ability",
+      "summary": "During deployment, can be set up more than 8\" from opponent's deployment zone and all enemy units.",
+      "description": "During deployment, if every model in a unit has this ability, it can be set up anywhere on the battlefield that is more than 8\" horizontally from your opponent's deployment zone and all enemy units."
+    },
+    {
+      "id": "UA008",
+      "name": "Lone Operative",
+      "category": "unit_ability",
+      "summary": "Not visible to enemy models beyond 12\"; cannot be targeted by [INDIRECT FIRE] from beyond 12\".",
+      "description": "Unless part of an attached unit, this unit is not visible to enemy models unless they are within 12\" of this unit, and it cannot be targeted by [INDIRECT FIRE] weapons unless the attacking model is within 12\" of this unit. If this ability takes the form Lone Operative X\", unless part of an attached unit, this unit is not visible to enemy models unless they are within X\" of this unit, and it cannot be targeted by [INDIRECT FIRE] weapons unless the attacking model is within X\" of this unit."
+    },
+    {
+      "id": "UA009",
+      "name": "Scouts",
+      "category": "unit_ability",
+      "summary": "Can make a scout move before battle or reposition from strategic reserves.",
+      "description": "This ability always takes the form Scouts X\". In the Resolve Pre-battle Abilities step, if every model in a unit has this ability, you can do one of the following: If that unit is in strategic reserves, you can set up that unit anywhere that is wholly within your deployment zone. If that unit is wholly within your deployment zone, it can make a scout move. If that unit is embarked within a DEDICATED TRANSPORT that is wholly within your deployment zone, and if every model embarked within that DEDICATED TRANSPORT has the Scouts ability, that DEDICATED TRANSPORT can make a scout move. Scout Move — Maximum distance: the X\" in Scouts X\". After moving: your unit must be more than 8\" horizontally from all enemy units."
+    },
+    {
+      "id": "UA010",
+      "name": "Stealth",
+      "category": "unit_ability",
+      "summary": "Ranged attacks targeting this unit grant it the benefit of cover.",
+      "description": "If every model in a unit has this ability, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack (13.08)."
+    },
+    {
+      "id": "UA011",
+      "name": "Super-Heavy Walker",
+      "category": "unit_ability",
+      "summary": "Can move through models (excluding TITANIC) and terrain sections 4\" or less in height.",
+      "description": "Each time a unit with this ability makes a normal, advance or fall-back move: Models in that unit can move through models (including MONSTER/VEHICLE models, but excluding TITANIC models) and can move horizontally through sections of terrain features that are 4\" or less in height. Before moving that unit, you can select for all models in that unit to have the MOBILE keyword until that move ends. If you do, when that move ends, roll one D6: on a 1, that unit is battle-shocked."
+    },
+    {
+      "id": "CO001",
+      "name": "Armies",
+      "category": "concept",
+      "summary": "Each player commands an army of units they control.",
+      "description": "Each player commands an army made up of units of models. You control all the models in your army. If a rule refers to the 'controlling player', it means the player who controls the models being affected by that rule."
+    },
+    {
+      "id": "CO002",
+      "name": "Units and Models",
+      "category": "concept",
+      "summary": "A unit contains one or more models that move and fight together.",
+      "description": "A unit can contain one or more models that move and fight together as a single group. Most models have a base, which is also part of that model for all rules purposes. When an effect or ability applies to a unit, it applies to every model in that unit."
+    },
+    {
+      "id": "CO003",
+      "name": "Active and Opposing Player",
+      "category": "concept",
+      "summary": "One player is always the 'active player'; the other is the 'opposing player'.",
+      "description": "At any given time, one player is the 'active player' and their opponent is the 'opposing player'. While it is a player's turn, that player is the active player — except when a unit is selected to move, shoot, or fight, in which case that unit's controlling player is the active player until that action ends."
+    },
+    {
+      "id": "CO004",
+      "name": "Friendly and Enemy",
+      "category": "concept",
+      "summary": "Friendly units are in your army; enemy units are in your opponent's.",
+      "description": "Friendly units and models are those in your army. Enemy units and models are those in your opponent's army. If a rule affects units or models without specifying friendly or enemy, it affects any unit or model regardless of which army they are in."
+    },
+    {
+      "id": "CO005",
+      "name": "Keywords",
+      "category": "concept",
+      "summary": "Datasheets list faction keywords and other keywords; all appear in FULL CAPITALS AND BOLD.",
+      "description": "Datasheets have a list of keywords separated into faction keywords and other keywords. Faction keywords are used when deciding which models to include in your army, but otherwise both types function the same way. Keywords appear in full capitals and bold text throughout the rules."
+    },
+    {
+      "id": "CO006",
+      "name": "Starting Strength",
+      "category": "concept",
+      "summary": "The number of models in the unit when it is added to the army.",
+      "description": "The number of models a unit contains when it is first added to your army. For attached units, starting strength is the number of models at the start of the first battle round. Used to determine whether a unit is Below Starting Strength or Below Half-strength."
+    },
+    {
+      "id": "CO007",
+      "name": "Below Half-strength",
+      "category": "concept",
+      "summary": "Fewer than half the starting models remain (or fewer than half the Wounds, for single-model units).",
+      "description": "A unit with Starting Strength 1 is below half-strength when its remaining wounds are less than half its W characteristic. Any other unit is below half-strength when its remaining model count is less than half its starting strength. Units at, or below, half-strength must make Battle-shock rolls in the Command phase."
+    },
+    {
+      "id": "CO008",
+      "name": "Measuring Distances",
+      "category": "concept",
+      "summary": "Distances are in inches; measure to/from the closest part of a model's base (or hull for FRAME models).",
+      "description": "Distances are measured in inches (\"). You can measure distances whenever you want. Unless stated otherwise, measure to or from the closest part of a model's base. For FRAME models (those without a base), measure to and from the closest point on the model itself."
+    },
+    {
+      "id": "CO009",
+      "name": "Dice",
+      "category": "concept",
+      "summary": "All rolls use D6. D3 = D6÷2 rounded up. 2D6 = roll two dice and add. 2+ means 2 or higher.",
+      "description": "All dice rolls use six-sided dice (D6). Common notations: 2+ or 3+ (a result of 2 or more, etc.); 1–3 or 4–6 (a range of results); 2D6 or 3D6 (roll multiple dice and add the values); D3 (roll one D6 and halve the result, rounding up); D6+1 (roll and add a stated value)."
+    },
+    {
+      "id": "CO010",
+      "name": "Leadership Rolls",
+      "category": "concept",
+      "summary": "Roll 2D6; succeeds if the result equals or exceeds one or more Ld values in the unit.",
+      "description": "To make a Leadership roll for a unit, roll 2D6. If the result equals or exceeds one or more of the Ld characteristics of models in that unit, the roll succeeds. Otherwise it fails. The rule that instructed you to make the roll describes the effects of success or failure."
+    },
+    {
+      "id": "CO011",
+      "name": "Battle-shock Rolls",
+      "category": "concept",
+      "summary": "Make a Leadership roll; on failure the unit becomes battle-shocked (OC '–', no stratagems, no actions).",
+      "description": "To make a Battle-shock roll for a unit, make a Leadership roll for it. If it succeeds, the unit is not Battle-shocked. If it fails, the unit becomes Battle-shocked. While Battle-shocked: the OC of all models is modified to '–'; its controlling player cannot target it with stratagems; it cannot start or complete an Action."
+    },
+    {
+      "id": "CO012",
+      "name": "Engagement Range",
+      "category": "concept",
+      "summary": "2\" horizontally and 5\" vertically from an enemy model; models within this range are Engaged.",
+      "description": "While a model is within 2\" horizontally and 5\" vertically of an enemy model, both models are within Engagement Range of each other. Models cannot end a Normal, Advance, or Fall-back move within Engagement Range of enemy models. A unit with no models within Engagement Range of any enemy model is Unengaged."
+    },
+    {
+      "id": "CO013",
+      "name": "Unit Coherency",
+      "category": "concept",
+      "summary": "All models must stay within 2\" (horizontal) and 5\" (vertical) of at least one other model, and within 9\" (horizontal) and 5\" (vertical) of every other model in the unit.",
+      "description": "A multi-model unit must be set up and end any movement with all models within 2\" horizontally and 5\" vertically of at least one other model in the unit, and within 9\" horizontally and 5\" vertically of every other model in the unit."
+    },
+    {
+      "id": "CO014",
+      "name": "Normal Move",
+      "category": "concept",
+      "summary": "Move each model up to its M characteristic; cannot end within Engagement Range of enemies.",
+      "description": "Each model in the unit can move up to a distance in inches equal to its M (Move) characteristic. Models cannot end their move within Engagement Range of enemy models. If a model cannot end its move while maintaining Unit Coherency, it cannot make a move at all."
+    },
+    {
+      "id": "CO015",
+      "name": "Advance",
+      "category": "concept",
+      "summary": "Roll 1D6 and add to M for this move; unit cannot charge or start Actions this turn.",
+      "description": "Roll 1D6 before moving any models; add the result to the M characteristic of each model in the unit for this move. A unit that Advances cannot declare a Charge or start an Action this turn. It can still use [ASSAULT] weapons to shoot even after Advancing."
+    },
+    {
+      "id": "CO016",
+      "name": "Fall Back",
+      "category": "concept",
+      "summary": "Move up to M\" while passing through Engagement Range; cannot end within it; cannot charge or act this turn.",
+      "description": "When a unit Falls Back, each model can move up to its M characteristic, passing through Engagement Range of enemy models but not ending within it. A Falling Back unit cannot shoot (normal shooting), declare a Charge, or start an Action this turn. Choose between Ordered Retreat or Desperate Escape mode."
+    },
+    {
+      "id": "CO017",
+      "name": "Ordered Retreat",
+      "category": "concept",
+      "summary": "Standard fall-back mode; models pass through enemies but cannot end within Engagement Range.",
+      "description": "The default mode when Falling Back. Models can move through the Engagement Range of enemy models but must not end their move within Engagement Range of any enemy model. Available to any non-Battle-shocked unit."
+    },
+    {
+      "id": "CO018",
+      "name": "Desperate Escape",
+      "category": "concept",
+      "summary": "Before moving, make a Hazard Roll for each model in the unit. Mandatory for Battle-shocked units Falling Back.",
+      "description": "Mandatory fall-back mode for a Battle-shocked unit (or any unit, if chosen voluntarily). Before moving, make a Hazard Roll (CO029) for each model in the unit. While moving, each model can be moved through enemy models. After moving, if the unit was not already Battle-shocked, it must make a Battle-shock roll."
+    },
+    {
+      "id": "CO019",
+      "name": "Flying",
+      "category": "concept",
+      "summary": "FLYING units can Take to the Skies: –2\" move, but ignore vertical distance and all model/terrain obstacles.",
+      "description": "When a FLYING unit is selected to make a Normal, Advance, Fall-back, or Charge move, the active player can declare it Takes to the Skies. If it does: subtract 2\" from the maximum distance for that move; the unit ignores all vertical distances when moving; and it can move through all types of model and all categories of terrain feature."
+    },
+    {
+      "id": "CO020",
+      "name": "Hit Roll",
+      "category": "concept",
+      "summary": "Roll 1D6 per attack; hits on BS/WS or higher. Unmodified 1 always fails; unmodified 6 is a Critical Hit.",
+      "description": "For each attack, roll 1D6. An unmodified result of 1 always fails. An unmodified result of 6 is a Critical Hit. Any other result hits if it equals or exceeds the weapon's BS (ranged attacks) or WS (melee attacks)."
+    },
+    {
+      "id": "CO021",
+      "name": "Critical Hit",
+      "category": "concept",
+      "summary": "An unmodified roll of 6 on the Hit Roll; triggers abilities like [LETHAL HITS] and [SUSTAINED HITS].",
+      "description": "An unmodified Hit Roll result of 6. Critical Hits are still hits and also trigger special weapon abilities such as [LETHAL HITS] (auto-wound) and [SUSTAINED HITS] (extra hits). Some abilities specify a different critical hit threshold."
+    },
+    {
+      "id": "CO022",
+      "name": "Wound Roll",
+      "category": "concept",
+      "summary": "Roll 1D6 per hit; result needed based on S vs T. Unmodified 1 always fails; unmodified 6 is a Critical Wound.",
+      "description": "For each hit, roll 1D6. An unmodified 1 always fails. An unmodified 6 is a Critical Wound. Other results wound based on the weapon's Strength vs the target's Toughness: S ≥ 2×T → 2+; S > T → 3+; S = T → 4+; S < T → 5+; S ≤ T/2 → 6+."
+    },
+    {
+      "id": "CO023",
+      "name": "Critical Wound",
+      "category": "concept",
+      "summary": "An unmodified roll of 6 on the Wound Roll; triggers abilities like [DEVASTATING WOUNDS].",
+      "description": "An unmodified Wound Roll result of 6 (or the threshold set by [ANTI]). Critical Wounds are still wounds and also trigger special weapon abilities such as [DEVASTATING WOUNDS]. They cannot be avoided by [LETHAL HITS] auto-wounds."
+    },
+    {
+      "id": "CO024",
+      "name": "Strength vs Toughness",
+      "category": "concept",
+      "summary": "Required wound roll: S ≥ 2×T = 2+, S > T = 3+, S = T = 4+, S < T = 5+, S ≤ T/2 = 6+.",
+      "description": "When making a Wound Roll, the result needed depends on how the weapon's Strength (S) compares to the target's Toughness (T): if S is twice T or more → 2+; if S is greater than T → 3+; if S equals T → 4+; if S is less than T → 5+; if S is half T or less → 6+."
+    },
+    {
+      "id": "CO025",
+      "name": "Save Roll",
+      "category": "concept",
+      "summary": "Opposing player rolls 1D6 per wound; modified by AP. Unmodified 1 always fails.",
+      "description": "After attacks are allocated, the opposing player makes one Save Roll per wound. Modify the result by the weapon's AP characteristic (negative AP worsens the roll). If the modified result equals or exceeds the model's Sv characteristic, the save succeeds and no damage is inflicted. An unmodified roll of 1 always fails. The opposing player may instead use their InSv (if any), which is never modified by AP."
+    },
+    {
+      "id": "CO026",
+      "name": "Invulnerable Save",
+      "category": "concept",
+      "summary": "A save characteristic (InSv) that is never modified by AP; choose it instead of the normal Sv.",
+      "description": "A save characteristic that is never modified by Armour Penetration. Each time a model with an InSv makes a Save Roll, it can choose to use its InSv or its Sv — but not both. An invulnerable save of 1+ does not exist; the minimum effective value is 2+."
+    },
+    {
+      "id": "CO027",
+      "name": "Damage Allocation",
+      "category": "concept",
+      "summary": "Divide the target unit into allocation groups; resolve attacks against the current group in order.",
+      "description": "The opposing player divides the target unit into allocation groups: one per CHARACTER model, plus one group per set of non-CHARACTER models sharing the same W, Sv, and InSv characteristics. Groups with wounded non-CHARACTER models go first. CHARACTER groups are always last. Attacks are resolved against the current group from lowest to highest dice result."
+    },
+    {
+      "id": "CO028",
+      "name": "Mortal Wounds",
+      "category": "concept",
+      "summary": "Direct damage bypassing hit, wound, and save rolls; each inflicts 1 damage regardless of the weapon's D.",
+      "description": "Mortal wounds bypass all normal attack rolls and save rolls. Each mortal wound inflicts 1 point of damage on the target unit. Excess mortal wounds after destroying a model carry over to the next model in the unit. Rules such as [DEVASTATING WOUNDS] inflict mortal wounds equal to the weapon's D characteristic."
+    },
+    {
+      "id": "CO029",
+      "name": "Hazard Roll",
+      "category": "concept",
+      "summary": "Roll 1D6: on 1–2 the unit suffers 1 mortal wound (3 if all models are MONSTER/VEHICLE).",
+      "description": "To make a Hazard Roll for a unit, roll one D6. On a 1–2, that roll fails and the unit suffers 1 mortal wound, or 3 mortal wounds if every model in that unit is a MONSTER or VEHICLE model. If more than one Hazard Roll is required, make all of them simultaneously before resolving any failures."
+    },
+    {
+      "id": "CO030",
+      "name": "Plunging Fire",
+      "category": "concept",
+      "summary": "+1 BS when the attacker is on terrain 3\"+ high, or has TOWERING and the target is within 12\".",
+      "description": "Each time a model makes a ranged attack targeting a visible unit with models on ground level, improve the attacker's BS by 1 if: the attacking model is on a terrain section 3\" or more in height; OR the attacking model has the TOWERING keyword and the target unit is within 12\"."
+    },
+    {
+      "id": "CO031",
+      "name": "Visible",
+      "category": "concept",
+      "summary": "A model is visible if a straight, unobstructed line (1mm wide) can be drawn to any part of it.",
+      "description": "A model is visible to another if you can draw a straight, unobstructed line — at least 1mm wide — between any part of one model and any part of the other. Terrain features and other models between them may block this line of sight."
+    },
+    {
+      "id": "CO032",
+      "name": "Fully Visible",
+      "category": "concept",
+      "summary": "Every part of the model facing the observer is visible; only the model's own body can block sight to itself.",
+      "description": "A model is fully visible if every part of it that faces the observing model is visible. Only the model's own body (not its base, weapon barrels, etc.) can block visibility to itself. Weapon and equipment extensions are ignored."
+    },
+    {
+      "id": "CO033",
+      "name": "Unit Visible and Fully Visible",
+      "category": "concept",
+      "summary": "'Unit visible' = at least one model visible; 'Unit fully visible' = every model fully visible.",
+      "description": "A unit is visible if one or more of its models are visible to the observing model. A unit is fully visible if every model in it is fully visible to the observing model. These distinctions matter for the Benefit of Cover and certain abilities."
+    },
+    {
+      "id": "CO034",
+      "name": "Benefit of Cover",
+      "category": "concept",
+      "summary": "Worsen the attacker's BS by 1; granted when models are within terrain or not fully visible through it.",
+      "description": "A unit has the Benefit of Cover against a ranged attack if all its models are INFANTRY, BEASTS, or SWARM models wholly within a terrain feature's area; or the unit is not fully visible to the attacking model due to intervening terrain. Benefit of cover worsens the attacker's BS by 1. Cannot be gained against [IGNORES COVER] weapons."
+    },
+    {
+      "id": "CO035",
+      "name": "Exposed Terrain",
+      "category": "concept",
+      "summary": "Provides minimal protection and no movement restriction; all models move freely through it.",
+      "description": "Terrain with no special movement restrictions and minimal protective value. All models can traverse it without penalty. Exposed terrain does not grant the Benefit of Cover. Examples: craters, razorwire, scattered debris."
+    },
+    {
+      "id": "CO036",
+      "name": "Light Terrain",
+      "category": "concept",
+      "summary": "Can provide cover; does not restrict movement — all models, including MONSTERS/VEHICLES, move through it freely.",
+      "description": "Light terrain can provide the Benefit of Cover to units within it, but will not slow an enemy's advance: all models, including MONSTER/VEHICLE models, can move horizontally and vertically through light terrain features without restriction. Light terrain does not block line of sight on its own."
+    },
+    {
+      "id": "CO037",
+      "name": "Dense Terrain",
+      "category": "concept",
+      "summary": "Blocks line of sight and may carry Hidden/Obscuring/Solid; INFANTRY/BEASTS/SWARM/MOBILE pass through horizontally, others only through sections 2\" or less in height.",
+      "description": "Dense terrain blocks line of sight and may have additional rules: Hidden, Obscuring, and/or Solid. INFANTRY, BEASTS, and SWARM models can move both horizontally and vertically through dense terrain features. MOBILE models can also move through them horizontally. Other models can only move horizontally through a dense terrain feature where every section they pass through is 2\" or less in height (otherwise they must move vertically over it or go around); they cannot move through dense terrain vertically at all."
+    },
+    {
+      "id": "CO038",
+      "name": "Hidden",
+      "category": "concept",
+      "summary": "INFANTRY/BEASTS/SWARM in dense terrain are only visible to enemies within 15\" if they haven't recently shot.",
+      "description": "A unit is Hidden if all its models are INFANTRY, BEASTS, or SWARM models wholly within a dense terrain feature, and the unit did not shoot this turn or the previous turn. Hidden models are only visible to enemy models within 15\"."
+    },
+    {
+      "id": "CO039",
+      "name": "Obscuring",
+      "category": "concept",
+      "summary": "Dense terrain that blocks all lines of sight between models on opposite sides of it.",
+      "description": "Dense terrain with the Obscuring rule blocks every line of sight drawn between models on opposite sides of the terrain, even if neither model is within the terrain feature."
+    },
+    {
+      "id": "CO040",
+      "name": "Solid",
+      "category": "concept",
+      "summary": "Dense terrain where enclosed gaps 3\" or less above ground block line of sight through walls.",
+      "description": "Dense terrain with the Solid rule: lines of sight cannot pass through enclosed gaps that are 3\" or less above ground level. This represents solid walls of buildings and similar enclosed structures."
+    },
+    {
+      "id": "CO041",
+      "name": "Objective Control (OC)",
+      "category": "concept",
+      "summary": "A model characteristic for contesting objectives; '–' means the model cannot contest objectives.",
+      "description": "A model's OC (Objective Control) characteristic determines how effectively it contests an objective marker. A model with OC '–' cannot contest objectives. While a unit is Battle-shocked, the OC of all its models is modified to '–'."
+    },
+    {
+      "id": "CO042",
+      "name": "Level of Control",
+      "category": "concept",
+      "summary": "Sum of OC of your models within range of an objective; highest level controls it (ties = neither).",
+      "description": "A player's level of control over an objective marker equals the total OC of their models within range. The player with the higher level controls the objective. If tied, neither controls it — unless one has Secured it."
+    },
+    {
+      "id": "CO043",
+      "name": "Secured Objective",
+      "category": "concept",
+      "summary": "An objective held by a rule; remains under your control even without nearby units, until outcontrolled.",
+      "description": "When a rule says an objective is Secured by your army, it remains under your control even if you have no models nearby, until your opponent achieves a higher level of control over it."
+    },
+    {
+      "id": "CO044",
+      "name": "Command Points (CP)",
+      "category": "concept",
+      "summary": "Currency for using Stratagems; both players gain 1 CP at the start of each Command Phase.",
+      "description": "Command Points are spent to use Stratagems. Both players gain 1 CP at the start of each Command Phase (Gain Core CP step). Some rules grant additional CP or increase your CP limit."
+    },
+    {
+      "id": "CO045",
+      "name": "Stratagems",
+      "category": "concept",
+      "summary": "Tactical abilities that cost CP; each specifies WHEN, TARGET, EFFECT, and RESTRICTIONS.",
+      "description": "Stratagems are tactical abilities that cost Command Points. Each stratagem states: WHEN (the timing window), TARGET (which units), EFFECT (what happens), and any RESTRICTIONS. You cannot use the same Stratagem more than once per phase, or target the same unit with more than one Stratagem per phase."
+    },
+    {
+      "id": "CO046",
+      "name": "Actions",
+      "category": "concept",
+      "summary": "Battlefield tasks units perform to score mission objectives; unit cannot shoot or charge while doing one.",
+      "description": "Actions are listed in missions and other rules. Each Action states: WHEN it starts; which UNITS can do it; USE LIMIT; COMPLETES condition; and EFFECT. A unit cannot start an Action if it is not on the battlefield, is AIRCRAFT or a FORTIFICATION, is Battle-shocked, has OC 0 or '–', is Engaged (unless TITANIC), Advanced or Fell Back this turn, or already started another Action this turn."
+    },
+    {
+      "id": "CO047",
+      "name": "Transport Capacity",
+      "category": "concept",
+      "summary": "Max number and type of friendly models that can embark; shown on the TRANSPORT's datasheet.",
+      "description": "TRANSPORT models have a transport capacity on their datasheet, specifying the type and maximum number of friendly models that can embark. Units can start the battle already embarked — declare this during the Muster Armies step."
+    },
+    {
+      "id": "CO048",
+      "name": "Embarking",
+      "category": "concept",
+      "summary": "After a move, unit can embark if all models end within 3\" of the TRANSPORT.",
+      "description": "A friendly unit can embark within a friendly TRANSPORT after making a Normal, Advance, or Fall-back move, if: all models end within 3\" of the TRANSPORT; the unit was not set up this turn; the unit is eligible per the TRANSPORT's datasheet; and the TRANSPORT has sufficient capacity. Remove the unit from the battlefield."
+    },
+    {
+      "id": "CO049",
+      "name": "Disembarking",
+      "category": "concept",
+      "summary": "Embarked units disembark in the Movement Phase; choose Rapid, Tactical, or Combat Disembark mode.",
+      "description": "In the Movement phase, units embarked in a TRANSPORT can disembark. Modes: Rapid (after TRANSPORT's Normal/Ingress move; unit cannot Charge); Tactical (TRANSPORT Remains Stationary; unit can then make a Normal or Advance move); Combat (any other case; Hazard Roll per model; unit Battle-shocked; cannot Charge)."
+    },
+    {
+      "id": "CO050",
+      "name": "Emergency Disembark",
+      "category": "concept",
+      "summary": "When a TRANSPORT is destroyed, embarked units set up within 6\", make Hazard Rolls, and are battle-shocked.",
+      "description": "When a TRANSPORT is destroyed, all embarked units immediately Emergency Disembark: set up within 6\" of the TRANSPORT's position, not within Engagement Range of enemies. Make a Hazard Roll for each model. Each unit is Battle-shocked and cannot Charge until end of turn. Models that cannot be set up are destroyed."
+    },
+    {
+      "id": "CO051",
+      "name": "Monsters and Vehicles Movement",
+      "category": "concept",
+      "summary": "MONSTER/VEHICLE models can move through friendly and enemy models (not other MONSTER/VEHICLE).",
+      "description": "During Normal and Advance moves, MONSTER and VEHICLE models can be moved through the spaces occupied by friendly and enemy models. They cannot move through other MONSTER or VEHICLE models. All other movement rules still apply."
+    },
+    {
+      "id": "CO052",
+      "name": "Frame",
+      "category": "concept",
+      "summary": "Keyword for models without a base; measure distances to/from the model's closest point.",
+      "description": "Models with the FRAME keyword do not have a standard base. Whenever a rule requires measuring distances to or from a FRAME model, measure to and from the closest point on the model. When rotating during a move, a FRAME model turns around its central axis while remaining upright."
+    },
+    {
+      "id": "CO053",
+      "name": "Shooting at Engaged Monsters/Vehicles",
+      "category": "concept",
+      "summary": "Engaged MONSTER/VEHICLE units can be targeted; –1 to Hit (except [CLOSE-QUARTERS] from Engaged attackers).",
+      "description": "Enemy MONSTER or VEHICLE units that are Engaged with friendly units can still be selected as targets of your ranged attacks. Subtract 1 from the Hit Roll for each such attack, except for [CLOSE-QUARTERS] attacks made by models that are themselves Engaged with the target."
+    },
+    {
+      "id": "CO054",
+      "name": "Attached Units",
+      "category": "concept",
+      "summary": "A Leader joins a Bodyguard unit; CHARACTER models cannot be targeted while Bodyguard models remain.",
+      "description": "Before the battle, Leader and Support units can be attached to eligible Bodyguard units, forming a single Attached Unit. While Bodyguard models remain, attacks cannot be allocated to CHARACTER models in that unit. When all Bodyguard models are destroyed, the CHARACTER unit splits off and becomes independent. Each Bodyguard unit can have one Leader and one Support attached."
+    },
+    {
+      "id": "CO055",
+      "name": "Strategic Reserves",
+      "category": "concept",
+      "summary": "Units held off the board; arrive via Ingress moves from Round 2; total cannot exceed 50% of points.",
+      "description": "Before the battle, you can place friendly units in Strategic Reserves instead of deploying them. The combined points of Strategic Reserves units cannot exceed 50% of your total army points. They arrive via Ingress moves from Round 2 onwards. At the end of Round 3, unreturned Strategic Reserves units are destroyed."
+    },
+    {
+      "id": "CO056",
+      "name": "Ingress Move",
+      "category": "concept",
+      "summary": "Set up within 6\" of a battlefield edge, more than 8\" from all enemies; cannot move again until Charge Phase.",
+      "description": "When a Strategic Reserves unit arrives, set up all its models wholly within 6\" of one or more battlefield edges and more than 8\" horizontally from all enemy units. Before Round 3, models cannot be placed in the opponent's deployment zone. After arriving, the unit cannot make any other type of move until the start of the next Charge phase."
+    },
+    {
+      "id": "CO057",
+      "name": "Aircraft",
+      "category": "concept",
+      "summary": "Must deploy in Strategic Reserves; only make Ingress moves; return to reserves at end of opponent's turn.",
+      "description": "AIRCRAFT units must be placed in Strategic Reserves during deployment. They can only make Ingress moves. At the end of your opponent's turn, all your AIRCRAFT on the battlefield return to Strategic Reserves. AIRCRAFT cannot declare Charges and can only make melee attacks against FLYING units. Only FLYING units can declare Charges against AIRCRAFT."
+    },
+    {
+      "id": "CO058",
+      "name": "Surge Move",
+      "category": "concept",
+      "summary": "Move up to X\" toward a target; must end Engaged if possible; cannot move again this phase.",
+      "description": "When a Surge Move is triggered, the unit moves each model up to the stated distance toward a designated target. Each model must end Engaged with the target if possible. If not possible, it must end as close to the target as possible. No model can end within Engagement Range of units other than the Surge target."
+    },
+    {
+      "id": "CO059",
+      "name": "Aura Abilities",
+      "category": "concept",
+      "summary": "Affect models/units within a stated range; a model is always within range of its own aura.",
+      "description": "Abilities tagged 'Aura' affect models or units within a stated range. The model with the aura ability is always within range of its own aura. A unit can be affected by multiple different aura abilities simultaneously, but each specific aura can only affect a given unit once per trigger."
+    },
+    {
+      "id": "CO060",
+      "name": "Faction Abilities",
+      "category": "concept",
+      "summary": "Abilities common to units sharing a faction keyword; only apply when your army faction matches.",
+      "description": "Faction abilities are common to units sharing a particular faction keyword. Unless stated otherwise, a unit's faction abilities only apply if the army faction you selected while mustering your army matches a faction keyword on that unit's datasheet."
+    },
+    {
+      "id": "CO061",
+      "name": "Psychic Abilities",
+      "category": "concept",
+      "summary": "Tagged 'Psychic'; wounds inflicted by them count as psychic attacks for other rules.",
+      "description": "Abilities tagged with 'Psychic' are psychic abilities. If a psychic ability causes a model to lose wounds, each of those wounds is inflicted by a psychic attack. This distinction can trigger other rules that specifically reference psychic attacks."
+    },
+    {
+      "id": "CO062",
+      "name": "Wargear Abilities",
+      "category": "concept",
+      "summary": "Granted by specific wargear items; apply to the whole unit or bearer model only.",
+      "description": "Wargear abilities are granted when a unit or model has a specific item of wargear. If the ability affects the whole unit, it applies to all models. If it applies to the model carrying it, that model is the 'bearer' and the ability applies until the bearer is destroyed."
+    },
+    {
+      "id": "CO063",
+      "name": "Modifying a Stratagem's CP Cost",
+      "category": "concept",
+      "summary": "Rules that let you target a unit with 'a stratagem' for 0CP without naming it instead reduce its CP cost by 1.",
+      "description": "Universal Rules Update (22nd July 2026): rules that enable you to target a friendly unit with a stratagem for 0CP, but that do not specify the name of the stratagem, instead reduce the CP cost of that use of that stratagem by 1CP."
+    },
+    {
+      "id": "CO064",
+      "name": "Stratagems Usable More Than Once Per Phase/Turn",
+      "category": "concept",
+      "summary": "Repeat-use permissions for a stratagem (per phase/turn/round/battle) only apply if that rule names the stratagem.",
+      "description": "Universal Rules Update (22nd July 2026): parts of a rule that allow a player to use a stratagem even if they have already targeted another unit with that stratagem in the same phase can only be used if the name of the stratagem is specified in that rule. Similarly, if a stratagem is limited to one use per player per turn, per battle round or per battle, such parts of that rule can only be used if the name of the stratagem is specified in that rule."
+    },
+    {
+      "id": "CO065",
+      "name": "Stratagems That Restrict Targeting by Range",
+      "category": "concept",
+      "summary": "Effects that require an attacker within 12\" to target a unit now require 18\" instead.",
+      "description": "Universal Rules Update (22nd July 2026): if a stratagem has an effect that says the target unit 'can only be selected as the target of a ranged attack if the attacking model is within 12″', or 'cannot be targeted by ranged attacks unless the attacking model is within 12″', that effect is changed to say 'can only be selected as the target of a ranged attack if the attacking model is within 18″.'"
+    },
+    {
+      "id": "CO066",
+      "name": "Stratagems That Add a Replacement Unit",
+      "category": "concept",
+      "summary": "Stratagems that add a unit identical to your destroyed unit gain a once-per-battle restriction.",
+      "description": "Universal Rules Update (22nd July 2026): if a stratagem has the effect of adding 'a new unit to your army that is identical to your destroyed unit', add the following Restriction to that stratagem: 'RESTRICTIONS: You can only use this stratagem once per battle.'"
+    },
+    {
+      "id": "000008346",
+      "name": "Leader",
+      "category": "unit_ability",
+      "summary": "",
+      "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>"
+    }
+  ],
+  "coreStratagems": [
+    {
+      "id": "explosive-clearance",
+      "name": "EXPLOSIVE CLEARANCE",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Boarding Actions – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Select one model in your unit that is equipped with a weapon with the [BLAST] ability. Until the end of the phase, when determining how many models are in the target unit for the purpose of that ability, include models that are not visible to the attacking model. In addition, attacks made with that weapon can be allocated to models that are not visible to the attacking model."
+    },
+    {
+      "id": "command-re-roll",
+      "name": "COMMAND RE-ROLL",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Boarding Actions – Epic Deed Stratagem",
+      "turn": "Either player’s turn",
+      "phase": "Any phase",
+      "description": "<b>WHEN:</b> Any phase, just after you have made a Hit roll, a Wound roll, a Damage roll, a saving throw, an Advance roll, a Charge roll, a Desperate Escape test, a Hazardous test, or just after you have rolled the dice to determine the number of attacks made with a weapon, for an attack, model or unit from your army.<br><br><b>TARGET:</b> That unit or model from your army.<br><br><b>EFFECT:</b> You re-roll that roll, test or saving throw.",
+      "effect": {
+        "effects": {
+          "rerollDamageOf1": true
+        },
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "insane-bravery",
+      "name": "INSANE BRAVERY",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Boarding Actions – Epic Deed Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> Battle-shock step of your Command phase, just after you have failed a Battle-shock test taken for a unit from your army.<br><br><b>TARGET:</b> The unit from your army that Battle-shock test was just taken for (even though your Battle-shocked units cannot normally be affected by your Stratagems).<br><br><b>EFFECT:</b> Your unit is treated as having passed that test instead, and is not Battle-shocked as a result."
+    },
+    {
+      "id": "battlefield-command",
+      "name": "BATTLEFIELD COMMAND",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Boarding Actions – Strategic Ploy Stratagem",
+      "turn": "Either player’s turn",
+      "phase": "Any phase",
+      "description": "<b>WHEN:</b> Start or end of any phase.<br><br><b>TARGET:</b> One Leader unit from your army and one friendly Bodyguard unit within 6\" of it that it could normally be attached to.<br><br><b>EFFECT:</b> Select one of your Leader unit’s Leader abilities. Until the start of your next Command phase, that Bodyguard unit is treated as being led by that Leader unit for the purposes of that Leader ability.<br><br><b>RESTRICTIONS:</b> Once you target a unit with this Stratagem, that unit cannot be targeted with it again until your next Command phase."
+    },
+    {
+      "id": "counter-offensive",
+      "name": "COUNTER-OFFENSIVE",
+      "detachmentId": null,
+      "cpCost": 2,
+      "type": "Boarding Actions – Strategic Ploy Stratagem",
+      "turn": "Either player’s turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, just after an enemy unit has fought.<br><br><b>TARGET:</b> One unit from your army that is within Engagement Range of one or more enemy units and that has not already been selected to fight this phase.<br><br><b>EFFECT:</b> Your unit fights next."
+    },
+    {
+      "id": "renewed-focus",
+      "name": "RENEWED FOCUS",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting or Fight phase",
+      "description": "<b>WHEN:</b> Your Shooting phase or your Fight phase.<br><br><b>TARGET:</b> One unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+    },
+    {
+      "id": "opportunistic-strike",
+      "name": "OPPORTUNISTIC STRIKE",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One unit from your army that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Select one enemy unit that is not within Engagement Range of one or more units from your army and is within 6\" of and visible to your unit. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
+    },
+    {
+      "id": "burst-of-speed-core",
+      "name": "BURST OF SPEED",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> End of your Shooting phase.<br><br><b>TARGET:</b> One unit from your army (excluding units that made a move this phase).<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to D6\", and then cannot move again this phase."
+    },
+    {
+      "id": "force-a-breach",
+      "name": "FORCE A BREACH",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One unit from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time your unit makes a Normal or Advance move, it can move horizontally through models and terrain features."
+    },
+    {
+      "id": "great-haste",
+      "name": "GREAT HASTE",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One unit from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> Until the end of the phase, add D6\" to the Move characteristic of models in your unit."
+    },
+    {
+      "id": "pivotal-moment",
+      "name": "PIVOTAL MOMENT",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One unit from your army.<br><br><b>EFFECT:</b> Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
+    },
+    {
+      "id": "all-in",
+      "name": "ALL IN",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6\" instead of up to 3\". In addition, it does not need to end that move closer to the closest enemy model, provided it ends it as close as possible to the closest enemy unit."
+    },
+    {
+      "id": "strategic-retreat",
+      "name": "STRATEGIC RETREAT",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Start of your Shooting phase.<br><br><b>TARGET:</b> One unit from your army (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Remove your unit from the battlefield and place it into Strategic Reserves."
+    },
+    {
+      "id": "harboured-power",
+      "name": "HARBOURED POWER",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Challenger – Wargear Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting or Fight phase",
+      "description": "<b>WHEN:</b> Your Shooting phase or your Fight phase.<br><br><b>TARGET:</b> One unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, weapons equipped by models in your unit have the [HAZARDOUS] ability and your choice of the [LETHAL HITS] or [SUSTAINED HITS 1] ability."
+    },
+    {
+      "id": "command-re-roll-core",
+      "name": "COMMAND RE-ROLL",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Battle Tactic Stratagem",
+      "turn": "Either player's turn",
+      "phase": "Any phase",
+      "description": "<b>WHEN:</b> Any phase, just after you make one of the following rolls for a friendly unit or model: Advance roll, Charge roll, Damage roll, Hazard roll, Hit roll, Save roll, Wound roll, or a roll to determine the number of attacks generated with a weapon.<br><br><b>TARGET:</b> That unit or model.<br><br><b>EFFECT:</b> You reroll that roll. If you are rolling more than one dice together, select one of those dice to reroll (excluding charge rolls, which you must re-roll in full)."
+    },
+    {
+      "id": "go-to-ground",
+      "name": "GO TO GROUND",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Battle Tactic Stratagem",
+      "turn": "Opponent’s turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One <span class=\"kwb\">INFANTRY</span> unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, all models in your unit have a 6+ invulnerable save and have the Benefit of Cover."
+    },
+    {
+      "id": "insane-bravery-core",
+      "name": "INSANE BRAVERY",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Epic Deed Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> Battle-shock step of your Command phase, just before you make a battle-shock roll for a friendly unit.<br><br><b>TARGET:</b> That unit.<br><br><b>EFFECT:</b> That battle-shock roll is automatically successful.<br><br><b>RESTRICTIONS:</b> You cannot use this stratagem more than once per battle."
+    },
+    {
+      "id": "epic-challenge",
+      "name": "EPIC CHALLENGE",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Epic Deed Stratagem",
+      "turn": "Either player's turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, just after a friendly <span class=\"kwb\">CHARACTER</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHARACTER</span> unit.<br><br><b>EFFECT:</b> Select one <span class=\"kwb\">CHARACTER</span> model in your unit. Until the end of the phase, that model's melee weapons have the [PRECISION] ability."
+    },
+    {
+      "id": "heroic-intervention",
+      "name": "HEROIC INTERVENTION",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Charge phase",
+      "description": "<b>WHEN:</b> End of your opponent's Charge phase.<br><br><b>TARGET:</b> One friendly unengaged unit within 12\\\" of one or more enemy units. You can only select a <span class=\"kwb\">VEHICLE</span> unit if it is a <span class=\"kwb\">CHARACTER</span>/<span class=\"kwb\">WALKER</span> unit.<br><br><b>EFFECT:</b> Resolve a charge with your unit. While doing so, before making the charge roll, you must select one of the following modes:<br><b>Leap to Defend:</b> When selecting charge targets, you can only select enemy units that made a charge move this phase and are within the maximum distance.<br><b>Into the Fray (+1CP):</b> When making the charge roll, if the result is greater than 6 (after modifiers), change it to 6. When selecting charge targets, you can select any enemy units that are within 6\\\" of your unit and within the maximum distance."
+    },
+    {
+      "id": "counter-offensive-core",
+      "name": "COUNTER-OFFENSIVE",
+      "detachmentId": null,
+      "cpCost": 2,
+      "type": "Core – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight step of your opponent's Fight phase, just after an enemy unit has resolved its attacks.<br><br><b>TARGET:</b> One friendly unit that is eligible to fight.<br><br><b>EFFECT:</b> Until the end of the phase, your unit has the Fights First ability and it must be the next unit you select to fight."
+    },
+    {
+      "id": "crushing-impact",
+      "name": "CRUSHING IMPACT",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Charge phase",
+      "description": "<b>WHEN:</b> Your Charge phase, just after a friendly <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit ends a charge move.<br><br><b>TARGET:</b> That <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit.<br><br><b>EFFECT:</b> Resolve the following sequence:<br>1. Select one enemy unit engaged with your unit.<br>2. Select one model in your unit engaged with that enemy unit.<br>3. Roll a number of D6 equal to the T characteristic of that model: for each 1, your unit suffers 1 mortal wound; for each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds per unit)."
+    },
+    {
+      "id": "rapid-ingress",
+      "name": "RAPID INGRESS",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> End of your opponent's Movement phase.<br><br><b>TARGET:</b> One friendly unit that is in strategic reserves (excluding <span class=\"kwb\">AIRCRAFT</span>).<br><br><b>EFFECT:</b> Your unit makes an ingress move.<br><br><b>RESTRICTIONS:</b> You cannot use this stratagem during the first battle round."
+    },
+    {
+      "id": "fire-overwatch",
+      "name": "FIRE OVERWATCH",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> End of your opponent's Movement phase.<br><br><b>TARGET:</b> One friendly unengaged unit (excluding <span class=\"kwb\">TITANIC</span> units).<br><br><b>EFFECT:</b> Your unit shoots using snap shooting: you can only target one visible enemy unit within 24\\\" of your unit (and only if it is an eligible target); each attack only hits on an unmodified hit roll of 6, irrespective of the attacking weapon's BS characteristic or any modifiers; you cannot reroll hit rolls; until the end of the phase, your unit is not eligible to start an action."
+    },
+    {
+      "id": "explosives",
+      "name": "EXPLOSIVES",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Wargear Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One friendly unengaged <span class=\"kwb\">EXPLOSIVES</span>/<span class=\"kwb\">GRENADES</span> unit that is eligible to shoot and did not make an advance move this turn.<br><br><b>EFFECT:</b> Resolve the following sequence:<br>1. Select one <span class=\"kwb\">EXPLOSIVES</span>/<span class=\"kwb\">GRENADES</span> model in your unit.<br>2. Select one unengaged enemy unit within 8\" of and visible to that model.<br>3. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
+    },
+    {
+      "id": "smokescreen",
+      "name": "SMOKESCREEN",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core – Wargear Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Start of your opponent's Shooting phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">SMOKE</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets either your <span class=\"kwb\">SMOKE</span> unit, or a unit that is not fully visible to the attacking model because of one or more models in your <span class=\"kwb\">SMOKE</span> unit, the target has the benefit of cover against that attack."
+    },
+    {
+      "id": "new-orders",
+      "name": "NEW ORDERS",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core Stratagem – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> End of your Command phase.<br><br><b>TARGET:</b> One of your active Secondary Mission cards.<br><br><b>EFFECT:</b> Discard it and draw one new Secondary Mission card.<br>"
+    },
+    {
+      "id": "new-orders-core",
+      "name": "NEW ORDERS",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core Stratagem – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> End of your Command phase.<br><br><b>TARGET:</b> One of your active Secondary Mission cards.<br><br><b>EFFECT:</b> Discard it and draw one new Secondary Mission card.<br><br><b>RESTRICTIONS:</b> You can only use this Stratagem once per battle.<br>"
+    },
+    {
+      "id": "new-orders-core-2",
+      "name": "NEW ORDERS",
+      "detachmentId": null,
+      "cpCost": 1,
+      "type": "Core Stratagem – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> End of your Command phase.<br><br><b>TARGET:</b> One of your active Secondary Mission cards.<br><br><b>EFFECT:</b> Discard it and draw one new Secondary Mission card.<br>"
+    }
+  ],
+  "coreRuleEffects": [
+    {
+      "id": "cover",
+      "name": "Cobertura (empeora BS atacante +1)",
+      "description": "El defensor tiene el Beneficio de Cobertura (13.08): empeora la característica BS del atacante en 1. Independiente del cap ±1 de los modificadores al dado.",
+      "effect": {
+        "effects": {
+          "bsMod": 1
+        },
+        "combatType": "ranged",
+        "target": "defender"
+      }
+    },
+    {
+      "id": "weapon-heavy",
+      "name": "Arma Pesada (Heavy) — quieto este turno (+1 impactar)",
+      "description": "El portador de un arma con la regla [HEAVY] no se ha movido este turno: +1 al dado de impactar.",
+      "effect": {
+        "effects": {
+          "hitMod": 1
+        },
+        "combatType": "ranged"
+      }
+    },
+    {
+      "id": "weapon-lance",
+      "name": "[LANCE] — +1 herir si has cargado",
+      "description": "[LANCE]: Each time an attack is made with this weapon, if the attacking unit made a charge move this turn, add 1 to the wound roll.",
+      "effect": {
+        "effects": {
+          "woundMod": 1
+        },
+        "combatType": "melee"
+      }
+    },
+    {
+      "id": "unit-stealth",
+      "name": "Stealth — cobertura vs todos los ataques a distancia",
+      "description": "Stealth: if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.",
+      "effect": {
+        "effects": {
+          "bsMod": 1
+        },
+        "combatType": "ranged",
+        "target": "defender"
+      }
+    },
+    {
+      "id": "core-plunging-fire",
+      "name": "Plunging Fire — +1 BS (atacante en terreno alto)",
+      "description": "Plunging Fire: improve attacker's BS by 1 if on terrain 3\"+ high, or TOWERING within 12\". Equivale a bsMod: -1 en el atacante.",
+      "effect": {
+        "effects": {
+          "bsMod": -1
+        },
+        "combatType": "ranged"
+      }
+    },
+    {
+      "id": "core-shooting-engaged-mv",
+      "name": "Disparar a MONSTRUO/VEHÍCULO en combate — −1 impactar",
+      "description": "Shooting at Engaged Monsters/Vehicles: subtract 1 from the Hit Roll when targeting a MONSTER or VEHICLE unit that is Engaged with friendly units.",
+      "effect": {
+        "effects": {
+          "hitMod": -1
+        },
+        "combatType": "ranged"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "000000285",
+      "name": "Boarding Actions",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "09.07.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_09-07_warhammer40000_other_rules_boarding_actions_companion-hyatd8cog7-wpqvdzf1mt.pdf"
+    },
+    {
+      "id": "000000166",
+      "name": "Balance Dataslate",
+      "type": "Rulebook",
+      "edition": 10,
+      "version": "3.4",
+      "errataDate": "04.03.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_04-03_wh40k_core&key_balance_dataslate-ysn1jjtd9x-qogz1pqkky.pdf"
+    },
+    {
+      "id": "000000233",
+      "name": "Munitorum Field Manual",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "4.3",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_core&key_munitorum_field_manual-fgt8lqklvr-5bzc9woucs.pdf"
+    },
+    {
+      "id": "000000259",
+      "name": "Imperial Agents",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.3",
+      "errataDate": "22.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-04_wh40k_faction-pack_imperial_agents-c7eul3sg1w-bebpeeqrtv.pdf"
+    },
+    {
+      "id": "000000016",
+      "name": "Astra Militarum",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.6",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_faction_pack_astra_militarum-kxlmmwpxfk-kauuyhnusx.pdf"
+    },
+    {
+      "id": "000000053",
+      "name": "Genestealer Cults",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_warhammer40000_faction_pack_genestealer_cults-qytbcd1u66-tch87rzd76.pdf"
+    },
+    {
+      "id": "000000029",
+      "name": "Necrons",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_04-03_warhammer40000_faction_pack_necrons-oit9xyrlza-eqprrhthph.pdf"
+    },
+    {
+      "id": "000000186",
+      "name": "Aeldari",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "11.02.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_11-02_warhammer_40000_faction_pack_aeldari-tmtx4nmkgp-ksodwfy7uo.pdf"
+    },
+    {
+      "id": "000000270",
+      "name": "Adeptus Titanicus (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "08.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_08-10_warhammer40000_faction_pack_adeptus_titanicus-ovucwiw1o6-jmk9dpdulj.pdf"
+    },
+    {
+      "id": "000000046",
+      "name": "Orks",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.3",
+      "errataDate": "22.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-04_wh40k_faction-pack_orks-hkgrrrimae-j5rdbqknu5.pdf"
+    },
+    {
+      "id": "000000271",
+      "name": "Legends: Unaligned Forces",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "17.09.2024 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/warhammer40000_legends_unaligned_eng_24.09-5ssd1gtiok.pdf"
+    },
+    {
+      "id": "000000235",
+      "name": "Legends Field Manual",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "2.1",
+      "errataDate": "12.03.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_warhammer40000_legends_field_manual_march_2025-uvwunjcopz-uo7n0c9fuk.pdf"
+    },
+    {
+      "id": "000000013",
+      "name": "Grey Knights",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_warhammer40000_faction_pack_grey_knights-zqnts28ptt-zsxdvbmvik.pdf"
+    },
+    {
+      "id": "000000028",
+      "name": "T’au Empire",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_0906_warhammer40000_faction_pack_tau_empireavmkx2gg8ijezqgeb55k.pdf"
+    },
+    {
+      "id": "000000203",
+      "name": "Leagues of Votann",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.4",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_leagues_of_votann-bnjtiibaxz-yexor54fbk.pdf"
+    },
+    {
+      "id": "000000015",
+      "name": "Adeptus Mechanicus",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_adeptus_mechanicus-nh181csxvf-e4ye5z23jl.pdf"
+    },
+    {
+      "id": "000000027",
+      "name": "Thousand Sons",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "01.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_thousand_sons-g5bgk0rgrv-wce6qeshza.pdf"
+    },
+    {
+      "id": "000000014",
+      "name": "Death Guard",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_death_guard-lp8dafzobs-shnagjdk5b.pdf"
+    },
+    {
+      "id": "000000280",
+      "name": "Emperor’s Children",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.4",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_emperors_children-ehx6dskmke-uque7oypup.pdf"
+    },
+    {
+      "id": "000000210",
+      "name": "World Eaters",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_world_eaters-1don2dzeun-zxlbftajex.pdf"
+    },
+    {
+      "id": "000000070",
+      "name": "Chaos Knights",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "01.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_chaos_knights-fkn0neaf5f-yfjckxxmkj.pdf"
+    },
+    {
+      "id": "000000025",
+      "name": "Chaos Daemons",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "11.02.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_11-02_warhammer_40000_faction_pack_chaos_daemons-xjdr0v2gia-pegn6mif0x.pdf"
+    },
+    {
+      "id": "000000034",
+      "name": "Imperial Knights",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "01.04.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_01-04_wh40k_faction_pack_imperial_knights-ghqb5ptegp-nn5zi5y301.pdf"
+    },
+    {
+      "id": "000000139",
+      "name": "Space Marines",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.8",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_faction_pack_space_marines-x64jvocbpe-got9m0shcn.pdf"
+    },
+    {
+      "id": "000000020",
+      "name": "Tyranids",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_0906_warhammer40000_faction_pack_tyranids-avhhzmcte8j-0kseag7td.pdf"
+    },
+    {
+      "id": "000000024",
+      "name": "Adeptus Custodes",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000112",
+      "name": "Adepta Sororitas",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.4",
+      "errataDate": "20.06.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-04_wh40k_faction-pack_adepta_sororitas-mpqm32we8r-ogeo0gu7sj.pdf"
+    },
+    {
+      "id": "000000012",
+      "name": "Chaos Space Marines",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.6",
+      "errataDate": "06.05.2026 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_06-05_wh40k_faction_pack_chaos_space_marines-ntn8woe3um-4rvlantroc.pdf"
+    },
+    {
+      "id": "000000031",
+      "name": "Drukhari",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_wh40k_faction-pack_drukhari-6uxdycfi7j-maudf7cqmp.pdf"
+    },
+    {
+      "id": "000000100",
+      "name": "Legends: Tyranids",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "17.09.2024 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/warhammer40000_legends_tyranids_eng_24.09-zhzcfdwafm.pdf"
+    },
+    {
+      "id": "000000162",
+      "name": "Black Templars",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "22.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_22-10_warhammer40000_faction_pack_black_templars-ycacnrihzp-ybeyjrio3d.pdf"
+    },
+    {
+      "id": "000000287",
+      "name": "Legends: Ultramarines",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "17.09.2024 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/warhammer40000_legends_ultramarines_eng_24.09-2yceq0oswk.pdf"
+    },
+    {
+      "id": "000000335",
+      "name": "Death Korps of Krieg",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "",
+      "errataDate": "23.04.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_23-04_warhammer40000_other_rules_astra_militarum_death_korp_of_krieg_datasheet-w4jezt0twq-hdnqb0dxdf.pdf"
+    },
+    {
+      "id": "000000353",
+      "name": "Adepta Sororitas (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000354",
+      "name": "Adeptus Custodes (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000355",
+      "name": "Chaos Space Marines (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000356",
+      "name": "Space Marines (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000357",
+      "name": "Chaos Daemons (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000358",
+      "name": "Necrons (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000359",
+      "name": "Necrons (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000360",
+      "name": "Space Wolves (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000362",
+      "name": "Space Marines (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000363",
+      "name": "Imperial Agents (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000364",
+      "name": "Grey Knights (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000365",
+      "name": "Grey Knights (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000366",
+      "name": "Aeldari (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000367",
+      "name": "Aeldari (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000368",
+      "name": "Death Guard (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000369",
+      "name": "Chaos Knights (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000370",
+      "name": "Imperial Knights (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000371",
+      "name": "Adeptus Mechanicus (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000372",
+      "name": "Black Templars (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000373",
+      "name": "Dark Angels (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000374",
+      "name": "Astra Militarum (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000375",
+      "name": "Astra Militarum (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000376",
+      "name": "Blood Angels (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000377",
+      "name": "Orks (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000378",
+      "name": "Orks (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000379",
+      "name": "Tyranids (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000380",
+      "name": "Tyranids (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000381",
+      "name": "T’au Empire (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000382",
+      "name": "T’au Empire (Forge World)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000383",
+      "name": "Genestealer Cults (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000384",
+      "name": "Drukhari (Warhammer Legends)",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.0001 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000385",
+      "name": "Warhammer 40,000: Dawn of War – Onslaught",
+      "type": "Boxset",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.07.2025 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000386",
+      "name": "Da Red Gobbo’s Tinboy (Warhammer Legends)",
+      "type": "Datasheet",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.10.2025 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000387",
+      "name": "500 Worlds: Dread Incursions",
+      "type": "Expansion",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.01.2026 0:00:00",
+      "errataLink": ""
+    },
+    {
+      "id": "000000036",
+      "name": "Space Wolves",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "10.12.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_10-12_wh40k_faction_pack_space_wolves-a4cmfwecry-2pqnq2mppi.pdf"
+    },
+    {
+      "id": "000000021",
+      "name": "Blood Angels",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.1",
+      "errataDate": "07.12.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_7-12_wh40k_faction_pack_blood_angels-hpaptywczw-czi18baub9.pdf"
+    },
+    {
+      "id": "000000023",
+      "name": "Dark Angels",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.0",
+      "errataDate": "08.10.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_08-10_warhammer40000_faction_pack_dark_angels-0arksfusu7-omyedadlas.pdf"
+    },
+    {
+      "id": "000000035",
+      "name": "Deathwatch",
+      "type": "Faction Pack",
+      "edition": 10,
+      "version": "1.2",
+      "errataDate": "12.11.2025 0:00:00",
+      "errataLink": "https://assets.warhammer-community.com/eng_12-11_wh40k_faction_pack_deathwatch-fln838xhgr-j2ypjxdmqj.pdf"
+    },
+    {
+      "id": "000000389",
+      "name": "Boarding Actions: Sublime Strike",
+      "type": "White Dwarf",
+      "edition": 10,
+      "version": "",
+      "errataDate": "01.04.2025 0:00:00",
+      "errataLink": ""
+    }
+  ],
+  "lastUpdate": "2026-06-17 00:00:00"
+}
