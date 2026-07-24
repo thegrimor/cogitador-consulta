@@ -59,7 +59,7 @@
         {
           "id": "rad-bombardment",
           "name": "Rad-bombardment",
-          "description": "<div class=\"whiteDiamondLine\">BATTLE ROUND<div class=\"whiteDiamondWrap\"><div class=\"redDiamondSpan\"><div class=\"whiteDiamondSpan\"><div class=\"whiteDiamondText\">1</div></div></div></div></div><span class=\"hi_custom\">BOMBARDMENT</span><br>At the start of the first battle round, for each enemy unit within your opponents deployment zone, your opponent must decide whether that unit will take cover or stand firm. You then roll one D6 for each of those enemy units and apply the relevant result below:<br><ul><li><b>Unit Standing Firm:</b> On a 3+, that unit suffers D3 mortal wounds.</li><li><b>Unit Taking Cover:</b> Until the end of the battle round, that unit is Battle-shocked and, on a 5+, that unit suffers D3 mortal wounds.</li></ul><br><div class=\"whiteDiamondLine\">BATTLE ROUND<div class=\"whiteDiamondWrap\"><div class=\"redDiamondSpan\"><div class=\"whiteDiamondSpan\"><div class=\"whiteDiamondText\">2</div></div></div></div>     &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;ONWARDS</div><span class=\"hi_custom\">FALLOUT</span><br>At the start of your Command phase during the second, third, fourth and fifth battle rounds, roll one D6 for each enemy unit within your opponent’s deployment zone. On a 3+, that unit suffers 1 mortal wound and must take a Battle-shock test."
+          "description": "<div class=\"whiteDiamondLine\">BATTLE ROUND<div class=\"whiteDiamondWrap\"><div class=\"redDiamondSpan\"><div class=\"whiteDiamondSpan\"><div class=\"whiteDiamondText\">1</div></div></div></div></div><span class=\"hi_custom\">BOMBARDMENT</span><br>At the start of the first battle round, for each enemy unit within your opponents deployment zone, your opponent must decide whether that unit will take cover or stand firm. You then roll one D6 for each of those enemy units and apply the relevant result below:<br><ul><li><b>Unit Standing Firm:</b> On a 3+, that unit suffers D3 mortal wounds.</li><li><b>Unit Taking Cover:</b> That unit is Battle-shocked. On a 5+, that unit suffers D3 mortal wounds.</li></ul><br><div class=\"whiteDiamondLine\">BATTLE ROUND<div class=\"whiteDiamondWrap\"><div class=\"redDiamondSpan\"><div class=\"whiteDiamondSpan\"><div class=\"whiteDiamondText\">2</div></div></div></div>     &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;ONWARDS</div><span class=\"hi_custom\">FALLOUT</span><br>At the start of your Command phase during the second, third, fourth and fifth battle rounds, roll one D6 for each enemy unit within your opponent’s deployment zone. On a 3+, that unit suffers 1 mortal wound and must take a Battle-shock test."
         }
       ]
     },
@@ -73,7 +73,7 @@
         {
           "id": "stealth-optimisation",
           "name": "Stealth Optimisation",
-          "description": "SKITARII INFANTRY, SKITARII MOUNTED and IRONSTRIDER BALLISTARII units from your army have the Stealth ability, and each time a ranged attack targets a SICARIAN unit from your army, unless the attacking model is within 12\", the target has the Benefit of Cover against that attack."
+          "description": "Friendly SKITARII INFANTRY, SKITARII MOUNTED and IRONSTRIDER BALLISTARII units have Stealth."
         }
       ]
     },
@@ -148,7 +148,7 @@
     {
       "id": "haloscreed-battle-clade",
       "name": "Haloscreed Battle Clade",
-      "disposition": "PURGE THE FOE",
+      "disposition": "PRIORITY ASSETS",
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -594,7 +594,7 @@
       "type": "Haloscreed Battle Clade – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Adeptus Mechanicus Infantry unit (excluding Kataphron units) from your army that is within 9\" of that enemy unit and not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to D6\", or up to 6\" instead if it is a <span class=\"kwb\">HALO</span> <span class=\"kwb\">OVERRIDE</span> unit."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Adeptus Mechanicus Infantry unit (excluding Kataphron units) from your army that is within 8\" of that enemy unit and not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to D6\", or up to 6\" instead if it is a <span class=\"kwb\">HALO</span> <span class=\"kwb\">OVERRIDE</span> unit."
     },
     {
       "id": "aggressive-impulse",
@@ -1436,7 +1436,8 @@
         "Tech-Priest",
         "Imperium",
         "Epic Hero",
-        "Character"
+        "Character",
+        "Mobile"
       ],
       "factionKeywords": [
         "Adeptus Mechanicus"
@@ -2107,7 +2108,7 @@
         },
         {
           "description": "6 models",
-          "points": 320
+          "points": 310
         }
       ],
       "wargearCosts": [],
@@ -2330,7 +2331,7 @@
         },
         {
           "description": "6 models",
-          "points": 210
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -2606,6 +2607,10 @@
         {
           "description": "5 models",
           "points": 65
+        },
+        {
+          "description": "10 models",
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -2800,7 +2805,7 @@
         {
           "id": "repulsor-grid",
           "name": "Repulsor Grid",
-          "description": "Each time a ranged attack is allocated to a <span class=\"kwb\">KASTELAN</span> <span class=\"kwb\">ROBOT</span> model in this unit, on an unmodified saving throw of 6, the attacking unit suffers 1 mortal wound after it has finished making its attacks.",
+          "description": "When an enemy unit targets this unit with ranged attacks, until that enemy unit has shot, when this unit makes a save roll: on an unmodified 6, that enemy unit suffers 1 mortal wound after that enemy unit has shot.",
           "type": "Datasheet"
         }
       ],
@@ -2964,6 +2969,12 @@
               "attacksMod": 2
             }
           }
+        },
+        {
+          "id": "data-severed",
+          "name": "Data-severed",
+          "description": "If there are no <span class=\"kwb\">KASTELAN ROBOT</span> models in this unit: this unit loses <span class=\"kwb\">VEHICLE</span>. This unit has <span class=\"kwb\">INFANTRY</span>.",
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -3575,7 +3586,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 90
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -4156,7 +4167,7 @@
         },
         {
           "description": "3 models (1st-2nd units)",
-          "points": 240
+          "points": 250
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -4168,7 +4179,7 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 255
+          "points": 265
         }
       ],
       "wargearCosts": [
@@ -4960,7 +4971,8 @@
         "Skitarii",
         "Smoke",
         "Skorpius Dunerider",
-        "FRAME"
+        "FRAME",
+        "Frame"
       ],
       "factionKeywords": [
         "Adeptus Mechanicus"
@@ -4983,7 +4995,11 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 75
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 85
         }
       ],
@@ -5159,7 +5175,8 @@
         "Vehicle",
         "Imperium",
         "Skorpius Disintegrator",
-        "FRAME"
+        "FRAME",
+        "Frame"
       ],
       "factionKeywords": [
         "Adeptus Mechanicus"
@@ -5427,7 +5444,7 @@
         },
         {
           "description": "6 models",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -5552,7 +5569,7 @@
         {
           "id": "tactica-obliqua",
           "name": "Tactica Obliqua",
-          "description": "<ul></ul>Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can do one of the following: <br><ul><li>Make a Normal move of up to D6\". </li><li>Make a Normal move of up to 6\", provided every model in this unit ends that move wholly within 6\" of one or more friendly Adeptus Mechanicus Battleline units.</li></ul>",
+          "description": "<ul></ul>Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can do one of the following: <br><ul><li>Make a Normal move of up to D6\". </li><li>Make a Normal move of up to 6\", provided every model in this unit ends that move wholly within 6\" of one or more friendly Adeptus Mechanicus Battleline units.</li></ul>",
           "type": "Datasheet"
         }
       ],
@@ -5598,7 +5615,7 @@
         },
         {
           "description": "6 models",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -6040,7 +6057,7 @@
         {
           "line": 1,
           "name": "Archaeopter Transvector",
-          "M": "20+\"",
+          "M": "14\"",
           "T": 9,
           "Sv": "3+",
           "invSv": "-",
@@ -6122,7 +6139,7 @@
         {
           "id": "aerial-deployment",
           "name": "Aerial Deployment",
-          "description": "If this model starts the game in Hover mode and in Strategic Reserves, it can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules.",
+          "description": "In your first Movement phase, this unit can make an ingress move.",
           "type": "Datasheet"
         }
       ],
@@ -6132,7 +6149,6 @@
         "Imperium",
         "Fly",
         "Transport",
-        "Aircraft",
         "Vehicle"
       ],
       "factionKeywords": [
@@ -6217,7 +6233,7 @@
         {
           "line": 1,
           "name": "Archaeopter Stratoraptor",
-          "M": "20+\"",
+          "M": "-",
           "T": 9,
           "Sv": "3+",
           "invSv": "-",
@@ -6429,7 +6445,7 @@
         {
           "line": 1,
           "name": "Archaeopter Fusilave",
-          "M": "20+\"",
+          "M": "-",
           "T": 9,
           "Sv": "3+",
           "invSv": "-",
@@ -6505,7 +6521,7 @@
         {
           "id": "bomb-rack",
           "name": "Bomb Rack",
-          "description": "Each time this model ends a Normal move, you can select one enemy unit it moved across during that move and roll six D6: for each 4+, that unit suffers 1 mortal wound.",
+          "description": "At the end of your opponent’s Fight phase, select one visible enemy unit (excluding Lone Operative units) within 24\" of this unit, and roll six D6 for that unit: for each 4+, that unit suffers 1 mortal wound.",
           "type": "Datasheet"
         }
       ],
@@ -7741,12 +7757,6 @@
           "type": "Datasheet"
         },
         {
-          "id": "cybernetic-augmentation",
-          "name": "Cybernetic Augmentation",
-          "description": "This model can move through terrain features, but cannot end a move within a wall, a floor, etc. This model can be set up or end a move on any floor level of <span class=\"kwb\">RUINS</span>, but if that level is not the ground floor, it can only do so if its base does not overhang the floor at that level.",
-          "type": "Datasheet"
-        },
-        {
           "id": "secutor-of-olympus",
           "name": "Secutor of Olympus",
           "description": "At the start of your Shooting phase, select one enemy <span class=\"kwb\">VEHICLE</span> unit within 12\" of this model and roll one D6: on a 2+, that enemy unit suffers D3+1 mortal wounds.",
@@ -7784,7 +7794,8 @@
         "Epic Hero",
         "Cult Mechanicus",
         "Tech-Priest",
-        "Thulia Ghuld"
+        "Thulia Ghuld",
+        "Mobile"
       ],
       "factionKeywords": [
         "Adeptus Mechanicus"
@@ -8017,11 +8028,11 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 115
+          "points": 105
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],

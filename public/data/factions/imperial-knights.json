@@ -105,7 +105,7 @@
         {
           "id": "cogbound-alliance",
           "name": "Cogbound Alliance",
-          "description": "Imperial Knights units from your army have the following the ability:<br><br><b>Sacristan Pledge:</b> In your Command phase, one model in this unit regains 1 lost wound. If this unit is within 3\" of one or more friendly Tech-Priest models, one model in this unit regains up to D3 lost wounds instead.<br><br>Adeptus Mechanicus units from your army have the following ability:<br><br><b>Divine Inspiration:</b> Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If this unit is within 6\" of one or more friendly <span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> units, re-roll a Wound roll of 1 as well.<br><br><span class=\"hi_custom\">FORGE WORLD ALLIES</span><br>You can include the following <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> units in your army: Tech-Priest Dominus; Tech-Priest Manipulus; Skitarii Marshal; Skitarii Rangers; Skitarii Vanguard. The combined points cost of such units depends on your battle size:<br><ul><li><b>Incursion:</b> Up to 250 pts</li><li><b>Strike Force:</b> Up to 500 pts</li><li><b>Onslaught:</b> Up to 750 pts</li></ul><br>No <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> models from your army can be your <span class=\"kwb\">WARLORD</span>.",
+          "description": "Friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> models have the following ability:<br><br><b>Assisted Targeting (Aura):</b> While a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is within 6\" of this model, that <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit's ranged attacks have:<ul><li>+1 BS.</li><li>[HEAVY].</li></ul>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><b>Sacristan Pledge:</b> In your Command phase, you can select one friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> model within 3\" of this model that has not been selected by this ability this phase. If you do, that model heals D3 wounds.<br><br><span class=\"hi_custom\">MECHANICUS ALLIES</span><br>You can include <span class=\"kwb\">TECH-PRIEST DOMINUS</span>/<span class=\"kwb\">TECH-PRIEST MANIPULUS</span>/<span class=\"kwb\">MARSHAL</span>/<span class=\"kwb\">RANGERS</span>/<span class=\"kwb\">VANGUARD</span> units in your army (see Codex: Adeptus Mechanicus). The combined points value of such units cannot exceed 500 points.",
           "effect": {
             "effects": {
               "rerollHitsOf1": true,
@@ -132,14 +132,14 @@
     {
       "id": "gate-warden-lance",
       "name": "Gate Warden Lance",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "TAKE AND HOLD",
       "dp": 2,
       "chapters": [],
       "abilities": [
         {
           "id": "dauntless-defenders",
           "name": "Dauntless Defenders",
-          "description": "At the start of the first battle round, select two objective markers on the battlefield to be your foundations. When you draw a line from any part of one of your foundations to the other, if any part of a model’s base (or any part of a model’s hull, for a model without a base) crosses that line, that model’s unit is said to be on your defensive line.<br><br>While an Imperial Knights unit from your army is on your defensive line, that unit has the following ability:<br><br><b>Against the Horde:</b> Each time a model in this unit makes an attack that targets a visible enemy unit, you can ignore any or all modifiers to the Hit roll, and weapons equipped by models in this unit have the [sustained hits 1] ability.<br><br>Each time one of your foundations is removed from the battlefield (e.g. by a Primary Mission rule), just after it is removed, select a new objective marker on the battlefield to be one of your foundations.",
+          "description": "At the start of the first battle round, select two objectives to be your foundations. Place a circular foundation marker in each one. When you draw a line from the closest part of one foundation marker to the closest part of the other, if any part of a model’s base (or any part of a model’s hull, for a model without a base) crosses that line, that model’s unit is said to be on your defensive line.<br><br>While an <span class=\"kwb\">IMPERIAL KNIGHTS</span> unit from your army is on your defensive line, that unit has the following ability:<br><br><b>Against the Horde:</b> Each time a model in this unit makes an attack that targets a visible enemy unit, you can ignore any or all modifiers to the Hit roll, and weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
@@ -184,7 +184,7 @@
     {
       "id": "freeblade-company",
       "name": "Freeblade Company",
-      "disposition": "PURGE THE FOE",
+      "disposition": "PRIORITY ASSETS",
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -204,7 +204,7 @@
     {
       "id": "dominus-foebreakers",
       "name": "Dominus Foebreakers",
-      "disposition": "PURGE THE FOE",
+      "disposition": "PRIORITY ASSETS",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -413,24 +413,14 @@
       }
     },
     {
-      "id": "bonded-imperative",
-      "name": "BONDED IMPERATIVE",
-      "detachmentId": "questor-forgepact",
-      "cpCost": 1,
-      "type": "Questor Forgepact – Epic Deed Stratagem",
-      "turn": "Your turn",
-      "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase, just before an Imperial Knights Character unit from your army uses a Bondsman ability.<br><br><b>TARGET:</b> That <span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> <span class=\"kwb\">CHARACTER</span> unit.<br><br><b>EFFECT:</b> When selecting targets for that use of that Bondsman ability, you can select one friendly Adeptus Mechanicus unit within 12\" of your unit in addition, or instead of selecting one Armiger model. Until the start of your next Command phase, every model in that <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit is affected by that Bondsman ability.<br><br><b>RESTRICTIONS:</b> You cannot target a Knight Preceptor with this Stratagem."
-    },
-    {
       "id": "vengeance-of-the-machine-cult",
       "name": "VENGEANCE OF THE MACHINE CULT",
       "detachmentId": "questor-forgepact",
       "cpCost": 1,
-      "type": "Questor Forgepact – Strategic Ploy Stratagem",
+      "type": "Questor Forgepact Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Imperial Knights unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.<br><br><b>EFFECT:</b> Until the end of the battle, the enemy unit that destroyed your unit is Marked. Each time an Adeptus Mechanicus model from your army makes an attack that targets a Marked unit, that attack has the [LETHAL HITS] ability.",
+      "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">IMPERIAL KNIGHTS TITANIC</span> unit is destroyed by an enemy unit.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit.<br><br><b>EFFECT:</b> That enemy unit is marked until the end of the battle:<ul><li>While a unit is marked, friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> units' attacks that target that unit can re-roll wound rolls.</li></ul>",
       "effect": {
         "effects": {
           "lethalHitsBonus": true
@@ -440,24 +430,14 @@
       }
     },
     {
-      "id": "aggression-begets-aggression",
-      "name": "AGGRESSION BEGETS AGGRESSION",
-      "detachmentId": "questor-forgepact",
-      "cpCost": 1,
-      "type": "Questor Forgepact – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Imperial Knights unit from your army or one Imperial Knights Character unit from your army and one friendly Adeptus Mechanicus unit that is within 6\" of that unit.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your units have the [ASSAULT] ability."
-    },
-    {
       "id": "omnissiahs-grace",
       "name": "OMNISSIAH’S GRACE",
       "detachmentId": "questor-forgepact",
       "cpCost": 1,
-      "type": "Questor Forgepact – Strategic Ploy Stratagem",
+      "type": "Questor Forgepact Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase, just after a mortal wound is allocated to an Imperial Knights or Adeptus Mechanicus unit from your army.<br><br><b>TARGET:</b> That <span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> or <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds.",
+      "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">IMPERIAL KNIGHTS</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 5+ against mortal wounds.",
       "effect": {
         "effects": {
           "feelNoPainThreshold": 5
@@ -466,26 +446,6 @@
         "isStratagem": true,
         "cpCost": 1
       }
-    },
-    {
-      "id": "machine-focus",
-      "name": "MACHINE FOCUS",
-      "detachmentId": "questor-forgepact",
-      "cpCost": 1,
-      "type": "Questor Forgepact – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Imperial Knights unit from your army.<br><br><b>EFFECT:</b> Until the start of your next turn, your unit<br>can ignore any or all modifiers to the following: the Weapon Skill or Ballistic Skill characteristics of weapons equipped by its models; any Hit roll or Wound roll made for it."
-    },
-    {
-      "id": "thronegheist-fury",
-      "name": "THRONEGHEIST FURY",
-      "detachmentId": "questor-forgepact",
-      "cpCost": 1,
-      "type": "Questor Forgepact – Strategic Ploy Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit is set up or ends a Normal, Advance, or Fall Back move.<br><br><b>TARGET:</b> One Imperial Knights Titanic unit from your army that is within 24\" of and visible to that enemy unit.<br><br><b>EFFECT:</b> Select one ranged weapon equipped by a model in your unit. That model can shoot at that enemy unit (and only if it is an eligible target). When doing so, that model can only make attacks with that weapon and each time it makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers."
     },
     {
       "id": "courageous-stand",
@@ -702,7 +662,7 @@
       "type": "Valourstrike Lance – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Imperial Knights model from your army that is within 9\" of that unit.<br><br><b>EFFECT:</b> Your model can make a Normal move of up to D6\"."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Imperial Knights model from your army that is within 8\" of that unit.<br><br><b>EFFECT:</b> Your model can make a Normal move of up to D6\"."
     },
     {
       "id": "run-them-through",
@@ -791,6 +751,16 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ARMIGER</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ARMIGER</span> unit.<br><br><b>EFFECT:</b> Those attacks do not prevent your unit from being eligible to start an action."
+    },
+    {
+      "id": "in-the-shadow-of-giants",
+      "name": "IN THE SHADOW OF GIANTS",
+      "detachmentId": "questor-forgepact",
+      "cpCost": 1,
+      "type": "Questor Forgepact Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase, when a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is selected to make an advance/fall-back move.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit.<br><br><b>EFFECT:</b> That move does not prevent your unit from being eligible to start an action."
     }
   ],
   "enhancements": [
@@ -817,14 +787,6 @@
         "combatType": "melee",
         "bearerOnly": true
       }
-    },
-    {
-      "id": "omnissian-champion",
-      "name": "Omnissian Champion",
-      "cost": 30,
-      "detachmentId": "questor-forgepact",
-      "detachmentName": "Questor Forgepact",
-      "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. Add 4 to the bearer’s Wounds characteristic."
     },
     {
       "id": "mentors-pride",
@@ -904,12 +866,12 @@
       }
     },
     {
-      "id": "knight-of-the-opus-machina",
-      "name": "Knight of the Opus Machina",
+      "id": "knight-of-the-opus-machina-aura",
+      "name": "Knight of the Opus Machina (Aura)",
       "cost": 15,
       "detachmentId": "questor-forgepact",
       "detachmentName": "Questor Forgepact",
-      "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. Each time the bearer makes a ranged attack, if the bearer is within 6\" of one or more friendly Adeptus Mechanicus units, re-roll a Hit roll of 1.",
+      "description": "<span class=\"kwb\">IMPERIAL KNIGHTS</span> model only. While a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is within 6\" of this model, that <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit's melee attacks have +1 WS and AP.",
       "effect": {
         "effects": {
           "rerollHitsOf1": true
@@ -940,7 +902,7 @@
       "cost": 35,
       "detachmentId": "freeblade-company",
       "detachmentName": "Freeblade Company",
-      "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer has the Deep Strike ability. Once per battle, at the end of your opponent’s turn, if the bearer is not within Engagement Range of one or more enemy units, it can use this Enhancement. If it does, remove the bearer from the battlefield. In the Reinforcements step of your subsequent Movement phase, set the bearer up anywhere on the battlefield that is more than 9\" horizontally away from all enemy units. If the battle ends and the bearer is not on the battlefield, it is destroyed."
+      "description": "<span class=\"kwb\">IMPERIAL KNIGHTS</span> model only. (Once per battle, per army) At the end of your opponent's turn, if this unit is unengaged, you can use this ability. If you do:<ul><li>Place this unit in strategic reserves.</li><li>This unit has Deep Strike until the start of your next Shooting phase.</li><li>This unit must make an ingress move in your next Movement phase (including in your first turn).</li></ul>"
     },
     {
       "id": "bearer-of-the-judicants-helm",
@@ -964,7 +926,7 @@
       "cost": 20,
       "detachmentId": "questor-forgepact",
       "detachmentName": "Questor Forgepact",
-      "description": "Tech-Priest model only. While the bearer is within 3\" of one or more friendly Imperial Knights units, it has the Lone Operative ability. In your Command phase, select one friendly Imperial Knights model within 3\" of the bearer. That model regains up to 2 lost wounds."
+      "description": "<span class=\"kwb\">TECH-PRIEST</span> model only. When using this model's Sacristan Pledge ability, the selected <span class=\"kwb\">IMPERIAL KNIGHTS</span> model heals 2 additional wounds."
     },
     {
       "id": "pennant-of-silvered-fury",
@@ -1021,14 +983,6 @@
       "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. At the start of your Charge phase, select one other <span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model from your army that is within 12\" of and visible to the bearer. Until the end of the phase, you can re-roll Charge rolls made for that selected model."
     },
     {
-      "id": "vocifer-magnificat-aura",
-      "name": "Vocifer Magnificat (Aura)",
-      "cost": 15,
-      "detachmentId": "questor-forgepact",
-      "detachmentName": "Questor Forgepact",
-      "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. While an enemy unit is within 6\" of the bearer, worsen the Leadership characteristic of models in that unit by 1. While a friendly Adeptus Mechanicus unit is within 6\" of the bearer, improve the Leadership characteristic of models in that <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit by 1."
-    },
-    {
       "id": "crushing-condemnation",
       "name": "Crushing Condemnation",
       "cost": 10,
@@ -1074,7 +1028,7 @@
       "cost": 10,
       "detachmentId": "throne-bonded-outriders",
       "detachmentName": "Throne-bonded Outriders",
-      "description": "<span class=\"kwb\">ARMIGER</span> unit only. When you target this unit with the Fire Overwatch or Heroic Intervention stratagem, that use costs 1 CP."
+      "description": "<span class=\"kwb\">ARMIGER</span> unit only. When you target this unit with the Fire Overwatch/Heroic Intervention stratagem, that use is -1 CP."
     }
   ],
   "datasheets": [
@@ -1359,7 +1313,6 @@
       "wargearCosts": [],
       "stratagemIds": [
         "vengeance-of-the-machine-cult",
-        "machine-focus",
         "titanic-duel-imperial-knights",
         "driven-by-the-past",
         "thunderstomp",
@@ -1369,13 +1322,10 @@
         "point-blank-barrage",
         "steadfast-superiority",
         "exemplars-wisdom",
-        "bonded-imperative",
         "mantle-of-the-mentor",
-        "thronegheist-fury",
         "thin-their-ranks",
         "rotate-ion-shields",
         "survivor-of-strife",
-        "aggression-begets-aggression",
         "strength-from-exile",
         "tactical-foil",
         "heros-tread",
@@ -1398,20 +1348,18 @@
         "pennant-of-silvered-fury",
         "augury-halo",
         "martial-tuition",
-        "omnissian-champion",
         "bringer-of-justice",
         "bearer-of-the-judicants-helm",
         "acquisitor-at-arms",
         "purgations-hand",
         "sanctuary",
-        "vocifer-magnificat-aura",
         "mysterious-guardian",
         "crushing-condemnation",
         "hunters-eye",
         "bearer-of-the-lancers-sigil",
         "mentors-pride",
         "bearer-of-the-evanescent-ion",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "fables-of-nightmare",
         "vengeful-tread",
         "herald-of-triumph",
@@ -1710,22 +1658,18 @@
         "lancebreaker",
         "titanic-bombardment",
         "vengeance-of-the-machine-cult",
-        "aggression-begets-aggression",
         "run-them-through",
         "drive-them-out",
         "exemplars-wisdom",
         "thunderstomp",
         "courageous-stand",
-        "bonded-imperative",
         "survivor-of-strife",
-        "thronegheist-fury",
         "point-blank-barrage",
         "rotate-ion-shields",
         "strength-from-exile",
         "vow-of-retribution",
         "moment-of-glory",
         "steadfast-superiority",
-        "machine-focus",
         "fortress-of-intimidation",
         "full-tilt",
         "omnissiahs-grace",
@@ -1744,7 +1688,6 @@
         "martial-tuition",
         "pennant-of-silvered-fury",
         "crushing-condemnation",
-        "omnissian-champion",
         "augury-halo",
         "fables-of-nightmare",
         "herald-of-triumph",
@@ -1756,8 +1699,7 @@
         "hunters-eye",
         "bearer-of-the-iron-chalice",
         "vengeful-tread",
-        "vocifer-magnificat-aura",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "bearer-of-the-lancers-sigil"
       ],
       "detachmentAbilityIds": [
@@ -2061,12 +2003,8 @@
         "vengeance-of-the-machine-cult",
         "thunderstomp",
         "point-blank-barrage",
-        "thronegheist-fury",
-        "bonded-imperative",
         "rotate-ion-shields",
         "vow-of-retribution",
-        "machine-focus",
-        "aggression-begets-aggression",
         "tactical-foil",
         "titanic-bombardment",
         "drive-them-out",
@@ -2099,7 +2037,7 @@
         "purgations-hand",
         "crushing-condemnation",
         "vengeful-tread",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "martial-tuition",
         "herald-of-triumph",
         "hunters-eye",
@@ -2108,8 +2046,6 @@
         "bearer-of-the-evanescent-ion",
         "sanctuary",
         "bearer-of-the-judicants-helm",
-        "vocifer-magnificat-aura",
-        "omnissian-champion",
         "bearer-of-the-lancers-sigil",
         "bearer-of-the-iron-chalice",
         "pennant-of-silvered-fury",
@@ -2391,7 +2327,6 @@
         "vengeance-of-the-machine-cult",
         "lancebreaker",
         "omnissiahs-grace",
-        "machine-focus",
         "full-tilt-imperial-knights",
         "thunderstomp",
         "run-them-through",
@@ -2404,16 +2339,13 @@
         "steadfast-superiority",
         "mantle-of-the-mentor",
         "unstoppable-warrior",
-        "aggression-begets-aggression",
         "virtue-of-courage",
-        "bonded-imperative",
         "tactical-foil",
         "moment-of-glory",
         "exemplars-wisdom",
         "full-tilt",
         "strength-from-exile",
         "rotate-ion-shields",
-        "thronegheist-fury",
         "marshal-the-defence",
         "drive-them-out",
         "driven-by-the-past",
@@ -2423,18 +2355,16 @@
         "fortress-of-intimidation"
       ],
       "enhancementIds": [
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "fables-of-nightmare",
         "bearer-of-the-lancers-sigil",
         "bringer-of-justice",
-        "vocifer-magnificat-aura",
         "hunters-eye",
         "acquisitor-at-arms",
         "vengeful-tread",
         "wyrmslayer-divination",
         "bearer-of-the-evanescent-ion",
         "bearer-of-the-judicants-helm",
-        "omnissian-champion",
         "herald-of-triumph",
         "purgations-hand",
         "augury-halo",
@@ -2777,14 +2707,10 @@
         "driven-by-the-past",
         "titanic-duel-imperial-knights",
         "squires-ofthe-hunt",
-        "machine-focus",
         "vow-of-retribution",
-        "bonded-imperative",
         "rotate-ion-shields",
-        "thronegheist-fury",
         "virtue-of-courage",
         "survivor-of-strife",
-        "aggression-begets-aggression",
         "run-them-through",
         "tactical-foil",
         "exemplars-wisdom"
@@ -2794,7 +2720,7 @@
         "crushing-condemnation",
         "fables-of-nightmare",
         "bearer-of-the-judicants-helm",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "wyrmslayer-divination",
         "bearer-of-the-evanescent-ion",
         "sanctuary",
@@ -2804,9 +2730,7 @@
         "herald-of-triumph",
         "mentors-pride",
         "bringer-of-justice",
-        "omnissian-champion",
         "bearer-of-the-iron-chalice",
-        "vocifer-magnificat-aura",
         "bearer-of-the-lancers-sigil",
         "vengeful-tread",
         "purgations-hand",
@@ -3034,7 +2958,6 @@
       "stratagemIds": [
         "omnissiahs-grace",
         "virtue-of-courage",
-        "thronegheist-fury",
         "tactical-foil",
         "point-blank-barrage",
         "thunderstomp",
@@ -3042,7 +2965,6 @@
         "survivor-of-strife",
         "noble-sacrifice",
         "thin-their-ranks",
-        "bonded-imperative",
         "rotate-ion-shields",
         "steadfast-superiority",
         "full-tilt-imperial-knights",
@@ -3054,7 +2976,6 @@
         "titanic-duel-imperial-knights",
         "heros-tread",
         "lancebreaker",
-        "machine-focus",
         "squires-ofthe-hunt",
         "drive-them-out",
         "driven-by-the-past",
@@ -3064,8 +2985,7 @@
         "unstoppable-warrior",
         "marshal-the-defence",
         "vengeance-of-the-machine-cult",
-        "moment-of-glory",
-        "aggression-begets-aggression"
+        "moment-of-glory"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [
@@ -3258,7 +3178,6 @@
         "mantle-of-the-mentor",
         "exemplars-wisdom",
         "virtue-of-courage",
-        "machine-focus",
         "noble-sacrifice",
         "strength-from-exile",
         "full-tilt",
@@ -3266,25 +3185,20 @@
         "survivor-of-strife",
         "point-blank-barrage",
         "vow-of-retribution",
-        "bonded-imperative",
         "thunderstomp",
         "vengeance-of-the-machine-cult",
         "rotate-ion-shields",
-        "thronegheist-fury",
-        "aggression-begets-aggression",
         "tactical-foil"
       ],
       "enhancementIds": [
         "acquisitor-at-arms",
         "hunters-eye",
-        "omnissian-champion",
         "augury-halo",
         "fables-of-nightmare",
         "vengeful-tread",
         "mysterious-guardian",
         "pennant-of-silvered-fury",
         "mentors-pride",
-        "vocifer-magnificat-aura",
         "tales-of-heroism",
         "crushing-condemnation",
         "bringer-of-justice",
@@ -3295,7 +3209,7 @@
         "bearer-of-the-evanescent-ion",
         "wyrmslayer-divination",
         "herald-of-triumph",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "martial-tuition",
         "bearer-of-the-judicants-helm"
       ],
@@ -3516,7 +3430,6 @@
         "survivor-of-strife",
         "thin-their-ranks",
         "full-tilt",
-        "bonded-imperative",
         "drive-them-out",
         "virtue-of-courage",
         "rotate-ion-shields",
@@ -3525,7 +3438,6 @@
         "marshal-the-defence",
         "squires-ofthe-hunt",
         "point-blank-barrage",
-        "thronegheist-fury",
         "heros-tread",
         "full-tilt-imperial-knights",
         "fortress-of-intimidation",
@@ -3533,14 +3445,12 @@
         "omnissiahs-grace",
         "unstoppable-warrior",
         "tactical-foil",
-        "aggression-begets-aggression",
         "titanic-duel-imperial-knights",
         "thunderstomp",
         "mantle-of-the-mentor",
         "titanic-bombardment",
         "courageous-stand",
         "strength-from-exile",
-        "machine-focus",
         "vengeance-of-the-machine-cult",
         "vow-of-retribution",
         "steadfast-superiority",
@@ -3548,7 +3458,6 @@
         "lancebreaker"
       ],
       "enhancementIds": [
-        "vocifer-magnificat-aura",
         "acquisitor-at-arms",
         "wyrmslayer-divination",
         "bearer-of-the-evanescent-ion",
@@ -3565,11 +3474,10 @@
         "herald-of-triumph",
         "mysterious-guardian",
         "sanctuary",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "purgations-hand",
         "bearer-of-the-iron-chalice",
         "crushing-condemnation",
-        "omnissian-champion",
         "fables-of-nightmare"
       ],
       "detachmentAbilityIds": [
@@ -3739,15 +3647,12 @@
         "titanic-duel-imperial-knights",
         "thin-their-ranks",
         "squires-ofthe-hunt",
-        "bonded-imperative",
         "run-them-through",
         "virtue-of-courage",
         "steadfast-superiority",
         "driven-by-the-past",
         "thunderstomp",
         "marshal-the-defence",
-        "thronegheist-fury",
-        "aggression-begets-aggression",
         "courageous-stand",
         "full-tilt-imperial-knights",
         "omnissiahs-grace",
@@ -3758,7 +3663,6 @@
         "vow-of-retribution",
         "rotate-ion-shields",
         "mantle-of-the-mentor",
-        "machine-focus",
         "vengeance-of-the-machine-cult",
         "noble-sacrifice",
         "fortress-of-intimidation",
@@ -3773,7 +3677,7 @@
         "martial-tuition",
         "augury-halo",
         "bearer-of-the-iron-chalice",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "mysterious-guardian",
         "bearer-of-the-lancers-sigil",
         "wyrmslayer-divination",
@@ -3783,9 +3687,7 @@
         "mentors-pride",
         "hunters-eye",
         "tales-of-heroism",
-        "vocifer-magnificat-aura",
         "purgations-hand",
-        "omnissian-champion",
         "bearer-of-the-evanescent-ion",
         "herald-of-triumph",
         "pennant-of-silvered-fury",
@@ -3943,10 +3845,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "thronegheist-fury",
         "steadfast-superiority",
         "drive-them-out",
-        "aggression-begets-aggression",
         "full-tilt-imperial-knights",
         "titanic-bombardment",
         "run-them-through",
@@ -3956,13 +3856,11 @@
         "vow-of-retribution",
         "marshal-the-defence",
         "vengeance-of-the-machine-cult",
-        "bonded-imperative",
         "rotate-ion-shields",
         "mantle-of-the-mentor",
         "thunderstomp",
         "point-blank-barrage",
         "thin-their-ranks",
-        "machine-focus",
         "squires-ofthe-hunt",
         "courageous-stand",
         "titanic-duel-imperial-knights",
@@ -3992,16 +3890,14 @@
         "augury-halo",
         "mysterious-guardian",
         "bearer-of-the-evanescent-ion",
-        "omnissian-champion",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "purgations-hand",
         "pennant-of-silvered-fury",
         "bearer-of-the-judicants-helm",
         "fables-of-nightmare",
         "vengeful-tread",
         "acquisitor-at-arms",
-        "wyrmslayer-divination",
-        "vocifer-magnificat-aura"
+        "wyrmslayer-divination"
       ],
       "detachmentAbilityIds": [
         "bold-gallantry",
@@ -4237,10 +4133,8 @@
         "marshal-the-defence",
         "unstoppable-warrior",
         "rotate-ion-shields",
-        "machine-focus",
         "drive-them-out",
         "survivor-of-strife",
-        "bonded-imperative",
         "omnissiahs-grace",
         "vengeance-of-the-machine-cult",
         "moment-of-glory",
@@ -4248,7 +4142,6 @@
         "titanic-bombardment",
         "vow-of-retribution",
         "full-tilt-imperial-knights",
-        "aggression-begets-aggression",
         "thin-their-ranks",
         "point-blank-barrage",
         "virtue-of-courage",
@@ -4257,7 +4150,6 @@
         "mantle-of-the-mentor",
         "heros-tread",
         "thunderstomp",
-        "thronegheist-fury",
         "exemplars-wisdom",
         "courageous-stand"
       ],
@@ -4266,8 +4158,7 @@
         "bringer-of-justice",
         "herald-of-triumph",
         "acquisitor-at-arms",
-        "omnissian-champion",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "mysterious-guardian",
         "martial-tuition",
         "wyrmslayer-divination",
@@ -4283,7 +4174,6 @@
         "vengeful-tread",
         "bearer-of-the-lancers-sigil",
         "crushing-condemnation",
-        "vocifer-magnificat-aura",
         "hunters-eye"
       ],
       "detachmentAbilityIds": [
@@ -4532,14 +4422,11 @@
         "strength-from-exile",
         "steadfast-superiority",
         "run-them-through",
-        "thronegheist-fury",
         "rotate-ion-shields",
         "full-tilt-imperial-knights",
         "drive-them-out",
         "virtue-of-courage",
-        "bonded-imperative",
         "point-blank-barrage",
-        "machine-focus",
         "fortress-of-intimidation",
         "vow-of-retribution",
         "squires-ofthe-hunt",
@@ -4561,24 +4448,21 @@
         "tactical-foil",
         "driven-by-the-past",
         "moment-of-glory",
-        "omnissiahs-grace",
-        "aggression-begets-aggression"
+        "omnissiahs-grace"
       ],
       "enhancementIds": [
         "bearer-of-the-evanescent-ion",
         "bearer-of-the-iron-chalice",
-        "omnissian-champion",
         "purgations-hand",
         "augury-halo",
         "vengeful-tread",
         "bearer-of-the-lancers-sigil",
-        "vocifer-magnificat-aura",
         "bearer-of-the-judicants-helm",
         "sanctuary",
         "hunters-eye",
         "mentors-pride",
         "fables-of-nightmare",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "tales-of-heroism",
         "martial-tuition",
         "herald-of-triumph",
@@ -4760,7 +4644,6 @@
         "virtue-of-courage",
         "vow-of-retribution",
         "steadfast-superiority",
-        "bonded-imperative",
         "lancebreaker",
         "full-tilt-imperial-knights",
         "courageous-stand",
@@ -4768,7 +4651,6 @@
         "survivor-of-strife",
         "point-blank-barrage",
         "let-duty-be-your-shield",
-        "machine-focus",
         "mantle-of-the-mentor",
         "thin-their-ranks",
         "rotate-ion-shields",
@@ -4776,7 +4658,6 @@
         "tactical-foil",
         "thunderstomp",
         "vengeance-of-the-machine-cult",
-        "aggression-begets-aggression",
         "noble-sacrifice",
         "marshal-the-defence"
       ],
@@ -4963,7 +4844,6 @@
         "steadfast-superiority",
         "full-tilt-imperial-knights",
         "full-tilt",
-        "machine-focus",
         "mantle-of-the-mentor",
         "flanking-manoeuvres",
         "noble-sacrifice",
@@ -4976,11 +4856,9 @@
         "exemplars-wisdom",
         "rotate-ion-shields",
         "thunderstomp",
-        "bonded-imperative",
         "vow-of-retribution",
         "point-blank-barrage",
         "strength-from-exile",
-        "aggression-begets-aggression",
         "tactical-foil",
         "drive-them-out",
         "vengeance-of-the-machine-cult",
@@ -5300,10 +5178,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "aggression-begets-aggression",
         "tactical-foil",
         "rotate-ion-shields",
-        "thronegheist-fury",
         "virtue-of-courage",
         "omnissiahs-grace",
         "exemplars-wisdom",
@@ -5328,7 +5204,6 @@
         "vow-of-retribution",
         "survivor-of-strife",
         "full-tilt-imperial-knights",
-        "machine-focus",
         "noble-sacrifice",
         "strength-from-exile",
         "full-tilt",
@@ -5340,19 +5215,17 @@
         "fables-of-nightmare",
         "purgations-hand",
         "sanctuary",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "mysterious-guardian",
         "bearer-of-the-evanescent-ion",
         "martial-tuition",
         "crushing-condemnation",
-        "omnissian-champion",
         "tales-of-heroism",
         "wyrmslayer-divination",
         "bearer-of-the-iron-chalice",
         "mentors-pride",
         "vengeful-tread",
         "bearer-of-the-lancers-sigil",
-        "vocifer-magnificat-aura",
         "herald-of-triumph",
         "hunters-eye",
         "bearer-of-the-judicants-helm",
@@ -5550,16 +5423,13 @@
         "run-them-through",
         "titanic-bombardment",
         "exemplars-wisdom",
-        "bonded-imperative",
         "heros-tread",
         "marshal-the-defence",
         "virtue-of-courage",
         "courageous-stand",
-        "machine-focus",
         "drive-them-out",
         "survivor-of-strife",
         "fortress-of-intimidation",
-        "thronegheist-fury",
         "rotate-ion-shields",
         "vow-of-retribution",
         "steadfast-superiority",
@@ -5568,7 +5438,6 @@
         "mantle-of-the-mentor",
         "lancebreaker",
         "strength-from-exile",
-        "aggression-begets-aggression",
         "thin-their-ranks",
         "thunderstomp",
         "full-tilt-imperial-knights",
@@ -5822,11 +5691,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 400
+          "points": 425
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 420
+          "points": 450
         }
       ],
       "wargearCosts": [],
@@ -5839,10 +5708,8 @@
         "point-blank-barrage",
         "courageous-stand",
         "full-tilt",
-        "thronegheist-fury",
         "lancebreaker",
         "drive-them-out",
-        "aggression-begets-aggression",
         "thunderstomp",
         "run-them-through",
         "strength-from-exile",
@@ -5857,9 +5724,7 @@
         "tactical-foil",
         "titanic-duel-imperial-knights",
         "noble-sacrifice",
-        "bonded-imperative",
         "driven-by-the-past",
-        "machine-focus",
         "unstoppable-warrior",
         "squires-ofthe-hunt",
         "fortress-of-intimidation",
@@ -5867,7 +5732,7 @@
         "marshal-the-defence"
       ],
       "enhancementIds": [
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "augury-halo",
         "herald-of-triumph",
         "acquisitor-at-arms",
@@ -5877,12 +5742,10 @@
         "hunters-eye",
         "vengeful-tread",
         "martial-tuition",
-        "omnissian-champion",
         "wyrmslayer-divination",
         "tales-of-heroism",
         "bearer-of-the-judicants-helm",
         "bearer-of-the-lancers-sigil",
-        "vocifer-magnificat-aura",
         "fables-of-nightmare",
         "purgations-hand",
         "mysterious-guardian",
@@ -6134,7 +5997,6 @@
         "thunderstomp",
         "exemplars-wisdom",
         "survivor-of-strife",
-        "thronegheist-fury",
         "lancebreaker",
         "rotate-ion-shields",
         "strength-from-exile",
@@ -6143,8 +6005,6 @@
         "vengeance-of-the-machine-cult",
         "run-them-through",
         "tactical-foil",
-        "bonded-imperative",
-        "aggression-begets-aggression",
         "unstoppable-warrior",
         "squires-ofthe-hunt",
         "titanic-duel-imperial-knights",
@@ -6152,11 +6012,9 @@
         "mantle-of-the-mentor",
         "fortress-of-intimidation",
         "point-blank-barrage",
-        "virtue-of-courage",
-        "machine-focus"
+        "virtue-of-courage"
       ],
       "enhancementIds": [
-        "omnissian-champion",
         "bringer-of-justice",
         "bearer-of-the-iron-chalice",
         "martial-tuition",
@@ -6164,7 +6022,6 @@
         "bearer-of-the-lancers-sigil",
         "herald-of-triumph",
         "mentors-pride",
-        "vocifer-magnificat-aura",
         "acquisitor-at-arms",
         "sanctuary",
         "vengeful-tread",
@@ -6172,7 +6029,7 @@
         "mysterious-guardian",
         "bearer-of-the-judicants-helm",
         "augury-halo",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "hunters-eye",
         "crushing-condemnation",
         "fables-of-nightmare",
@@ -6383,12 +6240,10 @@
         "omnissiahs-grace",
         "driven-by-the-past",
         "tactical-foil",
-        "thronegheist-fury",
         "courageous-stand",
         "noble-sacrifice",
         "run-them-through",
         "survivor-of-strife",
-        "bonded-imperative",
         "point-blank-barrage",
         "titanic-bombardment",
         "marshal-the-defence",
@@ -6399,12 +6254,10 @@
         "fortress-of-intimidation",
         "thin-their-ranks",
         "full-tilt-imperial-knights",
-        "machine-focus",
         "unstoppable-warrior",
         "virtue-of-courage",
         "heros-tread",
         "exemplars-wisdom",
-        "aggression-begets-aggression",
         "steadfast-superiority",
         "moment-of-glory",
         "vow-of-retribution",
@@ -6580,7 +6433,7 @@
         {
           "id": "protection-protocols",
           "name": "Protection Protocols",
-          "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.",
+          "description": "You can target this unit with the Heroic Intervention stratagem, regardless of any other uses of that stratagem this phase. If you do:<ul><li>That use is -1 CP.</li><li>That use does not prevent any uses of that stratagem on other units this phase.</li></ul>",
           "type": "Datasheet"
         },
         {
@@ -6637,7 +6490,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
+          "points": 150
+        },
+        {
+          "description": "1 model (3rd+ unit)",
           "points": 160
         }
       ],
@@ -6647,7 +6504,6 @@
         "steadfast-superiority",
         "full-tilt",
         "mantle-of-the-mentor",
-        "bonded-imperative",
         "let-duty-be-your-shield",
         "point-blank-barrage",
         "full-tilt-imperial-knights",
@@ -6665,8 +6521,6 @@
         "vow-of-retribution",
         "squires-ofthe-hunt",
         "tactical-foil",
-        "aggression-begets-aggression",
-        "machine-focus",
         "drive-them-out",
         "omnissiahs-grace",
         "rotate-ion-shields",
@@ -6983,8 +6837,7 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "omnissiahs-grace",
-        "aggression-begets-aggression"
+        "omnissiahs-grace"
       ],
       "enhancementIds": [
         "magos-questoris"
@@ -7135,8 +6988,7 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "omnissiahs-grace",
-        "aggression-begets-aggression"
+        "omnissiahs-grace"
       ],
       "enhancementIds": [
         "magos-questoris"
@@ -7266,7 +7118,6 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "aggression-begets-aggression",
         "omnissiahs-grace"
       ],
       "enhancementIds": [],
@@ -7518,8 +7369,7 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "omnissiahs-grace",
-        "aggression-begets-aggression"
+        "omnissiahs-grace"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [
@@ -7779,8 +7629,7 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "omnissiahs-grace",
-        "aggression-begets-aggression"
+        "omnissiahs-grace"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [
@@ -8020,15 +7869,12 @@
       "stratagemIds": [
         "noble-sacrifice",
         "exemplars-wisdom",
-        "thronegheist-fury",
         "rotate-ion-shields",
         "courageous-stand",
         "fortress-of-intimidation",
-        "aggression-begets-aggression",
         "virtue-of-courage",
         "omnissiahs-grace",
         "titanic-bombardment",
-        "bonded-imperative",
         "tactical-foil",
         "marshal-the-defence",
         "steadfast-superiority",
@@ -8048,7 +7894,6 @@
         "full-tilt",
         "full-tilt-imperial-knights",
         "thin-their-ranks",
-        "machine-focus",
         "unstoppable-warrior",
         "survivor-of-strife",
         "mantle-of-the-mentor"
@@ -8065,18 +7910,16 @@
         "augury-halo",
         "crushing-condemnation",
         "hunters-eye",
-        "knight-of-the-opus-machina",
+        "knight-of-the-opus-machina-aura",
         "bearer-of-the-evanescent-ion",
         "bearer-of-the-lancers-sigil",
         "acquisitor-at-arms",
-        "vocifer-magnificat-aura",
         "mysterious-guardian",
         "purgations-hand",
         "herald-of-triumph",
         "bearer-of-the-judicants-helm",
         "bearer-of-the-iron-chalice",
-        "fables-of-nightmare",
-        "omnissian-champion"
+        "fables-of-nightmare"
       ],
       "detachmentAbilityIds": [
         "heroes-of-legend",
@@ -8338,7 +8181,6 @@
       "wargearCosts": [],
       "stratagemIds": [
         "omnissiahs-grace",
-        "machine-focus",
         "survivor-of-strife",
         "vow-of-retribution",
         "virtue-of-courage",
@@ -8361,16 +8203,13 @@
         "fortress-of-intimidation",
         "squires-ofthe-hunt",
         "thunderstomp",
-        "aggression-begets-aggression",
         "strength-from-exile",
         "full-tilt",
         "rotate-ion-shields",
-        "bonded-imperative",
         "titanic-bombardment",
         "exemplars-wisdom",
         "vengeance-of-the-machine-cult",
-        "point-blank-barrage",
-        "thronegheist-fury"
+        "point-blank-barrage"
       ],
       "enhancementIds": [
         "bearer-of-the-judicants-helm",
@@ -8378,8 +8217,7 @@
         "crushing-condemnation",
         "vengeful-tread",
         "bringer-of-justice",
-        "knight-of-the-opus-machina",
-        "omnissian-champion",
+        "knight-of-the-opus-machina-aura",
         "augury-halo",
         "mentors-pride",
         "martial-tuition",
@@ -8390,7 +8228,6 @@
         "bearer-of-the-lancers-sigil",
         "acquisitor-at-arms",
         "fables-of-nightmare",
-        "vocifer-magnificat-aura",
         "bearer-of-the-evanescent-ion",
         "hunters-eye",
         "sanctuary",

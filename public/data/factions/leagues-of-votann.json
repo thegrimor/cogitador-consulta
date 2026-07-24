@@ -188,7 +188,7 @@
         {
           "id": "avatars-of-the-ancestors",
           "name": "Avatars of the Ancestors",
-          "description": "Friendly <span class=\"kwb\">KÂHL</span>/<span class=\"kwb\">EINHYR CHAMPION</span>/<span class=\"kwb\">EINHYR HEARTHGUARD</span>/<span class=\"kwb\">ÛTHAR THE DESTINED</span> units' ranged attacks that target a unit within 9\" can re-roll wound rolls of 1. This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.",
+          "description": "Friendly <span class=\"kwb\">KÂHL</span>/<span class=\"kwb\">EINHYR CHAMPION</span>/<span class=\"kwb\">EINHYR HEARTHGUARD</span>/<span class=\"kwb\">ÛTHAR THE DESTINED</span> units' ranged attacks that target a unit within 8\" can re-roll wound rolls of 1. This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.",
           "effect": {
             "effects": {
               "rerollWoundsOf1": true
@@ -732,7 +732,7 @@
       "type": "Persecution Prospect – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army (excluding Artillery and Vehicle units) that is within 9\" of that enemy unit.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 2YP. Your unit can make a Normal move of up to D6\". If you spent YP during this use of this Stratagem, your unit can make a Normal move of up to 6\" instead.<br><br><b>RESTRICTIONS:</b> A unit cannot embark within a Transport as part of this move."
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army (excluding Artillery and Vehicle units) that is within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 2YP. Your unit can make a Normal move of up to D6\". If you spent YP during this use of this Stratagem, your unit can make a Normal move of up to 6\" instead.<br><br><b>RESTRICTIONS:</b> A unit cannot embark within a Transport as part of this move."
     },
     {
       "id": "adaptable-avarice",
@@ -912,7 +912,7 @@
       "cost": 25,
       "detachmentId": "delve-assault-shift",
       "detachmentName": "Dêlve Assault Shift",
-      "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. In the Reinforcements step of your Movement phase, the bearer can use this Enhancement. If it does, select one friendly Cthonian Beserks unit visible to the bearer and then spend any number of YP. Return one destroyed model to that unit and then, for every 2YP you just spent, return up to one additional destroyed model to that unit."
+      "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. In the Reinforcements step of your Movement phase, the bearer can use this Enhancement. If it does, select one friendly Cthonian Beserks unit visible to the bearer and then spend any number of YP. Return one destroyed model (excluding <span class=\"kwb\">CHARACTER</span> models) to that unit and then, for every 2YP you just spent, return up to one additional destroyed model (excluding <span class=\"kwb\">CHARACTER</span> models) to that unit."
     },
     {
       "id": "tactical-alchemy",
@@ -1173,7 +1173,7 @@
     {
       "id": "saturation-rounds-upgrade",
       "name": "Saturation Rounds Upgrade",
-      "cost": 10,
+      "cost": 15,
       "detachmentId": "armoured-trailblazers",
       "detachmentName": "Armoured Trailblazers",
       "description": "<span class=\"kwb\">SAGITAUR</span> unit only. This unit's ranged attacks have [IGNORES COVER].",
@@ -2330,7 +2330,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 75
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -3666,8 +3666,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
           "points": 85
+        },
+        {
+          "description": "1 model (4th + unit)",
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -4352,7 +4356,7 @@
         {
           "id": "pragmatic-hunters",
           "name": "Pragmatic Hunters",
-          "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, it can make a Normal move of up to D6\".",
+          "description": "In your opponent’s Movement phase, if an enemy unit ends a move within 8\" of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6\".",
           "type": "Datasheet"
         }
       ],
@@ -4536,7 +4540,7 @@
         {
           "id": "unhinged-vengeance",
           "name": "Unhinged Vengeance",
-          "description": "In your opponent’s Shooting phase, each time an enemy unit has shot, if this model lost one or more wounds as a result of those attacks, this model can make a Vengeance move. To do so, roll one D6 and add 2 to the result: it moves a number of inches up to this result, but it must end that move as close as possible to the closest enemy unit (excluding <span class=\"kwb\">AIRCRAFT</span>). When doing so, it can be moved within Engagement Range of that enemy unit. This model cannot make a Vengeance move while it is Battle-shocked or within Engagement Range of one or more enemy units, and can only make one Vengeance move per phase.",
+          "description": "In your opponent’s Shooting phase, when an enemy unit has shot, if this model lost one or more wounds as a result of those attacks, this unit can make a surge move of up to D6+2\".",
           "type": "Datasheet"
         }
       ],
@@ -4568,7 +4572,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -4682,7 +4686,7 @@
         {
           "id": "predictive-guidance",
           "name": "Predictive Guidance",
-          "description": "Once per battle round, this model can use this ability. If it does, you can target this unit with the Fire Overwatch or Heroic Intervention Stratagem for 0CP.",
+          "description": "Once per battle round, when you target this unit with the Fire Overwatch/Heroic Intervention Stratagem, you can use this ability. If you do, that use of that Stratagem is -1 CP.",
           "type": "Datasheet"
         }
       ],
@@ -5870,7 +5874,8 @@
         "Carrier",
         "Kapricus",
         "Hernkyn",
-        "Vehicle"
+        "Vehicle",
+        "Frame"
       ],
       "factionKeywords": [
         "Leagues of Votann"
@@ -5902,8 +5907,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 75
+          "description": "1 model (1st to 3rd units)",
+          "points": 70
+        },
+        {
+          "description": "1 model (4th + unit)",
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -6082,7 +6091,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 85
         }
       ],
       "wargearCosts": [],

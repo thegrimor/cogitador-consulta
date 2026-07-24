@@ -144,7 +144,7 @@
         {
           "id": "surprise-assault-tyranids",
           "name": "Surprise Assault",
-          "description": "Each time a Tyranids model from your army makes an attack, re-roll a Hit roll of 1.<br><br>Each time a Burrower unit from your army is set up on the battlefield from Reserves, place a circular 40mm Tunnel Marker anywhere on the battlefield within 1\" of that unit and more than 3\" horizontally away from all enemy units.<br><br>In the Reinforcements step of your Movement phase, when you set up a unit on the battlefield from Reserves, you can set that unit up wholly within 9\" of one of your Tunnel Markers and more than 6\" horizontally away from any enemy units.<br><br>If an enemy model (excluding <span class=\"kwb\">AIRCRAFT</span>) ends any kind of move within 3\" of one of your Tunnel Markers, that Tunnel Marker is removed from the battlefield.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Mawloc and Trygon units from your army have the <span class=\"kwb\">BURROWER</span> keyword.<br><br>In the Muster Armies step, you can select up to 2 <span class=\"kwb\">TRYGON</span> models from your army. The selected units gain the <span class=\"kwb\">CHARACTER</span> keyword.<br><br><b>Designer’s Note:</b> <i>This means that the selected models can be given Enhancements and one of them can be selected as your <span class=\"kwb\">WARLORD</span>.</i>",
+          "description": "Each time a Tyranids model from your army makes an attack, re-roll a Hit roll of 1.<br><br>Each time a Burrower unit from your army is set up on the battlefield from Reserves, place a circular 40mm Tunnel Marker anywhere on the battlefield within 1\" of that unit and more than 3\" horizontally away from all enemy units.<br><br>In the Reinforcements step of your Movement phase, when you set up a unit on the battlefield from Reserves, you can set that unit up wholly within 8\" of one of your Tunnel Markers and more than 6\" horizontally away from any enemy units.<br><br>If an enemy model (excluding <span class=\"kwb\">AIRCRAFT</span>) ends any kind of move within 3\" of one of your Tunnel Markers, that Tunnel Marker is removed from the battlefield.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Mawloc and Trygon units from your army have the <span class=\"kwb\">BURROWER</span> keyword.<br><br>In the Muster Armies step, you can select up to 2 <span class=\"kwb\">TRYGON</span> models from your army. The selected units gain the <span class=\"kwb\">CHARACTER</span> keyword.<br><br><b>Designer’s Note:</b> <i>This means that the selected models can be given Enhancements and one of them can be selected as your <span class=\"kwb\">WARLORD</span>.</i>",
           "effect": {
             "effects": {
               "rerollHitsOf1": true
@@ -450,7 +450,7 @@
       "type": "Subterranean Assault – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> End of your Movement phase.<br><br><b>TARGET:</b> One Tyranids unit from your army that is wholly within 9\" of one or more of your Tunnel Markers and not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Remove your unit from the battlefield and set it up again, wholly within 9\" of another Tunnel Marker you placed, and more than 6\" horizontally away from all enemy units."
+      "description": "<b>WHEN:</b> End of your Movement phase.<br><br><b>TARGET:</b> One Tyranids unit from your army that is wholly within 8\" of one or more of your Tunnel Markers and not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Remove your unit from the battlefield and set it up again, wholly within 8\" of another Tunnel Marker you placed, and more than 6\" horizontally away from all enemy units."
     },
     {
       "id": "swarming-assault",
@@ -487,7 +487,7 @@
       "type": "Subterranean Assault – Wargear Stratagem",
       "turn": "Your turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Tyranids unit from your army, wholly within 9\" of one or more Tunnel Markers you placed.<br><br><b>EFFECT:</b> One model in your unit regains up to D3+1 lost wounds, or you can return up to D3+1 destroyed models with a Wounds characteristic of 1 to your unit, with their full wounds remaining, instead."
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Tyranids unit from your army, wholly within 8\" of one or more Tunnel Markers you placed.<br><br><b>EFFECT:</b> One model in your unit regains up to D3+1 lost wounds, or you can return up to D3+1 destroyed models with a Wounds characteristic of 1 to your unit, with their full wounds remaining, instead."
     },
     {
       "id": "adaptive-optimisation",
@@ -887,7 +887,7 @@
     {
       "id": "hunting-grounds",
       "name": "Hunting Grounds",
-      "cost": 20,
+      "cost": 30,
       "detachmentId": "vanguard-onslaught",
       "detachmentName": "Vanguard Onslaught",
       "description": "<span class=\"kwb\">TYRANIDS</span> model only. While the bearer is on the battlefield, each time your opponent sets up a Reserves unit on the battlefield, roll one D6: on a 2+, that unit must take a Battle-shock test."
@@ -992,7 +992,7 @@
       "cost": 15,
       "detachmentId": "vanguard-onslaught",
       "detachmentName": "Vanguard Onslaught",
-      "description": "Vanguard Invader model only. The bearer has the Stealth ability and each time a ranged attack targets the bearer’s unit, models in that unit have the Benefit of Cover against that attack.",
+      "description": "Vanguard Invader model only. This unit has Stealth.",
       "effect": {
         "effects": {
           "bsMod": 1
@@ -3423,11 +3423,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 180
+          "points": 190
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 190
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -3602,7 +3602,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 100
+          "points": 90
         },
         {
           "description": "6 models",
@@ -3702,9 +3702,9 @@
           "type": "Faction"
         },
         {
-          "id": "foul-spores-aura",
-          "name": "Foul Spores (Aura)",
-          "description": "While a friendly <span class=\"kwb\">TYRANIDS</span> unit is within 6\" of this unit, each time a ranged attack targets that unit, models in that unit have the Benefit of Cover against that attack. In addition, while a friendly <span class=\"kwb\">TYRANIDS</span> unit (excluding Monsters) is within 6\" of this unit, models in that unit have the Stealth ability.",
+          "id": "foul-spores",
+          "name": "Foul Spores",
+          "description": "Friendly <span class=\"kwb\">TYRANIDS</span> units within 6\" of this unit have Stealth.",
           "type": "Datasheet"
         }
       ],
@@ -5234,7 +5234,7 @@
         {
           "id": "aerial-seeding",
           "name": "Aerial Seeding",
-          "description": "This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 9\" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.",
+          "description": "This model must start the battle in Reserves, but neither it nor any units embarked within it are counted towards any limits placed on the maximum number of Reserves units you can start the battle with. This model can be set up in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. Any units embarked within this model must immediately disembark after it has been set up on the battlefield, and they must be set up more than 8\" away from all enemy models. After this model has been set up on the battlefield, no units can embark within it.",
           "type": "Datasheet"
         }
       ],
@@ -5268,7 +5268,11 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 80
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 90
         }
       ],
@@ -6239,7 +6243,7 @@
           "A": "2",
           "bsWs": "3",
           "S": 18,
-          "AP": -4,
+          "AP": -1,
           "D": "D6+6",
           "rules": {
             "isHeavy": true
@@ -6498,7 +6502,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 135
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -7852,7 +7856,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 115
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -8293,16 +8297,10 @@
           "type": "Faction"
         },
         {
-          "id": "adaptive-instincts",
-          "name": "Adaptive Instincts",
-          "description": "At the start of the Fight phase, select one of the following:<br><ul><li><b>Aggression Imperative:</b> Until the end of the phase, each time a model in this unit makes an attack, re-roll a Hit roll of 1.</li><li><b>Bioregeneration:</b> Until the end of the phase, each time a saving throw is made for a model in this unit, re-roll a saving throw of 1.</li></ul>",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            },
-            "combatType": "melee"
-          }
+          "id": "adaptive-instincts-once-per-turn-per-unit",
+          "name": "Adaptive Instincts (Once per turn, per unit)",
+          "description": "In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:<br><ul><li>This unit’s melee attacks have +1 S.</li><li>Or: This unit has +1 T.</li></ul>",
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -8373,6 +8371,19 @@
       "canBeLedBy": [
         "winged-tyranid-prime-tyranids",
         "tyranid-prime-with-lash-whip"
+      ],
+      "combatEffects": [
+        {
+          "sourceRuleId": "unit_000002691_adaptive_instincts",
+          "label": "Tyranid Warriors With Melee Bio-weapons — repetir imp.1 CaC",
+          "description": "At the start of the Fight phase, select one of the following:Aggression Imperative: Until the end of the phase, each time a model in this unit makes an attack, re-roll a Hit roll of 1.Bioregeneration: Until the end of the phase, each time a saving throw is made for a model in this unit, re-roll a sa",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "combatType": "melee"
+          }
+        }
       ]
     },
     {
@@ -8688,11 +8699,11 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 60
+          "points": 55
         },
         {
           "description": "6 models",
-          "points": 120
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -10012,12 +10023,6 @@
           "name": "Subterranean Hunter",
           "description": "At the end of the Fight phase, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.",
           "type": "Datasheet"
-        },
-        {
-          "id": "serpentine-fiend",
-          "name": "Serpentine Fiend",
-          "description": "This model can move through terrain features, but cannot end a move within a wall, a floor, etc. This model can be set up or end a move on any floor level of <span class=\"kwb\">RUINS</span>, but if that level is not the ground floor, it can only do so if its base does not overhang the floor at that level.",
-          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -10027,7 +10032,8 @@
         "Monster",
         "Burrower",
         "Vanguard Invader",
-        "The Red Terror"
+        "The Red Terror",
+        "Mobile"
       ],
       "factionKeywords": [
         "Tyranids"

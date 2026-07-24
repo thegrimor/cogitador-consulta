@@ -666,6 +666,34 @@
       "description": "Wargear abilities are granted when a unit or model has a specific item of wargear. If the ability affects the whole unit, it applies to all models. If it applies to the model carrying it, that model is the 'bearer' and the ability applies until the bearer is destroyed."
     },
     {
+      "id": "CO063",
+      "name": "Modifying a Stratagem's CP Cost",
+      "category": "concept",
+      "summary": "Rules that let you target a unit with 'a stratagem' for 0CP without naming it instead reduce its CP cost by 1.",
+      "description": "Universal Rules Update (22nd July 2026): rules that enable you to target a friendly unit with a stratagem for 0CP, but that do not specify the name of the stratagem, instead reduce the CP cost of that use of that stratagem by 1CP."
+    },
+    {
+      "id": "CO064",
+      "name": "Stratagems Usable More Than Once Per Phase/Turn",
+      "category": "concept",
+      "summary": "Repeat-use permissions for a stratagem (per phase/turn/round/battle) only apply if that rule names the stratagem.",
+      "description": "Universal Rules Update (22nd July 2026): parts of a rule that allow a player to use a stratagem even if they have already targeted another unit with that stratagem in the same phase can only be used if the name of the stratagem is specified in that rule. Similarly, if a stratagem is limited to one use per player per turn, per battle round or per battle, such parts of that rule can only be used if the name of the stratagem is specified in that rule."
+    },
+    {
+      "id": "CO065",
+      "name": "Stratagems That Restrict Targeting by Range",
+      "category": "concept",
+      "summary": "Effects that require an attacker within 12\" to target a unit now require 18\" instead.",
+      "description": "Universal Rules Update (22nd July 2026): if a stratagem has an effect that says the target unit 'can only be selected as the target of a ranged attack if the attacking model is within 12″', or 'cannot be targeted by ranged attacks unless the attacking model is within 12″', that effect is changed to say 'can only be selected as the target of a ranged attack if the attacking model is within 18″.'"
+    },
+    {
+      "id": "CO066",
+      "name": "Stratagems That Add a Replacement Unit",
+      "category": "concept",
+      "summary": "Stratagems that add a unit identical to your destroyed unit gain a once-per-battle restriction.",
+      "description": "Universal Rules Update (22nd July 2026): if a stratagem has the effect of adding 'a new unit to your army that is identical to your destroyed unit', add the following Restriction to that stratagem: 'RESTRICTIONS: You can only use this stratagem once per battle.'"
+    },
+    {
       "id": "000008346",
       "name": "Leader",
       "category": "unit_ability",
@@ -882,7 +910,7 @@
       "description": "<b>WHEN:</b> Fight step of your opponent's Fight phase, just after an enemy unit has resolved its attacks.<br><br><b>TARGET:</b> One friendly unit that is eligible to fight.<br><br><b>EFFECT:</b> Until the end of the phase, your unit has the Fights First ability and it must be the next unit you select to fight."
     },
     {
-      "id": "crushing-impact-core",
+      "id": "crushing-impact",
       "name": "CRUSHING IMPACT",
       "detachmentId": null,
       "cpCost": 1,
