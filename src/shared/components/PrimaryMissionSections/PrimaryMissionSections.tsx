@@ -2,17 +2,53 @@ import { mdBoldToHtml } from '@/core/utils/missionText'
 import { VpBadge } from '@/shared/components/VpBadge'
 import type { PrimaryMissionSection } from '@/types'
 
+type SectionTiming = 'round-start' | 'turn-end' | 'battle-end'
+
+function getSectionTiming(section: PrimaryMissionSection): SectionTiming {
+  if (section.headerKind === 'eob') return 'battle-end'
+  if (section.trigger?.includes('Command phase')) return 'round-start'
+  return 'turn-end'
+}
+
+const TIMING_STYLES: Record<SectionTiming, { label: string; text: string; badge: string; header: string }> = {
+  'round-start': {
+    label: 'Comienzo de ronda',
+    text: 'text-gold-bright',
+    badge: 'border-gold/50 text-gold-bright bg-gold/10',
+    header: 'bg-gold/5',
+  },
+  'turn-end': {
+    label: 'Final de turno',
+    text: 'text-teal',
+    badge: 'border-teal/50 text-teal bg-teal/10',
+    header: 'bg-teal/5',
+  },
+  'battle-end': {
+    label: 'Final de la batalla',
+    text: 'text-crimson-bright',
+    badge: 'border-crimson-bright/50 text-crimson-bright bg-crimson/10',
+    header: 'bg-crimson/5',
+  },
+}
+
 function SectionBlock({ section, accentClass }: { section: PrimaryMissionSection; accentClass: string }) {
+  const timing = getSectionTiming(section)
+  const style = TIMING_STYLES[timing]
   return (
     <div className={`border border-rim-bright border-l-2 ${accentClass} mb-px`}>
-      <div className="px-4 py-2 bg-surface-2 border-b border-rim-bright flex items-center justify-between gap-3">
-        <span
-          className={`text-[11px] font-mono uppercase tracking-widest ${
-            section.headerKind === 'eob' ? 'text-crimson-bright' : 'text-parchment-dim'
-          }`}
-        >
-          {section.when}
-        </span>
+      <div
+        className={`px-4 py-2 ${style.header} border-b border-rim-bright flex items-center justify-between gap-3 flex-wrap`}
+      >
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className={`text-[11px] font-mono uppercase tracking-widest ${style.text}`}>
+            {section.when}
+          </span>
+          <span
+            className={`text-[9px] font-mono uppercase tracking-wide border px-1.5 py-px leading-none ${style.badge}`}
+          >
+            {style.label}
+          </span>
+        </div>
         {section.trigger && (
           <span className="text-[10px] font-mono text-parchment-dim italic text-right">
             {section.trigger}

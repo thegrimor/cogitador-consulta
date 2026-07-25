@@ -30,6 +30,9 @@
   --color-deck-recon: #4fb8e8;
   --color-deck-priority: #e0b52a;
 
+  /* Color fijo para la insignia de "final de turno" en misiones (no varía con el tema) */
+  --color-teal: #2ec4b6;
+
   /* Tipografías */
   --font-mono: 'Share Tech Mono', monospace;
   --font-display: 'Orbitron', sans-serif;
