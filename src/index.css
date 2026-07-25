@@ -30,8 +30,11 @@
   --color-deck-recon: #4fb8e8;
   --color-deck-priority: #e0b52a;
 
-  /* Color fijo para la insignia de "final de turno" en misiones (no varía con el tema) */
+  /* Colores fijos para las insignias de momento de puntuación en misiones (no varían con
+     el tema, ya que algunos temas de facción desaturan crimson/gold a grises o plateados) */
   --color-teal: #2ec4b6;
+  --color-amber: #e0a020;
+  --color-scarlet: #d43a3a;
 
   /* Tipografías */
   --font-mono: 'Share Tech Mono', monospace;

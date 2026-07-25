@@ -13,9 +13,9 @@ function getSectionTiming(section: PrimaryMissionSection): SectionTiming {
 const TIMING_STYLES: Record<SectionTiming, { label: string; text: string; badge: string; header: string }> = {
   'round-start': {
     label: 'Comienzo de ronda',
-    text: 'text-gold-bright',
-    badge: 'border-gold/50 text-gold-bright bg-gold/10',
-    header: 'bg-gold/5',
+    text: 'text-amber',
+    badge: 'border-amber/50 text-amber bg-amber/10',
+    header: 'bg-amber/5',
   },
   'turn-end': {
     label: 'Final de turno',
@@ -25,9 +25,9 @@ const TIMING_STYLES: Record<SectionTiming, { label: string; text: string; badge:
   },
   'battle-end': {
     label: 'Final de la batalla',
-    text: 'text-crimson-bright',
-    badge: 'border-crimson-bright/50 text-crimson-bright bg-crimson/10',
-    header: 'bg-crimson/5',
+    text: 'text-scarlet',
+    badge: 'border-scarlet/50 text-scarlet bg-scarlet/10',
+    header: 'bg-scarlet/5',
   },
 }
 
