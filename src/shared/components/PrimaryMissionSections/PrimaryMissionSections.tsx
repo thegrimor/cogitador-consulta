@@ -20,7 +20,7 @@ const TIMING_STYLES: Record<SectionTiming, { label: string; text: string; badge:
   'turn-end': {
     label: 'Final de turno',
     text: 'text-parchment-dim',
-    badge: 'border-rim-bright text-parchment-dim',
+    badge: 'border-parchment-dim/50 text-parchment-dim bg-parchment-dim/10',
     header: 'bg-surface-2',
   },
   'battle-end': {
