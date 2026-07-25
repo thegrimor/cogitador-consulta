@@ -19,9 +19,9 @@ const TIMING_STYLES: Record<SectionTiming, { label: string; text: string; badge:
   },
   'turn-end': {
     label: 'Final de turno',
-    text: 'text-parchment-dim',
-    badge: 'border-parchment-dim/50 text-parchment-dim bg-parchment-dim/10',
-    header: 'bg-surface-2',
+    text: 'text-teal',
+    badge: 'border-teal/50 text-teal bg-teal/10',
+    header: 'bg-teal/5',
   },
   'battle-end': {
     label: 'Final de la batalla',
