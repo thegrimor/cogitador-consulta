@@ -2913,7 +2913,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 5
-            }
+            },
+            "target": "defender"
           }
         }
       ],
@@ -9046,12 +9047,7 @@
           "id": "unnatural-resilience",
           "name": "Unnatural Resilience",
           "description": "This model has the Feel No Pain 4+ ability against mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 4
-            }
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [

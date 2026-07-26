@@ -6152,12 +6152,7 @@
           "id": "daughter-of-the-abyss",
           "name": "Daughter of the Abyss",
           "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "corner-the-quarry",
@@ -6311,13 +6306,7 @@
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
           "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "purity-of-execution",
@@ -6455,13 +6444,7 @@
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
           "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "deft-parry",
@@ -6616,13 +6599,7 @@
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
           "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "sanctified-flames",
@@ -6794,12 +6771,7 @@
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
           "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "self-repair",

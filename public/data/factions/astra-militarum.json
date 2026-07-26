@@ -1040,7 +1040,8 @@
         "effects": {
           "feelNoPainThreshold": 6
         },
-        "bearerOnly": true
+        "bearerOnly": true,
+        "target": "defender"
       }
     },
     {
@@ -8144,7 +8145,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -9374,7 +9376,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {

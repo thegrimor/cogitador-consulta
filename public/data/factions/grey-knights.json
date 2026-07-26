@@ -4791,13 +4791,7 @@
           "id": "truesilver-aegis-aura",
           "name": "Truesilver Aegis (Aura)",
           "description": "While a friendly Grey Knights unit is wholly within 6\" of this unit, models in that unit have the Feel No Pain 6+ ability against mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 6
-            },
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",

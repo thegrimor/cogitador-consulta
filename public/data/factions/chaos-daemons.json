@@ -8677,12 +8677,7 @@
           "id": "swallow-energy-psychic",
           "name": "Swallow Energy (Psychic)",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 4
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "horrible-fascination-psychic",

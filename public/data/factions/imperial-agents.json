@@ -1390,12 +1390,7 @@
           "id": "abomination",
           "name": "Abomination",
           "description": "This model has the Feel No Pain 2+ ability against Psychic Attacks.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 2
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "soulless-horror",

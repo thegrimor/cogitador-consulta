@@ -24740,10 +24740,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1,
-              "feelNoPainThreshold": 4
-            },
-            "target": "defender"
+              "sustainedHitsBonus": 1
+            }
           }
         },
         {
@@ -47943,12 +47941,7 @@
           "id": "the-spiritshield-helm",
           "name": "The Spiritshield Helm",
           "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            }
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -56382,7 +56375,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -58824,7 +58818,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         }
       ],

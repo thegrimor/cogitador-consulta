@@ -81,14 +81,33 @@
           "id": "malefic-surge",
           "name": "Malefic Surge",
           "description": "In your Command phase, one or more Chaos Knights units from your army can make a Malefic Surge. Each one that does must first take a Leadership test; if that test is failed, that unit suffers D3 mortal wounds. Then, until the start of your next Command phase, that unit is Empowered. While a unit is Empowered it can use one of the Malefic Surge abilities below. Once that unit has used a Malefic Surge ability, it is no longer Empowered.<br><ul><li><b>Unholy Hunger:</b> When a model in this unit makes a Normal, Advance or Fall Back move, until the end of the phase, add 3\" to its Move characteristic.</li><li><b>Diabolic Power:</b> When this unit is selected to shoot or fight, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in this unit have the selected ability.</li><li><b>Unnatural Fortitude:</b> When this unit is selected as the target of an attack, until the end of the phase, select one of the following:<br><ul><li>Models in this unit have a 5+ invulnerable save.</li><li>Models in this unit have the Feel No Pain 6+ ability.</li></ul></li></ul><br><b>Designer’s Note:</b> <i>We recommend placing a token next to Chaos Knights models that are Empowered, removing it once they have used a Malefic Surge ability, and removing all unused tokens at the start of your Command phase.</i>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "feelNoPainThreshold": 6,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Diabolic Power — [Lethal Hits]",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "Diabolic Power — [Sustained Hits 1]",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Unnatural Fortitude — Feel No Pain 6+",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 6
+                },
+                "target": "defender"
+              }
+            }
+          ]
         }
       ]
     },

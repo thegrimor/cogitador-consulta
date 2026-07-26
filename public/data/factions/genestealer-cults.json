@@ -5341,11 +5341,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
-              "feelNoPainThreshold": 4
+              "lethalHitsBonus": true
             },
-            "combatType": "ranged",
-            "target": "defender"
+            "combatType": "ranged"
           }
         },
         {

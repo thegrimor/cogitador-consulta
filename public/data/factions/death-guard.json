@@ -4547,7 +4547,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {
