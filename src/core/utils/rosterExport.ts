@@ -675,11 +675,17 @@ export function resolveImportedRoster(
         ?? allCosts.find(c => resolveModelCount(c, datasheet) >= modelCount)
         ?? allCosts[allCosts.length - 1]
       const baseCost = matchingCost?.points ?? 0
+      // The stored modelCount must match whichever bracket we actually charged for — if the
+      // parsed size (e.g. 6) got rounded up to the next bracket (e.g. 8), keep the entry's
+      // modelCount in step with that bracket too. Otherwise the roster shows "6x Paladin
+      // Squad (375 Points)": display says 6 while the price paid is for 8, since 375 is the
+      // 8-model rate and no 6-model rate exists.
+      const resolvedModelCount = matchingCost ? resolveModelCount(matchingCost, datasheet) : modelCount
 
       const entry: RosterEntry = {
         id: crypto.randomUUID(),
         datasheetId: datasheet.id,
-        modelCount,
+        modelCount: resolvedModelCount,
         pointsCost: baseCost,
       }
       entryToParsedUnit.set(entry.id, unit)

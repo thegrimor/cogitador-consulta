@@ -5,7 +5,7 @@ import { WeaponCard } from '../WeaponCard'
 import { AbilityList } from '../AbilityList'
 import { StratList } from '../StratList'
 import { ModifierPanel } from '../ModifierPanel'
-import { MODIFIER_RULES } from '../../data/modifiers'
+import { deriveModifierRules } from '../../utils/deriveRules'
 import { parseBcpList } from '../../utils/parseBcpList'
 import type { GameData, Weapon, ModelProfile, CombatType, Datasheet } from '@/types'
 import type { PanelState } from '../../hooks/usePanelState'
@@ -49,7 +49,7 @@ export function UnitPanel({
   const [showImport, setShowImport] = useState(false)
   const [importText, setImportText] = useState('')
   const [importError, setImportError] = useState<string | null>(null)
-  const { selectedUnit, detachmentAbilities, applicableStratagems } = panel
+  const { selectedUnit, detachmentAbilities, applicableStratagems, selectedCharacter, rosterIds, selection } = panel
   const isAttacker = side === 'left'
 
   function handleImport() {
@@ -109,10 +109,10 @@ export function UnitPanel({
   const anySelectedIndirect    = selectedWeapons.some(w => w.isIndirectFire)
   const anySelectedPsychic     = selectedWeapons.some(w => w.isPsychic)
 
-  const heavyModActive = activeModifierIds?.has('weapon_heavy') ?? false
+  const heavyModActive = activeModifierIds?.has('weapon-heavy') ?? false
 
   function handleHeavyToggle() {
-    onModifierToggle?.('weapon_heavy')
+    onModifierToggle?.('weapon-heavy')
   }
 
   const characterDatasheet = panel.selectedCharacter
@@ -148,31 +148,31 @@ export function UnitPanel({
     [selectedUnit],
   )
 
+  const baseRules = useMemo(
+    () => deriveModifierRules(gameData, { selection, detachmentAbilities, applicableStratagems, selectedUnit, selectedCharacter, rosterIds }),
+    [gameData, selection, detachmentAbilities, applicableStratagems, selectedUnit, selectedCharacter, rosterIds],
+  )
+
   const visibleRules = useMemo(() => {
-    const { factionId, detachmentIds, datasheetId, enhancementId } = panel.selection
+    const { enhancementId } = selection
     const defKwLower = defenderKeywords.map(k => k.toLowerCase())
-    return MODIFIER_RULES.filter(rule => {
+    return baseRules.filter(rule => {
       const ruleTarget = rule.target ?? 'attacker'
       if (isAttacker && ruleTarget === 'defender') return false
       if (!isAttacker && ruleTarget === 'attacker') return false
-      if (rule.factionId && rule.factionId !== factionId) return false
-      if (rule.detachmentId && !detachmentIds.includes(rule.detachmentId)) return false
       if (rule.enhancementId && rule.enhancementId !== enhancementId) return false
-      if (rule.datasheetId && rule.datasheetId !== datasheetId) return false
-      if (rule.leaderDatasheetId && rule.leaderDatasheetId !== panel.selection.characterId) return false
       if (rule.combatType && rule.combatType !== combatType) return false
-      if (rule.id === 'weapon_heavy'       && !anySelectedHeavy)      return false
-      if (rule.id === 'weapon_lance'       && !anySelectedLance)      return false
-      if (rule.id === 'weapon_torrent'     && !anySelectedTorrent)    return false
-      if (rule.id === 'weapon_indirect'    && !anySelectedIndirect)   return false
-      if (rule.id === 'weapon_psychic'     && !anySelectedPsychic)    return false
+      if (rule.id === 'weapon-heavy'       && !anySelectedHeavy)      return false
+      if (rule.id === 'weapon-lance'       && !anySelectedLance)      return false
+      if (rule.id === 'weapon-torrent'     && !anySelectedTorrent)    return false
+      if (rule.id === 'weapon-indirect'    && !anySelectedIndirect)   return false
+      if (rule.id === 'weapon-psychic'     && !anySelectedPsychic)    return false
       if (rule.requiresAntiKeyword && !weaponAntiKeywords.includes(rule.requiresAntiKeyword)) return false
       if (rule.requiresTargetKeyword && !defKwLower.includes(rule.requiresTargetKeyword.toLowerCase())) return false
       if (rule.requiresAttackerKeyword && !attackerKeywords.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
-      if (rule.sourceDatasheetId && panel.rosterIds !== null && !panel.rosterIds.includes(rule.sourceDatasheetId)) return false
       return true
     })
-  }, [isAttacker, panel.selection, combatType, anySelectedHeavy, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
+  }, [baseRules, isAttacker, selection, combatType, anySelectedHeavy, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
 
   const halfRangeWeapons = useMemo(
     () => selectedWeapons.filter(w => w.isMelta || w.rapidFireValue !== ''),

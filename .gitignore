@@ -14,6 +14,7 @@ dist-ssr
 
 # Reference PDFs (large source documents, not app data)
 public/pdf/
+public/data/pdf/
 
 # Editor directories and files
 .vscode/*

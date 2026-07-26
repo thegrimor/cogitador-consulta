@@ -18,20 +18,17 @@ npm run dev      # servidor de desarrollo (Vite HMR)
 npm run build    # tsc -b && vite build
 npm run lint     # ESLint
 npm run preview  # previsualizar el build de producción
-
-npm run scrape:mfm    # scrapea puntos/costes desde mfm.warhammer-community.com
-npm run update:costs  # aplica scripts/mfm-data.json sobre Datasheets_models_cost.csv
 ```
 
-Otros scripts de datos (`node scripts/<archivo>.mjs`, uso puntual):
-- `scrape-mission-actions.mjs`, `sync-enhancement-costs.mjs`, `update-detachments.mjs`, `update-wargear-costs.mjs`.
+Un script de datos puntual (`node scripts/<archivo>.mjs`, no vinculado a package.json):
+- `scrape-mission-actions.mjs`.
 
 Sin suite de tests todavía.
 
 ## Datos
 
-Los datos de juego son estáticos, en `public/data/*.csv` (delimitados por `|`) y `public/data/missions.json`, cargados en el cliente con PapaParse. Ver `CLAUDE.md` para el detalle de arquitectura y la lista completa de archivos.
+La app consume JSON estático mantenido a mano (`public/data/factions/<slug>.json` + catálogo + `missions.json`) — no hay CSV ni paso de generación. Ver `CLAUDE.md` para el detalle de arquitectura.
 
 ## Stack
 
-React 19, React Router 7, Redux Toolkit (roster), Tailwind CSS 4, PapaParse, `qrcode.react` / `qr-scanner` / `lz-string` (QR de listas), Vite 8, TypeScript.
+React 19, React Router 7, Redux Toolkit (roster), Tailwind CSS 4, `qrcode.react` / `qr-scanner` / `lz-string` (QR de listas), Vite 8, TypeScript.

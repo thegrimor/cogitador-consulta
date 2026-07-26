@@ -1,5 +1,21 @@
-import type { Weapon, ModelProfile } from '@/types'
+import type { Weapon, ModelProfile, Datasheet } from '@/types'
 import type { DamageBreakdown, CombatModifiers, ModifierRule } from '../types'
+
+const FNP_ABILITY_RE = /^Feel No Pain\s*(\d)\+$/i
+
+/** A model's own unconditional "Feel No Pain X+" ability (as opposed to a stratagem/leader/aura
+ * FNP toggle, which the player opts into separately) — always applies while defending. */
+export function getInnateFeelNoPain(datasheet: Datasheet | null | undefined): number | null {
+  if (!datasheet) return null
+  let best: number | null = null
+  for (const ab of datasheet.abilities) {
+    const match = ab.name.match(FNP_ABILITY_RE)
+    if (!match) continue
+    const threshold = parseInt(match[1])
+    if (best === null || threshold < best) best = threshold
+  }
+  return best
+}
 
 // Abramowitz & Stegun approximation, max error < 1.5e-7
 function erf(x: number): number {

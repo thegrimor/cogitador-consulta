@@ -12,6 +12,35 @@ export interface InteractiveProps {
   showEob: boolean
 }
 
+type SectionTiming = 'round-start' | 'turn-end' | 'battle-end'
+
+function getSectionTiming(section: PrimaryMissionSection): SectionTiming {
+  if (section.headerKind === 'eob') return 'battle-end'
+  if (section.trigger?.includes('Command phase')) return 'round-start'
+  return 'turn-end'
+}
+
+const TIMING_STYLES: Record<SectionTiming, { label: string; text: string; badge: string; header: string }> = {
+  'round-start': {
+    label: 'Comienzo de ronda',
+    text: 'text-amber',
+    badge: 'border-amber/50 text-amber bg-amber/10',
+    header: 'bg-amber/5',
+  },
+  'turn-end': {
+    label: 'Final de turno',
+    text: 'text-teal',
+    badge: 'border-teal/50 text-teal bg-teal/10',
+    header: 'bg-teal/5',
+  },
+  'battle-end': {
+    label: 'Final de la batalla',
+    text: 'text-scarlet',
+    badge: 'border-scarlet/50 text-scarlet bg-scarlet/10',
+    header: 'bg-scarlet/5',
+  },
+}
+
 function SectionBlock({
   section,
   sectionIndex,
@@ -24,17 +53,24 @@ function SectionBlock({
   interactive?: InteractiveProps
 }) {
   const groups = groupExclusiveRuns(section.tiers)
+  const timing = getSectionTiming(section)
+  const style = TIMING_STYLES[timing]
 
   return (
     <div className={`border border-rim-bright border-l-2 ${accentClass} mb-px`}>
-      <div className="px-4 py-2 bg-surface-2 border-b border-rim-bright flex items-center justify-between gap-3">
-        <span
-          className={`text-[11px] font-mono uppercase tracking-widest ${
-            section.headerKind === 'eob' ? 'text-crimson-bright' : 'text-parchment-dim'
-          }`}
-        >
-          {section.when}
-        </span>
+      <div
+        className={`px-4 py-2 ${style.header} border-b border-rim-bright flex items-center justify-between gap-3 flex-wrap`}
+      >
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className={`text-[11px] font-mono uppercase tracking-widest ${style.text}`}>
+            {section.when}
+          </span>
+          <span
+            className={`text-[9px] font-mono uppercase tracking-wide border px-1.5 py-px leading-none ${style.badge}`}
+          >
+            {style.label}
+          </span>
+        </div>
         {section.trigger && (
           <span className="text-[10px] font-mono text-parchment-dim italic text-right">
             {section.trigger}

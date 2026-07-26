@@ -1,200 +1,3 @@
-// ── Raw CSV row types ──────────────────────────────────────────────────────────
-
-export interface RawFaction {
-  id: string
-  name: string
-  link: string
-}
-
-export interface RawDatasheet {
-  id: string
-  name: string
-  faction_id: string
-  source_id: string
-  legend: string
-  role: string
-  loadout: string
-  transport: string
-  virtual: string
-  leader_head: string
-  leader_footer: string
-  damaged_w: string
-  damaged_description: string
-  link: string
-}
-
-export interface RawDatasheetModel {
-  datasheet_id: string
-  line: string
-  name: string
-  M: string
-  T: string
-  Sv: string
-  inv_sv: string
-  inv_sv_descr: string
-  W: string
-  Ld: string
-  OC: string
-  base_size: string
-  base_size_descr: string
-}
-
-export interface RawDatasheetWargear {
-  datasheet_id: string
-  line: string
-  line_in_wargear: string
-  dice: string
-  name: string
-  description: string
-  range: string
-  type: string
-  A: string
-  BS_WS: string
-  S: string
-  AP: string
-  D: string
-}
-
-export interface RawDatasheetAbility {
-  datasheet_id: string
-  line: string
-  ability_id: string
-  model: string
-  name: string
-  description: string
-  type: string
-  parameter: string
-}
-
-export interface RawAbility {
-  id: string
-  name: string
-  legend: string
-  faction_id: string
-  description: string
-}
-
-export interface RawDetachment {
-  id: string
-  faction_id: string
-  name: string
-  legend: string
-  type: string
-  disposition: string
-  dp: string
-}
-
-export interface RawDetachmentChapter {
-  detachment_id: string
-  chapter: string
-}
-
-export interface RawDetachmentAbility {
-  id: string
-  faction_id: string
-  name: string
-  legend: string
-  description: string
-  detachment: string
-  detachment_id: string
-}
-
-export interface RawStratagem {
-  faction_id: string
-  name: string
-  id: string
-  type: string
-  cp_cost: string
-  legend: string
-  turn: string
-  phase: string
-  detachment: string
-  detachment_id: string
-  description: string
-}
-
-export interface RawDatasheetStratagem {
-  datasheet_id: string
-  stratagem_id: string
-}
-
-export interface RawDatasheetKeyword {
-  datasheet_id: string
-  keyword: string
-  model: string
-  is_faction_keyword: string
-}
-
-export interface RawDatasheetUnitComposition {
-  datasheet_id: string
-  line: string
-  description: string
-}
-
-export interface RawModelCost {
-  datasheet_id: string
-  line: string
-  description: string
-  cost: string
-}
-
-export interface RawWargearCost {
-  datasheet_id: string
-  name: string
-  cost: string
-}
-
-export interface RawDatasheetLeader {
-  leader_id: string
-  attached_id: string
-}
-
-export interface RawEnhancement {
-  faction_id: string
-  id: string
-  name: string
-  cost: string
-  detachment: string
-  detachment_id: string
-  legend: string
-  description: string
-}
-
-export interface RawDatasheetEnhancement {
-  datasheet_id: string
-  enhancement_id: string
-}
-
-export interface RawDatasheetOption {
-  datasheet_id: string
-  line: string
-  button: string
-  description: string
-}
-
-export interface RawDatasheetDetachmentAbility {
-  datasheet_id: string
-  detachment_ability_id: string
-}
-
-export interface RawSource {
-  id: string
-  name: string
-  type: string
-  edition: string
-  version: string
-  errata_date: string
-  errata_link: string
-}
-
-export interface RawCoreRule {
-  id: string
-  name: string
-  category: string
-  summary: string
-  description: string
-}
-
 // ── Domain types ───────────────────────────────────────────────────────────────
 
 export interface Faction {
@@ -219,6 +22,8 @@ export interface DetachmentAbility {
   detachmentId: string
   name: string
   description: string
+  effect?: CombatEffect
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 export interface ModelProfile {
@@ -277,11 +82,63 @@ export interface Weapon {
 
 export type CombatType = 'ranged' | 'melee' | 'any'
 
+/** Combat-math modifiers a rule can contribute to the mathhammer damage calculator. Every
+ * field is additive/absolute per its own semantics; see mathhammer/utils/mathhammer.ts for how
+ * they're combined and applied. */
+export interface CombatModifiers {
+  hitMod: number
+  bsMod: number
+  wsMod: number
+  rerollHitsOf1: boolean
+  rerollAllHits: boolean
+  critThreshold: number
+  overwatchHit: boolean
+  overwatchThreshold: number
+  strengthMod: number
+  woundMod: number
+  rerollWoundsOf1: boolean
+  rerollAllWounds: boolean
+  lethalHitsBonus: boolean
+  sustainedHitsBonus: number
+  cleaveBonus: number
+  apMod: number
+  saveMod: number
+  attacksMod: number
+  damageMod: number
+  damageReduction: number
+  rerollDamageOf1: boolean
+  rerollAllDamage: boolean
+  feelNoPainThreshold: number | null
+  woundCritThreshold: number
+  devastatingWoundsBonus: boolean
+}
+
+/** A combat-math effect embedded directly on the ability/stratagem/enhancement it belongs to. */
+export interface CombatEffect {
+  combatType?: CombatType
+  target?: 'attacker' | 'defender'
+  requiresAntiKeyword?: string
+  requiresTargetKeyword?: string
+  requiresAttackerKeyword?: string
+  bearerOnly?: boolean
+  isStratagem?: boolean
+  cpCost?: number
+  /** This ability's effect is an aura for OTHER nearby units, not for its own bearer's unit
+   * (e.g. a support Dreadnought's "Wisdom of the Ancients") — surface it as available for any
+   * unit's calculator when the bearer datasheet is present in the roster (or always, if no
+   * roster is loaded), not just when the bearer itself is the selected unit. */
+  appliesToNearby?: boolean
+  effects: Partial<CombatModifiers>
+}
+
 export interface Ability {
+  id: string
   name: string
   description: string
   type: 'Core' | 'Faction' | 'Datasheet'
   model?: string
+  effect?: CombatEffect
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 export interface Stratagem {
@@ -294,6 +151,7 @@ export interface Stratagem {
   turn: string
   phase: string
   description: string
+  effect?: CombatEffect
 }
 
 export interface DefaultWeaponQuantity {
@@ -336,8 +194,7 @@ export interface GameData {
   detachmentAbilities: DetachmentAbility[]
   stratagems: Stratagem[]
   datasheetStratagems: Record<string, string[]>
-  abilitiesMap: Record<string, RawAbility>
-  armyRulesByFaction: Record<string, RawAbility[]>
+  armyRulesByFaction: Record<string, Ability[]>
   /** ability id -> chapter name(s) that use it (SM only; e.g. Templar Vows -> ['Black Templars']). */
   armyRuleChaptersMap: Record<string, string[]>
   pointsCosts: PointsCost[]
@@ -354,8 +211,18 @@ export interface GameData {
   lastUpdate: string
   coreRules: CoreRule[]
   coreRulesMap: Record<string, CoreRule>
+  /** Universal combat effects with no faction (Cover, Heavy, Command Re-Roll...) — always
+   * available in the mathhammer calculator regardless of which faction is selected. */
+  coreCombatEffects: CoreCombatEffect[]
   loading: boolean
   error: string | null
+}
+
+export interface CoreCombatEffect {
+  id: string
+  name: string
+  description?: string
+  effect: CombatEffect
 }
 
 // ── Roster types ───────────────────────────────────────────────────────────────
@@ -408,10 +275,12 @@ export interface Enhancement {
   detachmentId: string
   detachmentName: string
   description: string
+  effect?: CombatEffect
 }
 
 export interface UnitOption {
-  line: number
+  /** Original CSV row order only — nothing sorts or reads this; array order already reflects it. */
+  line?: number
   button: string
   description: string
 }
