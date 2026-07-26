@@ -354,31 +354,33 @@ export function calculateDamage(
   let expectedHits: number
   let expectedWounds: number
   let autoWoundsFromCrits: number
+  let antiCritWounds: number
 
+  // Heridas críticas: natural 6, o un umbral más bajo otorgado por ANTI-X o por una regla — una
+  // tirada de Herida SIN MODIFICAR que llega a ese umbral hiere automáticamente, sea cual sea el
+  // umbral normal F/R (así es como funciona ANTI-X en el reglamento; no depende de si el arma
+  // también tiene Devastating Wounds, eso solo decide si además se salta la salvación). Por eso
+  // esos impactos se cuentan aparte con WOUND_CRIT y el resto con `pWound` recortado para no
+  // contarlos dos veces.
   if (isLethal) {
     autoWoundsFromCrits  = avgAttacks * CRIT
     const normalHits     = avgAttacks * Math.max(0, pHit - CRIT) + sustainedExtraHits
     expectedHits         = avgAttacks * pHit + sustainedExtraHits
-    expectedWounds       = autoWoundsFromCrits + normalHits * pWound
+    antiCritWounds       = hasWoundCrit ? normalHits * WOUND_CRIT : 0
+    expectedWounds       = autoWoundsFromCrits + antiCritWounds + normalHits * Math.max(0, pWound - WOUND_CRIT)
   } else {
     autoWoundsFromCrits  = 0
     expectedHits         = avgAttacks * pHit + sustainedExtraHits
-    expectedWounds       = expectedHits * pWound
+    antiCritWounds       = hasWoundCrit ? expectedHits * WOUND_CRIT : 0
+    expectedWounds       = antiCritWounds + expectedHits * Math.max(0, pWound - WOUND_CRIT)
   }
 
-  // Heridas críticas: natural 6, o un umbral más bajo otorgado por ANTI-X o por una regla.
-  // Sin Devastating Wounds: pasan por salvación normalmente (sin impacto en daño esperado).
-  // Con Devastating Wounds: esquivan salvación → se cuentan como woundsSkippingSave.
-  const antiCritWounds = hasWoundCrit
-    ? (isLethal
-        ? avgAttacks * Math.max(0, pHit - CRIT) * WOUND_CRIT  // solo hits no-lethal van a tirada de herida
-        : expectedHits * WOUND_CRIT)
-    : 0
-
+  // Sin Devastating Wounds, esas heridas críticas ya están contadas arriba pero siguen
+  // necesitando salvación normal. Con Devastating Wounds, esquivan la salvación.
   let expectedFailedSaves: number
   if (hasDevastatingWounds && hasWoundCrit) {
     const woundsSkippingSave = autoWoundsFromCrits + antiCritWounds
-    const woundsNeedingSave  = expectedWounds - autoWoundsFromCrits - antiCritWounds
+    const woundsNeedingSave  = expectedWounds - woundsSkippingSave
     expectedFailedSaves = woundsSkippingSave + Math.max(0, woundsNeedingSave) * pFailSave
   } else {
     expectedFailedSaves = expectedWounds * pFailSave
