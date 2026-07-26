@@ -20,6 +20,9 @@ import { MissionPrimaryDetailPage } from '@/pages/MissionPrimaryDetailPage'
 import { MissionSecondaryDetailPage } from '@/pages/MissionSecondaryDetailPage'
 import { MissionMatcherPage } from '@/pages/MissionMatcherPage'
 import { MathhammerPage } from '@/pages/MathhammerPage'
+import { BattleListPage } from '@/pages/BattleListPage'
+import { BattleNewPage } from '@/pages/BattleNewPage'
+import { BattleScorePage } from '@/pages/BattleScorePage'
 
 const router = createBrowserRouter([
   {
@@ -66,6 +69,14 @@ const router = createBrowserRouter([
         ],
       },
       { path: 'mathhammer', element: <MathhammerPage /> },
+      {
+        path: 'battles',
+        children: [
+          { index: true, element: <BattleListPage /> },
+          { path: 'new', element: <BattleNewPage /> },
+          { path: ':battleId', element: <BattleScorePage /> },
+        ],
+      },
     ],
   },
 ])
