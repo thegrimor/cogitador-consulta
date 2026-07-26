@@ -1179,7 +1179,13 @@
         {
           "id": "imperator-unleashed",
           "name": "Imperator Unleashed",
-          "description": "In a turn a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">FLY</span> <span class=\"kwb\">INFANTRY</span> unit made an ingress/charge move, that unit's attacks can re-roll hit rolls of 1."
+          "description": "In a turn a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">FLY</span> <span class=\"kwb\">INFANTRY</span> unit made an ingress/charge move, that unit's attacks can re-roll hit rolls of 1.",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "requiresAttackerKeyword": "fly"
+          }
         }
       ]
     }

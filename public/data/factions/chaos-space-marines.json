@@ -201,7 +201,49 @@
         {
           "id": "experimental-augmentations",
           "name": "Experimental Augmentations",
-          "description": "At the start of the battle, select which augmentations are active for Heretic Astartes Infantry models (excluding Damned models) from your army until the end of the battle. To do so, either select one from the list below, or randomly determine two by rolling two D6. If Fabius Bile is your <span class=\"kwb\">WARLORD</span>, when randomly determining your augmentations, you can re-roll one or both of the dice. Duplicated augmentations have no additional effect.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d1.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Cholinergic Accelerants:</b> Add 1 to the Attacks characteristic of melee weapons equipped by this model.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d2.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Hyperadrenal Infusion:</b> Add 2\" to the Move characteristic of this model.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d3.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Paraneural Reactions:</b> Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d4.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Supracutaneous Chitination:</b> Improve the Toughness characteristic of this model by 1.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d5.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Macrotensile Sinews:</b> Add 1 to the Strength characteristic of melee weapons equipped by this model.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d6.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Ophthalmic Enhancement:</b> Improve the Ballistic Skill characteristic of ranged weapons equipped by this model by 1.</td></tr></tbody></table></td></tr></tbody></table></div>"
+          "description": "At the start of the battle, select which augmentations are active for Heretic Astartes Infantry models (excluding Damned models) from your army until the end of the battle. To do so, either select one from the list below, or randomly determine two by rolling two D6. If Fabius Bile is your <span class=\"kwb\">WARLORD</span>, when randomly determining your augmentations, you can re-roll one or both of the dice. Duplicated augmentations have no additional effect.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d1.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Cholinergic Accelerants:</b> Add 1 to the Attacks characteristic of melee weapons equipped by this model.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d2.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Hyperadrenal Infusion:</b> Add 2\" to the Move characteristic of this model.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d3.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Paraneural Reactions:</b> Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d4.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Supracutaneous Chitination:</b> Improve the Toughness characteristic of this model by 1.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d5.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Macrotensile Sinews:</b> Add 1 to the Strength characteristic of melee weapons equipped by this model.</td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:80px;height:0px;\"><img src=\"/wh40k10ed/img/d6.png\"></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:400px;height:0px;\"><b>Ophthalmic Enhancement:</b> Improve the Ballistic Skill characteristic of ranged weapons equipped by this model by 1.</td></tr></tbody></table></td></tr></tbody></table></div>",
+          "options": [
+            {
+              "name": "Experimental Augmentations — Cholinergic Accelerants (+1 A, CaC)",
+              "effect": {
+                "effects": {
+                  "attacksMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "infantry"
+              }
+            },
+            {
+              "name": "Experimental Augmentations — Paraneural Reactions (+1 WS, CaC)",
+              "effect": {
+                "effects": {
+                  "wsMod": -1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "infantry"
+              }
+            },
+            {
+              "name": "Experimental Augmentations — Macrotensile Sinews (+1 F, CaC)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "infantry"
+              }
+            },
+            {
+              "name": "Experimental Augmentations — Ophthalmic Enhancement (+1 BS, disparo)",
+              "effect": {
+                "effects": {
+                  "bsMod": -1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "infantry"
+              }
+            }
+          ]
         }
       ]
     },

@@ -2433,11 +2433,7 @@
           "id": "burning-lance",
           "name": "Burning Lance",
           "description": "While this model is leading a unit, add 6\" to the Range characteristic of Melta weapons equipped by models in that unit.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {},
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "unquenchable-resolve",

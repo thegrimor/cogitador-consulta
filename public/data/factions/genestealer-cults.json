@@ -10,7 +10,13 @@
     {
       "id": "synapse",
       "name": "Synapse",
-      "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>"
+      "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
+      "effect": {
+        "effects": {
+          "strengthMod": 1
+        },
+        "combatType": "melee"
+      }
     },
     {
       "id": "shadow-in-the-warp",
@@ -5701,7 +5707,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "feeder-tendrils",
@@ -5847,7 +5859,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "parasitic-infection",
@@ -6033,7 +6051,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "will-of-the-hive-mind",
@@ -6167,7 +6191,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "alpha-warrior",
@@ -6297,7 +6327,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "winged-swarm",
@@ -6427,7 +6463,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "aerial-seeding",
@@ -6552,7 +6594,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "feeder-tendrils",
@@ -6678,7 +6726,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "terror-from-the-deep",
@@ -6816,7 +6870,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "feeder-tendrils",
@@ -6936,7 +6996,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "death-from-below",
@@ -7052,7 +7118,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "subterranean-tunnels",
@@ -7182,7 +7254,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "pouncing-leap",
@@ -19306,7 +19384,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "alpha-invader",
@@ -19784,7 +19868,13 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction"
+          "type": "Faction",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "swallow-whole",

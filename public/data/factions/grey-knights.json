@@ -162,7 +162,14 @@
       "type": "Augurium Task Force – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Your unit’s attacks can re-roll Hit rolls."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Your unit’s attacks can re-roll Hit rolls.",
+      "effect": {
+        "effects": {
+          "rerollAllHits": true
+        },
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "appointed-hour",
@@ -265,7 +272,16 @@
       "type": "Banishers – Epic Deed Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-CHAOS 4+] ability."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-CHAOS 4+] ability.",
+      "effect": {
+        "effects": {
+          "woundCritThreshold": 4
+        },
+        "combatType": "ranged",
+        "requiresTargetKeyword": "chaos",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "celerity",
@@ -448,7 +464,15 @@
       "type": "Hallowed Conclave – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Infantry unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, storm bolter weapons equipped by models in your unit have the [PISTOL] and [TWIN-LINKED] abilities."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Infantry unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, storm bolter weapons equipped by models in your unit have the [PISTOL] and [TWIN-LINKED] abilities.",
+      "effect": {
+        "effects": {
+          "rerollAllWounds": true
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "abominus-class-targets",
