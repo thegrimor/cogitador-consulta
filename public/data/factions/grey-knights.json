@@ -162,7 +162,14 @@
       "type": "Augurium Task Force – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Your unit’s attacks can re-roll Hit rolls."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Your unit’s attacks can re-roll Hit rolls.",
+      "effect": {
+        "effects": {
+          "rerollAllHits": true
+        },
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "appointed-hour",
@@ -265,7 +272,16 @@
       "type": "Banishers – Epic Deed Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-CHAOS 4+] ability."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Psyker unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-CHAOS 4+] ability.",
+      "effect": {
+        "effects": {
+          "woundCritThreshold": 4
+        },
+        "combatType": "ranged",
+        "requiresTargetKeyword": "chaos",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "celerity",
@@ -448,7 +464,15 @@
       "type": "Hallowed Conclave – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Infantry unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, storm bolter weapons equipped by models in your unit have the [PISTOL] and [TWIN-LINKED] abilities."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Grey Knights Infantry unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, storm bolter weapons equipped by models in your unit have the [PISTOL] and [TWIN-LINKED] abilities.",
+      "effect": {
+        "effects": {
+          "rerollAllWounds": true
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "abominus-class-targets",
@@ -1131,7 +1155,14 @@
           "id": "sanctuary-psychic",
           "name": "Sanctuary (Psychic)",
           "description": "This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         },
         {
           "id": "hammer-aflame-psychic",
@@ -1218,20 +1249,7 @@
         "channelled-force",
         "hallowed-ground"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "ldr_000000374_sanctuary_psychic",
-          "label": "Grand Master Voldus — -1 impactar (Líder)",
-          "description": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "grand-master",
@@ -1365,7 +1383,14 @@
           "id": "might-of-titan-psychic",
           "name": "Might of Titan (Psychic)",
           "description": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks and Strength characteristics of melee weapons equipped by this model.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 3,
+              "strengthMod": 3
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -1471,20 +1496,7 @@
         "fury-of-titan",
         "prescient-redeployment"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000000375_grand_master",
-          "label": "[OPB] Grand Master (GK) — +3 ataques, +3 Fuerza CaC",
-          "effect": {
-            "effects": {
-              "attacksMod": 3,
-              "strengthMod": 3
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "brother-captain",
@@ -4767,13 +4779,7 @@
           "id": "truesilver-aegis-aura",
           "name": "Truesilver Aegis (Aura)",
           "description": "While a friendly Grey Knights unit is wholly within 6\" of this unit, models in that unit have the Feel No Pain 6+ ability against mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 6
-            },
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",

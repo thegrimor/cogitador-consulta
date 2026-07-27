@@ -77,7 +77,49 @@
         {
           "id": "combat-drugs",
           "name": "Combat Drugs",
-          "description": "At the start of your Command phase, select which Combat Drugs will be active for your army until the start of your next Command phase. To do so, either select one from the list below (you cannot select the same Combat Drug more than once per battle), or randomly select two by rolling two D6. When doing so randomly, Combat Drugs you have previously selected can become active again, but if you randomly select one that is already active for your army, it has no additional effect.<br><br><span class=\"hi_custom\">1. Adrenalight</span><br>Add 1 to the Attacks characteristic of melee weapons equipped by Wych Cult models from your army.<br><br><span class=\"hi_custom\">2. Hypex</span><br>Add 2\" to the Move characteristic of <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army.<br><br><span class=\"hi_custom\">3. Serpentin</span><br>Improve the Weapon Skill characteristic of melee weapons equipped by <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army by 1.<br><br><span class=\"hi_custom\">4. Painbringer</span><br>Add 1 to the Toughness characteristic of <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army.<br><br><span class=\"hi_custom\">5. Grave Lotus</span><br>Add 1 to the Strength characteristic of melee weapons equipped by <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army.<br><br><span class=\"hi_custom\">6. Splintermind</span><br>Improve the Leadership characteristic of <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army by 1, and improve the Ballistic Skill characteristic of ranged weapons equipped by <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army by 1."
+          "description": "At the start of your Command phase, select which Combat Drugs will be active for your army until the start of your next Command phase. To do so, either select one from the list below (you cannot select the same Combat Drug more than once per battle), or randomly select two by rolling two D6. When doing so randomly, Combat Drugs you have previously selected can become active again, but if you randomly select one that is already active for your army, it has no additional effect.<br><br><span class=\"hi_custom\">1. Adrenalight</span><br>Add 1 to the Attacks characteristic of melee weapons equipped by Wych Cult models from your army.<br><br><span class=\"hi_custom\">2. Hypex</span><br>Add 2\" to the Move characteristic of <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army.<br><br><span class=\"hi_custom\">3. Serpentin</span><br>Improve the Weapon Skill characteristic of melee weapons equipped by <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army by 1.<br><br><span class=\"hi_custom\">4. Painbringer</span><br>Add 1 to the Toughness characteristic of <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army.<br><br><span class=\"hi_custom\">5. Grave Lotus</span><br>Add 1 to the Strength characteristic of melee weapons equipped by <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army.<br><br><span class=\"hi_custom\">6. Splintermind</span><br>Improve the Leadership characteristic of <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army by 1, and improve the Ballistic Skill characteristic of ranged weapons equipped by <span class=\"kwb\">WYCH</span> <span class=\"kwb\">CULT</span> models from your army by 1.",
+          "options": [
+            {
+              "name": "Combat Drugs — 1. Adrenalight (+1 A, CaC)",
+              "effect": {
+                "effects": {
+                  "attacksMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "wych cult"
+              }
+            },
+            {
+              "name": "Combat Drugs — 3. Serpentin (+1 WS, CaC)",
+              "effect": {
+                "effects": {
+                  "wsMod": -1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "wych cult"
+              }
+            },
+            {
+              "name": "Combat Drugs — 5. Grave Lotus (+1 F, CaC)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "wych cult"
+              }
+            },
+            {
+              "name": "Combat Drugs — 6. Splintermind (+1 BS, disparo)",
+              "effect": {
+                "effects": {
+                  "bsMod": -1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "wych cult"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1647,20 +1689,7 @@
         "alliance-of-agony",
         "callous-competition"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000000640_lelith",
-          "label": "[OPB] Lelith Hesperax — FNP 3+ (Defender), +6 ataques CaC",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3,
-              "attacksMod": 6
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "haemonculus",
@@ -6839,7 +6868,13 @@
           "id": "blitz",
           "name": "Blitz",
           "description": "Once per battle, in your Movement phase, before this model makes a Normal move, it can use this ability. If it does, until the end of the turn, add 2D6\" to this model’s Move characteristic and add 3 to the Attacks characteristic of this model’s Solitaire weapons.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 3
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "blur-of-movement",
@@ -6902,18 +6937,7 @@
       "detachmentAbilityIds": [
         "callous-competition"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000004160_solitaire_dru",
-          "label": "[OPB] Solitaire (DRU) — +3 ataques",
-          "effect": {
-            "effects": {
-              "attacksMod": 3
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "troupe-master-drukhari",
@@ -7393,7 +7417,14 @@
           "id": "acrobatic-grace",
           "name": "Acrobatic Grace",
           "description": "This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -7458,20 +7489,7 @@
       "detachmentAbilityIds": [
         "callous-competition"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000004163_acrobatic_grace",
-          "label": "Skyweavers — -1 impactar",
-          "description": "Each time an attack targets this unit, subtract 1 from the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "troupe-drukhari",

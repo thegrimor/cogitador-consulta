@@ -2799,7 +2799,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -4763,10 +4764,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
-              "feelNoPainThreshold": 4
-            },
-            "target": "defender"
+              "lethalHitsBonus": true
+            }
           }
         },
         {

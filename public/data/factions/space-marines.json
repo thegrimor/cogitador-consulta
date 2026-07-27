@@ -1179,7 +1179,13 @@
         {
           "id": "imperator-unleashed",
           "name": "Imperator Unleashed",
-          "description": "In a turn a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">FLY</span> <span class=\"kwb\">INFANTRY</span> unit made an ingress/charge move, that unit's attacks can re-roll hit rolls of 1."
+          "description": "In a turn a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">FLY</span> <span class=\"kwb\">INFANTRY</span> unit made an ingress/charge move, that unit's attacks can re-roll hit rolls of 1.",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "requiresAttackerKeyword": "fly"
+          }
         }
       ]
     }
@@ -9193,7 +9199,27 @@
           "id": "bladeguard-once-per-turn-per-unit",
           "name": "Bladeguard (Once per turn, per unit)",
           "description": "In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:<br><ul><li>This unit’s melee attacks have +1 to Hit rolls.</li><li>Or: Attacks that target this unit have -1 to Hit rolls.</li></ul>",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "options": [
+            {
+              "name": "Bladeguard — +1 impactar (CaC)",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "combatType": "melee"
+              }
+            },
+            {
+              "name": "Bladeguard — -1 impactar recibido",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "target": "defender"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -9474,19 +9500,6 @@
         "chaplain-kastiel",
         "marneus-calgar-in-armour-of-antilochus",
         "sanguinary-priest"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000000071_bladeguard",
-          "label": "Bladeguard Veteran Squad — repetir imp.1 CaC",
-          "description": "At the start of the Fight phase, you can select one of the following abilities to apply to models in this unit until the end of the phase: Swords of the Chapter: Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1. Shields of the Chapter: Each time an invulnerable saving thr",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {
@@ -9672,7 +9685,14 @@
           "id": "finest-hour",
           "name": "Finest Hour",
           "description": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and those weapons have the [DEVASTATING WOUNDS] ability.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 3,
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -10004,20 +10024,7 @@
         "master-of-wolves",
         "shield-of-the-imperium"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000000073_captain",
-          "label": "[OPB] Captain — +3 ataques, Devastating Wounds CaC",
-          "effect": {
-            "effects": {
-              "attacksMod": 3,
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "lieutenant-with-combi-weapon",
@@ -24017,7 +24024,13 @@
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "driven-by-fury",
@@ -24250,20 +24263,7 @@
         "wrath-of-dorn",
         "lightning-assault"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000000166_black_rage",
-          "label": "Death Company Dreadnought — repetir impactos CaC",
-          "description": "Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly Blood Angels Character models, or 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "baal-predator",
@@ -24734,10 +24734,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1,
-              "feelNoPainThreshold": 4
-            },
-            "target": "defender"
+              "sustainedHitsBonus": 1
+            }
           }
         },
         {
@@ -27366,7 +27364,14 @@
           "id": "lightning-fast-manoeuvres",
           "name": "Lightning-fast Manoeuvres",
           "description": "Ranged attacks that target this unit have -1 to wound rolls.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -27579,22 +27584,7 @@
         "red-thirst",
         "extremis-level-threat"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000000239_lightning_fast_manoeuvres",
-          "label": "Nephilim Jetfighter — -1 impactar, -1 herir disparo",
-          "description": "Each time a ranged attack targets this model, subtract 1 from the Hit roll. If that attack was made by a model that can Fly, subtract 1 from the Wound roll as well.",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "woundMod": -1
-            },
-            "combatType": "ranged",
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "ravenwing-dark-talon",
@@ -34612,7 +34602,13 @@
           "id": "hail-of-bolts",
           "name": "Hail of Bolts",
           "description": "In your Shooting phase, when this unit is selected to shoot, select up to one visible enemy unit. While making those attacks, this unit’s Bolt Rifle attacks that targeted that enemy unit have +2 A.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 2
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -34891,18 +34887,6 @@
         "chaplain-kastiel",
         "marneus-calgar-in-armour-of-antilochus",
         "captain-titus"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000001157_target_elimination",
-          "label": "Intercessor Squad — +2 Ataques",
-          "description": "Each time this unit is selected to shoot, it can use this ability. If it does, until the end of the phase, add 2 to the Attacks characteristic of bolt rifles equipped by models in this unit and you can only select one enemy unit as the target of all of this unit’s attacks.",
-          "effect": {
-            "effects": {
-              "attacksMod": 2
-            }
-          }
-        }
       ]
     },
     {
@@ -36114,7 +36098,13 @@
           "id": "deeds-of-heroism",
           "name": "Deeds of Heroism",
           "description": "Once per battle, when this model is selected to fight, it can use this ability. If it does, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in this model’s unit.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 1
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -36450,19 +36440,7 @@
         "rapid-deployment",
         "lightning-assault"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000001165_bg_ancient",
-          "label": "[OPB] Bladeguard Ancient — +1 ataque (CaC)",
-          "effect": {
-            "effects": {
-              "attacksMod": 1
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "captain-in-gravis-armour",
@@ -41482,7 +41460,14 @@
           "id": "master-of-prescience-psychic",
           "name": "Master of Prescience (Psychic)",
           "description": "This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls. (Once per battle round, per army) When you target this unit with the Counteroffensive/Fire Overwatch/Heroic Intervention Stratagem, that use is -1 CP.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -41718,30 +41703,7 @@
         "shield-of-the-imperium",
         "shadow-masters"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "ldr_000001611_master_of_prescience_psychic",
-          "label": "Chief Librarian Tigurius — -1 impactar (Líder)",
-          "description": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll. In addition, once per battle round, you can target that unit with one of the following Stratagems for OCP: Counter-offensive; Fire Overwatch; Go to Ground; Heroic Intervention",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
-        },
-        {
-          "sourceRuleId": "opb_000001611_tigurius",
-          "label": "[OPB] Chief Librarian Tigurius — -1 impactar (Defensor)",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "gladiator-reaper",
@@ -42989,7 +42951,13 @@
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "an-honourable-death-in-combat",
@@ -43269,19 +43237,6 @@
         "chaplain",
         "death-company-captain",
         "chaplain-kastiel"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000001997_black_rage",
-          "label": "Death Company Marines — repetir impactos CaC",
-          "description": "Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly Blood Angels Character models, or 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {
@@ -44648,19 +44603,7 @@
         "legacy-of-the-angel",
         "vulkans-quest"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000002105_lysander",
-          "label": "[OPB] Darnath Lysander — FNP 2+ (Defender)",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 2
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "land-raider-redeemer-space-marines",
@@ -47208,7 +47151,13 @@
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "visions-of-heresy",
@@ -47491,30 +47440,6 @@
         "chaplain",
         "death-company-captain",
         "chaplain-kastiel"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000002285_black_rage",
-          "label": "Death Company Marines with Bolt Rifles — repetir impactos CaC",
-          "description": "Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly Blood Angels Character models, or 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "melee"
-          }
-        },
-        {
-          "sourceRuleId": "unit_000002285_visions_of_heresy",
-          "label": "Death Company Marines with Bolt Rifles — repetir impactos disparo",
-          "description": "Once per turn, you can target this unit with the Fire Overwatch or the Heroic Intervention Stratagem for 0CP. While resolving that Stratagem, each time a model in this unit makes a ranged attack you can re-roll the Hit roll, or you can re-roll the Charge roll made for this unit (whichever applies).",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "ranged"
-          }
-        }
       ]
     },
     {
@@ -47937,12 +47862,7 @@
           "id": "the-spiritshield-helm",
           "name": "The Spiritshield Helm",
           "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 3
-            }
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -56376,7 +56296,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -57120,7 +57041,13 @@
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "savage-fury",
@@ -57407,19 +57334,6 @@
         "lemartes",
         "chaplain-with-jump-pack",
         "death-company-captain-with-jump-pack"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000002737_black_rage",
-          "label": "Death Company Marines With Jump Packs — repetir impactos CaC",
-          "description": "Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly Blood Angels Character models, or 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {
@@ -58818,7 +58732,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         }
       ],
@@ -65791,39 +65706,7 @@
         "mastered-doctrines",
         "grim-resolve"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "sm_anointed_champion_hit",
-          "label": "Anointed Champion — repetir 1 impactar, CaC (EMPEROR'S CHAMPION, aprox.)",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            },
-            "combatType": "melee"
-          }
-        },
-        {
-          "sourceRuleId": "sm_anointed_champion_wound",
-          "label": "Anointed Champion — repetir 1 herir, CaC (EMPEROR'S CHAMPION, aprox.)",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
-            },
-            "combatType": "melee"
-          }
-        },
-        {
-          "sourceRuleId": "opb_000002795_ec_champion",
-          "label": "[OPB] Emperor's Champion — Devastating Wounds CaC",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "marshal",
@@ -67744,7 +67627,14 @@
           "id": "braziers-of-judgement",
           "name": "Braziers of Judgement",
           "description": "This unit has Stealth. Melee attacks that target this unit have -1 to hit rolls.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         },
         {
           "id": "enmity-for-the-unworthy",
@@ -68029,19 +67919,6 @@
         "lieutenant",
         "judiciar",
         "captain-titus"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000003698_braziers_of_judgement",
-          "label": "Inner Circle Companions — -1 impactar",
-          "description": "While a Character model is leading this unit, each time an attack targets this unit, subtract 1 from the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
-        }
       ]
     },
     {
@@ -68220,7 +68097,14 @@
           "id": "finest-hour",
           "name": "Finest Hour",
           "description": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and those weapons have the [DEVASTATING WOUNDS] ability.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 3,
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee"
+          }
         }
       ],
       "keywords": [
@@ -68550,20 +68434,7 @@
         "howling-onslaught",
         "storm-swift-onslaught"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000003831_ba_captain",
-          "label": "[OPB] Blood Angels Captain — +3 ataques, Devastating Wounds CaC",
-          "effect": {
-            "effects": {
-              "attacksMod": 3,
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "death-company-captain",
@@ -68690,7 +68561,13 @@
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "death-vision-of-sanguinius",
@@ -69039,20 +68916,7 @@
         "shadow-masters",
         "masters-of-manoeuvre"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000003832_black_rage",
-          "label": "Death Company Captain — repetir impactos CaC",
-          "description": "Each time this model makes a melee attack, you can re-roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly Blood Angels Character models, or 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "death-company-captain-with-jump-pack",

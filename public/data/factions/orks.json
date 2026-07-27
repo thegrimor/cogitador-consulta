@@ -606,7 +606,16 @@
       "type": "Freebooter Krew – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Flash Gitz unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-VEHICLE 4+] ability."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Flash Gitz unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-VEHICLE 4+] ability.",
+      "effect": {
+        "effects": {
+          "woundCritThreshold": 4
+        },
+        "combatType": "ranged",
+        "requiresTargetKeyword": "vehicle",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "grab-and-bash",
@@ -956,7 +965,16 @@
       "type": "Speedwaaagh! – Wargear Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ORKS</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit (excluding Torrent weapons) have the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ORKS</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit (excluding Torrent weapons) have the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.",
+      "effect": {
+        "effects": {
+          "woundCritThreshold": 4
+        },
+        "combatType": "ranged",
+        "requiresTargetKeyword": "vehicle",
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "krunchin-descent",
@@ -1149,7 +1167,14 @@
       "type": "Equatorial Hordes Stratagem",
       "turn": "Your turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly hidden MOB unit is selected to attack.<br><br><b>TARGET:</b> That MOB unit.<br><br><b>EFFECT:</b> Your unit's attacks have [LETHAL HITS]."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly hidden MOB unit is selected to attack.<br><br><b>TARGET:</b> That MOB unit.<br><br><b>EFFECT:</b> Your unit's attacks have [LETHAL HITS].",
+      "effect": {
+        "effects": {
+          "lethalHitsBonus": true
+        },
+        "isStratagem": true,
+        "cpCost": 1
+      }
     },
     {
       "id": "stragglerz",
@@ -2313,21 +2338,7 @@
         "get-stuck-in",
         "eager-for-the-fight"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_ork_waaagh_energy",
-          "label": "Weirdboy — +1 F/Daño disparo (Líder, Waaagh! Energy)",
-          "description": "While this model is leading a unit, each time a model in that unit makes a ranged attack that targets a unit within 12\", improve the Strength and Damage characteristics of that attack by 1.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "damageMod": 1
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "big-mek-in-mega-armour",

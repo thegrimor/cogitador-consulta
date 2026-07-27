@@ -29,7 +29,7 @@ function RuleButton({
           <span className="mr-1.5">{active ? '▶' : '○'}</span>
           {rule.label}{cpLabel}
         </div>
-        {rule.isStratagem && rule.description && (
+        {rule.description && (
           <div className="wh-html text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70"
             dangerouslySetInnerHTML={{ __html: rule.description }}
           />

@@ -1981,20 +1981,7 @@
         "command-protocols",
         "technosorcerous-augmentations"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000000530_orikan",
-          "label": "[OPB] Orikan the Diviner — +4 ataques, +4 Fuerza, crítico 4+",
-          "effect": {
-            "effects": {
-              "attacksMod": 4,
-              "strengthMod": 4,
-              "critThreshold": 4
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "trazyn-the-infinite",
@@ -3129,20 +3116,7 @@
         "relentless-onslaught",
         "hyperphasing"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_nec_flesh_hunger",
-          "label": "Flayed Ones — crítico herida 2+ (Flesh Hunger)",
-          "description": "Each time a model in this unit makes a melee attack, an unmodified Wound roll of 2+ scores a Critical Wound.",
-          "effect": {
-            "effects": {
-              "woundCritThreshold": 2
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "triarch-praetorians",
@@ -6856,7 +6830,8 @@
           "effect": {
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -8352,7 +8327,14 @@
           "id": "timesplinter-mantle",
           "name": "Timesplinter Mantle",
           "description": "This unit has Stealth. Melee attacks that target this unit have -1 to Hit rolls.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
         },
         {
           "id": "chronometron",
@@ -8458,20 +8440,7 @@
         "hyperphasing",
         "command-protocols"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "ldr_000002354_timesplinter_mantle",
-          "label": "Chronomancer — -1 impactar (Líder)",
-          "description": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "hexmark-destroyer",
@@ -8550,7 +8519,13 @@
           "id": "inescapable-death",
           "name": "Inescapable Death",
           "description": "Once per turn, one unit from your army with this ability can be targeted with the Fire Overwatch Stratagem for 0CP, even if you have already used that Stratagem on a different unit this phase. In addition, each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 2+.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "overwatchThreshold": 2
+            },
+            "combatType": "ranged"
+          }
         },
         {
           "id": "multi-threat-eliminator",
@@ -8652,20 +8627,7 @@
         "cold-fervour",
         "annihilation-protocol"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_nec_inescapable_death",
-          "label": "Hexmark Destroyer — Overwatch 2+ (Inescapable Death)",
-          "description": "Each time this model fires Overwatch, hit rolls of 2+ are successful (instead of only 6s).",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 2
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "ctan-shard-of-the-void-dragon",
