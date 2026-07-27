@@ -1388,20 +1388,7 @@
         "methodical-annihilation",
         "martial-leverage"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_lov_rampart_crest",
-          "label": "Ûthar the Destined — FNP 5+ (Líder, Rampart Crest)",
-          "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "kahl",
@@ -1830,20 +1817,7 @@
         "assailed-from-every-angle",
         "martial-leverage"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_lov_weavefield_crest",
-          "label": "Einhyr Champion — FNP 4+ (Líder, Weavefield Crest)",
-          "description": "While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 4
-            },
-            "target": "defender"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "grimnyr",
@@ -3470,20 +3444,7 @@
         "assailed-from-every-angle",
         "martial-leverage"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_lov_rollbar_searchlight",
-          "label": "Hernkyn Pioneers — +1 impactar disparo (Rollbar Searchlight)",
-          "description": "Each time a model in this unit makes a ranged attack that targets a unit within 18\", you can re-roll the Hit roll.",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "sagitaur",

@@ -5961,7 +5961,13 @@
           "id": "dark-ritual",
           "name": "Dark Ritual",
           "description": "Once per battle, in your Command phase, if this unit contains a <span class=\"kwb\">CULT</span> <span class=\"kwb\">DEMAGOGUE</span> model, it can use this ability. If it does, until the end of the turn, this unit can declare a charge in a turn in which it Advanced and each time a model in this unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1,
+              "woundMod": 1
+            }
+          }
         },
         {
           "id": "chaos-icon",
@@ -6032,19 +6038,7 @@
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000003845_dark_commune_qt",
-          "label": "[OPB] Dark Commune (QT) — +1 impactar, +1 herir",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "woundMod": 1
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "traitor-enforcer-chaos-knights",

@@ -8301,7 +8301,18 @@
           "id": "adaptive-instincts-once-per-turn-per-unit",
           "name": "Adaptive Instincts (Once per turn, per unit)",
           "description": "In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:<br><ul><li>This unit’s melee attacks have +1 S.</li><li>Or: This unit has +1 T.</li></ul>",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "options": [
+            {
+              "name": "Aggression Imperative — +1 Fuerza (CaC)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -8372,19 +8383,6 @@
       "canBeLedBy": [
         "winged-tyranid-prime-tyranids",
         "tyranid-prime-with-lash-whip"
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000002691_adaptive_instincts",
-          "label": "Tyranid Warriors With Melee Bio-weapons — repetir imp.1 CaC",
-          "description": "At the start of the Fight phase, select one of the following:Aggression Imperative: Until the end of the phase, each time a model in this unit makes an attack, re-roll a Hit roll of 1.Bioregeneration: Until the end of the phase, each time a saving throw is made for a model in this unit, re-roll a sa",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            },
-            "combatType": "melee"
-          }
-        }
       ]
     },
     {

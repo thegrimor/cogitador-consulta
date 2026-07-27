@@ -2519,7 +2519,13 @@
           "id": "bloody-fury",
           "name": "Bloody Fury",
           "description": "<ul><li>This unit's ranged attacks that target the closest eligible target can re-roll Hit rolls.</li><li>When this unit declares a charge, you can use this part of this ability. If you do:<ul><li>This unit can re-roll that Charge roll.</li><li>This unit must end that charge move engaged with the closest charge target.</li></ul></li></ul>",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
@@ -2609,20 +2615,7 @@
         "rush-to-the-fray",
         "wrath-of-khorne"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "unit_000002629_bloody_fury",
-          "label": "Chaos Terminators — repetir impactos disparo",
-          "description": "Each time a model in this unit makes a ranged attack that targets the closest enemy unit, you can re-roll the Hit roll. Each time this unit declares a charge that targets the closest eligible enemy unit, you can re-roll the Charge roll.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "eightbound",
@@ -5361,7 +5354,14 @@
           "id": "possessed-lord",
           "name": "Possessed Lord",
           "description": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and those weapons have the [DEVASTATING WOUNDS] ability.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "attacksMod": 3,
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "lord-of-the-eightbound",
@@ -5444,20 +5444,7 @@
         "relentless-rage",
         "blood-tithe"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000004103_slaughterbound",
-          "label": "[OPB] Slaughterbound — +3 ataques, Devastating Wounds CaC",
-          "effect": {
-            "effects": {
-              "attacksMod": 3,
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "skarbrand-world-eaters",

@@ -4225,21 +4225,7 @@
         "knights-of-legend",
         "dauntless-defenders"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "gap_qi_magaeras_duty",
-          "label": "Questoris Knight Magaera — +1 F/PA disparo (Magaera’s Duty)",
-          "description": "Each time this model makes a ranged attack that targets a unit that has the Benefit of Cover, improve the Strength and Armour Penetration characteristics of that attack by 1.",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "apMod": 1
-            },
-            "combatType": "ranged"
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "questoris-knight-styrix",

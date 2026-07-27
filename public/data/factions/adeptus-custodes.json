@@ -1912,18 +1912,7 @@
         "revered-companions",
         "assemblage-of-might"
       ],
-      "canBeLedBy": [],
-      "combatEffects": [
-        {
-          "sourceRuleId": "opb_000001446_trajann",
-          "label": "[OPB] Trajann Valoris — +12 ataques",
-          "effect": {
-            "effects": {
-              "attacksMod": 12
-            }
-          }
-        }
-      ]
+      "canBeLedBy": []
     },
     {
       "id": "shield-captain",
