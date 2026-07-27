@@ -109,7 +109,8 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
 
   if (panel.selectedCharacter) {
     const leaderDatasheetId = panel.selectedCharacter.id
-    for (const ab of panel.selectedCharacter.abilities) rules.push(...abilityRules(ab, { leaderDatasheetId }))
+    const sourceUnitName = panel.selectedCharacter.name
+    for (const ab of panel.selectedCharacter.abilities) rules.push(...abilityRules(ab, { leaderDatasheetId, sourceUnitName }))
   }
 
   // Auras from nearby support units that aren't attached as a leader (e.g. a Dreadnought's
@@ -122,7 +123,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   for (const ds of auraSourceDatasheets) {
     for (const ab of ds.abilities) {
       if (ab.effect?.appliesToNearby) {
-        rules.push(effectToRule(`${ds.id}::${ab.id}`, ab.name, ab.description, ab.effect, { sourceDatasheetId: ds.id }))
+        rules.push(effectToRule(`${ds.id}::${ab.id}`, ab.name, ab.description, ab.effect, { sourceDatasheetId: ds.id, sourceUnitName: ds.name }))
       }
     }
   }
