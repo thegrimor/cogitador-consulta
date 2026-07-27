@@ -14,6 +14,11 @@ function RuleButton({
   onToggle: (id: string) => void
 }) {
   const cpLabel = rule.cpCost ? ` [${rule.cpCost}PC]` : ''
+  const sourceLabel = rule.leaderDatasheetId && rule.sourceUnitName
+    ? `Líder: ${rule.sourceUnitName}`
+    : rule.sourceDatasheetId && rule.sourceUnitName
+      ? `Aura: ${rule.sourceUnitName}`
+      : null
 
   return (
     <div className="flex flex-col gap-1.5">
@@ -28,6 +33,11 @@ function RuleButton({
         <div className="text-xs font-mono leading-snug">
           <span className="mr-1.5">{active ? '▶' : '○'}</span>
           {rule.label}{cpLabel}
+          {sourceLabel && (
+            <span className="ml-1.5 text-[9px] uppercase tracking-wide text-parchment-dim opacity-80">
+              ({sourceLabel})
+            </span>
+          )}
         </div>
         {rule.description && (
           <div className="wh-html text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70"

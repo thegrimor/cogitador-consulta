@@ -16,6 +16,7 @@ export interface ModifierRule {
   leaderDatasheetId?: string  // ability de un líder adjunto a la unidad
   followerDatasheetIds?: string[] // restricción: solo aparece para estas unidades (si ausente = toda la facción)
   sourceDatasheetId?: string  // aura de una unidad de soporte (no adjunta)
+  sourceUnitName?: string     // nombre de esa unidad líder/de soporte, para mostrarlo en el panel
   /** true = el efecto solo aplica a las armas propias del portador, no al resto de la unidad
    * a la que esté adjunto (p.ej. "this model's melee attacks have +1 A"). */
   bearerOnly?: boolean
