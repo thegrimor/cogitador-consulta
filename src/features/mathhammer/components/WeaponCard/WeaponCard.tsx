@@ -7,6 +7,10 @@ interface Props {
   onSelect: (w: Weapon) => void
   heavyModActive?: boolean
   onHeavyToggle?: () => void
+  /** Bearer's name, shown as a small tag next to the weapon name — disambiguates cards when
+   * the attached character shares a weapon name with the unit it's leading (e.g. both have
+   * their own "Interceptor lance"), since otherwise the two cards are visually identical. */
+  ownerLabel?: string
 }
 
 function Badge({ label }: { label: string }) {
@@ -17,7 +21,7 @@ function Badge({ label }: { label: string }) {
   )
 }
 
-export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHeavyToggle }: Props) {
+export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHeavyToggle, ownerLabel }: Props) {
   const avgD = parseDiceAverage(weapon.D)
   const avgA = parseDiceAverage(weapon.A)
   const dFixed = parseFloat(weapon.D)
@@ -40,8 +44,15 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
       }`}
     >
       <div className="flex items-baseline justify-between gap-2">
-        <span className={`text-sm font-mono font-bold truncate ${isSelected ? 'text-gold' : 'text-parchment'}`}>
-          {weapon.name}
+        <span className="flex items-baseline gap-1.5 min-w-0">
+          <span className={`text-sm font-mono font-bold truncate ${isSelected ? 'text-gold' : 'text-parchment'}`}>
+            {weapon.name}
+          </span>
+          {ownerLabel && (
+            <span className="text-[8px] uppercase font-mono px-1 py-0.5 bg-crimson/20 border border-crimson/40 text-crimson-bright leading-none shrink-0">
+              {ownerLabel}
+            </span>
+          )}
         </span>
         <span className="text-xs text-parchment-dim font-mono shrink-0">{weapon.range}</span>
       </div>
