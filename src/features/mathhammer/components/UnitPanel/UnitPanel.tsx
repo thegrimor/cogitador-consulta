@@ -10,8 +10,15 @@ import { parseBcpList } from '../../utils/parseBcpList'
 import type { GameData, Weapon, ModelProfile, CombatType, Datasheet } from '@/types'
 import type { PanelState } from '../../hooks/usePanelState'
 
-function wKey(w: Weapon): string {
-  return `${w.line}:${w.name}`
+/** Weapon identity key. `line`+`name` alone isn't unique across datasheets — a unit and its
+ * attached character can each have a weapon with the same name at the same table row (e.g.
+ * Vertus Praetors / Shield-captain On Dawneagle Jetbike both have an "Interceptor lance" at
+ * line 3), so the owning datasheet ('unit' vs 'char') must be part of the key or their
+ * selection state, quantities and Melta/Rapid Fire toggles collide with each other. */
+type WeaponOwner = 'unit' | 'char'
+
+function wKey(w: Weapon, owner: WeaponOwner): string {
+  return `${owner}:${w.line}:${w.name}`
 }
 
 interface Props {
@@ -87,18 +94,20 @@ export function UnitPanel({
     onModelChange?.(selectedUnit?.models[i] ?? null)
   }
 
-  function handleWeaponSelect(w: Weapon) {
+  function handleWeaponSelect(w: Weapon, owner: WeaponOwner) {
     if (!isAttacker || !onWeaponsChange) return
-    const exists = selectedWeapons.some(x => x.name === w.name && x.line === w.line)
+    // Reference equality, not name/line — two different datasheets can have a same-named
+    // weapon object at the same table row (see WeaponOwner comment above).
+    const exists = selectedWeapons.includes(w)
     if (exists) {
-      onWeaponsChange(selectedWeapons.filter(x => !(x.name === w.name && x.line === w.line)))
+      onWeaponsChange(selectedWeapons.filter(x => x !== w))
     } else {
       const isMelee = w.range === 'Melee'
       const sameType = selectedWeapons.filter(x => (x.range === 'Melee') === isMelee)
       onWeaponsChange([...sameType, w])
       // Persist the computed default so DamageCalculator sees it immediately
-      if (onQuantityChange && !(wKey(w) in weaponQuantities)) {
-        onQuantityChange(wKey(w), defaultQtyFor(w))
+      if (onQuantityChange && !(wKey(w, owner) in weaponQuantities)) {
+        onQuantityChange(wKey(w, owner), defaultQtyFor(w))
       }
     }
   }
@@ -130,15 +139,15 @@ export function UnitPanel({
     return perModel !== undefined ? perModel * (unitMin ?? 1) : 1
   }
 
-  function getQty(w: Weapon): number {
-    return weaponQuantities[wKey(w)] ?? defaultQtyFor(w)
+  function getQty(w: Weapon, owner: WeaponOwner): number {
+    return weaponQuantities[wKey(w, owner)] ?? defaultQtyFor(w)
   }
 
-  function adjustQty(w: Weapon, delta: number, maxQty: number) {
+  function adjustQty(w: Weapon, owner: WeaponOwner, delta: number, maxQty: number) {
     if (!onQuantityChange) return
-    const current = getQty(w)
+    const current = getQty(w, owner)
     const next = Math.max(1, Math.min(maxQty, current + delta))
-    onQuantityChange(wKey(w), next)
+    onQuantityChange(wKey(w, owner), next)
   }
 
   const attackerKeywords = useMemo(
@@ -178,6 +187,12 @@ export function UnitPanel({
     () => selectedWeapons.filter(w => w.isMelta || w.rapidFireValue !== ''),
     [selectedWeapons],
   )
+
+  /** Which datasheet a selected weapon (from the flat `selectedWeapons` list) came from —
+   * needed to reconstruct its wKey outside the unit/character render loops that know it directly. */
+  function ownerOf(w: Weapon): WeaponOwner {
+    return characterDatasheet?.weapons.includes(w) ? 'char' : 'unit'
+  }
 
   const roleLabel = selectedUnit?.role ? ` · ${selectedUnit.role}` : ''
 
@@ -264,15 +279,15 @@ export function UnitPanel({
                 </p>
               ) : (
                 selectedUnit.weapons.map((w, i) => {
-                  const isSelected = selectedWeapons.some(x => x.name === w.name && x.line === w.line)
+                  const isSelected = selectedWeapons.includes(w)
                   const maxQty = unitMax ?? 99
-                  const qty = getQty(w)
+                  const qty = getQty(w, 'unit')
                   return (
                     <div key={`${w.name}-${i}`}>
                       <WeaponCard
                         weapon={w}
                         isSelected={isSelected}
-                        onSelect={handleWeaponSelect}
+                        onSelect={w => handleWeaponSelect(w, 'unit')}
                         heavyModActive={w.isHeavy ? heavyModActive : undefined}
                         onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
                       />
@@ -281,12 +296,12 @@ export function UnitPanel({
                           <span className="text-[9px] font-display uppercase tracking-wide text-gold">Atacantes</span>
                           <div className="flex items-center gap-1.5">
                             <button
-                              onClick={() => adjustQty(w, -1, maxQty)}
+                              onClick={() => adjustQty(w, 'unit', -1, maxQty)}
                               className="w-5 h-5 border border-rim-bright text-parchment hover:border-gold hover:text-gold font-mono text-xs flex items-center justify-center transition-colors"
                             >−</button>
                             <span className="text-xs font-mono font-bold text-parchment w-6 text-center">×{qty}</span>
                             <button
-                              onClick={() => adjustQty(w, +1, maxQty)}
+                              onClick={() => adjustQty(w, 'unit', +1, maxQty)}
                               className="w-5 h-5 border border-rim-bright text-parchment hover:border-gold hover:text-gold font-mono text-xs flex items-center justify-center transition-colors"
                             >+</button>
                           </div>
@@ -307,14 +322,14 @@ export function UnitPanel({
                     </span>
                   </div>
                   {characterDatasheet.weapons.map((w, i) => {
-                    const isSelected = selectedWeapons.some(x => x.name === w.name && x.line === w.line)
-                    const qty = getQty(w)
+                    const isSelected = selectedWeapons.includes(w)
+                    const qty = getQty(w, 'char')
                     return (
                       <div key={`char-${w.name}-${i}`}>
                         <WeaponCard
                           weapon={w}
                           isSelected={isSelected}
-                          onSelect={handleWeaponSelect}
+                          onSelect={w => handleWeaponSelect(w, 'char')}
                           heavyModActive={w.isHeavy ? heavyModActive : undefined}
                           onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
                         />
@@ -323,12 +338,12 @@ export function UnitPanel({
                             <span className="text-[9px] font-display uppercase tracking-wide text-crimson">Atacantes</span>
                             <div className="flex items-center gap-1.5">
                               <button
-                                onClick={() => adjustQty(w, -1, 99)}
+                                onClick={() => adjustQty(w, 'char', -1, 99)}
                                 className="w-5 h-5 border border-rim-bright text-parchment hover:border-crimson hover:text-crimson font-mono text-xs flex items-center justify-center transition-colors"
                               >−</button>
                               <span className="text-xs font-mono font-bold text-parchment w-6 text-center">×{qty}</span>
                               <button
-                                onClick={() => adjustQty(w, +1, 99)}
+                                onClick={() => adjustQty(w, 'char', +1, 99)}
                                 className="w-5 h-5 border border-rim-bright text-parchment hover:border-crimson hover:text-crimson font-mono text-xs flex items-center justify-center transition-colors"
                               >+</button>
                             </div>
@@ -366,7 +381,7 @@ export function UnitPanel({
               </div>
               <div className="px-3 py-2 flex flex-col gap-1.5">
                 {halfRangeWeapons.flatMap(w => {
-                  const key = wKey(w)
+                  const key = wKey(w, ownerOf(w))
                   const rows = []
                   if (w.rapidFireValue !== '') {
                     const active = rapidFireActiveKeys.includes(key)

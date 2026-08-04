@@ -140,7 +140,9 @@ export function MathhammerPage() {
       const defaultCounts = new Map(unit.defaultWeaponNames.map(d => [d.name, d.count]))
       const unitMin = unit.modelCountMin
       for (const w of weapons) {
-        const key = `${w.line}:${w.name}`
+        // Matches UnitPanel/DamageCalculator's wKey scheme — these are always unit weapons
+        // (restoredWeapons is filtered from unit.weapons below), never the attached character's.
+        const key = `unit:${w.line}:${w.name}`
         if (!(key in result)) {
           const perModel = defaultCounts.get(w.name.toLowerCase())
           result[key] = perModel !== undefined ? perModel * unitMin : 1
