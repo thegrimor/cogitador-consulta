@@ -20,6 +20,10 @@ export interface ModifierRule {
   /** true = el efecto solo aplica a las armas propias del portador, no al resto de la unidad
    * a la que esté adjunto (p.ej. "this model's melee attacks have +1 A"). */
   bearerOnly?: boolean
+  /** True when this rule is one of several mutually-exclusive options on the same ability
+   * (e.g. the Ka'tah stances under Martial Ka'tah) — they all share the parent's
+   * `description` text, so the panel needs another way to show what each one actually does. */
+  isOption?: boolean
   combatType?: CombatType
   target?: 'attacker' | 'defender'
   isStratagem?: boolean
