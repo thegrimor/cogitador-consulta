@@ -476,6 +476,7 @@ export function DamageCalculator({
               ? ` (PA ef.${calc.effectiveAP})`
               : ''}
             {displayMods.woundMod !== 0 && ` [${displayMods.woundMod > 0 ? '+' : ''}${displayMods.woundMod} herir]`}
+            {weapons[0].isTwinLinked && ' [Twin-Linked]'}
             {weapons[0].isTorrent && ' [Torrent]'}
             {(weapons[0].isDevastatingWounds || displayMods.devastatingWoundsBonus) && ' [Devastating Wounds]'}
             {(weapons[0].isLethalHits || displayMods.lethalHitsBonus) && ' [Lethal Hits]'}
