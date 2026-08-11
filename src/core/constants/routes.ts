@@ -19,6 +19,7 @@ export const ROUTES = {
   ROSTER_NEW: '/roster/new',
   ROSTER_EDIT: '/roster/:rosterId',
   MATHHAMMER: '/mathhammer',
+  LOGIN: '/login',
 } as const
 
 export function factionPath(id: string) {
