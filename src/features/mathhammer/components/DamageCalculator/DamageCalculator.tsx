@@ -166,7 +166,7 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
             <Row label="↳ Extra (Sustained)" value={`+${fmt(calc.sustainedExtraHits * qty)}`} highlight />
           )}
           {calc.rerollExtraHits > 0 && (
-            <Row label="↳ Extra (repetición impacto)" value={`+${fmt(calc.rerollExtraHits * qty)}`} highlight />
+            <Row label="↳ RR impacto" value={`+${fmt(calc.rerollExtraHits * qty)}`} highlight />
           )}
           {calc.autoWoundsFromCrits > 0 && (
             <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits * qty)}`} highlight />
@@ -175,7 +175,7 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
             <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds * qty)}`} highlight />
           )}
           {calc.rerollExtraWounds > 0 && (
-            <Row label="↳ Extra (repetición herida)" value={`+${fmt(calc.rerollExtraWounds * qty)}`} highlight />
+            <Row label="↳ RR herida" value={`+${fmt(calc.rerollExtraWounds * qty)}`} highlight />
           )}
           <Row
             label="Heridas"
@@ -185,7 +185,7 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
               : `${fmt(calc.expectedHits * qty)} × ${pct(calc.woundProbability)}`}
           />
           {calc.devastatingWoundsSaved > 0 && (
-            <Row label="↳ Devastating Wounds (sin salv.)" value={`${fmt(calc.devastatingWoundsSaved * qty)}`} highlight />
+            <Row label="↳ Dev. Wounds" value={fmt(calc.devastatingWoundsSaved * qty)} detail="sin salv." highlight />
           )}
           <Row
             label="Salv. fallidas"
@@ -194,7 +194,7 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapon.D} />
           {calc.rerollExtraDamage > 0 && (
-            <Row label="↳ Extra (repetición daño)" value={`+${fmt(calc.rerollExtraDamage * qty)}`} highlight />
+            <Row label="↳ RR daño" value={`+${fmt(calc.rerollExtraDamage * qty)}`} highlight />
           )}
           {calc.fnpProbability > 0 && (
             <Row
