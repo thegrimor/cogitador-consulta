@@ -17,16 +17,33 @@ const DIST_DIR = path.join(__dirname, '..', '..', 'dist')
 // Vite dev proxy) don't go through CORS at all. Unset in production means "allow any
 // origin", which is safe here only because auth is Bearer-token (no cookies/credentials
 // involved); set it once you know the frontend's real origin.
+//
+// An entry starting with "*." matches any subdomain of what follows — e.g. "*.netlify.app"
+// covers both the production URL and every branch/PR deploy-preview subdomain Netlify hands
+// out, which each get their own unique origin.
 const allowedOrigins = process.env.CORS_ORIGIN?.split(',').map(o => o.trim()).filter(Boolean)
 if (!allowedOrigins?.length) {
   console.warn(
     'CORS_ORIGIN no está definida — se acepta cualquier origen. Defínela (p. ej. ' +
-      'https://tu-frontend.vercel.app) en cuanto despliegues el frontend en otro dominio.',
+      'https://tu-frontend.netlify.app o *.netlify.app) en cuanto despliegues el frontend en otro dominio.',
   )
 }
 
+function originAllowed(origin) {
+  return allowedOrigins.some(allowed => {
+    if (allowed.startsWith('*.')) return origin.endsWith(allowed.slice(1))
+    return origin === allowed
+  })
+}
+
 const app = express()
-app.use(cors({ origin: allowedOrigins?.length ? allowedOrigins : true }))
+app.use(
+  cors({
+    origin: !allowedOrigins?.length
+      ? true
+      : (origin, callback) => callback(null, !origin || originAllowed(origin)),
+  }),
+)
 app.use(express.json({ limit: '2mb' }))
 
 app.use('/api/auth', authRouter)

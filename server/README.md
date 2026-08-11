@@ -23,29 +23,39 @@ Ver `.env.example`. Resumen:
 - `DATABASE_URL` — cadena de conexión Postgres. **Obligatoria.**
 - `JWT_SECRET` — clave para firmar los tokens de sesión. Cámbiala en producción.
 - `CORS_ORIGIN` — orígenes permitidos, separados por comas (p. ej.
-  `https://cogitador-consulta.vercel.app`). Solo hace falta si el frontend se sirve desde un
-  dominio distinto al de este backend. Sin definir, se acepta cualquier origen (seguro aquí
-  porque la auth es por Bearer token, no por cookies — pero conviene fijarlo en cuanto sepas
-  la URL real del frontend).
+  `https://cogitador-consulta.netlify.app`). Una entrada `*.netlify.app` acepta cualquier
+  subdominio — útil para los deploy previews por rama/PR de Netlify, que cada uno tiene su
+  propio subdominio. Solo hace falta si el frontend se sirve desde un dominio distinto al de
+  este backend. Sin definir, se acepta cualquier origen (seguro aquí porque la auth es por
+  Bearer token, no por cookies — pero conviene fijarlo en cuanto sepas la URL real del
+  frontend).
 - `PORT` — puerto HTTP (por defecto `8787`; Railway la inyecta sola).
 
-## Despliegue en Railway
+## Despliegue: backend en Railway, frontend en Netlify
 
-1. **Base de datos**: añade un plugin Postgres al proyecto.
-2. **Backend**: crea un servicio a partir de este repo (root del monorepo, Railway detecta
-   `server/` o configúralo como *root directory* si prefieres desplegar solo esa carpeta).
-   En la pestaña *Variables* del servicio:
+1. **Base de datos** (Railway): añade un plugin Postgres al proyecto.
+2. **Backend** (Railway): crea un servicio a partir de este repo, con *root directory* =
+   `server` (así Railway solo instala/arranca ese `package.json`, sin tocar el frontend). En
+   la pestaña *Variables* del servicio:
    - `DATABASE_URL` → referencia la del plugin Postgres (`${{Postgres.DATABASE_URL}}` si
      Railway te ofrece la referencia automática, o pega el valor).
    - `JWT_SECRET` → un valor propio, largo y aleatorio.
-   - `CORS_ORIGIN` → la URL pública de donde sirvas el frontend, una vez la tengas.
-   - Comando de arranque: `npm start` (usa `server/package.json`; si despliegas el repo
-     completo, ajusta el *root directory*/`Start Command` a `server`).
-3. **Frontend**: si lo despliegas aparte (Vercel, Netlify, otro servicio Railway), configura
-   ahí la variable `VITE_API_BASE_URL` con la URL pública de este backend (ver `.env.example`
-   en la raíz del repo) — así el cliente deja de asumir que la API está en el mismo origen.
-   Si en cambio quieres un único servicio, deja que este backend sirva también el `dist/`
-   construido (ver más abajo) y no hace falta `VITE_API_BASE_URL` ni `CORS_ORIGIN`.
+   - `CORS_ORIGIN` → la URL de tu sitio Netlify, p. ej. `https://tu-sitio.netlify.app`
+     (añade `,*.netlify.app` si quieres que los deploy previews también puedan llamar a la
+     API).
+   - Comando de arranque: `npm start`.
+   - Copia la URL pública que Railway te da para este servicio (Settings → Networking →
+     Generate Domain si no tiene una todavía) — la necesitas en el paso siguiente.
+3. **Frontend** (Netlify): build command `npm run build`, publish directory `dist` (ya
+   configurado en `netlify.toml`, en la raíz del repo — *base directory* debe quedar vacío/`.`
+   para que Netlify vea el `package.json` de la raíz, no el de `server/`). En Site
+   configuration → Environment variables, añade:
+   - `VITE_API_BASE_URL` → la URL pública del backend en Railway del paso 2 (sin `/` final,
+     sin `/api`).
+
+   `VITE_API_BASE_URL` se incrusta en el bundle en tiempo de build — si la cambias, hace
+   falta un redeploy en Netlify, no solo un restart. `public/_redirects` ya trae el fallback
+   de SPA (`/* /index.html 200`) que React Router necesita para las rutas internas.
 
 ## API
 
