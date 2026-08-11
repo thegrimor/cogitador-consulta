@@ -1,4 +1,5 @@
 import type { ModifierRule } from '../../types'
+import { describeEffects } from '../../utils/describeEffects'
 
 interface Props {
   rules: ModifierRule[]
@@ -19,6 +20,10 @@ function RuleButton({
     : rule.sourceDatasheetId && rule.sourceUnitName
       ? `Aura: ${rule.sourceUnitName}`
       : null
+  // Mutually-exclusive options of the same ability (e.g. the Ka'tah stances) all share the
+  // parent's `description` text — spell out this specific option's own effect so the cards
+  // aren't indistinguishable from each other.
+  const optionEffect = rule.isOption ? describeEffects(rule.effects, rule.combatType) : ''
 
   return (
     <div className="flex flex-col gap-1.5">
@@ -39,6 +44,11 @@ function RuleButton({
             </span>
           )}
         </div>
+        {optionEffect && (
+          <div className="text-[10px] font-mono leading-snug mt-0.5 pl-4 text-gold-bright">
+            {optionEffect}
+          </div>
+        )}
         {rule.description && (
           <div className="wh-html text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70"
             dangerouslySetInnerHTML={{ __html: rule.description }}

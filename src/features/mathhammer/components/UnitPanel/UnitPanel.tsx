@@ -332,6 +332,7 @@ export function UnitPanel({
                           onSelect={w => handleWeaponSelect(w, 'char')}
                           heavyModActive={w.isHeavy ? heavyModActive : undefined}
                           onHeavyToggle={w.isHeavy ? handleHeavyToggle : undefined}
+                          ownerLabel={characterDatasheet.name}
                         />
                         {isSelected && onQuantityChange && (
                           <div className="flex items-center justify-between px-3 py-1.5 bg-surface-3 border-b border-rim-bright">

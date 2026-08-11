@@ -54,7 +54,7 @@ function abilityRules(ability: EffectBearer, extra: Partial<ModifierRule>): Modi
   if (ability.effect) rules.push(effectToRule(ability.id, ability.name, ability.description, ability.effect, extra))
   ability.options?.forEach((opt, i) => {
     if (opt.effect) {
-      rules.push(effectToRule(`${ability.id}::${i}`, `${ability.name} — ${opt.name}`, ability.description, opt.effect, extra))
+      rules.push(effectToRule(`${ability.id}::${i}`, `${ability.name} — ${opt.name}`, ability.description, opt.effect, { ...extra, isOption: true }))
     }
   })
   return rules
