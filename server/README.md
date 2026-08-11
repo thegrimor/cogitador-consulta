@@ -61,6 +61,10 @@ Ver `.env.example`. Resumen:
 
 Todas las rutas de listas requieren cabecera `Authorization: Bearer <token>`.
 
+- `GET /api/health` → `{ status: 'ok' }` (200) o 500 si no puede alcanzar Postgres — hace un
+  `SELECT 1` real, no solo comprueba que el proceso está vivo. En Railway, configúralo como
+  *Healthcheck Path* del servicio (Settings → Deploy) para que un deploy con la BD caída no
+  se marque como sano.
 - `POST /api/auth/register` `{ username, password }` → `{ token, user }`
 - `POST /api/auth/login` `{ username, password }` → `{ token, user }`
 - `GET /api/auth/me` → `{ user }`

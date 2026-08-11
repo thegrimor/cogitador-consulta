@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url'
 import { authRouter } from './routes/auth.js'
 import { rostersRouter } from './routes/rosters.js'
 import { requireAuth } from './middleware/requireAuth.js'
-import { ready as dbReady } from './db.js'
+import { ready as dbReady, ping as dbPing } from './db.js'
+import { asyncHandler } from './asyncHandler.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PORT = process.env.PORT || 8787
@@ -45,6 +46,17 @@ app.use(
   }),
 )
 app.use(express.json({ limit: '2mb' }))
+
+// Round-trips to Postgres (not just "the process is up") — point Railway's Healthcheck
+// Path at this (Settings → Deploy on the service) so a bad deploy or a dead DB connection
+// actually fails the check instead of looking healthy.
+app.get(
+  '/api/health',
+  asyncHandler(async (_req, res) => {
+    await dbPing()
+    res.json({ status: 'ok' })
+  }),
+)
 
 app.use('/api/auth', authRouter)
 app.use('/api/rosters', requireAuth, rostersRouter)

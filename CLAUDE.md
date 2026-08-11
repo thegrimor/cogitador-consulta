@@ -67,8 +67,14 @@ as one.
 
 Route handlers are async (`server/src/asyncHandler.js` wraps them so a rejected promise reaches
 the error middleware instead of hanging the request) since every `store.*` call now goes over
-the network to Postgres.
+the network to Postgres. `db.js` also attaches a `pool.on('error', ...)` handler — without it,
+an idle Postgres connection going bad (a DB restart, a network blip, Railway recycling the
+connection) is an *unhandled* `'error'` event that crashes the whole Node process, not just
+the one in-flight query. Confirmed by forcibly killing the DB connection under a running
+server: process died without the handler, survived and kept serving `/api/health` with it.
 
+- `GET /api/health` → `{ status: 'ok' }`, backed by a real `SELECT 1` against Postgres (not
+  just "the process is up") — set as the Railway service's Healthcheck Path.
 - `POST /api/auth/register`, `POST /api/auth/login` → `{ token, user }`
 - `GET /api/auth/me` (bearer token) → `{ user }`
 - `GET /api/rosters` / `PUT /api/rosters/:id` / `DELETE /api/rosters/:id` (bearer token, all

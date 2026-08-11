@@ -18,6 +18,15 @@ const pool = new Pool({
   ssl: isLocal ? false : { rejectUnauthorized: false },
 })
 
+// pg's Pool emits 'error' on an *idle* client going bad (the DB restarting, a network
+// blip, Railway recycling the connection, ...) — with no listener, Node treats that as an
+// unhandled 'error' event and crashes the whole process. A query actively in flight when
+// this happens still rejects normally and is handled by asyncHandler; this only stops a
+// background idle-connection hiccup from taking the entire backend down with it.
+pool.on('error', err => {
+  console.error('Error inesperado en una conexión inactiva de Postgres:', err)
+})
+
 function mapUser(row) {
   return {
     id: row.id,
@@ -61,6 +70,12 @@ async function migrate() {
 // Awaited once from index.js before the server starts accepting requests, so the very
 // first request can never race table creation.
 export const ready = migrate()
+
+// Used by the /api/health route — a real round-trip to Postgres, not just "the process is
+// running," since that's the failure mode a health check actually needs to catch.
+export async function ping() {
+  await pool.query('SELECT 1')
+}
 
 export const store = {
   async findUserByUsername(username) {
