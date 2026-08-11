@@ -20,9 +20,12 @@ npm run server           # backend (Express) with reload, http://localhost:8787
 
 The frontend needs the backend running to do anything with the `Ejército` area (login, and
 every roster read/write) — `npm run dev` alone serves the static app fine but `/api/*` calls
-404 without `npm run server` also running. Vite's dev server proxies `/api` to
-`http://localhost:8787` (see `vite.config.ts`); in production the backend itself serves the
-built `dist/` (see `server/README.md`).
+404 without `npm run server` also running, and the backend itself needs `server/.env` (copy
+from `server/.env.example`) with a `DATABASE_URL` pointing at a Postgres instance — it won't
+boot without one. Vite's dev server proxies `/api` to `http://localhost:8787` (see
+`vite.config.ts`); in production the backend can serve the built `dist/` itself, or the
+frontend can be deployed separately and point at the backend via `VITE_API_BASE_URL` (see
+`server/README.md`).
 
 One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
@@ -52,11 +55,19 @@ All domain types are in `src/types/index.ts` (`Datasheet`, `Ability`, `CombatEff
 ### Backend (`server/`)
 
 Standalone Node/Express app (its own `package.json`, run via `npm run server` from the root —
-see Commands above). No database server and no native deps: `server/src/db.js` is a hand-rolled
-JSON-file store (`server/data/db.json`, gitignored, created on first write), matching the
-frontend's own "plain JSON is the source of truth" data layer. Auth is dependency-free too —
+see Commands above). Persistence is Postgres via `pg` directly (no ORM): `server/src/db.js`
+holds a `users` table and a `rosters` table (id/user_id/timestamps as real columns, the full
+`RosterList` blob in a `jsonb` column), with the schema created on boot
+(`CREATE TABLE IF NOT EXISTS` — no separate migration step to run). `DATABASE_URL` is
+required; the process refuses to start without it. Auth is still dependency-free —
 `server/src/auth.js` does scrypt password hashing and HMAC-signed (JWT-shaped, not JWT-library)
-tokens using only Node's built-in `crypto`.
+tokens using only Node's built-in `crypto`. `id` columns are `TEXT`, not `UUID` — `RosterList.id`
+is just `string` on the TS side, and a strict UUID column 500s on anything that doesn't parse
+as one.
+
+Route handlers are async (`server/src/asyncHandler.js` wraps them so a rejected promise reaches
+the error middleware instead of hanging the request) since every `store.*` call now goes over
+the network to Postgres.
 
 - `POST /api/auth/register`, `POST /api/auth/login` → `{ token, user }`
 - `GET /api/auth/me` (bearer token) → `{ user }`
@@ -64,8 +75,19 @@ tokens using only Node's built-in `crypto`.
   scoped to the authenticated user; `PUT` upserts a full `RosterList` by id) —
   `server/src/routes/rosters.js`
 
-`server/src/index.js` also serves the built `dist/` and SPA-falls-back to `index.html` for any
-non-`/api` route when `dist/` exists, so the backend is the single deployable unit in production.
+CORS (`CORS_ORIGIN` env var, comma-separated origins) matters only when the frontend is
+deployed on a different origin than this backend — same-origin requests (Vite's dev proxy, or
+this same process serving `dist/`, see below) never go through it. Auth is Bearer-token only
+(no cookies), so an unset `CORS_ORIGIN` just means "allow any origin," not a credential leak —
+still worth setting once the frontend's real URL is known.
+
+`server/src/index.js` can also serve the built `dist/` and SPA-fall-back to `index.html` for
+any non-`/api` route, *if* `dist/` exists next to it — useful for a single-service deploy. When
+the frontend is hosted separately (its own Railway service, Vercel, Netlify...), point it at
+this backend via the frontend's `VITE_API_BASE_URL` build-time env var (read in
+`src/infrastructure/api/client.ts`; empty/unset means same-origin `/api`, which is what local
+dev and the single-service deploy both rely on). See `server/README.md` for the Railway
+walkthrough.
 
 ### State: Redux (`roster` + `auth`)
 

@@ -24,7 +24,9 @@ npm run server             # backend (Express), http://localhost:8787
 ```
 
 El área **Ejército** necesita el backend corriendo (`npm run server`) además del frontend —
-Vite hace proxy de `/api` hacia él en desarrollo. Ver `server/README.md` para el detalle de la API.
+Vite hace proxy de `/api` hacia él en desarrollo. El backend necesita a su vez una base de
+datos Postgres (`server/.env`, copiado de `server/.env.example`, con `DATABASE_URL`). Ver
+`server/README.md` para el detalle de la API y el despliegue en Railway.
 
 Un script de datos puntual (`node scripts/<archivo>.mjs`, no vinculado a package.json):
 - `scrape-mission-actions.mjs`.
@@ -37,11 +39,14 @@ La app consume JSON estático mantenido a mano (`public/data/factions/<slug>.jso
 
 ## Usuarios y backend
 
-`server/` es un backend Express independiente (sin base de datos externa: los datos se guardan
-en un JSON en disco). Gestiona registro/login de usuarios y guarda las listas de ejército
-asociadas a cada cuenta — el estado de Redux se limpia y se vuelve a cargar por completo en
-cada recarga de página, login, registro o logout, para que nunca se mezclen listas entre
-usuarios. Ver `server/README.md`.
+`server/` es un backend Express independiente con Postgres (vía `pg`, sin ORM) como
+almacenamiento. Gestiona registro/login de usuarios y guarda las listas de ejército asociadas
+a cada cuenta — el estado de Redux se limpia y se vuelve a cargar por completo en cada
+recarga de página, login, registro o logout, para que nunca se mezclen listas entre usuarios.
+Si el frontend se despliega en un dominio distinto al del backend (p. ej. frontend en
+Vercel/Netlify y backend en Railway), configura `VITE_API_BASE_URL` (ver `.env.example` en la
+raíz) y `CORS_ORIGIN` en el backend. Ver `server/README.md` para el detalle, incluido el
+despliegue en Railway.
 
 ## Stack
 

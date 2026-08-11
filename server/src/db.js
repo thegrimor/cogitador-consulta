@@ -1,72 +1,115 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import pg from 'pg'
 
-// Hand-rolled JSON-file store, in keeping with the rest of the app's "plain JSON is the
-// source of truth" data layer — no database server, no native deps to install/compile.
+const { Pool } = pg
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DB_PATH = process.env.DB_PATH || path.join(__dirname, '..', 'data', 'db.json')
-
-function emptyDb() {
-  return { users: [], rosters: [] }
+const connectionString = process.env.DATABASE_URL
+if (!connectionString) {
+  throw new Error(
+    'DATABASE_URL no está definida. Apunta a tu base de datos Postgres (en Railway: la variable ' +
+      'que expone el plugin Postgres, referenciada en el servicio del backend).',
+  )
 }
 
-function load() {
-  try {
-    const raw = fs.readFileSync(DB_PATH, 'utf8')
-    const parsed = JSON.parse(raw)
-    return { users: parsed.users ?? [], rosters: parsed.rosters ?? [] }
-  } catch {
-    return emptyDb()
+// Railway's managed Postgres sits behind a self-signed cert chain — require SSL but don't
+// verify it. Only relevant for actual remote hosts; a local Postgres in dev has no TLS at all.
+const isLocal = /localhost|127\.0\.0\.1/.test(connectionString)
+const pool = new Pool({
+  connectionString,
+  ssl: isLocal ? false : { rejectUnauthorized: false },
+})
+
+function mapUser(row) {
+  return {
+    id: row.id,
+    username: row.username,
+    passwordHash: row.password_hash,
+    createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : row.created_at,
   }
 }
 
-const db = load()
-
-function persist() {
-  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true })
-  const tmpPath = `${DB_PATH}.tmp`
-  fs.writeFileSync(tmpPath, JSON.stringify(db, null, 2))
-  fs.renameSync(tmpPath, DB_PATH)
+function mapRoster(row) {
+  // `data` holds the full RosterList (id/name/factionId/.../createdAt/updatedAt) as jsonb;
+  // id/created_at/updated_at are duplicated into their own columns for indexing/ordering,
+  // not because the row shape and the JSON shape need to match field-for-field.
+  return { ...row.data, userId: row.user_id }
 }
 
+async function migrate() {
+  // `id` columns are TEXT, not UUID: RosterList.id is just `string` on the TypeScript side
+  // (crypto.randomUUID() today, but nothing enforces that shape), and a strict UUID column
+  // would 500 on any id that doesn't happen to parse as one.
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS users (
+      id TEXT PRIMARY KEY,
+      username TEXT UNIQUE NOT NULL,
+      password_hash TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+  `)
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS rosters (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      data JSONB NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+  `)
+  await pool.query('CREATE INDEX IF NOT EXISTS rosters_user_id_idx ON rosters (user_id);')
+}
+
+// Awaited once from index.js before the server starts accepting requests, so the very
+// first request can never race table creation.
+export const ready = migrate()
+
 export const store = {
-  findUserByUsername(username) {
-    const needle = username.trim().toLowerCase()
-    return db.users.find(u => u.username.toLowerCase() === needle)
+  async findUserByUsername(username) {
+    const { rows } = await pool.query(
+      'SELECT * FROM users WHERE lower(username) = lower($1)',
+      [username.trim()],
+    )
+    return rows[0] ? mapUser(rows[0]) : undefined
   },
 
-  findUserById(id) {
-    return db.users.find(u => u.id === id)
+  async findUserById(id) {
+    const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [id])
+    return rows[0] ? mapUser(rows[0]) : undefined
   },
 
-  createUser(user) {
-    db.users.push(user)
-    persist()
+  async createUser(user) {
+    await pool.query(
+      'INSERT INTO users (id, username, password_hash, created_at) VALUES ($1, $2, $3, $4)',
+      [user.id, user.username, user.passwordHash, user.createdAt],
+    )
     return user
   },
 
-  listRostersByUser(userId) {
-    return db.rosters.filter(r => r.userId === userId)
+  async listRostersByUser(userId) {
+    const { rows } = await pool.query(
+      'SELECT user_id, data FROM rosters WHERE user_id = $1 ORDER BY updated_at DESC',
+      [userId],
+    )
+    return rows.map(mapRoster)
   },
 
-  findRoster(id) {
-    return db.rosters.find(r => r.id === id)
+  async findRoster(id) {
+    const { rows } = await pool.query('SELECT user_id, data FROM rosters WHERE id = $1', [id])
+    return rows[0] ? mapRoster(rows[0]) : undefined
   },
 
-  upsertRoster(roster) {
-    const idx = db.rosters.findIndex(r => r.id === roster.id)
-    if (idx >= 0) db.rosters[idx] = roster
-    else db.rosters.push(roster)
-    persist()
+  async upsertRoster(roster) {
+    const { userId, ...data } = roster
+    await pool.query(
+      `INSERT INTO rosters (id, user_id, data, created_at, updated_at)
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (id) DO UPDATE SET data = $3, updated_at = $5`,
+      [roster.id, userId, JSON.stringify(data), data.createdAt, data.updatedAt],
+    )
     return roster
   },
 
-  deleteRoster(id) {
-    const before = db.rosters.length
-    db.rosters = db.rosters.filter(r => r.id !== id)
-    if (db.rosters.length !== before) persist()
-    return db.rosters.length !== before
+  async deleteRoster(id) {
+    const { rowCount } = await pool.query('DELETE FROM rosters WHERE id = $1', [id])
+    return rowCount > 0
   },
 }
