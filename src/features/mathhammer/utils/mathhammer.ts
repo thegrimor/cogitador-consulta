@@ -303,10 +303,19 @@ export function calculateDamage(
   const avgAttacks = parseDiceAverage(weapon.A) + blastBonus + cleaveBonus + mods.attacksMod
   const isMeleeWeapon = weapon.range.trim().toLowerCase() === 'melee'
   const pHit        = weapon.isTorrent ? 1 : hitProbabilityWithMods(weapon.bsWs, mods, isMeleeWeapon)
+  // Expected extra hits attributable specifically to a Hit-roll reroll (of 1s or all) — the
+  // delta between pHit as computed above and what it'd be without that reroll active.
+  const pHitNoReroll = weapon.isTorrent
+    ? 1
+    : hitProbabilityWithMods(weapon.bsWs, { ...mods, rerollHitsOf1: false, rerollAllHits: false }, isMeleeWeapon)
+  const rerollExtraHits = Math.max(0, avgAttacks * (pHit - pHitNoReroll))
   const effectiveMods = weapon.isTwinLinked
     ? { ...mods, rerollAllWounds: true }
     : mods
   const pWound      = woundProbabilityWithMods(weapon.S, defenderModel.T, effectiveMods)
+  // Same idea for the Wound roll — folds in Twin-linked, which is itself a reroll-all-wounds
+  // effect (see effectiveMods above).
+  const pWoundNoReroll = woundProbabilityWithMods(weapon.S, defenderModel.T, { ...effectiveMods, rerollWoundsOf1: false, rerollAllWounds: false })
   // apMod > 0 = attacker improves AP (more penetrating), < 0 = defender reduces AP (AoC).
   // Clamp to 0: AP can't become positive (AoC on AP 0 weapon has no further benefit).
   // saveMod: genuine +1 Save abilities (e.g. AM Take Cover! order) — applied here so it
@@ -374,14 +383,19 @@ export function calculateDamage(
     antiCritWounds       = hasWoundCrit ? expectedHits * WOUND_CRIT : 0
     expectedWounds       = antiCritWounds + expectedHits * Math.max(0, pWound - WOUND_CRIT)
   }
+  const rerollExtraWounds = Math.max(0, expectedHits * (pWound - pWoundNoReroll))
 
   // Sin Devastating Wounds, esas heridas críticas ya están contadas arriba pero siguen
   // necesitando salvación normal. Con Devastating Wounds, esquivan la salvación.
   let expectedFailedSaves: number
+  // Wounds that auto-fail the save outright thanks to Devastating Wounds (0 if it's not active
+  // or there's no wound-crit threshold for it to apply to).
+  const devastatingWoundsSaved = (hasDevastatingWounds && hasWoundCrit)
+    ? autoWoundsFromCrits + antiCritWounds
+    : 0
   if (hasDevastatingWounds && hasWoundCrit) {
-    const woundsSkippingSave = autoWoundsFromCrits + antiCritWounds
-    const woundsNeedingSave  = expectedWounds - woundsSkippingSave
-    expectedFailedSaves = woundsSkippingSave + Math.max(0, woundsNeedingSave) * pFailSave
+    const woundsNeedingSave = expectedWounds - devastatingWoundsSaved
+    expectedFailedSaves = devastatingWoundsSaved + Math.max(0, woundsNeedingSave) * pFailSave
   } else {
     expectedFailedSaves = expectedWounds * pFailSave
   }
@@ -394,6 +408,13 @@ export function calculateDamage(
     ? Math.max(1 / 6, Math.min(5 / 6, (7 - mods.feelNoPainThreshold) / 6))
     : 0
   const expectedTotalDamage = expectedFailedSaves * avgDmgPerWound * (1 - fnpP)
+  // Extra total damage attributable to a Damage-roll reroll (only non-zero for variable
+  // damage like D3/D6 — a reroll on a fixed value changes nothing).
+  const rawDmgNoReroll = parseDiceAverageWithReroll(weapon.D, false, false) + effectiveMods.damageMod
+  const avgDmgPerWoundNoReroll = mods.damageReduction > 0
+    ? Math.max(rawDmgNoReroll - mods.damageReduction, 1)
+    : rawDmgNoReroll
+  const rerollExtraDamage = Math.max(0, expectedFailedSaves * (avgDmgPerWound - avgDmgPerWoundNoReroll) * (1 - fnpP))
 
   // ── Statistical spread (Gaussian approximation) ──────────────────────────────
   // Model: K failed saves ~ Binomial(avgAttacks, effectiveP), each dealing D damage.
@@ -422,13 +443,17 @@ export function calculateDamage(
     hitProbability: pHit,
     expectedHits,
     sustainedExtraHits,
+    rerollExtraHits,
     woundProbability: pWound,
     expectedWounds,
     autoWoundsFromCrits,
     antiCritWounds,
+    rerollExtraWounds,
     saveFailProbability: pFailSave,
     expectedFailedSaves,
+    devastatingWoundsSaved,
     avgDamagePerWound: avgDmgPerWound,
+    rerollExtraDamage,
     damageBeforeFNP,
     feelNoPainThreshold: mods.feelNoPainThreshold,
     fnpProbability: fnpP,

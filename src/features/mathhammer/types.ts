@@ -50,13 +50,21 @@ export interface DamageBreakdown {
   hitProbability: number
   expectedHits: number
   sustainedExtraHits: number
+  /** Extra expected hits from a Hit-roll reroll (of 1s or all) — 0 if none is active. */
+  rerollExtraHits: number
   woundProbability: number
   expectedWounds: number
   autoWoundsFromCrits: number
   antiCritWounds: number
+  /** Extra expected wounds from a Wound-roll reroll (of 1s, all, or Twin-linked) — 0 if none is active. */
+  rerollExtraWounds: number
   saveFailProbability: number
   expectedFailedSaves: number
+  /** Wounds that auto-fail the save outright thanks to Devastating Wounds — 0 if it's not active. */
+  devastatingWoundsSaved: number
   avgDamagePerWound: number
+  /** Extra expected total damage from a Damage-roll reroll — 0 for fixed damage or no reroll. */
+  rerollExtraDamage: number
   damageBeforeFNP: number
   feelNoPainThreshold: number | null
   fnpProbability: number

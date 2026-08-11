@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { calculateDamage, getBlastBonusAttacks, parseDiceAverage, killProbabilityForDamage } from '../../utils/mathhammer'
+import { calculateDamage, getBlastBonusAttacks, parseDiceAverage } from '../../utils/mathhammer'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
 import type { CombatModifiers } from '../../types'
 import { GaussianChart } from './GaussianChart'
@@ -126,10 +126,6 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
   // Todas las cantidades del desglose se escalan ×qty: representan el grupo de armas
   // completo (todas las copias en la unidad), no una sola mini.
   const total = calc.expectedTotalDamage * qty
-  const groupSigma = calc.standardDeviation * Math.sqrt(qty)
-  const groupP10 = Math.max(0, total - 1.2816 * groupSigma)
-  const groupP90 = total + 1.2816 * groupSigma
-  const groupKillProbability = killProbabilityForDamage(total, groupSigma, defenderModel.W)
 
   return (
     <div className="border border-rim-bright bg-surface-2">
@@ -163,13 +159,19 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
             detail={`${fmt(calc.avgAttacks * qty)} × ${pct(calc.hitProbability)}`}
           />
           {calc.sustainedExtraHits > 0 && (
-            <Row label="↳ Extra (Sustained)" value={`+${fmt(calc.sustainedExtraHits * qty)}`} highlight />
+            <Row label="↳ Sustained" value={`+${fmt(calc.sustainedExtraHits * qty)}`} highlight />
+          )}
+          {calc.rerollExtraHits > 0 && (
+            <Row label="↳ Reroll hit" value={`+${fmt(calc.rerollExtraHits * qty)}`} highlight />
           )}
           {calc.autoWoundsFromCrits > 0 && (
-            <Row label="↳ Auto (Lethal Hits)" value={`+${fmt(calc.autoWoundsFromCrits * qty)}`} highlight />
+            <Row label="↳ Lethal Hits" value={`+${fmt(calc.autoWoundsFromCrits * qty)}`} highlight />
           )}
           {calc.antiCritWounds > 0 && (
             <Row label="↳ Crit herida" value={`${fmt(calc.antiCritWounds * qty)}`} highlight />
+          )}
+          {calc.rerollExtraWounds > 0 && (
+            <Row label="↳ Reroll wound" value={`+${fmt(calc.rerollExtraWounds * qty)}`} highlight />
           )}
           <Row
             label="Heridas"
@@ -178,40 +180,15 @@ function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, 
               ? `+${fmt(calc.autoWoundsFromCrits * qty)} auto`
               : `${fmt(calc.expectedHits * qty)} × ${pct(calc.woundProbability)}`}
           />
+          {calc.devastatingWoundsSaved > 0 && (
+            <Row label="↳ Devastating" value={fmt(calc.devastatingWoundsSaved * qty)} detail="sin salv." highlight />
+          )}
           <Row
             label="Salv. fallidas"
             value={fmt(calc.expectedFailedSaves * qty)}
             detail={`${fmt(calc.expectedWounds * qty)} × ${pct(calc.saveFailProbability)}`}
           />
           <Row label="Daño/herida" value={fmt(calc.avgDamagePerWound)} detail={weapon.D} />
-          {calc.fnpProbability > 0 && (
-            <Row
-              label={`↳ FNP ${calc.feelNoPainThreshold}+`}
-              value={`−${fmt((calc.damageBeforeFNP - calc.expectedTotalDamage) * qty)}`}
-              detail={`${fmt(calc.damageBeforeFNP * qty)} × ${pct(calc.fnpProbability)} ignorado`}
-              highlight
-            />
-          )}
-          {calc.autoWoundsFromCrits > 0 && calc.expectedWounds > 0 && (
-            <Row
-              label="Contribución críticos"
-              value={pct(calc.autoWoundsFromCrits / calc.expectedWounds)}
-              detail="heridas auto / total"
-            />
-          )}
-          <Row label="Bajas esperadas" value={fmt(calc.expectedKills * qty)} detail={`/${defenderModel.W}H · grupo ×${qty}`} highlight />
-          {groupSigma > 0 && (
-            <>
-              <Row label="Desv. típica (σ)" value={`±${groupSigma.toFixed(2)}`} detail="grupo completo" />
-              <Row label="Rango P10–P90" value={`${groupP10.toFixed(2)} – ${groupP90.toFixed(2)}`} detail="grupo completo" />
-            </>
-          )}
-          <Row
-            label={`P(≥1 baja /${defenderModel.W}H)`}
-            value={`${(groupKillProbability * 100).toFixed(0)}%`}
-            detail="grupo completo"
-            highlight
-          />
         </div>
       )}
     </div>
