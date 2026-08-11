@@ -2,16 +2,30 @@ import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { NavBar } from '@/shared/components/NavBar'
 import { ThemePicker } from '@/shared/components/ThemePicker'
+import { AccountMenu } from '@/shared/components/AccountMenu'
 import { LoadingScreen } from '@/shared/components/LoadingScreen'
 import { ErrorScreen } from '@/shared/components/ErrorScreen'
 import { useTheme } from '@/shared/hooks/useTheme'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
+import { useAppDispatch } from '@/store/hooks'
+import { bootstrapAuth } from '@/store/authThunks'
 
 export function AppShell() {
   const [currentTheme, setTheme, themes] = useTheme()
   const { loading, error } = useGameDataContext()
   const { pathname } = useLocation()
   const headerRef = useRef<HTMLElement>(null)
+  const dispatch = useAppDispatch()
+  const bootstrapped = useRef(false)
+
+  // Runs once per app load: validates any persisted token and (re)hydrates roster state
+  // from the backend for whoever that token belongs to — see authThunks.bootstrapAuth for
+  // why this is the thing that keeps a page reload from ever showing stale/mixed data.
+  useEffect(() => {
+    if (bootstrapped.current) return
+    bootstrapped.current = true
+    dispatch(bootstrapAuth())
+  }, [dispatch])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -71,7 +85,8 @@ export function AppShell() {
         <div className="order-3 w-full sm:order-none sm:w-auto sm:flex-1 sm:min-w-0">
           <NavBar />
         </div>
-        <div className="ml-auto shrink-0 sm:ml-0">
+        <div className="ml-auto shrink-0 sm:ml-0 flex items-center gap-3">
+          <AccountMenu />
           <ThemePicker currentTheme={currentTheme} themes={themes} onSelect={setTheme} />
         </div>
       </header>

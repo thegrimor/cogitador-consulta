@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import { GameDataProvider } from '@/infrastructure/data/GameDataContext'
 import { AppShell } from '@/shared/components/AppShell'
+import { RequireAuth } from '@/shared/components/RequireAuth'
 import { CatalogPage } from '@/pages/CatalogPage'
 import { FactionPage } from '@/pages/FactionPage'
 import { DatasheetDetailPage } from '@/pages/DatasheetDetailPage'
@@ -20,6 +21,7 @@ import { MissionPrimaryDetailPage } from '@/pages/MissionPrimaryDetailPage'
 import { MissionSecondaryDetailPage } from '@/pages/MissionSecondaryDetailPage'
 import { MissionMatcherPage } from '@/pages/MissionMatcherPage'
 import { MathhammerPage } from '@/pages/MathhammerPage'
+import { LoginPage } from '@/pages/LoginPage'
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'roster',
+        element: <RequireAuth />,
         children: [
           { index: true, element: <RosterListPage /> },
           { path: 'new', element: <RosterNewPage /> },
@@ -66,6 +69,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: 'mathhammer', element: <MathhammerPage /> },
+      { path: 'login', element: <LoginPage /> },
     ],
   },
 ])

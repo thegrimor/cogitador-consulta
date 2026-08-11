@@ -182,6 +182,20 @@ const rosterSlice = createSlice({
         state.rosters.push(action.payload)
       },
     },
+
+    /** Replaces the roster list wholesale with what the backend has for the now-current
+     * user. Always paired with `resetRosters` beforehand by the auth thunks so a fetch that
+     * resolves after a user switch can never merge into the wrong account's state. */
+    hydrateRosters: (state, action: PayloadAction<RosterList[]>) => {
+      state.rosters = action.payload
+    },
+
+    /** Clears roster state outright. Dispatched on logout, before login/register/bootstrap
+     * hydration, and on auth failure — the one place responsible for making sure no
+     * previous user's (or no-longer-valid) rosters linger across an account switch. */
+    resetRosters: state => {
+      state.rosters = []
+    },
   },
 })
 
@@ -199,6 +213,8 @@ export const {
   setEntryWeaponSelection,
   setEntryWargearCosts,
   importRosterFromData,
+  hydrateRosters,
+  resetRosters,
 } = rosterSlice.actions
 
 export const rosterReducer = rosterSlice.reducer
