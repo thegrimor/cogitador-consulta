@@ -1,6 +1,10 @@
 import type { RosterList } from '@/types'
 
-const BASE = '/api'
+// Same-origin '/api' works whenever the backend serves this frontend (production, single
+// Railway service) or Vite's dev proxy is in front of it (local dev — see vite.config.ts).
+// When the frontend is deployed separately from the backend (its own Railway service,
+// Vercel, Netlify...), point it at the backend's public URL via this build-time env var.
+const BASE = `${import.meta.env.VITE_API_BASE_URL ?? ''}/api`
 
 export class ApiError extends Error {
   status: number

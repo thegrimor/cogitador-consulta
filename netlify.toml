@@ -1,0 +1,15 @@
+# Frontend only — the backend (server/) is deployed separately on Railway and is not built
+# or run here. Set VITE_API_BASE_URL in Netlify's site environment variables (Site
+# configuration → Environment variables) to the Railway backend's public URL; it's a
+# build-time var (baked into the JS bundle), so changing it requires a redeploy, not just a
+# restart. See server/README.md for the matching Railway-side CORS_ORIGIN setup.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback for client-side routing (React Router) is public/_redirects, which Vite
+# copies into dist/ as-is — not repeated here to avoid two redirect sources drifting apart.
