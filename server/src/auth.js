@@ -4,7 +4,10 @@ import crypto from 'node:crypto'
 // and scrypt password hashing, both using only Node's built-in `crypto` module.
 
 const SECRET = process.env.JWT_SECRET || 'dev-secret-change-me'
-const TOKEN_TTL_MS = 30 * 24 * 60 * 60 * 1000 // 30 days
+// Long-lived on purpose: sessions are meant to persist per device (no "remember me"
+// checkbox, no refresh flow) — logging in on a phone or laptop should stick until an
+// explicit logout, not silently expire and bounce someone back to /login.
+const TOKEN_TTL_MS = 365 * 24 * 60 * 60 * 1000 // 1 year
 
 function sign(body) {
   return crypto.createHmac('sha256', SECRET).update(body).digest('base64url')

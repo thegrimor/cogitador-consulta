@@ -133,8 +133,11 @@ exists.
 `RequireAuth` (`src/shared/components/RequireAuth`) gates the `/roster/*` route subtree —
 unauthenticated visitors are redirected to `/login` (preserving `?next=`); a token still being
 validated by `bootstrapAuth()` shows `LoadingScreen` instead of bouncing. `AccountMenu`
-(`src/shared/components/AccountMenu`) in the header shows the logged-in username + a logout
-button, or a login link.
+(`src/shared/components/AccountMenu`) in the header is a login link when logged out, or a
+profile dropdown (avatar initial + username, click to reveal a "Cerrar Sesión" button) when
+logged in — same open/close-on-outside-click pattern as `ThemePicker`, which it sits next to
+in `AppShell`'s header. Session tokens (`server/src/auth.js`) last 1 year, meant to persist
+per device until an explicit logout rather than silently expiring.
 
 Implemented: create/edit/list rosters with points limits, detachment selection (with Detachment Points cost), enhancements, wargear-option legality enforcement and per-weapon surcharges, multi-tier unit costs, leader attachment, allies for Imperium factions, and import/export in Munitorum text format plus QR (scan or photo upload).
 
@@ -211,7 +214,7 @@ The UI imitates the official GW Warhammer app: faction color bar in headers (`bg
 
 - `RuleTooltip` — wraps any rule badge; shows description on hover. Feed it `getRuleDescription(name)` from `src/core/constants/weaponRules.ts`.
 - `AppShell` / `NavBar` / `ThemePicker` — page chrome, top nav (Archivo/Ejército/Mathhammer), faction theme switcher.
-- `AccountMenu` — header login link / username + logout. `RequireAuth` — route-gate wrapper (`<Outlet/>` if authenticated, else redirect to `/login`); not itself in the header, used in `App.tsx`'s router tree.
+- `AccountMenu` — header login link, or a profile dropdown (avatar + username → Cerrar Sesión) when logged in. `RequireAuth` — route-gate wrapper (`<Outlet/>` if authenticated, else redirect to `/login`); not itself in the header, used in `App.tsx`'s router tree.
 - `StatsBar`, `WeaponCard`, `AbilityList`, `StratList` — generic datasheet-display building blocks (also duplicated as leaner variants under `src/features/mathhammer/components/` for that feature's own layout needs).
 - `VpBadge`, `LoadingScreen`, `ErrorScreen` — small utility components.
 - Roster-specific: `AddUnitPanel`, `WeaponSelector`, `WeaponOptionsEditor`, `CostVariantPicker`, `DetachmentSelectModal`, `RosterCard`, `RosterEntryRow`, `RosterQrModal/*`.
