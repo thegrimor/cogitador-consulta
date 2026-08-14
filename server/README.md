@@ -37,9 +37,16 @@ Ver `.env.example`. Resumen:
 ## Despliegue: backend en Railway, frontend en Netlify
 
 1. **Base de datos** (Railway): añade un plugin Postgres al proyecto.
-2. **Backend** (Railway): crea un servicio a partir de este repo, con *root directory* =
-   `server` (así Railway solo instala/arranca ese `package.json`, sin tocar el frontend). En
-   la pestaña *Variables* del servicio:
+2. **Backend** (Railway): crea un servicio a partir de este repo con el *root directory* **sin
+   fijar (raíz del repo)** — no lo pongas en `server`. El asistente de chat lee
+   `public/data/*.json` con una ruta relativa que asume el monorepo completo (`server/../../public/data`,
+   ver `server/src/lib/gameDataIndex.js`); si el root directory se acota a `server`, Railway
+   solo sube ese subdirectorio, `public/` no existe en el contenedor y el arranque revienta con
+   un `ENOENT` en `readFileSync`. En Settings → Build del servicio:
+   - Build Command: `npm run server:install` (instala solo las deps de `server/`, sin tocar
+     las del frontend).
+   - Start Command: `npm run server:start` (equivalente a `cd server && npm start`).
+   En la pestaña *Variables* del servicio:
    - `DATABASE_URL` → referencia la del plugin Postgres (`${{Postgres.DATABASE_URL}}` si
      Railway te ofrece la referencia automática, o pega el valor).
    - `JWT_SECRET` → un valor propio, largo y aleatorio.
@@ -47,9 +54,12 @@ Ver `.env.example`. Resumen:
      (añade `,*.netlify.app` si quieres que los deploy previews también puedan llamar a la
      API).
    - `ANTHROPIC_API_KEY` → opcional, solo si quieres el asistente de chat activo.
-   - Comando de arranque: `npm start`.
    - Copia la URL pública que Railway te da para este servicio (Settings → Networking →
      Generate Domain si no tiene una todavía) — la necesitas en el paso siguiente.
+
+   Si ya tenías el servicio desplegado con *root directory* = `server` (la configuración que
+   este README recomendaba antes de que existiera el chat), quítaselo y aplica los comandos de
+   arriba — es un cambio de configuración en el dashboard, no hace falta recrear el servicio.
 3. **Frontend** (Netlify): build command `npm run build`, publish directory `dist` (ya
    configurado en `netlify.toml`, en la raíz del repo — *base directory* debe quedar vacío/`.`
    para que Netlify vea el `package.json` de la raíz, no el de `server/`). En Site
@@ -75,6 +85,8 @@ Todas las rutas de listas requieren cabecera `Authorization: Bearer <token>`.
 - `GET /api/rosters` → `{ rosters: RosterList[] }` (solo las del usuario autenticado)
 - `PUT /api/rosters/:id` `RosterList` → upsert de una lista completa, asociada al usuario autenticado
 - `DELETE /api/rosters/:id` → `204`
+- `POST /api/chat` `{ messages }` → stream de Server-Sent Events (`text`/`error`/`done`), sin
+  auth. `503` si `ANTHROPIC_API_KEY` no está definida.
 
 Si existe `dist/` (build del frontend, en la raíz del repo) este mismo proceso la sirve como
 estáticos y hace fallback a `index.html` para cualquier ruta que no sea `/api/*` — útil para
