@@ -30,6 +30,9 @@ Ver `.env.example`. Resumen:
   Bearer token, no por cookies — pero conviene fijarlo en cuanto sepas la URL real del
   frontend).
 - `PORT` — puerto HTTP (por defecto `8787`; Railway la inyecta sola).
+- `ANTHROPIC_API_KEY` — habilita el asistente de chat (`POST /api/chat`). Consíguela en
+  [console.anthropic.com](https://console.anthropic.com/settings/keys). Opcional: sin ella el
+  resto del backend funciona igual y el chat responde `503`.
 
 ## Despliegue: backend en Railway, frontend en Netlify
 
@@ -43,6 +46,7 @@ Ver `.env.example`. Resumen:
    - `CORS_ORIGIN` → la URL de tu sitio Netlify, p. ej. `https://tu-sitio.netlify.app`
      (añade `,*.netlify.app` si quieres que los deploy previews también puedan llamar a la
      API).
+   - `ANTHROPIC_API_KEY` → opcional, solo si quieres el asistente de chat activo.
    - Comando de arranque: `npm start`.
    - Copia la URL pública que Railway te da para este servicio (Settings → Networking →
      Generate Domain si no tiene una todavía) — la necesitas en el paso siguiente.
