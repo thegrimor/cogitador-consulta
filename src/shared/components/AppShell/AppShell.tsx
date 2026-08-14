@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { NavBar } from '@/shared/components/NavBar'
 import { ThemePicker } from '@/shared/components/ThemePicker'
 import { AccountMenu } from '@/shared/components/AccountMenu'
+import { ChatWidget } from '@/shared/components/ChatWidget'
 import { LoadingScreen } from '@/shared/components/LoadingScreen'
 import { ErrorScreen } from '@/shared/components/ErrorScreen'
 import { useTheme } from '@/shared/hooks/useTheme'
@@ -94,6 +95,8 @@ export function AppShell() {
       <main>
         <Outlet />
       </main>
+
+      <ChatWidget />
     </div>
   )
 }

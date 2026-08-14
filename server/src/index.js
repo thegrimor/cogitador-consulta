@@ -5,6 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { authRouter } from './routes/auth.js'
 import { rostersRouter } from './routes/rosters.js'
+import { chatRouter } from './routes/chat.js'
 import { requireAuth } from './middleware/requireAuth.js'
 import { ready as dbReady, ping as dbPing } from './db.js'
 import { asyncHandler } from './asyncHandler.js'
@@ -60,6 +61,8 @@ app.get(
 
 app.use('/api/auth', authRouter)
 app.use('/api/rosters', requireAuth, rostersRouter)
+// Public — stateless rules lookup, nothing user- or roster-scoped (see chat.js).
+app.use('/api/chat', chatRouter)
 
 // In production the same process CAN serve the built frontend too, if dist/ is present
 // (e.g. a single Railway service building the whole repo). When the frontend is deployed

@@ -80,6 +80,9 @@ server: process died without the handler, survived and kept serving `/api/health
 - `GET /api/rosters` / `PUT /api/rosters/:id` / `DELETE /api/rosters/:id` (bearer token, all
   scoped to the authenticated user; `PUT` upserts a full `RosterList` by id) —
   `server/src/routes/rosters.js`
+- `POST /api/chat` → Server-Sent Events stream (`text`/`error`/`done`), public (no auth — it's a
+  stateless rules lookup, nothing user-scoped) — `server/src/routes/chat.js`. See "Chat
+  assistant" below.
 
 CORS (`CORS_ORIGIN` env var, comma-separated origins) matters only when the frontend is
 deployed on a different origin than this backend — same-origin requests (Vite's dev proxy, or
@@ -94,6 +97,29 @@ this backend via the frontend's `VITE_API_BASE_URL` build-time env var (read in
 `src/infrastructure/api/client.ts`; empty/unset means same-origin `/api`, which is what local
 dev and the single-service deploy both rely on). See `server/README.md` for the Railway
 walkthrough.
+
+### Chat assistant
+
+A floating rules-assistant widget (`ChatWidget`, mounted globally in `AppShell` — bottom-right,
+every page) answers questions about datasheets, stratagems, enhancements, core rules and
+missions. It's a thin tool-use loop, not a RAG index: `server/src/routes/chat.js` calls the
+Claude API (`@anthropic-ai/sdk`, model `claude-opus-5`) with a fixed set of tools
+(`server/src/lib/chatTools.js`) that search/read `public/data/*.json` on demand — the ~15MB of
+game data is never sent as context, only the specific datasheet/stratagem/etc. the model asks
+for, via `server/src/lib/gameDataIndex.js` (loads and indexes all faction JSON into memory once
+at startup; searches are case/accent-insensitive substring matches). List-returning tools
+(`get_stratagems`, `get_enhancements`, `get_detachments`) cap their formatted output at ~12k
+chars, since chapter-heavy factions like Space Marines have 50+ detachments — the model is told
+to re-call with a narrower `detachmentId` instead of getting a silently truncated wall of text.
+
+The route is public (no `requireAuth`) and stateless — conversation history lives only in the
+browser tab (`useChatStream` hook), round-tripped in full on every request; nothing is
+persisted server-side or tied to an account. Responses stream back as Server-Sent Events
+(`text` chunks, then `done`, or `error`) over a manual `client.messages.stream()` + tool-result
+loop (not the SDK's tool runner, to keep the SSE forwarding straightforward) — capped at 6 tool
+iterations per turn. Requires `ANTHROPIC_API_KEY` in `server/.env`; without it the route
+replies `503` instead of the process failing to boot, so the rest of the app (auth, rosters,
+catalog) works fine with the key unset.
 
 ### State: Redux (`roster` + `auth`)
 
@@ -215,6 +241,7 @@ The UI imitates the official GW Warhammer app: faction color bar in headers (`bg
 - `RuleTooltip` — wraps any rule badge; shows description on hover. Feed it `getRuleDescription(name)` from `src/core/constants/weaponRules.ts`.
 - `AppShell` / `NavBar` / `ThemePicker` — page chrome, top nav (Archivo/Ejército/Mathhammer), faction theme switcher.
 - `AccountMenu` — header login link, or a profile dropdown (avatar + username → Cerrar Sesión) when logged in. `RequireAuth` — route-gate wrapper (`<Outlet/>` if authenticated, else redirect to `/login`); not itself in the header, used in `App.tsx`'s router tree.
+- `ChatWidget` — global floating rules-assistant button + panel, mounted once in `AppShell` (not route-gated, works logged out). `useChatStream` drives the `POST /api/chat` SSE stream. See "Chat assistant" above.
 - `StatsBar`, `WeaponCard`, `AbilityList`, `StratList` — generic datasheet-display building blocks (also duplicated as leaner variants under `src/features/mathhammer/components/` for that feature's own layout needs).
 - `VpBadge`, `LoadingScreen`, `ErrorScreen` — small utility components.
 - Roster-specific: `AddUnitPanel`, `WeaponSelector`, `WeaponOptionsEditor`, `CostVariantPicker`, `DetachmentSelectModal`, `RosterCard`, `RosterEntryRow`, `RosterQrModal/*`.

@@ -4,7 +4,10 @@ import type { RosterList } from '@/types'
 // Railway service) or Vite's dev proxy is in front of it (local dev — see vite.config.ts).
 // When the frontend is deployed separately from the backend (its own Railway service,
 // Vercel, Netlify...), point it at the backend's public URL via this build-time env var.
-const BASE = `${import.meta.env.VITE_API_BASE_URL ?? ''}/api`
+// Exported for call sites that can't use the `request` helper below (e.g. ChatWidget's
+// SSE stream, which needs a raw `fetch` instead of a JSON response).
+export const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL ?? ''}/api`
+const BASE = API_BASE_URL
 
 export class ApiError extends Error {
   status: number
