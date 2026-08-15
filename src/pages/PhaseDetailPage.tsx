@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { PHASES } from '@/core/constants/phasesData'
 import { ROUTES } from '@/core/constants/routes'
+import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 
 function SubsectionRow({ refNum, name, description }: { refNum: string; name: string; description: string }) {
   const [open, setOpen] = useState(false)
@@ -36,8 +36,9 @@ function SubsectionRow({ refNum, name, description }: { refNum: string; name: st
 export function PhaseDetailPage() {
   const { phaseId } = useParams<{ phaseId: string }>()
   const navigate = useNavigate()
+  const { phases } = useGameDataContext()
 
-  const phase = PHASES.find(p => p.id === phaseId)
+  const phase = phases.find(p => p.id === phaseId)
 
   if (!phase) {
     return (

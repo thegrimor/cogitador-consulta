@@ -214,6 +214,7 @@ export interface GameData {
   /** Universal combat effects with no faction (Cover, Heavy, Command Re-Roll...) — always
    * available in the mathhammer calculator regardless of which faction is selected. */
   coreCombatEffects: CoreCombatEffect[]
+  phases: PhaseData[]
   loading: boolean
   error: string | null
 }
@@ -330,6 +331,23 @@ export interface CoreRule {
   category: CoreRuleCategory
   summary: string
   description: string
+}
+
+// ── Phases (public/data/catalog/phases.json) ────────────────────────────────
+
+export interface PhaseSubsection {
+  ref: string
+  name: string
+  description: string
+}
+
+export interface PhaseData {
+  id: string
+  ref: string
+  name: string
+  group: string
+  summary: string
+  subsections: PhaseSubsection[]
 }
 
 // ── Missions (primaryMissions / secondaryMissions from missions.json) ──────

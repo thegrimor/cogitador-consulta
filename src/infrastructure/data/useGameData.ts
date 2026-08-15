@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import type {
   GameData, Faction, Detachment, DetachmentAbility, Stratagem, Datasheet,
   Enhancement, Source, CoreRule, UnitOption, PointsCost, WargearCost, Ability,
-  ModelProfile, Weapon, DefaultWeaponQuantity, CoreCombatEffect,
+  ModelProfile, Weapon, DefaultWeaponQuantity, CoreCombatEffect, PhaseData,
 } from '@/types'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
 import { SM_CHAPTERS } from '@/core/constants/chapters'
@@ -101,6 +101,7 @@ const EMPTY_STATE: GameData = {
   coreRules: [],
   coreRulesMap: {},
   coreCombatEffects: [],
+  phases: [],
   loading: true,
   error: null,
 }
@@ -114,8 +115,9 @@ export function useGameData(): GameData {
     async function load() {
       try {
         const factionsIndex = await fetchJson<{ id: string; name: string }[]>('/data/catalog/factions.json')
-        const [catalog, ...factionJsons] = await Promise.all([
+        const [catalog, phases, ...factionJsons] = await Promise.all([
           fetchJson<CatalogJson>('/data/catalog/core-rules.json'),
+          fetchJson<PhaseData[]>('/data/catalog/phases.json'),
           ...factionsIndex.map(f => fetchJson<FactionJson>(`/data/factions/${f.id}.json`)),
         ])
         if (cancelled) return
@@ -246,6 +248,7 @@ export function useGameData(): GameData {
             lastUpdate: catalog.lastUpdate,
             coreRules, coreRulesMap,
             coreCombatEffects: catalog.coreRuleEffects,
+            phases,
             loading: false, error: null,
           })
         }

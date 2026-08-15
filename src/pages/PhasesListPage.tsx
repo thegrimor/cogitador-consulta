@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import { PHASES, PHASE_GROUPS, type PhaseGroup } from '@/core/constants/phasesData'
+import { PHASE_GROUPS, type PhaseGroup } from '@/core/constants/phasesData'
 import { corePhasePath, ROUTES } from '@/core/constants/routes'
+import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 
 function NavTile({ to, ref: refNum, name, count }: { to: string; ref: string; name: string; count: number }) {
   return (
@@ -26,6 +27,7 @@ function NavTile({ to, ref: refNum, name, count }: { to: string; ref: string; na
 
 export function PhasesListPage() {
   const navigate = useNavigate()
+  const { phases } = useGameDataContext()
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
@@ -48,7 +50,7 @@ export function PhasesListPage() {
 
       {/* Groups */}
       {PHASE_GROUPS.map((group: PhaseGroup) => {
-        const groupPhases = PHASES.filter(p => p.group === group)
+        const groupPhases = phases.filter(p => p.group === group)
         return (
           <div key={group} className="mb-8">
             <h2 className="text-[12px] font-display uppercase tracking-[2px] text-parchment-dim mb-2 px-1">
