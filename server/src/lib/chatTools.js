@@ -12,6 +12,8 @@ import {
   getArmyRules,
   getCoreStratagems,
   searchCoreRules,
+  listPhases,
+  getPhase,
   searchMissions,
 } from './gameDataIndex.js'
 import { stripHtml } from './textUtils.js'
@@ -116,6 +118,12 @@ function formatAbility(a) {
   return `${a.name}: ${stripHtml(a.description)}`
 }
 
+function formatPhase(p) {
+  const lines = [`${p.ref} ${p.name} (${p.group})`, p.summary, '']
+  for (const s of p.subsections) lines.push(`${s.ref} ${s.name}: ${stripHtml(s.description)}`)
+  return lines.join('\n')
+}
+
 export const chatTools = [
   {
     name: 'list_factions',
@@ -217,13 +225,37 @@ export const chatTools = [
   {
     name: 'search_core_rules',
     description:
-      'Busca en el glosario del reglamento núcleo (conceptos, habilidades de arma/unidad, fases) ' +
-      'por nombre o resumen. Úsala para preguntas sobre reglas generales como "Sostenido", ' +
-      '"Letal", las fases del turno, etc.',
+      'Busca en el glosario de terminología del reglamento núcleo (conceptos, habilidades de ' +
+      'arma/unidad) por nombre o resumen. Es un glosario de qué significa cada término (p. ej. ' +
+      '"Sostenido", "Letal", "Cobertura") — no el procedimiento paso a paso de las fases; para eso ' +
+      'usa list_phases / get_phase.',
     input_schema: {
       type: 'object',
       properties: { query: { type: 'string' } },
       required: ['query'],
+    },
+  },
+  {
+    name: 'list_phases',
+    description:
+      'Lista las secciones del reglamento que describen la secuencia de juego paso a paso: la ' +
+      'ronda de batalla, las cinco fases del turno (Mando, Movimiento, Disparo, Carga, Combate), ' +
+      'terreno, objetivos, momento de uso de estratagemas, vehículos/monstruos, transportes, ' +
+      'unidades adjuntas, reservas estratégicas, aeronaves, etc. Devuelve solo id/nombre/resumen — ' +
+      'usa get_phase con el id para el procedimiento completo de una sección.',
+    input_schema: { type: 'object', properties: {} },
+  },
+  {
+    name: 'get_phase',
+    description:
+      'Devuelve el procedimiento completo de una sección del reglamento (p. ej. la fase de ' +
+      'Disparo), con cada subsección numerada y su texto íntegro — de dónde sale la secuencia ' +
+      'exacta de pasos, no un resumen. Acepta el id (de list_phases) o el nombre en inglés tal ' +
+      'cual aparece ahí (p. ej. "Shooting Phase").',
+    input_schema: {
+      type: 'object',
+      properties: { phaseId: { type: 'string' } },
+      required: ['phaseId'],
     },
   },
   {
@@ -301,6 +333,17 @@ export function executeChatTool(name, input) {
       return rules.length
         ? rules.map(r => `${r.name} [${r.category}]: ${r.summary}\n${stripHtml(r.description)}`).join('\n\n')
         : 'Sin coincidencias.'
+    }
+
+    case 'list_phases':
+      return joinCapped(
+        listPhases(),
+        p => `${p.ref} ${p.name} [${p.id}] (${p.group}): ${p.summary}`,
+      )
+
+    case 'get_phase': {
+      const phase = getPhase(input.phaseId)
+      return phase ? formatPhase(phase) : `No se encontró ninguna fase/sección con id "${input.phaseId}".`
     }
 
     case 'search_missions': {

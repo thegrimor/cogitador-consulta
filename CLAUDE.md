@@ -44,7 +44,7 @@ No test suite yet.
 
 ### Data layer
 
-All game data is JSON, hand-maintained directly — there is no CSV, no scraper, and no generator script (there used to be; the CSV source, the `modifiers.ts` combat-modifier catalog, and the build pipeline that folded one into the other were deleted once the JSON was verified correct and the app fully migrated onto it). The JSON *is* the source of truth: `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json` + `public/data/missions.json`. `src/infrastructure/data/useGameData.ts` fetches all of the faction/catalog JSON in parallel, flattens them into the `GameData` shape the app has always used, and exposes it via `GameDataContext` (read through `useGameDataContext()`). `src/infrastructure/data/useMissionsData.ts` separately fetches `missions.json` for the Misiones pages.
+All game data is JSON, hand-maintained directly — there is no CSV, no scraper, and no generator script (there used to be; the CSV source, the `modifiers.ts` combat-modifier catalog, and the build pipeline that folded one into the other were deleted once the JSON was verified correct and the app fully migrated onto it). The JSON *is* the source of truth: `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json` + `public/data/catalog/phases.json` + `public/data/missions.json`. `src/infrastructure/data/useGameData.ts` fetches all of the faction/catalog JSON in parallel, flattens them into the `GameData` shape the app has always used, and exposes it via `GameDataContext` (read through `useGameDataContext()`). `src/infrastructure/data/useMissionsData.ts` separately fetches `missions.json` for the Misiones pages. `phases.json` (`PhaseData[]`, types in `src/types/index.ts`) used to be a static array in `src/core/constants/phasesData.ts`; that file now only keeps the `PHASE_GROUPS` display-order constant — the phase content itself moved to JSON so the chat backend (`server/src/lib/gameDataIndex.js`) can read it too, same as every other domain JSON file.
 
 To correct or add data (fix a rule, add a new codex release, patch an errata), edit the relevant `public/data/factions/<slug>.json` (or `public/data/catalog/*.json`) file directly — there's no regeneration step to run afterward.
 
@@ -100,17 +100,25 @@ walkthrough.
 
 ### Chat assistant
 
-A floating rules-assistant widget (`ChatWidget`, mounted globally in `AppShell` — bottom-right,
-every page) answers questions about datasheets, stratagems, enhancements, core rules and
+A floating rules-assistant widget (`ChatWidget`, in-character as "Grimor Inferior", mounted
+globally in `AppShell` — bottom-right, every page) answers questions about datasheets,
+stratagems, enhancements, the core-rules glossary, the phase-by-phase sequence of play, and
 missions. It's a thin tool-use loop, not a RAG index: `server/src/routes/chat.js` calls the
 Claude API (`@anthropic-ai/sdk`, model `claude-opus-5`) with a fixed set of tools
-(`server/src/lib/chatTools.js`) that search/read `public/data/*.json` on demand — the ~15MB of
-game data is never sent as context, only the specific datasheet/stratagem/etc. the model asks
-for, via `server/src/lib/gameDataIndex.js` (loads and indexes all faction JSON into memory once
-at startup; searches are case/accent-insensitive substring matches). List-returning tools
-(`get_stratagems`, `get_enhancements`, `get_detachments`) cap their formatted output at ~12k
-chars, since chapter-heavy factions like Space Marines have 50+ detachments — the model is told
-to re-call with a narrower `detachmentId` instead of getting a silently truncated wall of text.
+(`server/src/lib/chatTools.js` — `list_factions`, `search_datasheets`/`get_datasheet`,
+`get_detachments`, `get_stratagems`/`get_core_stratagems`, `get_enhancements`, `get_army_rules`,
+`search_core_rules` (terminology glossary), `list_phases`/`get_phase` (sequence-of-play
+procedure — a distinct data source from the glossary, see "Core rules & missions" above),
+`search_missions`) that search/read `public/data/*.json` on demand — the ~15MB of game data is
+never sent as context, only the specific datasheet/stratagem/etc. the model asks for, via
+`server/src/lib/gameDataIndex.js` (loads and indexes all faction JSON into memory once at
+startup; searches are case/accent-insensitive substring matches). List-returning tools
+(`get_stratagems`, `get_enhancements`, `get_detachments`, `list_phases`) cap their formatted
+output at ~12k chars, since chapter-heavy factions like Space Marines have 50+ detachments — the
+model is told to re-call with a narrower `detachmentId` instead of getting a silently truncated
+wall of text. `ChatWidget`'s empty-conversation state also shows a static, zero-cost greeting
+(never sent to the API) phrased in the same cogitator-boot-log voice the system prompt gives the
+model for its own real self-introductions.
 
 The route is public (no `requireAuth`) and stateless — conversation history lives only in the
 browser tab (`useChatStream` hook), round-tripped in full on every request; nothing is
@@ -229,7 +237,7 @@ Standalone feature folder at `src/features/mathhammer/`. Computes expected-value
 
 ### Core rules & missions
 
-- `CoreRulesPage`/`PhasesListPage`/`PhaseDetailPage` render `public/data/catalog/core-rules.json` (categories: `weapon_ability`, `unit_ability`, `concept`, `phase`) plus static phase copy in `src/core/constants/phasesData.ts`.
+- `CoreRulesPage` renders `public/data/catalog/core-rules.json` (categories: `weapon_ability`, `unit_ability`, `concept`, `phase`) — a glossary of terminology. `PhasesListPage`/`PhaseDetailPage` render `public/data/catalog/phases.json` (`GameData.phases`) — the step-by-step sequence of play (Battle Round, the five phases, terrain, objectives, stratagem timing, etc.); grouped for the list view via `PHASE_GROUPS` in `src/core/constants/phasesData.ts`. Glossary vs. procedure are deliberately separate data sources, not duplicates.
 - Missions pages read `public/data/missions.json` via `useMissionsData`. `MissionMatcherPage` looks up the primary-mission card for a pair of decks via `missions.matrix.grid[ownDeck][opponentDeck]`, using per-deck colors from `src/core/constants/missionDeckColors.ts` and slugging via `src/core/utils/missionText.ts`. `PrimaryMissionSections` and `MissionActionBox` render card contents; secondary missions get a "Con acción" badge when they have actionable text.
 
 ### Visual style

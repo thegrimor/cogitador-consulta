@@ -21,6 +21,7 @@ function readJson(relPath) {
 
 const factionsIndex = readJson('catalog/factions.json') // [{ id, name }]
 const coreRulesCatalog = readJson('catalog/core-rules.json')
+const phasesData = readJson('catalog/phases.json') // PhaseData[] — see src/types/index.ts
 const missionsData = readJson('missions.json')
 
 /** factionId -> raw faction JSON ({ id, name, armyRules, detachments, stratagems, enhancements, datasheets }) */
@@ -116,6 +117,18 @@ export function searchCoreRules(query, limit = 15) {
   return coreRulesCatalog.coreRules
     .filter(r => normalize(r.name).includes(q) || normalize(r.summary).includes(q))
     .slice(0, limit)
+}
+
+// ── Phases (the step-by-step sequence of play — Command/Movement/Shooting/Charge/Fight,
+// terrain, objectives, stratagem timing, etc.) — distinct from the core-rules glossary above:
+// this is procedure ("when does X happen"), that's terminology ("what does X mean"). ─────
+
+export function listPhases() {
+  return phasesData.map(p => ({ id: p.id, ref: p.ref, name: p.name, group: p.group, summary: p.summary }))
+}
+
+export function getPhase(phaseId) {
+  return phasesData.find(p => p.id === phaseId || normalize(p.name) === normalize(phaseId)) ?? null
 }
 
 // ── Missions ─────────────────────────────────────────────────────────────

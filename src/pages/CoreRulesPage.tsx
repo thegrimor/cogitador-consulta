@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import type { CoreRule, CoreRuleCategory } from '@/types'
 import { ROUTES } from '@/core/constants/routes'
-import { PHASES } from '@/core/constants/phasesData'
 
 const SECTION_CATEGORIES: CoreRuleCategory[] = ['weapon_ability', 'unit_ability', 'concept']
 
@@ -101,7 +100,7 @@ function SearchResults({ rules }: { rules: CoreRule[] }) {
 }
 
 export function CoreRulesPage() {
-  const { coreRules, lastUpdate } = useGameDataContext()
+  const { coreRules, lastUpdate, phases } = useGameDataContext()
   const [search, setSearch] = useState('')
 
   const query = search.toLowerCase().trim()
@@ -143,7 +142,7 @@ export function CoreRulesPage() {
               Fases de Juego
             </p>
             <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
-              {PHASES.length} secciones · 07 – 23
+              {phases.length} secciones · 07 – 23
             </p>
           </div>
           <span className="text-[18px] font-mono text-parchment-dim group-hover:text-parchment transition-colors">
