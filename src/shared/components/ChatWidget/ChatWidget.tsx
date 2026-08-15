@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { useChatStream } from './useChatStream'
 
+// Shown only client-side while the conversation is empty — never sent to the API, never part
+// of `messages`/the request payload. Purely a static "the assistant already said hi" touch, at
+// zero cost, styled like a real assistant bubble so it reads as a greeting, not a tooltip.
+const GREETING =
+  'Grimor Inferior — enlace activo.\n\n' +
+  'Consulto el catálogo en vivo: unidades, estratagemas, mejoras, reglas del reglamento y ' +
+  'misiones. No invento doctrina — si no está en los archivos, te lo digo.'
+
 /** Global floating rules-assistant widget, mounted once in AppShell so it's reachable from
  * every page. Talks to POST /api/chat (public, no login required — see server/src/routes/chat.js)
  * which grounds its answers in the same public/data/*.json the rest of the app reads, via
@@ -52,10 +60,9 @@ export function ChatWidget() {
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-2">
             {messages.length === 0 && (
-              <p className="text-[11px] font-mono text-parchment-dim leading-relaxed">
-                Pregúntame por unidades, estratagemas, mejoras, reglas del reglamento o misiones.
-                Consulto el catálogo en vivo — no invento datos.
-              </p>
+              <div className="self-start bg-surface border border-rim-bright text-parchment text-[11px] font-mono leading-relaxed whitespace-pre-wrap px-2.5 py-1.5 max-w-[90%]">
+                {GREETING}
+              </div>
             )}
             {messages.map((message, i) => {
               const isLastAssistant = message.role === 'assistant' && i === messages.length - 1
