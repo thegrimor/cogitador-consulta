@@ -114,6 +114,41 @@ function formatEnhancement(e) {
   return `${e.name} (+${e.cost} pts) — destacamento: ${e.detachmentName}\n${stripHtml(e.description)}`
 }
 
+// Mission cards: primary and secondary use slightly different shapes (tiers vs. rows, markdown
+// **bold** vs. HTML <b> for emphasis) but both score via a list of { text, vp, perUnit?,
+// cumulative?, or? } items grouped into { when, trigger } sections, and some cards additionally
+// carry an actionable "action" box (see scripts/scrape-mission-actions.mjs / MissionActionBox).
+function formatMissionScoreItem(item) {
+  const prefix = item.cumulative ? '  + ' : item.or ? '  o ' : '• '
+  const perUnit = item.perUnit ? ' (por unidad)' : ''
+  return `${prefix}${stripHtml(item.text)}${perUnit} — ${item.vp} PV`
+}
+
+function formatMissionSection(section) {
+  const header = [section.when, section.trigger].filter(Boolean).join(' · ')
+  const items = (section.tiers ?? section.rows ?? []).map(formatMissionScoreItem)
+  return [header, ...items].filter(Boolean).join('\n')
+}
+
+function formatMissionAction(action) {
+  const lines = [`Acción — ${action.title}:`]
+  for (const row of action.rows ?? []) lines.push(`  ${row.k}: ${stripHtml(row.v)}`)
+  return lines.join('\n')
+}
+
+function formatMissionCard(card, kind) {
+  const lines = [`[${kind}] ${card.name}`]
+  if (card.kindLabel) lines.push(card.kindLabel)
+  if (card.deck) lines.push(`Mazo: ${card.deck}`)
+  if (card.whenDrawn) lines.push('', stripHtml(card.whenDrawn))
+  for (const section of card.sections ?? []) {
+    const formatted = formatMissionSection(section)
+    if (formatted) lines.push('', formatted)
+  }
+  if (card.action) lines.push('', formatMissionAction(card.action))
+  return lines.join('\n')
+}
+
 function formatAbility(a) {
   return `${a.name}: ${stripHtml(a.description)}`
 }
@@ -260,7 +295,10 @@ export const chatTools = [
   },
   {
     name: 'search_missions',
-    description: 'Busca misiones primarias y secundarias por nombre.',
+    description:
+      'Busca misiones primarias y secundarias por nombre y devuelve la ficha completa de cada ' +
+      'coincidencia: condiciones y puntos de victoria (PV) de cada tramo de puntuación, cuándo se ' +
+      'puntúa, y la acción asociada si la tiene.',
     input_schema: {
       type: 'object',
       properties: { query: { type: 'string' } },
@@ -349,11 +387,11 @@ export function executeChatTool(name, input) {
     case 'search_missions': {
       const { primary, secondary } = searchMissions(input.query)
       if (!primary.length && !secondary.length) return 'Sin coincidencias.'
-      const lines = [
-        ...primary.map(c => `[Misión primaria] ${c.name} (mazo: ${c.deck})`),
-        ...secondary.map(c => `[Misión secundaria] ${c.name}`),
+      const cards = [
+        ...primary.map(c => formatMissionCard(c, 'Misión primaria')),
+        ...secondary.map(c => formatMissionCard(c, 'Misión secundaria')),
       ]
-      return lines.join('\n')
+      return joinCapped(cards, card => card, 'Acota más el nombre para reducir el resultado.')
     }
 
     default:
