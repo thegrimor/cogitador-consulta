@@ -28,7 +28,7 @@ export function ChatWidget() {
         <div className="w-[min(92vw,384px)] h-[min(70vh,560px)] flex flex-col border border-rim-bright bg-surface-2 shadow-2xl">
           <div className="flex items-center justify-between px-3 py-2 border-b border-rim-bright bg-surface-3 shrink-0">
             <span className="font-display text-[11px] uppercase tracking-widest text-gold select-none">
-              Cogitador · Asistente de Reglas
+              Grimor Inferior
             </span>
             <div className="flex items-center gap-3">
               {messages.length > 0 && (
@@ -104,8 +104,8 @@ export function ChatWidget() {
       <button
         onClick={() => setIsOpen(o => !o)}
         className="flex items-center justify-center w-11 h-11 border border-rim-bright bg-surface-2 hover:border-gold transition-colors shadow-lg"
-        title="Asistente de reglas"
-        aria-label={isOpen ? 'Cerrar asistente de reglas' : 'Abrir asistente de reglas'}
+        title="Grimor Inferior"
+        aria-label={isOpen ? 'Cerrar el Grimor Inferior' : 'Abrir el Grimor Inferior'}
         aria-expanded={isOpen}
       >
         {isOpen ? (
