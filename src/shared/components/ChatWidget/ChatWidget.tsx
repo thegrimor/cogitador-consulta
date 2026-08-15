@@ -4,10 +4,14 @@ import { useChatStream } from './useChatStream'
 // Shown only client-side while the conversation is empty — never sent to the API, never part
 // of `messages`/the request payload. Purely a static "the assistant already said hi" touch, at
 // zero cost, styled like a real assistant bubble so it reads as a greeting, not a tooltip.
+// Phrased as a cogitator boot log to match the persona the system prompt (chat.js) gives the
+// model for its own real self-introductions — same voice, one of them just doesn't cost tokens.
 const GREETING =
-  'Grimor Inferior — enlace activo.\n\n' +
-  'Consulto el catálogo en vivo: unidades, estratagemas, mejoras, reglas del reglamento y ' +
-  'misiones. No invento doctrina — si no está en los archivos, te lo digo.'
+  '>> ENLACE DE COGITADOR ESTABLECIDO\n' +
+  '>> NODO: GRIMOR INFERIOR — activo\n' +
+  '>> Archivos del catálogo sincronizados\n\n' +
+  'Formula tu consulta: unidades, estratagemas, mejoras, reglas del reglamento o misiones. ' +
+  'No invento doctrina — si el dato no está en los archivos, te lo digo.'
 
 /** Global floating rules-assistant widget, mounted once in AppShell so it's reachable from
  * every page. Talks to POST /api/chat (public, no login required — see server/src/routes/chat.js)
