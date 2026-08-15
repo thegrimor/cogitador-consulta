@@ -110,6 +110,13 @@ export function getCoreStratagems() {
   return coreRulesCatalog.coreStratagems
 }
 
+// ── Universal combat effects — faction-agnostic rules with a real-combat-math effect (Cover,
+// Heavy while stationary, ...). Small and fixed, so no search/paging needed. ────────────────
+
+export function listUniversalEffects() {
+  return coreRulesCatalog.coreRuleEffects
+}
+
 // ── Core rules glossary (weapon/unit abilities, concepts, phases) ──────────
 
 export function searchCoreRules(query, limit = 15) {
@@ -150,5 +157,19 @@ export function searchMissions(query, limit = 10) {
   return {
     primary: primary.slice(0, limit),
     secondary: secondary.slice(0, limit),
+  }
+}
+
+// Same cross-reference table MissionMatcherPage reads directly (missions.matrix.grid[own][opp])
+// — which Force Disposition deck each player is on decides which Primary Mission card is in
+// play. Deck-name matching is accent/case-insensitive since callers (including the model) won't
+// always type it exactly as it appears in the grid.
+export function getMissionMatchup(ownDeck, opponentDeck) {
+  const { rows, columns, grid } = missionsData.matrix
+  const matchedRow = rows.find(r => normalize(r) === normalize(ownDeck))
+  const matchedCol = columns.find(c => normalize(c) === normalize(opponentDeck))
+  return {
+    decks: rows,
+    missionName: matchedRow && matchedCol ? (grid[matchedRow]?.[matchedCol] ?? null) : null,
   }
 }

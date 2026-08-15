@@ -11,10 +11,12 @@ import {
   getEnhancements,
   getArmyRules,
   getCoreStratagems,
+  listUniversalEffects,
   searchCoreRules,
   listPhases,
   getPhase,
   searchMissions,
+  getMissionMatchup,
 } from './gameDataIndex.js'
 import { stripHtml } from './textUtils.js'
 
@@ -114,6 +116,41 @@ function formatEnhancement(e) {
   return `${e.name} (+${e.cost} pts) — destacamento: ${e.detachmentName}\n${stripHtml(e.description)}`
 }
 
+// Mission cards: primary and secondary use slightly different shapes (tiers vs. rows, markdown
+// **bold** vs. HTML <b> for emphasis) but both score via a list of { text, vp, perUnit?,
+// cumulative?, or? } items grouped into { when, trigger } sections, and some cards additionally
+// carry an actionable "action" box (see scripts/scrape-mission-actions.mjs / MissionActionBox).
+function formatMissionScoreItem(item) {
+  const prefix = item.cumulative ? '  + ' : item.or ? '  o ' : '• '
+  const perUnit = item.perUnit ? ' (por unidad)' : ''
+  return `${prefix}${stripHtml(item.text)}${perUnit} — ${item.vp} PV`
+}
+
+function formatMissionSection(section) {
+  const header = [section.when, section.trigger].filter(Boolean).join(' · ')
+  const items = (section.tiers ?? section.rows ?? []).map(formatMissionScoreItem)
+  return [header, ...items].filter(Boolean).join('\n')
+}
+
+function formatMissionAction(action) {
+  const lines = [`Acción — ${action.title}:`]
+  for (const row of action.rows ?? []) lines.push(`  ${row.k}: ${stripHtml(row.v)}`)
+  return lines.join('\n')
+}
+
+function formatMissionCard(card, kind) {
+  const lines = [`[${kind}] ${card.name}`]
+  if (card.kindLabel) lines.push(card.kindLabel)
+  if (card.deck) lines.push(`Mazo: ${card.deck}`)
+  if (card.whenDrawn) lines.push('', stripHtml(card.whenDrawn))
+  for (const section of card.sections ?? []) {
+    const formatted = formatMissionSection(section)
+    if (formatted) lines.push('', formatted)
+  }
+  if (card.action) lines.push('', formatMissionAction(card.action))
+  return lines.join('\n')
+}
+
 function formatAbility(a) {
   return `${a.name}: ${stripHtml(a.description)}`
 }
@@ -201,6 +238,14 @@ export const chatTools = [
     input_schema: { type: 'object', properties: {} },
   },
   {
+    name: 'get_universal_effects',
+    description:
+      'Lista las reglas de combate transversales, no ligadas a ninguna facción, que aplican en ' +
+      'cualquier partida (p. ej. Cobertura, Arma Pesada quieta). Distinto de get_core_stratagems ' +
+      '(esos cuestan PE y hay que jugarlos; esto son condiciones automáticas del combate).',
+    input_schema: { type: 'object', properties: {} },
+  },
+  {
     name: 'get_enhancements',
     description: 'Lista las mejoras (enhancements) de una facción, opcionalmente filtradas por destacamento.',
     input_schema: {
@@ -260,11 +305,30 @@ export const chatTools = [
   },
   {
     name: 'search_missions',
-    description: 'Busca misiones primarias y secundarias por nombre.',
+    description:
+      'Busca misiones primarias y secundarias por nombre y devuelve la ficha completa de cada ' +
+      'coincidencia: condiciones y puntos de victoria (PV) de cada tramo de puntuación, cuándo se ' +
+      'puntúa, y la acción asociada si la tiene.',
     input_schema: {
       type: 'object',
       properties: { query: { type: 'string' } },
       required: ['query'],
+    },
+  },
+  {
+    name: 'get_mission_matchup',
+    description:
+      'Dado el mazo de Disposición de Fuerzas (Force Disposition) de cada jugador — Take and ' +
+      'Hold, Purge the Foe, Disruption, Reconnaissance o Priority Assets — devuelve qué carta de ' +
+      'Misión Primaria toca jugar. Es el mismo cruce que usa el Emparejador de Misiones de la ' +
+      'app; úsala cuando te pregunten "qué misión primaria juego si yo llevo X y el rival Y".',
+    input_schema: {
+      type: 'object',
+      properties: {
+        ownDeck: { type: 'string', description: 'Mazo del propio jugador.' },
+        opponentDeck: { type: 'string', description: 'Mazo del rival.' },
+      },
+      required: ['ownDeck', 'opponentDeck'],
     },
   },
 ]
@@ -311,6 +375,11 @@ export function executeChatTool(name, input) {
     case 'get_core_stratagems':
       return joinCapped(getCoreStratagems(), formatStratagem)
 
+    case 'get_universal_effects':
+      return listUniversalEffects()
+        .map(e => `${e.name}: ${stripHtml(e.description)}`)
+        .join('\n\n')
+
     case 'get_enhancements': {
       const enhancements = getEnhancements(input.factionId, input.detachmentId)
       if (!enhancements) return `Facción desconocida: "${input.factionId}".`
@@ -349,11 +418,22 @@ export function executeChatTool(name, input) {
     case 'search_missions': {
       const { primary, secondary } = searchMissions(input.query)
       if (!primary.length && !secondary.length) return 'Sin coincidencias.'
-      const lines = [
-        ...primary.map(c => `[Misión primaria] ${c.name} (mazo: ${c.deck})`),
-        ...secondary.map(c => `[Misión secundaria] ${c.name}`),
+      const cards = [
+        ...primary.map(c => formatMissionCard(c, 'Misión primaria')),
+        ...secondary.map(c => formatMissionCard(c, 'Misión secundaria')),
       ]
-      return lines.join('\n')
+      return joinCapped(cards, card => card, 'Acota más el nombre para reducir el resultado.')
+    }
+
+    case 'get_mission_matchup': {
+      const { decks, missionName } = getMissionMatchup(input.ownDeck, input.opponentDeck)
+      if (!missionName) {
+        return (
+          `Mazo no reconocido: "${input.ownDeck}" y/o "${input.opponentDeck}". ` +
+          `Mazos válidos: ${decks.join(', ')}.`
+        )
+      }
+      return `Con "${input.ownDeck}" contra "${input.opponentDeck}" se juega: ${missionName}.`
     }
 
     default:
