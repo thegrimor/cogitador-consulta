@@ -106,10 +106,13 @@ stratagems, enhancements, the core-rules glossary, the phase-by-phase sequence o
 missions. It's a thin tool-use loop, not a RAG index: `server/src/routes/chat.js` calls the
 Claude API (`@anthropic-ai/sdk`, model `claude-opus-5`) with a fixed set of tools
 (`server/src/lib/chatTools.js` — `list_factions`, `search_datasheets`/`get_datasheet`,
-`get_detachments`, `get_stratagems`/`get_core_stratagems`, `get_enhancements`, `get_army_rules`,
-`search_core_rules` (terminology glossary), `list_phases`/`get_phase` (sequence-of-play
-procedure — a distinct data source from the glossary, see "Core rules & missions" above),
-`search_missions`) that search/read `public/data/*.json` on demand — the ~15MB of game data is
+`get_detachments`, `get_stratagems`/`get_core_stratagems`, `get_universal_effects` (faction-agnostic
+combat rules with a math effect, e.g. Cover — distinct from `get_core_stratagems`, which cost CP),
+`get_enhancements`, `get_army_rules`, `search_core_rules` (terminology glossary), `list_phases`/
+`get_phase` (sequence-of-play procedure — a distinct data source from the glossary, see "Core
+rules & missions" above), `search_missions`, `get_mission_matchup` (Force Disposition matchup →
+Primary Mission card, same lookup as `MissionMatcherPage`'s `missions.matrix.grid`)) that
+search/read `public/data/*.json` on demand — the ~15MB of game data is
 never sent as context, only the specific datasheet/stratagem/etc. the model asks for, via
 `server/src/lib/gameDataIndex.js` (loads and indexes all faction JSON into memory once at
 startup; searches are case/accent-insensitive substring matches). List-returning tools
