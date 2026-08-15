@@ -25,8 +25,8 @@ export function ChatWidget() {
   return (
     <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2">
       {isOpen && (
-        <div className="w-[min(92vw,384px)] h-[min(70vh,560px)] flex flex-col border border-rim-bright bg-surface-2 shadow-2xl">
-          <div className="flex items-center justify-between px-3 py-2 border-b border-rim-bright bg-surface-3 shrink-0">
+        <div className="w-[min(92vw,384px)] h-[min(70vh,560px)] flex flex-col border-2 border-crimson-bright bg-surface-3 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.9),0_0_45px_-8px_rgba(255,34,34,0.45)]">
+          <div className="flex items-center justify-between px-3 py-2 border-b border-rim-bright bg-surface-4 shrink-0">
             <span className="font-display text-[11px] uppercase tracking-widest text-gold select-none">
               Grimor Inferior
             </span>
@@ -65,7 +65,7 @@ export function ChatWidget() {
                   className={`text-[11px] font-mono leading-relaxed whitespace-pre-wrap px-2.5 py-1.5 max-w-[90%] ${
                     message.role === 'user'
                       ? 'self-end bg-crimson/15 border border-crimson-bright text-parchment'
-                      : 'self-start bg-surface-1 border border-rim-bright text-parchment'
+                      : 'self-start bg-surface border border-rim-bright text-parchment'
                   }`}
                 >
                   {message.content}
@@ -88,7 +88,7 @@ export function ChatWidget() {
               onChange={e => setInput(e.target.value)}
               placeholder="Escribe tu pregunta…"
               disabled={isStreaming}
-              className="flex-1 min-w-0 bg-surface-1 px-2.5 py-2 text-[11px] font-mono text-parchment placeholder:text-parchment-dim outline-none disabled:opacity-50"
+              className="flex-1 min-w-0 bg-surface px-2.5 py-2 text-[11px] font-mono text-parchment placeholder:text-parchment-dim outline-none disabled:opacity-50"
             />
             <button
               type="submit"
@@ -103,7 +103,7 @@ export function ChatWidget() {
 
       <button
         onClick={() => setIsOpen(o => !o)}
-        className="flex items-center justify-center w-11 h-11 border border-rim-bright bg-surface-2 hover:border-gold transition-colors shadow-lg"
+        className="flex items-center justify-center w-11 h-11 border-2 border-crimson-bright bg-surface-3 hover:border-gold transition-colors shadow-[0_10px_30px_-8px_rgba(0,0,0,0.9),0_0_25px_-6px_rgba(255,34,34,0.4)]"
         title="Grimor Inferior"
         aria-label={isOpen ? 'Cerrar el Grimor Inferior' : 'Abrir el Grimor Inferior'}
         aria-expanded={isOpen}
