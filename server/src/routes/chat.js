@@ -11,6 +11,18 @@ export const chatRouter = Router()
 const apiKey = process.env.ANTHROPIC_API_KEY
 const client = apiKey ? new Anthropic({ apiKey }) : null
 
+// For list-building/meta questions (opinion, not catalog fact) — restricted to a small allowlist
+// the user chose explicitly, not open web search: goonhammer.com (English tactics/meta site),
+// tozudos40k.blogspot.com and listhammer.info (Spanish-language community sites). max_uses caps
+// spend per turn — each search/fetch call is billed separately from normal model tokens. No beta
+// header needed; these are the current (2026) server-side tool versions, run on Anthropic's
+// infrastructure — no client-side fetching or scraping happens in this process.
+const ALLOWED_META_DOMAINS = ['goonhammer.com', 'tozudos40k.blogspot.com', 'listhammer.info']
+const WEB_TOOLS = [
+  { type: 'web_search_20260209', name: 'web_search', max_uses: 3, allowed_domains: ALLOWED_META_DOMAINS },
+  { type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 3, allowed_domains: ALLOWED_META_DOMAINS },
+]
+
 const SYSTEM_PROMPT = `Te llamas "Grimor Inferior" y eres el asistente de reglas de Cogitador \
 Consulta, una app de consulta para Warhammer 40.000 (10ª edición) en español. Si te preguntan tu \
 nombre, respóndelo tal cual.
@@ -35,7 +47,16 @@ fuentes distintas, no te quedes solo con el glosario si te preguntan por el proc
 
 Cuando el nombre de una unidad o facción sea ambiguo, usa search_datasheets o list_factions primero \
 para confirmar el id exacto antes de pedir el detalle. Responde siempre en español, de forma \
-directa y concisa, citando el nombre exacto de lo que consultaste.`
+directa y concisa, citando el nombre exacto de lo que consultaste.
+
+Para preguntas de formación de listas o meta (qué es fuerte ahora mismo, qué combinaciones \
+recomienda la comunidad, etc.) puedes buscar y leer contenido de un grupo reducido de webs \
+permitidas: Goonhammer, Tozudos40k y ListHammer. Esto es categóricamente distinto de las \
+herramientas de datos del catálogo: es la opinión de terceros sobre el estado del juego, no una \
+regla oficial ni un hecho verificable. Cada vez que uses algo sacado de una de estas webs, dilo \
+explícitamente ("esto es la opinión de [fuente], no una regla oficial") e incluye el enlace o el \
+nombre de la fuente en tu respuesta — nunca presentes una opinión de meta como si fuera un dato \
+del catálogo, ni mezcles ambas cosas sin dejar claro cuál es cuál.`
 
 const MAX_TOOL_ITERATIONS = 6
 
@@ -77,7 +98,7 @@ chatRouter.post(
           max_tokens: 4096,
           system: SYSTEM_PROMPT,
           thinking: { type: 'adaptive' },
-          tools: chatTools,
+          tools: [...chatTools, ...WEB_TOOLS],
           messages: conversation,
         })
 
@@ -90,6 +111,12 @@ chatRouter.post(
           sseSend(res, 'error', { message: 'No puedo responder a eso.' })
           break
         }
+
+        // Server-side tools (web_search/web_fetch) run their own internal loop capped at 10
+        // iterations; hitting that cap mid-search pauses the turn with no client tool_use
+        // pending. Resuming is just re-sending the conversation as-is (already pushed above) —
+        // no extra user message — so loop again instead of treating this as a finished answer.
+        if (message.stop_reason === 'pause_turn') continue
 
         const toolUses = message.content.filter(block => block.type === 'tool_use')
         if (toolUses.length === 0) break // plain text answer — done
