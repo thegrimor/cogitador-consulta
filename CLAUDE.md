@@ -132,17 +132,6 @@ iterations per turn. Requires `ANTHROPIC_API_KEY` in `server/.env`; without it t
 replies `503` instead of the process failing to boot, so the rest of the app (auth, rosters,
 catalog) works fine with the key unset.
 
-For list-building/meta questions (opinion, not catalog fact) the model also has Anthropic's
-server-side `web_search`/`web_fetch` tools (`WEB_TOOLS` in `chat.js`), restricted via
-`allowed_domains` to a fixed, user-chosen allowlist (`goonhammer.com`, `tozudos40k.blogspot.com`,
-`listhammer.info` — no open web search) with `max_uses: 3` each per turn to bound spend. These
-run entirely on Anthropic's infrastructure (no client-side fetch/scrape in this process) and
-resolve within one API call — no code in the tool loop dispatches them, unlike the catalog tools
-in `chatTools.js`; the loop does explicitly handle `stop_reason: 'pause_turn'` (the server-side
-search/fetch loop hit its own internal 10-iteration cap) by resuming automatically instead of
-treating the partial answer as final. The system prompt requires the model to flag anything
-sourced from these sites as third-party opinion (not an official rule) and cite the source.
-
 ### State: Redux (`roster` + `auth`)
 
 `src/store/index.ts` configures a Redux store (RTK) with two slices: `roster`
