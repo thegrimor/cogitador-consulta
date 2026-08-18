@@ -72,11 +72,14 @@ chatRouter.post(
 
     try {
       for (let iteration = 0; iteration < MAX_TOOL_ITERATIONS; iteration++) {
+        // Haiku 4.5, not Opus — this is tool-calling + formatting JSON into prose, not deep
+        // reasoning, and Haiku is a fraction of the cost per token. Its `thinking` support is the
+        // older enabled+budget_tokens shape, not `{type: "adaptive"}` (Opus/Sonnet 5-only) — for
+        // a lookup task like this, thinking isn't needed at all, so the param is just omitted.
         const stream = client.messages.stream({
-          model: 'claude-opus-5',
+          model: 'claude-haiku-4-5',
           max_tokens: 4096,
           system: SYSTEM_PROMPT,
-          thinking: { type: 'adaptive' },
           tools: chatTools,
           messages: conversation,
         })
