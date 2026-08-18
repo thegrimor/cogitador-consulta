@@ -34,7 +34,7 @@ No test suite yet.
 
 ## Architecture
 
-**Warhammer 40K 10th edition data consultation + army-building + damage-calculation app**, all in Spanish. Four areas, reachable from the nav bar (`Archivo` / `Ejército` / `Mathhammer`) and the home page:
+**Warhammer 40K 11th edition data consultation + army-building + damage-calculation app**, all in Spanish. `public/data/catalog/core-rules.json`'s `sources[].edition` field was bumped `10` → `11` across all 72 entries to match — that's a metadata label only; the rule/stratagem/glossary *text* itself hasn't been re-audited for 11th-edition content changes, since neither this file's history nor a live source for that verification is available here. Four areas, reachable from the nav bar (`Archivo` / `Ejército` / `Mathhammer`) and the home page:
 
 1. **Catalog** (`Archivo`) — browse factions, datasheets, detachments, stratagems, enhancements.
 2. **Reglamento** (core rules) — rules glossary, phases reference.

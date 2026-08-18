@@ -1,6 +1,6 @@
 # Cogitador de Consulta
 
-Aplicación web (React + TypeScript + Vite) para consultar datos de Warhammer 40.000 (10ª edición), construir listas de ejército y calcular daño esperado en combate. Toda la interfaz está en español.
+Aplicación web (React + TypeScript + Vite) para consultar datos de Warhammer 40.000 (11ª edición), construir listas de ejército y calcular daño esperado en combate. Toda la interfaz está en español.
 
 ## Funcionalidades
 
