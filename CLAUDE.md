@@ -104,7 +104,8 @@ A floating rules-assistant widget (`ChatWidget`, in-character as "Grimor Inferio
 globally in `AppShell` — bottom-right, every page) answers questions about datasheets,
 stratagems, enhancements, the core-rules glossary, the phase-by-phase sequence of play, and
 missions. It's a thin tool-use loop, not a RAG index: `server/src/routes/chat.js` calls the
-Claude API (`@anthropic-ai/sdk`, model `claude-opus-5`) with a fixed set of tools
+Claude API (`@anthropic-ai/sdk`, model `claude-haiku-4-5` — tool-calling + formatting JSON into
+prose, not deep reasoning, so Haiku's cost fits the task) with a fixed set of tools
 (`server/src/lib/chatTools.js` — `list_factions`, `search_datasheets`/`get_datasheet`,
 `get_detachments`, `get_stratagems`/`get_core_stratagems`, `get_universal_effects` (faction-agnostic
 combat rules with a math effect, e.g. Cover — distinct from `get_core_stratagems`, which cost CP),
