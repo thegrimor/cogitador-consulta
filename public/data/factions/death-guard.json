@@ -8076,11 +8076,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 300
+          "points": 270
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 340
+          "points": 310
         }
       ],
       "wargearCosts": [

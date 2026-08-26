@@ -55683,11 +55683,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 230
+          "points": 255
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 250
+          "points": 275
         }
       ],
       "wargearCosts": [
