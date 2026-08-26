@@ -2119,11 +2119,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 170
+          "points": 160
         },
         {
           "description": "20 models",
-          "points": 330
+          "points": 320
         }
       ],
       "wargearCosts": [],

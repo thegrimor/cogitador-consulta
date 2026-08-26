@@ -10551,11 +10551,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 270
+          "points": 300
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 310
+          "points": 350
         }
       ],
       "wargearCosts": [
@@ -15239,11 +15239,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 180
+          "points": 160
         },
         {
           "description": "20 models",
-          "points": 360
+          "points": 320
         }
       ],
       "wargearCosts": [],

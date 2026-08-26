@@ -1609,11 +1609,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 150
+          "points": 160
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 170
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -2089,15 +2089,15 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 190
+          "points": 200
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 115
+          "points": 135
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 210
+          "points": 240
         }
       ],
       "wargearCosts": [],
@@ -2255,7 +2255,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -4401,11 +4401,11 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 80
         },
         {
           "description": "2 models",
-          "points": 140
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -4977,11 +4977,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 255
+          "points": 265
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 270
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -5292,7 +5292,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 90
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -5783,7 +5783,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 80
+          "points": 85
         },
         {
           "description": "10 models",
