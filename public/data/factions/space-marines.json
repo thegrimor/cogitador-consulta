@@ -5981,7 +5981,7 @@
     {
       "id": "beacon-angelis-space-marines",
       "name": "Beacon Angelis",
-      "cost": 30,
+      "cost": 25,
       "detachmentId": "black-spear-task-force",
       "detachmentName": "Black Spear Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Models in the bearer’s unit have the Deep Strike ability. In addition, you can target the bearer’s unit with the Rapid Ingress Stratagem for 0CP."
@@ -6876,7 +6876,7 @@
     {
       "id": "a-giant-amongst-giants",
       "name": "A Giant Amongst Giants",
-      "cost": 20,
+      "cost": 15,
       "detachmentId": "champions-of-fenris",
       "detachmentName": "Champions of Fenris",
       "description": "<span class=\"kwb\">ADEPTUS ASTARTES INFANTRY</span> model only.<ul><li>This model has +2 W.</li><li>This model's melee attacks have +1 S.</li></ul>"

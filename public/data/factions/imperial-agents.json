@@ -17,8 +17,8 @@
     {
       "id": "ordo-xenos-alien-hunters",
       "name": "Ordo Xenos Alien Hunters",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PURGE THE FOE",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -37,8 +37,8 @@
     {
       "id": "ordo-hereticus-purgation-force",
       "name": "Ordo Hereticus Purgation Force",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "TAKE AND HOLD",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -57,8 +57,8 @@
     {
       "id": "ordo-malleus-daemon-hunters",
       "name": "Ordo Malleus Daemon Hunters",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PRIORITY ASSETS",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {

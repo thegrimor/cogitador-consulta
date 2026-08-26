@@ -987,7 +987,7 @@
     {
       "id": "priority-drop-beacon",
       "name": "Priority-drop Beacon",
-      "cost": 30,
+      "cost": 25,
       "detachmentId": "bridgehead-strike",
       "detachmentName": "Bridgehead Strike",
       "description": "Militarum Tempestus Officer model only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules."

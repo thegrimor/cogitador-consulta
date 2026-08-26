@@ -140,7 +140,7 @@
     {
       "id": "aspect-host",
       "name": "Aspect Host",
-      "disposition": "DISRUPTION",
+      "disposition": "PRIORITY ASSETS",
       "dp": 3,
       "chapters": [],
       "abilities": [

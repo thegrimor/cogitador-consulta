@@ -102,8 +102,8 @@
     {
       "id": "brood-brother-auxilia",
       "name": "Brood Brother Auxilia",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "TAKE AND HOLD",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {

@@ -1244,7 +1244,7 @@
     {
       "id": "vinghs-wafers-of-dynamism",
       "name": "Vingh's Wafers of Dynamism",
-      "cost": 0,
+      "cost": 25,
       "detachmentId": "lords-of-the-forge",
       "detachmentName": "Lords of the Forge",
       "description": "<span class=\"kwb\">CYBERNETICA DATASMITH</span> model only. At the start of the first battle round, if this unit is an attached unit, this unit has MOBILE until the end of the battle."
