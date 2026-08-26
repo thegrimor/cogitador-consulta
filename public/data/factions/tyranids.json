@@ -3871,27 +3871,27 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 45
+          "points": 40
         },
         {
           "description": "2 models (1st-2nd units)",
-          "points": 65
+          "points": 70
         },
         {
           "description": "3 models (1st-2nd units)",
-          "points": 95
+          "points": 100
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 55
+          "points": 50
         },
         {
           "description": "2 models (3rd+ unit)",
-          "points": 75
+          "points": 80
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 105
+          "points": 110
         }
       ],
       "wargearCosts": [],
