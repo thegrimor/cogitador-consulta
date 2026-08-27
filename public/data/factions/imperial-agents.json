@@ -17,8 +17,8 @@
     {
       "id": "ordo-xenos-alien-hunters",
       "name": "Ordo Xenos Alien Hunters",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PURGE THE FOE",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -37,8 +37,8 @@
     {
       "id": "ordo-hereticus-purgation-force",
       "name": "Ordo Hereticus Purgation Force",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "TAKE AND HOLD",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -57,8 +57,8 @@
     {
       "id": "ordo-malleus-daemon-hunters",
       "name": "Ordo Malleus Daemon Hunters",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PRIORITY ASSETS",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -902,7 +902,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 125
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -1243,7 +1243,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -1803,7 +1803,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -2027,7 +2027,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 55
         }
       ],
       "wargearCosts": [],
@@ -2217,7 +2217,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 110
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -2430,7 +2430,7 @@
       "pointsCosts": [
         {
           "description": "6 models",
-          "points": 70
+          "points": 50
         }
       ],
       "wargearCosts": [],
@@ -3218,7 +3218,7 @@
       "pointsCosts": [
         {
           "description": "11 models",
-          "points": 100
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -3522,7 +3522,7 @@
       "pointsCosts": [
         {
           "description": "11 models",
-          "points": 85
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -3790,7 +3790,7 @@
       "pointsCosts": [
         {
           "description": "4 models",
-          "points": 105
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -3932,7 +3932,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -4238,11 +4238,11 @@
       "pointsCosts": [
         {
           "description": "6 models",
-          "points": 60
+          "points": 50
         },
         {
           "description": "12 models",
-          "points": 120
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -4651,7 +4651,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 190
+          "points": 175
         }
       ],
       "wargearCosts": [
@@ -5941,7 +5941,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -6159,11 +6159,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st to 3rd units)",
-          "points": 105
+          "points": 90
         },
         {
           "description": "1 model (4th + unit)",
-          "points": 115
+          "points": 100
         }
       ],
       "wargearCosts": [

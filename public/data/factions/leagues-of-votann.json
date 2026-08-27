@@ -2675,7 +2675,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 100
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -3139,11 +3139,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 100
+          "points": 95
         },
         {
           "description": "10 models",
-          "points": 200
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -3833,7 +3833,7 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 160
+          "points": 170
         },
         {
           "description": "3 models (3rd+ unit)",
@@ -3841,7 +3841,7 @@
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 170
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -5100,7 +5100,7 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 160
+          "points": 170
         },
         {
           "description": "3 models (3rd+ unit)",
@@ -5108,7 +5108,7 @@
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 170
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -5281,19 +5281,19 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 80
+          "points": 75
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 160
+          "points": 150
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 90
+          "points": 85
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 170
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -5485,7 +5485,7 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [],

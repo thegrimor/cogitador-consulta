@@ -141,7 +141,7 @@
       "id": "recon-element",
       "name": "Recon Element",
       "disposition": "RECONNAISSANCE",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -987,7 +987,7 @@
     {
       "id": "priority-drop-beacon",
       "name": "Priority-drop Beacon",
-      "cost": 30,
+      "cost": 25,
       "detachmentId": "bridgehead-strike",
       "detachmentName": "Bridgehead Strike",
       "description": "Militarum Tempestus Officer model only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules."
@@ -1601,11 +1601,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 215
+          "points": 195
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 230
+          "points": 210
         }
       ],
       "wargearCosts": [
@@ -4516,11 +4516,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 185
+          "points": 160
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 195
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -4821,11 +4821,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 180
+          "points": 160
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 190
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -11328,7 +11328,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 75
+          "points": 70
         },
         {
           "description": "20 models",
@@ -11754,11 +11754,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 75
+          "points": 70
         },
         {
           "description": "20 models",
-          "points": 145
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -11972,11 +11972,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 75
+          "points": 70
         },
         {
           "description": "20 models",
-          "points": 145
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -13330,11 +13330,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 170
+          "points": 145
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 180
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -13650,11 +13650,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 170
+          "points": 145
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 180
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -13956,11 +13956,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 180
+          "points": 160
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 190
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -14259,11 +14259,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 150
+          "points": 130
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 160
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -14564,11 +14564,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 150
+          "points": 130
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 160
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -17383,7 +17383,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 65
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -17589,7 +17589,7 @@
       "pointsCosts": [
         {
           "description": "4 models",
-          "points": 60
+          "points": 70
         }
       ],
       "wargearCosts": [

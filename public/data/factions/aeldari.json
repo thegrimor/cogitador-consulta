@@ -140,7 +140,7 @@
     {
       "id": "aspect-host",
       "name": "Aspect Host",
-      "disposition": "DISRUPTION",
+      "disposition": "PRIORITY ASSETS",
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1984,7 +1984,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -4123,7 +4123,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 45
+          "points": 40
         }
       ],
       "wargearCosts": [],
@@ -4378,7 +4378,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 55
+          "points": 45
         },
         {
           "description": "2 models",
@@ -4542,7 +4542,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 55
+          "points": 50
         }
       ],
       "wargearCosts": [],
@@ -5044,7 +5044,7 @@
       "pointsCosts": [
         {
           "description": "11 models",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -5611,11 +5611,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 75
+          "points": 70
         },
         {
           "description": "10 models",
-          "points": 150
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -8506,11 +8506,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 100
+          "points": 95
         },
         {
           "description": "10 models",
-          "points": 210
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -9355,7 +9355,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 85
+          "points": 80
         },
         {
           "description": "2 models",
@@ -13152,7 +13152,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 80
         }
       ],
       "wargearCosts": [],

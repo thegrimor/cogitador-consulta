@@ -1678,7 +1678,7 @@
     {
       "id": "targetin-gizmos",
       "name": "Targetin' Gizmos",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "rollin-deff",
       "detachmentName": "Rollin' Deff",
       "description": "<span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">BIG MEK</span> model is embarked within this unit: This unit's ranged attacks have [IGNORES COVER]. If the Waaagh! is active for this unit, this unit's ranged attacks have [SUSTAINED HITS 1].",

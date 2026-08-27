@@ -1244,7 +1244,7 @@
     {
       "id": "vinghs-wafers-of-dynamism",
       "name": "Vingh's Wafers of Dynamism",
-      "cost": 0,
+      "cost": 25,
       "detachmentId": "lords-of-the-forge",
       "detachmentName": "Lords of the Forge",
       "description": "<span class=\"kwb\">CYBERNETICA DATASMITH</span> model only. At the start of the first battle round, if this unit is an attached unit, this unit has MOBILE until the end of the battle."
@@ -1688,7 +1688,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -2848,11 +2848,11 @@
       "pointsCosts": [
         {
           "description": "2 models (1st unit)",
-          "points": 160
+          "points": 150
         },
         {
           "description": "4 models (1st unit)",
-          "points": 320
+          "points": 300
         },
         {
           "description": "2 models (2nd+ unit)",
@@ -2860,7 +2860,7 @@
         },
         {
           "description": "4 models (2nd+ unit)",
-          "points": 340
+          "points": 330
         }
       ],
       "wargearCosts": [],
@@ -5797,19 +5797,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 80
+          "points": 75
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 160
+          "points": 150
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 90
+          "points": 85
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 170
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -5991,7 +5991,7 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 80
+          "points": 75
         },
         {
           "description": "10 models (1st-2nd units)",
@@ -5999,7 +5999,7 @@
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 90
+          "points": 85
         },
         {
           "description": "10 models (3rd+ unit)",
