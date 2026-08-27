@@ -32783,19 +32783,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st unit)",
-          "points": 150
+          "points": 155
         },
         {
           "description": "10 models (1st unit)",
-          "points": 300
+          "points": 310
         },
         {
           "description": "5 models (2nd+ unit)",
-          "points": 165
+          "points": 195
         },
         {
           "description": "10 models (2nd+ unit)",
-          "points": 315
+          "points": 350
         }
       ],
       "wargearCosts": [
