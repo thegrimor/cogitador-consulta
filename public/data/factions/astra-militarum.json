@@ -141,7 +141,7 @@
       "id": "recon-element",
       "name": "Recon Element",
       "disposition": "RECONNAISSANCE",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {

@@ -6387,7 +6387,7 @@
     {
       "id": "recon-hunter",
       "name": "Recon Hunter",
-      "cost": 20,
+      "cost": 30,
       "detachmentId": "company-of-hunters",
       "detachmentName": "Company of Hunters",
       "description": "Ravenwing model only. Models in the bearer’s unit have the Scouts 9\" ability."

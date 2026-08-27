@@ -124,8 +124,8 @@
     {
       "id": "lions-of-the-emperor",
       "name": "Lions of the Emperor",
-      "disposition": "DISRUPTION",
-      "dp": 2,
+      "disposition": "TAKE AND HOLD",
+      "dp": 3,
       "chapters": [],
       "abilities": [
         {

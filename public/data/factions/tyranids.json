@@ -1217,7 +1217,7 @@
     {
       "id": "synaptoprescience-upgrade",
       "name": "Synaptoprescience Upgrade",
-      "cost": 25,
+      "cost": 30,
       "detachmentId": "talons-of-the-norn-queen",
       "detachmentName": "Talons of the Norn Queen",
       "description": "<span class=\"kwb\">NORN</span> <span class=\"kwb\">ASSIMILATOR</span> unit only. This unit has a 4+ invulnerable save.",

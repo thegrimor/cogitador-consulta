@@ -1063,7 +1063,7 @@
     {
       "id": "possessed-blade",
       "name": "Possessed Blade",
-      "cost": 25,
+      "cost": 35,
       "detachmentId": "carnival-of-excess-emperors-children",
       "detachmentName": "Carnival of Excess",
       "description": "Emperor’s Children model only. At the start of the battle, select one melee weapon equipped by the bearer; add 1 to the Attacks characteristic of that weapon. In addition, each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those attacks, add 1 to the Damage characteristic of that weapon and that weapon has the [devastating wounds] and [hazardous] abilities.",
@@ -1087,7 +1087,7 @@
     {
       "id": "warp-walker",
       "name": "Warp Walker",
-      "cost": 30,
+      "cost": 35,
       "detachmentId": "carnival-of-excess-emperors-children",
       "detachmentName": "Carnival of Excess",
       "description": "Emperor’s Children or Keeper of Secrets model only. Each time the bearer’s unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in that unit. Each time a model in the bearer’s unit makes a Normal, Advance or Fall Back move, it can move through enemy models. When doing so, it can move within Engagement Range of such models but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed."
