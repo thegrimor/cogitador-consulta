@@ -39,12 +39,26 @@
           "id": "exquisite-swordsmanship",
           "name": "Exquisite Swordsmanship",
           "description": "Each time an Emperor’s Children unit from your army is selected to fight, if it made a Charge move this turn, select one of the abilities below. While resolving those attacks, melee weapons equipped by models in that unit have that ability:<br><ul><li>[LETHAL HITS]</li><li>[SUSTAINED HITS 1]</li></ul>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Exquisite Swordsmanship — [Lethal Hits]",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Exquisite Swordsmanship — [Sustained Hits 1]",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
