@@ -27,6 +27,11 @@ export interface PanelState {
   selectCharacter: (id: string | null) => void
   selectEnhancement: (id: string | null) => void
   setRosterIds: (ids: string[] | null) => void
+  /** Overwrites the whole selection in one shot, bypassing the field-by-field reset
+   * cascades the individual `select*` setters apply (e.g. `selectUnit` clearing
+   * `characterId`) — for wholesale swaps of an already-valid selection, not incremental
+   * UI-driven changes. */
+  replaceSelection: (selection: PanelSelection) => void
 }
 
 export function usePanelState(gameData: GameData, storageKey: string): PanelState {
@@ -156,10 +161,13 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
 
   const setRosterIds = (ids: string[] | null) => setRosterIdsState(ids)
 
+  const replaceSelection = (next: PanelSelection) => setSelection(next)
+
   return {
     selection, availableDetachments, availableUnits, allUnitsForFaction, selectedUnit, selectedCharacter,
     availableCharacters, availableEnhancements, detachmentAbilities, applicableStratagems,
     rosterIds,
     selectFaction, selectDetachments, toggleDetachment, selectUnit, selectCharacter, selectEnhancement, setRosterIds,
+    replaceSelection,
   }
 }
