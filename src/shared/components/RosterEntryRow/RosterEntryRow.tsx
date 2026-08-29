@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
-import { resolveModelCount, resolveWeaponQuantities } from '@/core/utils/roster'
+import {
+  resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge,
+} from '@/core/utils/roster'
 import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
@@ -24,7 +26,7 @@ interface Props {
   onChangeEnhancement: (enhancementId: string | null) => void
   onChangeAttachment: (attachedToEntryId: string | null) => void
   onChangeWeaponSelection: (ruleId: string, selection: number[]) => void
-  onChangeWargearCosts: (selections: Record<string, number>, surcharge: number) => void
+  onChangeWargearSelections: (selections: Record<string, number>) => void
   onRemove: () => void
 }
 
@@ -54,26 +56,24 @@ export function RosterEntryRow({
   onChangeEnhancement,
   onChangeAttachment,
   onChangeWeaponSelection,
-  onChangeWargearCosts,
+  onChangeWargearSelections,
   onRemove,
 }: Props) {
   const [expanded, setExpanded] = useState(false)
 
   const selectedDescription =
-    costs.find(c => resolveModelCount(c, datasheet) === entry.modelCount && c.points === entry.pointsCost)
-      ?.description ?? ''
+    costs.find(c => resolveModelCount(c, datasheet) === entry.modelCount)?.description ?? ''
 
   const isCharacter = datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
   const weaponQuantities = resolveWeaponQuantities(datasheet, entry)
   const wargearSelections = entry.wargearSelections ?? {}
-  const wargearSurcharge = entry.wargearSurcharge ?? 0
+  const wargearSurcharge = resolveEntryWargearSurcharge(entry, wargearCosts)
+  const entryPoints = resolveEntryPoints(entry, datasheet, costs, wargearCosts)
 
   function handleWargearChange(weaponName: string, count: number) {
-    const next = { ...wargearSelections, [weaponName]: count }
-    const surcharge = wargearCosts.reduce((sum, wc) => sum + (next[wc.name] ?? 0) * wc.points, 0)
-    onChangeWargearCosts(next, surcharge)
+    onChangeWargearSelections({ ...wargearSelections, [weaponName]: count })
   }
 
   return (
@@ -88,7 +88,7 @@ export function RosterEntryRow({
             </span>
           </p>
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
-            {(entry.pointsCost ?? 0) + wargearSurcharge}pts
+            {entryPoints}pts
             {wargearSurcharge > 0 && (
               <span className="text-gold ml-1">(+{wargearSurcharge} arm.)</span>
             )}

@@ -1,4 +1,6 @@
-import type { PointsCost, Datasheet, Detachment, RosterEntry, WeaponOptionRule } from '@/types'
+import type {
+  PointsCost, Datasheet, Detachment, Enhancement, RosterEntry, RosterList, WargearCost, WeaponOptionRule,
+} from '@/types'
 import { ruleEligibleCount } from '@/core/utils/weaponOptions'
 
 export const DETACHMENT_POINTS_BUDGET = 3
@@ -100,6 +102,85 @@ export function unitIndexInRoster(
   if (entryId === null) return matching.length + 1
   const idx = matching.findIndex(e => e.id === entryId)
   return idx === -1 ? matching.length + 1 : idx + 1
+}
+
+/** Base points cost for `entry`, resolved fresh from the current data rather than a value
+ * cached on the entry — so a correction to `pointsCosts` in the data JSON is reflected on
+ * every roster immediately, with nothing to re-save. `costsForTier` must already be narrowed
+ * to this entry's tier via `resolveCostsForUnitIndex` (surcharge tiers can share a model count
+ * with a different tier's variant). Falls back to the next size up, then the largest variant,
+ * for a `modelCount` that no longer matches any variant (e.g. after a data edit). */
+export function resolveEntryBaseCost(
+  entry: RosterEntry,
+  datasheet: Datasheet,
+  costsForTier: PointsCost[],
+): number {
+  if (costsForTier.length === 0) return 0
+  const sorted = sortCostVariants(costsForTier)
+  const exact = sorted.find(c => resolveModelCount(c, datasheet) === entry.modelCount)
+  if (exact) return exact.points
+  const next = sorted.find(c => resolveModelCount(c, datasheet) >= entry.modelCount)
+  return (next ?? sorted[sorted.length - 1]).points
+}
+
+/** Points surcharge from `entry`'s paid wargear selections, resolved fresh against the
+ * current `wargearCosts` rather than a stored total. */
+export function resolveEntryWargearSurcharge(entry: RosterEntry, wargearCosts: WargearCost[]): number {
+  if (!entry.wargearSelections) return 0
+  const pointsByName = new Map(wargearCosts.map(w => [w.name, w.points]))
+  return Object.entries(entry.wargearSelections).reduce(
+    (sum, [name, count]) => sum + (pointsByName.get(name) ?? 0) * count,
+    0,
+  )
+}
+
+/** Points cost of `entry`'s enhancement (0 if none selected), resolved fresh from `enhancements`. */
+export function resolveEntryEnhancementCost(entry: RosterEntry, enhancements: Enhancement[]): number {
+  if (!entry.enhancementId) return 0
+  return enhancements.find(e => e.id === entry.enhancementId)?.cost ?? 0
+}
+
+/** Base cost + wargear surcharge for `entry` — what the roster editor shows as the unit's
+ * own points line (enhancement cost is shown separately there). */
+export function resolveEntryPoints(
+  entry: RosterEntry,
+  datasheet: Datasheet,
+  costsForTier: PointsCost[],
+  wargearCosts: WargearCost[],
+): number {
+  return resolveEntryBaseCost(entry, datasheet, costsForTier) + resolveEntryWargearSurcharge(entry, wargearCosts)
+}
+
+/** Full points cost of `entry` — base + wargear + enhancement — for contexts (export text,
+ * roster totals) that want one number per unit. */
+export function resolveEntryTotalPoints(
+  entry: RosterEntry,
+  datasheet: Datasheet,
+  costsForTier: PointsCost[],
+  wargearCosts: WargearCost[],
+  enhancements: Enhancement[],
+): number {
+  return resolveEntryPoints(entry, datasheet, costsForTier, wargearCosts) + resolveEntryEnhancementCost(entry, enhancements)
+}
+
+/** Grand total for a whole roster (every entry's base + wargear + enhancement cost), computed
+ * fresh from current game data every time rather than read off a stored `totalPoints` field. */
+export function resolveRosterTotalPoints(
+  roster: RosterList,
+  datasheets: Datasheet[],
+  pointsCostMap: Record<string, PointsCost[]>,
+  wargearCostMap: Record<string, WargearCost[]>,
+  enhancements: Enhancement[],
+): number {
+  const datasheetById = new Map(datasheets.map(d => [d.id, d]))
+  return roster.entries.reduce((sum, entry) => {
+    const datasheet = datasheetById.get(entry.datasheetId)
+    if (!datasheet) return sum
+    const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
+    const costsForTier = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
+    const wargearCosts = wargearCostMap[entry.datasheetId] ?? []
+    return sum + resolveEntryTotalPoints(entry, datasheet, costsForTier, wargearCosts, enhancements)
+  }, 0)
 }
 
 const ROLE_PRIORITY: Record<string, number> = {

@@ -11,12 +11,12 @@ interface Props {
 }
 
 export function RosterQrExportModal({ roster, onClose }: Props) {
-  const { datasheets, factions, detachments, enhancements } = useGameDataContext()
+  const { datasheets, factions, detachments, enhancements, pointsCostMap, wargearCostMap } = useGameDataContext()
   const [copyState, setCopyState] = useState<'pending' | 'copied' | 'failed'>('pending')
 
   const text = useMemo(
-    () => exportRosterToText(roster, datasheets, factions, detachments, enhancements),
-    [roster, datasheets, factions, detachments, enhancements],
+    () => exportRosterToText(roster, datasheets, factions, detachments, enhancements, pointsCostMap, wargearCostMap),
+    [roster, datasheets, factions, detachments, enhancements, pointsCostMap, wargearCostMap],
   )
   const qrValue = useMemo(() => encodeRosterForQr(roster), [roster])
   const large = qrValue.length > QR_PAYLOAD_WARN_THRESHOLD

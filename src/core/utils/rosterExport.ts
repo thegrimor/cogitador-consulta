@@ -1,7 +1,7 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
 import {
   weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints,
-  ruleSelectionCap,
+  ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
@@ -23,17 +23,20 @@ function sectionHeader(role: string): string {
   return 'OTHER DATASHEETS'
 }
 
-/** Points cost for `entry` as it should read in exported text: base cost plus any paid
- * wargear and its enhancement, matching what RosterEditPage shows for the same unit. */
-function entryDisplayPoints(entry: RosterEntry, enhancements: Enhancement[]): number {
-  const enhCost = enhancements.find(e => e.id === entry.enhancementId)?.cost ?? 0
-  return (entry.pointsCost ?? 0) + (entry.wargearSurcharge ?? 0) + enhCost
-}
-
-function entryLines(entry: RosterEntry, datasheet: Datasheet, enhancements: Enhancement[]): string[] {
+function entryLines(
+  entry: RosterEntry,
+  datasheet: Datasheet,
+  costsForTier: PointsCost[],
+  wargearCosts: WargearCost[],
+  enhancements: Enhancement[],
+): string[] {
   const out: string[] = []
   const displayName = entry.customName ?? datasheet.name
-  out.push(`${displayName} (${entryDisplayPoints(entry, enhancements)} Points)`)
+  // Points cost as it should read in exported text: base cost plus any paid wargear and its
+  // enhancement, resolved fresh from current data — matching what RosterEditPage shows for
+  // the same unit rather than trusting anything cached on the entry.
+  const displayPoints = resolveEntryTotalPoints(entry, datasheet, costsForTier, wargearCosts, enhancements)
+  out.push(`${displayName} (${displayPoints} Points)`)
 
   if (entry.enhancementId) {
     const enh = enhancements.find(e => e.id === entry.enhancementId)
@@ -88,13 +91,21 @@ export function exportRosterToText(
   factions: Faction[],
   detachments: Detachment[],
   enhancements: Enhancement[],
+  pointsCostMap: Record<string, PointsCost[]>,
+  wargearCostMap: Record<string, WargearCost[]>,
 ): string {
   const lines: string[] = []
 
-  const enhancementsCost = roster.entries.reduce(
-    (sum, e) => sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0), 0,
-  )
-  const totalPoints = (roster.totalPoints ?? 0) + enhancementsCost
+  // Points cost for each entry (and the roster total) is resolved fresh from current data
+  // rather than trusted off the entry/roster — see resolveEntryTotalPoints/resolveRosterTotalPoints.
+  function linesFor(entry: RosterEntry, datasheet: Datasheet): string[] {
+    const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
+    const costsForTier = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
+    const wargearCosts = wargearCostMap[entry.datasheetId] ?? []
+    return entryLines(entry, datasheet, costsForTier, wargearCosts, enhancements)
+  }
+
+  const totalPoints = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
   lines.push(`${roster.name} (${totalPoints} Points)`)
   lines.push('')
 
@@ -138,7 +149,7 @@ export function exportRosterToText(
         const datasheet = datasheets.find(d => d.id === entry.datasheetId)
         if (!datasheet) continue
         lines.push('')
-        const [nameLine, ...rest] = entryLines(entry, datasheet, enhancements)
+        const [nameLine, ...rest] = linesFor(entry, datasheet)
         lines.push(nameLine)
         const role = bodyguardIds.has(entry.id)
           ? (datasheet.role === 'Battleline' ? 'Bodyguard (Battleline)' : 'Bodyguard')
@@ -171,7 +182,7 @@ export function exportRosterToText(
     lines.push('')
 
     for (const { entry, datasheet } of entries) {
-      lines.push(...entryLines(entry, datasheet, enhancements))
+      lines.push(...linesFor(entry, datasheet))
     }
   }
 
@@ -595,15 +606,11 @@ export function resolveImportedRoster(
       // weapon-option pass out of also attributing that same physical weapon structurally.
       const availableWargear = wargearCostMap[datasheet.id] ?? []
       const wargearSelections: Record<string, number> = {}
-      let wargearSurcharge = 0
 
       for (const pw of effectiveWeapons) {
         const pwBase = weaponBaseName(pw.name.replace(/^per\s+/i, ''))
         const wc = availableWargear.find(w => weaponBaseName(w.name.replace(/^per\s+/i, '')) === pwBase)
-        if (wc) {
-          wargearSelections[wc.name] = pw.count
-          wargearSurcharge += (Number(wc.points) || 0) * pw.count
-        }
+        if (wc) wargearSelections[wc.name] = pw.count
       }
 
       // 2. Weapon option rules (free choices) — match each choice bundle against imported
@@ -662,7 +669,9 @@ export function resolveImportedRoster(
         if (anyMatch) weaponOptionSelections[rule.id] = selection
       }
 
-      // Look up base cost from our data (never trust imported points — they may be wrong).
+      // Points are never stored on the entry (see resolveEntryTotalPoints) — but the
+      // imported model count still needs to land on whichever cost bracket it actually
+      // matches, so it's resolved here purely to correct `modelCount`, not to cache a price.
       // Costs are only priced at specific breakpoints (e.g. 5 or 10 models) even though a
       // unit's composition may allow in-between sizes (e.g. "4-9 Hellblasters"): fielding
       // anywhere above the smaller breakpoint costs the same as the next one up, so an
@@ -674,24 +683,21 @@ export function resolveImportedRoster(
       const matchingCost = allCosts.find(c => resolveModelCount(c, datasheet) === modelCount)
         ?? allCosts.find(c => resolveModelCount(c, datasheet) >= modelCount)
         ?? allCosts[allCosts.length - 1]
-      const baseCost = matchingCost?.points ?? 0
-      // The stored modelCount must match whichever bracket we actually charged for — if the
-      // parsed size (e.g. 6) got rounded up to the next bracket (e.g. 8), keep the entry's
-      // modelCount in step with that bracket too. Otherwise the roster shows "6x Paladin
-      // Squad (375 Points)": display says 6 while the price paid is for 8, since 375 is the
-      // 8-model rate and no 6-model rate exists.
+      // The entry's modelCount must match whichever bracket it actually gets charged for — if
+      // the parsed size (e.g. 6) rounds up to the next bracket (e.g. 8), keep modelCount in
+      // step with that bracket too. Otherwise the roster shows "6x Paladin Squad (375 Points)":
+      // display says 6 while the price paid is for 8, since 375 is the 8-model rate and no
+      // 6-model rate exists.
       const resolvedModelCount = matchingCost ? resolveModelCount(matchingCost, datasheet) : modelCount
 
       const entry: RosterEntry = {
         id: crypto.randomUUID(),
         datasheetId: datasheet.id,
         modelCount: resolvedModelCount,
-        pointsCost: baseCost,
       }
       entryToParsedUnit.set(entry.id, unit)
       if (Object.keys(wargearSelections).length > 0) {
         entry.wargearSelections = wargearSelections
-        entry.wargearSurcharge = wargearSurcharge
       }
       if (Object.keys(weaponOptionSelections).length > 0) {
         entry.weaponOptionSelections = weaponOptionSelections
@@ -700,8 +706,6 @@ export function resolveImportedRoster(
         const enh = enhancements.find(e => namesMatch(e.name, unit.enhancementName!))
         if (enh) {
           entry.enhancementId = enh.id
-          // Enhancement cost is NOT stored in pointsCost — RosterEditPage computes it
-          // separately from enhancementId and adds it to combinedTotal.
         } else {
           warnings.push(`Mejora no encontrada: "${unit.enhancementName}"`)
         }
@@ -745,15 +749,12 @@ export function resolveImportedRoster(
     }
   }
 
-  const totalPoints = entries.reduce((sum, e) => sum + (e.pointsCost ?? 0) + (e.wargearSurcharge ?? 0), 0)
-
   return {
     roster: {
       name: parsed.name,
       factionId,
       detachmentIds,
       entries,
-      totalPoints,
       pointsLimit: parsed.pointsLimit,
     },
     warnings,

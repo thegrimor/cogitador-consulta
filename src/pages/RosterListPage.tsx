@@ -172,6 +172,9 @@ export function RosterListPage() {
                 roster={roster}
                 factionName={faction?.name ?? roster.factionId}
                 detachmentName={detachmentNames.length > 0 ? detachmentNames.join(' + ') : null}
+                datasheets={datasheets}
+                pointsCostMap={pointsCostMap}
+                wargearCostMap={wargearCostMap}
                 enhancements={enhancements}
                 onDelete={() => handleDelete(roster.id, roster.name)}
                 onExport={() => setQrExportRoster(roster)}

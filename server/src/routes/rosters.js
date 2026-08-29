@@ -10,7 +10,6 @@ const REQUIRED_FIELDS = [
   'factionId',
   'detachmentIds',
   'entries',
-  'totalPoints',
   'pointsLimit',
   'createdAt',
   'updatedAt',

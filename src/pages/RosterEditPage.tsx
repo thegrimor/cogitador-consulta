@@ -13,11 +13,11 @@ import {
   setEntryEnhancement,
   setEntryAttachment,
   setEntryWeaponSelection,
-  setEntryWargearCosts,
+  setEntryWargearSelections,
 } from '@/store/rosterSlice'
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints,
-  resolveCostsForUnitIndex, unitIndexInRoster,
+  resolveCostsForUnitIndex, unitIndexInRoster, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
@@ -88,11 +88,7 @@ export function RosterEditPage() {
     .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
     .sort((a, b) => compareByRolePriority(a.datasheet, b.datasheet))
 
-  const enhancementsCost = roster.entries.reduce((sum, e) => {
-    if (!e.enhancementId) return sum
-    return sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0)
-  }, 0)
-  const combinedTotal = (roster.totalPoints ?? 0) + enhancementsCost
+  const combinedTotal = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
   const overLimit = roster.pointsLimit !== null && combinedTotal > roster.pointsLimit
 
   function commitName() {
@@ -115,7 +111,6 @@ export function RosterEditPage() {
         entry: {
           datasheetId: datasheet.id,
           modelCount: resolveModelCount(cost, datasheet),
-          pointsCost: cost.points,
         },
       }),
     )
@@ -276,7 +271,7 @@ export function RosterEditPage() {
                     updateEntry({
                       rosterId,
                       entryId: entry.id,
-                      changes: { modelCount: resolveModelCount(cost, datasheet), pointsCost: cost.points },
+                      changes: { modelCount: resolveModelCount(cost, datasheet) },
                     }),
                   )
                 }
@@ -289,8 +284,8 @@ export function RosterEditPage() {
                 onChangeWeaponSelection={(ruleId, selection) =>
                   dispatch(setEntryWeaponSelection({ rosterId, entryId: entry.id, ruleId, selection }))
                 }
-                onChangeWargearCosts={(selections, surcharge) =>
-                  dispatch(setEntryWargearCosts({ rosterId, entryId: entry.id, selections, surcharge }))
+                onChangeWargearSelections={selections =>
+                  dispatch(setEntryWargearSelections({ rosterId, entryId: entry.id, selections }))
                 }
                 onRemove={() => dispatch(removeEntry({ rosterId, entryId: entry.id }))}
               />

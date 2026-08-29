@@ -7,13 +7,11 @@ export const QR_PAYLOAD_WARN_THRESHOLD = 1200
 interface QrEntry {
   d: string
   m: number
-  p: number | null
   n?: string
   e?: string
   a?: number
   w?: Record<string, number[]>
   g?: Record<string, number>
-  s?: number
 }
 
 interface QrRoster {
@@ -55,7 +53,7 @@ export function encodeRosterForQr(roster: RosterList): string {
     t: roster.detachmentIds,
     l: roster.pointsLimit,
     e: roster.entries.map(entry => {
-      const qrEntry: QrEntry = { d: entry.datasheetId, m: entry.modelCount, p: entry.pointsCost }
+      const qrEntry: QrEntry = { d: entry.datasheetId, m: entry.modelCount }
       if (entry.customName) qrEntry.n = entry.customName
       if (entry.enhancementId) qrEntry.e = entry.enhancementId
       if (entry.attachedToEntryId) {
@@ -64,15 +62,10 @@ export function encodeRosterForQr(roster: RosterList): string {
       }
       if (entry.weaponOptionSelections) qrEntry.w = entry.weaponOptionSelections
       if (entry.wargearSelections) qrEntry.g = entry.wargearSelections
-      if (entry.wargearSurcharge) qrEntry.s = entry.wargearSurcharge
       return qrEntry
     }),
   }
   return compressToEncodedURIComponent(JSON.stringify(qrRoster))
-}
-
-function recomputeTotalPoints(entries: RosterEntry[]): number {
-  return entries.reduce((sum, e) => sum + (e.pointsCost ?? 0) + (e.wargearSurcharge ?? 0), 0)
 }
 
 export function decodeRosterFromQr(data: string): Omit<RosterList, 'id' | 'createdAt' | 'updatedAt'> {
@@ -88,14 +81,12 @@ export function decodeRosterFromQr(data: string): Omit<RosterList, 'id' | 'creat
         id: indexToId[index],
         datasheetId: qrEntry.d,
         modelCount: qrEntry.m,
-        pointsCost: qrEntry.p,
       }
       if (qrEntry.n) entry.customName = qrEntry.n
       if (qrEntry.e) entry.enhancementId = qrEntry.e
       if (qrEntry.a !== undefined && indexToId[qrEntry.a]) entry.attachedToEntryId = indexToId[qrEntry.a]
       if (qrEntry.w) entry.weaponOptionSelections = qrEntry.w
       if (qrEntry.g) entry.wargearSelections = qrEntry.g
-      if (qrEntry.s) entry.wargearSurcharge = qrEntry.s
       return entry
     })
 
@@ -104,7 +95,6 @@ export function decodeRosterFromQr(data: string): Omit<RosterList, 'id' | 'creat
       factionId: parsed.f,
       detachmentIds: parsed.t,
       entries,
-      totalPoints: recomputeTotalPoints(entries),
       pointsLimit: parsed.l,
     }
   } catch {
@@ -162,7 +152,6 @@ export function validateDecodedRoster(
       ...roster,
       detachmentIds: filteredDetachmentIds,
       entries: finalEntries,
-      totalPoints: recomputeTotalPoints(finalEntries),
     },
     warnings,
   }
