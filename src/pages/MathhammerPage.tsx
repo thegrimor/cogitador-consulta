@@ -252,6 +252,24 @@ export function MathhammerPage() {
     })
   }
 
+  // Swap attacker/defender: swaps which faction/detachment/unit/character/enhancement sits
+  // on each side and lets the existing per-unit restore effects (above) repopulate that
+  // side's weapons/modifiers from whatever was last saved for the newly-placed unit — no
+  // manual copying of weapon/modifier state needed. Only the defender's chosen model index
+  // is reset here since it isn't unit-keyed and would otherwise point at a model profile
+  // belonging to the unit that just left the defender side.
+  function handleSwapSides() {
+    const prevLeftSelection = leftPanel.selection
+    const prevRightSelection = rightPanel.selection
+    const prevLeftRosterIds = leftPanel.rosterIds
+    const prevRightRosterIds = rightPanel.rosterIds
+    leftPanel.replaceSelection(prevRightSelection)
+    rightPanel.replaceSelection(prevLeftSelection)
+    leftPanel.setRosterIds(prevRightRosterIds)
+    rightPanel.setRosterIds(prevLeftRosterIds)
+    setDefenderModel(null)
+  }
+
   // Split attacker rules into "applies to any selected weapon" vs "bearer-only" (e.g.
   // enhancements phrased as "this model's melee attacks have +1 A") so a character's own
   // bonus doesn't leak onto the unit it's attached to when both share a weapon selection.
@@ -383,6 +401,7 @@ export function MathhammerPage() {
             defenderMax={rightPanel.selectedUnit?.modelCountMax}
             overwatchActive={overwatchActive}
             onOverwatchToggle={() => setOverwatchActive(v => !v)}
+            onSwapSides={handleSwapSides}
           />
         )}
         {mobileTab === 'defender' && (
@@ -443,6 +462,7 @@ export function MathhammerPage() {
               defenderMax={rightPanel.selectedUnit?.modelCountMax}
               overwatchActive={overwatchActive}
               onOverwatchToggle={() => setOverwatchActive(v => !v)}
+              onSwapSides={handleSwapSides}
             />
           </div>
         </div>

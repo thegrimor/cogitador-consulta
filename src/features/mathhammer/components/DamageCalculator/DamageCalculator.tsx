@@ -30,6 +30,8 @@ interface Props {
   defenderMax?: number
   overwatchActive?: boolean
   onOverwatchToggle?: () => void
+  /** Swaps attacker/defender selection so the reverse matchup can be checked. Omitted → no button shown. */
+  onSwapSides?: () => void
 }
 
 function Row({ label, value, detail, highlight }: { label: string; value: string; detail?: string; highlight?: boolean }) {
@@ -199,6 +201,7 @@ export function DamageCalculator({
   weapons, weaponQuantities = {}, defenderModel, defenderKeywords = [], attackerName, defenderName, mods,
   leaderMods, leaderWeapons, combatType, onCombatTypeChange,
   unitMin, unitMax, defenderMin, defenderMax, meltaActiveKeys = [], rapidFireActiveKeys = [], overwatchActive = false, onOverwatchToggle,
+  onSwapSides,
 }: Props) {
   function modsFor(w: Weapon): CombatModifiers {
     return leaderMods && leaderWeapons?.includes(w) ? leaderMods : mods
@@ -314,9 +317,20 @@ export function DamageCalculator({
 
       {/* Header */}
       <div className="text-center border-b border-rim-bright pb-3">
-        <p className="text-xs font-mono text-parchment-dim">
+        <p className="text-xs font-mono text-parchment-dim flex items-center justify-center gap-2">
           <span className="text-crimson">{attackerName || '—'}</span>
-          <span className="mx-2 text-rim-bright">▶</span>
+          {onSwapSides ? (
+            <button
+              onClick={onSwapSides}
+              title="Intercambiar atacante y defensor"
+              aria-label="Intercambiar atacante y defensor"
+              className="text-rim-bright hover:text-gold-bright transition-colors px-0.5"
+            >
+              ⇄
+            </button>
+          ) : (
+            <span className="text-rim-bright">▶</span>
+          )}
           <span className="text-gold">{defenderName || '—'}</span>
         </p>
         <p className="text-sm font-display uppercase tracking-wide text-parchment mt-1">
