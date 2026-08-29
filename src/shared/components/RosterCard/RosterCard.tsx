@@ -1,21 +1,24 @@
 import { NavLink } from 'react-router-dom'
-import type { RosterList, Enhancement } from '@/types'
+import type { Datasheet, Enhancement, PointsCost, RosterList, WargearCost } from '@/types'
 import { rosterEditPath } from '@/core/constants/routes'
+import { resolveRosterTotalPoints } from '@/core/utils/roster'
 
 interface Props {
   roster: RosterList
   factionName: string
   detachmentName: string | null
+  datasheets: Datasheet[]
+  pointsCostMap: Record<string, PointsCost[]>
+  wargearCostMap: Record<string, WargearCost[]>
   enhancements: Enhancement[]
   onDelete: () => void
   onExport: () => void
 }
 
-export function RosterCard({ roster, factionName, detachmentName, enhancements, onDelete, onExport }: Props) {
-  const enhancementsCost = roster.entries.reduce(
-    (sum, e) => sum + (enhancements.find(en => en.id === e.enhancementId)?.cost ?? 0), 0,
-  )
-  const combinedTotal = (roster.totalPoints ?? 0) + enhancementsCost
+export function RosterCard({
+  roster, factionName, detachmentName, datasheets, pointsCostMap, wargearCostMap, enhancements, onDelete, onExport,
+}: Props) {
+  const combinedTotal = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
   const overLimit = roster.pointsLimit !== null && combinedTotal > roster.pointsLimit
 
   return (

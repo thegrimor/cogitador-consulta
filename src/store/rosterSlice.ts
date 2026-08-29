@@ -9,11 +9,11 @@ const initialState: RosterState = {
   rosters: [],
 }
 
-function recomputeTotals(roster: RosterList) {
-  roster.totalPoints = roster.entries.reduce(
-    (sum, e) => sum + (e.pointsCost ?? 0) + (e.wargearSurcharge ?? 0),
-    0,
-  )
+// Points are never cached on the roster or its entries — they're derived fresh from the
+// current game data wherever they're displayed (see `resolveRosterTotalPoints` and friends
+// in `core/utils/roster.ts`), so a data correction shows up on existing rosters immediately.
+// Every mutation here just needs to bump `updatedAt`.
+function touch(roster: RosterList) {
   roster.updatedAt = new Date().toISOString()
 }
 
@@ -42,7 +42,6 @@ const rosterSlice = createSlice({
           factionId,
           detachmentIds: [],
           entries: [],
-          totalPoints: 0,
           pointsLimit,
           createdAt,
           updatedAt: createdAt,
@@ -58,14 +57,14 @@ const rosterSlice = createSlice({
       const roster = state.rosters.find(r => r.id === action.payload.id)
       if (!roster) return
       roster.name = action.payload.name
-      roster.updatedAt = new Date().toISOString()
+      touch(roster)
     },
 
     setPointsLimit: (state, action: PayloadAction<{ id: string; pointsLimit: number | null }>) => {
       const roster = state.rosters.find(r => r.id === action.payload.id)
       if (!roster) return
       roster.pointsLimit = action.payload.pointsLimit
-      roster.updatedAt = new Date().toISOString()
+      touch(roster)
     },
 
     setDetachments: (state, action: PayloadAction<{ rosterId: string; detachmentIds: string[] }>) => {
@@ -73,7 +72,7 @@ const rosterSlice = createSlice({
       if (!roster) return
       roster.detachmentIds = action.payload.detachmentIds
       roster.entries.forEach(e => { e.enhancementId = undefined })
-      roster.updatedAt = new Date().toISOString()
+      touch(roster)
     },
 
     addEntry: {
@@ -84,7 +83,7 @@ const rosterSlice = createSlice({
         const roster = state.rosters.find(r => r.id === action.payload.rosterId)
         if (!roster) return
         roster.entries.push(action.payload.entry)
-        recomputeTotals(roster)
+        touch(roster)
       },
     },
 
@@ -93,7 +92,7 @@ const rosterSlice = createSlice({
       action: PayloadAction<{
         rosterId: string
         entryId: string
-        changes: Partial<Pick<RosterEntry, 'modelCount' | 'pointsCost' | 'customName'>>
+        changes: Partial<Pick<RosterEntry, 'modelCount' | 'customName'>>
       }>,
     ) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
@@ -101,7 +100,7 @@ const rosterSlice = createSlice({
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
       Object.assign(entry, action.payload.changes)
-      recomputeTotals(roster)
+      touch(roster)
     },
 
     removeEntry: (state, action: PayloadAction<{ rosterId: string; entryId: string }>) => {
@@ -111,7 +110,7 @@ const rosterSlice = createSlice({
       roster.entries.forEach(e => {
         if (e.attachedToEntryId === action.payload.entryId) e.attachedToEntryId = undefined
       })
-      recomputeTotals(roster)
+      touch(roster)
     },
 
     setEntryEnhancement: (
@@ -123,7 +122,7 @@ const rosterSlice = createSlice({
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
       entry.enhancementId = action.payload.enhancementId ?? undefined
-      roster.updatedAt = new Date().toISOString()
+      touch(roster)
     },
 
     setEntryAttachment: (
@@ -135,7 +134,7 @@ const rosterSlice = createSlice({
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
       entry.attachedToEntryId = action.payload.attachedToEntryId ?? undefined
-      roster.updatedAt = new Date().toISOString()
+      touch(roster)
     },
 
     setEntryWeaponSelection: (
@@ -148,16 +147,15 @@ const rosterSlice = createSlice({
       if (!entry) return
       if (!entry.weaponOptionSelections) entry.weaponOptionSelections = {}
       entry.weaponOptionSelections[action.payload.ruleId] = action.payload.selection
-      roster.updatedAt = new Date().toISOString()
+      touch(roster)
     },
 
-    setEntryWargearCosts: (
+    setEntryWargearSelections: (
       state,
       action: PayloadAction<{
         rosterId: string
         entryId: string
         selections: Record<string, number>
-        surcharge: number
       }>,
     ) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
@@ -165,8 +163,7 @@ const rosterSlice = createSlice({
       const entry = roster.entries.find(e => e.id === action.payload.entryId)
       if (!entry) return
       entry.wargearSelections = action.payload.selections
-      entry.wargearSurcharge = action.payload.surcharge
-      recomputeTotals(roster)
+      touch(roster)
     },
 
     importRosterFromData: {
@@ -211,7 +208,7 @@ export const {
   setEntryEnhancement,
   setEntryAttachment,
   setEntryWeaponSelection,
-  setEntryWargearCosts,
+  setEntryWargearSelections,
   importRosterFromData,
   hydrateRosters,
   resetRosters,

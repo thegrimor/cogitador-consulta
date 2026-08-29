@@ -232,7 +232,6 @@ export interface RosterEntry {
   id: string
   datasheetId: string
   modelCount: number
-  pointsCost: number | null
   customName?: string
   enhancementId?: string
   attachedToEntryId?: string
@@ -240,8 +239,6 @@ export interface RosterEntry {
   weaponOptionSelections?: Record<string, number[]>
   /** Per-weapon surcharge selections: weapon name → number of models equipped with it. */
   wargearSelections?: Record<string, number>
-  /** Total points surcharge from wargear upgrades (sum of selections × per-weapon cost). */
-  wargearSurcharge?: number
 }
 
 export interface RosterList {
@@ -250,7 +247,6 @@ export interface RosterList {
   factionId: string
   detachmentIds: string[]
   entries: RosterEntry[]
-  totalPoints: number | null
   pointsLimit: number | null
   createdAt: string
   updatedAt: string
