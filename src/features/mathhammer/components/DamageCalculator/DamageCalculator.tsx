@@ -107,6 +107,50 @@ function CombatTypeSelector({
   )
 }
 
+/** Overwatch and the attacker/defender swap sit together as the calculator's action buttons —
+ * Overwatch only when it applies to the current combat type, swap whenever a handler is given. */
+function ActionsRow({
+  onSwapSides, canOverwatch, onOverwatchToggle, overwatchActive, showOverwatch,
+}: {
+  onSwapSides?: () => void
+  canOverwatch: boolean
+  onOverwatchToggle?: () => void
+  overwatchActive: boolean
+  showOverwatch: boolean
+}) {
+  const showOverwatchButton = canOverwatch && showOverwatch && onOverwatchToggle
+  if (!onSwapSides && !showOverwatchButton) return null
+  return (
+    <div className="flex items-center justify-center gap-2 flex-wrap">
+      {onSwapSides && (
+        <button
+          onClick={onSwapSides}
+          title="Intercambiar atacante y defensor"
+          aria-label="Intercambiar atacante y defensor"
+          className="flex items-center gap-2 px-4 py-1.5 text-xs font-display uppercase tracking-wide border border-rim-bright text-parchment-dim hover:border-gold-bright hover:text-gold-bright transition-colors"
+        >
+          <span className="text-[10px]">⇄</span>
+          Intercambiar
+        </button>
+      )}
+      {showOverwatchButton && (
+        <button
+          onClick={onOverwatchToggle}
+          className={`flex items-center gap-2 px-4 py-1.5 text-xs font-display uppercase tracking-wide border transition-colors ${
+            overwatchActive
+              ? 'border-crimson bg-crimson/20 text-crimson-bright'
+              : 'border-rim-bright text-parchment-dim hover:border-crimson-dim hover:text-parchment'
+          }`}
+        >
+          <span className="text-[10px]">⚡</span>
+          Overwatch
+          {overwatchActive && <span className="font-mono normal-case tracking-normal text-[9px] text-crimson-bright ml-1">6+</span>}
+        </button>
+      )}
+    </div>
+  )
+}
+
 function WeaponBreakdown({ weapon, defenderModel, mods, qty, blastTargetModels, defenderKeywords, meltaActiveKeys, rapidFireActiveKeys, leaderWeapons }: {
   weapon: Weapon
   defenderModel: ModelProfile
@@ -243,25 +287,28 @@ export function DamageCalculator({
 
   const canOverwatch = combatType === 'ranged'
 
+  // Shown in both the empty and the full-breakdown views below.
+  const namesHeader = (
+    <p className="text-xs font-mono text-parchment-dim flex items-center justify-center gap-2">
+      <span className="text-crimson">{attackerName || '—'}</span>
+      <span className="text-rim-bright">▶</span>
+      <span className="text-gold">{defenderName || '—'}</span>
+    </p>
+  )
+
   if (weapons.length === 0 || !defenderModel) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[300px] p-6 gap-4">
+        {(attackerName || defenderName) && namesHeader}
         <div className="w-px h-12 bg-gradient-to-b from-transparent via-crimson-dim to-transparent" />
         <CombatTypeSelector combatType={combatType} onChange={onCombatTypeChange} locked={weaponLocked} />
-        {canOverwatch && onOverwatchToggle && weapons.length > 0 && (
-          <button
-            onClick={onOverwatchToggle}
-            className={`flex items-center gap-2 px-4 py-1.5 text-xs font-display uppercase tracking-wide border transition-colors ${
-              overwatchActive
-                ? 'border-crimson bg-crimson/20 text-crimson-bright'
-                : 'border-rim-bright text-parchment-dim hover:border-crimson-dim hover:text-parchment'
-            }`}
-          >
-            <span className="text-[10px]">⚡</span>
-            Overwatch
-            {overwatchActive && <span className="font-mono normal-case tracking-normal text-[9px] text-crimson-bright ml-1">6+</span>}
-          </button>
-        )}
+        <ActionsRow
+          onSwapSides={onSwapSides}
+          canOverwatch={canOverwatch}
+          onOverwatchToggle={onOverwatchToggle}
+          overwatchActive={overwatchActive}
+          showOverwatch={weapons.length > 0}
+        />
         <p className="text-crimson-dim font-display text-xs uppercase tracking-[4px] text-center leading-loose">
           {weapons.length === 0 ? '// selecciona arma\ndel atacante' : '// selecciona\ndefensor'}
         </p>
@@ -297,42 +344,18 @@ export function DamageCalculator({
       {/* Combat type selector */}
       <CombatTypeSelector combatType={combatType} onChange={onCombatTypeChange} locked={weaponLocked} />
 
-      {/* Overwatch toggle */}
-      {canOverwatch && onOverwatchToggle && (
-        <div className="flex items-center justify-center">
-          <button
-            onClick={onOverwatchToggle}
-            className={`flex items-center gap-2 px-4 py-1.5 text-xs font-display uppercase tracking-wide border transition-colors ${
-              overwatchActive
-                ? 'border-crimson bg-crimson/20 text-crimson-bright'
-                : 'border-rim-bright text-parchment-dim hover:border-crimson-dim hover:text-parchment'
-            }`}
-          >
-            <span className="text-[10px]">⚡</span>
-            Overwatch
-            {overwatchActive && <span className="font-mono normal-case tracking-normal text-[9px] text-crimson-bright ml-1">6+</span>}
-          </button>
-        </div>
-      )}
+      {/* Overwatch toggle + attacker/defender swap */}
+      <ActionsRow
+        onSwapSides={onSwapSides}
+        canOverwatch={canOverwatch}
+        onOverwatchToggle={onOverwatchToggle}
+        overwatchActive={overwatchActive}
+        showOverwatch
+      />
 
       {/* Header */}
       <div className="text-center border-b border-rim-bright pb-3">
-        <p className="text-xs font-mono text-parchment-dim flex items-center justify-center gap-2">
-          <span className="text-crimson">{attackerName || '—'}</span>
-          {onSwapSides ? (
-            <button
-              onClick={onSwapSides}
-              title="Intercambiar atacante y defensor"
-              aria-label="Intercambiar atacante y defensor"
-              className="text-rim-bright hover:text-gold-bright transition-colors px-0.5"
-            >
-              ⇄
-            </button>
-          ) : (
-            <span className="text-rim-bright">▶</span>
-          )}
-          <span className="text-gold">{defenderName || '—'}</span>
-        </p>
+        {namesHeader}
         <p className="text-sm font-display uppercase tracking-wide text-parchment mt-1">
           {isSingle ? weapons[0].name : `${weapons.length} armas`}
         </p>
