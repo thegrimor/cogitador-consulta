@@ -243,9 +243,32 @@ export function DamageCalculator({
 
   const canOverwatch = combatType === 'ranged'
 
+  // Shown in both the empty and the full-breakdown views below — the swap button has to stay
+  // reachable even before a weapon/defender is picked, since flipping sides is often the very
+  // first thing to try (not just something to do once a full calculation is already showing).
+  const namesHeader = (
+    <p className="text-xs font-mono text-parchment-dim flex items-center justify-center gap-2">
+      <span className="text-crimson">{attackerName || '—'}</span>
+      {onSwapSides ? (
+        <button
+          onClick={onSwapSides}
+          title="Intercambiar atacante y defensor"
+          aria-label="Intercambiar atacante y defensor"
+          className="text-rim-bright hover:text-gold-bright transition-colors px-0.5"
+        >
+          ⇄
+        </button>
+      ) : (
+        <span className="text-rim-bright">▶</span>
+      )}
+      <span className="text-gold">{defenderName || '—'}</span>
+    </p>
+  )
+
   if (weapons.length === 0 || !defenderModel) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[300px] p-6 gap-4">
+        {(attackerName || defenderName) && namesHeader}
         <div className="w-px h-12 bg-gradient-to-b from-transparent via-crimson-dim to-transparent" />
         <CombatTypeSelector combatType={combatType} onChange={onCombatTypeChange} locked={weaponLocked} />
         {canOverwatch && onOverwatchToggle && weapons.length > 0 && (
@@ -317,22 +340,7 @@ export function DamageCalculator({
 
       {/* Header */}
       <div className="text-center border-b border-rim-bright pb-3">
-        <p className="text-xs font-mono text-parchment-dim flex items-center justify-center gap-2">
-          <span className="text-crimson">{attackerName || '—'}</span>
-          {onSwapSides ? (
-            <button
-              onClick={onSwapSides}
-              title="Intercambiar atacante y defensor"
-              aria-label="Intercambiar atacante y defensor"
-              className="text-rim-bright hover:text-gold-bright transition-colors px-0.5"
-            >
-              ⇄
-            </button>
-          ) : (
-            <span className="text-rim-bright">▶</span>
-          )}
-          <span className="text-gold">{defenderName || '—'}</span>
-        </p>
+        {namesHeader}
         <p className="text-sm font-display uppercase tracking-wide text-parchment mt-1">
           {isSingle ? weapons[0].name : `${weapons.length} armas`}
         </p>
