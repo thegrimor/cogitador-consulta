@@ -123,7 +123,7 @@ export function RosterListPage() {
             </p>
           )}
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-2">
-            O pega aquí la lista exportada
+            O pega aquí la lista exportada (App de GW, BattleScribe/Listhammer o New Recruit)
           </p>
           <textarea
             value={importText}
