@@ -92,7 +92,7 @@ const rosterSlice = createSlice({
       action: PayloadAction<{
         rosterId: string
         entryId: string
-        changes: Partial<Pick<RosterEntry, 'modelCount' | 'customName'>>
+        changes: Partial<Pick<RosterEntry, 'modelCount' | 'costDescription' | 'customName'>>
       }>,
     ) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)

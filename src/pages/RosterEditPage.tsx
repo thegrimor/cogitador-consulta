@@ -16,7 +16,7 @@ import {
   setEntryWargearSelections,
 } from '@/store/rosterSlice'
 import {
-  resolveModelCount, compareByRolePriority, sumDetachmentPoints,
+  resolveModelCount, compareByRolePriority, sumDetachmentPoints, stripTierSuffix,
   resolveCostsForUnitIndex, unitIndexInRoster, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
@@ -111,6 +111,7 @@ export function RosterEditPage() {
         entry: {
           datasheetId: datasheet.id,
           modelCount: resolveModelCount(cost, datasheet),
+          costDescription: stripTierSuffix(cost.description),
         },
       }),
     )
@@ -271,7 +272,10 @@ export function RosterEditPage() {
                     updateEntry({
                       rosterId,
                       entryId: entry.id,
-                      changes: { modelCount: resolveModelCount(cost, datasheet) },
+                      changes: {
+                        modelCount: resolveModelCount(cost, datasheet),
+                        costDescription: stripTierSuffix(cost.description),
+                      },
                     }),
                   )
                 }

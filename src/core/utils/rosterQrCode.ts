@@ -7,6 +7,7 @@ export const QR_PAYLOAD_WARN_THRESHOLD = 1200
 interface QrEntry {
   d: string
   m: number
+  c?: string
   n?: string
   e?: string
   a?: number
@@ -54,6 +55,7 @@ export function encodeRosterForQr(roster: RosterList): string {
     l: roster.pointsLimit,
     e: roster.entries.map(entry => {
       const qrEntry: QrEntry = { d: entry.datasheetId, m: entry.modelCount }
+      if (entry.costDescription) qrEntry.c = entry.costDescription
       if (entry.customName) qrEntry.n = entry.customName
       if (entry.enhancementId) qrEntry.e = entry.enhancementId
       if (entry.attachedToEntryId) {
@@ -82,6 +84,7 @@ export function decodeRosterFromQr(data: string): Omit<RosterList, 'id' | 'creat
         datasheetId: qrEntry.d,
         modelCount: qrEntry.m,
       }
+      if (qrEntry.c) entry.costDescription = qrEntry.c
       if (qrEntry.n) entry.customName = qrEntry.n
       if (qrEntry.e) entry.enhancementId = qrEntry.e
       if (qrEntry.a !== undefined && indexToId[qrEntry.a]) entry.attachedToEntryId = indexToId[qrEntry.a]

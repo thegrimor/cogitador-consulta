@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
 import {
-  resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge,
+  resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, resolveEntryCostVariant,
 } from '@/core/utils/roster'
 import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
@@ -61,8 +61,7 @@ export function RosterEntryRow({
 }: Props) {
   const [expanded, setExpanded] = useState(false)
 
-  const selectedDescription =
-    costs.find(c => resolveModelCount(c, datasheet) === entry.modelCount)?.description ?? ''
+  const selectedDescription = resolveEntryCostVariant(entry, datasheet, costs)?.description ?? ''
 
   const isCharacter = datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)

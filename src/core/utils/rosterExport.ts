@@ -1,7 +1,7 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
 import {
   weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints,
-  ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
+  ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints, stripTierSuffix,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
@@ -695,6 +695,9 @@ export function resolveImportedRoster(
         datasheetId: datasheet.id,
         modelCount: resolvedModelCount,
       }
+      // Pin the exact variant found above (not just modelCount) so a later re-render doesn't
+      // have to re-guess among same-model-count variants that price differently.
+      if (matchingCost) entry.costDescription = stripTierSuffix(matchingCost.description)
       entryToParsedUnit.set(entry.id, unit)
       if (Object.keys(wargearSelections).length > 0) {
         entry.wargearSelections = wargearSelections

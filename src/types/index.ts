@@ -232,6 +232,11 @@ export interface RosterEntry {
   id: string
   datasheetId: string
   modelCount: number
+  /** Tier-suffix-stripped `PointsCost.description` of the cost variant the player picked
+   * (e.g. "1 Runtherd, 20 Gretchin") — some datasheets have multiple variants that parse to
+   * the same `modelCount` but price differently (a leader-inclusive composition, a special
+   * weapon loadout), so `modelCount` alone can't always identify which one was chosen. */
+  costDescription?: string
   customName?: string
   enhancementId?: string
   attachedToEntryId?: string

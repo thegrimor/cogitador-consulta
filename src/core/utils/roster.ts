@@ -104,23 +104,43 @@ export function unitIndexInRoster(
   return idx === -1 ? matching.length + 1 : idx + 1
 }
 
-/** Base points cost for `entry`, resolved fresh from the current data rather than a value
- * cached on the entry — so a correction to `pointsCosts` in the data JSON is reflected on
- * every roster immediately, with nothing to re-save. `costsForTier` must already be narrowed
- * to this entry's tier via `resolveCostsForUnitIndex` (surcharge tiers can share a model count
- * with a different tier's variant). Falls back to the next size up, then the largest variant,
- * for a `modelCount` that no longer matches any variant (e.g. after a data edit). */
+/** The specific cost variant `entry` should be charged, resolved fresh from the current data
+ * rather than a value cached on the entry — so a correction to `pointsCosts` in the data JSON
+ * is reflected on every roster immediately, with nothing to re-save. `costsForTier` must
+ * already be narrowed to this entry's tier via `resolveCostsForUnitIndex`.
+ *
+ * Prefers matching `entry.costDescription` (the tier-stripped description of whichever
+ * variant the player actually picked) — some datasheets have multiple variants that parse to
+ * the same `modelCount` but price differently (e.g. Gretchin's "20 Gretchin" vs "1 Runtherd,
+ * 20 Gretchin", both reading as model count 1 under `parseModelCountFromDescription`'s
+ * leading-number parse), so `modelCount` alone can't always tell them apart. Falls back to a
+ * `modelCount` match for entries saved before `costDescription` existed, or when the chosen
+ * variant no longer exists in the current data (renamed/removed) — then the next size up, then
+ * the largest variant, for a `modelCount` that no longer matches any variant at all. */
+export function resolveEntryCostVariant(
+  entry: RosterEntry,
+  datasheet: Datasheet,
+  costsForTier: PointsCost[],
+): PointsCost | undefined {
+  if (costsForTier.length === 0) return undefined
+  if (entry.costDescription) {
+    const byDescription = costsForTier.find(c => stripTierSuffix(c.description) === entry.costDescription)
+    if (byDescription) return byDescription
+  }
+  const sorted = sortCostVariants(costsForTier)
+  const exact = sorted.find(c => resolveModelCount(c, datasheet) === entry.modelCount)
+  if (exact) return exact
+  const next = sorted.find(c => resolveModelCount(c, datasheet) >= entry.modelCount)
+  return next ?? sorted[sorted.length - 1]
+}
+
+/** Base points cost for `entry` — see `resolveEntryCostVariant`. */
 export function resolveEntryBaseCost(
   entry: RosterEntry,
   datasheet: Datasheet,
   costsForTier: PointsCost[],
 ): number {
-  if (costsForTier.length === 0) return 0
-  const sorted = sortCostVariants(costsForTier)
-  const exact = sorted.find(c => resolveModelCount(c, datasheet) === entry.modelCount)
-  if (exact) return exact.points
-  const next = sorted.find(c => resolveModelCount(c, datasheet) >= entry.modelCount)
-  return (next ?? sorted[sorted.length - 1]).points
+  return resolveEntryCostVariant(entry, datasheet, costsForTier)?.points ?? 0
 }
 
 /** Points surcharge from `entry`'s paid wargear selections, resolved fresh against the
