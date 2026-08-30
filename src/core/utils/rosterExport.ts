@@ -5,6 +5,7 @@ import {
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
+import { isNewRecruitText, parseNewRecruitText } from '@/core/utils/parseNewRecruit'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
 
@@ -261,7 +262,18 @@ function parsePoints(raw: string): number {
   return parseInt(raw.replace(/\./g, ''), 10)
 }
 
+// Dispatches to the format-specific parser. Currently recognizes the GW-app-style "Munitorum"
+// text (also covers Listhammer/BattleScribe-derived exports and their Spanish translations,
+// see parseMunitorumRosterText below) and newrecruit.eu's plain-text export (parseNewRecruit.ts)
+// — a genuinely different line grammar, so it's detected up front rather than folded into the
+// same state machine. Both funnel into the same ParsedRosterText shape, so everything
+// downstream (resolveImportedRoster) is format-agnostic.
 export function parseRosterText(text: string): ParsedRosterText {
+  if (isNewRecruitText(text)) return parseNewRecruitText(text)
+  return parseMunitorumRosterText(text)
+}
+
+function parseMunitorumRosterText(text: string): ParsedRosterText {
   const lines = text.split('\n').map(l => l.trim()).filter(Boolean)
   if (lines.length === 0) throw new Error('El texto está vacío')
 
