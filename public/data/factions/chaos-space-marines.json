@@ -6319,7 +6319,8 @@
         "sorcerer-chaos-space-marines",
         "warpsmith",
         "red-corsairs-reave-captain",
-        "dark-apostle-chaos-space-marines"
+        "dark-apostle-chaos-space-marines",
+        "masters-of-the-maelstrom"
       ]
     },
     {
@@ -13475,7 +13476,8 @@
         "warpsmith",
         "red-corsairs-reave-captain",
         "chaos-lord-chaos-space-marines",
-        "huron-blackheart"
+        "huron-blackheart",
+        "masters-of-the-maelstrom"
       ]
     },
     {
@@ -17615,10 +17617,10 @@
           "type": "Datasheet"
         },
         {
-          "id": "masters-of-the-maelstrom",
-          "name": "MASTERS OF THE MAELSTROM",
-          "description": "At the start of the Declare Battle Formations step, this unit can join one of the following units. This unit then counts as part of that unit for the rest of the battle, and that unit’s Starting Strength is increased accordingly.<br><ul><li>Chosen, Legionaries, Red Corsairs Raiders</li></ul>This unit cannot join an Attached unit, and only Huron Blackheart can join a unit this unit has joined.",
-          "type": "Datasheet"
+          "id": "support",
+          "name": "Support",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SUPPORT</div></div></div>Some units have the Leader or Support ability listed on their datasheet. Such units are known as leader units and support units respectively. Both of these abilities allow such units to lead other friendly units (known as bodyguard units) to form Attached units. An Attached unit is a single unit for all rules purposes. Leader and support units can only lead specific bodyguard units, as listed on their datasheet.<br><br>Before the battle, in the Muster Armies step, for each leader and support unit in your army, you can select one friendly bodyguard unit that unit can lead. Unless otherwise stated, each bodyguard unit can only have one leader unit and one support unit attached to it.</div>",
+          "type": "Core"
         }
       ],
       "keywords": [
@@ -18067,7 +18069,8 @@
         "red-corsairs-reave-captain",
         "master-of-executions",
         "master-of-possession-chaos-space-marines",
-        "sorcerer-chaos-space-marines"
+        "sorcerer-chaos-space-marines",
+        "masters-of-the-maelstrom"
       ]
     },
     {
