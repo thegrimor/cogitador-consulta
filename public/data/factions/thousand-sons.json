@@ -522,7 +522,7 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 2
       }
     },
     {
