@@ -279,7 +279,7 @@
       "type": "Blitz Brigade – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Battlewagon, Kill Rig or Hunta Rig unit from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> Until the end of the turn, each time a unit disembarks from your unit after your unit makes a Normal move, that disembarked unit is still eligible to declare a charge this turn."
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Battlewagon, Kill Rig or Hunta Rig unit from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> When this unit ends a Normal move, units embarked within this unit can make an assault disembark move."
     },
     {
       "id": "run-em-down",

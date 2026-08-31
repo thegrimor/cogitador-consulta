@@ -6244,7 +6244,7 @@
           "A": "2",
           "bsWs": "3",
           "S": 18,
-          "AP": -1,
+          "AP": -4,
           "D": "D6+6",
           "rules": {
             "isHeavy": true
@@ -9226,9 +9226,9 @@
           }
         },
         {
-          "id": "harpoon-barbs",
-          "name": "Harpoon Barbs",
-          "description": "Once per turn, when an enemy unit within Engagement Range of this model is selected to Fall Back, roll one D6: on a 2+, that unit suffers D6 mortal wounds.",
+          "id": "harpooned",
+          "name": "Harpooned",
+          "description": "When this unit declares a charge, if an enemy Monster/Vehicle unit is within 12\" of this unit and was hit by an attack made by this weapon this turn, you can use this ability. If you do:<ul><li>This unit has +2 to Charge rolls until the end of the phase.</li><li>This unit must end that charge move engaged with that Monster/Vehicle unit.</li></ul>",
           "type": "Datasheet"
         },
         {
