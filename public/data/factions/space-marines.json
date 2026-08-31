@@ -16155,7 +16155,7 @@
         {
           "id": "shrouding-psychic",
           "name": "Shrouding (Psychic)",
-          "description": "While this model is leading a unit, models in that unit have the Stealth ability and that unit cannot be targeted by ranged attacks unless the attacking model is within 12\".",
+          "description": "While this model is leading a unit, models in that unit have the Stealth ability and that unit cannot be targeted by ranged attacks unless the attacking model is within 18\".",
           "type": "Datasheet"
         }
       ],
@@ -52216,7 +52216,7 @@
         {
           "id": "shadowmaster",
           "name": "Shadowmaster",
-          "description": "While this model is leading a unit, models in this unit cannot be targeted by ranged attacks unless the attacking model is within 12\".",
+          "description": "While this model is leading a unit, models in this unit cannot be targeted by ranged attacks unless the attacking model is within 18\".",
           "type": "Datasheet"
         },
         {
