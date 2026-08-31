@@ -689,7 +689,7 @@
       "type": "Rapid Evisceration – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One Emperor’s Children unit from your army that destroyed an enemy unit this phase, and one friendly Transport it is able to embark within.<br><br><b>EFFECT:</b> If your <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> unit is wholly within 6\" of that <span class=\"kwb\">TRANSPORT</span>, it can embark within it."
+      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One Emperor’s Children unit from your army that destroyed an enemy unit this phase, and one friendly Transport it is able to embark within.<br><br><b>EFFECT:</b> If your <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> unit is wholly within 6\" of that <span class=\"kwb\">TRANSPORT</span>, it can embark within it. Your unit can embark within that <span class=\"kwb\">TRANSPORT</span> in a turn it disembarked from a <span class=\"kwb\">TRANSPORT</span>."
     },
     {
       "id": "outflanking-strike",
@@ -2814,7 +2814,7 @@
         "Chaos",
         "Slaanesh",
         "Land Raider",
-        "FRAME"
+        "Frame"
       ],
       "factionKeywords": [
         "",
@@ -4907,7 +4907,7 @@
         "Vehicle",
         "Dedicated Transport",
         "Rhino",
-        "FRAME"
+        "Frame"
       ],
       "factionKeywords": [
         "Emperor’s Children",
