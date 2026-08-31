@@ -1165,7 +1165,7 @@
         {
           "id": "old-greymanes",
           "name": "Old Greymanes",
-          "description": "When a friendly <span class=\"kwb\">GREY HUNTERS</span> unit starts an action, that action does not prevent this unit from being eligible to shoot. In the Declare Battle Formations step, you can split a friendly <span class=\"kwb\">GREY HUNTERS</span> unit into two units, each with a starting strength of 5.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">SPACE WOLVES</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
+          "description": "When a friendly <span class=\"kwb\">GREY HUNTERS</span> unit starts an action, that action does not prevent this unit from being eligible to shoot. In the Declare Battle Formations step, you can split a friendly <span class=\"kwb\">GREY HUNTERS</span> unit into two units, each containing as equal a number of models as possible (when splitting a unit in this way, make a note of which models form each of the two new units).<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">SPACE WOLVES</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
         }
       ]
     },
