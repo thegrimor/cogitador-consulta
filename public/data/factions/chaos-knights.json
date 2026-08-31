@@ -56,17 +56,9 @@
       "chapters": [],
       "abilities": [
         {
-          "id": "dreaded-masters",
-          "name": "Dreaded Masters",
-          "description": "Titanic Chaos Knights units from your army have the following abilities:<br><br><b>Dread Tyrants (Aura):</b> While a friendly Damned unit is within 9\" of this unit, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.<br><br>Chaos Knights units from your army have the following abilities:<br><br><b>Dark Sacrifice:</b> Each time a <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> unit with this ability is selected to shoot or fight, it can make a Dark Sacrifice. If it does, select one friendly <span class=\"kwb\">DAMNED</span> unit within 6\". That <span class=\"kwb\">DAMNED</span> unit must take a Leadership test: if passed, destroy D3 models in that <span class=\"kwb\">DAMNED</span> unit; if failed, destroy D3+3 models in that <span class=\"kwb\">DAMNED</span> unit. In either case, then select one of the following abilities for your <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> unit’s weapons to have until the end of the phase: [LETHAL HITS]; [SUSTAINED HITS 1].<br><br><span class=\"hi_custom\">WRETCHED THRALLS</span><br>You can include Damned units in your army (see Codex: Chaos Space Marines). The combined points cost of such units depends on your battle size:<br><ul><li><b>Incursion:</b> Up to 250 pts</li><li><b>Strike Force:</b> Up to 500 pts</li><li><b>Onslaught:</b> Up to 750 pts</li></ul><br>No <span class=\"kwb\">DAMNED</span> models from your army can be your <span class=\"kwb\">WARLORD</span>.",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true,
-              "lethalHitsBonus": true
-            }
-          }
+          "id": "wretched-thralls",
+          "name": "Wretched Thralls",
+          "description": "You can include <span class=\"kwb\">DAMNED</span> units in your army (see Codex: Chaos Space Marines). The combined points cost of such units cannot exceed 500 points.<br><br>Friendly <span class=\"kwb\">DAMNED</span> units can re-roll Leadership rolls."
         }
       ]
     },
@@ -345,36 +337,6 @@
       "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One War Dog unit from your army that is within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to 6\"."
     },
     {
-      "id": "wretched-masses",
-      "name": "WRETCHED MASSES",
-      "detachmentId": "iconoclast-fiefdom",
-      "cpCost": 2,
-      "type": "Iconoclast Fiefdom – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Damned unit (excluding Accursed Cultists) from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.<br><br><b>EFFECT:</b> Add a new unit to your army identical to your destroyed unit, in Strategic Reserves, at its Starting Strength and with all of its wounds remaining.<br><br><b>RESTRICTIONS:</b> You can only use this Stratagem once per battle. This Stratagem cannot be used to return destroyed <span class=\"kwb\">CHARACTER</span> units to Attached units."
-    },
-    {
-      "id": "soul-hunger",
-      "name": "SOUL HUNGER",
-      "detachmentId": "iconoclast-fiefdom",
-      "cpCost": 1,
-      "type": "Iconoclast Fiefdom – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase, just after a <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> unit from your army has fought.<br><br><b>TARGET:</b> That Chaos Knights unit.<br><br><b>EFFECT:</b> If one or more models were destroyed as a result of those attacks, your unit regains up to D3 lost wounds. If one or more models from Battle-shocked units were destroyed as a result of those attacks, your unit regains up to D3+2 lost wounds instead."
-    },
-    {
-      "id": "preserve-the-idols",
-      "name": "PRESERVE THE IDOLS",
-      "detachmentId": "iconoclast-fiefdom",
-      "cpCost": 1,
-      "type": "Iconoclast Fiefdom – Strategic Ploy Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Chaos Knights unit from your army that is within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Select one Damned unit from your army that is not Battle-shocked, not within Engagement Range of one or more enemy units and is within 6\" of your unit. That <span class=\"kwb\">DAMNED</span> unit can make a Normal move of up to 6\", but it must end this move closer to that enemy unit than when it started the move."
-    },
-    {
       "id": "avenge-the-masters",
       "name": "AVENGE THE MASTERS!",
       "detachmentId": "iconoclast-fiefdom",
@@ -382,7 +344,7 @@
       "type": "Iconoclast Fiefdom – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One Chaos Knights unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.<br><br><b>EFFECT:</b> Until the end of the battle, the enemy unit that destroyed your unit is Marked. Each time a Damned model from your army makes an attack that targets a Marked unit, that attack has the [LETHAL HITS] ability.",
+      "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> unit is destroyed by an enemy unit.<br><br><b>TARGET:</b> That enemy unit.<br><br><b>EFFECT:</b> That enemy unit is marked until the end of the battle. Friendly <span class=\"kwb\">DAMNED</span> units’ attacks that target a marked unit have [LETHAL HITS].",
       "effect": {
         "effects": {
           "lethalHitsBonus": true
@@ -392,24 +354,24 @@
       }
     },
     {
-      "id": "unrestrained-rage",
-      "name": "UNRESTRAINED RAGE",
+      "id": "dark-sacrifice",
+      "name": "DARK SACRIFICE",
       "detachmentId": "iconoclast-fiefdom",
       "cpCost": 1,
       "type": "Iconoclast Fiefdom – Strategic Ploy Stratagem",
       "turn": "Your turn",
-      "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your Movement phase, just after a <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> unit from your army Advances or Falls Back.<br><br><b>TARGET:</b> That Chaos Knights unit.<br><br><b>EFFECT:</b> Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">DAMNED</span> unit (excluding <span class=\"kwb\">ACCURSED CULTISTS</span> units) within 9\" of a friendly <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model.<br><br><b>EFFECT:</b> Select one <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model within 9\" of your unit and roll D3+3:<ul><li>Your <span class=\"kwb\">DAMNED</span> unit suffers that number of mortal wounds.</li><li>That <span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model heals that number of wounds.</li></ul>"
     },
     {
-      "id": "worthless-chattel",
-      "name": "WORTHLESS CHATTEL",
+      "id": "coursing-thralls",
+      "name": "COURSING THRALLS",
       "detachmentId": "iconoclast-fiefdom",
       "cpCost": 1,
-      "type": "Iconoclast Fiefdom – Strategic Ploy Stratagem",
+      "type": "Iconoclast Fiefdom – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Damned unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, enemy units are not considered to be within Engagement Range of your unit for the purposes of selecting targets of ranged weapons. Until the end of the phase, each time an enemy model loses a wound, while that model’s unit is within Engagement Range of your unit, roll one D6: on a 4+, one model from your unit is destroyed after the attacking unit has finished making its attacks."
+      "description": "<b>WHEN:</b> Start of your Shooting phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">DAMNED</span> unit.<br><br><b>EFFECT:</b> Select one visible enemy unit within 12\" of your unit. That enemy unit is hunted:<ul><li>While a unit is hunted, that unit has +6\" detection range.</li></ul>"
     },
     {
       "id": "profane-symbiosis",
@@ -618,8 +580,8 @@
       "cpCost": 1,
       "type": "Traitoris Lance – Strategic Ploy Stratagem",
       "turn": "Opponent’s turn",
-      "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Your unit has Stealth. Melee attacks that target your unit have -1 to Hit rolls."
+      "phase": "Shooting or Fight phase",
+      "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Your unit has Stealth. Melee attacks that target your unit have -1 to Hit rolls."
     },
     {
       "id": "a-long-leash",
@@ -747,19 +709,12 @@
       "description": "War Dog model only. The bearer has the Super-heavy Walker ability."
     },
     {
-      "id": "profane-altar",
-      "name": "Profane Altar",
-      "cost": 20,
+      "id": "cruel-lashmaster-aura",
+      "name": "Cruel Lashmaster (Aura)",
+      "cost": 25,
       "detachmentId": "iconoclast-fiefdom",
       "detachmentName": "Iconoclast Fiefdom",
-      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. Each time the bearer makes a Dark Sacrifice, the maximum number of models are destroyed in the selected Damned unit (i.e. 3 if the unit’s Leadership test is passed, or 6 if it is failed) but, until the end of the phase, the bearer’s weapons have both [LETHAL HITS] and [SUSTAINED HITS 1].",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true,
-          "sustainedHitsBonus": 1
-        },
-        "bearerOnly": true
-      }
+      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. While a friendly <span class=\"kwb\">DAMNED</span> unit is within 6\" of this model, when that unit is selected to make a Normal/Advance/Fall Back move, that unit has +2\" M until the end of the phase."
     },
     {
       "id": "knight-diabolus",
@@ -807,14 +762,6 @@
       "detachmentId": "lords-of-dread",
       "detachmentName": "Lords of Dread",
       "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer’s ranged weapons have the [ASSAULT] ability. In addition, once per battle, in the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer’s unit have the Fights First ability."
-    },
-    {
-      "id": "pave-the-way",
-      "name": "Pave the Way",
-      "cost": 15,
-      "detachmentId": "iconoclast-fiefdom",
-      "detachmentName": "Iconoclast Fiefdom",
-      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. At the start of the Declare Battle Formations step, you can select up to three Damned units from your army. The selected units have the Scouts 6\" ability."
     },
     {
       "id": "final-howl-aura",
@@ -886,14 +833,6 @@
       }
     },
     {
-      "id": "tyrants-banner",
-      "name": "Tyrant’s Banner",
-      "cost": 5,
-      "detachmentId": "iconoclast-fiefdom",
-      "detachmentName": "Iconoclast Fiefdom",
-      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. Each time the bearer makes a Dark Sacrifice, select one visible friendly Damned unit to take a Leadership test instead of a friendly <span class=\"kwb\">DAMNED</span> unit within 6\"."
-    },
-    {
       "id": "malevolent-heraldry",
       "name": "Malevolent Heraldry",
       "cost": 30,
@@ -918,19 +857,12 @@
       "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer’s ranged weapons have the [assault] ability. While the bearer is using the Unholy Hunger ability, it can ignore any or all modifiers to its Move characteristic and/or to Advance rolls made for its unit."
     },
     {
-      "id": "diabolical-resilience",
-      "name": "Diabolical Resilience",
-      "cost": 35,
+      "id": "iconoclast-idol-aura",
+      "name": "Iconoclast Idol (Aura)",
+      "cost": 20,
       "detachmentId": "iconoclast-fiefdom",
       "detachmentName": "Iconoclast Fiefdom",
-      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer has the Feel No Pain 6+ ability and you can ignore any or all modifiers to its Move characteristic and/or to any Advance or Charge rolls made for it.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
-        },
-        "target": "defender",
-        "bearerOnly": true
-      }
+      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. While a friendly <span class=\"kwb\">DAMNED</span> unit is within 6\" of this model, when you target that unit with the Heroic Intervention Stratagem, that use is -1 CP."
     },
     {
       "id": "veil-of-medrengard",
@@ -1213,53 +1145,50 @@
         "crushed-like-vermin",
         "titanic-duel",
         "avenge-the-masters",
-        "unrestrained-rage",
         "storm-of-darkness",
         "unleash-balefire",
         "diabolic-bulwark",
         "conquerors-without-mercy",
         "corrupting-taint",
-        "preserve-the-idols",
         "disdain-for-the-weak",
         "goaded-beast",
-        "soul-hunger",
         "hellforged-construction",
         "imperious-advance",
         "beasthide-manifestation",
         "runes-of-disdain",
         "spiteful-demise-chaos-knights",
         "merciless-fusillade",
-        "flush-the-quarry"
+        "flush-the-quarry",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "nightmares-master",
         "throne-tyrannicus",
-        "pave-the-way",
         "putrid-carapace",
         "aspect-of-the-beast",
         "warp-borne-stalker",
         "tyrants-shadow",
         "bestial-aspect",
-        "profane-altar",
         "fleshmetal-fusion",
         "hunters-helm",
-        "tyrants-banner",
         "veil-of-medrengard",
         "blessing-of-the-dark-master",
         "mirror-of-fates",
         "knight-diabolus",
-        "diabolical-resilience",
         "malevolent-heraldry",
         "blade-of-celerity",
         "blasphemous-engine",
-        "throne-mechanicum-of-skulls"
+        "throne-mechanicum-of-skulls",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "tyrannical-court",
         "malefic-surge",
         "masters-of-the-pack",
         "paragons-of-terror",
-        "dreaded-masters"
+        "wretched-thralls"
       ],
       "canBeLedBy": []
     },
@@ -1409,14 +1338,11 @@
         "warp-vision",
         "titanic-duel",
         "avenge-the-masters",
-        "preserve-the-idols",
         "diabolic-bulwark",
         "disdain-for-the-weak",
         "corrupting-taint",
         "storm-of-darkness",
-        "unrestrained-rage",
         "spiteful-demise-chaos-knights",
-        "soul-hunger",
         "imperious-advance",
         "goaded-beast",
         "feral-arrogance",
@@ -1427,35 +1353,35 @@
         "unleash-balefire",
         "flush-the-quarry",
         "hellforged-construction",
-        "contemptuous-volleys"
+        "contemptuous-volleys",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "knight-diabolus",
         "blasphemous-engine",
-        "pave-the-way",
         "blessing-of-the-dark-master",
         "throne-tyrannicus",
         "bestial-aspect",
         "blade-of-celerity",
         "malevolent-heraldry",
-        "diabolical-resilience",
         "fleshmetal-fusion",
         "warp-borne-stalker",
         "aspect-of-the-beast",
-        "tyrants-banner",
         "veil-of-medrengard",
         "putrid-carapace",
         "hunters-helm",
-        "profane-altar",
         "nightmares-master",
         "tyrants-shadow",
         "mirror-of-fates",
-        "throne-mechanicum-of-skulls"
+        "throne-mechanicum-of-skulls",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "malefic-surge",
         "paragons-of-terror",
-        "dreaded-masters",
+        "wretched-thralls",
         "tyrannical-court",
         "masters-of-the-pack"
       ],
@@ -1610,8 +1536,6 @@
         "hellforged-construction",
         "spiteful-demise-chaos-knights",
         "merciless-fusillade",
-        "unrestrained-rage",
-        "soul-hunger",
         "crushed-like-vermin",
         "pterrorshades",
         "profane-symbiosis",
@@ -1619,7 +1543,6 @@
         "warp-vision",
         "imperious-advance",
         "diabolic-bulwark",
-        "preserve-the-idols",
         "storm-of-darkness",
         "beasthide-manifestation",
         "avenge-the-masters",
@@ -1633,36 +1556,36 @@
         "conquerors-without-mercy",
         "trophy-hunter",
         "unleash-balefire",
-        "feral-arrogance"
+        "feral-arrogance",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
-        "profane-altar",
         "mirror-of-fates",
         "throne-tyrannicus",
         "knight-diabolus",
         "malevolent-heraldry",
         "throne-mechanicum-of-skulls",
         "aspect-of-the-beast",
-        "pave-the-way",
         "tyrants-shadow",
         "bestial-aspect",
         "warp-borne-stalker",
         "nightmares-master",
         "hunters-helm",
-        "tyrants-banner",
-        "diabolical-resilience",
         "blasphemous-engine",
         "fleshmetal-fusion",
         "blessing-of-the-dark-master",
         "putrid-carapace",
         "veil-of-medrengard",
-        "blade-of-celerity"
+        "blade-of-celerity",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "masters-of-the-pack",
         "tyrannical-court",
         "paragons-of-terror",
-        "dreaded-masters",
+        "wretched-thralls",
         "malefic-surge"
       ],
       "canBeLedBy": []
@@ -1872,7 +1795,6 @@
         "crushed-like-vermin",
         "diabolic-bulwark",
         "unleash-balefire",
-        "soul-hunger",
         "beasthide-manifestation",
         "trophy-hunter",
         "contemptuous-volleys",
@@ -1881,23 +1803,21 @@
         "imperious-advance",
         "goaded-beast",
         "claimed-for-the-dark-gods",
-        "unrestrained-rage",
-        "preserve-the-idols",
         "spiteful-demise-chaos-knights",
         "pterrorshades",
         "merciless-fusillade",
         "titanic-duel",
         "storm-of-darkness",
         "warp-vision",
-        "disdain-for-the-weak"
+        "disdain-for-the-weak",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "throne-tyrannicus",
-        "diabolical-resilience",
         "mirror-of-fates",
         "bestial-aspect",
         "nightmares-master",
-        "pave-the-way",
         "veil-of-medrengard",
         "blasphemous-engine",
         "putrid-carapace",
@@ -1906,17 +1826,17 @@
         "aspect-of-the-beast",
         "blessing-of-the-dark-master",
         "hunters-helm",
-        "tyrants-banner",
         "malevolent-heraldry",
-        "profane-altar",
         "warp-borne-stalker",
         "knight-diabolus",
         "tyrants-shadow",
-        "fleshmetal-fusion"
+        "fleshmetal-fusion",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "masters-of-the-pack",
-        "dreaded-masters",
+        "wretched-thralls",
         "tyrannical-court",
         "malefic-surge",
         "paragons-of-terror"
@@ -2139,7 +2059,6 @@
         "pterrorshades",
         "a-long-leash",
         "disdain-for-the-weak",
-        "unrestrained-rage",
         "imperious-advance",
         "conquerors-without-mercy",
         "unleash-balefire",
@@ -2152,27 +2071,23 @@
         "avenge-the-masters",
         "trophy-hunter",
         "merciless-fusillade",
-        "soul-hunger",
         "contemptuous-volleys",
         "storm-of-darkness",
         "claimed-for-the-dark-gods",
         "beasthide-manifestation",
         "spiteful-demise-chaos-knights",
         "titanic-duel",
-        "preserve-the-idols",
         "feral-arrogance",
         "corrupting-taint",
-        "flush-the-quarry"
+        "flush-the-quarry",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
-        "diabolical-resilience",
-        "tyrants-banner",
         "throne-mechanicum-of-skulls",
         "bestial-aspect",
         "fleshmetal-fusion",
         "blessing-of-the-dark-master",
-        "profane-altar",
-        "pave-the-way",
         "mirror-of-fates",
         "warp-borne-stalker",
         "aspect-of-the-beast",
@@ -2185,14 +2100,16 @@
         "knight-diabolus",
         "putrid-carapace",
         "blasphemous-engine",
-        "veil-of-medrengard"
+        "veil-of-medrengard",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "paragons-of-terror",
         "tyrannical-court",
         "masters-of-the-pack",
         "malefic-surge",
-        "dreaded-masters"
+        "wretched-thralls"
       ],
       "canBeLedBy": []
     },
@@ -2412,23 +2329,22 @@
         "goaded-beast",
         "imperious-advance",
         "flush-the-quarry",
-        "soul-hunger",
         "contemptuous-volleys",
-        "preserve-the-idols",
         "pterrorshades",
         "warp-vision",
         "profane-symbiosis",
         "feral-arrogance",
         "storm-of-darkness",
-        "unrestrained-rage",
         "hellforged-construction",
-        "beasthide-manifestation"
+        "beasthide-manifestation",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "throne-tyrannicus"
       ],
       "detachmentAbilityIds": [
-        "dreaded-masters",
+        "wretched-thralls",
         "malefic-surge",
         "paragons-of-terror",
         "masters-of-the-pack",
@@ -2662,7 +2578,6 @@
         "a-long-leash",
         "unleash-balefire",
         "profane-symbiosis",
-        "soul-hunger",
         "hellforged-construction",
         "trophy-hunter",
         "claimed-for-the-dark-gods",
@@ -2672,27 +2587,25 @@
         "warp-vision",
         "diabolic-bulwark",
         "runes-of-disdain",
-        "unrestrained-rage",
         "corrupting-taint",
         "imperious-advance",
         "titanic-duel",
-        "preserve-the-idols",
         "flush-the-quarry",
         "contemptuous-volleys",
         "goaded-beast",
         "beasthide-manifestation",
-        "avenge-the-masters"
+        "avenge-the-masters",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "malevolent-heraldry",
         "tyrants-shadow",
         "throne-mechanicum-of-skulls",
         "mirror-of-fates",
-        "tyrants-banner",
         "blade-of-celerity",
         "fleshmetal-fusion",
         "aspect-of-the-beast",
-        "pave-the-way",
         "putrid-carapace",
         "veil-of-medrengard",
         "hunters-helm",
@@ -2700,16 +2613,16 @@
         "bestial-aspect",
         "blasphemous-engine",
         "warp-borne-stalker",
-        "diabolical-resilience",
         "blessing-of-the-dark-master",
-        "profane-altar",
         "knight-diabolus",
-        "throne-tyrannicus"
+        "throne-tyrannicus",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "masters-of-the-pack",
         "tyrannical-court",
-        "dreaded-masters",
+        "wretched-thralls",
         "malefic-surge",
         "paragons-of-terror"
       ],
@@ -3065,12 +2978,10 @@
         "beasthide-manifestation",
         "profane-symbiosis",
         "storm-of-darkness",
-        "soul-hunger",
         "conquerors-without-mercy",
         "crushed-like-vermin",
         "disdain-for-the-weak",
         "feral-arrogance",
-        "preserve-the-idols",
         "goaded-beast",
         "trophy-hunter",
         "corrupting-taint",
@@ -3080,7 +2991,6 @@
         "hellforged-construction",
         "claimed-for-the-dark-gods",
         "imperious-advance",
-        "unrestrained-rage",
         "titanic-duel",
         "contemptuous-volleys",
         "a-long-leash",
@@ -3088,14 +2998,14 @@
         "merciless-fusillade",
         "diabolic-bulwark",
         "pterrorshades",
-        "spiteful-demise-chaos-knights"
+        "spiteful-demise-chaos-knights",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
-        "pave-the-way",
         "nightmares-master",
         "blessing-of-the-dark-master",
         "malevolent-heraldry",
-        "profane-altar",
         "tyrants-shadow",
         "knight-diabolus",
         "veil-of-medrengard",
@@ -3108,14 +3018,14 @@
         "blade-of-celerity",
         "putrid-carapace",
         "fleshmetal-fusion",
-        "tyrants-banner",
-        "diabolical-resilience",
         "hunters-helm",
-        "warp-borne-stalker"
+        "warp-borne-stalker",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "malefic-surge",
-        "dreaded-masters",
+        "wretched-thralls",
         "tyrannical-court",
         "masters-of-the-pack",
         "paragons-of-terror"
@@ -3397,13 +3307,11 @@
         "unleash-balefire",
         "goaded-beast",
         "crushed-like-vermin",
-        "soul-hunger",
         "feral-arrogance",
         "spiteful-demise-chaos-knights",
         "warp-vision",
         "imperious-advance",
         "avenge-the-masters",
-        "preserve-the-idols",
         "diabolic-bulwark",
         "storm-of-darkness",
         "contemptuous-volleys",
@@ -3414,15 +3322,14 @@
         "titanic-duel",
         "runes-of-disdain",
         "corrupting-taint",
-        "unrestrained-rage",
-        "beasthide-manifestation"
+        "beasthide-manifestation",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "throne-tyrannicus",
-        "tyrants-banner",
         "tyrants-shadow",
         "throne-mechanicum-of-skulls",
-        "profane-altar",
         "veil-of-medrengard",
         "bestial-aspect",
         "malevolent-heraldry",
@@ -3431,20 +3338,20 @@
         "fleshmetal-fusion",
         "knight-diabolus",
         "mirror-of-fates",
-        "diabolical-resilience",
         "hunters-helm",
         "nightmares-master",
         "blasphemous-engine",
         "putrid-carapace",
         "aspect-of-the-beast",
-        "pave-the-way",
-        "blade-of-celerity"
+        "blade-of-celerity",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "malefic-surge",
         "masters-of-the-pack",
         "paragons-of-terror",
-        "dreaded-masters",
+        "wretched-thralls",
         "tyrannical-court"
       ],
       "canBeLedBy": []
@@ -3646,15 +3553,12 @@
       "wargearCosts": [],
       "stratagemIds": [
         "conquerors-without-mercy",
-        "unrestrained-rage",
-        "soul-hunger",
         "flush-the-quarry",
         "disdain-for-the-weak",
         "warp-vision",
         "diabolic-bulwark",
         "feral-arrogance",
         "goaded-beast",
-        "preserve-the-idols",
         "spiteful-demise-chaos-knights",
         "profane-symbiosis",
         "storm-of-darkness",
@@ -3672,11 +3576,12 @@
         "trophy-hunter",
         "contemptuous-volleys",
         "avenge-the-masters",
-        "pterrorshades"
+        "pterrorshades",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "mirror-of-fates",
-        "profane-altar",
         "knight-diabolus",
         "throne-tyrannicus",
         "malevolent-heraldry",
@@ -3687,19 +3592,18 @@
         "fleshmetal-fusion",
         "blasphemous-engine",
         "throne-mechanicum-of-skulls",
-        "tyrants-banner",
         "veil-of-medrengard",
         "bestial-aspect",
         "nightmares-master",
         "putrid-carapace",
         "tyrants-shadow",
-        "pave-the-way",
         "aspect-of-the-beast",
-        "diabolical-resilience"
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "paragons-of-terror",
-        "dreaded-masters",
+        "wretched-thralls",
         "malefic-surge",
         "tyrannical-court",
         "masters-of-the-pack"
@@ -3894,10 +3798,8 @@
         "hellforged-construction",
         "warp-vision",
         "unleash-balefire",
-        "preserve-the-idols",
         "disdain-for-the-weak",
         "imperious-advance",
-        "soul-hunger",
         "merciless-fusillade",
         "crushed-like-vermin",
         "corrupting-taint",
@@ -3905,7 +3807,6 @@
         "titanic-duel",
         "beasthide-manifestation",
         "storm-of-darkness",
-        "unrestrained-rage",
         "a-long-leash",
         "spiteful-demise-chaos-knights",
         "diabolic-bulwark",
@@ -3917,7 +3818,9 @@
         "conquerors-without-mercy",
         "pterrorshades",
         "contemptuous-volleys",
-        "goaded-beast"
+        "goaded-beast",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "blessing-of-the-dark-master",
@@ -3925,27 +3828,25 @@
         "hunters-helm",
         "blade-of-celerity",
         "blasphemous-engine",
-        "pave-the-way",
         "tyrants-shadow",
         "warp-borne-stalker",
         "putrid-carapace",
         "fleshmetal-fusion",
-        "tyrants-banner",
         "malevolent-heraldry",
         "mirror-of-fates",
         "nightmares-master",
-        "profane-altar",
         "knight-diabolus",
         "throne-mechanicum-of-skulls",
         "aspect-of-the-beast",
         "bestial-aspect",
-        "diabolical-resilience",
-        "veil-of-medrengard"
+        "veil-of-medrengard",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "tyrannical-court",
         "malefic-surge",
-        "dreaded-masters",
+        "wretched-thralls",
         "paragons-of-terror",
         "masters-of-the-pack"
       ],
@@ -4142,9 +4043,7 @@
         "avenge-the-masters",
         "imperious-advance",
         "warp-vision",
-        "unrestrained-rage",
         "goaded-beast",
-        "soul-hunger",
         "flush-the-quarry",
         "disdain-for-the-weak",
         "unleash-balefire",
@@ -4154,15 +4053,16 @@
         "beasthide-manifestation",
         "merciless-fusillade",
         "diabolic-bulwark",
-        "preserve-the-idols",
         "storm-of-darkness",
-        "contemptuous-volleys"
+        "contemptuous-volleys",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "throne-tyrannicus"
       ],
       "detachmentAbilityIds": [
-        "dreaded-masters",
+        "wretched-thralls",
         "malefic-surge",
         "tyrannical-court",
         "masters-of-the-pack",
@@ -4393,7 +4293,6 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "unrestrained-rage",
         "pterrorshades",
         "conquerors-without-mercy",
         "avenge-the-masters",
@@ -4401,7 +4300,6 @@
         "feral-arrogance",
         "animalistic-rage",
         "goaded-beast",
-        "soul-hunger",
         "imperious-advance",
         "flush-the-quarry",
         "hungry-for-combat",
@@ -4417,8 +4315,9 @@
         "diabolic-bulwark",
         "contemptuous-volleys",
         "profane-symbiosis",
-        "preserve-the-idols",
-        "storm-of-darkness"
+        "storm-of-darkness",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "final-howl-aura",
@@ -4595,7 +4494,6 @@
         "pterrorshades",
         "feral-arrogance",
         "disdain-for-the-weak",
-        "preserve-the-idols",
         "storm-of-darkness",
         "goaded-beast",
         "harrying-hounds",
@@ -4603,13 +4501,13 @@
         "profane-symbiosis",
         "warp-vision",
         "flush-the-quarry",
-        "soul-hunger",
         "animalistic-rage",
         "a-long-leash",
         "merciless-fusillade",
         "unleash-balefire",
-        "unrestrained-rage",
-        "imperious-advance"
+        "imperious-advance",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "final-howl-aura",
@@ -4841,7 +4739,6 @@
         "encircling-pack",
         "merciless-fusillade",
         "animalistic-rage",
-        "unrestrained-rage",
         "contemptuous-volleys",
         "profane-symbiosis",
         "flush-the-quarry",
@@ -4851,13 +4748,13 @@
         "warp-vision",
         "hungry-for-combat",
         "feral-arrogance",
-        "preserve-the-idols",
         "cunning-hunter",
-        "soul-hunger",
         "disdain-for-the-weak",
         "hellforged-construction",
         "unleash-balefire",
-        "a-long-leash"
+        "a-long-leash",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "preyslayers-mantle",
@@ -5024,7 +4921,6 @@
       "stratagemIds": [
         "harrying-hounds",
         "encircling-pack",
-        "preserve-the-idols",
         "cunning-hunter",
         "contemptuous-volleys",
         "conquerors-without-mercy",
@@ -5035,11 +4931,9 @@
         "merciless-fusillade",
         "a-long-leash",
         "unleash-balefire",
-        "soul-hunger",
         "hungry-for-combat",
         "beasthide-manifestation",
         "disdain-for-the-weak",
-        "unrestrained-rage",
         "imperious-advance",
         "flush-the-quarry",
         "feral-arrogance",
@@ -5047,7 +4941,9 @@
         "goaded-beast",
         "pterrorshades",
         "hellforged-construction",
-        "avenge-the-masters"
+        "avenge-the-masters",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "final-howl-aura",
@@ -5231,7 +5127,6 @@
         "warp-vision",
         "disdain-for-the-weak",
         "feral-arrogance",
-        "unrestrained-rage",
         "flush-the-quarry",
         "hellforged-construction",
         "animalistic-rage",
@@ -5239,21 +5134,21 @@
         "storm-of-darkness",
         "harrying-hounds",
         "encircling-pack",
-        "preserve-the-idols",
         "profane-symbiosis",
         "hungry-for-combat",
         "goaded-beast",
         "unleash-balefire",
         "merciless-fusillade",
         "diabolic-bulwark",
-        "soul-hunger",
         "beasthide-manifestation",
         "conquerors-without-mercy",
         "imperious-advance",
         "pterrorshades",
         "contemptuous-volleys",
         "cunning-hunter",
-        "avenge-the-masters"
+        "avenge-the-masters",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "final-howl-aura",
@@ -5436,7 +5331,6 @@
       "wargearCosts": [],
       "stratagemIds": [
         "a-long-leash",
-        "unrestrained-rage",
         "hungry-for-combat",
         "imperious-advance",
         "unleash-balefire",
@@ -5452,15 +5346,15 @@
         "cunning-hunter",
         "warp-vision",
         "encircling-pack",
-        "soul-hunger",
         "hellforged-construction",
-        "preserve-the-idols",
         "harrying-hounds",
         "feral-arrogance",
         "avenge-the-masters",
         "storm-of-darkness",
         "diabolic-bulwark",
-        "goaded-beast"
+        "goaded-beast",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "panoply-of-the-cursed-knight",
@@ -5648,18 +5542,15 @@
         "titanic-duel",
         "a-long-leash",
         "feral-arrogance",
-        "preserve-the-idols",
         "goaded-beast",
         "diabolic-bulwark",
         "storm-of-darkness",
         "avenge-the-masters",
         "profane-symbiosis",
         "claimed-for-the-dark-gods",
-        "soul-hunger",
         "spiteful-demise-chaos-knights",
         "warp-vision",
         "beasthide-manifestation",
-        "unrestrained-rage",
         "hellforged-construction",
         "merciless-fusillade",
         "flush-the-quarry",
@@ -5671,7 +5562,9 @@
         "imperious-advance",
         "contemptuous-volleys",
         "runes-of-disdain",
-        "crushed-like-vermin"
+        "crushed-like-vermin",
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "octagram-of-conjuration",
@@ -5679,29 +5572,27 @@
         "aspect-of-the-beast",
         "blessing-of-the-dark-master",
         "veil-of-medrengard",
-        "diabolical-resilience",
         "bestial-aspect",
         "mirror-of-fates",
         "throne-mechanicum-of-skulls",
         "knight-diabolus",
-        "profane-altar",
         "nightmares-master",
-        "tyrants-banner",
         "fleshmetal-fusion",
         "putrid-carapace",
         "warp-borne-stalker",
         "tyrants-shadow",
-        "pave-the-way",
         "blasphemous-engine",
         "blade-of-celerity",
         "throne-tyrannicus",
-        "malevolent-heraldry"
+        "malevolent-heraldry",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "masters-of-the-pack",
         "tyrannical-court",
         "malefic-surge",
-        "dreaded-masters",
+        "wretched-thralls",
         "paragons-of-terror"
       ],
       "canBeLedBy": []
@@ -5812,8 +5703,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "worthless-chattel",
-        "wretched-masses"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -6033,8 +5924,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "worthless-chattel",
-        "wretched-masses"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -6185,8 +6076,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "worthless-chattel",
-        "wretched-masses"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -6314,8 +6205,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "worthless-chattel",
-        "wretched-masses"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -6446,7 +6337,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "worthless-chattel"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -6677,8 +6569,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "wretched-masses",
-        "worthless-chattel"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -6961,8 +6853,8 @@
       ],
       "wargearCosts": [],
       "stratagemIds": [
-        "worthless-chattel",
-        "wretched-masses"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
@@ -7150,7 +7042,6 @@
         "unleash-balefire",
         "feral-arrogance",
         "pterrorshades",
-        "unrestrained-rage",
         "diabolic-bulwark",
         "trophy-hunter",
         "corrupting-taint",
@@ -7171,20 +7062,16 @@
         "flush-the-quarry",
         "claimed-for-the-dark-gods",
         "contemptuous-volleys",
-        "soul-hunger",
         "goaded-beast",
-        "preserve-the-idols"
+        "dark-sacrifice",
+        "coursing-thralls"
       ],
       "enhancementIds": [
         "hunters-helm",
-        "diabolical-resilience",
-        "tyrants-banner",
         "knight-diabolus",
-        "profane-altar",
         "nightmares-master",
         "blade-of-celerity",
         "warp-borne-stalker",
-        "pave-the-way",
         "tyrants-shadow",
         "putrid-carapace",
         "fleshmetal-fusion",
@@ -7196,11 +7083,13 @@
         "bestial-aspect",
         "throne-mechanicum-of-skulls",
         "throne-tyrannicus",
-        "veil-of-medrengard"
+        "veil-of-medrengard",
+        "cruel-lashmaster-aura",
+        "iconoclast-idol-aura"
       ],
       "detachmentAbilityIds": [
         "tyrannical-court",
-        "dreaded-masters",
+        "wretched-thralls",
         "malefic-surge",
         "paragons-of-terror",
         "masters-of-the-pack"
