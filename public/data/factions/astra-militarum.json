@@ -147,7 +147,7 @@
         {
           "id": "masters-of-camouflage",
           "name": "Masters of Camouflage",
-          "description": "Astra Militarum Walker and Regiment units from your army have the Benefit of Cover. While such a unit has the Benefit of Cover for any other reason (e.g. because it is wholly within a <span class=\"kwb\">RUIN</span>), improve the Save characteristic of that unit by 1 (to a maximum of 3+)."
+          "description": "Friendly <span class=\"kwb\">ASTRA MILITARUM</span> units (excluding <span class=\"kwb\">TITANIC</span> units) have Stealth."
         }
       ]
     },
@@ -195,6 +195,34 @@
           "id": "squadron-command",
           "name": "Squadron Command",
           "description": "Add Squadron to the list of units each Officer unit from your army can issue Orders to. Add the Order below to those listed in the Voice of Command ability.<br><br><span class=\"hi_custom\">ON MY SIGNAL</span><br>This Order can only be issued to Armoured Skirmisher units (see below). Each time an enemy unit ends a Normal or Advance move within 8\" of this unit, this unit can make a Normal move of up to D6\". Each unit can only move in this way once per turn.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Astra Militarum Squadron units from your army have the <span class=\"kwb\">ARMOURED</span> <span class=\"kwb\">SKIRMISHER</span> keyword (excluding Artillery units and units containing one or more models with a Wounds characteristic of 13 or higher)."
+        }
+      ]
+    },
+    {
+      "id": "abhuman-auxiliaries",
+      "name": "Abhuman Auxiliaries",
+      "disposition": "TAKE AND HOLD",
+      "dp": 1,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "absolutist-principles",
+          "name": "Absolutist Principles",
+          "description": "Friendly <span class=\"kwb\">BULLGRYN SQUAD</span>/<span class=\"kwb\">OGRYN SQUAD</span>/<span class=\"kwb\">RATLINGS</span> units have <span class=\"kwb\">ABHUMAN</span>.<br><br>Friendly <span class=\"kwb\">COMMISSAR</span> models can:<ul><li>Issue the Take Aim! Order.</li><li>Issue 1 Order to a friendly <span class=\"kwb\">ABHUMAN</span> unit.</li></ul><br><span class=\"hi_custom\">RESTRICTIONS</span><br>This detachment has the ABHUMAN tag and cannot be taken with another ABHUMAN detachment."
+        }
+      ]
+    },
+    {
+      "id": "designation-force",
+      "name": "Designation Force",
+      "disposition": "RECONNAISSANCE",
+      "dp": 1,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "designated-targets",
+          "name": "Designated Targets",
+          "description": "Friendly <span class=\"kwb\">SCOUT SENTINEL</span>/<span class=\"kwb\">ASTRA MILITARUM INFANTRY SMOKE</span> units have the following ability:<br><br><b>Signal Flares:</b> In your Shooting phase, this unit can select one visible enemy unit within 12\". That enemy unit is designated:<ul><li>While a unit is designated, that unit has +3\" detection range.</li></ul><br><span class=\"hi_custom\">RESTRICTIONS</span><br>This detachment has the RECON tag and cannot be taken with another RECON detachment."
         }
       ]
     }
@@ -872,6 +900,74 @@
       "turn": "Your turn",
       "phase": "Movement phase",
       "description": "<b>WHEN:</b> Reinforcements step of your Movement phase, from the second battle round onwards.<br><br><b>TARGET:</b> One Astra Militarum Titanic unit from your army that is in Reserves.<br><br><b>EFFECT:</b> Set up your unit on the battlefield, wholly within 8\" of the battlefield edge and more than 6\" horizontally away from all enemy units."
+    },
+    {
+      "id": "thick-skulled-obdurance",
+      "name": "THICK-SKULLED OBDURANCE",
+      "detachmentId": "abhuman-auxiliaries",
+      "cpCost": 1,
+      "type": "Abhuman Auxiliaries – Battle Tactic Stratagem",
+      "turn": "Opponent’s turn",
+      "phase": "Shooting or Fight phase",
+      "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">BULLGRYN SQUAD</span>/<span class=\"kwb\">OGRYN SQUAD</span> unit that is within range of an objective.<br><br><b>TARGET:</b> That <span class=\"kwb\">BULLGRYN SQUAD</span>/<span class=\"kwb\">OGRYN SQUAD</span> unit.<br><br><b>EFFECT:</b> Attacks that target your unit have -1 AP until that enemy unit has attacked.",
+      "effect": {
+        "effects": {
+          "apMod": -1
+        },
+        "target": "defender",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "low-profile",
+      "name": "LOW PROFILE",
+      "detachmentId": "abhuman-auxiliaries",
+      "cpCost": 1,
+      "type": "Abhuman Auxiliaries – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">RATLINGS</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">RATLINGS</span> unit.<br><br><b>EFFECT:</b> Those ranged attacks do not prevent your unit from being hidden."
+    },
+    {
+      "id": "stirred-to-action",
+      "name": "STIRRED TO ACTION",
+      "detachmentId": "abhuman-auxiliaries",
+      "cpCost": 1,
+      "type": "Abhuman Auxiliaries – Strategic Ploy Stratagem",
+      "turn": "Opponent’s turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, when an enemy unit that targeted a friendly unengaged <span class=\"kwb\">BULLGRYN SQUAD</span>/<span class=\"kwb\">OGRYN SQUAD</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">BULLGRYN SQUAD</span>/<span class=\"kwb\">OGRYN SQUAD</span> unit.<br><br><b>EFFECT:</b> Your unit can make a surge move of up to D6\"."
+    },
+    {
+      "id": "close-range-detection",
+      "name": "CLOSE-RANGE DETECTION",
+      "detachmentId": "designation-force",
+      "cpCost": 1,
+      "type": "Designation Force – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Start of your Shooting phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">SCOUT SENTINEL</span>/<span class=\"kwb\">ASTRA MILITARUM INFANTRY</span> unit.<br><br><b>EFFECT:</b> While a visible enemy unit is within 6\" of your unit, that unit has +3\" detection range."
+    },
+    {
+      "id": "triggered-alerts",
+      "name": "TRIGGERED ALERTS",
+      "detachmentId": "designation-force",
+      "cpCost": 1,
+      "type": "Designation Force – Strategic Ploy Stratagem",
+      "turn": "Opponent’s turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your opponent’s Movement phase, when an enemy unit ends a move within 8\" of a friendly unengaged <span class=\"kwb\">ASTRA MILITARUM INFANTRY</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">ASTRA MILITARUM INFANTRY</span> unit.<br><br><b>EFFECT:</b> Your unit can make a Normal move of up to D3+3\"."
+    },
+    {
+      "id": "sump-smog-screen",
+      "name": "SUMP-SMOG SCREEN",
+      "detachmentId": "designation-force",
+      "cpCost": 1,
+      "type": "Designation Force – Strategic Ploy Stratagem",
+      "turn": "Opponent’s turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Start of your opponent’s Shooting phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">ASTRA MILITARUM INFANTRY SMOKE</span> unit.<br><br><b>EFFECT:</b> When an attack targets either your unit, or a unit that is not fully visible to the attacking model because of one or more models in your unit, the target has the benefit of cover against that attack."
     }
   ],
   "enhancements": [
@@ -1239,6 +1335,38 @@
         },
         "target": "defender"
       }
+    },
+    {
+      "id": "sharp-eyes-light-fingers",
+      "name": "Sharp Eyes, Light Fingers",
+      "cost": 10,
+      "detachmentId": "abhuman-auxiliaries",
+      "detachmentName": "Abhuman Auxiliaries",
+      "description": "<span class=\"kwb\">RATLINGS</span> unit only. When this unit is selected to shoot, enemy units have +6\" detection range until this unit has shot."
+    },
+    {
+      "id": "exemplar-of-duty",
+      "name": "Exemplar of Duty",
+      "cost": 10,
+      "detachmentId": "abhuman-auxiliaries",
+      "detachmentName": "Abhuman Auxiliaries",
+      "description": "<span class=\"kwb\">COMMISSAR</span> model only. This model has Feel No Pain 4+."
+    },
+    {
+      "id": "long-range-scout",
+      "name": "Long-range Scout",
+      "cost": 10,
+      "detachmentId": "designation-force",
+      "detachmentName": "Designation Force",
+      "description": "<span class=\"kwb\">SCOUT SENTINEL</span> unit only. This unit has Infiltrators."
+    },
+    {
+      "id": "recon-star",
+      "name": "Recon Star",
+      "cost": 10,
+      "detachmentId": "designation-force",
+      "detachmentName": "Designation Force",
+      "description": "<span class=\"kwb\">ASTRA MILITARUM INFANTRY PLATOON</span> unit only. In your first Movement phase, this unit can make an ingress move."
     }
   ],
   "datasheets": [
