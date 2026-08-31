@@ -13,9 +13,9 @@
       "description": "<div class=\"Columns2\"><div class=\"BreakInsideAvoid\">If your Army Faction is Asuryani, at the start of the battle round, you receive a number of Battle Focus tokens based on the battle size, as shown in the table below.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(22,105,114);color:rgb(255,255,255);text-align:left;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>BATTLE SIZE</b></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(22,105,114);color:rgb(255,255,255);text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>BATTLE FOCUS TOKENS</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Incursion</td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:center;vertical-align:middle;font-size:18px;width:240px;height:0px;\"><b>2</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Strike Force</td><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:center;vertical-align:middle;font-size:18px;width:240px;height:0px;\"><b>4</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none dotted none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Onslaught</td><td style=\"border-width:1px 1px 1px 1px;border-style:none none dotted none;text-align:center;vertical-align:middle;font-size:18px;width:240px;height:0px;\"><b>6</b></td></tr></tbody></table></td></tr></tbody></table></div><br></div>Each time one of the triggers shown in the Agile Manoeuvres section below occurs, you can spend one Battle Focus token to enable the relevant eligible unit to perform that Agile Manoeuvre. A unit is eligible to perform an Agile Manoeuvre if it has this ability and has not already performed an Agile Manoeuvre in the same phase. Unless otherwise stated, you cannot trigger the same Agile Manoeuvre more than once per phase. At the end of the battle round, all unspent Battle Focus tokens are lost.</div><br><div style=\"text-align:center; font-family: 'ConduitITC', arial; font-size: 2em;\">AGILE MANOEUVRES</div><div class=\"Columns2\"><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">SWIFT AS THE WIND</p><p><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeMovement\"></div></div></div><span class=\"aeText\">TRIGGER:</span> When an eligible unit from your army is selected to make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span></span>, <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advance</span></span> or <span class=\"tooltip00013\" data-tooltip-content=\"#tooltip_content00013\"><span class=\"tt kwbu\">Fall</span> <span class=\"tt kwbu\">Back</span> <span class=\"tt kwbu\">move</span></span>. You can trigger this Agile Manoeuvre more than once per phase (provided a different unit performs it each time).<br><br><span class=\"aeText\">EFFECT:</span> Until the end of the phase, add 2\" to the Move characteristic of models in that unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FLITTING SHADOWS</p><p><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeMovement\"></div></div></div><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeCharge\"></div></div></div><span class=\"aeText\">TRIGGER:</span> When an eligible unit from your army is selected to make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span></span>, <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advance</span></span> or <span class=\"tooltip00013\" data-tooltip-content=\"#tooltip_content00013\"><span class=\"tt kwbu\">Fall</span> <span class=\"tt kwbu\">Back</span> <span class=\"tt kwbu\">move</span></span>, is set up on the battlefield, or <span class=\"tooltip00041\" data-tooltip-content=\"#tooltip_content00041\"><span class=\"tt kwbu\">declares</span> <span class=\"tt kwbu\">a</span> <span class=\"tt kwbu\">charge</span></span>.<br><br><span class=\"aeText\">EFFECT:</span> Until the end of the turn, enemy units cannot use the <span class=\"tooltip00053\" data-tooltip-content=\"#tooltip_content00053\"><span class=\"tt kwbu\">Fire</span> <span class=\"tt kwbu\">Overwatch</span></span> Stratagem to shoot at that unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">STAR ENGINES</p><p><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeMovement\"></div></div></div><span class=\"aeText\">TRIGGER:</span> When an eligible <span class=\"tooltip00054\" data-tooltip-content=\"#tooltip_content00054\" data-tooltip-anchor=\"#tooltip_content00054\"><span class=\"kwb kwbu\">VEHICLE</span></span> unit from your army is selected to make an <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advance</span> <span class=\"tt kwbu\">move</span></span>.<br><br><span class=\"aeText\">EFFECT:</span> Until the end of the turn, Ranged weapons equipped by this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00033\" data-tooltip-content=\"#tooltip_content00033\"><span class=\"tt kwbu\">[ASSAULT]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">SUDDEN STRIKE</p><p><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeFight\"></div></div></div><span class=\"aeText\">TRIGGER:</span> When an eligible unit from your army is selected to fight.<br><br><span class=\"aeText\">EFFECT:</span> Until the end of the phase, each time a model in that unit makes a <span class=\"tooltip00042\" data-tooltip-content=\"#tooltip_content00042\"><span class=\"tt kwbu\">Pile-in</span></span> or <span class=\"tooltip00043\" data-tooltip-content=\"#tooltip_content00043\"><span class=\"tt kwbu\">Consolidation</span> <span class=\"tt kwbu\">move</span></span>, it can move up to 6\" instead of up to 3\".</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">OPPORTUNITY SEIZED</p><p><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeMovement\"></div></div></div><span class=\"aeText\">TRIGGER:</span> When an enemy unit ends a <span class=\"tooltip00013\" data-tooltip-content=\"#tooltip_content00013\"><span class=\"tt kwbu\">Fall</span> <span class=\"tt kwbu\">Back</span> <span class=\"tt kwbu\">move</span></span>.<br><br><span class=\"aeText\">EFFECT:</span> One eligible unit from your army (excluding <span class=\"tooltip00055\" data-tooltip-content=\"#tooltip_content00055\" data-tooltip-anchor=\"#tooltip_content00055\"><span class=\"kwb kwbu\">TITANIC</span></span> units) that started the phase within <span class=\"tooltip00038\" data-tooltip-content=\"#tooltip_content00038\"><span class=\"tt kwbu\">Engagement</span> <span class=\"tt kwbu\">Range</span></span> of that enemy unit can make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span> of up to D6+1\".</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FADE BACK</p><p><div class=\"redDiamondLeft\"><div class=\"bluCircle2\"><div class=\"aeShooting\"></div></div></div><span class=\"aeText\">TRIGGER:</span> In your opponent’s <a href=\"/wh40k10ed/the-rules/core-rules/#SHOOTING-PHASE\">Shooting phase</a>, just after an enemy unit has shot.<br><br><span class=\"aeText\">EFFECT:</span> One eligible unit from your army (excluding <span class=\"tooltip00055\" data-tooltip-content=\"#tooltip_content00055\" data-tooltip-anchor=\"#tooltip_content00055\"><span class=\"kwb kwbu\">TITANIC</span></span> units) that was hit by one or more of those attacks can make a <span class=\"tooltip00039\" data-tooltip-content=\"#tooltip_content00039\"><span class=\"tt kwbu\">Normal</span> <span class=\"tt kwbu\">move</span></span> of up to D6+1\".</p></td></tr></tbody></tbody></table></div></div>"
     },
     {
-      "id": "disparate-paths",
-      "name": "Disparate Paths",
-      "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction."
+      "id": "corsairs-and-travelling-players",
+      "name": "Corsairs and Travelling Players",
+      "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements."
     }
   ],
   "detachments": [
@@ -6512,9 +6512,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -6701,9 +6701,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -6859,9 +6859,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -7064,9 +7064,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -7239,9 +7239,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -7408,9 +7408,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -7625,9 +7625,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
@@ -7852,9 +7852,9 @@
           "type": "Faction"
         },
         {
-          "id": "disparate-paths",
-          "name": "Disparate Paths",
-          "description": "When mustering your army, you can include Harlequins units in your army, even though they do not have the Asuryani Faction keyword. Unless otherwise stated, you cannot select <span class=\"kwb\">HARLEQUINS</span> or Ynnari as your Army Faction.",
+          "id": "corsairs-and-travelling-players",
+          "name": "Corsairs and Travelling Players",
+          "description": "If your Army Faction is <span class=\"kwb\">DRUKHARI</span>, you can include <span class=\"kwb\">HARLEQUINS</span> and <span class=\"kwb\">ANHRATHE</span> units in your army, even though they do not have the <span class=\"kwb\">DRUKHARI</span> Faction keyword. The combined points value of <span class=\"kwb\">HARLEQUINS</span> and/or <span class=\"kwb\">ANHRATHE</span> units you can include in your army depends on the battle size, as follows:<ul><li>Incursion: Up to 250 pts</li><li>Strike Force: Up to 500 pts</li><li>Onslaught: Up to 750 pts</li></ul>No <span class=\"kwb\">HARLEQUINS</span> or <span class=\"kwb\">ANHRATHE</span> models included in your army in this way can be your Warlord, and they cannot be given Enhancements.",
           "type": "Faction"
         },
         {
