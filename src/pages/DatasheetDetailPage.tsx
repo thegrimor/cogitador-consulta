@@ -177,7 +177,7 @@ function AbilRow({ ab, factionId }: { ab: Ability; factionId: string }) {
         </span>
       )}
       <p className="prose-copy">
-        <strong className="font-display uppercase tracking-wide text-[11px] text-crimson-bright">
+        <strong className="font-display uppercase tracking-wide text-[11px] text-parchment">
           {ab.name}
         </strong>
         {ab.description ? (
@@ -565,7 +565,7 @@ export function DatasheetDetailPage() {
                     return (
                       <div key={s.id} className={`px-3 py-2.5 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
                         <div className="flex items-start justify-between gap-2 mb-1">
-                          <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright leading-tight">
+                          <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
                             {s.name}
                           </span>
                           <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
