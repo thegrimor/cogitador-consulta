@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
 import { DECK_COLORS, dispositionDeckSlug } from '@/core/constants/missionDeckColors'
+import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { RuleHtml } from '@/shared/components/RuleHtml'
 
 function SectionHeader({ title }: { title: string }) {
@@ -125,36 +126,39 @@ export function DetachmentDetailPage() {
           <div className="border border-rim-bright">
             <SectionHeader title={`Estratagemas (${strats.length})`} />
             <div className="divide-y divide-rim-bright">
-              {strats.map(s => (
-                <div key={s.id} className="px-3 py-3 bg-surface-2">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <p className="text-[13px] font-display uppercase tracking-widest text-parchment leading-tight">
-                      {s.name}
-                    </p>
-                    <span className="shrink-0 text-[11px] font-mono font-bold text-gold border border-gold/60 px-1.5 py-0.5 leading-none">
-                      {CP_LABELS[s.cpCost] ?? `${s.cpCost}CP`}
-                    </span>
+              {strats.map(s => {
+                const turnColors = stratagemTurnColors(s.turn)
+                return (
+                  <div key={s.id} className={`px-3 py-3 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <p className="text-[13px] font-display uppercase tracking-widest text-parchment leading-tight">
+                        {s.name}
+                      </p>
+                      <span className="shrink-0 text-[11px] font-mono font-bold text-gold border border-gold/60 px-1.5 py-0.5 leading-none">
+                        {CP_LABELS[s.cpCost] ?? `${s.cpCost}CP`}
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap gap-x-3 gap-y-0.5 mb-2">
+                      {s.type && (
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                          Tipo: <span className="text-parchment">{s.type}</span>
+                        </span>
+                      )}
+                      {s.turn && (
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                          Turno: <span className={turnColors.text}>{s.turn}</span>
+                        </span>
+                      )}
+                      {s.phase && (
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                          Fase: <span className="text-parchment">{s.phase}</span>
+                        </span>
+                      )}
+                    </div>
+                    <RuleHtml html={s.description} className="prose-copy" />
                   </div>
-                  <div className="flex flex-wrap gap-x-3 gap-y-0.5 mb-2">
-                    {s.type && (
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                        Tipo: <span className="text-parchment">{s.type}</span>
-                      </span>
-                    )}
-                    {s.turn && (
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                        Turno: <span className="text-parchment">{s.turn}</span>
-                      </span>
-                    )}
-                    {s.phase && (
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                        Fase: <span className="text-parchment">{s.phase}</span>
-                      </span>
-                    )}
-                  </div>
-                  <RuleHtml html={s.description} className="prose-copy" />
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>

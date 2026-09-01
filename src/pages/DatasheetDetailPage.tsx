@@ -4,6 +4,7 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import { RuleHtml } from '@/shared/components/RuleHtml'
+import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -553,33 +554,36 @@ export function DatasheetDetailPage() {
                     Sin estratagemas
                   </p>
                 ) : (
-                  visibleStrats.map(s => (
-                    <div key={s.id} className="px-3 py-2.5 bg-surface-2">
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
-                          {s.name}
-                        </span>
-                        <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
-                          {s.cpCost}CP
-                        </span>
-                      </div>
-                      {(s.turn || s.phase) && (
-                        <div className="flex gap-3 mb-1">
-                          {s.turn && (
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                              Turno: <span className="text-parchment">{s.turn}</span>
-                            </span>
-                          )}
-                          {s.phase && (
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                              Fase: <span className="text-parchment">{s.phase}</span>
-                            </span>
-                          )}
+                  visibleStrats.map(s => {
+                    const turnColors = stratagemTurnColors(s.turn)
+                    return (
+                      <div key={s.id} className={`px-3 py-2.5 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
+                        <div className="flex items-start justify-between gap-2 mb-1">
+                          <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
+                            {s.name}
+                          </span>
+                          <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
+                            {s.cpCost}CP
+                          </span>
                         </div>
-                      )}
-                      <RuleHtml html={s.description} className="prose-copy" />
-                    </div>
-                  ))
+                        {(s.turn || s.phase) && (
+                          <div className="flex gap-3 mb-1">
+                            {s.turn && (
+                              <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                                Turno: <span className={turnColors.text}>{s.turn}</span>
+                              </span>
+                            )}
+                            {s.phase && (
+                              <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                                Fase: <span className="text-parchment">{s.phase}</span>
+                              </span>
+                            )}
+                          </div>
+                        )}
+                        <RuleHtml html={s.description} className="prose-copy" />
+                      </div>
+                    )
+                  })
                 )}
               </div>
             </>

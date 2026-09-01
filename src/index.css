@@ -42,6 +42,14 @@
   --color-amber: #e0a020;
   --color-scarlet: #d43a3a;
 
+  /* Colores fijos por momento de uso de estratagema (mismo motivo que los de arriba — deben
+     seguir siendo verde/azul/rojo sin importar el tema activo). Derivados del campo `turn` de
+     cada estratagema (ver src/core/constants/stratagemTurnColors.ts), no un campo nuevo en el
+     JSON — `turn` ya distingue exactamente estos tres casos. */
+  --color-turn-either: #3fae55;
+  --color-turn-own: #2a6fd0;
+  --color-turn-enemy: #d43a3a;
+
   /* Tipografías */
   --font-mono: 'Share Tech Mono', monospace;
   --font-display: 'Orbitron', sans-serif;
