@@ -157,15 +157,16 @@
     cursor: help;
   }
 
-  /* Body-copy paragraphs (rule/ability/stratagem descriptions) — humanist font instead of
-     the tabular mono, sentence case instead of tracking-widest caps, softer --color-ink
-     instead of near-white --color-parchment. Reserve font-mono/uppercase for stat boxes,
-     badges and section labels, which is what they're actually suited for. Combine with
-     .wh-html (not a replacement for it) to keep list/bold/italic styling. */
+  /* Body-copy paragraphs (rule/ability/stratagem descriptions) — sentence case instead of
+     tracking-widest caps, a size bump (11-12px -> 13px) and softer --color-ink instead of
+     near-white --color-parchment. Kept font-mono (a Rajdhani pass didn't land — the mono
+     identity is part of the app's look) but everything else about how these read still
+     improves. Reserve uppercase for stat boxes, badges and section labels, which is what
+     it's actually suited for. Combine with .wh-html (not a replacement for it) to keep
+     list/bold/italic styling. */
   .prose-copy {
-    font-family: var(--font-rajdhani);
-    font-weight: 500;
-    font-size: 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
     line-height: 1.65;
     letter-spacing: normal;
     text-transform: none;

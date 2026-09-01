@@ -101,7 +101,7 @@ export function DetachmentDetailPage() {
             <SectionHeader title={`Mejoras (${detEnhancements.length})`} />
             <div className="divide-y divide-rim-bright">
               {detEnhancements.map(en => (
-                <div key={en.id} className="px-3 py-3 bg-surface-2">
+                <div key={en.id} className="px-3 py-3 bg-surface-2 border-l-2 border-l-gold">
                   <div className="flex items-start justify-between gap-3 mb-1">
                     <p className="text-[12px] font-display uppercase tracking-widest text-parchment">
                       {en.name}
