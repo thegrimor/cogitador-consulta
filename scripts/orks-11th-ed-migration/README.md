@@ -58,25 +58,27 @@ apply the same same-name backfill for per-unit points, for consistency.
 
 ## Known gaps / not verified (read before trusting this data for real games)
 
-- **Points, Detachment Points, disposition:** still the known-stale backfill from the old
-  codex described below — real, unverified numbers, not from this codex (which doesn't print
-  them at all).
-- **`canBeLedBy` is empty on every datasheet.** In this codex's simplified card layout,
-  individual Leader characters do NOT print a "This unit can be attached to: X, Y, Z" line
-  (checked directly against the rendered Warboss page image) — that pairing isn't recoverable
-  from what's on the page at all. The Leader-attachment feature in the roster builder/army-list
-  UI will not suggest any bodyguard units for any Ork character until this is filled in by hand
-  (likely needs the core rulebook's separate leader-pairing reference, if this edition still
-  ships one).
+- **Datasheet points** (`pointsCosts`/`wargearCosts`) are now real numbers the user supplied
+  directly (2026-09-01, `points-overrides.mjs`) — still explicitly temporary/unofficial (no
+  official points exist for this codex printing yet), but no longer the old-codex scrape.
+  Two spots are flagged `ASSUMED`/`INFERRED` in that file because the mapping from the given
+  numbers to specific model-count tiers wasn't 1:1 obvious: **Meganobz** (4 values assigned to
+  sizes 2/3/5/6 by analogy with the old codex's own tier sizes, not confirmed) and **Wartrakks
+  /Squighog Boyz** (one of the two tiers was inferred by doubling/halving the given value, not
+  given directly). Detachment `dp`/`disposition` and enhancement `cost` are still the
+  old-codex-name-match backfill described below (unaffected by this update).
+- **`canBeLedBy`** is now populated from a provisional Leader/Support list the user supplied
+  (2026-09-01, `leader-overrides.mjs`) — explicitly a draft, and one mapping is inferred rather
+  than confirmed: "Wrekas" (recurring in their list) was matched to **Breaka Boyz** by
+  elimination (paired every time with Tankbustas/Flash Gitz, the other two units in the
+  Wreckas detachment's target trio: BREAKA BOYZ/FLASH GITZ/TANKBUSTAS). Bannernob was
+  explicitly called out by the user as unmapped ("no se sabe" which unit it can join).
 - **`stratagemIds`/`enhancementIds`/`detachmentAbilityIds` per datasheet are a heuristic
   match**, not hand-verified: `build-final.mjs` regexes each stratagem/enhancement/detachment-ability's
   keyword badges and matches them against each datasheet's own keywords/name. It doesn't
   understand "excluding X" exclusions or other prose nuance, so expect some false positives
   (e.g. a "TITANIC units excluded" stratagem may still get attached to a Titanic datasheet) and
   possible misses for oddly-worded restrictions.
-- **`Super-heavy Walker` core ability** (Gorkanaut, Morkanaut, Stompa) has no match in the
-  cross-faction core-abilities lookup (no other faction file has a super-heavy walker yet) — it
-  ships as a flagged `[[TODO...]]` stub description pending real rules text.
 - **`sourceId` is empty** and **`baseSize` is empty on every model except the Warboss (40mm)** —
   neither was captured/reliable from the page images at the transcription pass.
 - A few individual items were flagged uncertain during transcription and encoded as my best
