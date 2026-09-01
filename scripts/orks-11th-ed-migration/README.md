@@ -8,28 +8,31 @@ this is a full replace, not an incremental points patch. Nothing in this folder 
 the app (not under `public/data/`) until the final swap — the live `orks.json` is untouched
 until then.
 
-## Status
+## Status: live (public/data/factions/orks.json has been replaced)
 
 - **Phase 1 (done):** `armyRules` + `detachments` + `stratagems` + `enhancements`, transcribed
-  from PDF pages 118–137 (printed) / 122–141 (PDF page numbers). Output: `phase1-detachments.json`.
-  Built by `build-phase1-detachments.mjs` (re-run it after editing the source data inside that
-  script — it's plain JS objects, not hand-written JSON, to make bulk edits easier).
-- **Phase 2 (not started):** `datasheets`. PDF pages 142–179 (~38 pages, 2 units/page for most
-  infantry, 1/page for big characters/vehicles). **Important:** this PDF's embedded font is
-  corrupted/scrambled in `pdftotext` output specifically on the datasheet pages (confirmed
-  across `-layout`/`-raw`/plain modes — same wrong characters every time, e.g. "Might is Right"
-  extracts as "Might s Rlght"). The rules/detachment pages extract cleanly with plain
-  `pdftotext`; datasheets do not. Datasheets must be transcribed by rendering each page to a
-  PNG (poppler's `pdftoppm`, installed via `winget install oschwartz10612.Poppler` — see PATH
-  note below) and reading the image directly, not by trusting extracted text.
-- **Phase 3 (not started):** backfill `effect: CombatEffect` coverage on whatever Phase 1/2
-  entries don't have one yet (mirrors how this repo already did it once before, see git log:
-  "Sube la cobertura de reglas de combate...", "Resolve the 47 orphaned per-datasheet
-  combatEffects entries case by case").
-- **Final step (not started):** merge phase1 + phase2 datasheets into one object matching
-  `public/data/factions/orks.json`'s existing top-level shape (`id, name, armyRules,
-  detachments, stratagems, enhancements, datasheets`), replace the live file with it, delete
-  this scratch folder.
+  from PDF pages 118–137 (printed) / 122–141 (PDF page numbers). Built by
+  `build-phase1-detachments.mjs` → `phase1-detachments.json` (plain JS objects, not
+  hand-written JSON, to make bulk edits easier — re-run the script after editing it).
+- **Phase 2 (done):** all 54 `datasheets`, PDF pages 142–179. Raw transcription in
+  `datasheet-notes-raw.md` (from rendering each page to PNG with poppler's `pdftoppm` and
+  reading the image directly — `pdftotext` is unusable on these pages, its embedded-font
+  decode is corrupted specifically there, confirmed across `-layout`/`-raw`/plain modes, e.g.
+  "Might is Right" extracts as "Might s Rlght"; the rules/detachment pages extract fine with
+  plain `pdftotext`). Encoded into `datasheets-data.mjs` via the compact weapon/model line
+  parser in `build-phase2-datasheets.mjs`.
+- **Final assembly (done):** `build-final.mjs` merges phase1 + the 54 datasheets, cross-references
+  every stratagem/enhancement/detachmentAbility against each datasheet's keywords/name (best-effort
+  regex heuristic — see caveat below), and writes `public/data/factions/orks.json` directly.
+- **Verified working:** ran the app (`npm run dev` + Playwright) against the new file —
+  `/catalog/factions/orks/datasheets`, `/catalog/factions/orks/detachments`, several individual
+  datasheet pages (Warboss, Boyz, Gorkanaut), the War Horde detachment page, and Mathhammer with
+  a Warboss selected. No console errors; weapon tables, abilities, wargear options, points,
+  stratagems and the Mathhammer modifier panel (including an `appliesToNearby` aura ability)
+  all rendered correctly.
+
+To rebuild from scratch: `node build-phase1-detachments.mjs phase1-detachments.json && node build-final.mjs`
+(datasheets-data.mjs is edited directly, not regenerated).
 
 ## Known gap: no points values
 
@@ -52,6 +55,39 @@ detachments: Runt Swarm, Shoota Boyz, Wreckas, Madcap Meks, Flyboyz, Brute Bosse
 **None of these numbers should be trusted for an actual game** — replace them wholesale once a
 points source that actually matches this codex printing exists. Phase 2 (datasheets) should
 apply the same same-name backfill for per-unit points, for consistency.
+
+## Known gaps / not verified (read before trusting this data for real games)
+
+- **Points, Detachment Points, disposition:** still the known-stale backfill from the old
+  codex described below — real, unverified numbers, not from this codex (which doesn't print
+  them at all).
+- **`canBeLedBy` is empty on every datasheet.** In this codex's simplified card layout,
+  individual Leader characters do NOT print a "This unit can be attached to: X, Y, Z" line
+  (checked directly against the rendered Warboss page image) — that pairing isn't recoverable
+  from what's on the page at all. The Leader-attachment feature in the roster builder/army-list
+  UI will not suggest any bodyguard units for any Ork character until this is filled in by hand
+  (likely needs the core rulebook's separate leader-pairing reference, if this edition still
+  ships one).
+- **`stratagemIds`/`enhancementIds`/`detachmentAbilityIds` per datasheet are a heuristic
+  match**, not hand-verified: `build-final.mjs` regexes each stratagem/enhancement/detachment-ability's
+  keyword badges and matches them against each datasheet's own keywords/name. It doesn't
+  understand "excluding X" exclusions or other prose nuance, so expect some false positives
+  (e.g. a "TITANIC units excluded" stratagem may still get attached to a Titanic datasheet) and
+  possible misses for oddly-worded restrictions.
+- **`Super-heavy Walker` core ability** (Gorkanaut, Morkanaut, Stompa) has no match in the
+  cross-faction core-abilities lookup (no other faction file has a super-heavy walker yet) — it
+  ships as a flagged `[[TODO...]]` stub description pending real rules text.
+- **`sourceId` is empty** and **`baseSize` is empty on every model except the Warboss (40mm)** —
+  neither was captured/reliable from the page images at the transcription pass.
+- A few individual items were flagged uncertain during transcription and encoded as my best
+  reading rather than 100% confirmed — worth a second look against the PDF pages named:
+  Morkanaut's "Big an' Shooty" ability wording (pg 171, PDF page 175), Runtherd's "That'll Learn
+  Ya" D6 mechanic (pg 155/PDF 159 — encoded as a player choice, not a die-roll threshold), and
+  the "[BLAST N]"/"[HUNTER: X]" weapon-rule tags generally, which are new to this codex and
+  aren't in the app's `Weapon` rules schema (`isBlast` is a bare boolean, no stored magnitude;
+  `HUNTER` profiles have no schema representation at all) — the full bracket text is preserved
+  in each weapon's `description` for display, but nothing beyond `isBlast: true` is encoded
+  structurally for `BLAST`, and `HUNTER` isn't encoded at all.
 
 ## Tooling note
 
