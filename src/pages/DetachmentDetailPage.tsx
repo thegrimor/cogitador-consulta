@@ -36,7 +36,7 @@ export function DetachmentDetailPage() {
   const detEnhancements = enhancements.filter(e => e.detachmentId === detachmentId)
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
         <button
@@ -77,7 +77,7 @@ export function DetachmentDetailPage() {
                     {ab.name}
                   </p>
                   {ab.description && (
-                    <p className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
+                    <p className="wh-html prose-copy"
                       dangerouslySetInnerHTML={{ __html: ab.description }}
                     />
                   )}
@@ -151,7 +151,7 @@ export function DetachmentDetailPage() {
                       </span>
                     )}
                   </div>
-                  <p className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
+                  <p className="wh-html prose-copy"
                     dangerouslySetInnerHTML={{ __html: s.description }}
                   />
                 </div>

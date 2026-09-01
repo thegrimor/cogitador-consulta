@@ -87,7 +87,7 @@ export function RuleTooltip({ name, description, ruleId, children }: Props) {
               </Link>
             </span>
             <span
-              className="wh-html block text-[12px] font-mono text-parchment-dim leading-relaxed"
+              className="wh-html prose-copy block"
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </span>

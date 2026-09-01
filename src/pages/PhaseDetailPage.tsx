@@ -24,7 +24,7 @@ function SubsectionRow({ refNum, name, description }: { refNum: string; name: st
       </button>
       {open && (
         <div className="px-4 py-3 border-t border-rim-bright bg-surface-1">
-          <p className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
+          <p className="wh-html prose-copy"
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </div>
@@ -51,7 +51,7 @@ export function PhaseDetailPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-8">
         <button

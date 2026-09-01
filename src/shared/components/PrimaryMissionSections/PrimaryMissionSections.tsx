@@ -68,7 +68,7 @@ function SectionBlock({ section, accentClass }: { section: PrimaryMissionSection
             >
               <div className="flex-1">
                 <p
-                  className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
+                  className="wh-html prose-copy"
                   dangerouslySetInnerHTML={{ __html: mdBoldToHtml(tier.text) }}
                 />
                 {tier.perUnit && (

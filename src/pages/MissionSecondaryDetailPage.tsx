@@ -49,7 +49,7 @@ function SecondarySectionBlock({ section }: { section: SecondaryMissionSection }
             >
               <div className="flex-1">
                 <p
-                  className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
+                  className="wh-html prose-copy"
                   dangerouslySetInnerHTML={{ __html: cleanMissionHtml(row.text) }}
                 />
                 {row.cumulative && (
@@ -95,7 +95,7 @@ export function MissionSecondaryDetailPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-8">
         <button

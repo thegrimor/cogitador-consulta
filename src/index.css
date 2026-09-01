@@ -19,6 +19,12 @@
 
   --color-parchment: #e8dcc8;
   --color-parchment-dim: #a89880;
+  /* Softer body-copy tone + lifted-black page background — derived from the two tokens
+     above so every faction theme gets a lower-contrast reading pair automatically instead
+     of needing its own override (see the 24 :root[data-theme="…"] blocks below). Cuts the
+     near-white-on-near-black glare on long paragraphs without touching accent colors. */
+  --color-ink: color-mix(in srgb, var(--color-parchment) 78%, var(--color-surface) 22%);
+  --color-page: color-mix(in srgb, var(--color-surface) 92%, var(--color-parchment) 8%);
 
   --color-rim: #2a2218;
   --color-rim-bright: #4a3a28;
@@ -96,7 +102,7 @@
   }
 
   body {
-    background: var(--color-surface);
+    background: var(--color-page);
     color: var(--color-parchment);
     font-family: 'Share Tech Mono', monospace;
     position: relative;
@@ -110,6 +116,21 @@
   .wh-html i, .wh-html em { font-style: italic; color: var(--color-parchment-dim); }
   .wh-html br { display: block; content: ''; margin-top: 0.35rem; }
   .wh-html .kwb { font-weight: 700; color: var(--color-parchment); }
+
+  /* Body-copy paragraphs (rule/ability/stratagem descriptions) — humanist font instead of
+     the tabular mono, sentence case instead of tracking-widest caps, softer --color-ink
+     instead of near-white --color-parchment. Reserve font-mono/uppercase for stat boxes,
+     badges and section labels, which is what they're actually suited for. Combine with
+     .wh-html (not a replacement for it) to keep list/bold/italic styling. */
+  .prose-copy {
+    font-family: var(--font-rajdhani);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.65;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--color-ink);
+  }
 
   body::before {
     content: '';

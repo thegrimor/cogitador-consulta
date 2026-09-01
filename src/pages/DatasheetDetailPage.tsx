@@ -155,7 +155,7 @@ function AbilRow({ ab }: { ab: Ability }) {
           [{ab.model}]
         </span>
       )}
-      <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed">
+      <p className="wh-html prose-copy">
         <strong className="font-display uppercase tracking-wide text-[11px] text-crimson-bright">
           {ab.name}
         </strong>
@@ -280,7 +280,7 @@ export function DatasheetDetailPage() {
   const currentModel = ds.models[activeModel] ?? ds.models[0]
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="max-w-2xl mx-auto px-4 py-6">
       {/* Back */}
       <button
         onClick={() => navigate(factionPath(ds.factionId))}
@@ -392,7 +392,7 @@ export function DatasheetDetailPage() {
                   </p>
                   {ab.description && (
                     <p
-                      className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
+                      className="wh-html prose-copy"
                       dangerouslySetInnerHTML={{ __html: ab.description }}
                     />
                   )}
@@ -458,13 +458,13 @@ export function DatasheetDetailPage() {
               {ds.unitComposition.map((line, i) => (
                 <p
                   key={i}
-                  className="wh-html text-[12px] font-mono text-parchment-dim"
+                  className="wh-html prose-copy"
                   dangerouslySetInnerHTML={{ __html: line }}
                 />
               ))}
               {ds.loadout && (
                 <p
-                  className="text-[12px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                  className="wh-html prose-copy mt-1 pt-1 border-t border-rim-bright"
                   dangerouslySetInnerHTML={{ __html: ds.loadout }}
                 />
               )}
@@ -508,7 +508,7 @@ export function DatasheetDetailPage() {
                     {opt.button}
                   </span>
                   <p
-                    className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
+                    className="wh-html prose-copy"
                     dangerouslySetInnerHTML={{ __html: opt.description }}
                   />
                 </div>
@@ -592,7 +592,7 @@ export function DatasheetDetailPage() {
                         </div>
                       )}
                       <p
-                        className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
+                        className="wh-html prose-copy"
                         dangerouslySetInnerHTML={{ __html: s.description }}
                       />
                     </div>
@@ -610,7 +610,7 @@ export function DatasheetDetailPage() {
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
             <p
-              className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
+              className="wh-html prose-copy"
               dangerouslySetInnerHTML={{ __html: ds.damagedDescription }}
             />
           </div>

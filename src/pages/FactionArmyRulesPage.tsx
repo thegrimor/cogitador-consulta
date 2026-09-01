@@ -28,7 +28,7 @@ export function FactionArmyRulesPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
         <button
@@ -79,7 +79,7 @@ export function FactionArmyRulesPage() {
                 {rule.name}
               </p>
               {rule.description && (
-                <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
+                <p className="wh-html prose-copy"
                   dangerouslySetInnerHTML={{ __html: rule.description }}
                 />
               )}

@@ -40,7 +40,7 @@ function RuleEntry({ rule }: { rule: CoreRule }) {
             </p>
           )}
           <p
-            className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
+            className="wh-html prose-copy"
             dangerouslySetInnerHTML={{ __html: rule.description }}
           />
         </div>
@@ -117,7 +117,7 @@ export function CoreRulesPage() {
     filtered.filter(r => r.category === cat).sort((a, b) => a.name.localeCompare(b.name))
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="max-w-2xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
         <div className="h-1 bg-crimson mb-2" />
