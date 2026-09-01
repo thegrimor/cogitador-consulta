@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
+import { DECK_COLORS, dispositionDeckSlug } from '@/core/constants/missionDeckColors'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -56,13 +58,20 @@ export function DetachmentDetailPage() {
             </span>
           )}
         </div>
-        {det.disposition && (
-          <div className="mt-1.5 mb-1">
-            <span className="text-[10px] font-mono uppercase tracking-[2px] text-parchment-dim border border-rim-bright px-2 py-0.5 leading-none">
-              {det.disposition}
-            </span>
-          </div>
-        )}
+        {det.disposition && (() => {
+          const colors = DECK_COLORS[dispositionDeckSlug(det.disposition)]
+          return (
+            <div className="mt-1.5 mb-1">
+              <span
+                className={`text-[10px] font-mono uppercase tracking-[2px] px-2 py-0.5 leading-none border ${
+                  colors ? `${colors.text} ${colors.borderSoft}` : 'text-parchment-dim border-rim-bright'
+                }`}
+              >
+                {det.disposition}
+              </span>
+            </div>
+          )
+        })()}
       </div>
 
       {/* ── Habilidades de destacamento ── */}
@@ -76,11 +85,7 @@ export function DetachmentDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.description && (
-                    <p className="wh-html prose-copy"
-                      dangerouslySetInnerHTML={{ __html: ab.description }}
-                    />
-                  )}
+                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" />}
                 </div>
               ))}
             </div>
@@ -106,11 +111,7 @@ export function DetachmentDetailPage() {
                       </span>
                     )}
                   </div>
-                  {en.description && (
-                    <p className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: en.description }}
-                    />
-                  )}
+                  {en.description && <RuleHtml html={en.description} className="prose-copy" />}
                 </div>
               ))}
             </div>
@@ -151,9 +152,7 @@ export function DetachmentDetailPage() {
                       </span>
                     )}
                   </div>
-                  <p className="wh-html prose-copy"
-                    dangerouslySetInnerHTML={{ __html: s.description }}
-                  />
+                  <RuleHtml html={s.description} className="prose-copy" />
                 </div>
               ))}
             </div>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ROUTES } from '@/core/constants/routes'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 
 function SubsectionRow({ refNum, name, description }: { refNum: string; name: string; description: string }) {
   const [open, setOpen] = useState(false)
@@ -24,9 +25,7 @@ function SubsectionRow({ refNum, name, description }: { refNum: string; name: st
       </button>
       {open && (
         <div className="px-4 py-3 border-t border-rim-bright bg-surface-1">
-          <p className="wh-html prose-copy"
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          <RuleHtml html={description} className="prose-copy" />
         </div>
       )}
     </div>

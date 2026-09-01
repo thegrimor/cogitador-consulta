@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 
 interface Props {
   name: string
@@ -86,10 +87,7 @@ export function RuleTooltip({ name, description, ruleId, children }: Props) {
                 Ver regla →
               </Link>
             </span>
-            <span
-              className="wh-html prose-copy block"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+            <RuleHtml html={description} className="prose-copy block" as="span" />
           </span>
         </span>,
         document.body,

@@ -3,6 +3,7 @@ import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -155,14 +156,14 @@ function AbilRow({ ab }: { ab: Ability }) {
           [{ab.model}]
         </span>
       )}
-      <p className="wh-html prose-copy">
+      <p className="prose-copy">
         <strong className="font-display uppercase tracking-wide text-[11px] text-crimson-bright">
           {ab.name}
         </strong>
         {ab.description ? (
           <>
             <span className="text-parchment-dim">: </span>
-            <span dangerouslySetInnerHTML={{ __html: ab.description }} />
+            <RuleHtml html={ab.description} as="span" />
           </>
         ) : null}
       </p>
@@ -390,12 +391,7 @@ export function DatasheetDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.description && (
-                    <p
-                      className="wh-html prose-copy"
-                      dangerouslySetInnerHTML={{ __html: ab.description }}
-                    />
-                  )}
+                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" />}
                 </div>
               ))}
             </div>
@@ -456,17 +452,10 @@ export function DatasheetDetailPage() {
           {compositionOpen && (
             <div className="px-3 py-2 bg-surface-2 space-y-1">
               {ds.unitComposition.map((line, i) => (
-                <p
-                  key={i}
-                  className="wh-html prose-copy"
-                  dangerouslySetInnerHTML={{ __html: line }}
-                />
+                <RuleHtml key={i} html={line} className="prose-copy" />
               ))}
               {ds.loadout && (
-                <p
-                  className="wh-html prose-copy mt-1 pt-1 border-t border-rim-bright"
-                  dangerouslySetInnerHTML={{ __html: ds.loadout }}
-                />
+                <RuleHtml html={ds.loadout} className="prose-copy mt-1 pt-1 border-t border-rim-bright" />
               )}
               {pointsCosts.length > 0 && (
                 <div className="flex flex-wrap gap-px pt-2 mt-1 border-t border-rim-bright">
@@ -507,10 +496,7 @@ export function DatasheetDetailPage() {
                   <span className="text-[12px] font-mono text-crimson-bright shrink-0 mt-px">
                     {opt.button}
                   </span>
-                  <p
-                    className="wh-html prose-copy"
-                    dangerouslySetInnerHTML={{ __html: opt.description }}
-                  />
+                  <RuleHtml html={opt.description} className="prose-copy" />
                 </div>
               ))}
               {wargearCosts.length > 0 && (
@@ -591,10 +577,7 @@ export function DatasheetDetailPage() {
                           )}
                         </div>
                       )}
-                      <p
-                        className="wh-html prose-copy"
-                        dangerouslySetInnerHTML={{ __html: s.description }}
-                      />
+                      <RuleHtml html={s.description} className="prose-copy" />
                     </div>
                   ))
                 )}
@@ -609,10 +592,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
-            <p
-              className="wh-html prose-copy"
-              dangerouslySetInnerHTML={{ __html: ds.damagedDescription }}
-            />
+            <RuleHtml html={ds.damagedDescription} className="prose-copy" />
           </div>
         </div>
       )}

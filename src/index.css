@@ -108,14 +108,46 @@
     position: relative;
   }
 
-  /* HTML descriptions from CSV data */
+  /* HTML descriptions from CSV data. `b`/`strong` (structural field labels like WHEN:/
+     TARGET:/EFFECT:, and general emphasis) and `.kwb` (explicit rules-keyword spans — unit
+     types, faction names, ability names) used to both just render brighter parchment, which
+     read as "more white" rather than as two distinct kinds of thing. Give them the app's
+     existing accent colors instead — crimson-bright already means "heading/label" everywhere
+     else (SectionHeader, ability names); gold already means "defined rules term" (weapon-
+     ability badges, points/costs) — so a paragraph's structure and its keywords are each
+     colored consistently with what those colors already mean elsewhere in the app. */
   .wh-html ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html ol { list-style: decimal; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html li { margin-top: 0.15rem; }
-  .wh-html b, .wh-html strong { font-weight: 700; color: var(--color-parchment); }
+  .wh-html b, .wh-html strong { font-weight: 700; color: var(--color-crimson-bright); }
   .wh-html i, .wh-html em { font-style: italic; color: var(--color-parchment-dim); }
   .wh-html br { display: block; content: ''; margin-top: 0.35rem; }
-  .wh-html .kwb { font-weight: 700; color: var(--color-parchment); }
+  .wh-html .kwb { font-weight: 700; color: var(--color-gold); }
+  .wh-html a.kwb-link {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-gold) 50%, transparent);
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+  .wh-html a.kwb-link:hover { color: var(--color-gold-bright); }
+
+  /* [BRACKETED ABILITY] mentions inside prose (e.g. "[SUSTAINED HITS 1]") — same rule
+     vocabulary as the weapon-table RuleBadge, so it gets the same gold-badge treatment
+     instead of rendering as plain bracket text; native `title` stands in for RuleTooltip's
+     hover portal since this is injected into a raw HTML string, not a React tree. */
+  .wh-html .rule-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-gold);
+    border: 1px solid color-mix(in srgb, var(--color-gold) 50%, transparent);
+    padding: 0 4px;
+    line-height: 1.5;
+    cursor: help;
+  }
 
   /* Body-copy paragraphs (rule/ability/stratagem descriptions) — humanist font instead of
      the tabular mono, sentence case instead of tracking-widest caps, softer --color-ink

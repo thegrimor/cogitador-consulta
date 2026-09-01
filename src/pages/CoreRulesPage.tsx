@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import type { CoreRule, CoreRuleCategory } from '@/types'
 import { ROUTES } from '@/core/constants/routes'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 
 const SECTION_CATEGORIES: CoreRuleCategory[] = ['weapon_ability', 'unit_ability', 'concept']
 
@@ -39,10 +40,7 @@ function RuleEntry({ rule }: { rule: CoreRule }) {
               {rule.summary}
             </p>
           )}
-          <p
-            className="wh-html prose-copy"
-            dangerouslySetInnerHTML={{ __html: rule.description }}
-          />
+          <RuleHtml html={rule.description} className="prose-copy" />
         </div>
       )}
     </div>
