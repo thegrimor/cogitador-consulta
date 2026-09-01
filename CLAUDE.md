@@ -29,6 +29,16 @@ frontend can be deployed separately and point at the backend via `VITE_API_BASE_
 
 One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
+- `scripts/orks-11th-ed-migration/` — one-off pipeline used to rebuild `orks.json` wholesale
+  from the actual 11th-edition Codex PDF (not a Faction Pack dataslate) when that codex
+  replaced the old Ork data generation entirely; kept as a worked reference for the next
+  faction that gets a real new-codex release rather than a points update. Notably: this
+  codex's datasheet pages have a corrupted embedded font that makes `pdftotext` output garbage
+  specifically there (confirmed across every extraction mode) — those pages had to be rendered
+  to PNG with poppler's `pdftoppm` (`winget install oschwartz10612.Poppler`) and read as
+  images. See that folder's README for the full methodology and the gaps this particular run
+  left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
+  stratagem/enhancement/detachmentAbility cross-references).
 
 No test suite yet.
 
