@@ -7,22 +7,28 @@ interface Props {
   html: string
   className?: string
   as?: 'p' | 'span' | 'div'
+  /** The faction this text belongs to (a datasheet/detachment/stratagem's own factionId) —
+   * enables unit-name linking, scoped to that faction's own datasheets. Omit for
+   * faction-agnostic content (core rules, phases, mission text) where there's no single
+   * faction to scope the unit-name search to. */
+  factionId?: string
 }
 
 /**
  * Drop-in replacement for `<p className="wh-html ..." dangerouslySetInnerHTML={{__html}} />`.
- * Runs the description through `enrichRuleHtml` (bracketed-ability badges + faction-name
- * links, see that file) and intercepts clicks on the links it inserts so they route
- * client-side instead of hard-navigating — the linked markup is plain `<a href>` because it's
- * injected into a raw HTML string, not a React tree, so it can't render an actual `<Link>`.
+ * Runs the description through `enrichRuleHtml` (bracketed-ability badges, faction-name
+ * links, unit-name links, keyword coloring — see that file) and intercepts clicks on the
+ * links it inserts so they route client-side instead of hard-navigating — the linked markup
+ * is plain `<a href>` because it's injected into a raw HTML string, not a React tree, so it
+ * can't render an actual `<Link>`.
  */
-export function RuleHtml({ html, className = '', as = 'p' }: Props) {
-  const { factions, coreRulesMap } = useGameDataContext()
+export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
+  const { factions, coreRulesMap, datasheets } = useGameDataContext()
   const navigate = useNavigate()
 
   const enriched = useMemo(
-    () => enrichRuleHtml(html, factions, coreRulesMap),
-    [html, factions, coreRulesMap],
+    () => enrichRuleHtml(html, factions, coreRulesMap, datasheets, factionId),
+    [html, factions, coreRulesMap, datasheets, factionId],
   )
 
   function handleClick(e: React.MouseEvent) {

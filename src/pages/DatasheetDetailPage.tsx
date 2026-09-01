@@ -149,7 +149,7 @@ function ModelStats({ model }: { model: ModelProfile }) {
 
 // ── Bloque de habilidades ─────────────────────────────────────────────────────
 
-function AbilRow({ ab }: { ab: Ability }) {
+function AbilRow({ ab, factionId }: { ab: Ability; factionId: string }) {
   return (
     <div className="px-3 py-2 bg-surface-2">
       {ab.model && (
@@ -164,7 +164,7 @@ function AbilRow({ ab }: { ab: Ability }) {
         {ab.description ? (
           <>
             <span className="text-parchment-dim">: </span>
-            <RuleHtml html={ab.description} as="span" />
+            <RuleHtml html={ab.description} as="span" factionId={factionId} />
           </>
         ) : null}
       </p>
@@ -176,10 +176,12 @@ function AbilitiesBlock({
   abilities,
   genericOpen,
   onToggleGeneric,
+  factionId,
 }: {
   abilities: Ability[]
   genericOpen: boolean
   onToggleGeneric: () => void
+  factionId: string
 }) {
   const unitAbils = abilities.filter(a => a.type === 'Datasheet')
   const genericAbils = abilities.filter(a => a.type !== 'Datasheet')
@@ -189,7 +191,7 @@ function AbilitiesBlock({
       <SectionHeader title="Habilidades" />
       {unitAbils.length > 0 && (
         <div className="divide-y divide-rim-bright">
-          {unitAbils.map((ab, i) => <AbilRow key={i} ab={ab} />)}
+          {unitAbils.map((ab, i) => <AbilRow key={i} ab={ab} factionId={factionId} />)}
         </div>
       )}
       {genericAbils.length > 0 && (
@@ -207,7 +209,7 @@ function AbilitiesBlock({
           </button>
           {genericOpen && (
             <div className="divide-y divide-rim-bright">
-              {genericAbils.map((ab, i) => <AbilRow key={i} ab={ab} />)}
+              {genericAbils.map((ab, i) => <AbilRow key={i} ab={ab} factionId={factionId} />)}
             </div>
           )}
         </>
@@ -366,6 +368,7 @@ export function DatasheetDetailPage() {
       {ds.abilities.length > 0 && (
         <AbilitiesBlock
           abilities={ds.abilities}
+          factionId={ds.factionId}
           genericOpen={genericAbilsOpen}
           onToggleGeneric={() => setGenericAbilsOpen(o => !o)}
         />
@@ -392,7 +395,7 @@ export function DatasheetDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" />}
+                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" factionId={ds.factionId} />}
                 </div>
               ))}
             </div>
@@ -453,10 +456,10 @@ export function DatasheetDetailPage() {
           {compositionOpen && (
             <div className="px-3 py-2 bg-surface-2 space-y-1">
               {ds.unitComposition.map((line, i) => (
-                <RuleHtml key={i} html={line} className="prose-copy" />
+                <RuleHtml key={i} html={line} className="prose-copy" factionId={ds.factionId} />
               ))}
               {ds.loadout && (
-                <RuleHtml html={ds.loadout} className="prose-copy mt-1 pt-1 border-t border-rim-bright" />
+                <RuleHtml html={ds.loadout} className="prose-copy mt-1 pt-1 border-t border-rim-bright" factionId={ds.factionId} />
               )}
               {pointsCosts.length > 0 && (
                 <div className="flex flex-wrap gap-px pt-2 mt-1 border-t border-rim-bright">
@@ -497,7 +500,7 @@ export function DatasheetDetailPage() {
                   <span className="text-[12px] font-mono text-crimson-bright shrink-0 mt-px">
                     {opt.button}
                   </span>
-                  <RuleHtml html={opt.description} className="prose-copy" />
+                  <RuleHtml html={opt.description} className="prose-copy" factionId={ds.factionId} />
                 </div>
               ))}
               {wargearCosts.length > 0 && (
@@ -559,7 +562,7 @@ export function DatasheetDetailPage() {
                     return (
                       <div key={s.id} className={`px-3 py-2.5 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
                         <div className="flex items-start justify-between gap-2 mb-1">
-                          <span className={`text-[12px] font-display uppercase tracking-widest leading-tight ${turnColors.text}`}>
+                          <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright leading-tight">
                             {s.name}
                           </span>
                           <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
@@ -580,7 +583,7 @@ export function DatasheetDetailPage() {
                             )}
                           </div>
                         )}
-                        <RuleHtml html={s.description} className="prose-copy" />
+                        <RuleHtml html={s.description} className="prose-copy" factionId={ds.factionId} />
                       </div>
                     )
                   })
@@ -596,7 +599,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
-            <RuleHtml html={ds.damagedDescription} className="prose-copy" />
+            <RuleHtml html={ds.damagedDescription} className="prose-copy" factionId={ds.factionId} />
           </div>
         </div>
       )}

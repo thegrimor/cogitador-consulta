@@ -86,7 +86,7 @@ export function DetachmentDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" />}
+                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" factionId={det.factionId} />}
                 </div>
               ))}
             </div>
@@ -112,7 +112,7 @@ export function DetachmentDetailPage() {
                       </span>
                     )}
                   </div>
-                  {en.description && <RuleHtml html={en.description} className="prose-copy" />}
+                  {en.description && <RuleHtml html={en.description} className="prose-copy" factionId={det.factionId} />}
                 </div>
               ))}
             </div>
@@ -131,7 +131,7 @@ export function DetachmentDetailPage() {
                 return (
                   <div key={s.id} className={`px-3 py-3 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
                     <div className="flex items-start justify-between gap-3 mb-2">
-                      <p className={`text-[13px] font-display uppercase tracking-widest leading-tight ${turnColors.text}`}>
+                      <p className="text-[13px] font-display uppercase tracking-widest text-crimson-bright leading-tight">
                         {s.name}
                       </p>
                       <span className="shrink-0 text-[11px] font-mono font-bold text-gold border border-gold/60 px-1.5 py-0.5 leading-none">
@@ -155,7 +155,7 @@ export function DetachmentDetailPage() {
                         </span>
                       )}
                     </div>
-                    <RuleHtml html={s.description} className="prose-copy" />
+                    <RuleHtml html={s.description} className="prose-copy" factionId={det.factionId} />
                   </div>
                 )
               })}

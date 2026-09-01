@@ -1,5 +1,5 @@
-import type { CoreRule, Faction } from '@/types'
-import { factionPath } from '@/core/constants/routes'
+import type { CoreRule, Datasheet, Faction } from '@/types'
+import { factionPath, datasheetPath } from '@/core/constants/routes'
 import { factionColor } from '@/core/constants/factionColors'
 
 /**
@@ -16,10 +16,18 @@ import { factionColor } from '@/core/constants/factionColors'
  *    that faction's catalog page, colored with THAT faction's own fixed color (see
  *    factionColors.ts) — only for text the data already highlighted, not every plain-text
  *    mention, so this doesn't turn ordinary prose into a link farm.
- * 3. A standalone `.kwb` word naming a battlefield-role keyword (CHARACTER, INFANTRY,
+ * 3. A plain-text mention of a datasheet's name — unit names aren't pre-highlighted in the
+ *    data the way faction names sometimes are (e.g. "Allarus Custodians or Aquilon Custodians
+ *    unit from your battlefield", no markup at all) — becomes a link to that unit's page,
+ *    colored with its FACTION's fixed color (a unit doesn't have its own — it's a member of
+ *    a faction). Scoped to the current `factionId` (see RuleHtml's prop), not matched against
+ *    all ~800 datasheets in the game: an Adeptus Custodes stratagem should only ever try to
+ *    match Custodes' own ~20 units, both for correctness (never links a Sororitas unit that
+ *    happens to share wording with a Custodes one) and so the search stays small.
+ * 4. A standalone `.kwb` word naming a battlefield-role keyword (CHARACTER, INFANTRY,
  *    VEHICLE...) gets `.kw-unit`, a theme-relative accent distinct from both of the above.
  *
- * Both (1) and (2) use `data-nav`/native `title` rather than embedded React components
+ * (1), (2) and (3) use `data-nav`/native `title` rather than embedded React components
  * because this runs on a raw HTML string for `dangerouslySetInnerHTML` — `RuleHtml` (the
  * component that calls this) intercepts clicks on `[data-nav]` to route client-side instead
  * of hard-navigating.
@@ -94,12 +102,43 @@ function classifyUnitKeywords(html: string): string {
   })
 }
 
+function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: string | undefined): string {
+  if (!factionId) return html
+  const colors = factionColor(factionId)
+  if (!colors) return html
+
+  // Longest name first, same reasoning as linkifyFactionKeywords — e.g. "Custodian Guard"
+  // tried before a shorter name that happens to be one of its words.
+  const candidates = datasheets
+    .filter(d => d.factionId === factionId && d.name.trim())
+    .sort((a, b) => b.name.length - a.name.length)
+
+  if (candidates.length === 0) return html
+
+  const pattern = candidates.map(d => d.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  const re = new RegExp(`\\b(${pattern})\\b`, 'g')
+
+  return html.replace(re, (full, matched: string) => {
+    // Skip a match already sitting inside markup we generated (an href, a title attribute,
+    // an already-linked faction name) — cheap guard: only substitute plain text matches by
+    // checking the exact-name lookup succeeds, which it always will for a genuine match;
+    // the regex itself only targets word-bounded plain text, not attribute values, since
+    // datasheet names don't appear inside this function's own generated hrefs/titles.
+    const ds = candidates.find(d => d.name === matched)
+    if (!ds) return full
+    return `<a href="${datasheetPath(ds.id)}" data-nav="${datasheetPath(ds.id)}" class="kwb-link ${colors.text}">${full}</a>`
+  })
+}
+
 export function enrichRuleHtml(
   html: string,
   factions: Faction[],
   coreRulesMap: Record<string, CoreRule>,
+  datasheets: Datasheet[] = [],
+  factionId?: string,
 ): string {
   const withBadges = linkifyAbilityBrackets(html, coreRulesMap)
   const withFactionLinks = linkifyFactionKeywords(withBadges, factions)
-  return classifyUnitKeywords(withFactionLinks)
+  const withUnitLinks = linkifyUnitNames(withFactionLinks, datasheets, factionId)
+  return classifyUnitKeywords(withUnitLinks)
 }
