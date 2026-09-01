@@ -39,7 +39,7 @@ export function MissionPrimaryDetailPage() {
   const colors = DECK_COLORS[card.deck]
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-8">
         <button

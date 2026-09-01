@@ -4,6 +4,7 @@ import { ROUTES } from '@/core/constants/routes'
 import { cleanMissionHtml, missionSlug } from '@/core/utils/missionText'
 import { VpBadge } from '@/shared/components/VpBadge'
 import { MissionActionBox } from '@/shared/components/MissionActionBox/MissionActionBox'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 import type { SecondaryMissionSection } from '@/types'
 
 function ChipBadge({ chip }: { chip: 'FIXED' | 'TACTICAL' }) {
@@ -48,10 +49,7 @@ function SecondarySectionBlock({ section }: { section: SecondaryMissionSection }
               }`}
             >
               <div className="flex-1">
-                <p
-                  className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: cleanMissionHtml(row.text) }}
-                />
+                <RuleHtml html={cleanMissionHtml(row.text)} className="prose-copy" />
                 {row.cumulative && (
                   <p className="text-[10px] font-mono text-gold italic mt-0.5">Acumulable con el anterior</p>
                 )}
@@ -95,7 +93,7 @@ export function MissionSecondaryDetailPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-8">
         <button

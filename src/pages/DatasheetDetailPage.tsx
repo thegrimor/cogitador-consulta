@@ -3,6 +3,8 @@ import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
+import { RuleHtml } from '@/shared/components/RuleHtml'
+import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -155,14 +157,14 @@ function AbilRow({ ab }: { ab: Ability }) {
           [{ab.model}]
         </span>
       )}
-      <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed">
+      <p className="prose-copy">
         <strong className="font-display uppercase tracking-wide text-[11px] text-crimson-bright">
           {ab.name}
         </strong>
         {ab.description ? (
           <>
             <span className="text-parchment-dim">: </span>
-            <span dangerouslySetInnerHTML={{ __html: ab.description }} />
+            <RuleHtml html={ab.description} as="span" />
           </>
         ) : null}
       </p>
@@ -280,7 +282,7 @@ export function DatasheetDetailPage() {
   const currentModel = ds.models[activeModel] ?? ds.models[0]
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="max-w-2xl mx-auto px-4 py-6">
       {/* Back */}
       <button
         onClick={() => navigate(factionPath(ds.factionId))}
@@ -390,12 +392,7 @@ export function DatasheetDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.description && (
-                    <p
-                      className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: ab.description }}
-                    />
-                  )}
+                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" />}
                 </div>
               ))}
             </div>
@@ -456,17 +453,10 @@ export function DatasheetDetailPage() {
           {compositionOpen && (
             <div className="px-3 py-2 bg-surface-2 space-y-1">
               {ds.unitComposition.map((line, i) => (
-                <p
-                  key={i}
-                  className="wh-html text-[12px] font-mono text-parchment-dim"
-                  dangerouslySetInnerHTML={{ __html: line }}
-                />
+                <RuleHtml key={i} html={line} className="prose-copy" />
               ))}
               {ds.loadout && (
-                <p
-                  className="text-[12px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
-                  dangerouslySetInnerHTML={{ __html: ds.loadout }}
-                />
+                <RuleHtml html={ds.loadout} className="prose-copy mt-1 pt-1 border-t border-rim-bright" />
               )}
               {pointsCosts.length > 0 && (
                 <div className="flex flex-wrap gap-px pt-2 mt-1 border-t border-rim-bright">
@@ -507,10 +497,7 @@ export function DatasheetDetailPage() {
                   <span className="text-[12px] font-mono text-crimson-bright shrink-0 mt-px">
                     {opt.button}
                   </span>
-                  <p
-                    className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: opt.description }}
-                  />
+                  <RuleHtml html={opt.description} className="prose-copy" />
                 </div>
               ))}
               {wargearCosts.length > 0 && (
@@ -567,36 +554,36 @@ export function DatasheetDetailPage() {
                     Sin estratagemas
                   </p>
                 ) : (
-                  visibleStrats.map(s => (
-                    <div key={s.id} className="px-3 py-2.5 bg-surface-2">
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
-                          {s.name}
-                        </span>
-                        <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
-                          {s.cpCost}CP
-                        </span>
-                      </div>
-                      {(s.turn || s.phase) && (
-                        <div className="flex gap-3 mb-1">
-                          {s.turn && (
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                              Turno: <span className="text-parchment">{s.turn}</span>
-                            </span>
-                          )}
-                          {s.phase && (
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                              Fase: <span className="text-parchment">{s.phase}</span>
-                            </span>
-                          )}
+                  visibleStrats.map(s => {
+                    const turnColors = stratagemTurnColors(s.turn)
+                    return (
+                      <div key={s.id} className={`px-3 py-2.5 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
+                        <div className="flex items-start justify-between gap-2 mb-1">
+                          <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
+                            {s.name}
+                          </span>
+                          <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
+                            {s.cpCost}CP
+                          </span>
                         </div>
-                      )}
-                      <p
-                        className="wh-html text-[11px] font-mono text-parchment leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: s.description }}
-                      />
-                    </div>
-                  ))
+                        {(s.turn || s.phase) && (
+                          <div className="flex gap-3 mb-1">
+                            {s.turn && (
+                              <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                                Turno: <span className={turnColors.text}>{s.turn}</span>
+                              </span>
+                            )}
+                            {s.phase && (
+                              <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                                Fase: <span className="text-parchment">{s.phase}</span>
+                              </span>
+                            )}
+                          </div>
+                        )}
+                        <RuleHtml html={s.description} className="prose-copy" />
+                      </div>
+                    )
+                  })
                 )}
               </div>
             </>
@@ -609,10 +596,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
-            <p
-              className="wh-html text-[12px] font-mono text-parchment-dim leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: ds.damagedDescription }}
-            />
+            <RuleHtml html={ds.damagedDescription} className="prose-copy" />
           </div>
         </div>
       )}

@@ -31,7 +31,7 @@ function AbilityItem({ ability }: { ability: Ability }) {
           </span>
         )}
       </p>
-      <p className="text-[13px] font-mono text-parchment-dim leading-relaxed">{stripHtml(ability.description)}</p>
+      <p className="prose-copy">{stripHtml(ability.description)}</p>
     </div>
   )
 }
@@ -77,7 +77,7 @@ export function AbilityList({ abilities, detachmentAbilities }: Props) {
                     <p className="text-[12px] font-display uppercase tracking-widest text-gold mb-1">
                       ◆ {da.name}
                     </p>
-                    <p className="text-[13px] font-mono text-parchment-dim leading-relaxed">
+                    <p className="prose-copy">
                       {stripHtml(da.description)}
                     </p>
                   </div>

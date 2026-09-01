@@ -1,5 +1,6 @@
 import { mdBoldToHtml } from '@/core/utils/missionText'
 import { VpBadge } from '@/shared/components/VpBadge'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 import type { PrimaryMissionSection } from '@/types'
 
 type SectionTiming = 'round-start' | 'turn-end' | 'battle-end'
@@ -67,10 +68,7 @@ function SectionBlock({ section, accentClass }: { section: PrimaryMissionSection
               }`}
             >
               <div className="flex-1">
-                <p
-                  className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: mdBoldToHtml(tier.text) }}
-                />
+                <RuleHtml html={mdBoldToHtml(tier.text)} className="prose-copy" />
                 {tier.perUnit && (
                   <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">(por unidad)</p>
                 )}

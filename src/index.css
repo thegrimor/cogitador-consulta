@@ -19,6 +19,12 @@
 
   --color-parchment: #e8dcc8;
   --color-parchment-dim: #a89880;
+  /* Softer body-copy tone + lifted-black page background — derived from the two tokens
+     above so every faction theme gets a lower-contrast reading pair automatically instead
+     of needing its own override (see the 24 :root[data-theme="…"] blocks below). Cuts the
+     near-white-on-near-black glare on long paragraphs without touching accent colors. */
+  --color-ink: color-mix(in srgb, var(--color-parchment) 78%, var(--color-surface) 22%);
+  --color-page: color-mix(in srgb, var(--color-surface) 92%, var(--color-parchment) 8%);
 
   --color-rim: #2a2218;
   --color-rim-bright: #4a3a28;
@@ -35,6 +41,14 @@
   --color-teal: #2ec4b6;
   --color-amber: #e0a020;
   --color-scarlet: #d43a3a;
+
+  /* Colores fijos por momento de uso de estratagema (mismo motivo que los de arriba — deben
+     seguir siendo verde/azul/rojo sin importar el tema activo). Derivados del campo `turn` de
+     cada estratagema (ver src/core/constants/stratagemTurnColors.ts), no un campo nuevo en el
+     JSON — `turn` ya distingue exactamente estos tres casos. */
+  --color-turn-either: #3fae55;
+  --color-turn-own: #2a6fd0;
+  --color-turn-enemy: #d43a3a;
 
   /* Tipografías */
   --font-mono: 'Share Tech Mono', monospace;
@@ -96,20 +110,67 @@
   }
 
   body {
-    background: var(--color-surface);
+    background: var(--color-page);
     color: var(--color-parchment);
     font-family: 'Share Tech Mono', monospace;
     position: relative;
   }
 
-  /* HTML descriptions from CSV data */
+  /* HTML descriptions from CSV data. `b`/`strong` (structural field labels like WHEN:/
+     TARGET:/EFFECT:, and general emphasis) and `.kwb` (explicit rules-keyword spans — unit
+     types, faction names, ability names) used to both just render brighter parchment, which
+     read as "more white" rather than as two distinct kinds of thing. Give them the app's
+     existing accent colors instead — crimson-bright already means "heading/label" everywhere
+     else (SectionHeader, ability names); gold already means "defined rules term" (weapon-
+     ability badges, points/costs) — so a paragraph's structure and its keywords are each
+     colored consistently with what those colors already mean elsewhere in the app. */
   .wh-html ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html ol { list-style: decimal; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html li { margin-top: 0.15rem; }
-  .wh-html b, .wh-html strong { font-weight: 700; color: var(--color-parchment); }
+  .wh-html b, .wh-html strong { font-weight: 700; color: var(--color-crimson-bright); }
   .wh-html i, .wh-html em { font-style: italic; color: var(--color-parchment-dim); }
   .wh-html br { display: block; content: ''; margin-top: 0.35rem; }
-  .wh-html .kwb { font-weight: 700; color: var(--color-parchment); }
+  .wh-html .kwb { font-weight: 700; color: var(--color-gold); }
+  .wh-html a.kwb-link {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-gold) 50%, transparent);
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+  .wh-html a.kwb-link:hover { color: var(--color-gold-bright); }
+
+  /* [BRACKETED ABILITY] mentions inside prose (e.g. "[SUSTAINED HITS 1]") — same rule
+     vocabulary as the weapon-table RuleBadge, so it gets the same gold-badge treatment
+     instead of rendering as plain bracket text; native `title` stands in for RuleTooltip's
+     hover portal since this is injected into a raw HTML string, not a React tree. */
+  .wh-html .rule-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-gold);
+    border: 1px solid color-mix(in srgb, var(--color-gold) 50%, transparent);
+    padding: 0 4px;
+    line-height: 1.5;
+    cursor: help;
+  }
+
+  /* Body-copy paragraphs (rule/ability/stratagem descriptions) — humanist font instead of
+     the tabular mono, sentence case instead of tracking-widest caps, softer --color-ink
+     instead of near-white --color-parchment. Reserve font-mono/uppercase for stat boxes,
+     badges and section labels, which is what they're actually suited for. Combine with
+     .wh-html (not a replacement for it) to keep list/bold/italic styling. */
+  .prose-copy {
+    font-family: var(--font-rajdhani);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.65;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--color-ink);
+  }
 
   body::before {
     content: '';

@@ -3,6 +3,7 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
 import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
+import { RuleHtml } from '@/shared/components/RuleHtml'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -28,7 +29,7 @@ export function FactionArmyRulesPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="mb-6">
         <button
@@ -78,11 +79,7 @@ export function FactionArmyRulesPage() {
               <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
                 {rule.name}
               </p>
-              {rule.description && (
-                <p className="wh-html text-[12px] font-mono text-parchment leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: rule.description }}
-                />
-              )}
+              {rule.description && <RuleHtml html={rule.description} className="prose-copy" />}
             </div>
           ))}
         </div>
