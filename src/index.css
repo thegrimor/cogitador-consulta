@@ -50,6 +50,39 @@
   --color-turn-own: #2a6fd0;
   --color-turn-enemy: #d43a3a;
 
+  /* Colores fijos por facción (no varían con el tema activo) — cada facción/unidad/
+     destacamento se colorea con SU PROPIO color en cualquier parte de la app, sin importar
+     qué tema de los 24 está puesto en pantalla en ese momento. Son el `crimsonBright` de cada
+     tema en src/themes/themes.ts, congelado acá — no una referencia al tema en sí (que cambia
+     con data-theme). El mapeo id-de-facción -> token vive en
+     src/core/constants/factionColors.ts, generado a mano por nombre contra themes.ts (los ids
+     de public/data/catalog/factions.json son slugs — "adeptus-custodes" — y no coinciden con
+     los ids cortos de themes.ts — "ac" — así que no hay forma de derivarlo en código). */
+  --color-faction-adepta-sororitas: #e24352;
+  --color-faction-adeptus-custodes: #e8a020;
+  --color-faction-adeptus-mechanicus: #e04545;
+  --color-faction-adeptus-titanicus: #9098a8;
+  --color-faction-aeldari: #d8c878;
+  --color-faction-astra-militarum: #7a9840;
+  --color-faction-chaos-daemons: #b447e4;
+  --color-faction-chaos-knights: #907665;
+  --color-faction-chaos-space-marines: #c09020;
+  --color-faction-death-guard: #6a9830;
+  --color-faction-drukhari: #18b0b0;
+  --color-faction-emperors-children: #e02aa8;
+  --color-faction-genestealer-cults: #995ce7;
+  --color-faction-grey-knights: #90a8d0;
+  --color-faction-imperial-agents: #b08020;
+  --color-faction-imperial-knights: #dc4657;
+  --color-faction-leagues-of-votann: #e07820;
+  --color-faction-necrons: #00e5c8;
+  --color-faction-orks: #50d820;
+  --color-faction-space-marines: #547fe2;
+  --color-faction-tau-empire: #4da6ff;
+  --color-faction-thousand-sons: #20a0b8;
+  --color-faction-tyranids: #ba44de;
+  --color-faction-world-eaters: #ed2a2a;
+
   /* Tipografías */
   --font-mono: 'Share Tech Mono', monospace;
   --font-display: 'Orbitron', sans-serif;
@@ -118,15 +151,22 @@
 
   /* HTML descriptions from CSV data. `b`/`strong` (structural field labels like WHEN:/
      TARGET:/EFFECT:) get crimson-bright, matching what that color already means everywhere
-     else (SectionHeader, card titles) — a title/label. `.kwb` (rules-keyword spans — unit
-     types, faction names, ability names) went through a gold phase, but gold already carries
-     a specific meaning (cost/points — the CP/pts badges) and reusing it here made three
-     unrelated things (a title, a cost, a generic keyword mention) look like the same kind of
-     thing. .kwb is back to plain bright text — bold is enough to mark it as a keyword without
-     spending a color on something that appears many times per paragraph. `.kwb-link` (the
-     subset of keyword mentions that are also faction links, see ruleHtml.ts) keeps gold+
-     underline — it's a real link, not just a keyword, and it's rare enough not to compete
-     with the cost badges. */
+     else (SectionHeader, card titles) — a title/label. `.kwb` (rules-keyword spans) is plain
+     bold by default — bold is enough to mark it as a keyword without spending a color on
+     something that appears many times per paragraph — except two sub-cases that DO get a
+     color, each reusing a theme token that nothing else claims (gold stays reserved for
+     cost/points, crimson-bright for headings):
+       - `.kw-unit` (battlefield-role keywords — CHARACTER, INFANTRY, VEHICLE, MONSTER... —
+         see UNIT_TYPE_KEYWORDS in ruleHtml.ts): --color-neon, defined per theme but unused
+         anywhere else in the app until now.
+       - `.rule-badge` ([BRACKETED] weapon-ability mentions — see index.css's own comment
+         above that rule further down) moved off gold to --color-crimson (the base tone, not
+         -bright/-dim, both already claimed) for the same "don't reuse gold" reason.
+     `.kwb-link` (the subset of keyword mentions that are also faction links, see
+     linkifyFactionKeywords in ruleHtml.ts) is the one case that does NOT use a theme token —
+     it gets that specific faction's own FIXED --color-faction-* (see the block near the top
+     of this file), because a faction's color is meant to hold regardless of which of the 24
+     themes is active, unlike the theme-relative colors above. */
   .wh-html ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html ol { list-style: decimal; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html li { margin-top: 0.15rem; }
@@ -134,28 +174,32 @@
   .wh-html i, .wh-html em { font-style: italic; color: var(--color-parchment-dim); }
   .wh-html br { display: block; content: ''; margin-top: 0.35rem; }
   .wh-html .kwb { font-weight: 700; color: var(--color-parchment); }
+  .wh-html .kwb.kw-unit { color: var(--color-neon); }
   .wh-html a.kwb-link {
-    color: var(--color-gold);
     text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--color-gold) 50%, transparent);
+    text-decoration-color: currentcolor;
     text-underline-offset: 2px;
     cursor: pointer;
+    filter: brightness(1);
+    transition: filter 0.15s;
   }
   .wh-html a.kwb-link .kwb { color: inherit; }
-  .wh-html a.kwb-link:hover { color: var(--color-gold-bright); }
+  .wh-html a.kwb-link:hover { filter: brightness(1.3); }
 
-  /* [BRACKETED ABILITY] mentions inside prose (e.g. "[SUSTAINED HITS 1]") — same rule
-     vocabulary as the weapon-table RuleBadge, so it gets the same gold-badge treatment
-     instead of rendering as plain bracket text; native `title` stands in for RuleTooltip's
-     hover portal since this is injected into a raw HTML string, not a React tree. */
+  /* [BRACKETED ABILITY] mentions inside prose (e.g. "[SUSTAINED HITS 1]") — "las de armas" —
+     same rule vocabulary as the weapon-table RuleBadge, so it gets a badge treatment instead
+     of rendering as plain bracket text; native `title` stands in for RuleTooltip's hover
+     portal since this is injected into a raw HTML string, not a React tree. --color-crimson
+     (not gold — reserved for cost/points) so weapon-rule badges and unit-type keywords
+     (.kw-unit, --color-neon above) read as two distinct families. */
   .wh-html .rule-badge {
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 0.85em;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: var(--color-gold);
-    border: 1px solid color-mix(in srgb, var(--color-gold) 50%, transparent);
+    color: var(--color-crimson);
+    border: 1px solid color-mix(in srgb, var(--color-crimson) 50%, transparent);
     padding: 0 4px;
     line-height: 1.5;
     cursor: help;
