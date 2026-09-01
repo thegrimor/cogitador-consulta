@@ -1352,8 +1352,8 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "2 models",
-          "points": 235
+          "description": "1 model",
+          "points": 300
         }
       ],
       "wargearCosts": []
@@ -1587,7 +1587,12 @@
         "ard-as-nails"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 175
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -1865,7 +1870,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 85
+          "points": 100
         }
       ],
       "wargearCosts": []
@@ -2042,7 +2047,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 125
         }
       ],
       "wargearCosts": []
@@ -2252,7 +2257,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 85
         }
       ],
       "wargearCosts": []
@@ -2549,7 +2554,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 90
         }
       ],
       "wargearCosts": []
@@ -2720,12 +2725,12 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 70
+          "description": "1 model (1st-3rd units)",
+          "points": 95
         },
         {
-          "description": "1 model (3rd+ unit)",
-          "points": 80
+          "description": "1 model (4th+ unit)",
+          "points": 105
         }
       ],
       "wargearCosts": []
@@ -2913,7 +2918,12 @@
         "try-dat-button"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 135
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -3073,7 +3083,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 55
+          "points": 45
         }
       ],
       "wargearCosts": []
@@ -3296,7 +3306,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 80
         }
       ],
       "wargearCosts": []
@@ -3476,7 +3486,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 85
         }
       ],
       "wargearCosts": []
@@ -3635,7 +3645,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 50
         }
       ],
       "wargearCosts": []
@@ -3857,7 +3867,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 175
+          "points": 200
         }
       ],
       "wargearCosts": []
@@ -4068,7 +4078,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 125
+          "points": 170
         }
       ],
       "wargearCosts": []
@@ -4307,7 +4317,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 140
         }
       ],
       "wargearCosts": []
@@ -4667,7 +4677,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 80
         }
       ],
       "wargearCosts": []
@@ -4816,7 +4826,12 @@
         "dakka-dakka-dakka"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 35
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -4972,7 +4987,12 @@
         "dakka-dakka-dakka"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 50
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -5134,7 +5154,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 45
         }
       ],
       "wargearCosts": []
@@ -5290,12 +5310,7 @@
         "dakka-dakka-dakka"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [
-        {
-          "description": "1 model",
-          "points": 70
-        }
-      ],
+      "pointsCosts": [],
       "wargearCosts": []
     },
     {
@@ -5443,27 +5458,18 @@
         "sneaky-little-gitz",
         "dakka-dakka-dakka"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "zodgrod-wortsnagga",
+        "runtherd"
+      ],
       "pointsCosts": [
         {
-          "description": "10 Gretchin",
+          "description": "10 models",
           "points": 45
         },
         {
-          "description": "1 Runtherd, 10 Gretchin",
-          "points": 45
-        },
-        {
-          "description": "20 Gretchin",
+          "description": "20 models",
           "points": 80
-        },
-        {
-          "description": "1 Runtherd, 20 Gretchin",
-          "points": 85
-        },
-        {
-          "description": "2 Runtherd, 20 Gretchin",
-          "points": 90
         }
       ],
       "wargearCosts": []
@@ -5611,7 +5617,12 @@
         "dakka-dakka-dakka"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 10
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -6020,23 +6031,23 @@
         "suspiciously-well-organised",
         "adrenaline-junkies"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "warboss",
+        "big-mek-with-shokk-attack-gun",
+        "big-mek",
+        "weirdboy",
+        "bigboss",
+        "painboy",
+        "mek"
+      ],
       "pointsCosts": [
         {
-          "description": "10 models (1st to 3rd units)",
-          "points": 75
+          "description": "10 models",
+          "points": 90
         },
         {
-          "description": "20 models (1st to 3rd units)",
-          "points": 160
-        },
-        {
-          "description": "10 models (4th + unit)",
-          "points": 85
-        },
-        {
-          "description": "20 models (4th + unit)",
-          "points": 170
+          "description": "20 models",
+          "points": 180
         }
       ],
       "wargearCosts": []
@@ -6268,11 +6279,16 @@
         "da-hunt-is-on",
         "adrenaline-junkies"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "beastboss",
+        "beastboss-on-squigosaur",
+        "weirdboy",
+        "painboss"
+      ],
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 90
+          "points": 85
         },
         {
           "description": "20 models",
@@ -6547,42 +6563,35 @@
         "suspiciously-well-organised",
         "adrenaline-junkies"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "nazdreg",
+        "warboss-in-mega-armour",
+        "big-mek-in-mega-armour"
+      ],
       "pointsCosts": [
         {
-          "description": "2 models (1st-2nd units)",
-          "points": 60
+          "description": "2 models (ASSUMED)",
+          "points": 75
         },
         {
-          "description": "3 models (1st-2nd units)",
-          "points": 90
-        },
-        {
-          "description": "5 models (1st-2nd units)",
-          "points": 150
-        },
-        {
-          "description": "6 models (1st-2nd units)",
-          "points": 180
-        },
-        {
-          "description": "2 models (3rd+ unit)",
-          "points": 80
-        },
-        {
-          "description": "3 models (3rd+ unit)",
+          "description": "3 models (ASSUMED)",
           "points": 110
         },
         {
-          "description": "5 models (3rd+ unit)",
-          "points": 170
+          "description": "5 models (ASSUMED)",
+          "points": 185
         },
         {
-          "description": "6 models (3rd+ unit)",
-          "points": 200
+          "description": "6 models (ASSUMED)",
+          "points": 225
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [
+        {
+          "name": "Killsaw",
+          "points": 5
+        }
+      ]
     },
     {
       "id": "nobz",
@@ -6853,23 +6862,22 @@
         "displays-of-savagery",
         "dakka-dakka-dakka"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "warboss",
+        "big-mek-with-shokk-attack-gun",
+        "big-mek",
+        "bigboss",
+        "painboy",
+        "mek"
+      ],
       "pointsCosts": [
         {
-          "description": "5 models (1st-2nd units)",
-          "points": 105
+          "description": "5 models",
+          "points": 125
         },
         {
-          "description": "10 models (1st-2nd units)",
-          "points": 210
-        },
-        {
-          "description": "5 models (3rd+ unit)",
-          "points": 115
-        },
-        {
-          "description": "10 models (3rd+ unit)",
-          "points": 220
+          "description": "10 models",
+          "points": 250
         }
       ],
       "wargearCosts": []
@@ -7186,11 +7194,13 @@
         "dakka-dakka-dakka",
         "suspiciously-well-organised"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "boss-snikrot"
+      ],
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 120
+          "points": 125
         }
       ],
       "wargearCosts": []
@@ -7373,23 +7383,19 @@
         "mob-handed-brutality",
         "dakka-dakka-dakka"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "big-mek",
+        "painboy",
+        "mek"
+      ],
       "pointsCosts": [
         {
-          "description": "5 models (1st-2nd units)",
-          "points": 75
+          "description": "5 models",
+          "points": 105
         },
         {
-          "description": "10 models (1st-2nd units)",
-          "points": 150
-        },
-        {
-          "description": "5 models (3rd+ unit)",
-          "points": 85
-        },
-        {
-          "description": "10 models (3rd+ unit)",
-          "points": 160
+          "description": "10 models",
+          "points": 210
         }
       ],
       "wargearCosts": []
@@ -7541,9 +7547,9 @@
       ],
       "unitComposition": [
         "1 Nob",
-        "9 Stormboyz"
+        "4-9 Stormboyz"
       ],
-      "modelCountMin": 10,
+      "modelCountMin": 5,
       "modelCountMax": 10,
       "defaultWeaponNames": [
         {
@@ -7605,11 +7611,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 65
+          "points": 70
         },
         {
           "description": "10 models",
-          "points": 130
+          "points": 140
         }
       ],
       "wargearCosts": []
@@ -7852,14 +7858,15 @@
         "dakka-dakka-dakka",
         "suspiciously-well-organised"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "warboss",
+        "big-mek",
+        "bigboss",
+        "painboy"
+      ],
       "pointsCosts": [
         {
-          "description": "6 models (1st-2nd units)",
-          "points": 125
-        },
-        {
-          "description": "6 models (3rd+ unit)",
+          "description": "6 models",
           "points": 135
         }
       ],
@@ -8055,31 +8062,24 @@
         "get-stuck-in",
         "da-hunt-is-on"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "big-mek-in-mega-armour",
+        "big-mek-with-shokk-attack-gun",
+        "big-mek",
+        "mek"
+      ],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 45
-        },
-        {
-          "description": "2 models (1st-2nd units)",
-          "points": 90
-        },
-        {
-          "description": "3 models (1st-2nd units)",
-          "points": 135
-        },
-        {
-          "description": "1 model (3rd+ unit)",
+          "description": "1 model",
           "points": 55
         },
         {
-          "description": "2 models (3rd+ unit)",
-          "points": 100
+          "description": "2 models",
+          "points": 110
         },
         {
-          "description": "3 models (3rd+ unit)",
-          "points": 145
+          "description": "3 models",
+          "points": 165
         }
       ],
       "wargearCosts": []
@@ -8333,15 +8333,16 @@
         "mob-handed-brutality",
         "dakka-dakka-dakka"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "big-mek-with-shokk-attack-gun",
+        "big-mek",
+        "painboy",
+        "mek"
+      ],
       "pointsCosts": [
         {
-          "description": "6 models (1st-2nd units)",
-          "points": 125
-        },
-        {
-          "description": "6 models (3rd+ unit)",
-          "points": 135
+          "description": "6 models",
+          "points": 145
         }
       ],
       "wargearCosts": []
@@ -8547,15 +8548,17 @@
         "get-stuck-in",
         "adrenaline-junkies"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "deffkilla-wartrike"
+      ],
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 60
+          "points": 75
         },
         {
           "description": "6 models",
-          "points": 120
+          "points": 140
         }
       ],
       "wargearCosts": []
@@ -8711,7 +8714,16 @@
         "get-stuck-in"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 70
+        },
+        {
+          "description": "2 models (INFERRED, not given)",
+          "points": 140
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -8943,11 +8955,11 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 75
+          "points": 80
         },
         {
           "description": "6 models",
-          "points": 140
+          "points": 160
         }
       ],
       "wargearCosts": []
@@ -9114,7 +9126,16 @@
         "da-hunt-is-on"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 80
+        },
+        {
+          "description": "2 models",
+          "points": 160
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -9347,7 +9368,16 @@
         "da-hunt-is-on"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 70
+        },
+        {
+          "description": "2 models",
+          "points": 140
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -9600,15 +9630,17 @@
         "mob-handed-brutality",
         "suspiciously-well-organised"
       ],
-      "canBeLedBy": [],
+      "canBeLedBy": [
+        "painboss"
+      ],
       "pointsCosts": [
         {
-          "description": "4 models",
-          "points": 140
+          "description": "4 models (INFERRED, not given)",
+          "points": 70
         },
         {
           "description": "8 models",
-          "points": 270
+          "points": 140
         }
       ],
       "wargearCosts": []
@@ -9842,12 +9874,8 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 3rd units)",
-          "points": 55
-        },
-        {
-          "description": "1 model (4th + unit)",
-          "points": 65
+          "description": "1 model",
+          "points": 60
         }
       ],
       "wargearCosts": []
@@ -10065,15 +10093,10 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 145
+          "points": 150
         }
       ],
-      "wargearCosts": [
-        {
-          "name": "per ard case",
-          "points": 15
-        }
-      ]
+      "wargearCosts": []
     },
     {
       "id": "gunwagon",
@@ -10382,7 +10405,12 @@
         "unstoppable-momentum"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 150
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -10629,7 +10657,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 125
+          "points": 165
         }
       ],
       "wargearCosts": []
@@ -10899,7 +10927,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 145
+          "points": 175
         }
       ],
       "wargearCosts": []
@@ -11082,20 +11110,12 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "3 models (1st-2nd units)",
-          "points": 120
-        },
-        {
-          "description": "6 models (1st-2nd units)",
-          "points": 240
-        },
-        {
-          "description": "3 models (3rd+ unit)",
+          "description": "3 models",
           "points": 130
         },
         {
-          "description": "6 models (3rd+ unit)",
-          "points": 250
+          "description": "6 models",
+          "points": 260
         }
       ],
       "wargearCosts": []
@@ -11342,12 +11362,8 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 110
-        },
-        {
-          "description": "1 model (3rd+ unit)",
-          "points": 120
+          "description": "1 model",
+          "points": 130
         }
       ],
       "wargearCosts": []
@@ -11492,8 +11508,8 @@
         {
           "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
-          "description": "[[TODO: core ability text for \"Super-heavy Walker\" not found in lookup]]",
-          "type": "Core"
+          "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class=\"kwb\">TITANIC</span> models) and sections of terrain features that are 4\" or less in height. When doing so:<br><ul><li>It can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them.</li><li>It can also move through sections of terrain features that are more than 4\" in height, but if it does, after it has moved, roll one D6: on a 1, that model is Battle-shocked.</li></ul>",
+          "type": "Faction"
         },
         {
           "id": "waaagh",
@@ -11616,12 +11632,8 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 255
-        },
-        {
-          "description": "1 model (3rd+ unit)",
-          "points": 275
+          "description": "1 model",
+          "points": 325
         }
       ],
       "wargearCosts": []
@@ -11751,8 +11763,8 @@
         {
           "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
-          "description": "[[TODO: core ability text for \"Super-heavy Walker\" not found in lookup]]",
-          "type": "Core"
+          "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class=\"kwb\">TITANIC</span> models) and sections of terrain features that are 4\" or less in height. When doing so:<br><ul><li>It can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them.</li><li>It can also move through sections of terrain features that are more than 4\" in height, but if it does, after it has moved, roll one D6: on a 1, that model is Battle-shocked.</li></ul>",
+          "type": "Faction"
         },
         {
           "id": "waaagh",
@@ -11875,12 +11887,8 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 270
-        },
-        {
-          "description": "1 model (3rd+ unit)",
-          "points": 290
+          "description": "1 model",
+          "points": 345
         }
       ],
       "wargearCosts": []
@@ -12013,8 +12021,8 @@
         {
           "id": "super-heavy-walker",
           "name": "Super-heavy Walker",
-          "description": "[[TODO: core ability text for \"Super-heavy Walker\" not found in lookup]]",
-          "type": "Core"
+          "description": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move through models (excluding <span class=\"kwb\">TITANIC</span> models) and sections of terrain features that are 4\" or less in height. When doing so:<br><ul><li>It can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them.</li><li>It can also move through sections of terrain features that are more than 4\" in height, but if it does, after it has moved, roll one D6: on a 1, that model is Battle-shocked.</li></ul>",
+          "type": "Faction"
         },
         {
           "id": "waaagh",
@@ -12132,11 +12140,7 @@
       "canBeLedBy": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
-          "points": 600
-        },
-        {
-          "description": "1 model (2nd+ unit)",
+          "description": "1 model",
           "points": 700
         }
       ],
@@ -12333,7 +12337,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 135
+          "points": 145
         }
       ],
       "wargearCosts": []
@@ -12507,7 +12511,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 105
+          "points": 115
         }
       ],
       "wargearCosts": []
@@ -12868,7 +12872,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 115
+          "points": 125
         }
       ],
       "wargearCosts": []
@@ -13108,7 +13112,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 165
+          "points": 175
         }
       ],
       "wargearCosts": []

@@ -91,6 +91,16 @@ function armyRule(name) {
 function ability(name, description, effect) {
   return { id: slug(name), name, description, type: 'Datasheet', ...(effect ? { effect } : {}) }
 }
+// Not in the Core lookup (it's stored as type:'Faction', duplicated per-faction, in every
+// faction that has a super-heavy walker -- imperial-knights.json/chaos-knights.json/
+// adeptus-titanicus.json all carry an identical copy). Copied verbatim from imperial-knights.json.
+function superHeavyWalker() {
+  return {
+    id: 'super-heavy-walker', name: 'Super-heavy Walker',
+    description: `Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move through models (excluding ${kwb('TITANIC')} models) and sections of terrain features that are 4" or less in height. When doing so:<br><ul><li>It can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them.</li><li>It can also move through sections of terrain features that are more than 4" in height, but if it does, after it has moved, roll one D6: on a 1, that model is Battle-shocked.</li></ul>`,
+    type: 'Faction',
+  }
+}
 
 // ── points backfill (known-stale, name match against old codex -- see README) ──────────────
 const oldDsByName = new Map(oldOrks.datasheets.map(d => [normName(d.name), d]))
@@ -128,4 +138,4 @@ function datasheet(opts) {
   })
 }
 
-export { weapons, models, core, armyRule, ability, datasheet, kwb, slug, phase1, oldOrks }
+export { weapons, models, core, armyRule, ability, superHeavyWalker, datasheet, kwb, slug, phase1, oldOrks }

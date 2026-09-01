@@ -9,6 +9,8 @@
 // authoritative. Flagged in the migration README.
 import fs from 'fs'
 import { datasheets } from './datasheets-data.mjs'
+import { pointsOverrides, wargearCostOverrides } from './points-overrides.mjs'
+import { leaderOverrides } from './leader-overrides.mjs'
 
 const ROOT = new URL('../../', import.meta.url)
 const phase1 = JSON.parse(fs.readFileSync(new URL('scripts/orks-11th-ed-migration/phase1-detachments.json', ROOT), 'utf8'))
@@ -61,12 +63,21 @@ for (const det of phase1.detachments) {
   }
 }
 
-const finalDatasheets = datasheets.map(ds => ({
-  ...ds,
-  stratagemIds: stratagemIdsByDatasheet.get(ds.id) || [],
-  enhancementIds: enhancementIdsByDatasheet.get(ds.id) || [],
-  detachmentAbilityIds: detachmentAbilityIdsByDatasheet.get(ds.id) || [],
-}))
+let missingPointsOverride = []
+let missingLeaderNote = []
+const finalDatasheets = datasheets.map(ds => {
+  if (!(ds.name in pointsOverrides)) missingPointsOverride.push(ds.name)
+  return {
+    ...ds,
+    pointsCosts: pointsOverrides[ds.name] ?? ds.pointsCosts,
+    wargearCosts: wargearCostOverrides[ds.name] ?? [],
+    stratagemIds: stratagemIdsByDatasheet.get(ds.id) || [],
+    enhancementIds: enhancementIdsByDatasheet.get(ds.id) || [],
+    detachmentAbilityIds: detachmentAbilityIdsByDatasheet.get(ds.id) || [],
+    canBeLedBy: leaderOverrides[ds.id] || [],
+  }
+})
+if (missingPointsOverride.length) console.warn('NO points override (kept old-codex stale backfill):', missingPointsOverride.join(', '))
 
 const final = {
   id: 'orks',

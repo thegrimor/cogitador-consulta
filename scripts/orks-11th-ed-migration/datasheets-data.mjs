@@ -1,4 +1,4 @@
-import { weapons, models, core, armyRule, ability, datasheet, kwb } from './build-phase2-datasheets.mjs'
+import { weapons, models, core, armyRule, ability, superHeavyWalker, datasheet, kwb } from './build-phase2-datasheets.mjs'
 
 export const datasheets = [
 
@@ -648,7 +648,7 @@ datasheet({
     ability('Rokkit Charge', `In the Fight phase, when this unit is selected to fight, if this unit made a charge move this turn, you can use this ability. If you do, this unit's melee attacks have +1 A, +1 S and ${kwb('[HAZARDOUS]')}.`, { effects: { attacksMod: 1, strengthMod: 1 }, combatType: 'melee' }),
   ],
   keywords: ['Infantry', 'Explosives', 'Fly', 'Jump Pack'],
-  unitComposition: ['1 Nob', '9 Stormboyz'], modelCountMin: 10, modelCountMax: 10,
+  unitComposition: ['1 Nob', '4-9 Stormboyz'], modelCountMin: 5, modelCountMax: 10,
   defaultWeaponNames: [{ name: 'kustom choppa', count: 1 }, { name: 'choppa', count: 9 }, { name: 'slugga', count: 10 }],
 }),
 
@@ -1042,7 +1042,7 @@ datasheet({
     `Klaw of Gork [CLEAVE 3]|Melee|6|3+|18|-3|6`,
   ),
   abilities: [
-    core('Deadly Demise D6'), core('Super-heavy Walker'), armyRule('Waaagh!'),
+    core('Deadly Demise D6'), superHeavyWalker(), armyRule('Waaagh!'),
     ability('Gut Hatch', `In your Movement phase, when this unit ends a normal move, units embarked within this unit can make an assault disembark move.`),
     ability("Big an' Stompy", `This unit's melee attacks can re-roll hit rolls of 1.`, { effects: { rerollHitsOf1: true }, combatType: 'melee' }),
     ability('Transport', `This model has a transport capacity of 12 ${kwb('ORKS INFANTRY')} models. It cannot transport ${kwb('GHAZGHKULL THRAKA')} models. Each ${kwb('MEGA ARMOUR')} or ${kwb('JUMP PACK')} model takes up the space of 2 models.`),
@@ -1066,7 +1066,7 @@ datasheet({
     `Klaw of Mork [CLEAVE 2]|Melee|5|3+|18|-3|6`,
   ),
   abilities: [
-    core('Deadly Demise D6'), core('Super-heavy Walker'), armyRule('Waaagh!'),
+    core('Deadly Demise D6'), superHeavyWalker(), armyRule('Waaagh!'),
     ability('Gut Hatch', `In your Movement phase, when this unit ends a normal move, units embarked within this unit can make an assault disembark move.`),
     ability("Big an' Shooty", `In your Shooting phase, this unit's ranged attacks can re-roll hit rolls of 1.`, { effects: { rerollHitsOf1: true }, combatType: 'ranged' }),
     ability('Transport', `This model has a transport capacity of 12 ${kwb('ORKS INFANTRY')} models. It cannot transport ${kwb('GHAZGHKULL THRAKA')} models. Each ${kwb('MEGA ARMOUR')} or ${kwb('JUMP PACK')} model takes up the space of 2 models.`),
@@ -1090,7 +1090,7 @@ datasheet({
     `Mega-choppa [CLEAVE 4]|Melee|6|3+|24|-4|10`,
   ),
   abilities: [
-    core('Deadly Demise 2D6'), core('Super-heavy Walker'), armyRule('Waaagh!'),
+    core('Deadly Demise 2D6'), superHeavyWalker(), armyRule('Waaagh!'),
     ability('Idol of Belligerence', `In your Movement phase, when a unit embarked within this unit is selected to make a disembark move, that unit is riled up until the start of your next turn.`),
     ability('Waaagh! Effigy', `This unit is riled up.`),
     ability('Transport', `This model has a transport capacity of 22 ${kwb('ORKS INFANTRY')} models. Each ${kwb('MEGA ARMOUR')} or ${kwb('JUMP PACK')} model takes up the space of 2 models. Each ${kwb('GHAZGHKULL THRAKA')} model takes up the space of 4 models.`),
