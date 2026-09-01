@@ -559,7 +559,7 @@ export function DatasheetDetailPage() {
                     return (
                       <div key={s.id} className={`px-3 py-2.5 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
                         <div className="flex items-start justify-between gap-2 mb-1">
-                          <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
+                          <span className={`text-[12px] font-display uppercase tracking-widest leading-tight ${turnColors.text}`}>
                             {s.name}
                           </span>
                           <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">

@@ -117,20 +117,23 @@
   }
 
   /* HTML descriptions from CSV data. `b`/`strong` (structural field labels like WHEN:/
-     TARGET:/EFFECT:, and general emphasis) and `.kwb` (explicit rules-keyword spans — unit
-     types, faction names, ability names) used to both just render brighter parchment, which
-     read as "more white" rather than as two distinct kinds of thing. Give them the app's
-     existing accent colors instead — crimson-bright already means "heading/label" everywhere
-     else (SectionHeader, ability names); gold already means "defined rules term" (weapon-
-     ability badges, points/costs) — so a paragraph's structure and its keywords are each
-     colored consistently with what those colors already mean elsewhere in the app. */
+     TARGET:/EFFECT:) get crimson-bright, matching what that color already means everywhere
+     else (SectionHeader, card titles) — a title/label. `.kwb` (rules-keyword spans — unit
+     types, faction names, ability names) went through a gold phase, but gold already carries
+     a specific meaning (cost/points — the CP/pts badges) and reusing it here made three
+     unrelated things (a title, a cost, a generic keyword mention) look like the same kind of
+     thing. .kwb is back to plain bright text — bold is enough to mark it as a keyword without
+     spending a color on something that appears many times per paragraph. `.kwb-link` (the
+     subset of keyword mentions that are also faction links, see ruleHtml.ts) keeps gold+
+     underline — it's a real link, not just a keyword, and it's rare enough not to compete
+     with the cost badges. */
   .wh-html ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html ol { list-style: decimal; padding-left: 1.25rem; margin-top: 0.25rem; }
   .wh-html li { margin-top: 0.15rem; }
   .wh-html b, .wh-html strong { font-weight: 700; color: var(--color-crimson-bright); }
   .wh-html i, .wh-html em { font-style: italic; color: var(--color-parchment-dim); }
   .wh-html br { display: block; content: ''; margin-top: 0.35rem; }
-  .wh-html .kwb { font-weight: 700; color: var(--color-gold); }
+  .wh-html .kwb { font-weight: 700; color: var(--color-parchment); }
   .wh-html a.kwb-link {
     color: var(--color-gold);
     text-decoration: underline;
@@ -138,6 +141,7 @@
     text-underline-offset: 2px;
     cursor: pointer;
   }
+  .wh-html a.kwb-link .kwb { color: inherit; }
   .wh-html a.kwb-link:hover { color: var(--color-gold-bright); }
 
   /* [BRACKETED ABILITY] mentions inside prose (e.g. "[SUSTAINED HITS 1]") — same rule

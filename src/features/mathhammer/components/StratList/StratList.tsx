@@ -31,7 +31,7 @@ export function StratList({ stratagems }: Props) {
             return (
               <div key={s.id} className={`border border-rim-bright bg-surface-3 p-2 border-l-2 ${turnColors.borderLeft}`}>
                 <div className="flex items-baseline justify-between gap-2 mb-1">
-                  <span className="text-[9px] font-display uppercase tracking-widest text-parchment">
+                  <span className={`text-[9px] font-display uppercase tracking-widest ${turnColors.text}`}>
                     {s.name}
                   </span>
                   <span className="text-[9px] font-mono bg-crimson text-parchment px-1.5 py-0.5 shrink-0">

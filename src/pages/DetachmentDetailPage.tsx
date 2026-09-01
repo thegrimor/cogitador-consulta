@@ -103,7 +103,7 @@ export function DetachmentDetailPage() {
               {detEnhancements.map(en => (
                 <div key={en.id} className="px-3 py-3 bg-surface-2 border-l-2 border-l-gold">
                   <div className="flex items-start justify-between gap-3 mb-1">
-                    <p className="text-[12px] font-display uppercase tracking-widest text-parchment">
+                    <p className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
                       {en.name}
                     </p>
                     {en.cost > 0 && (
@@ -131,7 +131,7 @@ export function DetachmentDetailPage() {
                 return (
                   <div key={s.id} className={`px-3 py-3 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
                     <div className="flex items-start justify-between gap-3 mb-2">
-                      <p className="text-[13px] font-display uppercase tracking-widest text-parchment leading-tight">
+                      <p className={`text-[13px] font-display uppercase tracking-widest leading-tight ${turnColors.text}`}>
                         {s.name}
                       </p>
                       <span className="shrink-0 text-[11px] font-mono font-bold text-gold border border-gold/60 px-1.5 py-0.5 leading-none">
