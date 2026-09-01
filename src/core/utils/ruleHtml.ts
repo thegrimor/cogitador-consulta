@@ -1,6 +1,7 @@
 import type { CoreRule, Datasheet, Faction } from '@/types'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
 import { factionColor } from '@/core/constants/factionColors'
+import { DECK_COLORS } from '@/core/constants/missionDeckColors'
 
 /**
  * Post-processes the raw `wh-html` description strings (stratagems, abilities, rules,
@@ -26,6 +27,10 @@ import { factionColor } from '@/core/constants/factionColors'
  *    happens to share wording with a Custodes one) and so the search stays small.
  * 4. A standalone `.kwb` word naming a battlefield-role keyword (CHARACTER, INFANTRY,
  *    VEHICLE...) gets `.kw-unit`, a theme-relative accent distinct from both of the above.
+ * 5. A plain-text mention of one of the 5 primary-mission-deck names ("Take and Hold",
+ *    "Purge the Foe"...) gets that deck's fixed color (DECK_COLORS, same table the mission
+ *    pages already use) — colored only, not linked, since there's no single natural page a
+ *    bare deck mention should point at.
  *
  * (1), (2) and (3) use `data-nav`/native `title` rather than embedded React components
  * because this runs on a raw HTML string for `dangerouslySetInnerHTML` — `RuleHtml` (the
@@ -116,7 +121,13 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
   if (candidates.length === 0) return html
 
   const pattern = candidates.map(d => d.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
-  const re = new RegExp(`\\b(${pattern})\\b`, 'g')
+  // Case-insensitive: the JSON data is not internally consistent about capitalizing
+  // hyphenated ranks/proper nouns (e.g. a datasheet named "Shield-captain" while every
+  // ability that references it writes "Shield-Captain") — matching case-sensitively missed
+  // every one of those. `full` (not `matched`) is used in the replacement, so the prose's own
+  // casing is what actually renders — this only affects which datasheet gets found, not what
+  // text is shown.
+  const re = new RegExp(`\\b(${pattern})\\b`, 'gi')
 
   return html.replace(re, (full, matched: string) => {
     // Skip a match already sitting inside markup we generated (an href, a title attribute,
@@ -124,9 +135,49 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
     // checking the exact-name lookup succeeds, which it always will for a genuine match;
     // the regex itself only targets word-bounded plain text, not attribute values, since
     // datasheet names don't appear inside this function's own generated hrefs/titles.
-    const ds = candidates.find(d => d.name === matched)
+    const ds = candidates.find(d => d.name.toLowerCase() === matched.toLowerCase())
     if (!ds) return full
     return `<a href="${datasheetPath(ds.id)}" data-nav="${datasheetPath(ds.id)}" class="kwb-link ${colors.text}">${full}</a>`
+  })
+}
+
+// The 5 Force Disposition / primary-mission-deck names — DECK_COLORS is keyed by slug
+// ("take-and-hold"), so this is the display-name side of that same table, colored (not
+// linked: there's no single natural page a bare mission-deck mention should point at, unlike
+// a faction or a unit). Runs unconditionally, not scoped to a factionId — a deck name isn't
+// tied to any one faction.
+const DECK_NAMES: Record<string, string> = {
+  'take and hold': 'take-and-hold',
+  'purge the foe': 'purge-the-foe',
+  disruption: 'disruption',
+  reconnaissance: 'reconnaissance',
+  'priority assets': 'priority-assets',
+}
+
+// "Disruption" alone is also plain English and part of at least one unrelated ability name in
+// the data ("Psychostatic Disruption") — true if `text` right before `offset` ends with
+// another Capitalized word (i.e. this match is part of a longer compound name). A regex
+// lookbehind can't do this case-sensitive check on its own match: the /i flag needed for the
+// deck-name alternation itself also makes [A-Z] in a lookbehind match lowercase letters,
+// silently matching (and blocking) almost everything preceded by any word at all.
+function precededByCapitalizedWord(text: string, offset: number): boolean {
+  const before = text.slice(0, offset)
+  return /[A-Z][a-zA-Z]*\s$/.test(before)
+}
+
+function colorizeMissionDecks(html: string): string {
+  const pattern = Object.keys(DECK_NAMES)
+    .sort((a, b) => b.length - a.length)
+    .map(name => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|')
+  const re = new RegExp(`\\b(${pattern})\\b`, 'gi')
+
+  return html.replace(re, (full, matched: string, offset: number, string: string) => {
+    if (precededByCapitalizedWord(string, offset)) return full
+    const slug = DECK_NAMES[matched.toLowerCase()]
+    const colors = slug ? DECK_COLORS[slug] : undefined
+    if (!colors) return full
+    return `<span class="${colors.text}">${full}</span>`
   })
 }
 
@@ -140,5 +191,6 @@ export function enrichRuleHtml(
   const withBadges = linkifyAbilityBrackets(html, coreRulesMap)
   const withFactionLinks = linkifyFactionKeywords(withBadges, factions)
   const withUnitLinks = linkifyUnitNames(withFactionLinks, datasheets, factionId)
-  return classifyUnitKeywords(withUnitLinks)
+  const withDeckColors = colorizeMissionDecks(withUnitLinks)
+  return classifyUnitKeywords(withDeckColors)
 }

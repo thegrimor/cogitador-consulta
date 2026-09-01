@@ -8971,7 +8971,7 @@
     },
     {
       "id": "syllesske",
-      "name": "Syll’esske",
+      "name": "Syll’Esske",
       "role": "Characters",
       "sourceId": "000000025",
       "isVirtual": false,
@@ -8981,7 +8981,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Syll’esske",
+          "name": "Syll’Esske",
           "M": "9\"",
           "T": 6,
           "Sv": "6+",

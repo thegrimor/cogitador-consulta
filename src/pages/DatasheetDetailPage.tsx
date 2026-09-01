@@ -5,12 +5,31 @@ import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/const
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import { RuleHtml } from '@/shared/components/RuleHtml'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
+import { factionColor } from '@/core/constants/factionColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 const linkClass =
   'text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors'
+
+// A unit-name link is colored by ITS OWN faction (not always the page's ds.factionId — a
+// leader/led relationship can cross factions, e.g. Imperial Agents), same rule
+// linkifyUnitNames applies inside prose. Falls back to the generic crimson-bright treatment
+// only if that faction has no color defined (shouldn't happen for the 24 real factions).
+function LeaderLink({ target }: { target: { id: string; name: string; factionId: string } }) {
+  const colors = factionColor(target.factionId)
+  return (
+    <NavLink
+      to={datasheetPath(target.id)}
+      className={`text-[12px] font-mono hover:text-parchment uppercase tracking-wide border-b transition-colors ${
+        colors ? `${colors.text} border-current/40 hover:border-parchment` : 'text-crimson-bright border-crimson-bright/40 hover:border-parchment'
+      }`}
+    >
+      {target.name}
+    </NavLink>
+  )
+}
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -408,15 +427,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title="Puede Liderar" />
           <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
-            {leaderHead.map(led => led && (
-              <NavLink
-                key={led.id}
-                to={datasheetPath(led.id)}
-                className="text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
-              >
-                {led.name}
-              </NavLink>
-            ))}
+            {leaderHead.map(led => led && <LeaderLink key={led.id} target={led} />)}
           </div>
         </div>
       )}
@@ -426,15 +437,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title="Puede Ser Liderado Por" />
           <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
-            {leaderFooter.map(leader => leader && (
-              <NavLink
-                key={leader.id}
-                to={datasheetPath(leader.id)}
-                className="text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
-              >
-                {leader.name}
-              </NavLink>
-            ))}
+            {leaderFooter.map(leader => leader && <LeaderLink key={leader.id} target={leader} />)}
           </div>
         </div>
       )}
