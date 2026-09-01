@@ -1,0 +1,1130 @@
+{
+  "armyRules": [
+    {
+      "id": "waaagh",
+      "name": "Waaagh!",
+      "description": "The infamous war cry of the Orks is known and feared throughout the galaxy. Friendly <span class=\"kwb\">ORKS</span> units with this ability can:<ul><li>Re-roll advance rolls.</li><li>Become <b>riled up</b>, as stated in other rules. While a unit is riled up: it has 5+ invulnerable save; its ranged attacks have <span class=\"kwb\">[ASSAULT]</span>; when it is selected to make an advance move, that advance move does not prevent it from being eligible to declare a charge.</li></ul><b>War Cry</b> (Once per battle, per army): At the start of the Command phase, you can use this ability. If you do, friendly <span class=\"kwb\">ORKS</span> units with the Waaagh! ability are riled up until the end of the next turn.",
+      "options": [
+        {
+          "name": "Riled Up (5+ Invulnerable Save)",
+          "effect": {
+            "effects": {
+              "saveMod": 1
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "name": "Riled Up (Ranged attacks have Assault)",
+          "effect": {
+            "effects": {},
+            "combatType": "ranged"
+          }
+        }
+      ]
+    },
+    {
+      "id": "da-boss",
+      "name": "Da Boss",
+      "description": "Whether capable of kunnin' strategy or favouring something far less complicated, the biggest Ork tends to have a voice as aggressive and brutal as the rest of him. At the start of the battle round, if a model with this ability is your <span class=\"kwb\">WARLORD</span>, gain 1CP."
+    },
+    {
+      "id": "unstable-energies",
+      "name": "Unstable Energies",
+      "description": "Ork psykers – Weirdboyz and their unsavoury ilk – release the painful build-up of Waaagh! energy in sudden discharges of power, usually with spectacularly lethal results. <span class=\"kwb\">ORKS PSYKER</span> units with this ability have a psyker level of 1 or higher, specified in that unit's abilities. Each psychic ability has a psychic level of 1 or higher, specified in that ability's name. In a battle round, a friendly <span class=\"kwb\">ORKS PSYKER</span> unit can use a number of psychic abilities whose total psychic level does not exceed that <span class=\"kwb\">PSYKER</span> unit's psyker level."
+    }
+  ],
+  "detachments": [
+    {
+      "id": "war-horde",
+      "name": "War Horde",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "get-stuck-in",
+          "name": "Get Stuck In",
+          "description": "Joyously anarchic and recklessly destructive, all Orks eagerly get stuck in to every fight. Friendly <span class=\"kwb\">ORKS</span> units' melee attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee"
+          }
+        }
+      ]
+    },
+    {
+      "id": "green-tide",
+      "name": "Green Tide",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "mob-handed-brutality",
+          "name": "Mob-Handed Brutality",
+          "description": "In the massive fights that Orks enjoy, the only way to ensure a slice of the action is to fight harder.<ul><li>Friendly <span class=\"kwb\">BOYZ</span> units' melee attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.</li><li>If a friendly <span class=\"kwb\">ORKS INFANTRY</span> unit made a charge move this turn, that unit's melee attacks have <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE]</span>.</li></ul>",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bully-boyz",
+      "name": "Bully Boyz",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "displays-of-savagery",
+          "name": "Displays of Savagery",
+          "description": "Nobz have a position of dominance to maintain, and do so in vicious eruptions of violence. Friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> units' melee attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee"
+          }
+        }
+      ]
+    },
+    {
+      "id": "runt-swarm",
+      "name": "Runt Swarm",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "sneaky-little-gitz",
+          "name": "Sneaky Little Gitz",
+          "description": "Given no position of importance, Grots find their niche as sneaks, thieves and mischief-makers.<ul><li>Friendly <span class=\"kwb\">GRETCHIN</span> units have <span class=\"kwb\">BATTLELINE</span>.</li><li>When a friendly <span class=\"kwb\">GRETCHIN</span> unit is selected to make an advance/fall-back move, that move does not prevent this unit from being eligible to start an action.</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "shoota-boyz",
+      "name": "Shoota Boyz",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "dakka-dakka-dakka",
+          "name": "Dakka! Dakka! Dakka!",
+          "description": "Always hunting for something to kill, when Orks spot a target they saturate it with dakka. Friendly <span class=\"kwb\">ORKS INFANTRY</span> units' ranged attacks have <span class=\"kwb\">[ASSAULT]</span>. While this unit is riled up, +3\" R.",
+          "effect": {
+            "effects": {},
+            "combatType": "ranged"
+          }
+        }
+      ]
+    },
+    {
+      "id": "taktikal-brigade",
+      "name": "Taktikal Brigade",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "suspiciously-well-organised",
+          "name": "Suspiciously Well Organised",
+          "description": "An un-Orky compulsion for discipline can wrongfoot enemies expecting anarchic disorder.<ul><li>Friendly <span class=\"kwb\">STORMBOYZ</span> units have <span class=\"kwb\">BATTLELINE</span>.</li><li>When a friendly <span class=\"kwb\">BOYZ/KOMMANDOS/STORMBOYZ</span> unit is selected to make a fall-back move, that fall-back move does not prevent that unit from being eligible to declare a charge.</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "wreckas",
+      "name": "Wreckas",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "wreckin-and-lootin",
+          "name": "Wreckin' and Lootin'",
+          "description": "Whether piratical or merely larcenous, Orks with an eye for loot react forcefully to rival claims. In your Shooting phase, when a friendly <span class=\"kwb\">BREAKA BOYZ/FLASH GITZ/TANKBUSTAS</span> unit is selected to shoot, if that unit or its target is within range of an objective, that unit's attacks can re-roll hit rolls of 1.",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "combatType": "ranged"
+          }
+        }
+      ]
+    },
+    {
+      "id": "da-big-hunt",
+      "name": "Da Big Hunt",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "da-hunt-is-on",
+          "name": "Da Hunt is On",
+          "description": "Beast Snaggas fanatically hunt the biggest targets and are experts in finding their weak spots. Friendly <span class=\"kwb\">BEAST SNAGGA</span> units' attacks that target a <span class=\"kwb\">MONSTER/VEHICLE</span> unit have +1 AP.",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "requiresTargetKeyword": "MONSTER"
+          }
+        }
+      ]
+    },
+    {
+      "id": "madcap-meks",
+      "name": "Madcap Meks",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "unpredictable-genius",
+          "name": "Unpredictable Genius",
+          "description": "Meks haul all manner of weird bullets, unstable power cells and kustomised extras to battle. In your Shooting phase, when all of a friendly <span class=\"kwb\">BIG MEK/MEK GUNZ/MORKANAUT/WAZBOM BLASTAJET</span> unit's ranged attacks target a single enemy unit, roll one D6: on a 1 (\"Dat's Weird\"), the target unit has 4+ InSv until your unit has shot; on a 2-3 (\"Hop Splat\"), select one other enemy unit within 3\" of the target – that unit suffers D3 mortal wounds; on a 4 (\"Seekerz\"), those attacks have +1 to hit rolls; on a 5 (\"Lifted\"), the target unit has FLY and cannot have the benefit of cover until your unit has shot; on a 6 (\"Runtified\"), the target unit has -1 T until your unit has shot."
+        }
+      ]
+    },
+    {
+      "id": "dread-mob",
+      "name": "Dread Mob",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "try-dat-button",
+          "name": "Try Dat Button!",
+          "description": "Inviting Mek-wired buttons offer varied and erratic lethality. In your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">ORKS WALKER</span> unit (excluding <span class=\"kwb\">TITANIC</span> units) is selected to attack, you can roll either one D6 or two D6 (keep re-rolling duplicate results). This unit's attacks have the relevant rule(s): 1-2, +1 A; 3-4, +2 S; 5-6, +1 AP. If you rolled two D6, when this unit has attacked, this unit makes one hazard roll."
+        }
+      ]
+    },
+    {
+      "id": "blitz-brigade",
+      "name": "Blitz Brigade",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "unstoppable-momentum",
+          "name": "Unstoppable Momentum",
+          "description": "Like mobile armoured fortresses, little can stop the crushing impetus of the Orks' hulking wagons.<ul><li>Friendly <span class=\"kwb\">WAGON</span> units can re-roll charge rolls.</li><li>When a friendly <span class=\"kwb\">WAGON</span> unit is selected to make an advance move, that unit can change advance rolls to a 6.</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "kult-of-speed",
+      "name": "Kult of Speed",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "adrenaline-junkies",
+          "name": "Adrenaline Junkies",
+          "description": "After smashing into the foe at full tilt, a Speed Freek will pull hairpin turns to do it all again.<ul><li>Friendly <span class=\"kwb\">WARBIKERS</span> units have <span class=\"kwb\">BATTLELINE</span>.</li><li>When a friendly <span class=\"kwb\">SPEED FREEKS</span> unit is selected to make an advance/fall-back move: that unit's ranged attacks have <span class=\"kwb\">[ASSAULT]</span> until the end of the turn; that move does not prevent that unit from being eligible to declare a charge.</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "flyboyz",
+      "name": "Flyboyz",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "skyborne-loons",
+          "name": "Skyborne Loons",
+          "description": "When attacking en masse, crazed and excitable Flyboyz unleash torrential quantities of dakka.<ul><li>Friendly <span class=\"kwb\">ORKS AIRCRAFT</span> units do not count towards the combined points value of your strategic reserves units.</li><li>While a friendly <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit is riled up, this unit's ranged attacks have +1 to hit rolls.</li></ul>",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
+        }
+      ]
+    },
+    {
+      "id": "brute-bosses",
+      "name": "Brute Bosses",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "ard-as-nails",
+          "name": "'Ard as Nails",
+          "description": "The largest Orks have risen to their position through strength, savagery and being harder than anyone else. When a friendly <span class=\"kwb\">WARBOSS</span> model is destroyed, if this unit has not been selected to fight this phase, roll one D6, with +1 to the roll if your unit is riled up: on a 3+, do not remove this <span class=\"kwb\">WARBOSS</span> model from the battlefield. When this unit has fought, or at the end of the phase (whichever comes first), this <span class=\"kwb\">WARBOSS</span> model is removed from the battlefield."
+        }
+      ]
+    },
+    {
+      "id": "wurrband",
+      "name": "Wurrband",
+      "disposition": "",
+      "dp": 0,
+      "chapters": [],
+      "abilities": [
+        {
+          "id": "powers-of-da-waaagh",
+          "name": "Powers of da Waaagh!",
+          "description": "Surrounded by mobs of excitable Orks, Weirdboyz' shamanic powers build to spectacular phenomena.<ul><li>Friendly <span class=\"kwb\">ORKS PSYKER</span> models' <span class=\"kwb\">[PSYCHIC]</span> attacks have +1 S, and +1 S for every 5 models in this unit (or embarked within this model).</li></ul>Friendly <span class=\"kwb\">ORKS PSYKER</span> models have the following psychic abilities: <b>Roar of Mork</b> (psychic level 1) and <b>Visions of Violence</b> (psychic level 1, grants Fights First on a successful psychic roll).",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "stratagems": [
+    {
+      "id": "breakin-heads",
+      "name": "BREAKIN' HEADS",
+      "detachmentId": "war-horde",
+      "cpCost": 1,
+      "type": "War Horde – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Any phase",
+      "description": "<b>WHEN:</b> Any phase, when a friendly attached <span class=\"kwb\">ORKS INFANTRY</span> unit becomes battle-shocked.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS INFANTRY</span> unit. You can target that unit with this stratagem even though it is battle-shocked.<br><br><b>EFFECT:</b> Roll one D3: your unit suffers a number of mortal wounds equal to the result, or: your unit is no longer battle-shocked."
+    },
+    {
+      "id": "mow-em-down",
+      "name": "MOW 'EM DOWN",
+      "detachmentId": "war-horde",
+      "cpCost": 1,
+      "type": "War Horde – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">ORKS VEHICLE</span> unit (excluding <span class=\"kwb\">WALKER</span> units) that made a charge move this turn is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS VEHICLE</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have <span class=\"kwb\">[CLEAVE 1]</span>, or: if that attack already has <span class=\"kwb\">[CLEAVE]</span>, +1 to the value of that <span class=\"kwb\">[CLEAVE]</span> (e.g. <span class=\"kwb\">[CLEAVE 1]</span> becomes <span class=\"kwb\">[CLEAVE 2]</span>).",
+      "effect": {
+        "effects": {
+          "cleaveBonus": 1
+        },
+        "combatType": "melee",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "hit-em-harder",
+      "name": "HIT 'EM HARDER",
+      "detachmentId": "war-horde",
+      "cpCost": 1,
+      "type": "War Horde – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">ORKS</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have <span class=\"kwb\">[LETHAL HITS]</span>.",
+      "effect": {
+        "effects": {
+          "lethalHitsBonus": true
+        },
+        "combatType": "melee",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "fungus-fuel-injection",
+      "name": "FUNGUS-FUEL INJECTION",
+      "detachmentId": "war-horde",
+      "cpCost": 1,
+      "type": "War Horde – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase, when a friendly <span class=\"kwb\">ORKS MOUNTED/VEHICLE</span> unit is selected to move.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS MOUNTED/VEHICLE</span> unit.<br><br><b>EFFECT:</b> Your unit has +2\" M."
+    },
+    {
+      "id": "orks-is-never-beaten",
+      "name": "ORKS IS NEVER BEATEN",
+      "detachmentId": "war-horde",
+      "cpCost": 1,
+      "type": "War Horde – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">ORKS</span> unit (excluding <span class=\"kwb\">TITANIC</span> units).<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS</span> unit.<br><br><b>EFFECT:</b> When a model in your unit is destroyed, if your unit has not been selected to fight this phase, roll one D6, with +1 to that roll if your unit is riled up: on a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield."
+    },
+    {
+      "id": "close-range-dakka",
+      "name": "CLOSE-RANGE DAKKA",
+      "detachmentId": "war-horde",
+      "cpCost": 1,
+      "type": "War Horde – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have <span class=\"kwb\">[RAPID FIRE 1]</span>, or: if that attack already has <span class=\"kwb\">[RAPID FIRE]</span>, +1 to the value of that <span class=\"kwb\">[RAPID FIRE]</span> (e.g. <span class=\"kwb\">[RAPID FIRE 1]</span> becomes <span class=\"kwb\">[RAPID FIRE 2]</span>)."
+    },
+    {
+      "id": "unbridled-carnage",
+      "name": "UNBRIDLED CARNAGE",
+      "detachmentId": "green-tide",
+      "cpCost": 1,
+      "type": "Green Tide – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">BOYZ</span> unit that made a charge move this turn is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">BOYZ</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have +1 A.",
+      "effect": {
+        "effects": {
+          "attacksMod": 1
+        },
+        "combatType": "melee",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "mob-mentality",
+      "name": "MOB MENTALITY",
+      "detachmentId": "green-tide",
+      "cpCost": 1,
+      "type": "Green Tide – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "<b>WHEN:</b> Start of the Battle-shock step of your Command phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">ORKS INFANTRY</span> unit of 13+ models.<br><br><b>EFFECT:</b> Select one visible friendly <span class=\"kwb\">ORKS</span> unit within 12\" of your unit. That unit's battle-shock rolls are automatically successful."
+    },
+    {
+      "id": "ere-we-go",
+      "name": "'ERE WE GO",
+      "detachmentId": "green-tide",
+      "cpCost": 1,
+      "type": "Green Tide – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase, when a friendly <span class=\"kwb\">BEAST SNAGGA BOYZ/BOYZ</span> unit is selected to move.<br><br><b>TARGET:</b> That <span class=\"kwb\">BEAST SNAGGA BOYZ/BOYZ</span> unit.<br><br><b>EFFECT:</b> Your unit has +2 to advance rolls."
+    },
+    {
+      "id": "too-arrogant-to-die",
+      "name": "TOO ARROGANT TO DIE",
+      "detachmentId": "bully-boyz",
+      "cpCost": 1,
+      "type": "Bully Boyz – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> When a model in your unit is destroyed, if your unit has not been selected to fight this phase, roll one D6, with +1 to that roll if your unit is riled up: on a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield."
+    },
+    {
+      "id": "armed-to-da-teef",
+      "name": "ARMED TO DA TEEF",
+      "detachmentId": "bully-boyz",
+      "cpCost": 1,
+      "type": "Bully Boyz – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting or Fight phase",
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit is selected to attack.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks can re-roll hit rolls of 1, or: if your unit is riled up, re-roll hit rolls.",
+      "effect": {
+        "effects": {
+          "rerollHitsOf1": true
+        },
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "hulking-brutes",
+      "name": "HULKING BRUTES",
+      "detachmentId": "bully-boyz",
+      "cpCost": 1,
+      "type": "Bully Boyz – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> Ranged attacks that target your unit with a S greater than your unit's T have -1 to wound rolls, or (+1CP): ranged attacks that target your unit have -1 to wound rolls.",
+      "effect": {
+        "effects": {
+          "woundMod": -1
+        },
+        "combatType": "ranged",
+        "target": "defender",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "infested-war-zone",
+      "name": "INFESTED WAR ZONE",
+      "detachmentId": "runt-swarm",
+      "cpCost": 2,
+      "type": "Runt Swarm – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Any phase",
+      "description": "<b>WHEN:</b> Any phase, when an enemy unit has attacked.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">GRETCHIN</span> unit that was just destroyed. You can target that unit with this stratagem even though that unit was just destroyed.<br><br><b>EFFECT:</b> Add a new <span class=\"kwb\">GRETCHIN</span> unit to your army identical to your destroyed unit, in strategic reserves, at its starting strength, with its full wounds remaining."
+    },
+    {
+      "id": "scarper",
+      "name": "SCARPER!",
+      "detachmentId": "runt-swarm",
+      "cpCost": 1,
+      "type": "Runt Swarm – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your opponent's Movement phase, when an enemy unit ends a move within 8\" of a friendly unengaged <span class=\"kwb\">GRETCHIN</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">GRETCHIN</span> unit.<br><br><b>EFFECT:</b> Your unit can make a normal move of up to D6\", or: up to 6\" instead if your unit is an attached unit."
+    },
+    {
+      "id": "grot-shields",
+      "name": "GROT SHIELDS",
+      "detachmentId": "runt-swarm",
+      "cpCost": 1,
+      "type": "Runt Swarm – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">ORKS INFANTRY</span> unit (excluding <span class=\"kwb\">GRETCHIN</span> units).<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">GRETCHIN</span> unit within 3\" of that <span class=\"kwb\">ORKS INFANTRY</span> unit.<br><br><b>EFFECT:</b> When a hit roll for that enemy unit's ranged attacks that target that <span class=\"kwb\">ORKS</span> unit results in a hit, if a model in your <span class=\"kwb\">GRETCHIN</span> unit is on the battlefield, end the attack sequence for that attack and your <span class=\"kwb\">GRETCHIN</span> unit suffers 1 mortal wound."
+    },
+    {
+      "id": "kustom-dakka",
+      "name": "KUSTOM DAKKA",
+      "detachmentId": "shoota-boyz",
+      "cpCost": 1,
+      "type": "Shoota Boyz – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS INFANTRY</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS INFANTRY</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks that target a unit (excluding <span class=\"kwb\">MONSTER/VEHICLE</span> units) have +1 to wound rolls.",
+      "effect": {
+        "effects": {
+          "woundMod": 1
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "glowin-dakka",
+      "name": "GLOWIN' DAKKA",
+      "detachmentId": "shoota-boyz",
+      "cpCost": 1,
+      "type": "Shoota Boyz – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS INFANTRY</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS INFANTRY</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks that target a unit within 9\" have +1 AP.",
+      "effect": {
+        "effects": {
+          "apMod": 1
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "never-enough-dakka",
+      "name": "NEVER ENOUGH DAKKA",
+      "detachmentId": "shoota-boyz",
+      "cpCost": 1,
+      "type": "Shoota Boyz – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS INFANTRY</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS INFANTRY</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
+      "effect": {
+        "effects": {
+          "sustainedHitsBonus": 1
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "dubious-restraint",
+      "name": "DUBIOUS RESTRAINT",
+      "detachmentId": "taktikal-brigade",
+      "cpCost": 1,
+      "type": "Taktikal Brigade – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Start/end of your Movement phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">BOYZ/KOMMANDOS/STORMBOYZ</span> unit.<br><br><b>EFFECT:</b> Select one objective your unit is controlling. That objective is secured."
+    },
+    {
+      "id": "mind-mostly-on-the-mission",
+      "name": "MIND MOSTLY ON THE MISSION",
+      "detachmentId": "taktikal-brigade",
+      "cpCost": 1,
+      "type": "Taktikal Brigade – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase, when a friendly <span class=\"kwb\">BOYZ/KOMMANDOS/STORMBOYZ</span> unit is selected to make an advance/fall-back move.<br><br><b>TARGET:</b> That <span class=\"kwb\">BOYZ/KOMMANDOS/STORMBOYZ</span> unit.<br><br><b>EFFECT:</b> That move does not prevent your unit from being eligible to start an action."
+    },
+    {
+      "id": "while-their-backs-are-turned",
+      "name": "WHILE THEIR BACKS ARE TURNED",
+      "detachmentId": "taktikal-brigade",
+      "cpCost": 1,
+      "type": "Taktikal Brigade – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> End of your opponent's Movement phase.<br><br><b>TARGET:</b> One friendly unengaged <span class=\"kwb\">BOYZ/KOMMANDOS/STORMBOYZ</span> unit that was engaged at the start of the phase.<br><br><b>EFFECT:</b> Your unit can make a normal move of up to 6\"."
+    },
+    {
+      "id": "drive-by-bustin",
+      "name": "DRIVE-BY BUSTIN'",
+      "detachmentId": "wreckas",
+      "cpCost": 1,
+      "type": "Wreckas – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS TRANSPORT</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS TRANSPORT</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks with weapons selected for the Firing Deck ability have +1 to hit rolls.",
+      "effect": {
+        "effects": {
+          "hitMod": 1
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "grab-it",
+      "name": "GRAB IT",
+      "detachmentId": "wreckas",
+      "cpCost": 1,
+      "type": "Wreckas – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly unengaged <span class=\"kwb\">BREAKA BOYZ/FLASH GITZ/TANKBUSTAS</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">BREAKA BOYZ/FLASH GITZ/TANKBUSTAS</span> unit.<br><br><b>EFFECT:</b> Your unit can make a normal move of up to 6\", and must end that move within range of an objective. Your unit is not eligible to declare a charge until the end of the turn."
+    },
+    {
+      "id": "gun-crazy-show-offs",
+      "name": "GUN-CRAZY SHOW-OFFS",
+      "detachmentId": "wreckas",
+      "cpCost": 1,
+      "type": "Wreckas – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit has shot.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">FLASH GITZ/TANKBUSTAS</span> unit hit by those attacks.<br><br><b>EFFECT:</b> Your unit shoots using normal shooting, but while doing so your unit can only target that enemy unit."
+    },
+    {
+      "id": "where-dya-fink-youre-going",
+      "name": "WHERE D'YA FINK YOU'RE GOING?",
+      "detachmentId": "da-big-hunt",
+      "cpCost": 1,
+      "type": "Da Big Hunt – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your opponent's Movement phase, when an enemy unit is selected to make a fall-back move, if that enemy unit is engaged with a friendly <span class=\"kwb\">BEAST SNAGGA</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">BEAST SNAGGA</span> unit.<br><br><b>EFFECT:</b> When an enemy unit engaged with your unit is selected to make a fall-back move, that enemy unit must use the desperate escape mode. If that enemy unit is a <span class=\"kwb\">MONSTER/VEHICLE</span> unit, it makes three additional hazard rolls for each <span class=\"kwb\">BEAST SNAGGA</span> unit it is engaged with, with -1 from those hazard rolls if that enemy unit is battle-shocked."
+    },
+    {
+      "id": "goaded-into-action",
+      "name": "GOADED INTO ACTION",
+      "detachmentId": "da-big-hunt",
+      "cpCost": 1,
+      "type": "Da Big Hunt – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit has shot.<br><br><b>TARGET:</b> One friendly unengaged <span class=\"kwb\">BEAST SNAGGA</span> unit that lost a wound as a result of those attacks.<br><br><b>EFFECT:</b> Your unit can make a surge move of up to D6\". If your unit is riled up, it can re-roll that D6."
+    },
+    {
+      "id": "instinctive-hunters",
+      "name": "INSTINCTIVE HUNTERS",
+      "detachmentId": "da-big-hunt",
+      "cpCost": 1,
+      "type": "Da Big Hunt – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> End of your opponent's Fight phase.<br><br><b>TARGET:</b> One friendly unengaged <span class=\"kwb\">BEAST SNAGGA</span> unit within 6\" of a battlefield edge.<br><br><b>EFFECT:</b> Place your unit in strategic reserves."
+    },
+    {
+      "id": "vindictive-artillerists",
+      "name": "VINDICTIVE ARTILLERISTS",
+      "detachmentId": "madcap-meks",
+      "cpCost": 1,
+      "type": "Madcap Meks – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">MEK GUNZ</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEK GUNZ</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have <span class=\"kwb\">[LETHAL HITS]</span>, or: <span class=\"kwb\">[SUSTAINED HITS 1]</span>, or: <span class=\"kwb\">[HAZARDOUS]</span>, <span class=\"kwb\">[LETHAL HITS]</span> and <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
+      "effect": {
+        "effects": {
+          "lethalHitsBonus": true
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "crazed-rampage",
+      "name": "CRAZED RAMPAGE",
+      "detachmentId": "dread-mob",
+      "cpCost": 1,
+      "type": "Dread Mob – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">ORKS WALKER</span> unit (excluding <span class=\"kwb\">TITANIC</span> units).<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS WALKER</span> unit.<br><br><b>EFFECT:</b> When a model in your unit is destroyed, if your unit has not been selected to fight this phase, roll one D6, with +3 to the result if your unit has <span class=\"kwb\">DEFF DREAD</span>: on a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield."
+    },
+    {
+      "id": "dread-power",
+      "name": "DREAD POWER",
+      "detachmentId": "dread-mob",
+      "cpCost": 1,
+      "type": "Dread Mob – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">ORKS WALKER</span> unit.<br><br><b>EFFECT:</b> Your unit is riled up until the start of your next turn."
+    },
+    {
+      "id": "stomping-juggernaut",
+      "name": "STOMPING JUGGERNAUT",
+      "detachmentId": "dread-mob",
+      "cpCost": 1,
+      "type": "Dread Mob – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement or Charge phase",
+      "description": "<b>WHEN:</b> Your Movement/Charge phase, when a friendly <span class=\"kwb\">ORKS WALKER</span> unit is selected to move or declares a charge.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS WALKER</span> unit.<br><br><b>EFFECT:</b> Your unit has MOBILE."
+    },
+    {
+      "id": "keep-it-runnin",
+      "name": "KEEP IT RUNNIN'",
+      "detachmentId": "blitz-brigade",
+      "cpCost": 1,
+      "type": "Blitz Brigade – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One friendly unengaged <span class=\"kwb\">ORKS INFANTRY</span> unit that was eligible to fight this phase and is wholly within 6\" of a friendly <span class=\"kwb\">TRANSPORT</span> unit that <span class=\"kwb\">INFANTRY</span> unit is able to embark within.<br><br><b>EFFECT:</b> Your <span class=\"kwb\">INFANTRY</span> unit embarks within that <span class=\"kwb\">TRANSPORT</span> unit."
+    },
+    {
+      "id": "readied-brawlers",
+      "name": "READIED BRAWLERS",
+      "detachmentId": "blitz-brigade",
+      "cpCost": 1,
+      "type": "Blitz Brigade – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase, when a friendly <span class=\"kwb\">WAGON</span> unit ends a normal move.<br><br><b>TARGET:</b> That <span class=\"kwb\">WAGON</span> unit.<br><br><b>EFFECT:</b> Units embarked within your unit can make an assault disembark move."
+    },
+    {
+      "id": "impending-krunch",
+      "name": "IMPENDING KRUNCH",
+      "detachmentId": "blitz-brigade",
+      "cpCost": 1,
+      "type": "Blitz Brigade – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Charge phase",
+      "description": "<b>WHEN:</b> Your Charge phase, when a friendly <span class=\"kwb\">WAGON</span> unit ends a charge move.<br><br><b>TARGET:</b> That <span class=\"kwb\">WAGON</span> unit.<br><br><b>EFFECT:</b> Each enemy unit engaged with your unit makes a battle-shock roll, with -1 to that battle-shock roll."
+    },
+    {
+      "id": "delicious-eating-squigs",
+      "name": "DELICIOUS EATING SQUIGS",
+      "detachmentId": "kult-of-speed",
+      "cpCost": 1,
+      "type": "Kult of Speed – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">RUKKATRUKK SQUIGBUGGIES</span> unit.<br><br><b>EFFECT:</b> Select any number of friendly <span class=\"kwb\">ORKS INFANTRY</span> units within 3\" of your unit. Each selected unit heals 3 wounds."
+    },
+    {
+      "id": "dakkastorm",
+      "name": "DAKKASTORM",
+      "detachmentId": "kult-of-speed",
+      "cpCost": 1,
+      "type": "Kult of Speed – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">SPEED FREEKS</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">SPEED FREEKS</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
+      "effect": {
+        "effects": {
+          "sustainedHitsBonus": 1
+        },
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1
+      }
+    },
+    {
+      "id": "speediest-freeks",
+      "name": "SPEEDIEST FREEKS",
+      "detachmentId": "kult-of-speed",
+      "cpCost": 1,
+      "type": "Kult of Speed – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">SPEED FREEKS</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">SPEED FREEKS</span> unit.<br><br><b>EFFECT:</b> Ranged attacks that target your unit fail on an unmodified hit roll of 1-3."
+    },
+    {
+      "id": "flyin-headbutt",
+      "name": "FLYIN' HEADBUTT",
+      "detachmentId": "flyboyz",
+      "cpCost": 1,
+      "type": "Flyboyz – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Any phase",
+      "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">ORKS AIRCRAFT</span> unit is destroyed, before rolling for any Deadly Demise.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS</span> unit.<br><br><b>EFFECT:</b> Your unit does not have the Deadly Demise ability. Select one enemy unit within 12\" of your unit and roll eight D6: for each 4+, that enemy unit suffers 1 mortal wound. Then remove your unit from the battlefield."
+    },
+    {
+      "id": "long-uncontrolled-bursts",
+      "name": "LONG, UNCONTROLLED BURSTS",
+      "detachmentId": "flyboyz",
+      "cpCost": 1,
+      "type": "Flyboyz – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit.<br><br><b>EFFECT:</b> When your unit's ranged attacks target a <span class=\"kwb\">FLY</span> unit, those attacks can re-roll hit rolls."
+    },
+    {
+      "id": "whirligig-evasion",
+      "name": "WHIRLIGIG EVASION",
+      "detachmentId": "flyboyz",
+      "cpCost": 1,
+      "type": "Flyboyz – Strategic Ploy Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Movement phase",
+      "description": "<b>WHEN:</b> Your opponent's Movement phase, when an enemy unit ends a move.<br><br><b>TARGET:</b> One friendly unengaged <span class=\"kwb\">DEFFKOPTAS</span> unit within 8\" of that enemy unit.<br><br><b>EFFECT:</b> Your unit can make a normal move of up to D6\", or: up to 6\" if your unit is riled up."
+    }
+  ],
+  "enhancements": [
+    {
+      "id": "headwoppas-killchoppa",
+      "name": "Headwoppa's Killchoppa",
+      "cost": 0,
+      "detachmentId": "war-horde",
+      "detachmentName": "War Horde",
+      "description": "Tribal legend speaks of a blood-slick choppa once owned by Grand Warboss Headwoppa. <span class=\"kwb\">ORKS</span> model only. If this unit made a charge move this turn, this model's melee attacks have +1 AP.",
+      "effect": {
+        "effects": {
+          "apMod": 1
+        },
+        "combatType": "melee",
+        "bearerOnly": true
+      }
+    },
+    {
+      "id": "da-boss-is-watchin",
+      "name": "Da Boss is Watchin'",
+      "cost": 0,
+      "detachmentId": "war-horde",
+      "detachmentName": "War Horde",
+      "description": "This war leader is a glowering incarnation of violence. <span class=\"kwb\">ORKS</span> model only (Once per battle, per army). In your Movement phase, you can use this ability. If you do, this unit is riled up until the start of your next turn."
+    },
+    {
+      "id": "kunnin-but-brutal",
+      "name": "Kunnin' but Brutal",
+      "cost": 0,
+      "detachmentId": "war-horde",
+      "detachmentName": "War Horde",
+      "description": "Feigning weakness, this Ork allows his foes to think he's legging it before suddenly piling back into the fight. <span class=\"kwb\">ORKS</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to shoot/declare a charge."
+    },
+    {
+      "id": "follow-me-ladz",
+      "name": "Follow Me Ladz",
+      "cost": 0,
+      "detachmentId": "war-horde",
+      "detachmentName": "War Horde",
+      "description": "Always found at the forefront of an assault, this Ork likes to be the first into the fray. <span class=\"kwb\">ORKS</span> model only. This unit has +2\" M."
+    },
+    {
+      "id": "ferocious-show-off",
+      "name": "Ferocious Show-Off",
+      "cost": 0,
+      "detachmentId": "green-tide",
+      "detachmentName": "Green Tide",
+      "description": "This brutal fighter is even more dangerous with a raucous audience of chanting Orks. <span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",
+      "effect": {
+        "effects": {
+          "attacksMod": 1
+        },
+        "combatType": "melee",
+        "bearerOnly": true
+      }
+    },
+    {
+      "id": "ardboyz",
+      "name": "'Ardboyz",
+      "cost": 0,
+      "detachmentId": "green-tide",
+      "detachmentName": "Green Tide",
+      "description": "Orks with enough teef acquire extra scrap iron plates collectively referred to as 'eavy armour. <span class=\"kwb\">BOYZ</span> unit only. This unit has 4+ Sv. (Upgrade – can be taken more than once per army.)"
+    },
+    {
+      "id": "wimp-kickaz",
+      "name": "Wimp-Kickaz",
+      "cost": 0,
+      "detachmentId": "bully-boyz",
+      "detachmentName": "Bully Boyz",
+      "description": "Any snivelling gitz attempting to back away from a good fight with these arrogant Nobz get a good kicking. <span class=\"kwb\">NOBZ</span> unit only. When an enemy unit engaged with this unit is selected to make a fall-back move: that enemy unit must select the desperate escape mode; if this unit is riled up, that enemy unit has -1 to the hazard rolls made for that desperate escape. (Upgrade.)"
+    },
+    {
+      "id": "tellyporta-boss",
+      "name": "Tellyporta Boss",
+      "cost": 0,
+      "detachmentId": "bully-boyz",
+      "detachmentName": "Bully Boyz",
+      "description": "This Ork has bullied his way into possession of a mostly functional tellyporta pad. <span class=\"kwb\">MEGA ARMOUR</span> model only. This unit (excluding <span class=\"kwb\">VEHICLE</span> units) has Deep Strike."
+    },
+    {
+      "id": "extra-sneaky",
+      "name": "Extra Sneaky",
+      "cost": 0,
+      "detachmentId": "runt-swarm",
+      "detachmentName": "Runt Swarm",
+      "description": "A lifetime of evading the attentions of Orks and even other runts has honed these Grots' sneakiness. <span class=\"kwb\">GRETCHIN</span> unit only. This unit has -3\" detection range. (Upgrade.)"
+    },
+    {
+      "id": "minefield-detail",
+      "name": "Minefield Detail",
+      "cost": 0,
+      "detachmentId": "runt-swarm",
+      "detachmentName": "Runt Swarm",
+      "description": "Rebellious, lazy or just plain unlucky Gretchin are driven into dangerous vanguard duties. <span class=\"kwb\">GRETCHIN</span> unit only. While this unit is not embarked, this unit has Scouts 6\". (Upgrade.)"
+    },
+    {
+      "id": "supa-glowy-fing",
+      "name": "Supa-Glowy Fing",
+      "cost": 0,
+      "detachmentId": "shoota-boyz",
+      "detachmentName": "Shoota Boyz",
+      "description": "The Mek who cobbled together this strange dakka accelerator isn't sure exactly what it does. <span class=\"kwb\">ORKS INFANTRY</span> model only (excluding <span class=\"kwb\">WEIRDBOY</span> models). This model's ranged attacks have <span class=\"kwb\">[ANTI-INFANTRY 4+]</span>, <span class=\"kwb\">[DEVASTATING WOUNDS]</span> and <span class=\"kwb\">[SUPA-HAZARDOUS]</span>.",
+      "effect": {
+        "effects": {
+          "devastatingWoundsBonus": true
+        },
+        "combatType": "ranged",
+        "bearerOnly": true
+      }
+    },
+    {
+      "id": "targetin-squigs",
+      "name": "Targetin' Squigs",
+      "cost": 0,
+      "detachmentId": "shoota-boyz",
+      "detachmentName": "Shoota Boyz",
+      "description": "With a couple of these boggle-eyed varieties of Squigs on hand, even Ork shooting has a chance of hitting distant targets. <span class=\"kwb\">BIG MEK/BIGBOSS/WARBOSS</span> model only. This unit's ranged attacks (excluding <span class=\"kwb\">[TORRENT]</span> attacks) have +3\" R."
+    },
+    {
+      "id": "kill-kommanda",
+      "name": "Kill Kommanda",
+      "cost": 0,
+      "detachmentId": "taktikal-brigade",
+      "detachmentName": "Taktikal Brigade",
+      "description": "Possessed of exceptional kunnin' and a weird obsession with sneakin' about. <span class=\"kwb\">BIG MEK/WARBOSS INFANTRY</span> model only. While this model is part of an attached unit, this model has Infiltrators and Stealth."
+    },
+    {
+      "id": "throat-slittas",
+      "name": "Throat-Slittas",
+      "cost": 0,
+      "detachmentId": "taktikal-brigade",
+      "detachmentName": "Taktikal Brigade",
+      "description": "Veterans of the relatively organised butchery of well-protected targets. <span class=\"kwb\">KOMMANDOS/STORMBOYZ</span> unit only. This unit's melee attacks have <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE]</span>. (Upgrade.)",
+      "effect": {
+        "effects": {
+          "lethalHitsBonus": true
+        },
+        "combatType": "melee"
+      }
+    },
+    {
+      "id": "kaptins-hat",
+      "name": "Kaptin's Hat",
+      "cost": 0,
+      "detachmentId": "wreckas",
+      "detachmentName": "Wreckas",
+      "description": "This impressively ostentatious piece of headgear signifies that whoever nicked it last controls a fleet of kroozers. <span class=\"kwb\">BIG MEK/WARBOSS INFANTRY</span> model only. When both players have deployed their armies, you can redeploy up to three friendly <span class=\"kwb\">ORKS INFANTRY</span> units into strategic reserves, regardless of how many units are already in strategic reserves."
+    },
+    {
+      "id": "supa-snazz-dakka",
+      "name": "Supa-Snazz Dakka",
+      "cost": 0,
+      "detachmentId": "wreckas",
+      "detachmentName": "Wreckas",
+      "description": "Coils of sparking wires, unstable propellant and throbbing power cells. <span class=\"kwb\">FLASH GITZ</span> unit only. This unit's Snazzgun weapons have <span class=\"kwb\">[RAPID FIRE 1]</span>. (Upgrade.)"
+    },
+    {
+      "id": "glory-hog",
+      "name": "Glory Hog",
+      "cost": 0,
+      "detachmentId": "da-big-hunt",
+      "detachmentName": "Da Big Hunt",
+      "description": "When bigger prey is sighted, nothing can keep this hunter from it. <span class=\"kwb\">BEAST SNAGGA</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to declare a charge."
+    },
+    {
+      "id": "it-came-from-da-drops",
+      "name": "It Came from da Drops",
+      "cost": 0,
+      "detachmentId": "da-big-hunt",
+      "detachmentName": "Da Big Hunt",
+      "description": "The monstrous resilience of this Beastboss' hulking mount has inspired many lurid tales. <span class=\"kwb\">BEASTBOSS ON SQUIGOSAUR</span> model only. This model has +1 T."
+    },
+    {
+      "id": "mekwaaagh-mastermind",
+      "name": "Mekwaaagh! Mastermind",
+      "cost": 0,
+      "detachmentId": "madcap-meks",
+      "detachmentName": "Madcap Meks",
+      "description": "This Big Mek's obsession with feverish inventing inspires other Orks to excitable aggression. <span class=\"kwb\">BIG MEK</span> model only. This unit is riled up."
+    },
+    {
+      "id": "temperamental-shokka",
+      "name": "Temperamental Shokka",
+      "cost": 0,
+      "detachmentId": "madcap-meks",
+      "detachmentName": "Madcap Meks",
+      "description": "Shokk attack guns are notoriously unreliable, and even with a supposedly enhanced set of worky bits. <span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. In your Shooting phase, when this unit is selected to shoot, you can roll one D6: on a 1, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[TORRENT]</span>, and when this unit has shot, this model is destroyed; on a 2-5, this model's Shokk Attack Gun weapon has +1 A; on a 6, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[SUSTAINED HITS 2]</span>. (Upgrade.)"
+    },
+    {
+      "id": "enhanced-runt-maw",
+      "name": "Enhanced Runt-Maw",
+      "cost": 0,
+      "detachmentId": "madcap-meks",
+      "detachmentName": "Madcap Meks",
+      "description": "These kustom jobs incorporate an oversized suction device, drawing in nearby runts, Squigs and scrap. <span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. When this unit has shot, select one enemy unit hit by those attacks – that unit is infested with Snotlings until the start of your next turn. While an enemy unit is infested with Snotlings, that unit has -1 to leadership rolls. (Upgrade.)"
+    },
+    {
+      "id": "cybork-boosta",
+      "name": "Cybork Boosta",
+      "cost": 0,
+      "detachmentId": "dread-mob",
+      "detachmentName": "Dread Mob",
+      "description": "This Mek's extra bioniks help him keep up with his Kans. <span class=\"kwb\">BIG MEK/MEK</span> model only. This model has +2\" M."
+    },
+    {
+      "id": "dreadherder",
+      "name": "Dreadherder",
+      "cost": 0,
+      "detachmentId": "dread-mob",
+      "detachmentName": "Dread Mob",
+      "description": "This Mek is deft at avoiding his creations' feet and klaws. <span class=\"kwb\">BIG MEK</span> model only. While this model is within 3\" of a friendly <span class=\"kwb\">ORKS WALKER</span> unit (excluding <span class=\"kwb\">BIG MEK</span> units): this model has Lone Operative; in your Shooting phase, you can select one friendly <span class=\"kwb\">ORKS WALKER</span> unit within 3\" of this model – that unit's attacks can re-roll hit rolls of 1 until the end of the turn."
+    },
+    {
+      "id": "targetin-gizmos",
+      "name": "Targetin' Gizmos",
+      "cost": 0,
+      "detachmentId": "blitz-brigade",
+      "detachmentName": "Blitz Brigade",
+      "description": "These sparkly optiks and other elaborate gitfindas help focus a wagon's dakka. <span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">BIG MEK</span> model is embarked within this unit: this unit's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>; if this unit is riled up, this unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>. (Upgrade.)"
+    },
+    {
+      "id": "boss-boomer",
+      "name": "Boss Boomer",
+      "cost": 0,
+      "detachmentId": "blitz-brigade",
+      "detachmentName": "Blitz Brigade",
+      "description": "Fitted with speakin' tubes linked to deafening projectors. <span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">WARBOSS</span> model is embarked within this unit, this unit has that <span class=\"kwb\">WARBOSS</span> model's Intimidating Motivation/Keep Huntin' ability. (Upgrade.)"
+    },
+    {
+      "id": "smoky-gubbinz",
+      "name": "Smoky Gubbinz",
+      "cost": 0,
+      "detachmentId": "kult-of-speed",
+      "detachmentName": "Kult of Speed",
+      "description": "These loud, fume-belching devices wreathe those in the Speed Freeks' wake in a thick bank of obscuring smoke. <span class=\"kwb\">SPEED FREEKS</span> unit only (excluding <span class=\"kwb\">AIRCRAFT</span> units). When an attack targets a unit that is not fully visible to the attacking model because of a model in this unit, the target has the benefit of cover against that attack. (Upgrade.)"
+    },
+    {
+      "id": "competitive-streak",
+      "name": "Competitive Streak",
+      "cost": 0,
+      "detachmentId": "kult-of-speed",
+      "detachmentName": "Kult of Speed",
+      "description": "This Speedboss despises the thought of coming anything less than first in a race to reach the biggest fights. <span class=\"kwb\">DEFFKILLA WARTRIKE</span> model only. This unit can re-roll charge rolls."
+    },
+    {
+      "id": "flyboss",
+      "name": "Flyboss",
+      "cost": 0,
+      "detachmentId": "flyboyz",
+      "detachmentName": "Flyboyz",
+      "description": "Brutish aces who have survived enough dogfights to rise to positions of superiority. <span class=\"kwb\">ORKS AIRCRAFT</span> unit only. This unit has CHARACTER. When this unit ends an ingress move, each friendly <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit within 6\" of this unit is riled up until the start of your next turn. (Upgrade.)"
+    },
+    {
+      "id": "impulsive-recon",
+      "name": "Impulsive Recon",
+      "cost": 0,
+      "detachmentId": "flyboyz",
+      "detachmentName": "Flyboyz",
+      "description": "Despite claims of scoutin', this aircraft's screaming dive ahead of its pilot's mates is purely for the thrill of attacking first. <span class=\"kwb\">ORKS AIRCRAFT</span> unit only. In your first Movement phase, this unit can make an ingress move. (Upgrade.)"
+    },
+    {
+      "id": "blitzboss",
+      "name": "Blitzboss",
+      "cost": 0,
+      "detachmentId": "brute-bosses",
+      "detachmentName": "Brute Bosses",
+      "description": "It is said this Ork bleeds Squig oil and his growl is that of a revving engine. <span class=\"kwb\">WARBOSS</span> model only. A <span class=\"kwb\">TRANSPORT</span> unit (excluding <span class=\"kwb\">WALKER</span> units) this unit is embarked within has +2\" M and 5+ InSv."
+    },
+    {
+      "id": "proper-killy",
+      "name": "Proper Killy",
+      "cost": 0,
+      "detachmentId": "brute-bosses",
+      "detachmentName": "Brute Bosses",
+      "description": "This unstoppable brute is an engine of destruction whose welts of scars have been won in countless victories. <span class=\"kwb\">WARBOSS</span> model only. This model can re-roll hit rolls of 1.",
+      "effect": {
+        "effects": {
+          "rerollHitsOf1": true
+        },
+        "bearerOnly": true
+      }
+    },
+    {
+      "id": "morgogs-finkin-cap",
+      "name": "Morgog's Finkin' Cap",
+      "cost": 0,
+      "detachmentId": "brute-bosses",
+      "detachmentName": "Brute Bosses",
+      "description": "Thanks to the tangle of stolen empyric electrodes wired into this helmet. <span class=\"kwb\">WARBOSS</span> model only (Once per battle, per army). At the end of your opponent's Movement phase, if this unit is unengaged, this unit can make a normal move of up to D6\". If this unit is riled up, you can re-roll that D6."
+    },
+    {
+      "id": "da-gobshot-thunderbuss",
+      "name": "Da Gobshot Thunderbuss",
+      "cost": 0,
+      "detachmentId": "brute-bosses",
+      "detachmentName": "Brute Bosses",
+      "description": "Firing gold-plated teef as its unconventional ammunition. <span class=\"kwb\">WARBOSS</span> model only. This model has the following weapon – Da Gobshot Thunderbuss <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE, RAPID FIRE 6]</span>: Range 24\", A6, BS4+, S7, AP-2, D2."
+    },
+    {
+      "id": "surly-as-a-squiggoth",
+      "name": "Surly as a Squiggoth",
+      "cost": 0,
+      "detachmentId": "brute-bosses",
+      "detachmentName": "Brute Bosses",
+      "description": "With a lifetime of picking fights with the galaxy's most lethal fighters behind him. <span class=\"kwb\">INFANTRY WARBOSS</span> model only (Once per battle, per army). At the end of a phase in which this model is destroyed, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining."
+    },
+    {
+      "id": "brutal-but-kunnin",
+      "name": "Brutal but Kunnin'",
+      "cost": 0,
+      "detachmentId": "brute-bosses",
+      "detachmentName": "Brute Bosses",
+      "description": "What tactics occasionally pop into this Ork's head revolve purely around how hard he needs to wallop his enemies. <span class=\"kwb\">WARBOSS</span> model only. This model's melee attacks have +1 D.",
+      "effect": {
+        "effects": {
+          "damageMod": 1
+        },
+        "combatType": "melee",
+        "bearerOnly": true
+      }
+    },
+    {
+      "id": "da-krunch",
+      "name": "Da Krunch",
+      "cost": 0,
+      "detachmentId": "wurrband",
+      "detachmentName": "Wurrband",
+      "description": "Roiling energies frequently erupt from this Weirdboy's eyes, solidifying above the enemy into the huge green foot of Gork (or Mork) himself. <span class=\"kwb\">ORKS PSYKER</span> model only. This model has the following weapon – Da Krunch <span class=\"kwb\">[BLAST 3, HAZARDOUS, LETHAL HITS, PSYCHIC]</span>: Range 24\", A3, BS4+, S5, AP-1, D1."
+    },
+    {
+      "id": "eadbanger",
+      "name": "'Eadbanger",
+      "cost": 0,
+      "detachmentId": "wurrband",
+      "detachmentName": "Wurrband",
+      "description": "Known for yelling 'Kop dis, ya zogger!' at his chosen target beforehand. <span class=\"kwb\">ORKS PSYKER</span> model only. This model has the following weapon – 'Eadbanger <span class=\"kwb\">[HAZARDOUS, PRECISION, PSYCHIC]</span>: Range 24\", A2, BS4+, S6, AP-3, D3."
+    },
+    {
+      "id": "warphead",
+      "name": "Warphead",
+      "cost": 0,
+      "detachmentId": "wurrband",
+      "detachmentName": "Wurrband",
+      "description": "Where most Weirdboyz would quite like to be left alone, so-called Warpheads become addicted to the danger. <span class=\"kwb\">ORKS PSYKER</span> model only. This model has psyker level 2, has Deadly Demise D6 and can re-roll psychic rolls."
+    }
+  ]
+}
