@@ -36,12 +36,22 @@ until then.
 The codex explicitly does not print points costs, Detachment Points (DP), or the mission-system
 `disposition` tag per detachment (pg 118: "we have not included points values ... points values
 are reviewed on a regular basis" — they live in Warhammer 40,000: The App / a future points
-release). So in `phase1-detachments.json`: every enhancement has `cost: 0`, every detachment has
-`dp: 0` and `disposition: ""`. These are real placeholders, not verified zeros — do not ship
-without either a matching points source for *this* codex printing (the current
-`public/pdf/eng_wh40k_faction_pack_orks-...pdf` is for the *previous* codex's unit roster and
-does not line up with the redesigned units/detachments here) or explicit sign-off to leave them
-blank.
+release). Checked every page of the PDF (including the QR/app page at the very end) and both
+other Orks "Faction Pack" PDFs in the repo (`public/pdf/eng_wh40k_faction_pack_orks-...pdf` and
+`public/data/pdf/orks.pdf`, v1.2 and v1.1 respectively) — both are for the *previous* codex
+generation's unit roster, not this one.
+
+Per explicit user sign-off (this is a known-stale placeholder, not a verified value): where an
+enhancement or detachment in the new codex shares its exact NAME with one in the old
+`orks.json`, `build-phase1-detachments.mjs` copies that old `cost`/`dp`/`disposition` over as a
+temporary number — same name, **not** verified same rules text, since several redesigned
+units/detachments kept a flavour name while changing mechanically (e.g. the Warboss's whole
+weapon loadout changed). Anything with no name match stays at `0`/`""`. Current tally: 13/38
+enhancements and 8/15 detachments got a backfilled value this way; the rest are unmatched (new
+detachments: Runt Swarm, Shoota Boyz, Wreckas, Madcap Meks, Flyboyz, Brute Bosses, Wurrband).
+**None of these numbers should be trusted for an actual game** — replace them wholesale once a
+points source that actually matches this codex printing exists. Phase 2 (datasheets) should
+apply the same same-name backfill for per-unit points, for consistency.
 
 ## Tooling note
 

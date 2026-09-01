@@ -38,8 +38,8 @@
     {
       "id": "war-horde",
       "name": "War Horde",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "TAKE AND HOLD",
+      "dp": 3,
       "chapters": [],
       "abilities": [
         {
@@ -58,8 +58,8 @@
     {
       "id": "green-tide",
       "name": "Green Tide",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "TAKE AND HOLD",
+      "dp": 3,
       "chapters": [],
       "abilities": [
         {
@@ -78,8 +78,8 @@
     {
       "id": "bully-boyz",
       "name": "Bully Boyz",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PURGE THE FOE",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -130,8 +130,8 @@
     {
       "id": "taktikal-brigade",
       "name": "Taktikal Brigade",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "RECONNAISSANCE",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -164,8 +164,8 @@
     {
       "id": "da-big-hunt",
       "name": "Da Big Hunt",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PURGE THE FOE",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -198,8 +198,8 @@
     {
       "id": "dread-mob",
       "name": "Dread Mob",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PRIORITY ASSETS",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -212,8 +212,8 @@
     {
       "id": "blitz-brigade",
       "name": "Blitz Brigade",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "RECONNAISSANCE",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -226,8 +226,8 @@
     {
       "id": "kult-of-speed",
       "name": "Kult of Speed",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "DISRUPTION",
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -785,7 +785,7 @@
     {
       "id": "headwoppas-killchoppa",
       "name": "Headwoppa's Killchoppa",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
       "description": "Tribal legend speaks of a blood-slick choppa once owned by Grand Warboss Headwoppa. <span class=\"kwb\">ORKS</span> model only. If this unit made a charge move this turn, this model's melee attacks have +1 AP.",
@@ -808,7 +808,7 @@
     {
       "id": "kunnin-but-brutal",
       "name": "Kunnin' but Brutal",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
       "description": "Feigning weakness, this Ork allows his foes to think he's legging it before suddenly piling back into the fight. <span class=\"kwb\">ORKS</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to shoot/declare a charge."
@@ -816,7 +816,7 @@
     {
       "id": "follow-me-ladz",
       "name": "Follow Me Ladz",
-      "cost": 0,
+      "cost": 25,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
       "description": "Always found at the forefront of an assault, this Ork likes to be the first into the fray. <span class=\"kwb\">ORKS</span> model only. This unit has +2\" M."
@@ -824,7 +824,7 @@
     {
       "id": "ferocious-show-off",
       "name": "Ferocious Show-Off",
-      "cost": 0,
+      "cost": 10,
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
       "description": "This brutal fighter is even more dangerous with a raucous audience of chanting Orks. <span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",
@@ -879,7 +879,7 @@
     {
       "id": "supa-glowy-fing",
       "name": "Supa-Glowy Fing",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "shoota-boyz",
       "detachmentName": "Shoota Boyz",
       "description": "The Mek who cobbled together this strange dakka accelerator isn't sure exactly what it does. <span class=\"kwb\">ORKS INFANTRY</span> model only (excluding <span class=\"kwb\">WEIRDBOY</span> models). This model's ranged attacks have <span class=\"kwb\">[ANTI-INFANTRY 4+]</span>, <span class=\"kwb\">[DEVASTATING WOUNDS]</span> and <span class=\"kwb\">[SUPA-HAZARDOUS]</span>.",
@@ -894,7 +894,7 @@
     {
       "id": "targetin-squigs",
       "name": "Targetin' Squigs",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "shoota-boyz",
       "detachmentName": "Shoota Boyz",
       "description": "With a couple of these boggle-eyed varieties of Squigs on hand, even Ork shooting has a chance of hitting distant targets. <span class=\"kwb\">BIG MEK/BIGBOSS/WARBOSS</span> model only. This unit's ranged attacks (excluding <span class=\"kwb\">[TORRENT]</span> attacks) have +3\" R."
@@ -940,7 +940,7 @@
     {
       "id": "glory-hog",
       "name": "Glory Hog",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "da-big-hunt",
       "detachmentName": "Da Big Hunt",
       "description": "When bigger prey is sighted, nothing can keep this hunter from it. <span class=\"kwb\">BEAST SNAGGA</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to declare a charge."
@@ -996,7 +996,7 @@
     {
       "id": "targetin-gizmos",
       "name": "Targetin' Gizmos",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "blitz-brigade",
       "detachmentName": "Blitz Brigade",
       "description": "These sparkly optiks and other elaborate gitfindas help focus a wagon's dakka. <span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">BIG MEK</span> model is embarked within this unit: this unit's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>; if this unit is riled up, this unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>. (Upgrade.)"
@@ -1012,7 +1012,7 @@
     {
       "id": "smoky-gubbinz",
       "name": "Smoky Gubbinz",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "kult-of-speed",
       "detachmentName": "Kult of Speed",
       "description": "These loud, fume-belching devices wreathe those in the Speed Freeks' wake in a thick bank of obscuring smoke. <span class=\"kwb\">SPEED FREEKS</span> unit only (excluding <span class=\"kwb\">AIRCRAFT</span> units). When an attack targets a unit that is not fully visible to the attacking model because of a model in this unit, the target has the benefit of cover against that attack. (Upgrade.)"
@@ -1052,7 +1052,7 @@
     {
       "id": "proper-killy",
       "name": "Proper Killy",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
       "description": "This unstoppable brute is an engine of destruction whose welts of scars have been won in countless victories. <span class=\"kwb\">WARBOSS</span> model only. This model can re-roll hit rolls of 1.",
@@ -1074,7 +1074,7 @@
     {
       "id": "da-gobshot-thunderbuss",
       "name": "Da Gobshot Thunderbuss",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
       "description": "Firing gold-plated teef as its unconventional ammunition. <span class=\"kwb\">WARBOSS</span> model only. This model has the following weapon – Da Gobshot Thunderbuss <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE, RAPID FIRE 6]</span>: Range 24\", A6, BS4+, S7, AP-2, D2."
@@ -1082,7 +1082,7 @@
     {
       "id": "surly-as-a-squiggoth",
       "name": "Surly as a Squiggoth",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
       "description": "With a lifetime of picking fights with the galaxy's most lethal fighters behind him. <span class=\"kwb\">INFANTRY WARBOSS</span> model only (Once per battle, per army). At the end of a phase in which this model is destroyed, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining."
@@ -1090,7 +1090,7 @@
     {
       "id": "brutal-but-kunnin",
       "name": "Brutal but Kunnin'",
-      "cost": 0,
+      "cost": 25,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
       "description": "What tactics occasionally pop into this Ork's head revolve purely around how hard he needs to wallop his enemies. <span class=\"kwb\">WARBOSS</span> model only. This model's melee attacks have +1 D.",

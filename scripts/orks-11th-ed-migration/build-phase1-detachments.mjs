@@ -5,9 +5,24 @@
 // NOTE ON POINTS: the codex explicitly states it does NOT include points values, Detachment
 // Points (DP) or army-list disposition tags -- those live in Warhammer 40,000: The App /
 // a future Faction Pack (pg 118: "we have not included points values ... points values are
-// reviewed on a regular basis"). So `cost` (enhancements), `dp` and `disposition` (detachments)
-// are left as 0 / "" placeholders here, pending that separate source. Flagged for the user.
+// reviewed on a regular basis"). None of that exists anywhere in this repo for the new
+// codex's redesigned units/detachments -- checked every page of the codex PDF (including
+// the QR/app page at the end) and both other Orks "Faction Pack" PDFs in the repo, which are
+// both for the *previous* codex generation.
+//
+// Per explicit user sign-off, as a KNOWN-STALE temporary placeholder: `cost` (enhancements)
+// and `dp`/`disposition` (detachments) are backfilled from the OLD orks.json wherever the
+// enhancement/detachment NAME matches exactly -- same name, not verified same rules text (many
+// redesigned units/detachments keep a flavour name but changed mechanically). Everything with
+// no name match stays at 0/"". These values must be replaced once a points source that
+// actually matches this codex printing exists -- do not treat them as real costs.
 import fs from 'fs'
+
+const OLD_ORKS_JSON = new URL('../../public/data/factions/orks.json', import.meta.url)
+const oldOrks = JSON.parse(fs.readFileSync(OLD_ORKS_JSON, 'utf8'))
+const normName = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '')
+const oldEnhByName = new Map(oldOrks.enhancements.map(e => [normName(e.name), e]))
+const oldDetByName = new Map(oldOrks.detachments.map(d => [normName(d.name), d]))
 
 const kwb = (s) => `<span class="kwb">${s}</span>`
 const slug = (s) => s.toLowerCase().replace(/'/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
@@ -16,10 +31,11 @@ let stratagemCounter = 0
 
 function detachment(name, tagline, { rules, enhancements, stratagems }) {
   const id = slug(name)
+  const oldDet = oldDetByName.get(normName(name))
   return {
     id, name, tagline,
-    disposition: '',
-    dp: 0,
+    disposition: oldDet?.disposition ?? '',
+    dp: oldDet?.dp ?? 0,
     chapters: [],
     abilities: rules.map(r => ({
       id: slug(r.name),
@@ -28,15 +44,18 @@ function detachment(name, tagline, { rules, enhancements, stratagems }) {
       ...(r.effect ? { effect: r.effect } : {}),
       ...(r.options ? { options: r.options } : {}),
     })),
-    enhancements: enhancements.map(e => ({
-      id: slug(e.name),
-      name: e.name,
-      cost: 0,
-      detachmentId: id,
-      detachmentName: name,
-      description: e.description,
-      ...(e.effect ? { effect: e.effect } : {}),
-    })),
+    enhancements: enhancements.map(e => {
+      const oldEnh = oldEnhByName.get(normName(e.name))
+      return {
+        id: slug(e.name),
+        name: e.name,
+        cost: oldEnh?.cost ?? 0,
+        detachmentId: id,
+        detachmentName: name,
+        description: e.description,
+        ...(e.effect ? { effect: e.effect } : {}),
+      }
+    }),
     stratagems: stratagems.map(s => ({
       id: slug(s.name),
       name: s.name.toUpperCase(),
