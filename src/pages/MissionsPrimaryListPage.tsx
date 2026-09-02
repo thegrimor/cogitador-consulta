@@ -8,12 +8,14 @@ function NavTile({
   to,
   name,
   subtitle,
+  subtitleClass,
   accentClass,
   hasAction,
 }: {
   to: string
   name: string
   subtitle: string
+  subtitleClass: string
   accentClass: string
   hasAction: boolean
 }) {
@@ -33,7 +35,7 @@ function NavTile({
             </span>
           )}
         </div>
-        <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
+        <p className={`text-[10px] font-mono uppercase tracking-widest mt-0.5 ${subtitleClass}`}>
           {subtitle}
         </p>
       </div>
@@ -97,6 +99,7 @@ export function MissionsPrimaryListPage() {
                       to={missionPrimaryPath(missionSlug(card.url))}
                       name={card.name}
                       subtitle={`vs ${card.vs.replace(/-/g, ' ')}`}
+                      subtitleClass={DECK_COLORS[card.vs]?.text ?? 'text-parchment-dim'}
                       accentClass={colors.borderLeft}
                       hasAction={Boolean(card.action)}
                     />
