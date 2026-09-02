@@ -29,14 +29,27 @@ frontend can be deployed separately and point at the backend via `VITE_API_BASE_
 
 One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
+- `scripts/pdf-codex-tools/` — **read `CODEX-MIGRATION-PROCESS.md` here before starting any
+  future full-codex faction migration** — step-by-step checklist (full-replace-vs-patch
+  decision, what to check in the PDF first, extraction, JSON authoring, and a data-quality trap
+  to avoid up front rather than clean up after: don't leave the PDF's flavour-text sentence at
+  the start of ability/enhancement/stratagem descriptions — this app's convention, confirmed
+  against every other faction, is to start at the mechanical rule text). `README.md` in the same
+  folder covers the PDF-reading/OCR mechanics specifically: `render-and-ocr.mjs` (poppler
+  `pdftoppm` + Tesseract OCR)
+  for when `pdftotext` produces garbage on a book's datasheet pages (a broken embedded-font
+  glyph mapping, not a layout issue — confirmed on the Orks 11th-ed codex across every
+  `pdftotext` mode). OCR reads pixels instead, so it doesn't care that the text layer is
+  broken, and it's near-free token-wise for prose (ability text, wargear options, keywords) —
+  it's unreliable for the numeric weapon/model stat tables specifically, which still need a
+  visual check (or the TSV-based positional table reconstruction sketched in that README, not
+  yet built). Both tools install via `winget`.
 - `scripts/orks-11th-ed-migration/` — one-off pipeline used to rebuild `orks.json` wholesale
   from the actual 11th-edition Codex PDF (not a Faction Pack dataslate) when that codex
   replaced the old Ork data generation entirely; kept as a worked reference for the next
-  faction that gets a real new-codex release rather than a points update. Notably: this
-  codex's datasheet pages have a corrupted embedded font that makes `pdftotext` output garbage
-  specifically there (confirmed across every extraction mode) — those pages had to be rendered
-  to PNG with poppler's `pdftoppm` (`winget install oschwartz10612.Poppler`) and read as
-  images. See that folder's README for the full methodology and the gaps this particular run
+  faction that gets a real new-codex release rather than a points update (used the *visual*
+  read-every-page-image approach, before `scripts/pdf-codex-tools/` existed — next time, start
+  with that instead). See that folder's README for the full methodology and the gaps this run
   left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
   stratagem/enhancement/detachmentAbility cross-references).
 
