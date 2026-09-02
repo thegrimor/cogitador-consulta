@@ -1500,7 +1500,7 @@
     },
     {
       "id": "brother-captain",
-      "name": "Brother-captain",
+      "name": "Brother-Captain",
       "role": "Characters",
       "sourceId": "000000013",
       "isVirtual": false,
@@ -1510,7 +1510,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Brother-captain",
+          "name": "Brother-Captain",
           "M": "5\"",
           "T": 5,
           "Sv": "2+",

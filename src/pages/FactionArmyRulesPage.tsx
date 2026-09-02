@@ -79,7 +79,7 @@ export function FactionArmyRulesPage() {
               <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
                 {rule.name}
               </p>
-              {rule.description && <RuleHtml html={rule.description} className="prose-copy" />}
+              {rule.description && <RuleHtml html={rule.description} className="prose-copy" factionId={factionId} />}
             </div>
           ))}
         </div>

@@ -5,12 +5,31 @@ import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/const
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import { RuleHtml } from '@/shared/components/RuleHtml'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
+import { factionColor } from '@/core/constants/factionColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 const linkClass =
   'text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors'
+
+// A unit-name link is colored by ITS OWN faction (not always the page's ds.factionId — a
+// leader/led relationship can cross factions, e.g. Imperial Agents), same rule
+// linkifyUnitNames applies inside prose. Falls back to the generic crimson-bright treatment
+// only if that faction has no color defined (shouldn't happen for the 24 real factions).
+function LeaderLink({ target }: { target: { id: string; name: string; factionId: string } }) {
+  const colors = factionColor(target.factionId)
+  return (
+    <NavLink
+      to={datasheetPath(target.id)}
+      className={`text-[12px] font-mono hover:text-parchment uppercase tracking-wide border-b transition-colors ${
+        colors ? `${colors.text} border-current/40 hover:border-parchment` : 'text-crimson-bright border-crimson-bright/40 hover:border-parchment'
+      }`}
+    >
+      {target.name}
+    </NavLink>
+  )
+}
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -149,7 +168,7 @@ function ModelStats({ model }: { model: ModelProfile }) {
 
 // ── Bloque de habilidades ─────────────────────────────────────────────────────
 
-function AbilRow({ ab }: { ab: Ability }) {
+function AbilRow({ ab, factionId }: { ab: Ability; factionId: string }) {
   return (
     <div className="px-3 py-2 bg-surface-2">
       {ab.model && (
@@ -158,13 +177,13 @@ function AbilRow({ ab }: { ab: Ability }) {
         </span>
       )}
       <p className="prose-copy">
-        <strong className="font-display uppercase tracking-wide text-[11px] text-crimson-bright">
+        <strong className="font-display uppercase tracking-wide text-[11px] text-parchment">
           {ab.name}
         </strong>
         {ab.description ? (
           <>
             <span className="text-parchment-dim">: </span>
-            <RuleHtml html={ab.description} as="span" />
+            <RuleHtml html={ab.description} as="span" factionId={factionId} />
           </>
         ) : null}
       </p>
@@ -176,10 +195,12 @@ function AbilitiesBlock({
   abilities,
   genericOpen,
   onToggleGeneric,
+  factionId,
 }: {
   abilities: Ability[]
   genericOpen: boolean
   onToggleGeneric: () => void
+  factionId: string
 }) {
   const unitAbils = abilities.filter(a => a.type === 'Datasheet')
   const genericAbils = abilities.filter(a => a.type !== 'Datasheet')
@@ -189,7 +210,7 @@ function AbilitiesBlock({
       <SectionHeader title="Habilidades" />
       {unitAbils.length > 0 && (
         <div className="divide-y divide-rim-bright">
-          {unitAbils.map((ab, i) => <AbilRow key={i} ab={ab} />)}
+          {unitAbils.map((ab, i) => <AbilRow key={i} ab={ab} factionId={factionId} />)}
         </div>
       )}
       {genericAbils.length > 0 && (
@@ -207,7 +228,7 @@ function AbilitiesBlock({
           </button>
           {genericOpen && (
             <div className="divide-y divide-rim-bright">
-              {genericAbils.map((ab, i) => <AbilRow key={i} ab={ab} />)}
+              {genericAbils.map((ab, i) => <AbilRow key={i} ab={ab} factionId={factionId} />)}
             </div>
           )}
         </>
@@ -366,6 +387,7 @@ export function DatasheetDetailPage() {
       {ds.abilities.length > 0 && (
         <AbilitiesBlock
           abilities={ds.abilities}
+          factionId={ds.factionId}
           genericOpen={genericAbilsOpen}
           onToggleGeneric={() => setGenericAbilsOpen(o => !o)}
         />
@@ -392,7 +414,7 @@ export function DatasheetDetailPage() {
                   <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
                     {ab.name}
                   </p>
-                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" />}
+                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" factionId={ds.factionId} />}
                 </div>
               ))}
             </div>
@@ -405,15 +427,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title="Puede Liderar" />
           <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
-            {leaderHead.map(led => led && (
-              <NavLink
-                key={led.id}
-                to={datasheetPath(led.id)}
-                className="text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
-              >
-                {led.name}
-              </NavLink>
-            ))}
+            {leaderHead.map(led => led && <LeaderLink key={led.id} target={led} />)}
           </div>
         </div>
       )}
@@ -423,15 +437,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title="Puede Ser Liderado Por" />
           <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
-            {leaderFooter.map(leader => leader && (
-              <NavLink
-                key={leader.id}
-                to={datasheetPath(leader.id)}
-                className="text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors"
-              >
-                {leader.name}
-              </NavLink>
-            ))}
+            {leaderFooter.map(leader => leader && <LeaderLink key={leader.id} target={leader} />)}
           </div>
         </div>
       )}
@@ -453,10 +459,10 @@ export function DatasheetDetailPage() {
           {compositionOpen && (
             <div className="px-3 py-2 bg-surface-2 space-y-1">
               {ds.unitComposition.map((line, i) => (
-                <RuleHtml key={i} html={line} className="prose-copy" />
+                <RuleHtml key={i} html={line} className="prose-copy" factionId={ds.factionId} />
               ))}
               {ds.loadout && (
-                <RuleHtml html={ds.loadout} className="prose-copy mt-1 pt-1 border-t border-rim-bright" />
+                <RuleHtml html={ds.loadout} className="prose-copy mt-1 pt-1 border-t border-rim-bright" factionId={ds.factionId} />
               )}
               {pointsCosts.length > 0 && (
                 <div className="flex flex-wrap gap-px pt-2 mt-1 border-t border-rim-bright">
@@ -497,7 +503,7 @@ export function DatasheetDetailPage() {
                   <span className="text-[12px] font-mono text-crimson-bright shrink-0 mt-px">
                     {opt.button}
                   </span>
-                  <RuleHtml html={opt.description} className="prose-copy" />
+                  <RuleHtml html={opt.description} className="prose-copy" factionId={ds.factionId} />
                 </div>
               ))}
               {wargearCosts.length > 0 && (
@@ -559,7 +565,7 @@ export function DatasheetDetailPage() {
                     return (
                       <div key={s.id} className={`px-3 py-2.5 bg-surface-2 border-l-2 ${turnColors.borderLeft}`}>
                         <div className="flex items-start justify-between gap-2 mb-1">
-                          <span className="text-[12px] font-display uppercase tracking-widest text-parchment leading-tight">
+                          <span className={`text-[12px] font-display uppercase tracking-widest leading-tight ${turnColors.text}`}>
                             {s.name}
                           </span>
                           <span className="shrink-0 text-[11px] font-mono border border-gold/60 text-gold px-1.5 py-px leading-none">
@@ -580,7 +586,7 @@ export function DatasheetDetailPage() {
                             )}
                           </div>
                         )}
-                        <RuleHtml html={s.description} className="prose-copy" />
+                        <RuleHtml html={s.description} className="prose-copy" factionId={ds.factionId} />
                       </div>
                     )
                   })
@@ -596,7 +602,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
-            <RuleHtml html={ds.damagedDescription} className="prose-copy" />
+            <RuleHtml html={ds.damagedDescription} className="prose-copy" factionId={ds.factionId} />
           </div>
         </div>
       )}

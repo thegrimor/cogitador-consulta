@@ -6674,7 +6674,7 @@
     },
     {
       "id": "tech-priest-dominus-imperial-knights",
-      "name": "Tech-priest Dominus",
+      "name": "Tech-Priest Dominus",
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -6684,7 +6684,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Tech-priest Dominus",
+          "name": "Tech-Priest Dominus",
           "M": "6\"",
           "T": 4,
           "Sv": "2+",
@@ -6875,7 +6875,7 @@
     },
     {
       "id": "tech-priest-manipulus-imperial-knights",
-      "name": "Tech-priest Manipulus",
+      "name": "Tech-Priest Manipulus",
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -6885,7 +6885,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Tech-priest Manipulus",
+          "name": "Tech-Priest Manipulus",
           "M": "6\"",
           "T": 4,
           "Sv": "2+",

@@ -1505,7 +1505,7 @@
     },
     {
       "id": "tech-priest-dominus",
-      "name": "Tech-priest Dominus",
+      "name": "Tech-Priest Dominus",
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -1515,7 +1515,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Tech-priest Dominus",
+          "name": "Tech-Priest Dominus",
           "M": "6\"",
           "T": 4,
           "Sv": "2+",
@@ -1749,7 +1749,7 @@
     },
     {
       "id": "tech-priest-enginseer",
-      "name": "Tech-priest Enginseer",
+      "name": "Tech-Priest Enginseer",
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -1759,7 +1759,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Tech-priest Enginseer",
+          "name": "Tech-Priest Enginseer",
           "M": "6\"",
           "T": 4,
           "Sv": "3+",
@@ -2372,7 +2372,7 @@
     },
     {
       "id": "fulgurite-electro-priests",
-      "name": "Fulgurite Electro-priests",
+      "name": "Fulgurite Electro-Priests",
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -2382,7 +2382,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Fulgurite Electro-priests",
+          "name": "Fulgurite Electro-Priests",
           "M": "6\"",
           "T": 3,
           "Sv": "7+",
@@ -2507,7 +2507,7 @@
     },
     {
       "id": "corpuscarii-electro-priests",
-      "name": "Corpuscarii Electro-priests",
+      "name": "Corpuscarii Electro-Priests",
       "role": "Other",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -2517,7 +2517,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Corpuscarii Electro-priests",
+          "name": "Corpuscarii Electro-Priests",
           "M": "6\"",
           "T": 3,
           "Sv": "7+",
@@ -4677,7 +4677,7 @@
     },
     {
       "id": "tech-priest-manipulus",
-      "name": "Tech-priest Manipulus",
+      "name": "Tech-Priest Manipulus",
       "role": "Characters",
       "sourceId": "000000015",
       "isVirtual": false,
@@ -4687,7 +4687,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Tech-priest Manipulus",
+          "name": "Tech-Priest Manipulus",
           "M": "6\"",
           "T": 4,
           "Sv": "2+",

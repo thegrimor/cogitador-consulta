@@ -1916,7 +1916,7 @@
     },
     {
       "id": "shield-captain",
-      "name": "Shield-captain",
+      "name": "Shield-Captain",
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
@@ -1926,7 +1926,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Shield-captain",
+          "name": "Shield-Captain",
           "M": "6\"",
           "T": 6,
           "Sv": "2+",
@@ -2182,7 +2182,7 @@
     },
     {
       "id": "shield-captain-in-allarus-terminator-armour",
-      "name": "Shield-captain In Allarus Terminator Armour",
+      "name": "Shield-Captain in Allarus Terminator Armour",
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
@@ -2192,7 +2192,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Shield-captain In Allarus Terminator Armour",
+          "name": "Shield-Captain in Allarus Terminator Armour",
           "M": "5\"",
           "T": 7,
           "Sv": "2+",
@@ -2410,7 +2410,7 @@
     },
     {
       "id": "shield-captain-on-dawneagle-jetbike",
-      "name": "Shield-captain On Dawneagle Jetbike",
+      "name": "Shield-Captain on Dawneagle Jetbike",
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
@@ -2420,7 +2420,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Shield-captain On Dawneagle Jetbike",
+          "name": "Shield-Captain on Dawneagle Jetbike",
           "M": "12\"",
           "T": 7,
           "Sv": "2+",
@@ -3203,7 +3203,7 @@
     },
     {
       "id": "contemptor-achillus-dreadnought",
-      "name": "Contemptor-achillus Dreadnought",
+      "name": "Contemptor-Achillus Dreadnought",
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
@@ -3213,7 +3213,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Contemptor-achillus Dreadnought",
+          "name": "Contemptor-Achillus Dreadnought",
           "M": "6\"",
           "T": 9,
           "Sv": "2+",
@@ -3968,7 +3968,7 @@
     },
     {
       "id": "contemptor-galatus-dreadnought",
-      "name": "Contemptor-galatus Dreadnought",
+      "name": "Contemptor-Galatus Dreadnought",
       "role": "Other",
       "sourceId": "000000354",
       "isVirtual": false,
@@ -3978,7 +3978,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Contemptor-galatus Dreadnought",
+          "name": "Contemptor-Galatus Dreadnought",
           "M": "6\"",
           "T": 9,
           "Sv": "2+",
@@ -6030,7 +6030,7 @@
     },
     {
       "id": "knight-centura",
-      "name": "Knight-centura",
+      "name": "Knight-Centura",
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
@@ -6040,7 +6040,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Knight-centura",
+          "name": "Knight-Centura",
           "M": "6\"",
           "T": 3,
           "Sv": "3+",

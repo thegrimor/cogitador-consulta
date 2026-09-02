@@ -8104,7 +8104,7 @@
     },
     {
       "id": "screamer-killer",
-      "name": "Screamer-killer",
+      "name": "Screamer-Killer",
       "role": "Other",
       "sourceId": "000000020",
       "isVirtual": false,
@@ -8114,7 +8114,7 @@
       "models": [
         {
           "line": 1,
-          "name": "Screamer-killer",
+          "name": "Screamer-Killer",
           "M": "8\"",
           "T": 9,
           "Sv": "2+",

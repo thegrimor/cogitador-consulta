@@ -55,7 +55,7 @@ export function MissionPrimaryDetailPage() {
         <h1 className="text-[16px] font-display uppercase tracking-[3px] text-parchment">
           {card.name}
         </h1>
-        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-1">
+        <p className={`text-[11px] font-mono uppercase tracking-[2px] mt-1 ${DECK_COLORS[card.vs]?.text ?? 'text-parchment-dim'}`}>
           vs {card.vs.replace(/-/g, ' ')}
         </p>
       </div>
