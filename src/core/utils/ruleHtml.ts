@@ -86,12 +86,31 @@ function wordOrKwbSpan(word: string): string {
   return `(?:<span class="kwb">${word}</span>|\\b${word}\\b)`
 }
 
+// A faction's own catalog name isn't always what the game text actually calls it — checked by
+// grepping every faction file for its lore name, not assumed: "Adeptus Astartes" (290x, all in
+// space-marines.json), "Heretic Astartes" (136x, chaos-space-marines' own file plus other
+// Chaos factions' stratagems referencing it), and bare "T'au" without "Empire" (77x) all
+// appear far too often to leave unmatched. Each maps to the real faction's id, so it's colored
+// and linked exactly like the catalog name would be — this is a name the SAME faction goes by,
+// not a separate entity.
+const FACTION_ALIASES: { name: string; factionId: string }[] = [
+  { name: 'Adeptus Astartes', factionId: 'space-marines' },
+  { name: 'Heretic Astartes', factionId: 'chaos-space-marines' },
+  { name: "T’au", factionId: 'tau-empire' },
+  { name: "T'au", factionId: 'tau-empire' },
+]
+
 function linkifyFactionKeywords(html: string, factions: Faction[]): string {
+  const named = [
+    ...factions.filter(f => f.name.trim()),
+    ...FACTION_ALIASES
+      .filter(a => factions.some(f => f.id === a.factionId))
+      .map(a => ({ id: a.factionId, name: a.name })),
+  ]
+
   // Longest name (by word count) first, so e.g. "Adeptus Custodes" is tried before a
   // shorter alternative could partially match inside it at the same position.
-  const candidates = [...factions]
-    .filter(f => f.name.trim())
-    .sort((a, b) => b.name.split(/\s+/).length - a.name.split(/\s+/).length)
+  const candidates = named.sort((a, b) => b.name.split(/\s+/).length - a.name.split(/\s+/).length)
 
   if (candidates.length === 0) return html
 
