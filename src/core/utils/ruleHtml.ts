@@ -72,6 +72,20 @@ function linkifyAbilityBrackets(html: string, coreRulesMap: Record<string, CoreR
   })
 }
 
+// A faction name isn't consistently marked up the same way across content types — stratagem
+// text tends to wrap it word-by-word (`<span class="kwb">ADEPTUS</span>
+// <span class="kwb">CUSTODES</span>`), enhancement text often just writes it as plain prose
+// ("Adeptus Custodes Infantry model only."). Each word here matches either form, so one
+// pattern covers both instead of only ever catching the pre-highlighted case.
+// The bare-word branch gets its own \b boundaries (so "Ork" doesn't match inside "Orkish");
+// the kwb-tag branch doesn't need them — it's already unambiguously delimited by the literal
+// tag characters, and a trailing \b right after `</span>`'s `>` (a non-word char) would fail
+// to assert a boundary at all when the next character is also non-word (e.g. a following
+// space), silently breaking every kwb-wrapped match.
+function wordOrKwbSpan(word: string): string {
+  return `(?:<span class="kwb">${word}</span>|\\b${word}\\b)`
+}
+
 function linkifyFactionKeywords(html: string, factions: Faction[]): string {
   // Longest name (by word count) first, so e.g. "Adeptus Custodes" is tried before a
   // shorter alternative could partially match inside it at the same position.
@@ -83,7 +97,7 @@ function linkifyFactionKeywords(html: string, factions: Faction[]): string {
 
   const alternatives = candidates.map(f => {
     const words = f.name.trim().split(/\s+/).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-    return { factionId: f.id, pattern: words.map(w => `<span class="kwb">${w}</span>`).join('\\s*') }
+    return { factionId: f.id, pattern: words.map(wordOrKwbSpan).join('\\s*') }
   })
 
   const combined = new RegExp(alternatives.map(a => `(${a.pattern})`).join('|'), 'gi')
