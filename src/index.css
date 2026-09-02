@@ -186,6 +186,35 @@
   .wh-html a.kwb-link .kwb { color: inherit; }
   .wh-html a.kwb-link:hover { filter: brightness(1.3); }
 
+  /* Leftover markup from the scraped source (present in 16 of 24 faction files, e.g. Adeptus
+     Mechanicus' "Rad-bombardment" detachment rule) for a "Battle Round ①" badge widget whose
+     CSS was never carried over — plain nested <div>s with no styling default to block, so
+     "BATTLE ROUND" / the round number / "BOMBARDMENT" each landed on their own forced line
+     instead of reading as one heading. Flattened to inline with spacing/color restored via
+     generated content, since the source text itself has no space between them. `.hi_custom`
+     is a broader "highlighted sub-term" marker used throughout the same scraped content (not
+     just inside this badge) — aliased to the same treatment as `.wh-html b/strong` rather than
+     inventing a new one, since it plays the same "inline label" role. */
+  .wh-html .whiteDiamondLine,
+  .wh-html .whiteDiamondWrap,
+  .wh-html .redDiamondSpan,
+  .wh-html .whiteDiamondSpan,
+  .wh-html .whiteDiamondText {
+    display: inline;
+  }
+  .wh-html .whiteDiamondLine {
+    font-weight: 700;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .wh-html .whiteDiamondWrap::before { content: ' '; }
+  .wh-html .hi_custom {
+    font-weight: 700;
+    color: var(--color-crimson-bright);
+  }
+  .wh-html .whiteDiamondLine + .hi_custom::before { content: ' — '; }
+
   /* [BRACKETED ABILITY] mentions inside prose (e.g. "[SUSTAINED HITS 1]") — "las de armas" —
      same rule vocabulary as the weapon-table RuleBadge, so it gets a badge treatment instead
      of rendering as plain bracket text; native `title` stands in for RuleTooltip's hover

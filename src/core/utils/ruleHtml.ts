@@ -64,7 +64,10 @@ function findCoreRule(term: string, coreRulesMap: Record<string, CoreRule>): Cor
 }
 
 function linkifyAbilityBrackets(html: string, coreRulesMap: Record<string, CoreRule>): string {
-  return html.replace(/\[([A-Z][A-Z0-9 ]*)\]/g, (full, term: string) => {
+  // Was [A-Z0-9 ]* only, which missed every hyphenated or threshold-suffixed term:
+  // [ANTI-INFANTRY 2+], [TWIN-LINKED], [CLOSE-QUARTERS], [SUPA-HAZARDOUS]. "Anti" itself is a
+  // core rule (findCoreRule's startsWith fallback matches "anti-infantry 2+" against it).
+  return html.replace(/\[([A-Z][A-Z0-9 +-]*)\]/g, (full, term: string) => {
     const rule = findCoreRule(term, coreRulesMap)
     if (!rule) return full
     const tooltip = escapeAttr(rule.summary || stripHtml(rule.description))
