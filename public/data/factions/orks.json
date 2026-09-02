@@ -790,7 +790,7 @@
       "cost": 20,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
-      "description": "Tribal legend speaks of a blood-slick choppa once owned by Grand Warboss Headwoppa. <span class=\"kwb\">ORKS</span> model only. If this unit made a charge move this turn, this model's melee attacks have +1 AP.",
+      "description": "<span class=\"kwb\">ORKS</span> model only. If this unit made a charge move this turn, this model's melee attacks have +1 AP.",
       "effect": {
         "effects": {
           "apMod": 1
@@ -805,7 +805,7 @@
       "cost": 0,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
-      "description": "This war leader is a glowering incarnation of violence. <span class=\"kwb\">ORKS</span> model only (Once per battle, per army). In your Movement phase, you can use this ability. If you do, this unit is riled up until the start of your next turn."
+      "description": "<span class=\"kwb\">ORKS</span> model only (Once per battle, per army). In your Movement phase, you can use this ability. If you do, this unit is riled up until the start of your next turn."
     },
     {
       "id": "kunnin-but-brutal",
@@ -813,7 +813,7 @@
       "cost": 15,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
-      "description": "Feigning weakness, this Ork allows his foes to think he's legging it before suddenly piling back into the fight. <span class=\"kwb\">ORKS</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to shoot/declare a charge."
+      "description": "<span class=\"kwb\">ORKS</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to shoot/declare a charge."
     },
     {
       "id": "follow-me-ladz",
@@ -821,7 +821,7 @@
       "cost": 25,
       "detachmentId": "war-horde",
       "detachmentName": "War Horde",
-      "description": "Always found at the forefront of an assault, this Ork likes to be the first into the fray. <span class=\"kwb\">ORKS</span> model only. This unit has +2\" M."
+      "description": "<span class=\"kwb\">ORKS</span> model only. This unit has +2\" M."
     },
     {
       "id": "ferocious-show-off",
@@ -829,7 +829,7 @@
       "cost": 10,
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
-      "description": "This brutal fighter is even more dangerous with a raucous audience of chanting Orks. <span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",
+      "description": "<span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",
       "effect": {
         "effects": {
           "attacksMod": 1
@@ -844,7 +844,7 @@
       "cost": 0,
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
-      "description": "Orks with enough teef acquire extra scrap iron plates collectively referred to as 'eavy armour. <span class=\"kwb\">BOYZ</span> unit only. This unit has 4+ Sv. (Upgrade – can be taken more than once per army.)"
+      "description": "<span class=\"kwb\">BOYZ</span> unit only. This unit has 4+ Sv. (Upgrade – can be taken more than once per army.)"
     },
     {
       "id": "wimp-kickaz",
@@ -852,7 +852,7 @@
       "cost": 0,
       "detachmentId": "bully-boyz",
       "detachmentName": "Bully Boyz",
-      "description": "Any snivelling gitz attempting to back away from a good fight with these arrogant Nobz get a good kicking. <span class=\"kwb\">NOBZ</span> unit only. When an enemy unit engaged with this unit is selected to make a fall-back move: that enemy unit must select the desperate escape mode; if this unit is riled up, that enemy unit has -1 to the hazard rolls made for that desperate escape. (Upgrade.)"
+      "description": "<span class=\"kwb\">NOBZ</span> unit only. When an enemy unit engaged with this unit is selected to make a fall-back move: that enemy unit must select the desperate escape mode; if this unit is riled up, that enemy unit has -1 to the hazard rolls made for that desperate escape. (Upgrade.)"
     },
     {
       "id": "tellyporta-boss",
@@ -860,7 +860,7 @@
       "cost": 0,
       "detachmentId": "bully-boyz",
       "detachmentName": "Bully Boyz",
-      "description": "This Ork has bullied his way into possession of a mostly functional tellyporta pad. <span class=\"kwb\">MEGA ARMOUR</span> model only. This unit (excluding <span class=\"kwb\">VEHICLE</span> units) has Deep Strike."
+      "description": "<span class=\"kwb\">MEGA ARMOUR</span> model only. This unit (excluding <span class=\"kwb\">VEHICLE</span> units) has Deep Strike."
     },
     {
       "id": "extra-sneaky",
@@ -868,7 +868,7 @@
       "cost": 0,
       "detachmentId": "runt-swarm",
       "detachmentName": "Runt Swarm",
-      "description": "A lifetime of evading the attentions of Orks and even other runts has honed these Grots' sneakiness. <span class=\"kwb\">GRETCHIN</span> unit only. This unit has -3\" detection range. (Upgrade.)"
+      "description": "<span class=\"kwb\">GRETCHIN</span> unit only. This unit has -3\" detection range. (Upgrade.)"
     },
     {
       "id": "minefield-detail",
@@ -876,7 +876,7 @@
       "cost": 0,
       "detachmentId": "runt-swarm",
       "detachmentName": "Runt Swarm",
-      "description": "Rebellious, lazy or just plain unlucky Gretchin are driven into dangerous vanguard duties. <span class=\"kwb\">GRETCHIN</span> unit only. While this unit is not embarked, this unit has Scouts 6\". (Upgrade.)"
+      "description": "<span class=\"kwb\">GRETCHIN</span> unit only. While this unit is not embarked, this unit has Scouts 6\". (Upgrade.)"
     },
     {
       "id": "supa-glowy-fing",
@@ -884,7 +884,7 @@
       "cost": 20,
       "detachmentId": "shoota-boyz",
       "detachmentName": "Shoota Boyz",
-      "description": "The Mek who cobbled together this strange dakka accelerator isn't sure exactly what it does. <span class=\"kwb\">ORKS INFANTRY</span> model only (excluding <span class=\"kwb\">WEIRDBOY</span> models). This model's ranged attacks have <span class=\"kwb\">[ANTI-INFANTRY 4+]</span>, <span class=\"kwb\">[DEVASTATING WOUNDS]</span> and <span class=\"kwb\">[SUPA-HAZARDOUS]</span>.",
+      "description": "<span class=\"kwb\">ORKS INFANTRY</span> model only (excluding <span class=\"kwb\">WEIRDBOY</span> models). This model's ranged attacks have <span class=\"kwb\">[ANTI-INFANTRY 4+]</span>, <span class=\"kwb\">[DEVASTATING WOUNDS]</span> and <span class=\"kwb\">[SUPA-HAZARDOUS]</span>.",
       "effect": {
         "effects": {
           "devastatingWoundsBonus": true
@@ -899,7 +899,7 @@
       "cost": 15,
       "detachmentId": "shoota-boyz",
       "detachmentName": "Shoota Boyz",
-      "description": "With a couple of these boggle-eyed varieties of Squigs on hand, even Ork shooting has a chance of hitting distant targets. <span class=\"kwb\">BIG MEK/BIGBOSS/WARBOSS</span> model only. This unit's ranged attacks (excluding <span class=\"kwb\">[TORRENT]</span> attacks) have +3\" R."
+      "description": "<span class=\"kwb\">BIG MEK/BIGBOSS/WARBOSS</span> model only. This unit's ranged attacks (excluding <span class=\"kwb\">[TORRENT]</span> attacks) have +3\" R."
     },
     {
       "id": "kill-kommanda",
@@ -907,7 +907,7 @@
       "cost": 0,
       "detachmentId": "taktikal-brigade",
       "detachmentName": "Taktikal Brigade",
-      "description": "Possessed of exceptional kunnin' and a weird obsession with sneakin' about. <span class=\"kwb\">BIG MEK/WARBOSS INFANTRY</span> model only. While this model is part of an attached unit, this model has Infiltrators and Stealth."
+      "description": "<span class=\"kwb\">BIG MEK/WARBOSS INFANTRY</span> model only. While this model is part of an attached unit, this model has Infiltrators and Stealth."
     },
     {
       "id": "throat-slittas",
@@ -915,7 +915,7 @@
       "cost": 0,
       "detachmentId": "taktikal-brigade",
       "detachmentName": "Taktikal Brigade",
-      "description": "Veterans of the relatively organised butchery of well-protected targets. <span class=\"kwb\">KOMMANDOS/STORMBOYZ</span> unit only. This unit's melee attacks have <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE]</span>. (Upgrade.)",
+      "description": "<span class=\"kwb\">KOMMANDOS/STORMBOYZ</span> unit only. This unit's melee attacks have <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE]</span>. (Upgrade.)",
       "effect": {
         "effects": {
           "lethalHitsBonus": true
@@ -929,7 +929,7 @@
       "cost": 0,
       "detachmentId": "wreckas",
       "detachmentName": "Wreckas",
-      "description": "This impressively ostentatious piece of headgear signifies that whoever nicked it last controls a fleet of kroozers. <span class=\"kwb\">BIG MEK/WARBOSS INFANTRY</span> model only. When both players have deployed their armies, you can redeploy up to three friendly <span class=\"kwb\">ORKS INFANTRY</span> units into strategic reserves, regardless of how many units are already in strategic reserves."
+      "description": "<span class=\"kwb\">BIG MEK/WARBOSS INFANTRY</span> model only. When both players have deployed their armies, you can redeploy up to three friendly <span class=\"kwb\">ORKS INFANTRY</span> units into strategic reserves, regardless of how many units are already in strategic reserves."
     },
     {
       "id": "supa-snazz-dakka",
@@ -937,7 +937,7 @@
       "cost": 0,
       "detachmentId": "wreckas",
       "detachmentName": "Wreckas",
-      "description": "Coils of sparking wires, unstable propellant and throbbing power cells. <span class=\"kwb\">FLASH GITZ</span> unit only. This unit's Snazzgun weapons have <span class=\"kwb\">[RAPID FIRE 1]</span>. (Upgrade.)"
+      "description": "<span class=\"kwb\">FLASH GITZ</span> unit only. This unit's Snazzgun weapons have <span class=\"kwb\">[RAPID FIRE 1]</span>. (Upgrade.)"
     },
     {
       "id": "glory-hog",
@@ -945,7 +945,7 @@
       "cost": 30,
       "detachmentId": "da-big-hunt",
       "detachmentName": "Da Big Hunt",
-      "description": "When bigger prey is sighted, nothing can keep this hunter from it. <span class=\"kwb\">BEAST SNAGGA</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to declare a charge."
+      "description": "<span class=\"kwb\">BEAST SNAGGA</span> model only. When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to declare a charge."
     },
     {
       "id": "it-came-from-da-drops",
@@ -953,7 +953,7 @@
       "cost": 0,
       "detachmentId": "da-big-hunt",
       "detachmentName": "Da Big Hunt",
-      "description": "The monstrous resilience of this Beastboss' hulking mount has inspired many lurid tales. <span class=\"kwb\">BEASTBOSS ON SQUIGOSAUR</span> model only. This model has +1 T."
+      "description": "<span class=\"kwb\">BEASTBOSS ON SQUIGOSAUR</span> model only. This model has +1 T."
     },
     {
       "id": "mekwaaagh-mastermind",
@@ -961,7 +961,7 @@
       "cost": 0,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
-      "description": "This Big Mek's obsession with feverish inventing inspires other Orks to excitable aggression. <span class=\"kwb\">BIG MEK</span> model only. This unit is riled up."
+      "description": "<span class=\"kwb\">BIG MEK</span> model only. This unit is riled up."
     },
     {
       "id": "temperamental-shokka",
@@ -969,7 +969,7 @@
       "cost": 0,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
-      "description": "Shokk attack guns are notoriously unreliable, and even with a supposedly enhanced set of worky bits. <span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. In your Shooting phase, when this unit is selected to shoot, you can roll one D6: on a 1, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[TORRENT]</span>, and when this unit has shot, this model is destroyed; on a 2-5, this model's Shokk Attack Gun weapon has +1 A; on a 6, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[SUSTAINED HITS 2]</span>. (Upgrade.)"
+      "description": "<span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. In your Shooting phase, when this unit is selected to shoot, you can roll one D6: on a 1, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[TORRENT]</span>, and when this unit has shot, this model is destroyed; on a 2-5, this model's Shokk Attack Gun weapon has +1 A; on a 6, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[SUSTAINED HITS 2]</span>. (Upgrade.)"
     },
     {
       "id": "enhanced-runt-maw",
@@ -977,7 +977,7 @@
       "cost": 0,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
-      "description": "These kustom jobs incorporate an oversized suction device, drawing in nearby runts, Squigs and scrap. <span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. When this unit has shot, select one enemy unit hit by those attacks – that unit is infested with Snotlings until the start of your next turn. While an enemy unit is infested with Snotlings, that unit has -1 to leadership rolls. (Upgrade.)"
+      "description": "<span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. When this unit has shot, select one enemy unit hit by those attacks – that unit is infested with Snotlings until the start of your next turn. While an enemy unit is infested with Snotlings, that unit has -1 to leadership rolls. (Upgrade.)"
     },
     {
       "id": "cybork-boosta",
@@ -985,7 +985,7 @@
       "cost": 0,
       "detachmentId": "dread-mob",
       "detachmentName": "Dread Mob",
-      "description": "This Mek's extra bioniks help him keep up with his Kans. <span class=\"kwb\">BIG MEK/MEK</span> model only. This model has +2\" M."
+      "description": "<span class=\"kwb\">BIG MEK/MEK</span> model only. This model has +2\" M."
     },
     {
       "id": "dreadherder",
@@ -993,7 +993,7 @@
       "cost": 0,
       "detachmentId": "dread-mob",
       "detachmentName": "Dread Mob",
-      "description": "This Mek is deft at avoiding his creations' feet and klaws. <span class=\"kwb\">BIG MEK</span> model only. While this model is within 3\" of a friendly <span class=\"kwb\">ORKS WALKER</span> unit (excluding <span class=\"kwb\">BIG MEK</span> units): this model has Lone Operative; in your Shooting phase, you can select one friendly <span class=\"kwb\">ORKS WALKER</span> unit within 3\" of this model – that unit's attacks can re-roll hit rolls of 1 until the end of the turn."
+      "description": "<span class=\"kwb\">BIG MEK</span> model only. While this model is within 3\" of a friendly <span class=\"kwb\">ORKS WALKER</span> unit (excluding <span class=\"kwb\">BIG MEK</span> units): this model has Lone Operative; in your Shooting phase, you can select one friendly <span class=\"kwb\">ORKS WALKER</span> unit within 3\" of this model – that unit's attacks can re-roll hit rolls of 1 until the end of the turn."
     },
     {
       "id": "targetin-gizmos",
@@ -1001,7 +1001,7 @@
       "cost": 15,
       "detachmentId": "blitz-brigade",
       "detachmentName": "Blitz Brigade",
-      "description": "These sparkly optiks and other elaborate gitfindas help focus a wagon's dakka. <span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">BIG MEK</span> model is embarked within this unit: this unit's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>; if this unit is riled up, this unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>. (Upgrade.)"
+      "description": "<span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">BIG MEK</span> model is embarked within this unit: this unit's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>; if this unit is riled up, this unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>. (Upgrade.)"
     },
     {
       "id": "boss-boomer",
@@ -1009,7 +1009,7 @@
       "cost": 0,
       "detachmentId": "blitz-brigade",
       "detachmentName": "Blitz Brigade",
-      "description": "Fitted with speakin' tubes linked to deafening projectors. <span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">WARBOSS</span> model is embarked within this unit, this unit has that <span class=\"kwb\">WARBOSS</span> model's Intimidating Motivation/Keep Huntin' ability. (Upgrade.)"
+      "description": "<span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">WARBOSS</span> model is embarked within this unit, this unit has that <span class=\"kwb\">WARBOSS</span> model's Intimidating Motivation/Keep Huntin' ability. (Upgrade.)"
     },
     {
       "id": "smoky-gubbinz",
@@ -1017,7 +1017,7 @@
       "cost": 15,
       "detachmentId": "kult-of-speed",
       "detachmentName": "Kult of Speed",
-      "description": "These loud, fume-belching devices wreathe those in the Speed Freeks' wake in a thick bank of obscuring smoke. <span class=\"kwb\">SPEED FREEKS</span> unit only (excluding <span class=\"kwb\">AIRCRAFT</span> units). When an attack targets a unit that is not fully visible to the attacking model because of a model in this unit, the target has the benefit of cover against that attack. (Upgrade.)"
+      "description": "<span class=\"kwb\">SPEED FREEKS</span> unit only (excluding <span class=\"kwb\">AIRCRAFT</span> units). When an attack targets a unit that is not fully visible to the attacking model because of a model in this unit, the target has the benefit of cover against that attack. (Upgrade.)"
     },
     {
       "id": "competitive-streak",
@@ -1025,7 +1025,7 @@
       "cost": 0,
       "detachmentId": "kult-of-speed",
       "detachmentName": "Kult of Speed",
-      "description": "This Speedboss despises the thought of coming anything less than first in a race to reach the biggest fights. <span class=\"kwb\">DEFFKILLA WARTRIKE</span> model only. This unit can re-roll charge rolls."
+      "description": "<span class=\"kwb\">DEFFKILLA WARTRIKE</span> model only. This unit can re-roll charge rolls."
     },
     {
       "id": "flyboss",
@@ -1033,7 +1033,7 @@
       "cost": 0,
       "detachmentId": "flyboyz",
       "detachmentName": "Flyboyz",
-      "description": "Brutish aces who have survived enough dogfights to rise to positions of superiority. <span class=\"kwb\">ORKS AIRCRAFT</span> unit only. This unit has CHARACTER. When this unit ends an ingress move, each friendly <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit within 6\" of this unit is riled up until the start of your next turn. (Upgrade.)"
+      "description": "<span class=\"kwb\">ORKS AIRCRAFT</span> unit only. This unit has CHARACTER. When this unit ends an ingress move, each friendly <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit within 6\" of this unit is riled up until the start of your next turn. (Upgrade.)"
     },
     {
       "id": "impulsive-recon",
@@ -1041,7 +1041,7 @@
       "cost": 0,
       "detachmentId": "flyboyz",
       "detachmentName": "Flyboyz",
-      "description": "Despite claims of scoutin', this aircraft's screaming dive ahead of its pilot's mates is purely for the thrill of attacking first. <span class=\"kwb\">ORKS AIRCRAFT</span> unit only. In your first Movement phase, this unit can make an ingress move. (Upgrade.)"
+      "description": "<span class=\"kwb\">ORKS AIRCRAFT</span> unit only. In your first Movement phase, this unit can make an ingress move. (Upgrade.)"
     },
     {
       "id": "blitzboss",
@@ -1049,7 +1049,7 @@
       "cost": 0,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
-      "description": "It is said this Ork bleeds Squig oil and his growl is that of a revving engine. <span class=\"kwb\">WARBOSS</span> model only. A <span class=\"kwb\">TRANSPORT</span> unit (excluding <span class=\"kwb\">WALKER</span> units) this unit is embarked within has +2\" M and 5+ InSv."
+      "description": "<span class=\"kwb\">WARBOSS</span> model only. A <span class=\"kwb\">TRANSPORT</span> unit (excluding <span class=\"kwb\">WALKER</span> units) this unit is embarked within has +2\" M and 5+ InSv."
     },
     {
       "id": "proper-killy",
@@ -1057,7 +1057,7 @@
       "cost": 15,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
-      "description": "This unstoppable brute is an engine of destruction whose welts of scars have been won in countless victories. <span class=\"kwb\">WARBOSS</span> model only. This model can re-roll hit rolls of 1.",
+      "description": "<span class=\"kwb\">WARBOSS</span> model only. This model can re-roll hit rolls of 1.",
       "effect": {
         "effects": {
           "rerollHitsOf1": true
@@ -1071,7 +1071,7 @@
       "cost": 0,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
-      "description": "Thanks to the tangle of stolen empyric electrodes wired into this helmet. <span class=\"kwb\">WARBOSS</span> model only (Once per battle, per army). At the end of your opponent's Movement phase, if this unit is unengaged, this unit can make a normal move of up to D6\". If this unit is riled up, you can re-roll that D6."
+      "description": "<span class=\"kwb\">WARBOSS</span> model only (Once per battle, per army). At the end of your opponent's Movement phase, if this unit is unengaged, this unit can make a normal move of up to D6\". If this unit is riled up, you can re-roll that D6."
     },
     {
       "id": "da-gobshot-thunderbuss",
@@ -1079,7 +1079,7 @@
       "cost": 15,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
-      "description": "Firing gold-plated teef as its unconventional ammunition. <span class=\"kwb\">WARBOSS</span> model only. This model has the following weapon – Da Gobshot Thunderbuss <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE, RAPID FIRE 6]</span>: Range 24\", A6, BS4+, S7, AP-2, D2."
+      "description": "<span class=\"kwb\">WARBOSS</span> model only. This model has the following weapon – Da Gobshot Thunderbuss <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE, RAPID FIRE 6]</span>: Range 24\", A6, BS4+, S7, AP-2, D2."
     },
     {
       "id": "surly-as-a-squiggoth",
@@ -1087,7 +1087,7 @@
       "cost": 20,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
-      "description": "With a lifetime of picking fights with the galaxy's most lethal fighters behind him. <span class=\"kwb\">INFANTRY WARBOSS</span> model only (Once per battle, per army). At the end of a phase in which this model is destroyed, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining."
+      "description": "<span class=\"kwb\">INFANTRY WARBOSS</span> model only (Once per battle, per army). At the end of a phase in which this model is destroyed, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining."
     },
     {
       "id": "brutal-but-kunnin",
@@ -1095,7 +1095,7 @@
       "cost": 25,
       "detachmentId": "brute-bosses",
       "detachmentName": "Brute Bosses",
-      "description": "What tactics occasionally pop into this Ork's head revolve purely around how hard he needs to wallop his enemies. <span class=\"kwb\">WARBOSS</span> model only. This model's melee attacks have +1 D.",
+      "description": "<span class=\"kwb\">WARBOSS</span> model only. This model's melee attacks have +1 D.",
       "effect": {
         "effects": {
           "damageMod": 1
@@ -1110,7 +1110,7 @@
       "cost": 0,
       "detachmentId": "wurrband",
       "detachmentName": "Wurrband",
-      "description": "Roiling energies frequently erupt from this Weirdboy's eyes, solidifying above the enemy into the huge green foot of Gork (or Mork) himself. <span class=\"kwb\">ORKS PSYKER</span> model only. This model has the following weapon – Da Krunch <span class=\"kwb\">[BLAST 3, HAZARDOUS, LETHAL HITS, PSYCHIC]</span>: Range 24\", A3, BS4+, S5, AP-1, D1."
+      "description": "<span class=\"kwb\">ORKS PSYKER</span> model only. This model has the following weapon – Da Krunch <span class=\"kwb\">[BLAST 3, HAZARDOUS, LETHAL HITS, PSYCHIC]</span>: Range 24\", A3, BS4+, S5, AP-1, D1."
     },
     {
       "id": "eadbanger",
@@ -1118,7 +1118,7 @@
       "cost": 0,
       "detachmentId": "wurrband",
       "detachmentName": "Wurrband",
-      "description": "Known for yelling 'Kop dis, ya zogger!' at his chosen target beforehand. <span class=\"kwb\">ORKS PSYKER</span> model only. This model has the following weapon – 'Eadbanger <span class=\"kwb\">[HAZARDOUS, PRECISION, PSYCHIC]</span>: Range 24\", A2, BS4+, S6, AP-3, D3."
+      "description": "<span class=\"kwb\">ORKS PSYKER</span> model only. This model has the following weapon – 'Eadbanger <span class=\"kwb\">[HAZARDOUS, PRECISION, PSYCHIC]</span>: Range 24\", A2, BS4+, S6, AP-3, D3."
     },
     {
       "id": "warphead",
@@ -1126,7 +1126,7 @@
       "cost": 0,
       "detachmentId": "wurrband",
       "detachmentName": "Wurrband",
-      "description": "Where most Weirdboyz would quite like to be left alone, so-called Warpheads become addicted to the danger. <span class=\"kwb\">ORKS PSYKER</span> model only. This model has psyker level 2, has Deadly Demise D6 and can re-roll psychic rolls."
+      "description": "<span class=\"kwb\">ORKS PSYKER</span> model only. This model has psyker level 2, has Deadly Demise D6 and can re-roll psychic rolls."
     }
   ],
   "datasheets": [
