@@ -29,8 +29,14 @@ frontend can be deployed separately and point at the backend via `VITE_API_BASE_
 
 One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
-- `scripts/pdf-codex-tools/` — **read this before transcribing any future GW codex/faction-pack
-  PDF by hand.** General playbook + `render-and-ocr.mjs` (poppler `pdftoppm` + Tesseract OCR)
+- `scripts/pdf-codex-tools/` — **read `CODEX-MIGRATION-PROCESS.md` here before starting any
+  future full-codex faction migration** — step-by-step checklist (full-replace-vs-patch
+  decision, what to check in the PDF first, extraction, JSON authoring, and a data-quality trap
+  to avoid up front rather than clean up after: don't leave the PDF's flavour-text sentence at
+  the start of ability/enhancement/stratagem descriptions — this app's convention, confirmed
+  against every other faction, is to start at the mechanical rule text). `README.md` in the same
+  folder covers the PDF-reading/OCR mechanics specifically: `render-and-ocr.mjs` (poppler
+  `pdftoppm` + Tesseract OCR)
   for when `pdftotext` produces garbage on a book's datasheet pages (a broken embedded-font
   glyph mapping, not a layout issue — confirmed on the Orks 11th-ed codex across every
   `pdftotext` mode). OCR reads pixels instead, so it doesn't care that the text layer is

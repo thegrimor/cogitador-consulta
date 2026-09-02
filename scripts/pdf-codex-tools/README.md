@@ -5,6 +5,11 @@ A general playbook, written after doing this once by hand for the Orks 11th-edit
 next one — it should turn a multi-hour, mostly-visual transcription job into a much shorter one
 where most of the token spend goes to *writing the JSON*, not *reading the PDF*.
 
+This file covers the PDF-reading/OCR mechanics specifically. For the full end-to-end migration
+checklist (full-replace-vs-patch decision, what to check in the PDF before starting, points
+handling, and a data-quality trap worth avoiding up front), see **`CODEX-MIGRATION-PROCESS.md`**
+in this same folder.
+
 ## The core problem
 
 GW's codex PDFs use a custom embedded font for the datasheet "card" pages. In at least the
