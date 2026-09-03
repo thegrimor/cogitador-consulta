@@ -29,3 +29,6 @@ public/data/pdf/
 *.njsproj
 *.sln
 *.sw?
+
+# scratch output of scripts/audit-combat-effects.mjs
+/audit-output/
