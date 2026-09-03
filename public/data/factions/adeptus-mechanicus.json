@@ -1413,7 +1413,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "adeptus mechanicus"
           }
         },
         {
@@ -1845,7 +1846,8 @@
               "feelNoPainThreshold": 5
             },
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {

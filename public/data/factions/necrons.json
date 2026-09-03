@@ -9308,13 +9308,7 @@
           "id": "the-silent-king",
           "name": "The Silent King",
           "description": "While a friendly <span class=\"kwb\">NECRONS</span> unit is within 6\" of this unit’s Szarekh model, improve that unit’s Leadership characteristic by 1.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "supreme-commander",
@@ -10410,7 +10404,8 @@
             "effects": {
               "rerollWoundsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "destroyer cult"
           }
         },
         {

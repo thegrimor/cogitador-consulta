@@ -1059,7 +1059,8 @@
               "hitMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "world eaters"
           }
         }
       ],
@@ -2679,6 +2680,7 @@
               "woundMod": 1
             },
             "combatType": "melee",
+            "requiresAttackerKeyword": "world eaters",
             "appliesToNearby": true
           }
         }
@@ -5542,7 +5544,8 @@
               "attacksMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "blood legions"
           }
         },
         {
@@ -5752,7 +5755,8 @@
               "hitMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "blood legions"
           }
         },
         {

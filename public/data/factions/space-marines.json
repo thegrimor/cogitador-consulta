@@ -17947,7 +17947,8 @@
             "effects": {
               "hitMod": 1
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
@@ -20557,13 +20558,7 @@
           "id": "techmarine",
           "name": "Techmarine",
           "description": "While this model is within 3\" of one or more friendly Adeptus Astartes Vehicle units, this model has the Lone Operative ability.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "blessing-of-the-omnissiah",

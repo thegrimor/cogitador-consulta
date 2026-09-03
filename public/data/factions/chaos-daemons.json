@@ -1295,7 +1295,8 @@
               "attacksMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "khorne"
           }
         },
         {
@@ -1570,7 +1571,9 @@
               "apMod": 1,
               "damageMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "khorne"
           }
         },
         {
@@ -2904,7 +2907,8 @@
               "strengthMod": 1
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "tzeentch"
           }
         },
         {
@@ -4928,7 +4932,8 @@
               "apMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "slaanesh"
           }
         },
         {
@@ -5983,7 +5988,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "legiones daemonica"
           }
         }
       ],
@@ -9326,7 +9332,8 @@
               "hitMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "khorne"
           }
         },
         {
@@ -15456,7 +15463,8 @@
               "sustainedHitsBonus": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "slaanesh"
           }
         },
         {
