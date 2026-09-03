@@ -1563,7 +1563,15 @@
           "id": "blood-throne",
           "name": "Blood Throne",
           "description": "At the start of the Fight phase, select one enemy unit within 18\" of and visible to this model. Until the end of the phase, each time a friendly Khorne Legiones Daemonica unit makes an attack that targets that unit, improve the Strength, Armour Penetration and Damage characteristics of that attack by 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1,
+              "damageMod": 1
+            },
+            "combatType": "melee"
+          }
         },
         {
           "id": "champion-slayer",
