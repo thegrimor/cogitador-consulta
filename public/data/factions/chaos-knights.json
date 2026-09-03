@@ -131,7 +131,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "requiresAttackerKeyword": "war dog"
           }
         }
       ]
@@ -164,7 +165,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "knight tyrant"
           }
         }
       ]
@@ -349,6 +351,7 @@
         "effects": {
           "lethalHitsBonus": true
         },
+        "requiresAttackerKeyword": "damned",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -425,6 +428,7 @@
         "effects": {
           "saveMod": 1
         },
+        "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
         "cpCost": 1
@@ -617,6 +621,7 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
+        "requiresTargetKeyword": "knight tyrant",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -774,7 +779,8 @@
         "effects": {
           "rerollWoundsOf1": true
         },
-        "requiresAttackerKeyword": "war dog"
+        "requiresAttackerKeyword": "war dog",
+        "appliesToNearby": true
       }
     },
     {
@@ -871,14 +877,30 @@
       "detachmentId": "traitoris-lance",
       "detachmentName": "Traitoris Lance",
       "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer has a 4+ invulnerable save against ranged attacks, and a 5+ invulnerable save against melee attacks.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
+      "options": [
+        {
+          "name": "4+ Invulnerable Save (Ranged)",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "target": "defender",
-        "bearerOnly": true
-      }
+        {
+          "name": "5+ Invulnerable Save (Melee)",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "combatType": "melee",
+            "target": "defender",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "panoply-of-the-cursed-knight",

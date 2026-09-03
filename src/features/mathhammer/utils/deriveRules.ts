@@ -97,9 +97,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   // auto-toggle effect in MathhammerPage needs to find both the previous and next
   // enhancement's rules regardless of which is currently selected.
   for (const e of gameData.enhancements) {
-    if (e.factionId === factionId && e.effect) {
-      rules.push(effectToRule(e.id, e.name, e.description, e.effect, { enhancementId: e.id }))
-    }
+    if (e.factionId === factionId) rules.push(...abilityRules(e, { enhancementId: e.id }))
   }
 
   if (panel.selectedUnit) {

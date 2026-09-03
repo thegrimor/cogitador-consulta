@@ -25,12 +25,26 @@
           "id": "deathwatch-mission-tactics",
           "name": "Deathwatch Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all DEATHwATCH units from your army. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Furor Tactics</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"tooltip00070\" data-tooltip-content=\"#tooltip_content00070\" data-tooltip-anchor=\"#tooltip_content00070\"><span class=\"kwb kwbu\">DEATHWATCH</span></span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Malleus Tactics</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"tooltip00070\" data-tooltip-content=\"#tooltip_content00070\" data-tooltip-anchor=\"#tooltip_content00070\"><span class=\"kwb kwbu\">DEATHWATCH</span></span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Purgatus Tactics</p><p>While this Mission Tactic is active, each time a <span class=\"tooltip00070\" data-tooltip-content=\"#tooltip_content00070\" data-tooltip-anchor=\"#tooltip_content00070\"><span class=\"kwb kwbu\">DEATHWATCH</span></span> model from your army makes an attack, on a <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Wound</span></span>, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Furor Tactics",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "requiresAttackerKeyword": "deathwatch"
+              }
+            },
+            {
+              "name": "Malleus Tactics",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "requiresAttackerKeyword": "deathwatch"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -49,7 +63,7 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "combatType": "ranged"
+            "requiresTargetKeyword": "chaos"
           }
         }
       ]
@@ -69,7 +83,8 @@
             "effects": {
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresTargetKeyword": "daemon"
           }
         }
       ]
@@ -123,6 +138,7 @@
           "apMod": -1
         },
         "target": "defender",
+        "requiresTargetKeyword": "deathwatch",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -162,6 +178,7 @@
         },
         "combatType": "ranged",
         "requiresTargetKeyword": "infantry",
+        "requiresAttackerKeyword": "deathwatch",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -190,6 +207,7 @@
           "apMod": 1
         },
         "combatType": "ranged",
+        "requiresAttackerKeyword": "deathwatch",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -256,6 +274,7 @@
           "lethalHitsBonus": true
         },
         "combatType": "ranged",
+        "requiresAttackerKeyword": "grey knights terminator squad",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -274,6 +293,7 @@
           "apMod": -1
         },
         "target": "defender",
+        "requiresTargetKeyword": "grey knights terminator squad",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -289,9 +309,11 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One VOIDFARERS unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a ranged attack that targets a unit within 12\", improve the Strength and Armour Penetration characteristics of that attack by 1.",
       "effect": {
         "effects": {
+          "strengthMod": 1,
           "apMod": 1
         },
         "combatType": "ranged",
+        "requiresAttackerKeyword": "voidfarers",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -402,6 +424,7 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
+        "requiresTargetKeyword": "infantry",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -439,6 +462,7 @@
         "effects": {
           "hitMod": -1
         },
+        "requiresAttackerKeyword": "grenades",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -456,6 +480,7 @@
         "effects": {
           "rerollWoundsOf1": true
         },
+        "requiresTargetKeyword": "character",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -474,6 +499,7 @@
           "feelNoPainThreshold": 4
         },
         "target": "defender",
+        "requiresTargetKeyword": "eversor assassin",
         "isStratagem": true,
         "cpCost": 2
       }
@@ -575,7 +601,8 @@
       "description": "INqUISITOR model only. Add 1 to the Attacks characteristic of the bearers melee weapons, and those weapons have the [ANTI-DAEMON 3+] ability.",
       "effect": {
         "effects": {
-          "woundCritThreshold": 3
+          "woundCritThreshold": 3,
+          "attacksMod": 1
         },
         "combatType": "melee",
         "requiresTargetKeyword": "daemon",
@@ -738,14 +765,30 @@
       "detachmentId": "ordo-xenos-alien-hunters",
       "detachmentName": "Ordo Xenos Alien Hunters",
       "description": "AGENTS OF THE IMPERIUM model only. Melee weapons equipped by the bearer have the [ANTI-INFANTRy 2+] and [ANTI-MONSTER 4+] abilities.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 4
+      "options": [
+        {
+          "name": "Anti-infantry 2+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "infantry",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "requiresTargetKeyword": "monster",
-        "bearerOnly": true
-      }
+        {
+          "name": "Anti-monster 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        }
+      ]
     }
   ],
   "datasheets": [
@@ -4163,7 +4206,8 @@
           "effect": {
             "effects": {
               "woundMod": -1
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -7548,7 +7592,9 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "requiresAttackerKeyword": "agents of the imperium",
+            "appliesToNearby": true
           }
         },
         {

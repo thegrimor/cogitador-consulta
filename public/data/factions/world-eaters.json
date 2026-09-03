@@ -57,6 +57,7 @@
           "description": "Each time a World Eaters unit from your army makes a Charge move, until the end of the turn, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.",
           "effect": {
             "effects": {
+              "attacksMod": 1,
               "strengthMod": 2
             },
             "combatType": "melee"
@@ -89,12 +90,28 @@
           "id": "idols-of-khorne",
           "name": "Idols of Khorne",
           "description": "At the start of your Command phase, you can select one of the Idols of Khorne abilities listed below. Until the start of your next Command phase, that ability is active and its effects apply to all World Eaters Titanic and World Eaters Monster units from your army. You can only select each Idols of Khorne ability once per battle.<br><br><span class=\"hi_custom\">Idol of Infinite Rage (Aura)</span><br>While a friendly Jakhals or Goremongers unit is within 6\" of this model (or within 9\" if this model is <span class=\"kwb\">TITANIC</span>), each time a model in that unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll.<br><br><span class=\"hi_custom\">Idol of Burning Wrath (Aura)</span><br>While a friendly <span class=\"kwb\">JAKHALS</span> or <span class=\"kwb\">GOREMONGERS</span> unit is within 6\" of this model (or within 9\" if this model is <span class=\"kwb\">TITANIC</span>), add 1\" to the Move characteristic of models in that unit and add 1 to Advance and Charge rolls made for that unit.<br><br><span class=\"hi_custom\">Idol of Blessed Blood (Aura)</span><br>While a friendly <span class=\"kwb\">JAKHALS</span> or <span class=\"kwb\">GOREMONGERS</span> unit is within 6\" of this model (or within 9\" if this model is <span class=\"kwb\">TITANIC</span>), models in that unit have a 4+ invulnerable save.<br><br><span class=\"h_custom\">KEYWORDS</span><br><span class=\"kwb\">JAKHALS</span> and <span class=\"kwb\">GOREMONGERS</span> units from your army have the <span class=\"kwb\">BATTLELINE</span> keyword.",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Idol of Infinite Rage",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "jakhals"
+              }
+            },
+            {
+              "name": "Idol of Blessed Blood",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresTargetKeyword": "jakhals"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -109,12 +126,28 @@
           "id": "blood-tithe",
           "name": "Blood Tithe",
           "description": "Each time a Blood Legions or World Eaters unit from your army destroys an enemy unit, roll one D6: on a 3+, you gain 1 Blood Tithe point (BTP). At the start of the Command phase, you can spend one or more of your BTP to activate one of the following abilities until the end of the battle:<br><ul><li><b>Enraged Abjuration [2BTP]</b><br><span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> and <span class=\"kwb\">WORLD</span> <span class=\"kwb\">EATERS</span> models from your army have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.</li><li><b>Daemonic Rage [3BTP]</b><br>Melee weapons equipped by <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> units from your army have the [lance] ability.</li><li><b>Boon of Blood [4BTP]</b><br><span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> units from your army have a 4+ invulnerable save.</li><li><b>Might of Khorne [5BTP]</b><br><span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> units from your army gain the Blessings of Khorne ability.</li></ul><br><span class=\"h_custom\">RESTRICTIONS</span><br>You can include the Blood Legions units in your army. The combined points cost of such units you can include in your army is:<br><br><b>Incursion:</b> Up to 500 pts<br><b>Strike Force:</b> Up to 1000 pts<br><b>Onslaught:</b> Up to 1500 pts<br><br>No <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> model from your army can be your <span class=\"kwb\">WARLORD</span>.",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Daemonic Rage",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "blood legions"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Boon of Blood",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresTargetKeyword": "blood legions"
+              }
+            }
+          ]
         }
       ]
     },
@@ -282,6 +315,7 @@
         "effects": {
           "rerollAllHits": true
         },
+        "requiresAttackerKeyword": "jakhals",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -320,6 +354,7 @@
           "feelNoPainThreshold": 6
         },
         "target": "defender",
+        "requiresTargetKeyword": "jakhals",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -338,6 +373,7 @@
           "rerollHitsOf1": true
         },
         "combatType": "melee",
+        "requiresAttackerKeyword": "jakhals",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -426,6 +462,7 @@
           "saveMod": 1
         },
         "target": "defender",
+        "requiresTargetKeyword": "blood legions",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -484,6 +521,7 @@
           "damageMod": 1
         },
         "combatType": "melee",
+        "requiresAttackerKeyword": "possessed",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -512,6 +550,7 @@
           "woundMod": -1
         },
         "target": "defender",
+        "requiresTargetKeyword": "possessed",
         "isStratagem": true,
         "cpCost": 2
       }
@@ -557,9 +596,11 @@
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">WORLD EATERS CHARACTER</span> unit (excluding Epic Heroes) is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">WORLD EATERS CHARACTER</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, that unit's <span class=\"kwb\">CHARACTER</span> models' melee attacks have:<br><ul><li>+1 A.</li><li>+2 S.</li></ul>",
       "effect": {
         "effects": {
-          "apMod": 1
+          "attacksMod": 1,
+          "strengthMod": 2
         },
         "combatType": "melee",
+        "requiresAttackerKeyword": "character",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -638,6 +679,7 @@
         },
         "combatType": "melee",
         "requiresAttackerKeyword": "terminator squad",
+        "requiresTargetKeyword": "monster",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -712,14 +754,7 @@
       "cost": 30,
       "detachmentId": "vessels-of-wrath",
       "detachmentName": "Vessels of Wrath",
-      "description": "<span class=\"kwb\">WORLD EATERS</span> model only. (Once per battle, per army) In your Command phase, you can use this ability. If you do, every Blessing of Khorne is active for this unit until the start of your next turn.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+      "description": "<span class=\"kwb\">WORLD EATERS</span> model only. (Once per battle, per army) In your Command phase, you can use this ability. If you do, every Blessing of Khorne is active for this unit until the start of your next turn."
     },
     {
       "id": "icon-of-war",
@@ -810,7 +845,8 @@
       "effect": {
         "effects": {
           "critThreshold": 5
-        }
+        },
+        "requiresAttackerKeyword": "daemon"
       }
     },
     {
@@ -839,6 +875,7 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
+        "requiresTargetKeyword": "monster",
         "bearerOnly": true
       }
     },
@@ -880,6 +917,7 @@
           "damageMod": 1
         },
         "combatType": "melee",
+        "requiresAttackerKeyword": "world eaters",
         "bearerOnly": true
       }
     },
@@ -910,7 +948,8 @@
         "effects": {
           "cleaveBonus": 2
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "maulerfiend"
       }
     },
     {
@@ -940,7 +979,8 @@
         "effects": {
           "wsMod": -1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "terminator squad"
       }
     }
   ],
@@ -1882,7 +1922,8 @@
               "rerollAllHits": true,
               "rerollAllWounds": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -2829,7 +2870,8 @@
             "effects": {
               "damageMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster"
           }
         }
       ],
@@ -3708,7 +3750,7 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "target": "defender"
           }
         }
       ],
@@ -3937,9 +3979,11 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllWounds": true
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster"
           }
         }
       ],
@@ -4650,7 +4694,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
