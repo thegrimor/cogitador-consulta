@@ -90,7 +90,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   }
 
   for (const s of panel.applicableStratagems) {
-    if (s.effect) rules.push(effectToRule(s.id, s.name, s.description, s.effect))
+    rules.push(...abilityRules(s, {}))
   }
 
   // Every enhancement for this faction (not just the selected one) — the enhancement

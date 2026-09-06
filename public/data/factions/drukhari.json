@@ -138,7 +138,8 @@
             "effects": {
               "woundMod": -1
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "haemonculus covens"
           }
         }
       ]
@@ -172,7 +173,8 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "wych cult"
           }
         }
       ]
@@ -188,12 +190,28 @@
           "id": "contracted-harvest",
           "name": "Contracted Harvest",
           "description": "Friendly <span class=\"kwb\">BLADES FOR HIRE</span>/<span class=\"kwb\">KABAL</span> units' ranged attacks have [SUSTAINED HITS 1] against non-MONSTER/VEHICLE units.<br><br>This detachment has the <span class=\"kwb\">KABAL</span> tag and cannot be taken with another <span class=\"kwb\">KABAL</span> detachment.",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Kabal",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "kabal"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Blades for Hire",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "blades for hire"
+              }
+            }
+          ]
         }
       ]
     },
@@ -475,12 +493,31 @@
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Drukhari or Harlequins unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select [LETHAL HITS] or [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by models in your unit have the selected ability.",
       "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
-        },
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "murderers-circus",
@@ -552,12 +589,38 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Drukhari unit from your army that has not been selected to shoot this phase and that disembarked from a Transport this turn.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability, or the [SUSTAINED HITS 2] ability if your unit is a Kabalite Warriors or Hand of the Archon unit.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 2
+          "sustainedHitsBonus": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Kabalite Warriors (Sustained Hits 2)",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "kabalite warriors",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Hand of the Archon (Sustained Hits 2)",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "hand of the archon",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "vicious-blades",
@@ -867,7 +930,7 @@
       "description": "<span class=\"kwb\">DRUKHARI</span> model only. While the bearer’s unit is wholly within 6\" of a friendly Drukhari Transport:<br><ul><li>Models in the bearer’s unit have the Stealth ability.</li><li>Each time a ranged attack targets the bearer’s unit, models in that unit have the Benefit of Cover against that attack.</li></ul>",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
         "combatType": "ranged",
         "target": "defender"
@@ -894,7 +957,19 @@
         },
         "requiresTargetKeyword": "monster",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "vs Beast (anti-beast 2+)",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "requiresTargetKeyword": "beast",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "chronoshard",
@@ -934,13 +1009,7 @@
       "cost": 15,
       "detachmentId": "skysplinter-assault",
       "detachmentName": "Skysplinter Assault",
-      "description": "<span class=\"kwb\">DRUKHARI</span> model only. Each time you spend 1 Pain token to Empower the bearer’s unit in the Shooting phase, select one friendly Drukhari Transport within 6\" of the bearer’s unit; until the end of the phase, each time that <span class=\"kwb\">TRANSPORT</span> makes an attack, you can re-roll the Hit roll.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        },
-        "combatType": "ranged"
-      }
+      "description": "<span class=\"kwb\">DRUKHARI</span> model only. Each time you spend 1 Pain token to Empower the bearer’s unit in the Shooting phase, select one friendly Drukhari Transport within 6\" of the bearer’s unit; until the end of the phase, each time that <span class=\"kwb\">TRANSPORT</span> makes an attack, you can re-roll the Hit roll."
     },
     {
       "id": "informant-network",
@@ -959,7 +1028,7 @@
       "description": "Harlequins model only. Models in the bearer’s unit have the Stealth and Infiltrators abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
         "combatType": "ranged",
         "target": "defender"
@@ -3764,7 +3833,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true
+              "lethalHitsBonus": true,
+              "apMod": -1
             },
             "combatType": "melee"
           }
@@ -5501,7 +5571,7 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "target": "defender"
           }
         },
         {
@@ -5668,11 +5738,24 @@
           "name": "Archon of the Poisoned Tongue (Pain)",
           "description": "In your Shooting phase or the Fight phase, when you select this model’s<br>unit to shoot or fight, you can spend 1 Pain token to Empower that unit. If you do, select one of the following abilities: [SUSTAINED HITS 1]; [LETHAL HITS]. Until the end of the phase, while that unit is Empowered, weapons equipped by models in that unit have that selected ability.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Sustained Hits 1",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Lethal Hits",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "precognisant",
@@ -6363,7 +6446,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -7422,7 +7506,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         }
@@ -7635,13 +7718,36 @@
           "name": "Dance of Death",
           "description": "At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase:<br><ul><li><b>Hero’s Prowess:</b> Each time a model in this unit makes an attack, re-roll a Hit roll of 1.</li><li><b>Villain’s Doom:</b> Each time a model in this unit makes an attack, add 1 to the Wound roll.</li><li><b>Trickster’s Grace:</b> Each time an attack targets this unit, subtract 1 from the Hit roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
+          "options": [
+            {
+              "name": "Hero's Prowess",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee",
-            "target": "defender"
-          }
+            {
+              "name": "Villain's Doom",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "melee"
+              }
+            },
+            {
+              "name": "Trickster's Grace",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "combatType": "melee",
+                "target": "defender"
+              }
+            }
+          ]
         },
         {
           "id": "flip-belt",
@@ -8742,7 +8848,7 @@
             "effects": {
               "strengthMod": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         }
       ],
