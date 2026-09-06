@@ -93,11 +93,24 @@
           "id": "daemonic-empowerment",
           "name": "Daemonic Empowerment",
           "description": "<ul><li>While an Emperor’s Children unit from your army is within 6\" of one or more friendly Legions of Excess units, it is Empowered.</li><li>While a <span class=\"kwb\">LEGIONS</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">EXCESS</span> unit from your army is within 6\" of one or more friendly <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> units, it is Empowered.</li></ul><br>While a unit from your army is Empowered, weapons equipped by models in that unit have the [sustained hits 1] ability. If such a weapon already has that ability, each time an attack is made with that weapon, an unmodified Hit roll of 5+ scores a Critical Hit.<br><br><span class=\"h_custom\">LEGIONS OF EXCESS</span><br>You can include Legions of Excess units in your army, even though they do not have the <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> Faction keyword. The combined points cost of such units you can include in your army is:<br><ul><li><b>Incursion:</b> Up to 500 pts</li><li><b>Strike Force:</b> Up to 1000 pts</li><li><b>Onslaught:</b> Up to 1500 pts</li></ul>No <span class=\"kwb\">LEGIONS</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">EXCESS</span> models from your army can be your <span class=\"kwb\">WARLORD</span>.",
-          "effect": {
-            "effects": {
-              "critThreshold": 5
+          "options": [
+            {
+              "name": "Sustained Hits 1",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Critical Hit on 5+",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -171,7 +184,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "requiresAttackerKeyword": "character"
           }
         }
       ]
@@ -189,6 +203,7 @@
           "description": "Emperor’s Children units from your army have the following ability:<br><br><b>Sensational Performance:</b> Each time this unit is selected to fight, if this unit made a Charge move this turn, it can use this ability. If it does, until the end of the phase:<br><ul><li>This unit cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>This unit cannot target a unit that was the target of another unit’s attack this phase.</li><li>Improve the Strength and Armour Penetration characteristics of this unit’s melee weapons by 1.</li></ul>",
           "effect": {
             "effects": {
+              "strengthMod": 1,
               "apMod": 1
             },
             "combatType": "melee"
@@ -229,7 +244,8 @@
           "effect": {
             "effects": {
               "strengthMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "battleline"
           }
         }
       ]
@@ -378,7 +394,7 @@
       "description": "<b>WHEN:</b> Any phase, just after a mortal wound or attack is allocated to a model in an Emperor’s Children unit from your army.<br><br><b>TARGET:</b> That <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability, and the Feel No Pain 4+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 4
+          "feelNoPainThreshold": 6
         },
         "target": "defender",
         "isStratagem": true,
@@ -429,7 +445,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -471,6 +488,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Emperor’s Children unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time an <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> model in your unit makes an attack that targets an eligible unit within 12\", improve the Strength and Armour Penetration characteristics of that attack by 1.",
       "effect": {
         "effects": {
+          "strengthMod": 1,
           "apMod": 1
         },
         "combatType": "ranged",
@@ -522,7 +540,8 @@
         "combatType": "melee",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -726,7 +745,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "character"
       }
     },
     {
@@ -743,7 +763,8 @@
           "strengthMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "character"
       }
     },
     {
@@ -936,6 +957,7 @@
       "description": "Emperor’s Children model only. Each time a model in the bearer’s unit makes an attack that targets an enemy unit below its Starting Strength, add 1 to the Hit roll. If that target is also Below Half-strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
+          "hitMod": 1,
           "woundMod": 1
         }
       }
@@ -949,9 +971,7 @@
       "description": "<span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> model only. Each time a model in the bearer’s unit makes a melee attack, you can ignore any or all modifiers to that attack’s Weapon Skill characteristic and any or all modifiers to the Hit roll and Wound roll.",
       "effect": {
         "effects": {
-          "wsMod": -1,
-          "hitMod": 1,
-          "woundMod": 1
+          "hitMod": 1
         },
         "combatType": "melee"
       }
@@ -1084,7 +1104,8 @@
       "effect": {
         "effects": {
           "damageMod": 1,
-          "devastatingWoundsBonus": true
+          "devastatingWoundsBonus": true,
+          "attacksMod": 1
         },
         "combatType": "melee",
         "bearerOnly": true
@@ -1669,9 +1690,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
-              "attacksMod": 3,
-              "apMod": 1
+              "lethalHitsBonus": true
             }
           }
         },
@@ -2987,7 +3006,8 @@
             "effects": {
               "rerollAllHits": true,
               "rerollAllWounds": true
-            }
+            },
+            "requiresTargetKeyword": "walker"
           }
         },
         {
@@ -5569,7 +5589,8 @@
               "apMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "legions of excess"
           }
         },
         {
