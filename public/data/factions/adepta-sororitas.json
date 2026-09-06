@@ -22,7 +22,8 @@
           "description": "Each time an <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model’s unit is Below Half-strength.",
           "effect": {
             "effects": {
-              "woundMod": 1
+              "woundMod": 1,
+              "hitMod": 1
             }
           }
         }
@@ -122,7 +123,8 @@
                 "effects": {
                   "bsMod": -1
                 },
-                "combatType": "ranged"
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "celestian"
               }
             },
             {
@@ -131,7 +133,8 @@
                 "effects": {
                   "wsMod": -1
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "requiresAttackerKeyword": "celestian"
               }
             }
           ]
@@ -374,7 +377,8 @@
         "combatType": "melee",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "celestian sacresants"
       }
     },
     {
@@ -433,6 +437,7 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a melee attack, you can re-roll the Hit roll and, if your unit is Below Half-strength, you can re-roll the Wound roll as well.",
       "effect": {
         "effects": {
+          "rerollAllHits": true,
           "rerollAllWounds": true
         },
         "combatType": "melee",
@@ -505,7 +510,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "penitent"
       }
     },
     {
@@ -533,7 +539,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "penitent"
       }
     },
     {
@@ -591,7 +598,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "exorcist"
       }
     },
     {
@@ -609,7 +617,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "fly"
       }
     },
     {
@@ -637,7 +646,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "celestian sacresants"
       }
     },
     {
@@ -909,12 +919,25 @@
       "detachmentId": "sanctified-orators",
       "detachmentName": "Sanctified Orators",
       "description": "<span class=\"kwb\">ADEPTA SORORITAS CHARACTER</span> model only (excluding <span class=\"kwb\">PENITENT</span> units). (Once per turn, per unit) At the start of a phase, you can use this ability. If you do, select one of the abilities below:<br><ul><li>Rite of Revelation: While this unit is shooting, enemy units have +6\" detection range.</li><li>Sermon of Intolerance: This unit's battle-shock rolls automatically succeed.</li><li>Catechism of Raging Fervour: This unit has +1\" M.</li><li>Psalm of Righteous Smiting: This unit's attacks have +1 S.</li><li>Chorus of Repudiation: Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls.</li></ul>",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "Psalm of Righteous Smiting",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            }
+          }
         },
-        "target": "defender"
-      }
+        {
+          "name": "Chorus of Repudiation",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "target": "defender"
+          }
+        }
+      ]
     }
   ],
   "datasheets": [
@@ -4874,7 +4897,8 @@
             "effects": {
               "rerollWoundsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "combatType": "ranged"
           }
         },
         {
@@ -6752,7 +6776,8 @@
             "effects": {
               "hitMod": 1,
               "woundMod": 1
-            }
+            },
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -6990,7 +7015,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -8581,7 +8607,8 @@
           "effect": {
             "effects": {
               "lethalHitsBonus": true
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],

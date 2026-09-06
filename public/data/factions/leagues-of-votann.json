@@ -41,9 +41,20 @@
           "description": "Each time a Leagues of Votann model from your army makes an attack with a weapon that targets the closest eligible target or a target that is within Engagement Range of that model’s unit:<br><ul><li>Re-roll a Wound roll of 1.</li><li>If your unit is a Kâhl, Einhyr Hearthguard or Ûthar the Destined unit, improve the Armour Penetration characteristic of that attack by 1.</li></ul>",
           "effect": {
             "effects": {
-              "apMod": 1
+              "rerollWoundsOf1": true
             }
-          }
+          },
+          "options": [
+            {
+              "name": "Kâhl / Ûthar the Destined",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresAttackerKeyword": "kâhl"
+              }
+            }
+          ]
         }
       ]
     },
@@ -121,11 +132,38 @@
           "id": "optimal-application",
           "name": "Optimal Application",
           "description": "At the end of your Command phase, you gain 1YP for each objective marker you control that is not within your deployment zone and has one or more Iron-master and/or Memnyr Strategist models from your army within range of it (to a maximum of 2YP gained from this Detachment rule per turn).<br><br>In your Shooting phase, each time a Brôkhyr, Ironkin Steeljacks or Arkanyst Evaluator unit from your army is selected to shoot, you can spend 1YP. If you do, until the end of the phase, each time a model in that unit makes an attack, re-roll a Hit roll of 1.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Brôkhyr",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "brôkhyr"
+              }
+            },
+            {
+              "name": "Ironkin Steeljacks",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "ironkin steeljacks"
+              }
+            },
+            {
+              "name": "Arkanyst Evaluator",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "arkanyst evaluator"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -189,12 +227,38 @@
           "id": "avatars-of-the-ancestors",
           "name": "Avatars of the Ancestors",
           "description": "Friendly <span class=\"kwb\">KÂHL</span>/<span class=\"kwb\">EINHYR CHAMPION</span>/<span class=\"kwb\">EINHYR HEARTHGUARD</span>/<span class=\"kwb\">ÛTHAR THE DESTINED</span> units' ranged attacks that target a unit within 8\" can re-roll wound rolls of 1. This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Kâhl / Ûthar the Destined",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "kâhl"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Einhyr Champion",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "einhyr champion"
+              }
+            },
+            {
+              "name": "Einhyr Hearthguard",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "einhyr hearthguard"
+              }
+            }
+          ]
         }
       ]
     }
@@ -265,7 +329,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -374,7 +439,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Einhyr Hearthguard unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, improve the Strength characteristic of ranged weapons equipped by models in your unit by 1. If you spend 1YP, until the end of the phase, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability as well.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "sustainedHitsBonus": 1,
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -396,7 +462,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "monster"
       }
     },
     {
@@ -861,7 +928,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">EINHYR HEARTHGUARD</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">EINHYR HEARTHGUARD</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have:<br><ul><li>+1 S.</li><li>If you spend 1 YP, [SUSTAINED HITS 1].</li></ul>",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "sustainedHitsBonus": 1,
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -889,7 +957,8 @@
       "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Wound roll of 1. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, add 1 to the Wound roll.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "woundMod": 1,
+          "rerollWoundsOf1": true
         }
       }
     },
@@ -1009,8 +1078,7 @@
       "effect": {
         "effects": {
           "hitMod": -1
-        },
-        "combatType": "ranged"
+        }
       }
     },
     {
@@ -1038,7 +1106,8 @@
       "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, that attack has the [SUSTAINED HITS 1] ability.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "sustainedHitsBonus": 1,
+          "rerollHitsOf1": true
         }
       }
     },
@@ -1054,7 +1123,7 @@
           "hitMod": 1
         },
         "combatType": "ranged",
-        "bearerOnly": true
+        "requiresAttackerKeyword": "artillery"
       }
     },
     {
@@ -4052,13 +4121,7 @@
           "id": "multicog-targeting",
           "name": "MultiCOG Targeting",
           "description": "Each time this model makes a ranged attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "panspectral-scanner",
@@ -4853,7 +4916,8 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         },
         {
@@ -5817,8 +5881,7 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
