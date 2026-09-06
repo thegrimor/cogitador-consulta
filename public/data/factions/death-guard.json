@@ -194,7 +194,8 @@
           "critThreshold": 5
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "death guard"
       }
     },
     {
@@ -212,7 +213,8 @@
           "rerollAllWounds": true
         },
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "death guard"
       }
     },
     {
@@ -260,7 +262,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "terminator"
       }
     },
     {
@@ -328,7 +331,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "plague marines"
       }
     },
     {
@@ -356,7 +360,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "death guard"
       }
     },
     {
@@ -494,7 +499,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "death guard"
       }
     },
     {
@@ -562,7 +568,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "death guard"
       }
     },
     {
@@ -621,7 +628,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -648,7 +656,8 @@
           "rerollWoundsOf1": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "contagion engine"
       }
     },
     {
@@ -898,7 +907,8 @@
         "effects": {
           "damageMod": 1
         },
-        "combatType": "ranged"
+        "combatType": "ranged",
+        "bearerOnly": true
       }
     },
     {
@@ -961,7 +971,7 @@
         },
         "combatType": "ranged",
         "requiresAttackerKeyword": "vehicle",
-        "bearerOnly": true
+        "appliesToNearby": true
       }
     },
     {
@@ -1866,7 +1876,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -2955,7 +2966,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "sustainedHitsBonus": 1,
+              "woundMod": 1
             },
             "combatType": "melee"
           }
@@ -5959,7 +5971,9 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "death guard",
+            "appliesToNearby": true
           }
         }
       ],
@@ -6119,7 +6133,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -6946,7 +6961,9 @@
             "effects": {
               "damageMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "plague legions",
+            "appliesToNearby": true
           }
         },
         {
@@ -7455,7 +7472,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "requiresAttackerKeyword": "plague legions",
+            "appliesToNearby": true
           }
         },
         {
@@ -7724,7 +7742,9 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "target": "defender",
+            "appliesToNearby": true
           }
         }
       ],

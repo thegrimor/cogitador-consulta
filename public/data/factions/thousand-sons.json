@@ -63,7 +63,8 @@
             "effects": {
               "woundMod": 1,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "thousand sons"
           }
         }
       ]
@@ -82,7 +83,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "thousand sons"
           }
         }
       ]
@@ -116,7 +118,7 @@
             "effects": {
               "woundMod": 1
             },
-            "target": "defender"
+            "requiresAttackerKeyword": "mutant"
           }
         }
       ]
@@ -178,7 +180,8 @@
             "effects": {
               "wsMod": -1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "sekhetar robots"
           }
         }
       ]
@@ -283,7 +286,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -329,7 +333,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "psyker"
       }
     },
     {
@@ -427,7 +432,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "rubric marines"
       }
     },
     {
@@ -456,7 +462,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "rubric marines"
       }
     },
     {
@@ -504,7 +511,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -522,7 +530,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -620,7 +629,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "tzaangors"
       }
     },
     {
@@ -707,7 +717,9 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged",
+        "requiresTargetKeyword": "sekhetar robots"
       }
     },
     {
@@ -2238,7 +2250,7 @@
               "hitMod": 1,
               "woundMod": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         }
       ],
@@ -3295,7 +3307,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "target": "defender",
+            "appliesToNearby": true
           }
         }
       ],
@@ -5949,7 +5962,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true
+              "rerollAllHits": true,
+              "rerollAllDamage": true
             },
             "combatType": "ranged"
           }
@@ -6351,7 +6365,8 @@
             "effects": {
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresTargetKeyword": "character"
           }
         },
         {
@@ -6361,7 +6376,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 3
+              "sustainedHitsBonus": 2
             }
           }
         }
@@ -7082,7 +7097,8 @@
               "strengthMod": 1
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "scintillating legions"
           }
         },
         {

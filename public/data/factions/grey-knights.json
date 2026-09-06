@@ -73,12 +73,26 @@
           "id": "channelled-force",
           "name": "Channelled Force",
           "description": "Each time a Grey Knights unit from your army is selected to fight, that unit can take a Leadership test. If that test is passed, select one of the following rules. Until the end of the phase, that unit has that rule.<br><ul><li>Melee weapons equipped by models in this unit with the [psychic] ability also have the [sustained hits 1] ability.</li><li>Melee weapons equipped by models in this unit with the [psychic] ability also have the [LETHAL HITS] ability.</li></ul>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Sustained Hits",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Lethal Hits",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
@@ -168,7 +182,8 @@
           "rerollAllHits": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -185,7 +200,8 @@
           "critThreshold": 5
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -203,7 +219,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "walker"
       }
     },
     {
@@ -261,7 +278,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -280,7 +298,8 @@
         "combatType": "ranged",
         "requiresTargetKeyword": "chaos",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -366,7 +385,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -404,7 +424,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "terminator"
       }
     },
     {
@@ -443,7 +464,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -471,7 +493,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -488,7 +511,8 @@
           "woundMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -506,7 +530,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -601,7 +626,9 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged",
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -689,7 +716,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "purgation squad"
       }
     },
     {
@@ -959,7 +987,8 @@
       "effect": {
         "effects": {
           "rerollAllHits": true
-        }
+        },
+        "appliesToNearby": true
       }
     },
     {
@@ -2038,7 +2067,8 @@
           "effect": {
             "effects": {
               "attacksMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -2049,7 +2079,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -4611,7 +4642,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -5275,7 +5307,8 @@
             "effects": {
               "hitMod": 1
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
@@ -5546,7 +5579,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -6105,9 +6139,11 @@
           "effect": {
             "effects": {
               "rerollAllHits": true,
-              "rerollAllWounds": true
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -6820,7 +6856,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
