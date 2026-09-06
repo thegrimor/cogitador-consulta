@@ -64,7 +64,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "anathema psykana"
           }
         }
       ]
@@ -97,7 +98,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "character"
           }
         }
       ]
@@ -115,8 +117,10 @@
           "description": "<ul><li>While an Adeptus Custodes Vehicle unit from your army is at Starting Strength, unless that unit is an Aircraft or it is Battle-shocked, add 2 to the Objective Control characteristic of models in that unit.</li><li>While an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">VEHICLE</span> unit from your army is below Starting Strength, each time a model in that unit makes an attack, re-roll a Hit roll of 1.</li><li>While an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">VEHICLE</span> unit from your army is Below Half-strength, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</li></ul><br><span class=\"hi_custom\">MORITOI ANCIENTS</span><br>Add 2\" to the Move characteristic of models in <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">WALKER</span> units from your army and add 1 to Advance and Charge rolls made for such units.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>In the Muster Armies step, you can select up to 2 <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">WALKER</span> models from your army. The selected units gain the <span class=\"kwb\">CHARACTER</span> keyword.<br><br><b>Designer’s Note:</b> <i>This means that the selected models can be given Enhancements and one of them can be selected as your <span class=\"kwb\">WARLORD</span>.</i>",
           "effect": {
             "effects": {
+              "rerollHitsOf1": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "vehicle"
           }
         }
       ]
@@ -493,7 +497,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "target": "defender"
       }
     },
     {
@@ -593,7 +598,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> Up to two ADEPTUS CUSTODES INFANTRY units from your army, and one enemy unit that is an eligible target for all of those units.<br><br><b>EFFECT:</b> Until the end of the phase, your units can only target that enemy unit, but each time a model in one of your units makes a ranged attack, improve the Strength and Armour Penetration characteristics of that attack by 1.<br><br><b>RESTRICTIONS:</b> You can only select two units if one (and only one) of them is an ANATHEMA PSYKANA unit and both are within 6\" of each other.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -928,7 +934,8 @@
       "description": "Anathema Psykana model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll. If that attack targeted an enemy <span class=\"kwb\">PSYKER</span> unit, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "woundMod": 1,
+          "hitMod": 1
         }
       }
     },
@@ -950,7 +957,8 @@
       "effect": {
         "effects": {
           "rerollHitsOf1": true
-        }
+        },
+        "appliesToNearby": true
       }
     },
     {
@@ -4433,7 +4441,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true
+              "lethalHitsBonus": true,
+              "bsMod": -1
             },
             "combatType": "ranged"
           }
