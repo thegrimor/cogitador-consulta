@@ -148,9 +148,11 @@
           "description": "Friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> models have the following ability:<br><br><b>Assisted Targeting (Aura):</b> While a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is within 6\" of this model, that <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit's ranged attacks have:<ul><li>+1 BS.</li><li>[HEAVY].</li></ul>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><b>Sacristan Pledge:</b> In your Command phase, you can select one friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> model within 3\" of this model that has not been selected by this ability this phase. If you do, that model heals D3 wounds.<br><br><span class=\"hi_custom\">MECHANICUS ALLIES</span><br>You can include <span class=\"kwb\">TECH-PRIEST DOMINUS</span>/<span class=\"kwb\">TECH-PRIEST MANIPULUS</span>/<span class=\"kwb\">MARSHAL</span>/<span class=\"kwb\">RANGERS</span>/<span class=\"kwb\">VANGUARD</span> units in your army (see Codex: Adeptus Mechanicus). The combined points value of such units cannot exceed 500 points.",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
-            }
+              "bsMod": -1,
+              "hitMod": 1
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "adeptus mechanicus"
           }
         }
       ]
@@ -255,7 +257,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "dominus"
           }
         }
       ]
@@ -270,13 +273,7 @@
         {
           "id": "driven-from-their-lairs",
           "name": "Driven from Their Lairs",
-          "description": "While a friendly <span class=\"kwb\">ARMIGER</span> unit is affected by a Bondsman ability, that unit's ranged attacks have [IGNORES COVER].<br><br>This detachment has the <span class=\"kwb\">ARMIGERS</span> tag and cannot be taken with another <span class=\"kwb\">ARMIGERS</span> detachment.",
-          "effect": {
-            "effects": {
-              "bsMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "description": "While a friendly <span class=\"kwb\">ARMIGER</span> unit is affected by a Bondsman ability, that unit's ranged attacks have [IGNORES COVER].<br><br>This detachment has the <span class=\"kwb\">ARMIGERS</span> tag and cannot be taken with another <span class=\"kwb\">ARMIGERS</span> detachment."
         }
       ]
     }
@@ -390,7 +387,6 @@
         "effects": {
           "critThreshold": 5
         },
-        "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -463,10 +459,11 @@
       "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">IMPERIAL KNIGHTS TITANIC</span> unit is destroyed by an enemy unit.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit.<br><br><b>EFFECT:</b> That enemy unit is marked until the end of the battle:<ul><li>While a unit is marked, friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> units' attacks that target that unit can re-roll wound rolls.</li></ul>",
       "effect": {
         "effects": {
-          "lethalHitsBonus": true
+          "rerollAllWounds": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "adeptus mechanicus"
       }
     },
     {
@@ -554,14 +551,44 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Imperial Knights Titanic model from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time your model makes an attack that targets a <span class=\"kwb\">MONSTER</span>, <span class=\"kwb\">TITANIC</span> or <span class=\"kwb\">WALKER</span> unit, add 1 to the Hit roll and add 1 to the Wound roll.",
-      "effect": {
-        "effects": {
-          "hitMod": 1,
-          "woundMod": 1
+      "options": [
+        {
+          "name": "vs MONSTER",
+          "effect": {
+            "effects": {
+              "hitMod": 1,
+              "woundMod": 1
+            },
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs TITANIC",
+          "effect": {
+            "effects": {
+              "hitMod": 1,
+              "woundMod": 1
+            },
+            "requiresTargetKeyword": "titanic",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "vs WALKER",
+          "effect": {
+            "effects": {
+              "hitMod": 1,
+              "woundMod": 1
+            },
+            "requiresTargetKeyword": "walker",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "thin-their-ranks",
@@ -588,7 +615,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "armiger"
       }
     },
     {
@@ -606,7 +634,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "armiger"
       }
     },
     {
@@ -914,10 +943,11 @@
       "description": "<span class=\"kwb\">IMPERIAL KNIGHTS</span> model only. While a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is within 6\" of this model, that <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit's melee attacks have +1 WS and AP.",
       "effect": {
         "effects": {
-          "rerollHitsOf1": true
+          "wsMod": -1,
+          "apMod": 1
         },
-        "combatType": "ranged",
-        "bearerOnly": true
+        "combatType": "melee",
+        "requiresAttackerKeyword": "adeptus mechanicus"
       }
     },
     {
@@ -1274,7 +1304,7 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "melee"
+            "appliesToNearby": true
           }
         },
         {
@@ -1968,7 +1998,7 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         },
         {
@@ -2299,7 +2329,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -2637,7 +2668,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -3405,24 +3437,76 @@
           "name": "Atrapos’ Duty (Bondsman)",
           "description": "While a model is affected by this ability, each time that model makes an attack that targets a <span class=\"kwb\">TITANIC</span> or <span class=\"kwb\">TOWERING</span> model, you can re-roll the Hit roll and you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs TITANIC",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "titanic",
+                "appliesToNearby": true
+              }
+            },
+            {
+              "name": "vs TOWERING",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "towering",
+                "appliesToNearby": true
+              }
             }
-          }
+          ]
         },
         {
           "id": "macro-extinction-protocols",
           "name": "Macro-extinction Protocols",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Hit roll. If that target is <span class=\"kwb\">TITANIC</span> or <span class=\"kwb\">TOWERING</span>, add 1 to the Wound roll as well.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "vs MONSTER",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "vs VEHICLE",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
+            },
+            {
+              "name": "vs TITANIC",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresTargetKeyword": "titanic"
+              }
+            },
+            {
+              "name": "vs TOWERING",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresTargetKeyword": "towering"
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -3623,9 +3707,11 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "sustainedHitsBonus": 1,
+              "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -3636,8 +3722,7 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ],
@@ -4613,8 +4698,7 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ],
@@ -5131,7 +5215,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -5656,12 +5741,28 @@
           "name": "Titan Hunter",
           "description": "Each time a ranged attack made by this model is allocated to a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> model, you can re-roll the Damage roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllDamage": true
+          "options": [
+            {
+              "name": "vs MONSTER",
+              "effect": {
+                "effects": {
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs VEHICLE",
+              "effect": {
+                "effects": {
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -6191,13 +6292,30 @@
           "name": "Sunderer of Fortresses",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">VEHICLE</span>, improve the Strength and Damage characteristics of that attack by 1. If that attack targets a <span class=\"kwb\">FORTIFICATION</span>, improve the Strength and Damage characteristics of that attack by 2 instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "damageMod": 1
+          "options": [
+            {
+              "name": "vs VEHICLE",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1,
+                  "damageMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs FORTIFICATION",
+              "effect": {
+                "effects": {
+                  "strengthMod": 2,
+                  "damageMod": 2
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "fortification"
+              }
+            }
+          ]
         },
         {
           "id": "conversion",
@@ -7824,7 +7942,8 @@
               "feelNoPainThreshold": 4
             },
             "combatType": "ranged",
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
