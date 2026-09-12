@@ -5,7 +5,7 @@ import { WeaponCard } from '../WeaponCard'
 import { AbilityList } from '../AbilityList'
 import { StratList } from '../StratList'
 import { ModifierPanel } from '../ModifierPanel'
-import { deriveModifierRules } from '../../utils/deriveRules'
+import { deriveModifierRules, isRuleApplicable } from '../../utils/deriveRules'
 import { parseBcpList } from '../../utils/parseBcpList'
 import type { GameData, Weapon, ModelProfile, CombatType, Datasheet } from '@/types'
 import type { PanelState } from '../../hooks/usePanelState'
@@ -163,24 +163,12 @@ export function UnitPanel({
   )
 
   const visibleRules = useMemo(() => {
-    const { enhancementId } = selection
-    const defKwLower = defenderKeywords.map(k => k.toLowerCase())
-    return baseRules.filter(rule => {
-      const ruleTarget = rule.target ?? 'attacker'
-      if (isAttacker && ruleTarget === 'defender') return false
-      if (!isAttacker && ruleTarget === 'attacker') return false
-      if (rule.enhancementId && rule.enhancementId !== enhancementId) return false
-      if (rule.combatType && rule.combatType !== combatType) return false
-      if (rule.id === 'weapon-heavy'       && !anySelectedHeavy)      return false
-      if (rule.id === 'weapon-lance'       && !anySelectedLance)      return false
-      if (rule.id === 'weapon-torrent'     && !anySelectedTorrent)    return false
-      if (rule.id === 'weapon-indirect'    && !anySelectedIndirect)   return false
-      if (rule.id === 'weapon-psychic'     && !anySelectedPsychic)    return false
-      if (rule.requiresAntiKeyword && !weaponAntiKeywords.includes(rule.requiresAntiKeyword)) return false
-      if (rule.requiresTargetKeyword && !defKwLower.includes(rule.requiresTargetKeyword.toLowerCase())) return false
-      if (rule.requiresAttackerKeyword && !attackerKeywords.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
-      return true
-    })
+    const ctx = {
+      isAttacker, enhancementId: selection.enhancementId, combatType,
+      anySelectedHeavy, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic,
+      weaponAntiKeywords, defenderKeywords, attackerKeywords,
+    }
+    return baseRules.filter(rule => isRuleApplicable(rule, ctx))
   }, [baseRules, isAttacker, selection, combatType, anySelectedHeavy, anySelectedLance, anySelectedTorrent, anySelectedIndirect, anySelectedPsychic, weaponAntiKeywords, defenderKeywords, attackerKeywords])
 
   const halfRangeWeapons = useMemo(
