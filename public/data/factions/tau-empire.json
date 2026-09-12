@@ -68,9 +68,11 @@
           "description": "Each time a T’au Empire Battlesuit model from your army makes a ranged attack that targets a unit within 12\", improve the Strength characteristic of that attack by 1. If that attack targets a unit within 8\", improve the Armour Penetration characteristic of that attack by 1 as well.",
           "effect": {
             "effects": {
-              "apMod": 1
+              "apMod": 1,
+              "strengthMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "battlesuit"
           }
         }
       ]
@@ -88,8 +90,10 @@
           "description": "Each time a Kroot model from your army makes an attack, add 1 to the Hit roll if the target of that attack is below its Starting Strength, and add 1 to the Wound roll as well if the target of that attack is Below Half-strength.",
           "effect": {
             "effects": {
-              "woundMod": 1
-            }
+              "woundMod": 1,
+              "hitMod": 1
+            },
+            "requiresAttackerKeyword": "kroot"
           }
         },
         {
@@ -114,12 +118,7 @@
         {
           "id": "integrated-command-structure",
           "name": "Integrated Command Structure",
-          "description": "Friendly <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> units have the following ability:<br><br><b>Harnessed Alien Instincts:</b> In your Shooting phase, this unit can select one visible enemy unit within 12\". That enemy unit is prey-marked:<br><ul><li>While a unit is prey-marked, that unit has +3\" detection range.</li></ul>Friendly <span class=\"kwb\">GHOSTKEEL BATTLESUIT</span>/<span class=\"kwb\">STEALTH BATTLESUITS</span> units have the following ability:<br><br><b>Localised Stealth Projectors (Aura):</b> When a friendly <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> unit within 6\" of this unit has shot, those attacks do not prevent that unit from being hidden.<br><br>This detachment has the <span class=\"kwb\">AUXILIARIES</span> tag and cannot be taken with another <span class=\"kwb\">AUXILIARIES</span> detachment.",
-          "effect": {
-            "effects": {
-              "apMod": 1
-            }
-          }
+          "description": "Friendly <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> units have the following ability:<br><br><b>Harnessed Alien Instincts:</b> In your Shooting phase, this unit can select one visible enemy unit within 12\". That enemy unit is prey-marked:<br><ul><li>While a unit is prey-marked, that unit has +3\" detection range.</li></ul>Friendly <span class=\"kwb\">GHOSTKEEL BATTLESUIT</span>/<span class=\"kwb\">STEALTH BATTLESUITS</span> units have the following ability:<br><br><b>Localised Stealth Projectors (Aura):</b> When a friendly <span class=\"kwb\">KROOT</span>/<span class=\"kwb\">VESPID STINGWINGS</span> unit within 6\" of this unit has shot, those attacks do not prevent that unit from being hidden.<br><br>This detachment has the <span class=\"kwb\">AUXILIARIES</span> tag and cannot be taken with another <span class=\"kwb\">AUXILIARIES</span> detachment."
         }
       ]
     },
@@ -209,12 +208,26 @@
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">BATTLESUIT CHARACTER</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">BATTLESUIT CHARACTER</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have:<br><ul><li>+1 S.</li><li>OR: +1 S, AP and [HAZARDOUS].</li></ul>",
       "effect": {
         "effects": {
-          "apMod": 1
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "+1 S, AP (Hazardous)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "wall-of-mirrors",
@@ -462,12 +475,25 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One T’au Empire Battlesuit unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit that contains 6 or more models, that attack has the [SUSTAINED HITS 1] ability. If that attack targets an enemy unit that contains 11 or more models, it has the [SUSTAINED HITS 2] ability instead.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 2
+          "sustainedHitsBonus": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "vs unidad con 11+ modelos",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "fail-safe-detonator",
@@ -676,7 +702,8 @@
       "description": "<span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> model only. Each time the bearer makes a ranged attack, add 1 to the Hit roll. From the third battle round onwards, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "woundMod": 1,
+          "hitMod": 1
         },
         "combatType": "ranged",
         "bearerOnly": true
@@ -691,11 +718,23 @@
       "description": "T’au Empire Battlesuit model only. Each time the bearer is selected to shoot, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until those attacks are resolved, ranged weapons equipped by the bearer have the selected ability.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "lethalHitsBonus": true
         },
         "combatType": "ranged",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "exemplar-of-the-montka",
@@ -2187,8 +2226,7 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
@@ -3070,7 +3108,8 @@
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -5307,7 +5346,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "fly"
           }
         },
         {
@@ -5545,7 +5585,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -6103,7 +6144,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "titanic"
           }
         }
       ],
@@ -6259,7 +6301,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         },
         {
@@ -6380,7 +6424,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         },
         {
@@ -6514,7 +6560,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         },
         {
@@ -7554,8 +7602,7 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
@@ -8308,9 +8355,11 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllWounds": true
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -9457,7 +9506,9 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "kroot"
           }
         },
         {
@@ -9898,7 +9949,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "sustainedHitsBonus": 1,
+              "bsMod": -1
             },
             "combatType": "ranged"
           }

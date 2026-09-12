@@ -58,11 +58,29 @@
           "id": "born-soldiers",
           "name": "Born Soldiers",
           "description": "Each time a model in a Regiment unit from your army makes a ranged attack that targets a visible unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>), that attack has the [LETHAL HITS] ability.<br><br>Each time a model in a Squadron unit from your army makes a ranged attack that targets a visible <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that attack has the [LETHAL HITS] ability.",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Regiment",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "regiment"
+              }
+            },
+            {
+              "name": "Squadron (vs Monster/Vehicle)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "squadron",
+                "requiresTargetKeyword": "vehicle"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -85,7 +103,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "militarum tempestus"
           }
         }
       ]
@@ -118,7 +138,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ]
@@ -271,7 +292,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -333,7 +355,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Militarum Tempestus or Kasrkin unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, when targeting an enemy unit within 12\", improve the Strength and Armour Penetration characteristics of hot-shot lascarbines, hot-shot lasguns, hot-shot laspistols, hot-shot marksman rifles, hot-shot volley guns and sentry hot-shot volley guns equipped by models in your unit by 1.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -854,6 +877,7 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Astra Militarum Titanic unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select one enemy unit within Engagement Range of your unit. Until the end of the phase, add 6 to the Attacks characteristic of melee weapons equipped by models in your unit, improve the Armour Penetration characteristic of those weapons by 2, and each time a model in your unit fights, it can only target that enemy unit.",
       "effect": {
         "effects": {
+          "attacksMod": 6,
           "apMod": 2
         },
         "combatType": "melee",
@@ -1167,7 +1191,8 @@
         "effects": {
           "feelNoPainThreshold": 5
         },
-        "target": "defender"
+        "target": "defender",
+        "requiresAttackerKeyword": "armoured skirmisher"
       }
     },
     {
@@ -1944,12 +1969,26 @@
           "name": "Covering Fire",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or on unmodified Hit rolls of 4+ instead if this unit is within 6\" of one or more friendly Platoon units.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Covering Fire (base, 5+)",
+              "effect": {
+                "effects": {
+                  "overwatchThreshold": 5
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Covering Fire (cerca de Platoon, 4+)",
+              "effect": {
+                "effects": {
+                  "overwatchThreshold": 4
+                },
+                "combatType": "ranged"
+              }
+            }
+          ]
         },
         {
           "id": "embarking",
@@ -2241,7 +2280,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -2540,7 +2580,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -3660,7 +3701,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "requiresTargetKeyword": "fly"
           }
         },
         {
@@ -4580,11 +4622,24 @@
           "name": "Armoured Spearhead",
           "description": "Each time this model makes an attack that targets an enemy unit, re-roll a Hit roll of 1 and, if that unit is within range of an objective marker you do not control, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Armoured Spearhead (base)",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Armoured Spearhead (objetivo no controlado)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "one-shot",
@@ -7594,7 +7649,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -9299,7 +9355,9 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
@@ -13130,7 +13188,9 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "infantry"
           }
         },
         {
@@ -13397,7 +13457,8 @@
             "effects": {
               "damageReduction": 1
             },
-            "target": "defender"
+            "target": "defender",
+            "combatType": "ranged"
           }
         },
         {
@@ -13717,7 +13778,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -14023,7 +14085,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -14631,7 +14694,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -15002,11 +15066,24 @@
           "name": "Storm Troopers",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Storm Troopers (base)",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Storm Troopers (objetivo cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "vox-caster",
@@ -17463,7 +17540,8 @@
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -18099,7 +18177,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],

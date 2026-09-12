@@ -6134,7 +6134,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "target": "defender"
           }
         },
         {
