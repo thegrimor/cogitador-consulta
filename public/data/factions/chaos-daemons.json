@@ -43,7 +43,8 @@
             "effects": {
               "rerollAllHits": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "slaanesh"
           }
         }
       ]
@@ -111,13 +112,28 @@
           "id": "first-prince-of-chaos",
           "name": "First Prince of Chaos",
           "description": "Units from your army have the relevant abilities presented below.<br><br><div class=\"Columns2\"><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALKH LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MURDERER’S COWL</p><p><span class=\"tooltip00074\" data-tooltip-content=\"#tooltip_content00074\" data-tooltip-anchor=\"#tooltip_content00074\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">KHORNE</span></span> units only. This unit is eligible to shoot and <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a> in a turn in which it <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advanced</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALTZ LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PENUMBRAL PUPPETRY</p><p><span class=\"tooltip00075\" data-tooltip-content=\"#tooltip_content00075\" data-tooltip-anchor=\"#tooltip_content00075\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">TZEENTCH</span></span> units only. Each time an attack targets this unit, subtract 1 from the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALNU LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">GLOAM ROT</p><p><span class=\"tooltip00076\" data-tooltip-content=\"#tooltip_content00076\" data-tooltip-anchor=\"#tooltip_content00076\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">NURGLE</span></span> units only. Each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALSL LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">SHADOW’S CARESS</p><p><span class=\"tooltip00077\" data-tooltip-content=\"#tooltip_content00077\" data-tooltip-anchor=\"#tooltip_content00077\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">SLAANESH</span></span> units only. Enemy units cannot use the <span class=\"tooltip00053\" data-tooltip-content=\"#tooltip_content00053\"><span class=\"tt kwbu\">Fire</span> <span class=\"tt kwbu\">Overwatch</span></span> Stratagem to shoot at this unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">DISCIPLES OF BE’LAKOR</p><p><span class=\"tooltip00078\" data-tooltip-content=\"#tooltip_content00078\" data-tooltip-anchor=\"#tooltip_content00078\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">UNDIVIDED</span></span> units only.<br><ul><li>This unit has the <span class=\"tooltip00079\" data-tooltip-content=\"#tooltip_content00079\"><span class=\"tt kwbu\">Dark</span> <span class=\"tt kwbu\">Pacts</span></span> army rule, and can use it as described in <i>Codex: Chaos Space Marines</i>, even though your Army Faction is not <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span>. If this unit is <a class=\"kwbOne\" href=\"/wh40k10ed/factions/chaos-daemons/Be-lakor\"><span class=\"kwb kwbo\">BE’LAKOR</span></a>, it automatically passes the <span class=\"tooltip00012\" data-tooltip-content=\"#tooltip_content00012\"><span class=\"tt kwbu\">Leadership</span> <span class=\"tt kwbu\">test</span></span> required for Dark Pacts.</li><li><span class=\"tooltip00080\" data-tooltip-content=\"#tooltip_content00080\" data-tooltip-anchor=\"#tooltip_content00080\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">HERETIC</span> <span class=\"kwb kwbu\">ASTARTES</span></span> models in this unit have the <span class=\"tooltip00021\" data-tooltip-content=\"#tooltip_content00021\"><span class=\"tt kwbu\">Deep</span> <span class=\"tt kwbu\">Strike</span></span> ability.</li></ul></p></td></tr></tbody></tbody></table></div></div>",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "woundMod": -1
+          "options": [
+            {
+              "name": "Penumbral Puppetry (Tzeentch)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "target": "defender",
+                "requiresAttackerKeyword": "tzeentch"
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "Gloam Rot (Nurgle)",
+              "effect": {
+                "effects": {
+                  "woundMod": -1
+                },
+                "target": "defender",
+                "requiresAttackerKeyword": "nurgle"
+              }
+            }
+          ]
         }
       ]
     },
@@ -462,13 +478,32 @@
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Legiones Daemonica Tzeentch unit from your army that has not been selected to shoot or fight that phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 2 to the Strength characteristic of weapons equipped by models in your unit, or spend one Flux token and add 3 to the Strength characteristic of those weapons and improve the Armour Penetration characteristic of those weapons by 1 instead.",
       "effect": {
-        "effects": {
-          "apMod": 1,
-          "strengthMod": 2
-        },
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Sin Flux token",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Con Flux token",
+          "effect": {
+            "effects": {
+              "strengthMod": 3,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "fateborne-nightmares",
@@ -560,13 +595,35 @@
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Shadow Legion unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit has the Khorne keyword, until the end of the phase, improve the Armour Penetration characteristic of those weapons by 1 as well.",
       "effect": {
-        "effects": {
-          "apMod": 1
-        },
-        "combatType": "melee",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Lance (base)",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Lance + AP (Khorne)",
+          "effect": {
+            "effects": {
+              "woundMod": 1,
+              "apMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "khorne",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "spiteful-demise",
@@ -743,7 +800,8 @@
         "effects": {
           "woundMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "slaanesh"
       }
     },
     {
@@ -844,7 +902,8 @@
         "effects": {
           "hitMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "slaanesh"
       }
     },
     {
@@ -1437,7 +1496,8 @@
             "effects": {
               "rerollAllHits": true,
               "rerollAllWounds": true
-            }
+            },
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -1581,12 +1641,28 @@
           "name": "Champion Slayer",
           "description": "Each time this model makes a melee attack that targets a <span class=\"kwb\">CHARACTER</span> or <span class=\"kwb\">MONSTER</span> unit, you can re-roll the Wound roll. Each time this model destroys an enemy <span class=\"kwb\">CHARACTER</span> or <span class=\"kwb\">MONSTER</span> unit, this model regains up to D6 lost wounds.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Character",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "character"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -2585,7 +2661,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ],
@@ -2716,7 +2793,8 @@
           "effect": {
             "effects": {
               "woundMod": -1
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -4248,7 +4326,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "target": "defender"
           }
         }
       ],
@@ -4557,7 +4636,7 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "requiresAttackerKeyword": "nurgle"
           }
         }
       ],
@@ -4712,12 +4791,28 @@
           "name": "The Eternal Dance",
           "description": "At the start of the Fight phase, select one enemy unit within 6\" of this model. Until the end of the phase: <br><ul><li>Each time a friendly Slaanesh Legiones Daemonica model makes a melee attack that targets that enemy unit, add 1 to the Wound roll. </li><li>Each time a model in that enemy unit makes a melee attack, subtract 1 from the Wound roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundMod": -1
+          "options": [
+            {
+              "name": "Bono a atacantes Slaanesh",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "slaanesh"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Penalizacion al enemigo marcado",
+              "effect": {
+                "effects": {
+                  "woundMod": -1
+                },
+                "combatType": "melee",
+                "target": "defender"
+              }
+            }
+          ]
         },
         {
           "id": "dazzling-acrobatics",
@@ -5108,8 +5203,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+              "rerollHitsOf1": true
             }
           }
         },
@@ -7480,7 +7574,8 @@
             "effects": {
               "damageMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "nurgle"
           }
         },
         {
@@ -8218,7 +8313,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
@@ -8351,7 +8447,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
@@ -9990,7 +10087,8 @@
               "effect": {
                 "effects": {
                   "lethalHitsBonus": true
-                }
+                },
+                "combatType": "melee"
               }
             },
             {
@@ -9998,7 +10096,8 @@
               "effect": {
                 "effects": {
                   "sustainedHitsBonus": 1
-                }
+                },
+                "combatType": "melee"
               }
             }
           ]
@@ -15064,8 +15163,7 @@
           "effect": {
             "effects": {
               "apMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ],

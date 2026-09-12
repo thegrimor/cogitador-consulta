@@ -43,7 +43,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "destroyer cult"
           }
         }
       ]
@@ -59,11 +60,26 @@
           "id": "power-matrix",
           "name": "Power Matrix",
           "description": "Certain areas of the battlefield are considered to be within your army’s Power Matrix, as follows: <br><br><ul><li>Your deployment zone is always within your army’s Power Matrix. </li><li>At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Power Matrix. </li><li>At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Power Matrix. </li></ul>Each time a model in a CRYPTEK or CANOPTEK unit from your army makes an attack, re-roll a Hit roll of 1. If such a unit is wholly within your army’s Power Matrix, you can re-roll the Hit roll instead.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Cryptek",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "cryptek"
+              }
+            },
+            {
+              "name": "Canoptek",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "canoptek"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -78,11 +94,35 @@
           "id": "worthy-foes",
           "name": "Worthy Foes",
           "description": "In your Command phase, select one enemy unit. Until the start of your next Command phase, each time a Noble, Lychguard or Triarch unit from your army makes an attack that targets that unit, add 1 to the Wound roll.",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Noble",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "noble"
+              }
+            },
+            {
+              "name": "Lychguard",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "lychguard"
+              }
+            },
+            {
+              "name": "Triarch",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "triarch"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -148,7 +188,8 @@
           "effect": {
             "effects": {
               "strengthMod": 2
-            }
+            },
+            "requiresAttackerKeyword": "destroyer cult"
           }
         }
       ]
@@ -202,7 +243,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "tomb blades"
           }
         }
       ]
@@ -282,6 +324,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One DESTROYER CULT or FLAYED ONES unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model from your unit makes an attack that targets a unit below Starting Strength, add 1 to the Hit roll. If the target is Below Half-strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
+          "hitMod": 1,
           "woundMod": 1
         },
         "isStratagem": true,
@@ -390,7 +433,8 @@
           "woundMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "canoptek"
       }
     },
     {
@@ -951,7 +995,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged"
       }
     },
     {
@@ -997,7 +1042,6 @@
           "apMod": 1
         },
         "combatType": "ranged",
-        "requiresAttackerKeyword": "tesseract vault",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -1175,13 +1219,28 @@
       "detachmentId": "cryptek-conclave",
       "detachmentName": "Cryptek Conclave",
       "description": "Cryptek model only. In your Shooting phase, each time the bearer’s unit is selected to shoot, when selecting an ability for the Technosorcerous Augmentations Detachment rule, you can also select from the following abilities: [ANTI-MONSTER 5+], [ANTI-VEHICLE 5+].",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 5
+      "options": [
+        {
+          "name": "Anti-Monster 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster"
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "Anti-Vehicle 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "nether-realm-casket",
@@ -1192,7 +1251,7 @@
       "description": "<span class=\"kwb\">NECRONS</span> model only. While the bearer is leading a unit, models in that unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
         "combatType": "ranged",
         "target": "defender"
@@ -1233,7 +1292,6 @@
         "effects": {
           "hitMod": -1
         },
-        "target": "defender",
         "requiresAttackerKeyword": "vehicle"
       }
     },
@@ -1381,7 +1439,8 @@
         "effects": {
           "damageReduction": 1
         },
-        "target": "defender"
+        "target": "defender",
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -1423,12 +1482,26 @@
       "detachmentId": "the-phaerons-armoury",
       "detachmentName": "The Phaeron’s Armoury",
       "description": "<span class=\"kwb\">NECRONS</span> model only. When this unit is selected to shoot, if this unit was set up using a Monolith’s Eternity Gate ability this turn, this unit’s ranged attacks have: [LETHAL HITS] or [SUSTAINED HITS 1].",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "ranged"
+          }
         },
-        "combatType": "ranged"
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged"
+          }
+        }
+      ]
     },
     {
       "id": "mortality-shroud-upgrade",
@@ -4210,13 +4283,26 @@
           "name": "Atavistic Instigation",
           "description": "Each time this model targets an enemy unit with its heavy death ray, your opponent must declare if that unit will stand firm or duck for cover:<br><ul><li>If it stands firm, when resolving ranged attacks against that unit this phase, a successful unmodified Hit roll of 5+ scores a Critical Hit.  </li><li>If it ducks for cover, until the start of your next Shooting phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "critThreshold": 5
+          "options": [
+            {
+              "name": "Stands Firm (defiende contra disparo)",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "target": "defender",
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Ducks for Cover (ataques propios)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -4753,7 +4839,8 @@
               "feelNoPainThreshold": 6
             },
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
@@ -6143,13 +6230,29 @@
           "name": "Mechanical Augmentation (Aura)",
           "description": "While a friendly Necrons Battleline unit is within 3\" of this model, each time a model in that unit makes an attack, improve the Armour Penetration characteristic of that attack by 1, and each time an attack targets that unit, worsen the Armour Penetration characteristic of that attack by 1.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "apMod": -1
+          "options": [
+            {
+              "name": "Ataques salientes",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "appliesToNearby": true,
+                "requiresAttackerKeyword": "battleline"
+              }
             },
-            "target": "defender",
-            "appliesToNearby": true
-          }
+            {
+              "name": "Ataques entrantes",
+              "effect": {
+                "effects": {
+                  "apMod": -1
+                },
+                "target": "defender",
+                "appliesToNearby": true,
+                "requiresAttackerKeyword": "battleline"
+              }
+            }
+          ]
         },
         {
           "id": "atomic-energy-manipulator",
@@ -7976,13 +8079,7 @@
           "id": "technomancer",
           "name": "Technomancer",
           "description": "At the end of your Movement phase, you can select one friendly <span class=\"kwb\">NECRONS</span> model within 6\" of the bearer. That model regains up to D3 lost wounds. Each model can only be selected for this ability once per turn.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -8332,7 +8429,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         },
@@ -9478,7 +9574,8 @@
               "feelNoPainThreshold": 6
             },
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "infantry"
           }
         },
         {
