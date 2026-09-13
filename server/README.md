@@ -33,6 +33,15 @@ Ver `.env.example`. Resumen:
 - `ANTHROPIC_API_KEY` — habilita el asistente de chat (`POST /api/chat`). Consíguela en
   [console.anthropic.com](https://console.anthropic.com/settings/keys). Opcional: sin ella el
   resto del backend funciona igual y el chat responde `503`.
+- `RESEND_API_KEY` — habilita el envío real del email de "olvidé mi contraseña" vía
+  [Resend](https://resend.com) (plan gratis, sin verificar dominio propio para empezar).
+  Opcional: sin ella el enlace de recuperación se loguea en la consola del servidor en lugar
+  de enviarse, útil en desarrollo local.
+- `RESEND_FROM` — remitente de esos emails (opcional, por defecto el dominio de prueba de
+  Resend).
+- `FRONTEND_URL` — URL pública del frontend (sin `/` final), usada para armar el enlace del
+  email de recuperación. Solo hace falta si el frontend está en un dominio distinto al de
+  este backend; si no, se usa el origen de la propia request.
 
 ## Despliegue: backend en Railway, frontend en Netlify
 
@@ -54,6 +63,10 @@ Ver `.env.example`. Resumen:
      (añade `,*.netlify.app` si quieres que los deploy previews también puedan llamar a la
      API).
    - `ANTHROPIC_API_KEY` → opcional, solo si quieres el asistente de chat activo.
+   - `RESEND_API_KEY` → opcional, solo si quieres que "olvidé mi contraseña" envíe emails de
+     verdad en vez de loguear el enlace.
+   - `FRONTEND_URL` → la URL de tu sitio Netlify (paso 3), para que el email de recuperación
+     apunte ahí y no al propio backend.
    - Copia la URL pública que Railway te da para este servicio (Settings → Networking →
      Generate Domain si no tiene una todavía) — la necesitas en el paso siguiente.
 
@@ -79,9 +92,14 @@ Todas las rutas de listas requieren cabecera `Authorization: Bearer <token>`.
   `SELECT 1` real, no solo comprueba que el proceso está vivo. En Railway, configúralo como
   *Healthcheck Path* del servicio (Settings → Deploy) para que un deploy con la BD caída no
   se marque como sano.
-- `POST /api/auth/register` `{ username, password }` → `{ token, user }`
+- `POST /api/auth/register` `{ username, email, password }` → `{ token, user }`
 - `POST /api/auth/login` `{ username, password }` → `{ token, user }`
 - `GET /api/auth/me` → `{ user }`
+- `POST /api/auth/forgot-password` `{ email }` → `{ ok: true, message }` siempre (no revela si
+  el email existe); si existe una cuenta, envía un email con un enlace de un solo uso válido
+  1 hora.
+- `POST /api/auth/reset-password` `{ token, password }` → `{ ok: true }`, o 400 si el token es
+  inválido/expiró.
 - `GET /api/rosters` → `{ rosters: RosterList[] }` (solo las del usuario autenticado)
 - `PUT /api/rosters/:id` `RosterList` → upsert de una lista completa, asociada al usuario autenticado
 - `DELETE /api/rosters/:id` → `204`

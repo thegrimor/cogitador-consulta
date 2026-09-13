@@ -107,12 +107,12 @@ export const login = createAsyncThunk<
 
 export const register = createAsyncThunk<
   boolean,
-  { username: string; password: string },
+  { username: string; email: string; password: string },
   { dispatch: AppDispatch }
->('auth/register', async ({ username, password }, { dispatch }) => {
+>('auth/register', async ({ username, email, password }, { dispatch }) => {
   dispatch(authLoading())
   try {
-    const { token, user } = await api.register(username, password)
+    const { token, user } = await api.register(username, email, password)
     dispatch(resetRosters())
     dispatch(credentialsSet({ user, token }))
     await fetchAndHydrateRosters(dispatch, token)

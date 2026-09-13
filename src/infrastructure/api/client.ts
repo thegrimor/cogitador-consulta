@@ -50,6 +50,7 @@ async function request<T>(
 export interface AuthUser {
   id: string
   username: string
+  email: string | null
 }
 
 export interface AuthResponse {
@@ -58,10 +59,10 @@ export interface AuthResponse {
 }
 
 export const api = {
-  register: (username: string, password: string) =>
+  register: (username: string, email: string, password: string) =>
     request<AuthResponse>('/auth/register', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, email, password }),
     }),
 
   login: (username: string, password: string) =>
@@ -71,6 +72,18 @@ export const api = {
     }),
 
   me: (token: string) => request<{ user: AuthUser }>('/auth/me', { token }),
+
+  forgotPassword: (email: string) =>
+    request<{ ok: true; message: string }>('/auth/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    }),
+
+  resetPassword: (token: string, password: string) =>
+    request<{ ok: true }>('/auth/reset-password', {
+      method: 'POST',
+      body: JSON.stringify({ token, password }),
+    }),
 
   listRosters: (token: string) => request<{ rosters: RosterList[] }>('/rosters', { token }),
 

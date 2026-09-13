@@ -50,3 +50,15 @@ export function verifyPassword(password, stored) {
   const b = Buffer.from(candidate, 'hex')
   return a.length === b.length && crypto.timingSafeEqual(a, b)
 }
+
+// Password reset: a random token goes out in the email link, but only its sha256 hash is
+// ever stored (in `users.reset_token_hash`) — same "never persist the usable secret itself"
+// reasoning as password hashing, just with a fast hash since this is a high-entropy random
+// value, not a low-entropy user-chosen password.
+export function generateResetToken() {
+  return crypto.randomBytes(32).toString('base64url')
+}
+
+export function hashResetToken(token) {
+  return crypto.createHash('sha256').update(token).digest('hex')
+}

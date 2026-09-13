@@ -86,7 +86,9 @@ required; the process refuses to start without it. Auth is still dependency-free
 `server/src/auth.js` does scrypt password hashing and HMAC-signed (JWT-shaped, not JWT-library)
 tokens using only Node's built-in `crypto`. `id` columns are `TEXT`, not `UUID` — `RosterList.id`
 is just `string` on the TS side, and a strict UUID column 500s on anything that doesn't parse
-as one.
+as one. `users` also has a nullable `email` (unique via a partial index on `lower(email)` so
+pre-existing accounts without one don't collide) plus `reset_token_hash`/`reset_token_expires_at`
+for password recovery — see "Password recovery" below.
 
 Route handlers are async (`server/src/asyncHandler.js` wraps them so a rejected promise reaches
 the error middleware instead of hanging the request) since every `store.*` call now goes over
@@ -98,8 +100,12 @@ server: process died without the handler, survived and kept serving `/api/health
 
 - `GET /api/health` → `{ status: 'ok' }`, backed by a real `SELECT 1` against Postgres (not
   just "the process is up") — set as the Railway service's Healthcheck Path.
-- `POST /api/auth/register`, `POST /api/auth/login` → `{ token, user }`
+- `POST /api/auth/register` `{ username, email, password }`, `POST /api/auth/login`
+  `{ username, password }` → `{ token, user }`
 - `GET /api/auth/me` (bearer token) → `{ user }`
+- `POST /api/auth/forgot-password` `{ email }` → always `{ ok: true, message }` (never reveals
+  whether the email matched an account); `POST /api/auth/reset-password` `{ token, password }`
+  → `{ ok: true }` or 400 on an invalid/expired token. See "Password recovery" below.
 - `GET /api/rosters` / `PUT /api/rosters/:id` / `DELETE /api/rosters/:id` (bearer token, all
   scoped to the authenticated user; `PUT` upserts a full `RosterList` by id) —
   `server/src/routes/rosters.js`
@@ -120,6 +126,39 @@ this backend via the frontend's `VITE_API_BASE_URL` build-time env var (read in
 `src/infrastructure/api/client.ts`; empty/unset means same-origin `/api`, which is what local
 dev and the single-service deploy both rely on). See `server/README.md` for the Railway
 walkthrough.
+
+### Password recovery
+
+`POST /api/auth/forgot-password` and `POST /api/auth/reset-password` (`server/src/routes/auth.js`)
+implement "olvidé mi contraseña". Registration now requires an email (validated + unique via the
+partial index mentioned above) alongside the username; accounts created before this feature have
+`email: null` and can't use recovery until they re-register or the app grows a profile-edit page
+to add one — there isn't one yet. Flow: `forgot-password` generates a random token
+(`generateResetToken`/`hashResetToken` in `server/src/auth.js`), stores only its sha256 hash +
+a 1-hour expiry (`users.reset_token_hash`/`reset_token_expires_at` — same "never persist the
+usable secret" reasoning as password hashing), and emails a link
+(`{frontend origin}/reset-password?token=...`) via `server/src/lib/mailer.js`. The route always
+responds with the same generic `{ ok: true, message }` regardless of whether the email matched an
+account, to avoid leaking which emails are registered. `reset-password` hashes the submitted
+token, looks up a non-expired match, and on success updates the password hash and clears the
+token in one statement (so a link can't be replayed).
+
+`mailer.js` sends through **Resend** (`RESEND_API_KEY` env var) — chosen for a zero-setup free
+tier (their shared `onboarding@resend.dev` sender needs no domain verification to start).
+Without the key set, nothing is actually emailed: the reset link is logged to the server console
+instead, same fallback shape as `ANTHROPIC_API_KEY`/chat — the rest of the app works unaffected.
+`RESEND_FROM` overrides the sender once a real domain is verified. `FRONTEND_URL` tells the
+backend what origin to build the reset link against (needed only when frontend and backend are
+on different origins — see CORS above); it falls back to the request's own origin otherwise.
+
+Frontend: `ForgotPasswordPage` (`/forgot-password`) posts the email and always shows the same
+success message (mirroring the backend's non-revealing response). `ResetPasswordPage`
+(`/reset-password?token=...`) reads the token from the query string, posts the new password, and
+redirects to `/login?reset=ok` on success. Both call `api.forgotPassword`/`api.resetPassword`
+(`src/infrastructure/api/client.ts`) directly rather than through Redux/`authThunks` — neither
+flow touches `auth` state (the user isn't logged in yet), so there's nothing for the store to
+hold. `LoginPage`'s register form now also collects `email`, passed through `register()` in
+`authThunks.ts` to `api.register`.
 
 ### Chat assistant
 
@@ -237,6 +276,8 @@ Routes defined in `src/core/constants/routes.ts` with helper functions (`faction
 /mathhammer                                → MathhammerPage (?faction=&datasheet=&detachments=&character=&roster=)
 
 /login                                     → LoginPage (login + register, toggled in one form; ?next= to return after auth)
+/forgot-password                           → ForgotPasswordPage (request a password-reset email)
+/reset-password                            → ResetPasswordPage (?token= from the emailed link)
 ```
 
 `RosterList`/`RosterEntry` types are in `src/types/index.ts`. Roster CRUD (`createRoster`, `deleteRoster`, `renameRoster`, `setPointsLimit`, `setDetachments`, `addEntry`, ...) lives in `rosterSlice.ts`; totals are recomputed on every entry mutation. The legacy single-`detachmentId` → `detachmentIds[]` shape migration now lives in `authThunks.ts`'s legacy-import path (see above) since that's the only place old shapes can still surface from.

@@ -31,7 +31,13 @@ function mapUser(row) {
   return {
     id: row.id,
     username: row.username,
+    email: row.email,
     passwordHash: row.password_hash,
+    resetTokenHash: row.reset_token_hash,
+    resetTokenExpiresAt:
+      row.reset_token_expires_at instanceof Date
+        ? row.reset_token_expires_at.toISOString()
+        : row.reset_token_expires_at,
     createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : row.created_at,
   }
 }
@@ -55,6 +61,19 @@ async function migrate() {
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `)
+  // Added after the initial release, for password recovery — ADD COLUMN IF NOT EXISTS so
+  // this stays idempotent on databases that already have the `users` table from before these
+  // columns existed. `email` is nullable (accounts created before this change have none, and
+  // there's no profile-edit UI yet to backfill one) and its uniqueness is enforced by a
+  // partial index instead of an inline UNIQUE constraint, so multiple NULLs are allowed.
+  await pool.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS email TEXT;')
+  await pool.query(
+    'CREATE UNIQUE INDEX IF NOT EXISTS users_email_unique_idx ON users (lower(email)) WHERE email IS NOT NULL;',
+  )
+  await pool.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS reset_token_hash TEXT;')
+  await pool.query(
+    'ALTER TABLE users ADD COLUMN IF NOT EXISTS reset_token_expires_at TIMESTAMPTZ;',
+  )
   await pool.query(`
     CREATE TABLE IF NOT EXISTS rosters (
       id TEXT PRIMARY KEY,
@@ -93,10 +112,44 @@ export const store = {
 
   async createUser(user) {
     await pool.query(
-      'INSERT INTO users (id, username, password_hash, created_at) VALUES ($1, $2, $3, $4)',
-      [user.id, user.username, user.passwordHash, user.createdAt],
+      'INSERT INTO users (id, username, email, password_hash, created_at) VALUES ($1, $2, $3, $4, $5)',
+      [user.id, user.username, user.email, user.passwordHash, user.createdAt],
     )
     return user
+  },
+
+  async findUserByEmail(email) {
+    const { rows } = await pool.query('SELECT * FROM users WHERE lower(email) = lower($1)', [
+      email.trim(),
+    ])
+    return rows[0] ? mapUser(rows[0]) : undefined
+  },
+
+  // Called on a successful "olvidé mi contraseña" request. `tokenHash` is a sha256 of the
+  // raw token that only ever leaves the server in the email link — the DB never holds a
+  // usable token, same reasoning as password hashing.
+  async setResetToken(userId, tokenHash, expiresAt) {
+    await pool.query(
+      'UPDATE users SET reset_token_hash = $2, reset_token_expires_at = $3 WHERE id = $1',
+      [userId, tokenHash, expiresAt],
+    )
+  },
+
+  async findUserByResetTokenHash(tokenHash) {
+    const { rows } = await pool.query(
+      'SELECT * FROM users WHERE reset_token_hash = $1 AND reset_token_expires_at > now()',
+      [tokenHash],
+    )
+    return rows[0] ? mapUser(rows[0]) : undefined
+  },
+
+  // Sets the new password and, in the same statement, burns the reset token so it can't be
+  // replayed — a used or abandoned reset link never works twice.
+  async updatePassword(userId, passwordHash) {
+    await pool.query(
+      'UPDATE users SET password_hash = $2, reset_token_hash = NULL, reset_token_expires_at = NULL WHERE id = $1',
+      [userId, passwordHash],
+    )
   },
 
   async listRostersByUser(userId) {

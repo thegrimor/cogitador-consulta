@@ -22,6 +22,8 @@ import { MissionSecondaryDetailPage } from '@/pages/MissionSecondaryDetailPage'
 import { MissionMatcherPage } from '@/pages/MissionMatcherPage'
 import { MathhammerPage } from '@/pages/MathhammerPage'
 import { LoginPage } from '@/pages/LoginPage'
+import { ForgotPasswordPage } from '@/pages/ForgotPasswordPage'
+import { ResetPasswordPage } from '@/pages/ResetPasswordPage'
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,8 @@ const router = createBrowserRouter([
       },
       { path: 'mathhammer', element: <MathhammerPage /> },
       { path: 'login', element: <LoginPage /> },
+      { path: 'forgot-password', element: <ForgotPasswordPage /> },
+      { path: 'reset-password', element: <ResetPasswordPage /> },
     ],
   },
 ])
