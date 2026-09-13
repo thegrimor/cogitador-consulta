@@ -58,12 +58,57 @@
           "id": "marks-of-chaos",
           "name": "Marks of Chaos",
           "description": "When mustering your army, when you select a <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> unit to include in your army, if that unit is not an EPIC HERO and does not already have one of the following keywords, you must select one for that unit and note it on your Army Roster: KHORNE. TZEENTCH, NURGLE, SLAANESH, CHAOS UNDIVIDED. Each time a unit with one of these keywords gains a weapon ability as the result of a Dark Pact and does not fail the resulting Leadership test, until the end of the phase, that unit gains the associated ability below.<br><br><span class=\"hi_custom\">UNITS THAT GAINED [LETHAL HITS]</span><br><ul><li><span class=\"kwb\">KHORNE:</span> Each time a model in this unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.</li><li><span class=\"kwb\">TZEENTCH:</span> Each time a model in this unit makes a ranged attack, an unmodified Hit roll of 5+ scores a Critical Hit.</li><li><span class=\"kwb\">CHAOS</span> <span class=\"kwb\">UNDIVIDED:</span> Each time a model in this unit makes an attack, re-roll a Hit  roll of 1.</li></ul><br><span class=\"hi_custom\">UNITS THAT GAINED [SUSTAINED HITS 1]</span><br><ul><li><span class=\"kwb\">NURGLE:</span> Each time a model in this unit makes a ranged attack, an unmodified Hit roll of 5+ scores a Critical Hit.</li><li><span class=\"kwb\">SLAANESH:</span> Each time a model in this unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.</li><li><span class=\"kwb\">CHAOS</span> <span class=\"kwb\">UNDIVIDED:</span> Each time a model in this unit makes an attack, re-roll a Hit roll of 1.</li></ul><br><span class=\"hi_custom\">RESTRICTIONS</span><br><ul><li>You cannot select the <span class=\"kwb\">KHORNE</span> keyword for a Psyker unit.</li><li>A Character/Epic Hero unit can only be attached to a unit if both units share the same keyword from the list above.</li><li>A unit can only embark within (or start the battle embarked within) a <span class=\"kwb\">TRANSPORT</span> if both of those units share the same keyword from the list above.</li></ul>",
-          "effect": {
-            "effects": {
-              "critThreshold": 5,
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Khorne",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "khorne"
+              }
+            },
+            {
+              "name": "Tzeentch",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "tzeentch"
+              }
+            },
+            {
+              "name": "Nurgle",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "nurgle"
+              }
+            },
+            {
+              "name": "Slaanesh",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "slaanesh"
+              }
+            },
+            {
+              "name": "Chaos Undivided",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "chaos undivided"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -147,7 +192,9 @@
           "effect": {
             "effects": {
               "woundMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ]
@@ -182,12 +229,28 @@
           "id": "debt-to-the-soul-forge",
           "name": "Debt to the Soul Forge",
           "description": "Each time a HERETIC ASTARTES DAEMON VEHICLE unit from your army makes a Dark Pact, it can invoke its contract. If it does, subtract 1 from the resulting Leadership test when making that Dark Pact, and until the end of the phase:<br><ul><li>Each time a model in that unit makes a ranged attack, add 1 to the Wound roll. </li><li>Add 2 to the Attacks characteristic of melee weapons equipped by models in that unit.</li></ul>",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Disparo (+1 Wound)",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "vehicle"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Cuerpo a cuerpo (+2 A)",
+              "effect": {
+                "effects": {
+                  "attacksMod": 2
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ]
     },
@@ -258,12 +321,29 @@
           "id": "empyric-wellspring",
           "name": "Empyric Wellspring",
           "description": "In your Shooting phase, when a friendly <span class=\"kwb\">HERETIC ASTARTES PSYKER</span> unit (excluding <span class=\"kwb\">DAEMON</span> units) is selected to shoot, if that unit makes a Dark Pact, that unit’s ranged attacks have +1 S.<br><br>In the Fight phase, when a friendly <span class=\"kwb\">HERETIC ASTARTES DAEMON PRINCE</span>/<span class=\"kwb\">DAEMON PRINCE WITH WINGS</span> unit (excluding <span class=\"kwb\">KHORNE</span> units) is selected to fight, if that unit makes a Dark Pact, that unit’s melee attacks have:<br><ul><li>+2 S.</li><li>+1 AP.</li></ul>",
-          "effect": {
-            "effects": {
-              "apMod": 1
+          "options": [
+            {
+              "name": "Psyker (disparo, +1 S)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "psyker"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Daemon Prince (cc, +2 S/+1 AP)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 2,
+                  "apMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "daemon prince"
+              }
+            }
+          ]
         }
       ]
     },
@@ -282,9 +362,19 @@
             "effects": {
               "hitMod": 1,
               "woundMod": 1
-            },
-            "target": "defender"
-          }
+            }
+          },
+          "options": [
+            {
+              "name": "Defensiva (vs atacante aturdido)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "target": "defender"
+              }
+            }
+          ]
         }
       ]
     },
@@ -302,7 +392,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "infantry"
           }
         }
       ]
@@ -393,8 +484,20 @@
             "effects": {
               "hitMod": -1
             },
-            "target": "defender"
-          }
+            "target": "defender",
+            "requiresAttackerKeyword": "fly"
+          },
+          "options": [
+            {
+              "name": "Ofensiva (reroll 1s)",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "fly"
+              }
+            }
+          ]
         }
       ]
     }
@@ -515,7 +618,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One DAMNED unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Your unit can make a Desperate Pact. If it does, your unit suffers D3 mortal wounds (in  addition to any suffered for failing the resulting Leadership test), and until the end of the phase, add 1 to the Attacks characteristic of the melee weapons equipped by models in your unit, and if your unit did not fail the resulting Leadership test when making that Desperate Pact, until the end of the  phase, improve the Strength characteristic of those  weapons by 1 as well.",
       "effect": {
         "effects": {
-          "strengthMod": 1
+          "strengthMod": 1,
+          "attacksMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -625,7 +729,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -641,9 +746,34 @@
         "effects": {
           "rerollAllWounds": true
         },
+        "requiresTargetKeyword": "character",
         "isStratagem": true,
         "cpCost": 2
-      }
+      },
+      "options": [
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 2
+          }
+        },
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 2
+          }
+        }
+      ]
     },
     {
       "id": "balefire-boon",
@@ -713,7 +843,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If the target is Below Half-strength, you can re-roll the Wound roll as well.",
       "effect": {
         "effects": {
-          "rerollAllWounds": true
+          "rerollAllWounds": true,
+          "rerollAllHits": true
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -858,7 +989,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> unit from your army that was selected as the target of one or more attacks this phase and has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Hit roll, and if your unit is Below Half-strength you can re-roll the Wound roll as well.",
       "effect": {
         "effects": {
-          "rerollAllWounds": true
+          "rerollAllWounds": true,
+          "rerollAllHits": true
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -943,12 +1075,36 @@
       "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Damned unit from your army.<br><br><b>EFFECT:</b> Select one of the following effects:<br><ul><li>Improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1.</li><li>Improve the Attacks characteristic of Rapid Fire weapons equipped by models in this unit by 1.</li><li>Improve the Save characteristic of models in this unit by 1.</li></ul>Until the start of your next turn, your unit has the benefit of that effect.",
       "effect": {
         "effects": {
-          "saveMod": 1
+          "bsMod": -1
         },
-        "target": "defender",
+        "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "+1 Attacks (Rapid Fire)",
+          "effect": {
+            "effects": {
+              "attacksMod": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "+1 Save",
+          "effect": {
+            "effects": {
+              "saveMod": 1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "seize-the-prize",
@@ -1281,11 +1437,23 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has just been selected to shoot or fight.<br><br><b>EFFECT:</b> Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "lethalHitsBonus": true
         },
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "reavers-reaction",
@@ -1501,7 +1669,6 @@
         "effects": {
           "damageReduction": 1
         },
-        "combatType": "melee",
         "target": "defender",
         "isStratagem": true,
         "cpCost": 2
@@ -1552,7 +1719,6 @@
           "sustainedHitsBonus": 1
         },
         "combatType": "ranged",
-        "requiresAttackerKeyword": "obliterators",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -1582,7 +1748,6 @@
         },
         "combatType": "ranged",
         "target": "defender",
-        "requiresAttackerKeyword": "obliterators",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -1657,9 +1822,8 @@
       "description": "Chaos Lord model only. Models in the bearer’s unit have the Stealth ability.<br><br>While the bearer’s unit is within range of one or more objective markers you control, that unit can only be selected as the target of a ranged attack if the attacking model is within 18\".",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1744,7 +1908,8 @@
         "effects": {
           "feelNoPainThreshold": 6
         },
-        "target": "defender"
+        "target": "defender",
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -1798,9 +1963,8 @@
       "description": "CHAOS LORD model only (excluding TERMINATOR models). Models in the bearer’s unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1925,9 +2089,21 @@
         "effects": {
           "woundCritThreshold": 4
         },
-        "requiresTargetKeyword": "fortification",
+        "requiresTargetKeyword": "vehicle",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "Anti-Fortification 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "requiresTargetKeyword": "fortification",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "invigorated-mechatendrils",
@@ -1975,9 +2151,8 @@
       "description": "HERETIC ASTARTES INFANTRY model only. The bearer has the Stealth and Lone Operative abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -2075,8 +2250,7 @@
         "effects": {
           "woundMod": 1
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "psyker"
+        "combatType": "melee"
       }
     },
     {
@@ -4949,8 +5123,7 @@
           "effect": {
             "effects": {
               "apMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ],
@@ -5263,12 +5436,7 @@
           "id": "warpsmith",
           "name": "Warpsmith",
           "description": "While this model is within 3\" of one or more friendly Heretic Astartes Vehicle units, this model has the Lone Operative ability.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "master-of-mechanisms",
@@ -8306,7 +8474,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
@@ -8825,7 +8994,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry"
           }
         }
       ],
@@ -11591,7 +11761,7 @@
             "effects": {
               "rerollWoundsOf1": true
             },
-            "combatType": "ranged"
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -12077,8 +12247,7 @@
           "effect": {
             "effects": {
               "attacksMod": 1
-            },
-            "combatType": "melee"
+            }
           }
         }
       ],
@@ -12257,7 +12426,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ],
@@ -13843,12 +14014,28 @@
           "name": "Annihilator",
           "description": "Each time a ranged attack made by this model is allocated to a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> model, you can re-roll the Damage roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllDamage": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -14691,7 +14878,8 @@
             "effects": {
               "strengthMod": 2
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
