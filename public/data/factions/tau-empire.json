@@ -473,24 +473,27 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One T’au Empire Battlesuit unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit that contains 6 or more models, that attack has the [SUSTAINED HITS 1] ability. If that attack targets an enemy unit that contains 11 or more models, it has the [SUSTAINED HITS 2] ability instead.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
-        },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      },
       "options": [
         {
-          "name": "vs unidad con 11+ modelos",
+          "name": "Sustained Hits 1 (objetivo 6+ modelos)",
           "effect": {
-            "effects": {
-              "sustainedHitsBonus": 2
-            },
             "combatType": "ranged",
             "isStratagem": true,
-            "cpCost": 1
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
+        },
+        {
+          "name": "Sustained Hits 2 (objetivo 11+ modelos)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 2
+            }
           }
         }
       ]
@@ -660,13 +663,7 @@
       "cost": 20,
       "detachmentId": "kauyon",
       "detachmentName": "Kauyon",
-      "description": "<span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> model only (excluding Kroot Shaper models). While the bearer is leading a unit, the Patient Hunter Detachment rule applies to that unit from the second battle round onwards instead of from the third.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
-        },
-        "combatType": "ranged"
-      }
+      "description": "<span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> model only (excluding Kroot Shaper models). While the bearer is leading a unit, the Patient Hunter Detachment rule applies to that unit from the second battle round onwards instead of from the third."
     },
     {
       "id": "thermoneutronic-projector",
@@ -8522,12 +8519,26 @@
           "name": "Fireknife",
           "description": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If that attack targets a unit that is at its Starting Strength, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Hit completo (objetivo a Starting Strength)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "weapon-support-system",
@@ -9296,12 +9307,26 @@
           "name": "Rites of Feasting",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 6+ ability. If that unit destroys one or more enemy units in the Fight phase, until the end of the battle, models in that unit have the Feel No Pain 5+ ability instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 6
+          "options": [
+            {
+              "name": "FNP 6+",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 6
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "FNP 5+ (tras destruir enemigo en Fight phase)",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 5
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [

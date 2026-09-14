@@ -476,14 +476,30 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Agents of the Imperium unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">CHARACTER</span> unit, re-roll a Wound roll of 1. If that attack is made by an Officio Assassinorum model and it targets the enemy <span class=\"kwb\">WARLORD</span>, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "requiresTargetKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "requiresTargetKeyword": "character",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Officio Assassinorum vs Warlord)",
+          "effect": {
+            "requiresTargetKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "hyperstimms",
@@ -2733,11 +2749,24 @@
           "name": "Breaching Team",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "gheistskull",
@@ -5255,11 +5284,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "astartes-shield",
@@ -7323,11 +7365,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "kill-team",

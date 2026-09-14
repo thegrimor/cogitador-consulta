@@ -369,14 +369,30 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">NECRONS</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a unit within half range, re-roll a Hit roll of 1. If a NECRONS CHARACTER is leading your unit, until the end of the phase, you can re-roll the Hit roll for that attack instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit completo (Necrons Character liderando)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "protocol-of-the-eternal-revenant",
@@ -1190,11 +1206,24 @@
       "detachmentId": "hypercrypt-legion",
       "detachmentName": "Hypercrypt Legion",
       "description": "<span class=\"kwb\">NECRONS</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. If the bearer’s unit was set up on the battlefield this turn, you can re-roll the Hit roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Hit completo (unidad desplegada este turno)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
         }
-      }
+      ]
     },
     {
       "id": "quantum-goad",
@@ -2665,11 +2694,24 @@
           "name": "Implacable Eradication",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -6773,12 +6815,26 @@
           "name": "Whirling Onslaught",
           "description": "Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1. If this unit made a Charge move this turn, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Hit completo (hizo Carga este turno)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -9162,12 +9218,26 @@
           "name": "Hard-wired for Destruction",
           "description": "Each time a model in this unit makes a ranged attack that targets the closest eligible enemy unit, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker your opponent controls, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Hit completo (objetivo cerca de marcador enemigo)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [

@@ -351,13 +351,28 @@
           "id": "a-noble-death-in-combat",
           "name": "A Noble Death in Combat",
           "description": "Each time a Death Company model from your army makes a melee attack, re-roll a Wound roll of 1 if that model’s unit is below its Starting Strength; if that model’s unit is Below Half-strength, you can re-roll the Wound roll instead.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>If you select this Detachment, Death Company Marines and Death Company Marines with Bolt Rifles units from your army have the <span class=\"kwb\">BATTLELINE</span> keyword.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "requiresAttackerKeyword": "death company",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee",
-            "requiresAttackerKeyword": "death company"
-          }
+            {
+              "name": "Reroll Wound completo (Below Half-strength)",
+              "effect": {
+                "combatType": "melee",
+                "requiresAttackerKeyword": "death company",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -1833,14 +1848,42 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Select either the [SUSTAINED HITS 1] or [LETHAL HITS] abilities. Until the end of the phase, ranged weapons equipped by models in your unit have the selected ability. If your unit is <span class=\"kwb\">ENTRENCHED</span>, until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] and [LETHAL HITS] abilities instead.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
+        },
+        {
+          "name": "Ambos (unidad Entrenched)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1,
+              "lethalHitsBonus": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "priority-strike",
@@ -2416,14 +2459,30 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, if it disembarked from a Transport this turn, re-roll a Wound roll of 1. If that <span class=\"kwb\">TRANSPORT</span> has the Land Raider keyword, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Transport con keyword Land Raider)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "blessed-hull",
@@ -2603,15 +2662,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Tank Ace unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, re-roll a Wound roll of 1. If the target unit is below its Starting Strength, you can re-roll the Wound roll instead.<br><br><b>RESTRICTIONS:</b> A unit cannot be targeted with this and the Target Weak Point Stratagem in the same phase.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "Reroll Wound completo (objetivo Below Starting Strength)",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "machine-vengeance",
@@ -2717,14 +2793,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Deathwing Infantry unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If your unit is within range of your Vowed objective marker, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (cerca de objetivo Vowed)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "duty-unto-death",
@@ -3864,14 +3956,42 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [LANCE] or [LETHAL HITS] ability. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. If it is a <span class=\"kwb\">MOUNTED</span> unit, until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities instead.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lance",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "hitMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
+        },
+        {
+          "name": "Ambos (unidad Mounted)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "hitMod": 1,
+              "lethalHitsBonus": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "armour-of-contempt-space-marines-22",
@@ -5151,15 +5271,32 @@
       "detachmentId": "black-spear-task-force",
       "detachmentName": "Black Spear Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Improve the Strength, Damage and Armour Penetration characteristics of the bearer’s melee weapons by 1. At the end of the Fight phase, if one or more enemy models were destroyed as a result of a melee attack made by the bearer this phase, until the end of the battle, improve the Strength, Damage and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "damageMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1S/+1D/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1,
+              "damageMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Tras destruir enemigo este Fight phase (+2/+2/+2)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2,
+              "damageMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "incendiary-animus",
@@ -5300,14 +5437,30 @@
       "detachmentId": "stormlance-task-force",
       "detachmentName": "Stormlance Task Force",
       "description": "ADEPTUS ASTARTES MOUNTED model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer ends a Charge move, until the end of the turn, improve the Strength and Armour Penetration characteristics of the bearers melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1S/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Tras cargar (+2S/+2AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "target-augury-web",
@@ -5423,14 +5576,30 @@
       "detachmentId": "spearpoint-task-force",
       "detachmentName": "Spearpoint Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer ends a Charge move, until the end of the turn, improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1S/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Tras cargar (+2S/+2AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "prescient-flash",
@@ -5582,14 +5751,30 @@
       "detachmentId": "gladius-task-force",
       "detachmentName": "Gladius Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearers melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1A/+1S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "En Assault Doctrine (+2A/+2S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "stubborn-tenacity",
@@ -5885,14 +6070,30 @@
       "detachmentId": "blade-of-ultramar",
       "detachmentName": "Blade of Ultramar",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1A/+1S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "En Assault Doctrine (+2A/+2S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "master-of-the-red-thirst",
@@ -6007,15 +6208,32 @@
       "detachmentId": "unforgiven-task-force",
       "detachmentName": "Unforgiven Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is Battle-shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer s melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1,
-          "damageMod": 1
+      "options": [
+        {
+          "name": "Base (+1/+1/+1)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1,
+              "damageMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Battle-shocked (+2/+2/+2)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2,
+              "damageMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "forged-in-battle-space-marines",
@@ -6299,13 +6517,28 @@
       "detachmentId": "saga-of-the-bold",
       "detachmentName": "Saga of the Bold",
       "description": "Space Wolves model only. At the start of the Fight phase, if there are more enemy models than friendly models wholly within 6\" of the bearer, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer. If the bearer’s unit has achieved one or more Boasts, add 3 to the Attacks characteristic instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 2
+      "options": [
+        {
+          "name": "Ataques +2",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Ataques +3 (con Boasts logrados)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 3
+            }
+          }
+        }
+      ]
     },
     {
       "id": "elders-guidance",
@@ -6626,12 +6859,26 @@
       "detachmentId": "unforgiven-task-force",
       "detachmentName": "Unforgiven Task Force",
       "description": "Ancient model only. While the bearer is leading a unit, models in that unit have the Feel No Pain 6+ ability. While that unit is Battle-shocked, models in that unit have the Feel No Pain 4+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
+      "options": [
+        {
+          "name": "FNP 6+",
+          "effect": {
+            "target": "defender",
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
         },
-        "target": "defender"
-      }
+        {
+          "name": "FNP 4+ (Battle-shocked)",
+          "effect": {
+            "target": "defender",
+            "effects": {
+              "feelNoPainThreshold": 4
+            }
+          }
+        }
+      ]
     },
     {
       "id": "defensive-mastery",
@@ -31028,11 +31275,24 @@
           "name": "Cunning Hunters",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -39554,12 +39814,26 @@
           "name": "Decimator Protocols",
           "description": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -40898,12 +41172,26 @@
           "name": "Shock Assault",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -61557,11 +61845,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "astartes-shield",
@@ -76920,11 +77221,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "astartes-shield",

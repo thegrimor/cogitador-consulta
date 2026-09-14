@@ -370,14 +370,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Genestealer Cults unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit, re-roll a Wound roll of 1. If one or more friendly Tyranids units are within 6\" of that enemy unit, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Tyranids cerca)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "avenge-the-star-children",
@@ -1761,12 +1777,26 @@
           "name": "Nexus of Devotion",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Hybrid Metamorphs keyword, models in that unit have the Feel No Pain 4+ ability instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
+          "options": [
+            {
+              "name": "FNP 5+",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 5
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "FNP 4+ (unidad Hybrid Metamorphs)",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "summon-the-cult",
@@ -13121,12 +13151,26 @@
           "name": "Covering Fire",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or on unmodified Hit rolls of 4+ instead if this unit is within 6\" of one or more friendly Platoon units.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Overwatch 5+",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 5
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Overwatch 4+ (cerca de Platoon)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "embarking",
@@ -15905,11 +15949,24 @@
           "name": "Armoured Spearhead",
           "description": "Each time this model makes an attack that targets an enemy unit, re-roll a Hit roll of 1 and, if that unit is within range of an objective marker you do not control, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo cerca de marcador no controlado)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "one-shot",

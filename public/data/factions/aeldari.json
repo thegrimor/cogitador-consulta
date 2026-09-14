@@ -484,14 +484,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> The Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">AELDARI</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If your unit has the Anhrathe keyword, then until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of an objective marker, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Anhrathe, cerca de objetivo)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "into-the-breach",
@@ -561,14 +577,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, just after a Ynnari Infantry unit from your army has selected its targets.<br><br><b>TARGET:</b> That <span class=\"kwb\">YNNARI</span> <span class=\"kwb\">INFANTRY</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1. If your unit is below its Starting Strength, you can re-roll the Hit roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit completo (Below Starting Strength)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "soulsight-aeldari",
@@ -1666,20 +1698,23 @@
       "detachmentId": "guardian-battlehost",
       "detachmentName": "Guardian Battlehost",
       "description": "Asuryani model only. While the bearer is leading a Dire Avengers or Guardians unit, once per battle round, you can target the bearer’s unit with the Fire Overwatch Stratagem for 0CP, and while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or unmodified Hit rolls of 4+ instead if the bearer’s unit is within range of an objective marker you control.",
-      "effect": {
-        "effects": {
-          "overwatchThreshold": 5
-        },
-        "combatType": "ranged"
-      },
       "options": [
         {
-          "name": "Cerca de un marcador de objetivo (4+)",
+          "name": "Overwatch 5+",
           "effect": {
+            "combatType": "ranged",
+            "effects": {
+              "overwatchThreshold": 5
+            }
+          }
+        },
+        {
+          "name": "Overwatch 4+ (cerca de objetivo)",
+          "effect": {
+            "combatType": "ranged",
             "effects": {
               "overwatchThreshold": 4
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ]
@@ -5273,12 +5308,26 @@
           "name": "Swift Demise",
           "description": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If the target of that attack is the closest eligible target, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Hit completo (objetivo más cercano)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -10626,11 +10675,24 @@
           "name": "Reavers of the Void",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "mistshield",
@@ -14055,12 +14117,26 @@
           "name": "Structural Collapse",
           "description": "Each time this model makes an attack with its D-cannon, re-roll a Damage roll of 1. If that attack targets a <span class=\"kwb\">TITANIC</span> unit, you can re-roll the Damage roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollDamageOf1": true
+          "options": [
+            {
+              "name": "Reroll Daño de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollDamageOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Daño completo (vs Titanic)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllDamage": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "support-artillery",
@@ -14763,11 +14839,24 @@
           "name": "Overlord",
           "description": "While this model is leading a unit, each time a model in that unit makes an attack, re-roll a Wound roll of 1. While that unit is below its Starting Strength, each time a model in that unit makes an attack, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (Below Starting Strength)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "reborn-mastermind",

@@ -46,8 +46,7 @@
           "description": "At the start of the battle, Drukhari units from your army are winning the wager.<br><br>Each time a <span class=\"kwb\">DRUKHARI</span> unit from your army destroys an enemy unit, <span class=\"kwb\">DRUKHARI</span> units from your army are winning the wager.<br><br>Each time a Harlequins unit from your army destroys an enemy unit, <span class=\"kwb\">HARLEQUIN</span> units from your army are winning the wager.<br><br>While <span class=\"kwb\">DRUKHARI</span> units from your army are winning the wager, <span class=\"kwb\">HARLEQUIN</span> units from your army are losing the wager, and vice versa.<br><br>Each time a <span class=\"kwb\">DRUKHARI</span> or <span class=\"kwb\">HARLEQUINS</span> model from your army makes an attack, if that model’s unit is winning the wager, re-roll a Hit roll of 1. If that model’s unit is losing the wager, re-roll a Hit roll of 1 and re-roll a Wound roll of 1 instead.<br><br><span class=\"hi_custom\">HARLEQUINS</span><br>You can include Harlequins units in your army (see Codex: Aeldari). The combined points cost of such units depends on your battle size:<br><ul><li><b>Incursion:</b> Up to 500 pts</li><li><b>Strike Force:</b> Up to 1000 pts</li><li><b>Onslaught:</b> Up to 1500 pts</li></ul><br>No <span class=\"kwb\">HARLEQUINS</span> models from your army can be your <span class=\"kwb\">WARLORD</span>. If you select this Detachment, you cannot use the Corsairs and Travelling Players army rule.",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+              "rerollHitsOf1": true
             }
           }
         }
@@ -1049,14 +1048,30 @@
       "detachmentId": "realspace-raiders",
       "detachmentName": "Realspace Raiders",
       "description": "Succubus model only. Improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer’s unit is selected to fight, you can spend 1 Pain token; if you do, until the end of the phase, improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1A/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Gastar Pain token (+2A/+2AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "master-artisan",
@@ -2304,11 +2319,24 @@
           "name": "Sadistic Raiders (Pain)",
           "description": "In your Shooting phase or the Fight phase, when you select this unit to shoot or fight, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "cruel-enforcers",
@@ -8207,11 +8235,24 @@
           "name": "Reavers of the Void",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "mistshield",

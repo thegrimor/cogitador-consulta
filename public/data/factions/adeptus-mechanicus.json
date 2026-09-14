@@ -472,36 +472,39 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Skitarii unit from your army that has not been selected to shoot this phase. <br><br><b>EFFECT:</b> Select the [SUSTAINED HITS 1] or [LETHAL HITS] ability. Until the end of the phase, ranged weapons equipped by models in your unit have the selected ability. You can instead select the <span class=\"kwb\">[SUSTAINED</span> <span class=\"kwb\">HITS</span> <span class=\"kwb\">1]</span>, <span class=\"kwb\">[LETHAL</span> <span class=\"kwb\">HITS]</span> and [HAZARDOUS] abilities to apply to those weapons until the end of the phase.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
-        },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      },
       "options": [
         {
-          "name": "Elegir Lethal Hits en vez de Sustained Hits",
+          "name": "Sustained Hits 1",
           "effect": {
-            "effects": {
-              "lethalHitsBonus": true
-            },
             "combatType": "ranged",
             "isStratagem": true,
-            "cpCost": 1
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
           }
         },
         {
-          "name": "Sustained Hits 1 + Lethal Hits",
+          "name": "Lethal Hits",
           "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
+        },
+        {
+          "name": "Ambos (Hazardous no modelado)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
             "effects": {
               "sustainedHitsBonus": 1,
               "lethalHitsBonus": true
-            },
-            "combatType": "ranged",
-            "isStratagem": true,
-            "cpCost": 1
+            }
           }
         }
       ]
@@ -1808,21 +1811,23 @@
           "name": "Lord of the Machine Cult",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Electro-Priests keyword, models in that unit have the Feel No Pain 4+ ability instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          },
           "options": [
             {
-              "name": "Unidad ELECTRO-PRIESTS (FNP 4+)",
+              "name": "FNP 5+",
               "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 5
+                }
+              }
+            },
+            {
+              "name": "FNP 4+ (unidad Electro-Priests)",
+              "effect": {
+                "target": "defender",
                 "effects": {
                   "feelNoPainThreshold": 4
-                },
-                "target": "defender",
-                "requiresTargetKeyword": "electro-priests"
+                }
               }
             }
           ]
@@ -2249,11 +2254,24 @@
           "name": "Breaching Command",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. While this unit is within 6\" of one or more friendly Adeptus Mechanicus Battleline units, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de Battleline AdMech)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -5952,12 +5970,26 @@
           "name": "Searing Conflagration",
           "description": "Each time a model in this unit makes an attack with a phosphor torch that targets an enemy unit within range of an objective marker, re-roll a Wound roll of 1. If this unit is also within 6\" of one or more friendly ADEPTUS MECHANICUS BATTLELINE units, each time such an attack targets such a unit, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de Battleline AdMech)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [

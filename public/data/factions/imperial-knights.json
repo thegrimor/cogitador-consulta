@@ -6917,12 +6917,26 @@
           "name": "Lord of the Machine Cult",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Electro-Priests keyword, models in that unit have the Feel No Pain 4+ ability instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
+          "options": [
+            {
+              "name": "FNP 5+",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 5
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "FNP 4+ (unidad Electro-Priests)",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "data-spike",

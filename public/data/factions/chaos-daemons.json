@@ -477,30 +477,26 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Legiones Daemonica Tzeentch unit from your army that has not been selected to shoot or fight that phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 2 to the Strength characteristic of weapons equipped by models in your unit, or spend one Flux token and add 3 to the Strength characteristic of those weapons and improve the Armour Penetration characteristic of those weapons by 1 instead.",
-      "effect": {
-        "isStratagem": true,
-        "cpCost": 1
-      },
       "options": [
         {
-          "name": "Sin Flux token",
+          "name": "Fuerza +2",
           "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
             "effects": {
               "strengthMod": 2
-            },
-            "isStratagem": true,
-            "cpCost": 1
+            }
           }
         },
         {
-          "name": "Con Flux token",
+          "name": "Fuerza +3, AP +1 (gastar Flux)",
           "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
             "effects": {
               "strengthMod": 3,
               "apMod": 1
-            },
-            "isStratagem": true,
-            "cpCost": 1
+            }
           }
         }
       ]
@@ -834,14 +830,30 @@
       "detachmentId": "daemonic-incursion",
       "detachmentName": "Daemonic Incursion",
       "description": "Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1/+1)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "En Shadow of Chaos (+2/+2)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "soulstealer",
@@ -978,13 +990,28 @@
       "detachmentId": "daemonic-incursion",
       "detachmentName": "Daemonic Incursion",
       "description": "Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3\". While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6\" instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "combatType": "ranged",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "bearerOnly": true
-      }
+        {
+          "name": "Fuerza +2 (en Shadow of Chaos)",
+          "effect": {
+            "combatType": "ranged",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "soul-glutton",
@@ -5201,11 +5228,24 @@
           "name": "Tranceweaver",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "symphony-of-pain-psychic",
@@ -13968,12 +14008,26 @@
           "name": "Veterans of the Long War",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "chaos-icon",

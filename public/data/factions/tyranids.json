@@ -288,14 +288,30 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Harvester unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 5+ ability. If your unit is within range of an objective marker you control, until the end of the phase models in your unit have the Feel No Pain 4+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
+      "options": [
+        {
+          "name": "FNP 5+",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 2,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 2
-      }
+        {
+          "name": "FNP 4+ (cerca de objetivo controlado)",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 2,
+            "effects": {
+              "feelNoPainThreshold": 4
+            }
+          }
+        }
+      ]
     },
     {
       "id": "reclaim-biomass",
@@ -437,14 +453,30 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One <span class=\"kwb\">TYRANIDS</span> unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability. If your unit is within Synapse Range of your army, models in your unit have the Feel No Pain 5+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
+      "options": [
+        {
+          "name": "FNP 6+",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "FNP 5+ (dentro de Synapse Range)",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
+        }
+      ]
     },
     {
       "id": "adrenal-surge",
@@ -1264,13 +1296,28 @@
       "detachmentId": "invasion-fleet",
       "detachmentName": "Invasion Fleet",
       "description": "<span class=\"kwb\">TYRANIDS</span> model only. The bearer has the Feel No Pain 5+ ability. At the start of any turn, if the bearer has fewer than its starting number of wounds remaining, until the end of the battle, it has the Feel No Pain 4+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
+      "options": [
+        {
+          "name": "FNP 5+",
+          "effect": {
+            "target": "defender",
+            "bearerOnly": true,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
         },
-        "target": "defender",
-        "bearerOnly": true
-      }
+        {
+          "name": "FNP 4+ (con heridas perdidas)",
+          "effect": {
+            "target": "defender",
+            "bearerOnly": true,
+            "effects": {
+              "feelNoPainThreshold": 4
+            }
+          }
+        }
+      ]
     },
     {
       "id": "adrenalised-onslaught",
@@ -3177,12 +3224,26 @@
           "name": "Defensive Stance",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or unmodified Hit rolls of 4+ instead if this unit is within range of an objective marker.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Overwatch 5+",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 5
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Overwatch 4+ (cerca de objetivo)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 4
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [

@@ -20,11 +20,24 @@
           "id": "hallowed-ground",
           "name": "Hallowed Ground",
           "description": "Certain areas of the battlefield are within your army’s Hallowed Ground, as follows:<br><ul><li>Your deployment zone is always within your army’s Hallowed Ground.</li><li>The area of the battlefield within 6\" of one or more Purifier Squad units from your army is within your army’s Hallowed Ground.</li><li>At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Hallowed Ground.</li><li>At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Hallowed Ground.</li></ul>Each time a model in a <span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> unit from your army makes a ranged attack that targets a visible target or makes a melee attack, re-roll a Hit roll of 1. If that unit is a <span class=\"kwb\">PURIFIER</span> <span class=\"kwb\">SQUAD</span> and/or is wholly within your army’s Hallowed Ground, you can re-roll the Hit roll instead.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (Purifier Squad / en Hallowed Ground)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -583,13 +596,28 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> unit from your army that has not been selected to shoot or fight this phase and that is wholly within your army’s Hallowed Ground.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1, or, re-roll the Wound roll instead if your unit is a Purifier Squad.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (unidad Purifier Squad)",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "hallowed-beacon",
@@ -2810,11 +2838,24 @@
           "name": "Sanctity of Purpose",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [

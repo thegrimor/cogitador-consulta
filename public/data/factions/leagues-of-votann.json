@@ -342,14 +342,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Cthonian Beserks unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 2YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If you spent YP during this use of this Stratagem, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (gastar YP)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "hidden-accessways",
@@ -613,15 +629,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> The Fight phase.<br><br><b>TARGET:</b> One Leagues of Votann Infantry unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. If you spent YP during this usage of this Stratagem, you can re-roll a Hit roll of 1 and re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit y Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "+ Reroll Wound completo (gastar YP)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "privateer-arsenal",
@@ -632,15 +665,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Leagues of Votann Infantry unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. If you spent YP during this usage of this Stratagem, you can re-roll the Hit roll and re-roll a Wound roll of 1 instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit y Wound de 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit completo + Wound de 1 (gastar YP)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true,
+              "rerollWoundsOf1": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "ancestral-sentence",
@@ -651,14 +701,30 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. If you spent YP during this use of this Stratagem, until the end of the phase, those weapons have the [SUSTAINED HITS 2] ability instead.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 2
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 2 (gastar YP)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "honour-of-the-hold",
@@ -669,14 +735,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Select one enemy unit within Engagement Range of your unit. Until the end of the phase, each time a model in your unit makes a melee attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. If you spent YP during this use of this Stratagem, improve the Armour Penetration characteristic of that attack by 2 instead.",
-      "effect": {
-        "effects": {
-          "apMod": 2
+      "options": [
+        {
+          "name": "AP +1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "AP +2 (gastar YP)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "huntrs-mark",
@@ -5109,12 +5191,26 @@
           "name": "Purge Response",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ while resolving that Stratagem. If units from your army have Fortify Takeover, hits are scored on unmodified Hit rolls of 4+ while resolving that Stratagem instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Overwatch 5+",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 5
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Overwatch 4+ (Fortify Takeover)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "preymark-crest",

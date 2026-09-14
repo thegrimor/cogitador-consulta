@@ -349,15 +349,32 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Jakhals or Goremongers unit from your army that was selected as the target as one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability. If your unit is within 6\" of one or more friendly World Eaters Monster units, or within 9\" of one or more friendly World Eaters Titanic units, your unit has the Feel No Pain 5+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
+      "options": [
+        {
+          "name": "FNP 6+",
+          "effect": {
+            "target": "defender",
+            "requiresTargetKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
         },
-        "target": "defender",
-        "requiresTargetKeyword": "jakhals",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "FNP 5+ (cerca de Monster/Titanic World Eaters)",
+          "effect": {
+            "target": "defender",
+            "requiresTargetKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
+        }
+      ]
     },
     {
       "id": "fail-not-the-blood-god",
@@ -368,15 +385,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Jakhals or Goremongers unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1. If that model’s unit is within 6\" of one or more friendly World Eaters Monster units, or within 9\" of one or more friendly World Eaters Titanic units, you can re-roll the Hit roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1",
+          "effect": {
+            "combatType": "melee",
+            "requiresAttackerKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "jakhals",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit completo (cerca de Monster/Titanic World Eaters)",
+          "effect": {
+            "combatType": "melee",
+            "requiresAttackerKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "fury-unleashed",

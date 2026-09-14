@@ -13466,12 +13466,26 @@
           "name": "Veterans of the Long War",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "chaos-icon",
@@ -15695,12 +15709,26 @@
           "name": "Bringers of Change",
           "description": "Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If that attack targets a unit within range of an objective marker you do not control, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Wound completo (objetivo cerca de marcador no controlado)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "icon-of-flame",
