@@ -94,7 +94,8 @@
           "description": "Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
           "effect": {
             "effects": {
-              "strengthMod": 2
+              "strengthMod": 2,
+              "attacksMod": 1
             },
             "combatType": "melee"
           }
@@ -218,7 +219,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender"
           }
         }
       ]
@@ -261,12 +263,24 @@
           "id": "mission-tactics",
           "name": "Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all units from your army with this ability. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FUROR TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MALLEUS TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PURGATUS TACTICS</p><p>While this Mission Tactic is active, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes an attack, if a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span> is scored, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Furor Tactics",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Malleus Tactics",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -302,7 +316,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "deathwing"
           }
         }
       ]
@@ -339,7 +354,9 @@
           "effect": {
             "effects": {
               "rerollWoundsOf1": true
-            }
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "death company"
           }
         }
       ]
@@ -397,7 +414,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "psyker"
           }
         }
       ]
@@ -419,7 +437,8 @@
             "effects": {
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "character"
           }
         }
       ]
@@ -486,7 +505,8 @@
             "effects": {
               "woundMod": -1
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "infantry"
           }
         }
       ]
@@ -506,8 +526,9 @@
           "description": "Each time a model in a Space Wolves unit from your army makes a melee attack that targets an enemy unit, if that enemy unit is within Engagement Range of one or more other Adeptus Astartes units from your army, or if the attacking unit contains more models than that enemy unit:<br><ul><li>Add 1 to the Hit roll.</li><li>If your Saga is completed (see below), add 1 to the Wound roll as well.</li></ul><br><span class=\"hi_custom\">Saga of the Hunter</span><br>At the start of the first battle round, your Quarry tally is 0. Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army fights, after all of those attacks have been resolved, add 1 to your Quarry tally for each enemy unit destroyed by those attacks.<br><br>Once your Quarry tally is equal to or greater than the number shown in the table below (depending on the battle size), your Saga is completed.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(75,98,98);color:rgb(255,255,255);text-align:left;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>BATTLE SIZE</b></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(75,98,98);color:rgb(255,255,255);text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>QUARRY TALLY</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Incursion</td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>2</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Strike Force</td><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>3</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none dotted none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Onslaught</td><td style=\"border-width:1px 1px 1px 1px;border-style:none none dotted none;text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>4</b></td></tr></tbody></table></td></tr></tbody></table></div>",
           "effect": {
             "effects": {
-              "woundMod": 1
-            }
+              "hitMod": 1
+            },
+            "combatType": "melee"
           }
         }
       ]
@@ -620,7 +641,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "melee"
           }
         }
       ]
@@ -662,7 +684,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -765,7 +788,8 @@
           "description": "Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model from your army makes a melee attack, re-roll a Wound roll of 1.<br><br>Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. If your unit is Battle-shocked, add 2 to the Attacks characteristic of melee weapons equipped by models in that unit instead.<br><br><span class=\"hi_custom\">Restrictions</span><br>Your army can include Blood Angels units, but it cannot include <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
           "effect": {
             "effects": {
-              "rerollWoundsOf1": true
+              "rerollWoundsOf1": true,
+              "attacksMod": 1
             },
             "combatType": "melee"
           }
@@ -787,9 +811,7 @@
           "description": "At the start of your Command phase, you can select one of the Hunting Packs listed below. Until the start of your next Command phase, that Hunting Pack is active and its effects apply to all <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army. You can only select each Hunting Pack once per battle.<br><ul><li><b>Encircling Jaws:</b> This unit can re-roll Advance rolls and Charge rolls.</li><li><b>Hunter’s Eye:</b> Each time a model in this unit makes a ranged attack, add 1 to the Hit roll.</li><li><b>Ferocious Strike:</b> Each time this unit is selected to fight, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in this unit have the selected ability.</li></ul>",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+              "hitMod": 1
             }
           }
         },
@@ -876,7 +898,18 @@
               "woundMod": -1
             },
             "target": "defender"
-          }
+          },
+          "options": [
+            {
+              "name": "Ataque cuerpo a cuerpo cerca de objetivo (AP+1)",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1116,7 +1149,8 @@
             "effects": {
               "bsMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "ravenwing"
           }
         }
       ]
@@ -1202,7 +1236,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is Below Half-strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 0
@@ -1373,7 +1407,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -1706,7 +1741,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "hitMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -1724,7 +1760,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "bsMod": -1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -1819,7 +1856,8 @@
           "rerollAllWounds": true
         },
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -1893,13 +1931,22 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Chaplain or Judiciar unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a melee attack that targets an enemy unit, re-roll a Hit roll of 1. If that target is a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, re-roll a Wound roll of 1 as well.",
       "effect": {
         "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+          "rerollHitsOf1": true
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        "combatType": "melee"
+      },
+      "options": [
+        {
+          "name": "vs Monster/Vehicle (Herida de 1)",
+          "effect": {
+            "effects": {
+              "rerollWoundsOf1": true
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "hearts-hardened-to-duty",
@@ -1999,10 +2046,11 @@
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">ADEPTUS ASTARTES</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS ASTARTES</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have [LANCE].",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "melee"
       }
     },
     {
@@ -2054,7 +2102,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and improve the Armour Penetration characteristic of such weapons by 1.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "bsMod": -1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -2082,7 +2131,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below its Starting Strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 0
@@ -2283,7 +2332,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "hitMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -2301,7 +2351,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "bsMod": -1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -2462,9 +2513,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Dreadnought, Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below Starting Strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
-        "combatType": "melee",
         "isStratagem": true,
         "cpCost": 0
       }
@@ -2540,7 +2590,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -2558,7 +2609,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -2733,12 +2785,20 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is below its Starting Strength, that attack has the [SUSTAINED HITS 1] ability, and when making such an attack, if the attacking model is a <span class=\"kwb\">VEHICLE</span>, a successful unmodified Hit roll of 5+ scores a Critical Hit.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1,
-          "critThreshold": 5
-        },
-        "isStratagem": true,
-        "cpCost": 2
-      }
+          "sustainedHitsBonus": 1
+        }
+      },
+      "options": [
+        {
+          "name": "Modelo atacante VEHICLE (Critico a 5+)",
+          "effect": {
+            "effects": {
+              "critThreshold": 5
+            },
+            "requiresAttackerKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "vengeful-animus",
@@ -2807,7 +2867,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [LANCE] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. You can instead choose for your unit to give in to the Red Thirst; if it does, then it becomes Battle-shocked (but the effects of this Stratagem still apply to it) and until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities.",
       "effect": {
         "effects": {
-          "lethalHitsBonus": true
+          "lethalHitsBonus": true,
+          "hitMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -5790,9 +5851,8 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. The bearer has the Stealth and Lone Operative abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -5808,8 +5868,7 @@
         "effects": {
           "rerollAllHits": true
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "judiciar"
+        "combatType": "melee"
       }
     },
     {
@@ -6013,7 +6072,8 @@
         "effects": {
           "apMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "battleline"
       }
     },
     {
@@ -6313,13 +6373,7 @@
       "cost": 30,
       "detachmentId": "black-spear-task-force",
       "detachmentName": "Black Spear Task Force",
-      "description": "Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement. If it does, select a second enemy unit to be an Oath of Moment target.<br><br><b>Designer’s Note:</b> <i>This means that each time a model with the Oath of Moment ability makes an attack that targets either of your Oath of Moment targets, you can re-roll the Hit roll.</i>",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        },
-        "bearerOnly": true
-      }
+      "description": "Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement. If it does, select a second enemy unit to be an Oath of Moment target.<br><br><b>Designer’s Note:</b> <i>This means that each time a model with the Oath of Moment ability makes an attack that targets either of your Oath of Moment targets, you can re-roll the Hit roll.</i>"
     },
     {
       "id": "shadow-war-veteran",
@@ -6378,10 +6432,9 @@
       "description": "Adeptus Astartes Psyker model only. This unit’s ranged attacks have:<br><ul><li>[LETHAL HITS].</li><li>If this unit has the Pyromancy Discipline ability, [SUSTAINED HITS 1].</li></ul>",
       "effect": {
         "effects": {
-          "woundCritThreshold": 5
+          "lethalHitsBonus": true
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "vehicle"
+        "combatType": "ranged"
       }
     },
     {
@@ -6616,9 +6669,8 @@
       "description": "<span class=\"kwb\">PHOBOS</span> model only. This model has the Lone Operative and Stealth abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -8125,8 +8177,7 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ],
@@ -11688,7 +11739,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
@@ -13325,7 +13377,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender",
+            "combatType": "ranged"
           }
         },
         {
@@ -13636,9 +13690,11 @@
           "effect": {
             "effects": {
               "rerollAllHits": true,
-              "rerollAllWounds": true
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -15466,7 +15522,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "infantry"
           }
         }
       ],
@@ -22785,9 +22842,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "apMod": 1
+              "feelNoPainThreshold": 5
             },
-            "combatType": "melee"
+            "target": "defender"
           }
         },
         {
@@ -26247,8 +26304,7 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
@@ -29023,7 +29079,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "blood claws"
           }
         },
         {
@@ -31215,13 +31272,7 @@
           "id": "iron-priest",
           "name": "Iron Priest",
           "description": "While this model is within 3\" of one or more friendly Adeptus Astartes Vehicle units, this model has the Lone Operative ability.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
-            },
-            "combatType": "melee"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "gift-of-the-iron-wolf",
@@ -32341,7 +32392,8 @@
               "rerollAllHits": true,
               "rerollAllWounds": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -41463,7 +41515,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         }
@@ -41828,7 +41879,9 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 2
-            }
+            },
+            "requiresTargetKeyword": "infantry",
+            "combatType": "ranged"
           }
         }
       ],
@@ -42540,7 +42593,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -48188,7 +48243,7 @@
               "apMod": 2,
               "damageMod": 2
             },
-            "combatType": "melee"
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -50335,8 +50390,7 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ],
@@ -51490,9 +51544,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true,
+              "rerollDamageOf1": true
             },
             "combatType": "ranged"
           }
@@ -51799,7 +51853,8 @@
           "effect": {
             "effects": {
               "attacksMod": 1
-            }
+            },
+            "combatType": "melee"
           }
         }
       ],
@@ -53268,9 +53323,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1,
-              "attacksMod": 1
+              "hitMod": 1
             }
           }
         },
@@ -54005,7 +54058,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry"
           }
         },
         {
@@ -62306,9 +62360,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true,
+              "rerollDamageOf1": true
             },
             "combatType": "ranged"
           }
@@ -62658,7 +62712,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -63018,7 +63074,9 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 2
-            }
+            },
+            "requiresTargetKeyword": "infantry",
+            "combatType": "ranged"
           }
         }
       ],
@@ -67631,7 +67689,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         },
@@ -67643,7 +67700,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresTargetKeyword": "character"
           }
         },
         {
@@ -70929,8 +70987,7 @@
           "effect": {
             "effects": {
               "apMod": 1
-            },
-            "combatType": "melee"
+            }
           }
         },
         {
@@ -72230,8 +72287,7 @@
           "effect": {
             "effects": {
               "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
+            }
           }
         },
         {
@@ -75145,8 +75201,7 @@
             "effects": {
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
@@ -75820,7 +75875,6 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
               "sustainedHitsBonus": 1
             }
           }
