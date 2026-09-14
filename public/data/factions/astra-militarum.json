@@ -602,7 +602,15 @@
       "type": "Hammer of the Emperor – Epic Deed Stratagem",
       "turn": "Your turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Squadron unit from your army that is Below Half-strength (excluding Officer units).<br><br><b>EFFECT:</b> Until the end of the battle round, ranged weapons equipped by models in your unit (excluding <span class=\"kwb2 bluefont\">[ONE SHOT]</span> weapons) have the [HAZARDOUS] ability, and each time a model in your unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and to the Hit roll."
+      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Squadron unit from your army that is Below Half-strength (excluding Officer units).<br><br><b>EFFECT:</b> Until the end of the battle round, ranged weapons equipped by models in your unit (excluding <span class=\"kwb2 bluefont\">[ONE SHOT]</span> weapons) have the [HAZARDOUS] ability, and each time a model in your unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and to the Hit roll.",
+      "effect": {
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "tactical-withdrawal",
@@ -7803,7 +7811,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "point-blank-barrage",
@@ -7953,7 +7967,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "wall-of-muscle",
@@ -8319,7 +8339,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "ogryn-bodyguard",
@@ -9552,7 +9578,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "ogryn-bodyguard",
@@ -16156,7 +16188,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "voice-of-command",

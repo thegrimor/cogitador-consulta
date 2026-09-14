@@ -391,7 +391,14 @@
       "type": "Aspect Host – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Aspect Warriors or Avatar of Khaine unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill, Weapon skill, Strength, Armour Penetration and Damage characteristics and/or any or all modifiers to the Hit roll."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Aspect Warriors or Avatar of Khaine unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill, Weapon skill, Strength, Armour Penetration and Damage characteristics and/or any or all modifiers to the Hit roll.",
+      "effect": {
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "doom-inescapable",

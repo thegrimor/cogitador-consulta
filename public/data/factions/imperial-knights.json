@@ -987,7 +987,14 @@
       "cost": 10,
       "detachmentId": "spearhead-at-arms",
       "detachmentName": "Spearhead-At-Arms",
-      "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. While two or more Armiger models are under the effects of the bearer’s Bondsman ability, each time one of those <span class=\"kwb\">ARMIGER</span> models makes a melee attack, you can ignore any or all modifiers to the Hit roll and/or the Wound roll."
+      "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. While two or more Armiger models are under the effects of the bearer’s Bondsman ability, each time one of those <span class=\"kwb\">ARMIGER</span> models makes a melee attack, you can ignore any or all modifiers to the Hit roll and/or the Wound roll.",
+      "effect": {
+        "combatType": "melee",
+        "effects": {
+          "hitMod": 1,
+          "woundMod": 1
+        }
+      }
     },
     {
       "id": "magos-questoris",

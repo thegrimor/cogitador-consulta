@@ -130,8 +130,7 @@
           "description": "<ul><li>While an Adeptus Custodes Vehicle unit from your army is at Starting Strength, unless that unit is an Aircraft or it is Battle-shocked, add 2 to the Objective Control characteristic of models in that unit.</li><li>While an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">VEHICLE</span> unit from your army is below Starting Strength, each time a model in that unit makes an attack, re-roll a Hit roll of 1.</li><li>While an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">VEHICLE</span> unit from your army is Below Half-strength, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</li></ul><br><span class=\"hi_custom\">MORITOI ANCIENTS</span><br>Add 2\" to the Move characteristic of models in <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">WALKER</span> units from your army and add 1 to Advance and Charge rolls made for such units.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>In the Muster Armies step, you can select up to 2 <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> <span class=\"kwb\">WALKER</span> models from your army. The selected units gain the <span class=\"kwb\">CHARACTER</span> keyword.<br><br><b>Designer’s Note:</b> <i>This means that the selected models can be given Enhancements and one of them can be selected as your <span class=\"kwb\">WARLORD</span>.</i>",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+              "rerollHitsOf1": true
             },
             "requiresAttackerKeyword": "vehicle"
           }
@@ -632,7 +631,16 @@
       "type": "Solar Spearhead – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability, and until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and/or any or all modifiers to the Hit roll."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability, and until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and/or any or all modifiers to the Hit roll.",
+      "effect": {
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "bsMod": -1,
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "relentless-persecution",
@@ -1911,7 +1919,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -1929,13 +1943,29 @@
           "id": "captain-general",
           "name": "Captain-General",
           "description": "While this model is leading a unit, each time a model in this unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic skill or Weapon skill characteristics and/or all modifiers to the Hit roll",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            }
+          }
         },
         {
           "id": "moment-shackle",
           "name": "Moment Shackle",
           "description": "Once per battle, at the start of the Fight phase, you can select one of the following to take effect until the end of the phase:<br><ul><li>This model’s Watcher’s Axe melee weapon has an Attacks characteristic of 12.</li><li>This model has a 2+ invulnerable save.</li></ul>",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "options": [
+            {
+              "name": "Escudo del Instante (2+ invuln)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 2
+                },
+                "target": "defender"
+              }
+            }
+          ]
         },
         {
           "id": "supreme-commander",
@@ -5683,7 +5713,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -6037,7 +6073,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",

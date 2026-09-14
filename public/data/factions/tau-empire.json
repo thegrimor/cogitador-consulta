@@ -5812,7 +5812,14 @@
           "id": "weapon-support-system",
           "name": "Weapon Support System",
           "description": "Each time the bearer makes a ranged attack, you can ignore any or all modifiers to the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
+          }
         },
         {
           "id": "one-shot",
@@ -6130,7 +6137,14 @@
           "id": "support-system",
           "name": "Support System",
           "description": "Each time this model makes a ranged attack, you can ignore any or all modifiers to the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
+          }
         },
         {
           "id": "titan-killer",
@@ -7889,7 +7903,14 @@
           "id": "weapon-support-system",
           "name": "Weapon Support System",
           "description": "Each time the bearer makes a ranged attack, you can ignore any or all modifiers to the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
+          }
         }
       ],
       "keywords": [
@@ -8544,7 +8565,13 @@
           "id": "weapon-support-system",
           "name": "Weapon Support System",
           "description": "Each time a model in this unit makes a ranged attack, you can ignore any or all modifiers to the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         }
       ],
       "keywords": [
