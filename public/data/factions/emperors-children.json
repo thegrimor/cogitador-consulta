@@ -1103,13 +1103,24 @@
       "description": "Emperor’s Children model only. At the start of the battle, select one melee weapon equipped by the bearer; add 1 to the Attacks characteristic of that weapon. In addition, each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those attacks, add 1 to the Damage characteristic of that weapon and that weapon has the [devastating wounds] and [hazardous] abilities.",
       "effect": {
         "effects": {
-          "damageMod": 1,
-          "devastatingWoundsBonus": true,
           "attacksMod": 1
         },
         "combatType": "melee",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "Activar el filo (Dmg +1, Devastating Wounds)",
+          "effect": {
+            "effects": {
+              "damageMod": 1,
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "soulstain-made-manifest",

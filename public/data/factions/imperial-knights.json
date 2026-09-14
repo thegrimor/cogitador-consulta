@@ -148,8 +148,7 @@
           "description": "Friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> models have the following ability:<br><br><b>Assisted Targeting (Aura):</b> While a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is within 6\" of this model, that <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit's ranged attacks have:<ul><li>+1 BS.</li><li>[HEAVY].</li></ul>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><b>Sacristan Pledge:</b> In your Command phase, you can select one friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> model within 3\" of this model that has not been selected by this ability this phase. If you do, that model heals D3 wounds.<br><br><span class=\"hi_custom\">MECHANICUS ALLIES</span><br>You can include <span class=\"kwb\">TECH-PRIEST DOMINUS</span>/<span class=\"kwb\">TECH-PRIEST MANIPULUS</span>/<span class=\"kwb\">MARSHAL</span>/<span class=\"kwb\">RANGERS</span>/<span class=\"kwb\">VANGUARD</span> units in your army (see Codex: Adeptus Mechanicus). The combined points value of such units cannot exceed 500 points.",
           "effect": {
             "effects": {
-              "bsMod": -1,
-              "hitMod": 1
+              "bsMod": -1
             },
             "combatType": "ranged",
             "requiresAttackerKeyword": "adeptus mechanicus"

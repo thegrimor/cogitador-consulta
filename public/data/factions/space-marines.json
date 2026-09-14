@@ -2846,15 +2846,42 @@
       "turn": "Opponent’s turn",
       "phase": "Charge phase",
       "description": "<b>WHEN:</b> Your opponent’s Charge phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that was just charged by an enemy unit.<br><br><b>EFFECT:</b> Select either the Strength or Attacks characteristic of melee weapons equipped by models in your unit. Until the end of the turn, add 1 to the selected characteristic. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it) and until the end of the turn, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in your unit.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "attacksMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Ataques +1",
+          "effect": {
+            "effects": {
+              "attacksMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Entregarse a la Sed de Sangre)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "attacksMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "red-rampage",
@@ -2865,15 +2892,42 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [LANCE] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. You can instead choose for your unit to give in to the Red Thirst; if it does, then it becomes Battle-shocked (but the effects of this Stratagem still apply to it) and until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true,
-          "hitMod": 1
+      "options": [
+        {
+          "name": "Lance",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Entregarse a la Sed de Sangre)",
+          "effect": {
+            "effects": {
+              "hitMod": 1,
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "armour-of-contempt-space-marines-17",
@@ -3252,15 +3306,42 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that made a Charge move this turn.<br><br><b>EFFECT:</b> Select either the Strength or Armour Penetration characteristic of melee weapons equipped by models in your unit. Until the end of the phase, add 1 to the selected characteristic. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it), and until the end of the phase, add 1 to the Strength and Armour Penetration characteristics of melee weapons equipped by models in your unit.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "AP +1",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Entregarse a la Sed de Sangre)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "red-wrath",

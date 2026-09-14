@@ -745,8 +745,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, just after a Vanguard Invader unit from your army has selected its targets.<br><br><b>TARGET:</b> That <span class=\"kwb\">VANGUARD</span> <span class=\"kwb\">INVADER</span> unit.<br><br><b>EFFECT:</b> Select one enemy unit that was selected as the target of one or more of your unit’s attacks. That enemy unit must take a Battle-shock test. Until the end of the phase, each time a model in your unit makes an attack that targets that enemy unit, add 1 to the Hit roll. If the Battle-shock test was failed, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "hitMod": 1,
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 1

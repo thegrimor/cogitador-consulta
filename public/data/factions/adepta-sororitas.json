@@ -5253,13 +5253,36 @@
           "name": "Embodied Prophecy",
           "description": "Each time this unit is selected to fight, select one of the following abilities to apply to melee weapons equipped by models in this unit until the end of the phase:<br><ul><li>[SUSTAINED HITS 1]</li><li>[LETHAL HITS]</li></ul>If this unit made a Charge move this turn, until the end of the phase, select both abilities above to apply to melee weapons equipped by models in this unit instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true,
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Sustained Hits 1",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Lethal Hits",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee"
+              }
+            },
+            {
+              "name": "Ambos (si esta unidad cargó)",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1,
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         },
         {
           "id": "sacred-banner",
