@@ -40,13 +40,26 @@
           "id": "martial-mastery",
           "name": "Martial Mastery",
           "description": "At the start of the battle round, you can select one of the bullet points below. If you do, until the start of the next battle round, that bullet point’s effects apply.<br><ul><li>Each time an Adeptus Custodes model from your army with the Martial Ka’tah ability makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.</li><li>Improve the Armour Penetration characteristic of melee weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">CUSTODES</span> models from your army with the Martial Ka’tah ability by 1.</li></ul>",
-          "effect": {
-            "effects": {
-              "apMod": 1,
-              "critThreshold": 5
+          "options": [
+            {
+              "name": "Crítico a 5+",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Perforación de Blindaje (+1 AP)",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
@@ -398,13 +411,25 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Prosecutors unit from your army that has just shot.<br><br><b>EFFECT:</b> Select one enemy unit hit by one or more of those attacks. Until the start of your next turn, while your unit is on the battlefield, that enemy unit is prosecuted. While a unit is prosecuted, each time an Anathema Psykana model makes an attack against that unit, improve the Armour Penetration characteristic of that attack by 1. While a <span class=\"kwb\">PSYKER</span> or Battle-shocked unit is prosecuted, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
       "effect": {
         "effects": {
-          "hitMod": -1,
           "apMod": 1
         },
-        "combatType": "ranged",
+        "requiresAttackerKeyword": "anathema psykana",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Unidad marcada Psyker (Hit -1 a sus propios ataques)",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "requiresAttackerKeyword": "psyker",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "desperations-price",
