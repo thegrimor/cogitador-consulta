@@ -3018,10 +3018,10 @@
         "effects": {
           "hitMod": -1
         },
-        "combatType": "melee",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "infantry"
       }
     },
     {
@@ -3038,7 +3038,6 @@
           "hitMod": -1,
           "woundMod": -1
         },
-        "combatType": "melee",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -3056,9 +3055,9 @@
         "effects": {
           "woundMod": 1
         },
-        "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "deathwing"
       }
     },
     {
@@ -3118,14 +3117,28 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have this ability in a turn in which they disembarked from a Drop Pod or while targeting an enemy unit within 12\".",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1,
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "tactical-decapitation",
@@ -3141,7 +3154,8 @@
           "hitMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -3359,7 +3373,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "space wolves"
       }
     },
     {
@@ -3427,7 +3442,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "character"
       }
     },
     {
@@ -3446,7 +3462,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "space wolves"
       }
     },
     {
@@ -3473,7 +3490,8 @@
           "rerollAllHits": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "space wolves"
       }
     },
     {
@@ -3684,7 +3702,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -3736,13 +3755,13 @@
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Adeptus Astartes Mounted or Adeptus Astartes Fly Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.",
       "effect": {
         "effects": {
-          "hitMod": -1,
           "woundMod": -1
         },
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "mounted"
       }
     },
     {
@@ -3858,13 +3877,13 @@
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES FLY VEHICLE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.",
       "effect": {
         "effects": {
-          "hitMod": -1,
           "woundMod": -1
         },
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "mounted"
       }
     },
     {
@@ -3938,7 +3957,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "jump pack"
       }
     },
     {
@@ -3976,7 +3996,8 @@
           "rerollAllWounds": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "sanguinary guard"
       }
     },
     {
@@ -4028,7 +4049,9 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Death Company unit from your army that is below Starting Strength and has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, improve the Attacks, Stength and Armour Penetration characteristics of melee weapons equipped by models in your unit by 1 and, unless your unit is within 12\" of one or more friendly Chaplain models, until the end of the phase, those weapons have the [HAZARDOUS] ability.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "attacksMod": 1,
+          "strengthMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -4104,7 +4127,6 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, weapons equipped by models in your unit have the [LETHAL HITS] ability. In addition, if one or more <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army are currently Battle-shocked, until the end of the phase, each time a model in your unit makes an attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.",
       "effect": {
         "effects": {
-          "critThreshold": 5,
           "lethalHitsBonus": true
         },
         "isStratagem": true,
@@ -4165,7 +4187,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -4290,7 +4313,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "ancient"
       }
     },
     {
@@ -4380,7 +4404,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -4404,7 +4429,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and you can ignore any or all modifiers to the following: that attack’s Weapon Skill characteristic; the Hit roll; the Wound roll.",
       "effect": {
         "effects": {
-          "rerollHitsOf1": true
+          "rerollHitsOf1": true,
+          "hitMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -4450,11 +4476,12 @@
       "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">CHAPLAIN</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHAPLAIN</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 4+ against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "feelNoPainThreshold": 4
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "chaplain"
       }
     },
     {
@@ -4553,7 +4580,8 @@
         "combatType": "melee",
         "requiresAttackerKeyword": "sword brethren squad",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -4625,11 +4653,12 @@
       "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">ADEPTUS ASTARTES CHARACTER</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHARACTER</span> unit.<br><br><b>EFFECT:</b> Your unit has a 5+ invulnerable save.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "saveMod": 1
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -4663,9 +4692,8 @@
       "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">SANGUINARY GUARD</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">SANGUINARY GUARD</span> unit.<br><br><b>EFFECT:</b> Your unit has the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "requiresTargetKeyword": "sanguinary guard",
         "isStratagem": true,
@@ -4801,7 +4829,6 @@
         "effects": {
           "hitMod": -1
         },
-        "target": "defender",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -4962,7 +4989,7 @@
       "description": "Deathwing model only. Melee weapons equipped by the bearer have the [lethal hits] ability, and each time the bearer makes a melee attack, if it is within range of your Vowed objective marker, a Critical Hit is scored on an unmodified Hit roll of 5+.",
       "effect": {
         "effects": {
-          "critThreshold": 5
+          "lethalHitsBonus": true
         },
         "combatType": "melee",
         "requiresAttackerKeyword": "deathwing",
@@ -5179,11 +5206,10 @@
       "description": "Black Templars model only. Models in the bearer’s unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
-        "requiresAttackerKeyword": "black templars"
+        "requiresTargetKeyword": "black templars"
       }
     },
     {
@@ -5274,8 +5300,8 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
-        "requiresAttackerKeyword": "vehicle",
-        "bearerOnly": true
+        "bearerOnly": true,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -5493,7 +5519,7 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Battle-shocked and below its Starting Strength.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         }
       }
     },
@@ -5532,7 +5558,7 @@
           "hitMod": -1
         },
         "combatType": "ranged",
-        "target": "defender"
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -5670,9 +5696,8 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. The bearer has the Stealth and Lone Operative abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
