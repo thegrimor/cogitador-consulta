@@ -163,13 +163,28 @@
           "id": "da-hunt-is-on",
           "name": "Da Hunt is On",
           "description": "Beast Snaggas fanatically hunt the biggest targets and are experts in finding their weak spots. Friendly <span class=\"kwb\">BEAST SNAGGA</span> units' attacks that target a <span class=\"kwb\">MONSTER/VEHICLE</span> unit have +1 AP.",
-          "effect": {
-            "effects": {
-              "apMod": 1
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresTargetKeyword": "monster",
+                "requiresAttackerKeyword": "beast snagga"
+              }
             },
-            "requiresTargetKeyword": "vehicle",
-            "requiresAttackerKeyword": "beast snagga"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresTargetKeyword": "vehicle",
+                "requiresAttackerKeyword": "beast snagga"
+              }
+            }
+          ]
         }
       ]
     },
@@ -420,13 +435,28 @@
       "turn": "Your turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit is selected to attack.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks can re-roll hit rolls of 1, or: if your unit is riled up, re-roll hit rolls.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Base",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Riled Up",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "hulking-brutes",
@@ -437,15 +467,32 @@
       "turn": "Opponent's turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> Ranged attacks that target your unit with a S greater than your unit's T have -1 to wound rolls, or (+1CP): ranged attacks that target your unit have -1 to wound rolls.",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "Base",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 2
-      }
+        {
+          "name": "+1CP (sin restriccion S>T)",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 2
+          }
+        }
+      ]
     },
     {
       "id": "infested-war-zone",
@@ -642,14 +689,42 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">MEK GUNZ</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEK GUNZ</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have <span class=\"kwb\">[LETHAL HITS]</span>, or: <span class=\"kwb\">[SUSTAINED HITS 1]</span>, or: <span class=\"kwb\">[HAZARDOUS]</span>, <span class=\"kwb\">[LETHAL HITS]</span> and <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Hazardous)",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true,
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "crazed-rampage",
@@ -828,13 +903,28 @@
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
       "description": "<span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1
+      "options": [
+        {
+          "name": "Base",
+          "effect": {
+            "effects": {
+              "attacksMod": 1
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "11+ modelos",
+          "effect": {
+            "effects": {
+              "attacksMod": 2
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "ardboyz",
@@ -3946,14 +4036,30 @@
           "name": "Da Bigger Dey Iz...",
           "description": "This model's melee attacks that target a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit can re-roll wound rolls.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster",
+                "bearerOnly": true
+              }
             },
-            "combatType": "melee",
-            "requiresTargetKeyword": "vehicle",
-            "bearerOnly": true
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "vehicle",
+                "bearerOnly": true
+              }
+            }
+          ]
         },
         {
           "id": "beast-snagga-following",
@@ -8120,14 +8226,30 @@
           "name": "Pulsa Rokkit",
           "description": "(Once per battle, per unit, wargear ability): In your Shooting phase, when this unit is selected to shoot, you can select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit within 24\" of this unit. This unit's attacks that target that unit have +1 AP and <span class=\"kwb\">[LETHAL HITS]</span> until the end of the phase.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "apMod": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "apMod": 1,
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged",
-            "requiresTargetKeyword": "MONSTER"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "apMod": 1,
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -12811,13 +12933,28 @@
           "name": "Go fer da Weak Spot",
           "description": "In your Shooting phase, this unit's ranged attacks that target a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit have +1 to wound rolls.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged",
-            "requiresTargetKeyword": "MONSTER"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         },
         {
           "id": "blastajet-force-field",

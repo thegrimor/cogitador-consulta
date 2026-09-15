@@ -44,7 +44,8 @@
               "rerollAllHits": true,
               "rerollWoundsOf1": true
             },
-            "requiresAttackerKeyword": "slaanesh"
+            "requiresAttackerKeyword": "slaanesh",
+            "combatType": "melee"
           }
         }
       ]
@@ -196,7 +197,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged"
       }
     },
     {
@@ -591,35 +593,13 @@
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Shadow Legion unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit has the Khorne keyword, until the end of the phase, improve the Armour Penetration characteristic of those weapons by 1 as well.",
       "effect": {
+        "effects": {
+          "woundMod": 1
+        },
+        "combatType": "melee",
         "isStratagem": true,
         "cpCost": 1
-      },
-      "options": [
-        {
-          "name": "Lance (base)",
-          "effect": {
-            "effects": {
-              "woundMod": 1
-            },
-            "combatType": "melee",
-            "isStratagem": true,
-            "cpCost": 1
-          }
-        },
-        {
-          "name": "Lance + AP (Khorne)",
-          "effect": {
-            "effects": {
-              "woundMod": 1,
-              "apMod": 1
-            },
-            "combatType": "melee",
-            "requiresAttackerKeyword": "khorne",
-            "isStratagem": true,
-            "cpCost": 1
-          }
-        }
-      ]
+      }
     },
     {
       "id": "spiteful-demise",
@@ -4669,7 +4649,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "requiresAttackerKeyword": "nurgle"
+            "requiresAttackerKeyword": "nurgle",
+            "appliesToNearby": true
           }
         }
       ],
@@ -4832,7 +4813,8 @@
                   "woundMod": 1
                 },
                 "combatType": "melee",
-                "requiresAttackerKeyword": "slaanesh"
+                "requiresAttackerKeyword": "slaanesh",
+                "appliesToNearby": true
               }
             },
             {
@@ -7627,7 +7609,8 @@
               "damageMod": 1
             },
             "combatType": "melee",
-            "requiresAttackerKeyword": "nurgle"
+            "requiresAttackerKeyword": "nurgle",
+            "appliesToNearby": true
           }
         },
         {
@@ -15244,7 +15227,8 @@
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],

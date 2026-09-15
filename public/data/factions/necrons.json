@@ -71,10 +71,28 @@
               }
             },
             {
+              "name": "Cryptek — Wholly within Power Matrix",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                },
+                "requiresAttackerKeyword": "cryptek"
+              }
+            },
+            {
               "name": "Canoptek",
               "effect": {
                 "effects": {
                   "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "canoptek"
+              }
+            },
+            {
+              "name": "Canoptek — Wholly within Power Matrix",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
                 },
                 "requiresAttackerKeyword": "canoptek"
               }
@@ -154,8 +172,7 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ]
@@ -1036,7 +1053,6 @@
           "apMod": -1
         },
         "target": "defender",
-        "requiresAttackerKeyword": "titanic",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -1175,12 +1191,7 @@
       "cost": 5,
       "detachmentId": "annihilation-legion",
       "detachmentName": "Annihilation Legion",
-      "description": "<span class=\"kwb\">NECRONS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        }
-      }
+      "description": "<span class=\"kwb\">NECRONS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1."
     },
     {
       "id": "miniaturised-nebuloscope",
@@ -1289,7 +1300,6 @@
         "effects": {
           "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1326,7 +1336,8 @@
       "description": "C’tan Shard of the Void Dragon model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy <span class=\"kwb\">VEHICLE</span> unit visible to the bearer. That unit must take a Leadership test. Until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll and, if that Leadership test was failed, subtract 1 from the Wound roll as well.",
       "effect": {
         "effects": {
-          "hitMod": -1
+          "hitMod": -1,
+          "woundMod": -1
         },
         "requiresAttackerKeyword": "vehicle"
       }
@@ -4901,7 +4912,7 @@
             },
             "target": "defender",
             "appliesToNearby": true,
-            "requiresAttackerKeyword": "vehicle"
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -6322,7 +6333,7 @@
                 },
                 "target": "defender",
                 "appliesToNearby": true,
-                "requiresAttackerKeyword": "battleline"
+                "requiresTargetKeyword": "battleline"
               }
             }
           ]
@@ -7021,7 +7032,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -9688,7 +9700,7 @@
             },
             "target": "defender",
             "appliesToNearby": true,
-            "requiresAttackerKeyword": "infantry"
+            "requiresTargetKeyword": "infantry"
           }
         },
         {
@@ -10219,7 +10231,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1
+              "hitMod": 1,
+              "woundMod": 1
             },
             "combatType": "ranged"
           }
@@ -10602,7 +10615,8 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "destroyer cult"
           }
         },
         {
