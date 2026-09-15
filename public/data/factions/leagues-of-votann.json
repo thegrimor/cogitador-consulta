@@ -53,6 +53,15 @@
                 },
                 "requiresAttackerKeyword": "kâhl"
               }
+            },
+            {
+              "name": "Einhyr Hearthguard",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresAttackerKeyword": "einhyr hearthguard"
+              }
             }
           ]
         }
@@ -455,7 +464,6 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Einhyr Hearthguard unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, improve the Strength characteristic of ranged weapons equipped by models in your unit by 1. If you spend 1YP, until the end of the phase, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability as well.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1,
           "strengthMod": 1
         },
         "combatType": "ranged",
@@ -472,15 +480,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Damage characteristic of that attack.",
-      "effect": {
-        "effects": {
-          "damageMod": 1
+      "options": [
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "monster"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 2,
-        "requiresTargetKeyword": "monster"
-      }
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "unyielding-aggression",
@@ -1020,7 +1045,6 @@
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">EINHYR HEARTHGUARD</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">EINHYR HEARTHGUARD</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have:<br><ul><li>+1 S.</li><li>If you spend 1 YP, [SUSTAINED HITS 1].</li></ul>",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1,
           "strengthMod": 1
         },
         "combatType": "ranged",
@@ -1049,7 +1073,6 @@
       "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Wound roll of 1. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, add 1 to the Wound roll.",
       "effect": {
         "effects": {
-          "woundMod": 1,
           "rerollWoundsOf1": true
         }
       }
@@ -1198,7 +1221,6 @@
       "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, that attack has the [SUSTAINED HITS 1] ability.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1,
           "rerollHitsOf1": true
         }
       }

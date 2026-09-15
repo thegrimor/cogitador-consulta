@@ -61,9 +61,9 @@
           "description": "Ranged weapons equipped by ADEPTUS ARbITES, INqUISITOR, INqUISITORIAl AGENTS and ORDO HERETICUS models from your army have the [IGNORES COvER] ability.<br><br>Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ARBITES</span>, <span class=\"kwb\">INQUISITOR</span>, <span class=\"kwb\">INQUISITORIAL</span> <span class=\"kwb\">AGENTS</span> or <span class=\"kwb\">ORDO</span> <span class=\"kwb\">HERETICUS</span> model from your army makes an attack that targets a <span class=\"kwb\">CHAOS</span> unit containing 5 or more models, that attack has the [SUSTAINED HITS 1] ability.",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "bsMod": -1
             },
-            "requiresTargetKeyword": "chaos"
+            "combatType": "ranged"
           }
         }
       ]
@@ -81,10 +81,8 @@
           "description": "Each time an INqUISITOR, INqUISITORIAl AGENTS or ORDO MAllEUS model from your army makes an attack, re-roll a Hit roll of 1 and, if the target of that attack is a <span class=\"kwb\">DAEMON</span> unit, re-roll a Wound roll of 1 as well.",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
-            },
-            "requiresTargetKeyword": "daemon"
+              "rerollHitsOf1": true
+            }
           }
         }
       ]
@@ -100,11 +98,25 @@
           "id": "at-all-costs",
           "name": "At all Costs",
           "description": "At the start of your Command phase, you can select one of the following to apply:<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Eliminate At All Costs</p><p>Select one enemy unit on the battlefield. Until the start of your next <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, each time an <span class=\"tooltip00071\" data-tooltip-content=\"#tooltip_content00071\" data-tooltip-anchor=\"#tooltip_content00071\"><span class=\"kwb kwbu\">AGENTS</span> <span class=\"kwb2 kwbu\">OF</span> <span class=\"kwb2 kwbu\">THE</span> <span class=\"kwb kwbu\">IMPERIUM</span></span> model from your army makes an attack that targets that enemy unit, add 1 to the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Acquire At All Costs</p><p>Select one <span class=\"tooltip00048\" data-tooltip-content=\"#tooltip_content00048\"><span class=\"tt kwbu\">objective</span> <span class=\"tt kwbu\">marker</span></span> on the battlefield. Until the start of your next <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, while an <span class=\"tooltip00071\" data-tooltip-content=\"#tooltip_content00071\" data-tooltip-anchor=\"#tooltip_content00071\"><span class=\"kwb kwbu\">AGENTS</span> <span class=\"kwb2 kwbu\">OF</span> <span class=\"kwb2 kwbu\">THE</span> <span class=\"kwb kwbu\">IMPERIUM</span></span> unit from your army is within range of that objective marker, improve the Leadership and Objective Control characteristics of models in that unit by 1 and models in that unit have a 5+ <span class=\"tooltip00072\" data-tooltip-content=\"#tooltip_content00072\"><span class=\"tt kwbu\">invulnerable</span> <span class=\"tt kwbu\">save</span></span>.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "hitMod": 1
+          "options": [
+            {
+              "name": "Eliminate At All Costs",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                }
+              }
+            },
+            {
+              "name": "Acquire At All Costs",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 5
+                },
+                "target": "defender"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -172,16 +184,34 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One DEATHwATCH INFANTRy unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons (excluding Devastating Wounds weapons) equipped by models in your unit have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 5+] abilities.<br><br><b>RESTRICTIONS:</b> You cannot select any units that have already been targeted with either the Kraken Rounds or Dragonfire Rounds Stratagems this phase.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 2
+      "options": [
+        {
+          "name": "Anti-Infantry 2+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry",
+            "requiresAttackerKeyword": "deathwatch",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "infantry",
-        "requiresAttackerKeyword": "deathwatch",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Anti-Monster 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "requiresAttackerKeyword": "deathwatch",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "dragonfire-rounds",
@@ -359,7 +389,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One AGENTS OF THE IMpERIUM unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of an objective marker, that attack has the [SUSTAINED HITS 1], [LANCE] and [IGNORES COVER] abilities.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "sustainedHitsBonus": 1,
+          "bsMod": -1
         },
         "isStratagem": true,
         "cpCost": 2
@@ -380,7 +411,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -462,7 +494,6 @@
         "effects": {
           "hitMod": -1
         },
-        "requiresAttackerKeyword": "grenades",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -496,7 +527,8 @@
             "cpCost": 1,
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "requiresAttackerKeyword": "officio assassinorum"
           }
         }
       ]
@@ -617,11 +649,9 @@
       "description": "INqUISITOR model only. Add 1 to the Attacks characteristic of the bearers melee weapons, and those weapons have the [ANTI-DAEMON 3+] ability.",
       "effect": {
         "effects": {
-          "woundCritThreshold": 3,
           "attacksMod": 1
         },
         "combatType": "melee",
-        "requiresTargetKeyword": "daemon",
         "bearerOnly": true
       }
     },
@@ -727,14 +757,30 @@
       "detachmentId": "veiled-blade-elimination-force",
       "detachmentName": "Veiled Blade Elimination Force",
       "description": "Vindicare Assassin models only. This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 4
+      "options": [
+        {
+          "name": "Anti-Vehicle 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle",
+            "bearerOnly": true
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "vehicle",
-        "bearerOnly": true
-      }
+        {
+          "name": "Anti-Monster 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "grimoire-of-true-names-aura",
@@ -1802,12 +1848,27 @@
           "name": "Malefic Wardings (Psychic)",
           "description": "While this model is leading a unit, models in that unit have a 6+ invulnerable save, and a 4+ invulnerable save against Psychic Attacks and attacks made by <span class=\"kwb\">DAEMON</span> models.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 6
+          "options": [
+            {
+              "name": "6+ Invulnerable (base)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 6
+                },
+                "target": "defender"
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "4+ Invulnerable (vs Daemon attacker)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresAttackerKeyword": "daemon"
+              }
+            }
+          ]
         },
         {
           "id": "spy-network",

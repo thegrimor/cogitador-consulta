@@ -311,7 +311,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "armoured skirmisher"
       }
     },
     {
@@ -1251,9 +1252,8 @@
       "description": "Infantry Officer model only. The bearer’s unit has the Benefit of Cover and the Stealth ability while the bearer’s unit is wholly within 3\" of one or more friendly TRANSPORT models.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1274,9 +1274,8 @@
       "description": "Astra Militarum Infantry officer model only. Each time you select an Order for the bearer to issue, you can select the Order below:<br><br><b>Move to the Shadows (Order):</b> Each time a ranged attack targets this unit, until those attacks are resolved, models in this unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1344,7 +1343,8 @@
       "effect": {
         "effects": {
           "hitMod": -1
-        }
+        },
+        "target": "defender"
       }
     },
     {
@@ -3918,7 +3918,7 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "target": "defender"
           }
         },
         {
@@ -13057,13 +13057,7 @@
           "id": "ablative-plating",
           "name": "Ablative Plating",
           "description": "Once per battle, when an attack is allocated to this model, you change the Damage characteristic of that attack to 0.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -13233,7 +13227,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender",
+            "combatType": "ranged"
           }
         },
         {
@@ -16967,9 +16963,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true,
+              "rerollDamageOf1": true
             },
             "combatType": "ranged"
           }
