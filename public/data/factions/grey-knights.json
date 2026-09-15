@@ -519,14 +519,30 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Grey Knights unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "Monster",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "truesilver-will",
@@ -544,7 +560,7 @@
         "target": "defender",
         "isStratagem": true,
         "cpCost": 1,
-        "requiresAttackerKeyword": "psyker"
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -882,14 +898,7 @@
       "cost": 15,
       "detachmentId": "warpbane-task-force",
       "detachmentName": "Warpbane Task Force",
-      "description": "Grey Knights Infantry model only. The bearer’s melee weapons have the [PRECISION] ability, and while the bearer is wholly within your army’s Hallowed Ground, each time a melee attack made by the bearer scores a wound, the target of that attack suffers 1 mortal wound in addition to any normal damage.",
-      "effect": {
-        "effects": {
-          "damageMod": 1
-        },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+      "description": "Grey Knights Infantry model only. The bearer’s melee weapons have the [PRECISION] ability, and while the bearer is wholly within your army’s Hallowed Ground, each time a melee attack made by the bearer scores a wound, the target of that attack suffers 1 mortal wound in addition to any normal damage."
     },
     {
       "id": "quickening-foci",
@@ -977,9 +986,8 @@
       "description": "Grey Knights Infantry model only. Models in the bearer’s unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1011,13 +1019,7 @@
       "cost": 10,
       "detachmentId": "warpbane-task-force",
       "detachmentName": "Warpbane Task Force",
-      "description": "<span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> model only. Once per battle, at the start of any phase, the bearer can select one friendly <span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> unit within 18\" of and visible to it. If it does, until the end of the phase, that unit is within your army’s Hallowed Ground.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        },
-        "appliesToNearby": true
-      }
+      "description": "<span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> model only. Once per battle, at the start of any phase, the bearer can select one friendly <span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> unit within 18\" of and visible to it. If it does, until the end of the phase, that unit is within your army’s Hallowed Ground."
     },
     {
       "id": "pyresoul-psychic",
@@ -1110,9 +1112,8 @@
       "description": "<span class=\"kwb\">INTERCEPTOR SQUAD</span> unit only. This unit has Stealth.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     }
@@ -1217,7 +1218,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         },
@@ -4683,7 +4683,6 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged",
             "appliesToNearby": true
           }
         },
@@ -6177,15 +6176,32 @@
           "name": "Surge of Wrath (Psychic)",
           "description": "Each time this model makes a melee attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Hit roll, you can re-roll the Wound roll and you can re-roll the Damage roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+          "options": [
+            {
+              "name": "Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "melee",
-            "requiresTargetKeyword": "vehicle"
-          }
+            {
+              "name": "Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         },
         {
           "id": "warrior-strategist",
