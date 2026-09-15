@@ -396,7 +396,8 @@
         "isStratagem": true,
         "cpCost": 1,
         "effects": {
-          "hitMod": 1
+          "hitMod": 1,
+          "apMod": 1
         }
       }
     },
@@ -906,7 +907,6 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Asuryani Infantry unit from your army (excluding Wraith Construct units) that has not been selected to shoot this phase and is within 9\" of one or more friendly Asuryani Psyker models.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and each time a model in your unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
       "effect": {
         "effects": {
-          "apMod": 1,
           "bsMod": -1
         },
         "combatType": "ranged",
@@ -1737,7 +1737,6 @@
         "effects": {
           "woundCritThreshold": 2
         },
-        "combatType": "ranged",
         "requiresTargetKeyword": "vehicle",
         "bearerOnly": true
       }
@@ -8870,7 +8869,6 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged",
             "appliesToNearby": true
           }
         }
@@ -13966,7 +13964,6 @@
             "effects": {
               "critThreshold": 5
             },
-            "combatType": "ranged",
             "appliesToNearby": true
           }
         }
@@ -16656,7 +16653,6 @@
             "effects": {
               "strengthMod": 1
             },
-            "combatType": "ranged",
             "appliesToNearby": true
           }
         }
