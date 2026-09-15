@@ -32,6 +32,15 @@
               "apMod": 1
             }
           }
+        },
+        {
+          "name": "Skullsquirm Blight — Benefit of Cover (ranged)",
+          "effect": {
+            "target": "defender",
+            "effects": {
+              "hitMod": -1
+            }
+          }
         }
       ]
     },
@@ -629,7 +638,7 @@
         "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1,
-        "requiresAttackerKeyword": "infantry"
+        "requiresAttackerKeyword": "death guard"
       }
     },
     {
@@ -970,8 +979,7 @@
           "rerollWoundsOf1": true
         },
         "combatType": "ranged",
-        "requiresAttackerKeyword": "vehicle",
-        "appliesToNearby": true
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -4218,7 +4226,8 @@
                 "combatType": "melee",
                 "effects": {
                   "critThreshold": 5
-                }
+                },
+                "bearerOnly": true
               }
             },
             {
@@ -4227,7 +4236,8 @@
                 "combatType": "melee",
                 "effects": {
                   "critThreshold": 4
-                }
+                },
+                "bearerOnly": true
               }
             }
           ]
@@ -5111,13 +5121,30 @@
           "name": "Tank Hunters",
           "description": "In your Shooting phase, each time a model in this unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Hit roll and add 1 to the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -6161,14 +6188,7 @@
           "id": "fortification",
           "name": "Fortification",
           "description": "While an enemy unit is only within Engagement Range of one or more <span class=\"kwb\">FORTIFICATIONS</span> from your army:<br><ul><li>That unit can still be selected as the target of ranged attacks, but each time such an attack is made, unless it is made with a Pistol, subtract 1 from the Hit roll.</li><li>Models in that unit do not need to take Desperate Escape tests due to Falling Back while Battle-shocked, except for those that will move over enemy models when doing so.</li></ul>",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged",
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "deployment",

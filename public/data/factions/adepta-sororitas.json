@@ -22,7 +22,6 @@
           "description": "Each time an <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model’s unit is Below Half-strength.",
           "effect": {
             "effects": {
-              "woundMod": 1,
               "hitMod": 1
             }
           }
@@ -350,8 +349,7 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the turn, improve the Strength characteristic of melee weapons equipped by models in your unit by 1. If your unit is Righteous, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in your unit by 1 as well.",
       "effect": {
         "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+          "strengthMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -431,13 +429,28 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit from your army that is Righteous and that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "indefatigable-dedication",
@@ -460,8 +473,7 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a melee attack, you can re-roll the Hit roll and, if your unit is Below Half-strength, you can re-roll the Wound roll as well.",
       "effect": {
         "effects": {
-          "rerollAllHits": true,
-          "rerollAllWounds": true
+          "rerollAllHits": true
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -901,14 +913,7 @@
       "cost": 20,
       "detachmentId": "hallowed-martyrs",
       "detachmentName": "Hallowed Martyrs",
-      "description": "Canoness or Palatine model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "bearerOnly": true
-      }
+      "description": "Canoness or Palatine model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1."
     },
     {
       "id": "catechism-of-divine-penitence",
@@ -1484,7 +1489,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "bearerOnly": true
           }
         },
         {
@@ -3541,9 +3547,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
               "rerollHitsOf1": true,
-              "woundMod": 1,
               "rerollWoundsOf1": true
             },
             "combatType": "ranged"
@@ -5155,7 +5159,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         },
@@ -6880,13 +6883,28 @@
           "name": "Righteous Paragons",
           "description": "Each time a model in this unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Hit roll and add 1 to the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "vs MONSTER",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "requiresTargetKeyword": "vehicle"
-          }
+            {
+              "name": "vs VEHICLE",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
