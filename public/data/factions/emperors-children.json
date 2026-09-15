@@ -302,7 +302,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "slaanesh"
       }
     },
     {
@@ -979,7 +980,8 @@
       "description": "<span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> model only. Each time a model in the bearer’s unit makes a melee attack, you can ignore any or all modifiers to that attack’s Weapon Skill characteristic and any or all modifiers to the Hit roll and Wound roll.",
       "effect": {
         "effects": {
-          "hitMod": 1
+          "hitMod": 1,
+          "woundMod": 1
         },
         "combatType": "melee"
       }
@@ -1016,7 +1018,7 @@
       "description": "Emperor’s Children Infantry model only. Once per battle, just after an enemy unit has selected its targets, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ invulnerable save.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 3
+          "saveMod": 1
         },
         "target": "defender",
         "bearerOnly": true
@@ -1209,14 +1211,7 @@
       "cost": 35,
       "detachmentId": "rapid-evisceration",
       "detachmentName": "Rapid Evisceration",
-      "description": "Emperor’s Children Infantry model only. Once per battle round, when a saving throw is failed for a friendly Emperor’s Children Vehicle model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
-      }
+      "description": "Emperor’s Children Infantry model only. Once per battle round, when a saving throw is failed for a friendly Emperor’s Children Vehicle model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0."
     },
     {
       "id": "cacophonic-accompaniment",
@@ -3041,13 +3036,38 @@
           "name": "A Challenge Worthy of Skill",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">WALKER</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Character",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "character"
+              }
             },
-            "requiresTargetKeyword": "walker"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "vs Walker",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "walker"
+              }
+            }
+          ]
         },
         {
           "id": "duellists-hubris",
@@ -3677,7 +3697,8 @@
               "apMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "slaanesh"
           }
         },
         {

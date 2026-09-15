@@ -429,8 +429,7 @@
       "description": "<b>WHEN:</b> Start of your Shooting phase or the start of the Fight phase.<br><br><b>TARGET:</b> Up to two Drukhari Battleline units from your army, or one other Drukhari unit from your army.<br><br><b>EFFECT:</b> You can spend 1 Pain token. Until the end of the phase, each time a model in each of those units makes an attack that targets an enemy unit that is Below Half-strength, add 1 to the Hit roll. If you spent 1 Pain token, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "hitMod": 1,
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 1
@@ -491,10 +490,6 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Drukhari or Harlequins unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select [LETHAL HITS] or [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "isStratagem": true,
-        "cpCost": 1
-      },
       "options": [
         {
           "name": "Sustained Hits 1",
@@ -718,7 +713,6 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One DRUKHARI unit from your army that made a Charge move this turn and has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a Wyches unit, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in your unit by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1,
           "lethalHitsBonus": true
         },
         "combatType": "melee",
@@ -903,14 +897,7 @@
       "cost": 5,
       "detachmentId": "kabalite-cartel",
       "detachmentName": "Kabalite Cartel",
-      "description": "Archon model only. The bearer has a Save characteristic of 3+. At the start of either player’s Command phase, you can spend 1 Pain token: if you do, the bearer regains all of its lost wounds.",
-      "effect": {
-        "effects": {
-          "saveMod": 1
-        },
-        "target": "defender",
-        "bearerOnly": true
-      }
+      "description": "Archon model only. The bearer has a Save characteristic of 3+. At the start of either player’s Command phase, you can spend 1 Pain token: if you do, the bearer regains all of its lost wounds."
     },
     {
       "id": "master-regenesist",
@@ -931,7 +918,6 @@
         "effects": {
           "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1029,7 +1015,6 @@
         "effects": {
           "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -2061,8 +2046,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+              "rerollAllHits": true
             }
           }
         }
@@ -3867,8 +3851,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
-              "apMod": -1
+              "lethalHitsBonus": true
             },
             "combatType": "melee"
           }
@@ -6664,12 +6647,26 @@
           "name": "Cruel Amusement",
           "description": "In your Shooting phase, each time this model is selected to shoot, select one of the abilities below. Until the end of the phase, this model’s shrieker cannon has that ability.<br><ul><li>[IGNORES COVER]</li><li>[PRECISION]</li><li>[SUSTAINED HITS 3]</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 3
+          "options": [
+            {
+              "name": "Sustained Hits 3",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 3
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Ignores Cover",
+              "effect": {
+                "effects": {
+                  "bsMod": -1
+                },
+                "combatType": "ranged"
+              }
+            }
+          ]
         },
         {
           "id": "flip-belt",
