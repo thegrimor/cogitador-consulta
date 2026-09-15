@@ -11,14 +11,7 @@
           "name": "Code Chivalric",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true
-            }
-          }
-        },
-        {
-          "name": "Code Chivalric",
-          "effect": {
-            "effects": {
+              "rerollHitsOf1": true,
               "rerollWoundsOf1": true
             }
           }
@@ -59,8 +52,7 @@
           "name": "Conqueror Imperative — +1 WS, +1 PA (CaC)",
           "effect": {
             "effects": {
-              "wsMod": -1,
-              "apMod": 1
+              "wsMod": -1
             },
             "combatType": "melee"
           }
@@ -148,7 +140,8 @@
           "description": "Friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> models have the following ability:<br><br><b>Assisted Targeting (Aura):</b> While a friendly <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit is within 6\" of this model, that <span class=\"kwb\">ADEPTUS MECHANICUS</span> unit's ranged attacks have:<ul><li>+1 BS.</li><li>[HEAVY].</li></ul>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><b>Sacristan Pledge:</b> In your Command phase, you can select one friendly <span class=\"kwb\">IMPERIAL KNIGHTS</span> model within 3\" of this model that has not been selected by this ability this phase. If you do, that model heals D3 wounds.<br><br><span class=\"hi_custom\">MECHANICUS ALLIES</span><br>You can include <span class=\"kwb\">TECH-PRIEST DOMINUS</span>/<span class=\"kwb\">TECH-PRIEST MANIPULUS</span>/<span class=\"kwb\">MARSHAL</span>/<span class=\"kwb\">RANGERS</span>/<span class=\"kwb\">VANGUARD</span> units in your army (see Codex: Adeptus Mechanicus). The combined points value of such units cannot exceed 500 points.",
           "effect": {
             "effects": {
-              "bsMod": -1
+              "bsMod": -1,
+              "hitMod": 1
             },
             "combatType": "ranged",
             "requiresAttackerKeyword": "adeptus mechanicus"
@@ -183,7 +176,8 @@
           "description": "At the start of the first battle round, select two objectives to be your foundations. Place a circular 40mm foundation marker in each one. When you draw a line from any part of one your foundation markers to any part of the other, if any part of a model’s base (or any part of a model’s hull, for a model without a base) crosses that line, that model’s unit is said to be on your defensive line.<br><br>While an <span class=\"kwb\">IMPERIAL KNIGHTS</span> unit from your army is on your defensive line, that unit has the following ability:<br><br><b>Against the Horde:</b> Each time a model in this unit makes an attack that targets a visible enemy unit, you can ignore any or all modifiers to the Hit roll, and weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "sustainedHitsBonus": 1,
+              "hitMod": 1
             }
           }
         }
@@ -757,7 +751,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged"
       }
     },
     {
@@ -903,9 +898,8 @@
       "description": "<span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model only. At the end of your Movement phase, select one other <span class=\"kwb\">IMPERIAL</span> <span class=\"kwb\">KNIGHTS</span> model from your army that is within 12\" of and visible to the bearer. Until the start of your next Movement phase, that selected model has the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -993,7 +987,8 @@
         "effects": {
           "hitMod": 1,
           "woundMod": 1
-        }
+        },
+        "requiresAttackerKeyword": "armiger"
       }
     },
     {
@@ -2000,12 +1995,27 @@
           "name": "Warden’s Duty (Bondsman)",
           "description": "While a model is affected by this ability, weapons equipped by that model have the [SUSTAINED HITS 1] ability, and ranged weapons equipped by that model have the [IGNORES COVER] ability.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Sustained Hits 1",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "appliesToNearby": true
+              }
             },
-            "appliesToNearby": true
-          }
+            {
+              "name": "Ignores Cover (ranged)",
+              "effect": {
+                "effects": {
+                  "bsMod": -1
+                },
+                "combatType": "ranged",
+                "appliesToNearby": true
+              }
+            }
+          ]
         },
         {
           "id": "thin-their-ranks",
@@ -4908,7 +4918,8 @@
           "effect": {
             "effects": {
               "attacksMod": 1
-            }
+            },
+            "combatType": "melee"
           }
         }
       ],
@@ -6306,7 +6317,6 @@
                   "strengthMod": 1,
                   "damageMod": 1
                 },
-                "combatType": "ranged",
                 "requiresTargetKeyword": "vehicle"
               }
             },
@@ -6317,7 +6327,6 @@
                   "strengthMod": 2,
                   "damageMod": 2
                 },
-                "combatType": "ranged",
                 "requiresTargetKeyword": "fortification"
               }
             }
@@ -7959,7 +7968,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "feelNoPainThreshold": 4
+              "feelNoPainThreshold": 4,
+              "hitMod": -1
             },
             "combatType": "ranged",
             "target": "defender",
