@@ -16,6 +16,9 @@ npm run preview  # Preview production build
 
 npm run server:install  # one-time: npm install inside server/
 npm run server           # backend (Express) with reload, http://localhost:8787
+
+npm run extract-pdf:install                              # one-time: pip install pymupdf
+npm run extract-pdf -- "path/to/book.pdf" <first> <last> [outFile]  # cheap PDF text-layer dump
 ```
 
 The frontend needs the backend running to do anything with the `Ejército` area (login, and
@@ -27,7 +30,8 @@ boot without one. Vite's dev server proxies `/api` to `http://localhost:8787` (s
 frontend can be deployed separately and point at the backend via `VITE_API_BASE_URL` (see
 `server/README.md`).
 
-One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
+One-off data scripts (run manually with `node scripts/<file>.mjs`, not wired to package.json,
+except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text.py`):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
 - `audit-combat-effects.mjs` — triage tool for the Mathhammer combat-effect data audit (see
   "CombatEffect authoring convention" under Mathhammer below): walks every
@@ -44,15 +48,21 @@ One-off data script (run manually with `node scripts/<file>.mjs`, not wired to p
   to avoid up front rather than clean up after: don't leave the PDF's flavour-text sentence at
   the start of ability/enhancement/stratagem descriptions — this app's convention, confirmed
   against every other faction, is to start at the mechanical rule text). `README.md` in the same
-  folder covers the PDF-reading/OCR mechanics specifically: `render-and-ocr.mjs` (poppler
-  `pdftoppm` + Tesseract OCR)
-  for when `pdftotext` produces garbage on a book's datasheet pages (a broken embedded-font
+  folder covers the PDF-reading/OCR mechanics specifically: `extract-text.py` (PyMuPDF-based
+  plain-text-layer extraction — deps in `requirements.txt`, install via `npm run
+  extract-pdf:install` (or `pip install -r scripts/pdf-codex-tools/requirements.txt` directly),
+  no system deps; run via `npm run extract-pdf -- <pdf> <first> <last> [outFile]`, see Commands
+  above) is the cheap first step, good for most pages (army rules, detachments, stratagems,
+  enhancements) where the PDF's text layer isn't broken; it flags pages whose extracted text
+  looks mangled so you know which ones need OCR instead. `render-and-ocr.mjs` (poppler
+  `pdftoppm` + Tesseract OCR) is the fallback
+  for when the text layer produces garbage on a book's datasheet pages (a broken embedded-font
   glyph mapping, not a layout issue — confirmed on the Orks 11th-ed codex across every
   `pdftotext` mode). OCR reads pixels instead, so it doesn't care that the text layer is
   broken, and it's near-free token-wise for prose (ability text, wargear options, keywords) —
   it's unreliable for the numeric weapon/model stat tables specifically, which still need a
   visual check (or the TSV-based positional table reconstruction sketched in that README, not
-  yet built). Both tools install via `winget`.
+  yet built). `render-and-ocr.mjs`'s poppler/tesseract install via `winget`.
 - `scripts/orks-11th-ed-migration/` — one-off pipeline used to rebuild `orks.json` wholesale
   from the actual 11th-edition Codex PDF (not a Faction Pack dataslate) when that codex
   replaced the old Ork data generation entirely; kept as a worked reference for the next

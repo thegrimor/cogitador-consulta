@@ -10,6 +10,23 @@ checklist (full-replace-vs-patch decision, what to check in the PDF before start
 handling, and a data-quality trap worth avoiding up front), see **`CODEX-MIGRATION-PROCESS.md`**
 in this same folder.
 
+## Step 0: try the plain text layer first (`extract-text.py`)
+
+Before reaching for OCR, always try pulling the PDF's own text layer for the whole page range
+you need. It's free (well, `pip install pymupdf` once) and reads instantly, and for most pages
+in a codex -- army rules, detachments, stratagems, enhancements -- it just works.
+
+```
+npm run extract-pdf:install   # one-time: pip install -r scripts/pdf-codex-tools/requirements.txt
+npm run extract-pdf -- "path/to/codex.pdf" <firstPage> <lastPage> [outFile]
+# equivalently: python3 scripts/pdf-codex-tools/extract-text.py "path/to/codex.pdf" <firstPage> <lastPage> [outFile]
+```
+
+Writes one combined `.txt` with `===== PAGE N =====` markers (same format `render-and-ocr.mjs`
+uses), and flags pages whose text looks suspiciously mangled (a heuristic on the ratio of
+non-standard letters) so you know which ones to spot-check or hand off to OCR -- see the next
+section for *why* some pages come out garbled and what to do about it.
+
 ## The core problem
 
 GW's codex PDFs use a custom embedded font for the datasheet "card" pages. In at least the
