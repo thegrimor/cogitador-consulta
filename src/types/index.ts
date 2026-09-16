@@ -152,6 +152,10 @@ export interface Stratagem {
   phase: string
   description: string
   effect?: CombatEffect
+  /** Mutually-exclusive variants (e.g. "select Lethal Hits or Sustained Hits 1") — same shape
+   * as Ability's `options`, for stratagems whose single `effect` can't represent every branch
+   * of the text at once. */
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 export interface DefaultWeaponQuantity {
@@ -273,6 +277,10 @@ export interface Enhancement {
   detachmentName: string
   description: string
   effect?: CombatEffect
+  /** Mutually-exclusive variants (e.g. a different invulnerable save against ranged vs. melee
+   * attacks) — same shape as Ability's `options`, for enhancements whose single `effect` can't
+   * represent every condition in the text at once. */
+  options?: { name: string; effect?: CombatEffect }[]
 }
 
 export interface UnitOption {

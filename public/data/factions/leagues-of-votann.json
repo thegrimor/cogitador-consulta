@@ -41,9 +41,29 @@
           "description": "Each time a Leagues of Votann model from your army makes an attack with a weapon that targets the closest eligible target or a target that is within Engagement Range of that model’s unit:<br><ul><li>Re-roll a Wound roll of 1.</li><li>If your unit is a Kâhl, Einhyr Hearthguard or Ûthar the Destined unit, improve the Armour Penetration characteristic of that attack by 1.</li></ul>",
           "effect": {
             "effects": {
-              "apMod": 1
+              "rerollWoundsOf1": true
             }
-          }
+          },
+          "options": [
+            {
+              "name": "Kâhl / Ûthar the Destined",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresAttackerKeyword": "kâhl"
+              }
+            },
+            {
+              "name": "Einhyr Hearthguard",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresAttackerKeyword": "einhyr hearthguard"
+              }
+            }
+          ]
         }
       ]
     },
@@ -121,11 +141,38 @@
           "id": "optimal-application",
           "name": "Optimal Application",
           "description": "At the end of your Command phase, you gain 1YP for each objective marker you control that is not within your deployment zone and has one or more Iron-master and/or Memnyr Strategist models from your army within range of it (to a maximum of 2YP gained from this Detachment rule per turn).<br><br>In your Shooting phase, each time a Brôkhyr, Ironkin Steeljacks or Arkanyst Evaluator unit from your army is selected to shoot, you can spend 1YP. If you do, until the end of the phase, each time a model in that unit makes an attack, re-roll a Hit roll of 1.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Brôkhyr",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "brôkhyr"
+              }
+            },
+            {
+              "name": "Ironkin Steeljacks",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "ironkin steeljacks"
+              }
+            },
+            {
+              "name": "Arkanyst Evaluator",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "arkanyst evaluator"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -189,12 +236,38 @@
           "id": "avatars-of-the-ancestors",
           "name": "Avatars of the Ancestors",
           "description": "Friendly <span class=\"kwb\">KÂHL</span>/<span class=\"kwb\">EINHYR CHAMPION</span>/<span class=\"kwb\">EINHYR HEARTHGUARD</span>/<span class=\"kwb\">ÛTHAR THE DESTINED</span> units' ranged attacks that target a unit within 8\" can re-roll wound rolls of 1. This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Kâhl / Ûthar the Destined",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "kâhl"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Einhyr Champion",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "einhyr champion"
+              }
+            },
+            {
+              "name": "Einhyr Hearthguard",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "einhyr hearthguard"
+              }
+            }
+          ]
         }
       ]
     }
@@ -265,7 +338,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -277,14 +351,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Cthonian Beserks unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 2YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If you spent YP during this use of this Stratagem, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (gastar YP)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "hidden-accessways",
@@ -374,7 +464,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Einhyr Hearthguard unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, improve the Strength characteristic of ranged weapons equipped by models in your unit by 1. If you spend 1YP, until the end of the phase, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability as well.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -390,14 +480,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Damage characteristic of that attack.",
-      "effect": {
-        "effects": {
-          "damageMod": 1
+      "options": [
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "monster"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 2
-      }
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "unyielding-aggression",
@@ -437,7 +545,17 @@
       "type": "Hearthfyre Arsenal – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Brôkhyr Thunderkyn unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll; the Wound roll; that attack’s Armour Penetration characteristic."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Brôkhyr Thunderkyn unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll; the Wound roll; that attack’s Armour Penetration characteristic.",
+      "effect": {
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 2,
+        "effects": {
+          "hitMod": 1,
+          "woundMod": 1,
+          "apMod": 1
+        }
+      }
     },
     {
       "id": "wall-of-steel",
@@ -546,15 +664,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> The Fight phase.<br><br><b>TARGET:</b> One Leagues of Votann Infantry unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. If you spent YP during this usage of this Stratagem, you can re-roll a Hit roll of 1 and re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit y Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "+ Reroll Wound completo (gastar YP)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "privateer-arsenal",
@@ -565,15 +700,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Leagues of Votann Infantry unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. If you spent YP during this usage of this Stratagem, you can re-roll the Hit roll and re-roll a Wound roll of 1 instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit y Wound de 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit completo + Wound de 1 (gastar YP)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true,
+              "rerollWoundsOf1": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "ancestral-sentence",
@@ -584,14 +736,30 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. If you spent YP during this use of this Stratagem, until the end of the phase, those weapons have the [SUSTAINED HITS 2] ability instead.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 2
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 2 (gastar YP)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "honour-of-the-hold",
@@ -602,14 +770,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Each time you use this Stratagem, you can spend 3YP. Select one enemy unit within Engagement Range of your unit. Until the end of the phase, each time a model in your unit makes a melee attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. If you spent YP during this use of this Stratagem, improve the Armour Penetration characteristic of that attack by 2 instead.",
-      "effect": {
-        "effects": {
-          "apMod": 2
+      "options": [
+        {
+          "name": "AP +1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "AP +2 (gastar YP)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "huntrs-mark",
@@ -861,7 +1045,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">EINHYR HEARTHGUARD</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">EINHYR HEARTHGUARD</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have:<br><ul><li>+1 S.</li><li>If you spend 1 YP, [SUSTAINED HITS 1].</li></ul>",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -889,7 +1073,7 @@
       "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Wound roll of 1. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, add 1 to the Wound roll.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "rerollWoundsOf1": true
         }
       }
     },
@@ -1005,13 +1189,7 @@
       "cost": 15,
       "detachmentId": "hearthband",
       "detachmentName": "Hearthband",
-      "description": "Kâhl model only. In your Shooting phase, after the bearer has shot, select one enemy unit (excluding <span class=\"kwb\">TITANIC</span> units) hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "combatType": "ranged"
-      }
+      "description": "Kâhl model only. In your Shooting phase, after the bearer has shot, select one enemy unit (excluding <span class=\"kwb\">TITANIC</span> units) hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "dead-reckoning",
@@ -1038,7 +1216,7 @@
       "description": "<span class=\"kwb\">LEAGUES</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">VOTANN</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. Each time the bearer’s unit is selected to shoot or fight, you can spend 3YP. If you do, until the end of the phase, each time a model in the bearer’s unit makes an attack, that attack has the [SUSTAINED HITS 1] ability.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "rerollHitsOf1": true
         }
       }
     },
@@ -1054,7 +1232,7 @@
           "hitMod": 1
         },
         "combatType": "ranged",
-        "bearerOnly": true
+        "requiresAttackerKeyword": "artillery"
       }
     },
     {
@@ -1139,12 +1317,7 @@
       "cost": 5,
       "detachmentId": "hearthfyre-arsenal",
       "detachmentName": "Hearthfyre Arsenal",
-      "description": "Iron-master model only. In your Shooting phase, after the bearer has shot, and in the Fight phase, after the bearer has fought, select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        }
-      }
+      "description": "Iron-master model only. In your Shooting phase, after the bearer has shot, and in the Fight phase, after the bearer has fought, select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "ancestral-crest",
@@ -2584,7 +2757,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "prioritised-efficiency",
@@ -3078,7 +3257,13 @@
           "id": "feel-no-pain-4",
           "name": "Feel No Pain 4+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "prioritised-efficiency",
@@ -3339,7 +3524,13 @@
           "id": "rollbar-searchlight",
           "name": "Rollbar Searchlight",
           "description": "Each time a model in the bearer’s unit makes a ranged attack, you can ignore any or all modifiers to the Hit roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "combatType": "ranged",
+            "effects": {
+              "hitMod": 1
+            }
+          }
         }
       ],
       "keywords": [
@@ -4054,10 +4245,11 @@
           "description": "Each time this model makes a ranged attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll.",
           "type": "Datasheet",
           "effect": {
+            "combatType": "ranged",
+            "bearerOnly": true,
             "effects": {
               "hitMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
@@ -4853,7 +5045,8 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         },
         {
@@ -5045,12 +5238,26 @@
           "name": "Purge Response",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ while resolving that Stratagem. If units from your army have Fortify Takeover, hits are scored on unmodified Hit rolls of 4+ while resolving that Stratagem instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Overwatch 5+",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 5
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Overwatch 4+ (Fortify Takeover)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "preymark-crest",
@@ -5813,13 +6020,7 @@
           "id": "scanner-uplinks",
           "name": "Scanner Uplinks",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "smoke-launcher",
@@ -5990,7 +6191,13 @@
           "id": "feel-no-pain-4",
           "name": "Feel No Pain 4+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",

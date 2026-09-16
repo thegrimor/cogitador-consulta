@@ -930,7 +930,9 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "imperium"
           }
         }
       ],

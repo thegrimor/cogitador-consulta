@@ -31,12 +31,44 @@
           "id": "hyper-adaptations",
           "name": "Hyper-adaptations",
           "description": "At the start of the first battle round, select one of the following Hyper-adaptations to be active for <span class=\"kwb\">TYRANIDS</span> units from your army until the end of the battle:<br><br><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Swarming Instincts</p><p>Each time a <span class=\"kwb\">TYRANIDS</span> model with this Hyper-adaptation makes an attack that targets an <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">SWARM</span> unit, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Hyper-aggression</p><p>Each time a <span class=\"kwb\">TYRANIDS</span> model with this Hyper-adaptation makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Hive Predators</p><p>Each time a <span class=\"kwb\">TYRANIDS</span> model with this Hyper-adaptation makes an attack that targets a <span class=\"kwb\">CHARACTER</span> unit, on a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span>, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Swarming Instincts (vs Infantry)",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "requiresTargetKeyword": "infantry"
+              }
+            },
+            {
+              "name": "Hyper-aggression (vs Monster)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "Hyper-aggression (vs Vehicle)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
+            },
+            {
+              "name": "Swarming Instincts (vs Swarm)",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "requiresTargetKeyword": "swarm"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -53,8 +85,10 @@
           "description": "Each time a Tyranids Monster model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model’s unit is Below Half-strength. In addition, while a <span class=\"kwb\">TYRANIDS</span> <span class=\"kwb\">MONSTER</span> unit from your army (excluding Battle-shocked units) is at its Starting Strength, add 2 to the Objective Control characteristic of models in that unit.",
           "effect": {
             "effects": {
+              "hitMod": 1,
               "woundMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "monster"
           }
         }
       ]
@@ -112,11 +146,26 @@
           "id": "synaptic-imperatives",
           "name": "Synaptic Imperatives",
           "description": "At the start of the battle round, you can select one of the Synaptic Imperatives shown below. Until the end of the battle round, that Synaptic Imperative is active for your army and while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army, it will benefit from it. Each Synaptic Imperative can only be selected once per battle.<br><ul><li><b>Synaptic Augmentation:</b> While this unit is within Synapse Range of your army, models in this unit have a 5+ invulnerable save.</li><li><b>Surging Vitality:</b> While this unit is within Synapse Range of your army, add 1 to Advance and Charge rolls made for this unit.</li><li><b>Goaded to Slaughter:</b> While this unit is within Synapse Range of your army, each time a model in this unit makes a melee attack, add 1 to the Hit roll.</li></ul>",
-          "effect": {
-            "effects": {
-              "hitMod": 1
+          "options": [
+            {
+              "name": "Synaptic Augmentation",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 5
+                },
+                "target": "defender"
+              }
+            },
+            {
+              "name": "Goaded to Slaughter",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "combatType": "melee"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -164,11 +213,28 @@
           "id": "mindhunger",
           "name": "Mindhunger",
           "description": "<ul><li>Friendly <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span> units have Deep Strike.</li><li>Friendly <span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span> units' attacks that target a <span class=\"kwb\">CHARACTER</span> unit can re-roll hit rolls of 1.</li></ul>",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Lictor vs Character",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "lictor",
+                "requiresTargetKeyword": "character"
+              }
+            },
+            {
+              "name": "Neurolictor vs Character",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "neurolictor",
+                "requiresTargetKeyword": "character"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -231,14 +297,32 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Harvester unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 5+ ability. If your unit is within range of an objective marker you control, until the end of the phase models in your unit have the Feel No Pain 4+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 4
+      "options": [
+        {
+          "name": "FNP 5+",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 2,
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "requiresTargetKeyword": "harvester"
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 2
-      }
+        {
+          "name": "FNP 4+ (cerca de objetivo controlado)",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 2,
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "requiresTargetKeyword": "harvester"
+          }
+        }
+      ]
     },
     {
       "id": "reclaim-biomass",
@@ -271,13 +355,27 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">TYRANIDS</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a Harvester unit, each time a model in that unit makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit as well.",
       "effect": {
         "effects": {
-          "critThreshold": 5,
           "lethalHitsBonus": true
         },
         "combatType": "melee",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Unidad Harvester",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true,
+              "critThreshold": 5
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "harvester",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "rampaging-monstrosities",
@@ -294,7 +392,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "monster"
       }
     },
     {
@@ -313,7 +412,9 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "target": "defender",
+        "requiresTargetKeyword": "monster"
       }
     },
     {
@@ -324,7 +425,17 @@
       "type": "Crusher Stampede – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Tyranids Monster unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability, and until the end of the phase each time a model in your unit makes an attack, you can ignore any or all modifiers to that model’s Ballistic Skill characteristic and any or all modifiers to the Hit roll."
+      "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Tyranids Monster unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability, and until the end of the phase each time a model in your unit makes an attack, you can ignore any or all modifiers to that model’s Ballistic Skill characteristic and any or all modifiers to the Hit roll.",
+      "effect": {
+        "combatType": "ranged",
+        "requiresAttackerKeyword": "monster",
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1,
+          "bsMod": -1
+        }
+      }
     },
     {
       "id": "massive-impact",
@@ -365,14 +476,30 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One <span class=\"kwb\">TYRANIDS</span> unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability. If your unit is within Synapse Range of your army, models in your unit have the Feel No Pain 5+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
+      "options": [
+        {
+          "name": "FNP 6+",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "FNP 5+ (dentro de Synapse Range)",
+          "effect": {
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
+        }
+      ]
     },
     {
       "id": "adrenal-surge",
@@ -473,7 +600,8 @@
       "description": "<b>WHEN:</b> End of your Movement phase.<br><br><b>TARGET:</b> One Tyranids unit from your army that was set up as Reinforcements this turn.<br><br><b>EFFECT:</b> Until the end of your next Fight phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "sustainedHitsBonus": 1,
+          "bsMod": -1
         },
         "isStratagem": true,
         "cpCost": 1
@@ -524,7 +652,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "synapse"
       }
     },
     {
@@ -600,7 +729,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "endless multitude"
       }
     },
     {
@@ -618,7 +748,8 @@
           "critThreshold": 5
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "endless multitude"
       }
     },
     {
@@ -676,7 +807,8 @@
           "woundMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "vanguard invader"
       }
     },
     {
@@ -728,14 +860,32 @@
       "turn": "Opponent's turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent's Shooting phase or the Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">TYRANID</span> <span class=\"kwb\">WARRIORS</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">TYRANID</span> <span class=\"kwb\">WARRIORS</span> unit.<br><br><b>EFFECT:</b> Attacks that target your unit with a Strength characteristic greater than your unit's Toughness characteristic have -1 to their Wound rolls.",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "vs Melee Bio-weapons",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "tyranid warriors with melee bio-weapons"
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Ranged Bio-weapons",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "tyranid warriors with ranged bio-weapons"
+          }
+        }
+      ]
     },
     {
       "id": "parasitic-payload",
@@ -766,14 +916,60 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span>/<span class=\"kwb\">VON RYAN'S LEAPERS</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span>/<span class=\"kwb\">VON RYAN'S LEAPERS</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks that target a hidden unit have +1 Strength and +1 Armour Penetration.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Deathleaper",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "deathleaper"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lictor",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "lictor"
+          }
+        },
+        {
+          "name": "Neurolictor",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "neurolictor"
+          }
+        },
+        {
+          "name": "Von Ryan'S Leapers",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "von ryan's leapers"
+          }
+        }
+      ]
     },
     {
       "id": "hypersensory-adaptations",
@@ -809,9 +1005,9 @@
           "feelNoPainThreshold": 4
         },
         "target": "defender",
-        "requiresAttackerKeyword": "norn assimilator",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "norn assimilator"
       }
     },
     {
@@ -828,10 +1024,24 @@
           "strengthMod": 2
         },
         "combatType": "melee",
-        "requiresAttackerKeyword": "norn emissary",
+        "requiresAttackerKeyword": "norn assimilator",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Norn Emissary",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "norn emissary",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "tanglestrike-rounds",
@@ -925,9 +1135,8 @@
       "description": "<span class=\"kwb\">TYRANIDS</span> model only. At the start of the first battle round, select up to three friendly Endless Multitude units within 9\" of the bearer. Until the end of the battle round, each time a ranged attack targets one of those units, models in that unit have the Benefit of Cover against that attack.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "requiresTargetKeyword": "endless multitude"
       }
@@ -995,9 +1204,8 @@
       "description": "Vanguard Invader model only. This unit has Stealth.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1076,12 +1284,7 @@
       "cost": 25,
       "detachmentId": "unending-swarm",
       "detachmentName": "Unending Swarm",
-      "description": "<span class=\"kwb\">TYRANIDS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        }
-      }
+      "description": "<span class=\"kwb\">TYRANIDS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1."
     },
     {
       "id": "monstrous-nemesis",
@@ -1090,14 +1293,30 @@
       "detachmentId": "crusher-stampede",
       "detachmentName": "Crusher Stampede",
       "description": "Tyranids Monster model only. Each time the bearer makes a melee attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, add 1 to the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "requiresTargetKeyword": "vehicle",
-        "bearerOnly": true
-      }
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "trygon-prime",
@@ -1132,7 +1351,8 @@
       "description": "<span class=\"kwb\">TYRANIDS</span> model only. Add 1 to the Strength characteristic of melee weapons equipped by models in the bearer’s unit. The first time the bearer’s unit destroys an enemy unit in the Fight phase while the bearer is within 6\" of one or more friendly Harvester units, until the end of the battle, add 1 to the Attacks characteristic of melee weapons equipped by models in the bearer’s unit.",
       "effect": {
         "effects": {
-          "strengthMod": 1
+          "strengthMod": 1,
+          "attacksMod": 1
         },
         "combatType": "melee"
       }
@@ -1146,7 +1366,8 @@
       "description": "<span class=\"kwb\">WINGED</span> <span class=\"kwb\">TYRANID</span> <span class=\"kwb\">PRIME</span>/<span class=\"kwb\">TYRANID</span> <span class=\"kwb\">PRIME</span> <span class=\"kwb\">WITH</span> <span class=\"kwb\">LASH</span> <span class=\"kwb\">WHIP</span> model only. This model's melee attacks:<br><ul><li>Can re-roll Wound rolls.</li><li>Have +1 Armour Penetration.</li></ul>",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "rerollAllWounds": true
         },
         "combatType": "melee",
         "bearerOnly": true
@@ -1159,13 +1380,28 @@
       "detachmentId": "invasion-fleet",
       "detachmentName": "Invasion Fleet",
       "description": "<span class=\"kwb\">TYRANIDS</span> model only. The bearer has the Feel No Pain 5+ ability. At the start of any turn, if the bearer has fewer than its starting number of wounds remaining, until the end of the battle, it has the Feel No Pain 4+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
+      "options": [
+        {
+          "name": "FNP 5+",
+          "effect": {
+            "target": "defender",
+            "bearerOnly": true,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
         },
-        "target": "defender",
-        "bearerOnly": true
-      }
+        {
+          "name": "FNP 4+ (con heridas perdidas)",
+          "effect": {
+            "target": "defender",
+            "bearerOnly": true,
+            "effects": {
+              "feelNoPainThreshold": 4
+            }
+          }
+        }
+      ]
     },
     {
       "id": "adrenalised-onslaught",
@@ -1700,7 +1936,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -2081,7 +2323,8 @@
               "lethalHitsBonus": true
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "termagants"
           }
         }
       ],
@@ -2914,7 +3157,8 @@
             "effects": {
               "feelNoPainThreshold": 5
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -3071,12 +3315,26 @@
           "name": "Defensive Stance",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or unmodified Hit rolls of 4+ instead if this unit is within range of an objective marker.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Overwatch 5+",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 5
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Overwatch 4+ (cerca de objetivo)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 4
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -4833,7 +5091,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
@@ -6107,7 +6366,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -6294,13 +6554,7 @@
           "id": "resilient-organism",
           "name": "Resilient Organism",
           "description": "Once per battle, when an attack is allocated to this model, you can change the Damage characteristic of that attack to 0.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -6761,7 +7015,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
@@ -7998,7 +8253,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "synapse",
@@ -8014,7 +8275,9 @@
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "combatType": "melee",
+            "appliesToNearby": true
           }
         },
         {
@@ -9034,12 +9297,16 @@
           "name": "Singular Purpose",
           "description": "At the start of the first battle round, select one of the following:<br><ul><li>Select one enemy unit. Until the end of the battle, each time this model makes an attack that targets that unit, you can re-roll the Hit roll and you can re-roll the Wound roll.</li><li>Select one objective marker. Until the end of the battle, while this model is within range of that objective marker, it has the Feel No Pain 5+ ability and an Objective Control characteristic of 15.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "Marcar unidad enemiga",
+              "effect": { "effects": { "rerollAllHits": true, "rerollAllWounds": true }, "bearerOnly": true }
+            },
+            {
+              "name": "Marcar objetivo (OC)",
+              "effect": { "effects": { "feelNoPainThreshold": 5 }, "target": "defender", "bearerOnly": true }
             }
-          }
+          ]
         },
         {
           "id": "unnatural-resilience",
@@ -9218,12 +9485,16 @@
           "name": "Singular Purpose",
           "description": "At the start of the first battle round, select one of the following:<br><ul><li>Select one enemy unit. Until the end of the battle, each time this model makes an attack that targets that unit, you can re-roll the Hit roll and you can re-roll the Wound roll.</li><li>Select one objective marker. Until the end of the battle, while this model is within range of that objective marker, it has the Feel No Pain 5+ ability and an Objective Control characteristic of 15.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "Marcar unidad enemiga",
+              "effect": { "effects": { "rerollAllHits": true, "rerollAllWounds": true }, "bearerOnly": true }
+            },
+            {
+              "name": "Marcar objetivo (OC)",
+              "effect": { "effects": { "feelNoPainThreshold": 5 }, "target": "defender", "bearerOnly": true }
             }
-          }
+          ]
         },
         {
           "id": "harpooned",
@@ -9407,13 +9678,25 @@
           "name": "Psychological Saboteur (Aura)",
           "description": "While an enemy unit is within 12\" of this model, if that unit is Battle-shocked:<br><ul><li>Each time a model in that unit makes an attack, subtract 1 from the Hit roll.</li><li>Each time a friendly <span class=\"kwb\">TYRANIDS</span> model makes an attack that targets that unit, add 1 to the Wound roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Maldicion sobre unidad enemiga cercana",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "Bono de herida contra esa unidad",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "appliesToNearby": true
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -10005,12 +10288,38 @@
           "name": "Swallow Whole",
           "description": "Each time an attack with this model’s gaping maw targets an <span class=\"kwb\">INFANTRY</span>, <span class=\"kwb\">MOUNTED</span> or <span class=\"kwb\">BEASTS</span> unit, each successful unmodified Wound roll is a Critical Wound. Each time an <span class=\"kwb\">INFANTRY</span>, <span class=\"kwb\">MOUNTED</span> or <span class=\"kwb\">BEASTS</span> model is destroyed as a result of an attack made by this model’s gaping maw, this model regains up to D3+2 lost wounds.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundCritThreshold": 2
+          "options": [
+            {
+              "name": "vs Infantry",
+              "effect": {
+                "effects": {
+                  "woundCritThreshold": 2
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "infantry"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "vs Mounted",
+              "effect": {
+                "effects": {
+                  "woundCritThreshold": 2
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "mounted"
+              }
+            },
+            {
+              "name": "vs Beasts",
+              "effect": {
+                "effects": {
+                  "woundCritThreshold": 2
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "beast"
+              }
+            }
+          ]
         },
         {
           "id": "subterranean-hunter",

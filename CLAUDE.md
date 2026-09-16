@@ -29,6 +29,15 @@ frontend can be deployed separately and point at the backend via `VITE_API_BASE_
 
 One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
+- `audit-combat-effects.mjs` — triage tool for the Mathhammer combat-effect data audit (see
+  "CombatEffect authoring convention" under Mathhammer below): walks every
+  `public/data/factions/<slug>.json`, finds every Ability/DetachmentAbility/Stratagem/Enhancement
+  (and each `options[].effect` variant) carrying an `effect`, and dumps one Markdown file per
+  faction with the bearer name, the HTML-stripped rule text, and the full `effect` JSON side by
+  side — so checking a stored effect against its real card text doesn't require re-extracting
+  each block from raw JSON by hand. `node scripts/audit-combat-effects.mjs [outDir]
+  [--faction=<slug>,...]` (outDir defaults to `./audit-output`, gitignored scratch output — the
+  tool only collects data for review, it never edits the faction JSON itself).
 - `scripts/pdf-codex-tools/` — **read `CODEX-MIGRATION-PROCESS.md` here before starting any
   future full-codex faction migration** — step-by-step checklist (full-replace-vs-patch
   decision, what to check in the PDF first, extraction, JSON authoring, and a data-quality trap
@@ -261,6 +270,38 @@ Standalone feature folder at `src/features/mathhammer/`. Computes expected-value
 - `utils/mathhammer.ts` — the core probability math.
 - `components/`: `UnitSelector` (pick attacker/defender), `UnitPanel`, `ModifierPanel` (toggle applicable rules/stratagems), `DamageCalculator` + `GaussianChart` (results + distribution chart), plus `StatsBar`/`WeaponCard`/`AbilityList`/`StratList` variants local to this feature.
 - `hooks/usePanelState.ts` — panel selection state, synced to the `?faction=&datasheet=&detachments=&character=&roster=` query params via `mathhammerAttackerPath`.
+
+**`CombatEffect` authoring convention** — when adding/editing an `effect` on an Ability,
+Stratagem, Enhancement or DetachmentAbility in `public/data/factions/*.json`, the payload must
+actually represent the ability's real text, and its scoping fields must match who the text says
+benefits:
+- `effects` should only use `CombatModifiers` keys that represent what the rule text describes.
+  If the text describes something this app doesn't model in `CombatModifiers` (Leadership,
+  healing wounds, Lone Operative, etc.), **do not** invent a loose substitute modifier — leave
+  `effect` off entirely rather than attach a wrong one (a stored `strengthMod`/`hitMod` that
+  doesn't correspond to the text is worse than no effect, since it silently mismodels the rule).
+- If the text restricts who benefits ("friendly KHORNE unit", "select one enemy unit ... friendly
+  ADEPTUS MECHANICUS unit that targets it", "if it is a VEHICLE model"), set
+  `requiresAttackerKeyword` (restriction on who attacks) or `requiresTargetKeyword` (restriction
+  on the target/defender) to that keyword, lowercased-compared against
+  `[...datasheet.keywords, ...datasheet.factionKeywords]` in `UnitPanel.tsx`'s `visibleRules`
+  filter. The schema only supports **one** keyword string (no AND/OR of two keywords anywhere in
+  the dataset) — pick the single most specific keyword; when a rule's text ORs two conditions and
+  one of them (typically a `factionKeywords` entry) already covers virtually every unit in that
+  faction, that one keyword is normally the right (if imperfect) choice.
+- If the rule benefits a friendly unit **other than its own bearer** — a classic proximity aura
+  ("while a friendly X unit is within 6\" of this model..."), a "mark an enemy unit, then units
+  that attack it get +1" mechanic, or "pick one other friendly model within X\" and buff it" —
+  set `appliesToNearby: true` so `deriveRules.ts`'s aura loop offers it on *other* units' panels,
+  not just the bearer's own card. Leave it unset when the bearer is the only beneficiary.
+- Always double check `combatType` (`'melee'`/`'ranged'`/omitted = either) and `target`
+  (`'attacker'`/`'defender'`, defaults to `'attacker'` if omitted) match the text.
+
+An audit of all ~1800 existing `effect` entries across every faction found several of these
+authored wrong from the start (an `appliesToNearby` aura missing the keyword its own text
+requires, so it showed up for every unit regardless of faction; an `effect` payload that didn't
+correspond to the ability's text at all) — `scripts/audit-combat-effects.mjs` (see "One-off data
+script" above) was built to make re-checking this systematically, faction by faction, possible.
 
 ### Core rules & missions
 

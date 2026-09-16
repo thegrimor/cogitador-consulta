@@ -46,8 +46,7 @@
           "description": "At the start of the battle, Drukhari units from your army are winning the wager.<br><br>Each time a <span class=\"kwb\">DRUKHARI</span> unit from your army destroys an enemy unit, <span class=\"kwb\">DRUKHARI</span> units from your army are winning the wager.<br><br>Each time a Harlequins unit from your army destroys an enemy unit, <span class=\"kwb\">HARLEQUIN</span> units from your army are winning the wager.<br><br>While <span class=\"kwb\">DRUKHARI</span> units from your army are winning the wager, <span class=\"kwb\">HARLEQUIN</span> units from your army are losing the wager, and vice versa.<br><br>Each time a <span class=\"kwb\">DRUKHARI</span> or <span class=\"kwb\">HARLEQUINS</span> model from your army makes an attack, if that model’s unit is winning the wager, re-roll a Hit roll of 1. If that model’s unit is losing the wager, re-roll a Hit roll of 1 and re-roll a Wound roll of 1 instead.<br><br><span class=\"hi_custom\">HARLEQUINS</span><br>You can include Harlequins units in your army (see Codex: Aeldari). The combined points cost of such units depends on your battle size:<br><ul><li><b>Incursion:</b> Up to 500 pts</li><li><b>Strike Force:</b> Up to 1000 pts</li><li><b>Onslaught:</b> Up to 1500 pts</li></ul><br>No <span class=\"kwb\">HARLEQUINS</span> models from your army can be your <span class=\"kwb\">WARLORD</span>. If you select this Detachment, you cannot use the Corsairs and Travelling Players army rule.",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+              "rerollHitsOf1": true
             }
           }
         }
@@ -138,7 +137,8 @@
             "effects": {
               "woundMod": -1
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "haemonculus covens"
           }
         }
       ]
@@ -172,7 +172,8 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "wych cult"
           }
         }
       ]
@@ -188,12 +189,28 @@
           "id": "contracted-harvest",
           "name": "Contracted Harvest",
           "description": "Friendly <span class=\"kwb\">BLADES FOR HIRE</span>/<span class=\"kwb\">KABAL</span> units' ranged attacks have [SUSTAINED HITS 1] against non-MONSTER/VEHICLE units.<br><br>This detachment has the <span class=\"kwb\">KABAL</span> tag and cannot be taken with another <span class=\"kwb\">KABAL</span> detachment.",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Kabal",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "kabal"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Blades for Hire",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "blades for hire"
+              }
+            }
+          ]
         }
       ]
     },
@@ -412,8 +429,7 @@
       "description": "<b>WHEN:</b> Start of your Shooting phase or the start of the Fight phase.<br><br><b>TARGET:</b> Up to two Drukhari Battleline units from your army, or one other Drukhari unit from your army.<br><br><b>EFFECT:</b> You can spend 1 Pain token. Until the end of the phase, each time a model in each of those units makes an attack that targets an enemy unit that is Below Half-strength, add 1 to the Hit roll. If you spent 1 Pain token, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "hitMod": 1,
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 1
@@ -474,13 +490,28 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Drukhari or Harlequins unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select [LETHAL HITS] or [SUSTAINED HITS 1]. Until the end of the phase, weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "murderers-circus",
@@ -552,12 +583,38 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Drukhari unit from your army that has not been selected to shoot this phase and that disembarked from a Transport this turn.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability, or the [SUSTAINED HITS 2] ability if your unit is a Kabalite Warriors or Hand of the Archon unit.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 2
+          "sustainedHitsBonus": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
-      }
+      },
+      "options": [
+        {
+          "name": "Kabalite Warriors (Sustained Hits 2)",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "kabalite warriors",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Hand of the Archon (Sustained Hits 2)",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "hand of the archon",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "vicious-blades",
@@ -656,7 +713,6 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One DRUKHARI unit from your army that made a Charge move this turn and has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a Wyches unit, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in your unit by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1,
           "lethalHitsBonus": true
         },
         "combatType": "melee",
@@ -841,14 +897,7 @@
       "cost": 5,
       "detachmentId": "kabalite-cartel",
       "detachmentName": "Kabalite Cartel",
-      "description": "Archon model only. The bearer has a Save characteristic of 3+. At the start of either player’s Command phase, you can spend 1 Pain token: if you do, the bearer regains all of its lost wounds.",
-      "effect": {
-        "effects": {
-          "saveMod": 1
-        },
-        "target": "defender",
-        "bearerOnly": true
-      }
+      "description": "Archon model only. The bearer has a Save characteristic of 3+. At the start of either player’s Command phase, you can spend 1 Pain token: if you do, the bearer regains all of its lost wounds."
     },
     {
       "id": "master-regenesist",
@@ -867,9 +916,8 @@
       "description": "<span class=\"kwb\">DRUKHARI</span> model only. While the bearer’s unit is wholly within 6\" of a friendly Drukhari Transport:<br><ul><li>Models in the bearer’s unit have the Stealth ability.</li><li>Each time a ranged attack targets the bearer’s unit, models in that unit have the Benefit of Cover against that attack.</li></ul>",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -894,7 +942,19 @@
         },
         "requiresTargetKeyword": "monster",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "vs Beast (anti-beast 2+)",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "requiresTargetKeyword": "beast",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "chronoshard",
@@ -934,13 +994,7 @@
       "cost": 15,
       "detachmentId": "skysplinter-assault",
       "detachmentName": "Skysplinter Assault",
-      "description": "<span class=\"kwb\">DRUKHARI</span> model only. Each time you spend 1 Pain token to Empower the bearer’s unit in the Shooting phase, select one friendly Drukhari Transport within 6\" of the bearer’s unit; until the end of the phase, each time that <span class=\"kwb\">TRANSPORT</span> makes an attack, you can re-roll the Hit roll.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        },
-        "combatType": "ranged"
-      }
+      "description": "<span class=\"kwb\">DRUKHARI</span> model only. Each time you spend 1 Pain token to Empower the bearer’s unit in the Shooting phase, select one friendly Drukhari Transport within 6\" of the bearer’s unit; until the end of the phase, each time that <span class=\"kwb\">TRANSPORT</span> makes an attack, you can re-roll the Hit roll."
     },
     {
       "id": "informant-network",
@@ -959,9 +1013,8 @@
       "description": "Harlequins model only. Models in the bearer’s unit have the Stealth and Infiltrators abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -980,14 +1033,30 @@
       "detachmentId": "realspace-raiders",
       "detachmentName": "Realspace Raiders",
       "description": "Succubus model only. Improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer’s unit is selected to fight, you can spend 1 Pain token; if you do, until the end of the phase, improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1A/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Gastar Pain token (+2A/+2AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "master-artisan",
@@ -1764,7 +1833,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -1971,8 +2046,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+              "rerollAllHits": true
             }
           }
         }
@@ -2235,11 +2309,24 @@
           "name": "Sadistic Raiders (Pain)",
           "description": "In your Shooting phase or the Fight phase, when you select this unit to shoot or fight, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "cruel-enforcers",
@@ -5108,7 +5195,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "power-from-pain",
@@ -5316,7 +5409,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "power-from-pain",
@@ -5496,13 +5595,7 @@
           "id": "agonising-suppression-pain",
           "name": "Agonising Suppression (Pain)",
           "description": "In your Shooting phase, when you select this model to shoot, you can spend 1 Pain token to Empower this model. While Empowered, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "eradicate-the-foe",
@@ -5649,7 +5742,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -5668,11 +5767,24 @@
           "name": "Archon of the Poisoned Tongue (Pain)",
           "description": "In your Shooting phase or the Fight phase, when you select this model’s<br>unit to shoot or fight, you can spend 1 Pain token to Empower that unit. If you do, select one of the following abilities: [SUSTAINED HITS 1]; [LETHAL HITS]. Until the end of the phase, while that unit is Empowered, weapons equipped by models in that unit have that selected ability.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Sustained Hits 1",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Lethal Hits",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "precognisant",
@@ -6363,7 +6475,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -6528,12 +6641,26 @@
           "name": "Cruel Amusement",
           "description": "In your Shooting phase, each time this model is selected to shoot, select one of the abilities below. Until the end of the phase, this model’s shrieker cannon has that ability.<br><ul><li>[IGNORES COVER]</li><li>[PRECISION]</li><li>[SUSTAINED HITS 3]</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 3
+          "options": [
+            {
+              "name": "Sustained Hits 3",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 3
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Ignores Cover",
+              "effect": {
+                "effects": {
+                  "bsMod": -1
+                },
+                "combatType": "ranged"
+              }
+            }
+          ]
         },
         {
           "id": "flip-belt",
@@ -7422,7 +7549,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         }
@@ -7635,13 +7761,36 @@
           "name": "Dance of Death",
           "description": "At the start of the Fight phase, select one of the following abilities for this unit to gain until the end of the phase:<br><ul><li><b>Hero’s Prowess:</b> Each time a model in this unit makes an attack, re-roll a Hit roll of 1.</li><li><b>Villain’s Doom:</b> Each time a model in this unit makes an attack, add 1 to the Wound roll.</li><li><b>Trickster’s Grace:</b> Each time an attack targets this unit, subtract 1 from the Hit roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
+          "options": [
+            {
+              "name": "Hero's Prowess",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee",
-            "target": "defender"
-          }
+            {
+              "name": "Villain's Doom",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "melee"
+              }
+            },
+            {
+              "name": "Trickster's Grace",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "combatType": "melee",
+                "target": "defender"
+              }
+            }
+          ]
         },
         {
           "id": "flip-belt",
@@ -8101,11 +8250,24 @@
           "name": "Reavers of the Void",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "mistshield",
@@ -8742,7 +8904,7 @@
             "effects": {
               "strengthMod": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         }
       ],

@@ -57,6 +57,7 @@
           "description": "Each time a World Eaters unit from your army makes a Charge move, until the end of the turn, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.",
           "effect": {
             "effects": {
+              "attacksMod": 1,
               "strengthMod": 2
             },
             "combatType": "melee"
@@ -89,12 +90,48 @@
           "id": "idols-of-khorne",
           "name": "Idols of Khorne",
           "description": "At the start of your Command phase, you can select one of the Idols of Khorne abilities listed below. Until the start of your next Command phase, that ability is active and its effects apply to all World Eaters Titanic and World Eaters Monster units from your army. You can only select each Idols of Khorne ability once per battle.<br><br><span class=\"hi_custom\">Idol of Infinite Rage (Aura)</span><br>While a friendly Jakhals or Goremongers unit is within 6\" of this model (or within 9\" if this model is <span class=\"kwb\">TITANIC</span>), each time a model in that unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll.<br><br><span class=\"hi_custom\">Idol of Burning Wrath (Aura)</span><br>While a friendly <span class=\"kwb\">JAKHALS</span> or <span class=\"kwb\">GOREMONGERS</span> unit is within 6\" of this model (or within 9\" if this model is <span class=\"kwb\">TITANIC</span>), add 1\" to the Move characteristic of models in that unit and add 1 to Advance and Charge rolls made for that unit.<br><br><span class=\"hi_custom\">Idol of Blessed Blood (Aura)</span><br>While a friendly <span class=\"kwb\">JAKHALS</span> or <span class=\"kwb\">GOREMONGERS</span> unit is within 6\" of this model (or within 9\" if this model is <span class=\"kwb\">TITANIC</span>), models in that unit have a 4+ invulnerable save.<br><br><span class=\"h_custom\">KEYWORDS</span><br><span class=\"kwb\">JAKHALS</span> and <span class=\"kwb\">GOREMONGERS</span> units from your army have the <span class=\"kwb\">BATTLELINE</span> keyword.",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Idol of Infinite Rage (Jakhals)",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "jakhals"
+              }
+            },
+            {
+              "name": "Idol of Infinite Rage (Goremongers)",
+              "effect": {
+                "effects": {
+                  "hitMod": 1,
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "goremongers"
+              }
+            },
+            {
+              "name": "Idol of Blessed Blood (Jakhals)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresTargetKeyword": "jakhals"
+              }
+            },
+            {
+              "name": "Idol of Blessed Blood (Goremongers)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresTargetKeyword": "goremongers"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -109,12 +146,28 @@
           "id": "blood-tithe",
           "name": "Blood Tithe",
           "description": "Each time a Blood Legions or World Eaters unit from your army destroys an enemy unit, roll one D6: on a 3+, you gain 1 Blood Tithe point (BTP). At the start of the Command phase, you can spend one or more of your BTP to activate one of the following abilities until the end of the battle:<br><ul><li><b>Enraged Abjuration [2BTP]</b><br><span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> and <span class=\"kwb\">WORLD</span> <span class=\"kwb\">EATERS</span> models from your army have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.</li><li><b>Daemonic Rage [3BTP]</b><br>Melee weapons equipped by <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> units from your army have the [lance] ability.</li><li><b>Boon of Blood [4BTP]</b><br><span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> units from your army have a 4+ invulnerable save.</li><li><b>Might of Khorne [5BTP]</b><br><span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> units from your army gain the Blessings of Khorne ability.</li></ul><br><span class=\"h_custom\">RESTRICTIONS</span><br>You can include the Blood Legions units in your army. The combined points cost of such units you can include in your army is:<br><br><b>Incursion:</b> Up to 500 pts<br><b>Strike Force:</b> Up to 1000 pts<br><b>Onslaught:</b> Up to 1500 pts<br><br>No <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">LEGIONS</span> model from your army can be your <span class=\"kwb\">WARLORD</span>.",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Daemonic Rage",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "blood legions"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Boon of Blood",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresTargetKeyword": "blood legions"
+              }
+            }
+          ]
         }
       ]
     },
@@ -278,13 +331,30 @@
       "turn": "Either player’s turn",
       "phase": "Any phase",
       "description": "<b>WHEN:</b> Any phase.<br><br><b>TARGET:</b> One World Eaters Monster or World Eaters Titanic unit from your army that was just destroyed by an enemy unit. You can use this Stratagem on that unit even though it was just destroyed.<br><br><b>EFFECT:</b> Until the end of the battle, each time a model in a Jakhals or Goremongers unit from your army makes an attack that targets the enemy unit that just destroyed your unit, you can re-roll the Hit roll.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
+      "options": [
+        {
+          "name": "Jakhals",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "requiresAttackerKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Goremongers",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "requiresAttackerKeyword": "goremongers",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "brazen-idol",
@@ -315,14 +385,56 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Jakhals or Goremongers unit from your army that was selected as the target as one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability. If your unit is within 6\" of one or more friendly World Eaters Monster units, or within 9\" of one or more friendly World Eaters Titanic units, your unit has the Feel No Pain 5+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
+      "options": [
+        {
+          "name": "FNP 6+ (Jakhals)",
+          "effect": {
+            "target": "defender",
+            "requiresTargetKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "FNP 6+ (Goremongers)",
+          "effect": {
+            "target": "defender",
+            "requiresTargetKeyword": "goremongers",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
+        },
+        {
+          "name": "FNP 5+ (Jakhals, cerca de Monster/Titanic World Eaters)",
+          "effect": {
+            "target": "defender",
+            "requiresTargetKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
+        },
+        {
+          "name": "FNP 5+ (Goremongers, cerca de Monster/Titanic World Eaters)",
+          "effect": {
+            "target": "defender",
+            "requiresTargetKeyword": "goremongers",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "feelNoPainThreshold": 5
+            }
+          }
+        }
+      ]
     },
     {
       "id": "fail-not-the-blood-god",
@@ -333,14 +445,56 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Jakhals or Goremongers unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1. If that model’s unit is within 6\" of one or more friendly World Eaters Monster units, or within 9\" of one or more friendly World Eaters Titanic units, you can re-roll the Hit roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1 (Jakhals)",
+          "effect": {
+            "combatType": "melee",
+            "requiresAttackerKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit de 1 (Goremongers)",
+          "effect": {
+            "combatType": "melee",
+            "requiresAttackerKeyword": "goremongers",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Hit completo (Jakhals, cerca de Monster/Titanic World Eaters)",
+          "effect": {
+            "combatType": "melee",
+            "requiresAttackerKeyword": "jakhals",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Hit completo (Goremongers, cerca de Monster/Titanic World Eaters)",
+          "effect": {
+            "combatType": "melee",
+            "requiresAttackerKeyword": "goremongers",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "fury-unleashed",
@@ -426,6 +580,7 @@
           "saveMod": 1
         },
         "target": "defender",
+        "requiresTargetKeyword": "world eaters",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -479,14 +634,46 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One World Eaters Possessed unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack made by a model in your unit is allocated to an enemy model, if your unit has the Eightbound keyword and that enemy model is not a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span>, add 1 to the Damage characteristic of that attack. If your unit has the Exalted Eightbound keyword and that enemy model is a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span>, add 1 to the Damage characteristic of that attack instead.",
-      "effect": {
-        "effects": {
-          "damageMod": 1
+      "options": [
+        {
+          "name": "Eightbound",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "eightbound",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Exalted Eightbound vs Monster",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "exalted eightbound",
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Exalted Eightbound vs Vehicle",
+          "effect": {
+            "effects": {
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "exalted eightbound",
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "immortal-fury",
@@ -512,6 +699,7 @@
           "woundMod": -1
         },
         "target": "defender",
+        "requiresTargetKeyword": "possessed",
         "isStratagem": true,
         "cpCost": 2
       }
@@ -557,9 +745,11 @@
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">WORLD EATERS CHARACTER</span> unit (excluding Epic Heroes) is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">WORLD EATERS CHARACTER</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, that unit's <span class=\"kwb\">CHARACTER</span> models' melee attacks have:<br><ul><li>+1 A.</li><li>+2 S.</li></ul>",
       "effect": {
         "effects": {
-          "apMod": 1
+          "attacksMod": 1,
+          "strengthMod": 2
         },
         "combatType": "melee",
+        "requiresAttackerKeyword": "character",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -632,15 +822,34 @@
       "turn": "Either player's turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">TERMINATOR SQUAD</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">TERMINATOR SQUAD</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks that target a <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit have +1 to wound rolls.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "terminator squad",
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "terminator squad",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "terminator squad",
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "wrath-beyond-reason",
@@ -712,14 +921,7 @@
       "cost": 30,
       "detachmentId": "vessels-of-wrath",
       "detachmentName": "Vessels of Wrath",
-      "description": "<span class=\"kwb\">WORLD EATERS</span> model only. (Once per battle, per army) In your Command phase, you can use this ability. If you do, every Blessing of Khorne is active for this unit until the start of your next turn.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+      "description": "<span class=\"kwb\">WORLD EATERS</span> model only. (Once per battle, per army) In your Command phase, you can use this ability. If you do, every Blessing of Khorne is active for this unit until the start of your next turn."
     },
     {
       "id": "icon-of-war",
@@ -810,7 +1012,8 @@
       "effect": {
         "effects": {
           "critThreshold": 5
-        }
+        },
+        "requiresAttackerKeyword": "daemon"
       }
     },
     {
@@ -819,13 +1022,7 @@
       "cost": 10,
       "detachmentId": "goretrack-onslaught",
       "detachmentName": "Goretrack Onslaught",
-      "description": "World Eaters model only. At the start of your Shooting phase, you can select one Vehicle model within 6\" of the bearer or, if the bearer is embarked within a Transport, you can select that <span class=\"kwb\">TRANSPORT</span> model. Until the end of the phase, after the selected model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "target": "attacker"
-      }
+      "description": "World Eaters model only. At the start of your Shooting phase, you can select one Vehicle model within 6\" of the bearer or, if the bearer is embarked within a Transport, you can select that <span class=\"kwb\">TRANSPORT</span> model. Until the end of the phase, after the selected model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "brazen-form",
@@ -839,6 +1036,7 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
+        "requiresTargetKeyword": "monster",
         "bearerOnly": true
       }
     },
@@ -910,7 +1108,8 @@
         "effects": {
           "cleaveBonus": 2
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "maulerfiend"
       }
     },
     {
@@ -940,7 +1139,8 @@
         "effects": {
           "wsMod": -1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "terminator squad"
       }
     }
   ],
@@ -1059,7 +1259,8 @@
               "hitMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "world eaters"
           }
         }
       ],
@@ -1881,7 +2082,8 @@
               "rerollAllHits": true,
               "rerollAllWounds": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -2675,10 +2877,10 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+              "hitMod": 1
             },
             "combatType": "melee",
+            "requiresAttackerKeyword": "world eaters",
             "appliesToNearby": true
           }
         }
@@ -2823,12 +3025,28 @@
           "name": "Rend and Tear",
           "description": "Each time a model in this unit makes a melee attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, until the end of the phase, improve the Damage characteristic of that attack by 1.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageMod": 1
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "damageMod": 1
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "damageMod": 1
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -3271,7 +3489,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "scouts-8",
@@ -3701,13 +3925,7 @@
           "id": "punishing-suppression",
           "name": "Punishing Suppression",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>). Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -3933,12 +4151,30 @@
           "name": "Blood-hungry Annihilator",
           "description": "Each time this model makes a ranged attack that targets the closest eligible <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> target within 18\", you can re-roll the Wound roll and you can re-roll the Damage roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -4286,8 +4522,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+              "hitMod": 1
             },
             "combatType": "melee"
           }
@@ -4648,7 +4883,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
@@ -5542,7 +5778,8 @@
               "attacksMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "blood legions"
           }
         },
         {
@@ -5752,7 +5989,8 @@
               "hitMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "blood legions"
           }
         },
         {
@@ -6187,7 +6425,8 @@
             "effects": {
               "feelNoPainThreshold": 3
             },
-            "target": "defender"
+            "target": "defender",
+            "bearerOnly": true
           }
         }
       ],

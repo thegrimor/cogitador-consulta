@@ -24,25 +24,26 @@
               "hitMod": -1
             },
             "combatType": "melee",
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "battleline"
           }
         },
         {
-          "name": "Conqueror Imperative — +1 WS, +1 PA (CaC)",
+          "name": "Conqueror Imperative — +1 WS (CaC)",
           "effect": {
             "effects": {
-              "wsMod": -1,
-              "apMod": 1
+              "wsMod": -1
             },
             "combatType": "melee"
           }
         },
         {
-          "name": "Conqueror Imperative — +1 PA adicional",
+          "name": "Conqueror Imperative — +1 PA",
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "battleline"
           }
         }
       ]
@@ -95,7 +96,8 @@
                 "effects": {
                   "apMod": 1
                 },
-                "combatType": "ranged"
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "cult mechanicus"
               }
             },
             {
@@ -105,7 +107,8 @@
                   "strengthMod": 1,
                   "attacksMod": 1
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "requiresAttackerKeyword": "cult mechanicus"
               }
             }
           ]
@@ -126,7 +129,8 @@
           "effect": {
             "effects": {
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "adeptus mechanicus"
           }
         }
       ]
@@ -170,11 +174,16 @@
           "id": "murderous-imperative",
           "name": "Murderous Imperative",
           "description": "Each time a model in a Skitarii unit from your army makes an attack:<br><ul><li>If the Protector Imperative is active for that unit, re-roll a Hit roll of 1.</li><li>If the Conqueror Imperative is active for that unit, re-roll a Wound roll of 1.</li></ul>",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Protector Imperative activa",
+              "effect": { "effects": { "rerollHitsOf1": true }, "requiresAttackerKeyword": "skitarii" }
+            },
+            {
+              "name": "Conqueror Imperative activa",
+              "effect": { "effects": { "rerollWoundsOf1": true }, "requiresAttackerKeyword": "skitarii" }
             }
-          }
+          ]
         }
       ]
     },
@@ -205,9 +214,10 @@
           "description": "Friendly <span class=\"kwb\">TECH-PRIEST</span> models have:<br><ul><li>4+ InSv.</li><li>Feel No Pain 5+.</li></ul><br>Friendly <span class=\"kwb\">TECH-PRIEST</span> models have the following ability:<br><br><span class=\"hi_custom\">Baffling Data Screed:</span> In your Shooting phase, when this unit is selected to shoot, if this unit is not battle-shocked, you can use this ability. If you do, roll one D6: On a 2+, select one enemy <span class=\"kwb\">VEHICLE</span> unit within 12\" of this unit. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll. A unit cannot be selected for this ability more than once per turn. Or: On 2+, those ranged attacks do not prevent this unit from being hidden.",
           "effect": {
             "effects": {
-              "feelNoPainThreshold": 5
+              "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "tech-priest"
           }
         }
       ]
@@ -227,7 +237,8 @@
             "effects": {
               "lethalHitsBonus": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "corpuscarii"
           }
         }
       ]
@@ -288,7 +299,14 @@
       "type": "Cohort Cybernetica – Epic Deed Stratagem",
       "turn": "Your turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE unit from your army.<br><br><b>EFFECT:</b> Until the end of the turn, your unit is eligible to shoot in a turn in which it Fell Back and you can ignore any or all modifiers to its characteristics and/or to any roll or test made for it (excluding modifiers to saving throws)."
+      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE unit from your army.<br><br><b>EFFECT:</b> Until the end of the turn, your unit is eligible to shoot in a turn in which it Fell Back and you can ignore any or all modifiers to its characteristics and/or to any roll or test made for it (excluding modifiers to saving throws).",
+      "effect": {
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "machine-spirit-resurgent",
@@ -301,11 +319,24 @@
       "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE unit from your army that is below its Starting Strength.<br><br><b>EFFECT:</b> Until the start of your next Command phase, each time a model in your unit makes an attack, you can re-roll the Hit roll. If your unit is Below Half-strength, you can re-roll the Wound roll as well.",
       "effect": {
         "effects": {
-          "rerollAllWounds": true
+          "rerollAllHits": true
         },
         "isStratagem": true,
         "cpCost": 0
-      }
+      },
+      "options": [
+        {
+          "name": "Unidad Below Half-strength",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true,
+              "rerollAllWounds": true
+            },
+            "isStratagem": true,
+            "cpCost": 0
+          }
+        }
+      ]
     },
     {
       "id": "transcendent-cogitation",
@@ -395,7 +426,8 @@
           "hitMod": -1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "target": "defender"
       }
     },
     {
@@ -447,14 +479,42 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Skitarii unit from your army that has not been selected to shoot this phase. <br><br><b>EFFECT:</b> Select the [SUSTAINED HITS 1] or [LETHAL HITS] ability. Until the end of the phase, ranged weapons equipped by models in your unit have the selected ability. You can instead select the <span class=\"kwb\">[SUSTAINED</span> <span class=\"kwb\">HITS</span> <span class=\"kwb\">1]</span>, <span class=\"kwb\">[LETHAL</span> <span class=\"kwb\">HITS]</span> and [HAZARDOUS] abilities to apply to those weapons until the end of the phase.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
+        },
+        {
+          "name": "Ambos (Hazardous no modelado)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1,
+              "lethalHitsBonus": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "servo-driven-charge",
@@ -570,11 +630,25 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1, and, if it is a <span class=\"kwb\">HALO</span> <span class=\"kwb\">OVERRIDE</span> unit, re-roll a Hit roll of 1.",
       "effect": {
         "effects": {
-          "rerollHitsOf1": true
+          "rerollWoundsOf1": true
         },
         "isStratagem": true,
         "cpCost": 0
-      }
+      },
+      "options": [
+        {
+          "name": "Unidad HALO OVERRIDE",
+          "effect": {
+            "effects": {
+              "rerollWoundsOf1": true,
+              "rerollHitsOf1": true
+            },
+            "requiresAttackerKeyword": "halo override",
+            "isStratagem": true,
+            "cpCost": 0
+          }
+        }
+      ]
     },
     {
       "id": "guided-retreat",
@@ -675,9 +749,9 @@
         "effects": {
           "woundMod": -1
         },
-        "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "target": "defender"
       }
     },
     {
@@ -865,7 +939,6 @@
           "rerollHitsOf1": true,
           "rerollWoundsOf1": true
         },
-        "combatType": "ranged",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -920,8 +993,7 @@
           "damageReduction": 1
         },
         "target": "defender",
-        "requiresTargetKeyword": "vehicle",
-        "bearerOnly": true
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -939,12 +1011,47 @@
       "detachmentId": "skitarii-hunter-cohort",
       "detachmentName": "Skitarii Hunter Cohort",
       "description": "SKITARII MARSHAL model only. At the start of the battle round, you can select one friendly SKITARII unit within 12\" of the bearer. Until the start of the next battle round, the Protector Imperative and the Conqueror Imperative are both active for that unit.",
-      "effect": {
-        "effects": {
-          "wsMod": -1
+      "options": [
+        {
+          "name": "Protector — +1 BS, [HEAVY] (disparo)",
+          "effect": {
+            "effects": {
+              "bsMod": -1,
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         },
-        "combatType": "melee"
-      }
+        {
+          "name": "Protector — -1 impactar recibido en CaC",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender",
+            "requiresTargetKeyword": "battleline"
+          }
+        },
+        {
+          "name": "Conqueror — +1 WS (CaC)",
+          "effect": {
+            "effects": {
+              "wsMod": -1
+            },
+            "combatType": "melee"
+          }
+        },
+        {
+          "name": "Conqueror — +1 PA",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "requiresAttackerKeyword": "battleline"
+          }
+        }
+      ]
     },
     {
       "id": "omnicogitator",
@@ -953,12 +1060,47 @@
       "detachmentId": "eradication-cohort",
       "detachmentName": "Eradication Cohort",
       "description": "Skitarii Marshal model only. The Conqueror Imperative and Protector Imperative are both active for the bearer’s unit.",
-      "effect": {
-        "effects": {
-          "wsMod": -1
+      "options": [
+        {
+          "name": "Protector — +1 BS, [HEAVY] (disparo)",
+          "effect": {
+            "effects": {
+              "bsMod": -1,
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         },
-        "combatType": "melee"
-      }
+        {
+          "name": "Protector — -1 impactar recibido en CaC",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender",
+            "requiresTargetKeyword": "battleline"
+          }
+        },
+        {
+          "name": "Conqueror — +1 WS (CaC)",
+          "effect": {
+            "effects": {
+              "wsMod": -1
+            },
+            "combatType": "melee"
+          }
+        },
+        {
+          "name": "Conqueror — +1 PA",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "requiresAttackerKeyword": "battleline"
+          }
+        }
+      ]
     },
     {
       "id": "mechanicus-locum",
@@ -1020,12 +1162,47 @@
       "detachmentId": "haloscreed-battle-clade",
       "detachmentName": "Haloscreed Battle Clade",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> model only (excluding Cybernetica Datasmith models). The Conqueror Imperative and Protector Imperative are both active for the bearer’s unit.",
-      "effect": {
-        "effects": {
-          "wsMod": -1
+      "options": [
+        {
+          "name": "Protector — +1 BS, [HEAVY] (disparo)",
+          "effect": {
+            "effects": {
+              "bsMod": -1,
+              "hitMod": 1
+            },
+            "combatType": "ranged"
+          }
         },
-        "combatType": "melee"
-      }
+        {
+          "name": "Protector — -1 impactar recibido en CaC",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender",
+            "requiresTargetKeyword": "battleline"
+          }
+        },
+        {
+          "name": "Conqueror — +1 WS (CaC)",
+          "effect": {
+            "effects": {
+              "wsMod": -1
+            },
+            "combatType": "melee"
+          }
+        },
+        {
+          "name": "Conqueror — +1 PA",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "requiresAttackerKeyword": "battleline"
+          }
+        }
+      ]
     },
     {
       "id": "malphonic-susurrus",
@@ -1036,9 +1213,8 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> model only. While the bearer is leading a unit, models in that unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1054,7 +1230,8 @@
           "hitMod": -1
         },
         "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
+        "requiresAttackerKeyword": "vehicle",
+        "combatType": "ranged"
       }
     },
     {
@@ -1144,13 +1321,7 @@
       "cost": 10,
       "detachmentId": "explorator-maniple",
       "detachmentName": "Explorator Maniple",
-      "description": "TECH-PRIEST model only. While the bearer is leading a unit that is within range of your Acquisition objective marker, once per phase, you can change the result of one Hit roll, one Wound roll or one saving throw made for that unit to an unmodified 6.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
-        }
-      }
+      "description": "TECH-PRIEST model only. While the bearer is leading a unit that is within range of your Acquisition objective marker, once per phase, you can change the result of one Hit roll, one Wound roll or one saving throw made for that unit to an unmodified 6."
     },
     {
       "id": "arch-negator",
@@ -1194,12 +1365,25 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> model only. Ranged weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.",
       "effect": {
         "effects": {
-          "woundCritThreshold": 4
+          "woundCritThreshold": 2
         },
         "combatType": "ranged",
-        "requiresTargetKeyword": "monster",
+        "requiresTargetKeyword": "infantry",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "vs MONSTER (ANTI-MONSTER 4+)",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "inloaded-lethality",
@@ -1274,9 +1458,8 @@
       "description": "<span class=\"kwb\">TECH-PRIEST</span> model only. This unit has Stealth.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     }
@@ -1413,7 +1596,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "adeptus mechanicus"
           }
         },
         {
@@ -1631,12 +1815,26 @@
           "name": "Lord of the Machine Cult",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Electro-Priests keyword, models in that unit have the Feel No Pain 4+ ability instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
+          "options": [
+            {
+              "name": "FNP 5+",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 5
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "FNP 4+ (unidad Electro-Priests)",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "data-spike",
@@ -1845,7 +2043,8 @@
               "feelNoPainThreshold": 5
             },
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -2059,11 +2258,24 @@
           "name": "Breaching Command",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. While this unit is within 6\" of one or more friendly Adeptus Mechanicus Battleline units, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de Battleline AdMech)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -2421,7 +2633,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "electro-infusion",
@@ -2572,7 +2790,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "electro-shock",
@@ -2968,8 +3192,20 @@
           "effect": {
             "effects": {
               "attacksMod": 2
+            },
+            "combatType": "ranged"
+          },
+          "options": [
+            {
+              "name": "Conqueror Protocol (melee)",
+              "effect": {
+                "effects": {
+                  "attacksMod": 2
+                },
+                "combatType": "melee"
+              }
             }
-          }
+          ]
         },
         {
           "id": "data-severed",
@@ -4585,7 +4821,8 @@
             },
             "combatType": "ranged",
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresTargetKeyword": "battleline"
           }
         },
         {
@@ -4958,7 +5195,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -5163,7 +5401,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
@@ -5748,11 +5987,26 @@
           "name": "Searing Conflagration",
           "description": "Each time a model in this unit makes an attack with a phosphor torch that targets an enemy unit within range of an objective marker, re-roll a Wound roll of 1. If this unit is also within 6\" of one or more friendly ADEPTUS MECHANICUS BATTLELINE units, each time such an attack targets such a unit, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de Battleline AdMech)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -7257,7 +7511,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -7965,7 +8220,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {

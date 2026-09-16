@@ -93,11 +93,24 @@
           "id": "daemonic-empowerment",
           "name": "Daemonic Empowerment",
           "description": "<ul><li>While an Emperor’s Children unit from your army is within 6\" of one or more friendly Legions of Excess units, it is Empowered.</li><li>While a <span class=\"kwb\">LEGIONS</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">EXCESS</span> unit from your army is within 6\" of one or more friendly <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> units, it is Empowered.</li></ul><br>While a unit from your army is Empowered, weapons equipped by models in that unit have the [sustained hits 1] ability. If such a weapon already has that ability, each time an attack is made with that weapon, an unmodified Hit roll of 5+ scores a Critical Hit.<br><br><span class=\"h_custom\">LEGIONS OF EXCESS</span><br>You can include Legions of Excess units in your army, even though they do not have the <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> Faction keyword. The combined points cost of such units you can include in your army is:<br><ul><li><b>Incursion:</b> Up to 500 pts</li><li><b>Strike Force:</b> Up to 1000 pts</li><li><b>Onslaught:</b> Up to 1500 pts</li></ul>No <span class=\"kwb\">LEGIONS</span> <span class=\"kwb2\">OF</span> <span class=\"kwb\">EXCESS</span> models from your army can be your <span class=\"kwb\">WARLORD</span>.",
-          "effect": {
-            "effects": {
-              "critThreshold": 5
+          "options": [
+            {
+              "name": "Sustained Hits 1",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Critical Hit on 5+",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -171,7 +184,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "requiresAttackerKeyword": "character"
           }
         }
       ]
@@ -189,6 +203,7 @@
           "description": "Emperor’s Children units from your army have the following ability:<br><br><b>Sensational Performance:</b> Each time this unit is selected to fight, if this unit made a Charge move this turn, it can use this ability. If it does, until the end of the phase:<br><ul><li>This unit cannot target a unit it was within Engagement Range of at the start of the turn.</li><li>This unit cannot target a unit that was the target of another unit’s attack this phase.</li><li>Improve the Strength and Armour Penetration characteristics of this unit’s melee weapons by 1.</li></ul>",
           "effect": {
             "effects": {
+              "strengthMod": 1,
               "apMod": 1
             },
             "combatType": "melee"
@@ -229,7 +244,8 @@
           "effect": {
             "effects": {
               "strengthMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "battleline"
           }
         }
       ]
@@ -286,7 +302,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "slaanesh"
       }
     },
     {
@@ -355,7 +372,15 @@
       "type": "Coterie of the Conceited – Epic Deed Stratagem",
       "turn": "Either player’s turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One Emperor’s Children unit from your army.<br><br><b>EFFECT:</b> Until the end of the turn, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll; the Wound roll."
+      "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One Emperor’s Children unit from your army.<br><br><b>EFFECT:</b> Until the end of the turn, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll; the Wound roll.",
+      "effect": {
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1,
+          "woundMod": 1
+        }
+      }
     },
     {
       "id": "embrace-the-pain",
@@ -378,7 +403,7 @@
       "description": "<b>WHEN:</b> Any phase, just after a mortal wound or attack is allocated to a model in an Emperor’s Children unit from your army.<br><br><b>TARGET:</b> That <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability, and the Feel No Pain 4+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 4
+          "feelNoPainThreshold": 6
         },
         "target": "defender",
         "isStratagem": true,
@@ -429,7 +454,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -471,6 +497,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Emperor’s Children unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time an <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> model in your unit makes an attack that targets an eligible unit within 12\", improve the Strength and Armour Penetration characteristics of that attack by 1.",
       "effect": {
         "effects": {
+          "strengthMod": 1,
           "apMod": 1
         },
         "combatType": "ranged",
@@ -522,7 +549,8 @@
         "combatType": "melee",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -726,7 +754,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "character"
       }
     },
     {
@@ -743,7 +772,8 @@
           "strengthMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "character"
       }
     },
     {
@@ -936,6 +966,7 @@
       "description": "Emperor’s Children model only. Each time a model in the bearer’s unit makes an attack that targets an enemy unit below its Starting Strength, add 1 to the Hit roll. If that target is also Below Half-strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
+          "hitMod": 1,
           "woundMod": 1
         }
       }
@@ -949,7 +980,6 @@
       "description": "<span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> model only. Each time a model in the bearer’s unit makes a melee attack, you can ignore any or all modifiers to that attack’s Weapon Skill characteristic and any or all modifiers to the Hit roll and Wound roll.",
       "effect": {
         "effects": {
-          "wsMod": -1,
           "hitMod": 1,
           "woundMod": 1
         },
@@ -988,7 +1018,7 @@
       "description": "Emperor’s Children Infantry model only. Once per battle, just after an enemy unit has selected its targets, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ invulnerable save.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 3
+          "saveMod": 1
         },
         "target": "defender",
         "bearerOnly": true
@@ -1083,12 +1113,24 @@
       "description": "Emperor’s Children model only. At the start of the battle, select one melee weapon equipped by the bearer; add 1 to the Attacks characteristic of that weapon. In addition, each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those attacks, add 1 to the Damage characteristic of that weapon and that weapon has the [devastating wounds] and [hazardous] abilities.",
       "effect": {
         "effects": {
-          "damageMod": 1,
-          "devastatingWoundsBonus": true
+          "attacksMod": 1
         },
         "combatType": "melee",
         "bearerOnly": true
-      }
+      },
+      "options": [
+        {
+          "name": "Activar el filo (Dmg +1, Devastating Wounds)",
+          "effect": {
+            "effects": {
+              "damageMod": 1,
+              "devastatingWoundsBonus": true
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "soulstain-made-manifest",
@@ -1169,14 +1211,7 @@
       "cost": 35,
       "detachmentId": "rapid-evisceration",
       "detachmentName": "Rapid Evisceration",
-      "description": "Emperor’s Children Infantry model only. Once per battle round, when a saving throw is failed for a friendly Emperor’s Children Vehicle model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
-      }
+      "description": "Emperor’s Children Infantry model only. Once per battle round, when a saving throw is failed for a friendly Emperor’s Children Vehicle model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0."
     },
     {
       "id": "cacophonic-accompaniment",
@@ -1669,9 +1704,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
-              "attacksMod": 3,
-              "apMod": 1
+              "lethalHitsBonus": true
             }
           }
         },
@@ -2275,12 +2308,26 @@
           "name": "Excessive Assault",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "icon-of-excess",
@@ -2958,7 +3005,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -2983,12 +3036,38 @@
           "name": "A Challenge Worthy of Skill",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">WALKER</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Character",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "character"
+              }
+            },
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "vs Walker",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "walker"
+              }
             }
-          }
+          ]
         },
         {
           "id": "duellists-hubris",
@@ -3618,7 +3697,8 @@
               "apMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "slaanesh"
           }
         },
         {
@@ -4354,7 +4434,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "thrill-seekers",
@@ -5569,7 +5655,8 @@
               "apMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "legions of excess"
           }
         },
         {

@@ -58,11 +58,29 @@
           "id": "born-soldiers",
           "name": "Born Soldiers",
           "description": "Each time a model in a Regiment unit from your army makes a ranged attack that targets a visible unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>), that attack has the [LETHAL HITS] ability.<br><br>Each time a model in a Squadron unit from your army makes a ranged attack that targets a visible <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that attack has the [LETHAL HITS] ability.",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Regiment",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "regiment"
+              }
+            },
+            {
+              "name": "Squadron (vs Monster/Vehicle)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "squadron",
+                "requiresTargetKeyword": "vehicle"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -85,7 +103,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "militarum tempestus"
           }
         }
       ]
@@ -118,7 +138,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ]
@@ -271,7 +292,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -289,7 +311,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "armoured skirmisher"
       }
     },
     {
@@ -333,7 +356,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Militarum Tempestus or Kasrkin unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, when targeting an enemy unit within 12\", improve the Strength and Armour Penetration characteristics of hot-shot lascarbines, hot-shot lasguns, hot-shot laspistols, hot-shot marksman rifles, hot-shot volley guns and sentry hot-shot volley guns equipped by models in your unit by 1.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "strengthMod": 1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -579,7 +603,15 @@
       "type": "Hammer of the Emperor – Epic Deed Stratagem",
       "turn": "Your turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Squadron unit from your army that is Below Half-strength (excluding Officer units).<br><br><b>EFFECT:</b> Until the end of the battle round, ranged weapons equipped by models in your unit (excluding <span class=\"kwb2 bluefont\">[ONE SHOT]</span> weapons) have the [HAZARDOUS] ability, and each time a model in your unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and to the Hit roll."
+      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Squadron unit from your army that is Below Half-strength (excluding Officer units).<br><br><b>EFFECT:</b> Until the end of the battle round, ranged weapons equipped by models in your unit (excluding <span class=\"kwb2 bluefont\">[ONE SHOT]</span> weapons) have the [HAZARDOUS] ability, and each time a model in your unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and to the Hit roll.",
+      "effect": {
+        "combatType": "ranged",
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "tactical-withdrawal",
@@ -854,6 +886,7 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Astra Militarum Titanic unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select one enemy unit within Engagement Range of your unit. Until the end of the phase, add 6 to the Attacks characteristic of melee weapons equipped by models in your unit, improve the Armour Penetration characteristic of those weapons by 2, and each time a model in your unit fights, it can only target that enemy unit.",
       "effect": {
         "effects": {
+          "attacksMod": 6,
           "apMod": 2
         },
         "combatType": "melee",
@@ -1167,7 +1200,8 @@
         "effects": {
           "feelNoPainThreshold": 5
         },
-        "target": "defender"
+        "target": "defender",
+        "requiresAttackerKeyword": "armoured skirmisher"
       }
     },
     {
@@ -1218,9 +1252,8 @@
       "description": "Infantry Officer model only. The bearer’s unit has the Benefit of Cover and the Stealth ability while the bearer’s unit is wholly within 3\" of one or more friendly TRANSPORT models.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1241,9 +1274,8 @@
       "description": "Astra Militarum Infantry officer model only. Each time you select an Order for the bearer to issue, you can select the Order below:<br><br><b>Move to the Shadows (Order):</b> Each time a ranged attack targets this unit, until those attacks are resolved, models in this unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1307,12 +1339,7 @@
       "cost": 20,
       "detachmentId": "recon-element",
       "detachmentName": "Recon Element",
-      "description": "Astra Militarum Infantry model only. Each time an enemy <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">MOUNTED</span> unit ends a Normal, Advance, Charge or Fall Back move within 8\" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        }
-      }
+      "description": "Astra Militarum Infantry model only. Each time an enemy <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">MOUNTED</span> unit ends a Normal, Advance, Charge or Fall Back move within 8\" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "reactive-command",
@@ -1944,12 +1971,26 @@
           "name": "Covering Fire",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or on unmodified Hit rolls of 4+ instead if this unit is within 6\" of one or more friendly Platoon units.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Covering Fire (base, 5+)",
+              "effect": {
+                "effects": {
+                  "overwatchThreshold": 5
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Covering Fire (cerca de Platoon, 4+)",
+              "effect": {
+                "effects": {
+                  "overwatchThreshold": 4
+                },
+                "combatType": "ranged"
+              }
+            }
+          ]
         },
         {
           "id": "embarking",
@@ -2241,7 +2282,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -2540,7 +2582,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -3660,7 +3703,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "requiresTargetKeyword": "fly"
           }
         },
         {
@@ -3863,13 +3907,7 @@
           "id": "suppression-bombardment",
           "name": "Suppression Bombardment",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that was hit by one or more of those attacks made with this model’s Wyvern quad stormshard mortar. Until the start of your next Shooting phase, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",
@@ -4580,11 +4618,24 @@
           "name": "Armoured Spearhead",
           "description": "Each time this model makes an attack that targets an enemy unit, re-roll a Hit roll of 1 and, if that unit is within range of an objective marker you do not control, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Armoured Spearhead (base)",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Armoured Spearhead (objetivo no controlado)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "one-shot",
@@ -7594,7 +7645,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -7747,7 +7799,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "point-blank-barrage",
@@ -7897,7 +7955,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "wall-of-muscle",
@@ -8263,7 +8327,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "ogryn-bodyguard",
@@ -9299,7 +9369,9 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
@@ -9494,7 +9566,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "ogryn-bodyguard",
@@ -12967,13 +13045,7 @@
           "id": "ablative-plating",
           "name": "Ablative Plating",
           "description": "Once per battle, when an attack is allocated to this model, you change the Damage characteristic of that attack to 0.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -13130,7 +13202,9 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "infantry"
           }
         },
         {
@@ -13141,7 +13215,10 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender",
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -13397,7 +13474,8 @@
             "effects": {
               "damageReduction": 1
             },
-            "target": "defender"
+            "target": "defender",
+            "combatType": "ranged"
           }
         },
         {
@@ -13717,7 +13795,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -14023,7 +14102,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -14631,7 +14711,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -15002,11 +15083,24 @@
           "name": "Storm Troopers",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Storm Troopers (base)",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Storm Troopers (objetivo cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "vox-caster",
@@ -16079,7 +16173,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "voice-of-command",
@@ -16852,9 +16952,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true,
+              "rerollDamageOf1": true
             },
             "combatType": "ranged"
           }
@@ -17463,7 +17563,8 @@
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -18099,7 +18200,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],

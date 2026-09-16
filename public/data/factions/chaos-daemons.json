@@ -43,7 +43,9 @@
             "effects": {
               "rerollAllHits": true,
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "slaanesh",
+            "combatType": "melee"
           }
         }
       ]
@@ -111,13 +113,28 @@
           "id": "first-prince-of-chaos",
           "name": "First Prince of Chaos",
           "description": "Units from your army have the relevant abilities presented below.<br><br><div class=\"Columns2\"><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALKH LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MURDERER’S COWL</p><p><span class=\"tooltip00074\" data-tooltip-content=\"#tooltip_content00074\" data-tooltip-anchor=\"#tooltip_content00074\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">KHORNE</span></span> units only. This unit is eligible to shoot and <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a> in a turn in which it <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advanced</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALTZ LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PENUMBRAL PUPPETRY</p><p><span class=\"tooltip00075\" data-tooltip-content=\"#tooltip_content00075\" data-tooltip-anchor=\"#tooltip_content00075\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">TZEENTCH</span></span> units only. Each time an attack targets this unit, subtract 1 from the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALNU LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">GLOAM ROT</p><p><span class=\"tooltip00076\" data-tooltip-content=\"#tooltip_content00076\" data-tooltip-anchor=\"#tooltip_content00076\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">NURGLE</span></span> units only. Each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody class=\"clFl ALAL ALSL LDLD LDDI LDSH LDLE LDSC LDBL LDPL LDDA LDIO LDRR LDDC LDPI\"><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">SHADOW’S CARESS</p><p><span class=\"tooltip00077\" data-tooltip-content=\"#tooltip_content00077\" data-tooltip-anchor=\"#tooltip_content00077\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">SLAANESH</span></span> units only. Enemy units cannot use the <span class=\"tooltip00053\" data-tooltip-content=\"#tooltip_content00053\"><span class=\"tt kwbu\">Fire</span> <span class=\"tt kwbu\">Overwatch</span></span> Stratagem to shoot at this unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">DISCIPLES OF BE’LAKOR</p><p><span class=\"tooltip00078\" data-tooltip-content=\"#tooltip_content00078\" data-tooltip-anchor=\"#tooltip_content00078\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">UNDIVIDED</span></span> units only.<br><ul><li>This unit has the <span class=\"tooltip00079\" data-tooltip-content=\"#tooltip_content00079\"><span class=\"tt kwbu\">Dark</span> <span class=\"tt kwbu\">Pacts</span></span> army rule, and can use it as described in <i>Codex: Chaos Space Marines</i>, even though your Army Faction is not <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span>. If this unit is <a class=\"kwbOne\" href=\"/wh40k10ed/factions/chaos-daemons/Be-lakor\"><span class=\"kwb kwbo\">BE’LAKOR</span></a>, it automatically passes the <span class=\"tooltip00012\" data-tooltip-content=\"#tooltip_content00012\"><span class=\"tt kwbu\">Leadership</span> <span class=\"tt kwbu\">test</span></span> required for Dark Pacts.</li><li><span class=\"tooltip00080\" data-tooltip-content=\"#tooltip_content00080\" data-tooltip-anchor=\"#tooltip_content00080\"><span class=\"kwb kwbu\">SHADOW</span> <span class=\"kwb kwbu\">LEGION</span> <span class=\"kwb kwbu\">HERETIC</span> <span class=\"kwb kwbu\">ASTARTES</span></span> models in this unit have the <span class=\"tooltip00021\" data-tooltip-content=\"#tooltip_content00021\"><span class=\"tt kwbu\">Deep</span> <span class=\"tt kwbu\">Strike</span></span> ability.</li></ul></p></td></tr></tbody></tbody></table></div></div>",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "woundMod": -1
+          "options": [
+            {
+              "name": "Penumbral Puppetry (Tzeentch)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "target": "defender",
+                "requiresAttackerKeyword": "tzeentch"
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "Gloam Rot (Nurgle)",
+              "effect": {
+                "effects": {
+                  "woundMod": -1
+                },
+                "target": "defender",
+                "requiresAttackerKeyword": "nurgle"
+              }
+            }
+          ]
         }
       ]
     },
@@ -180,7 +197,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged"
       }
     },
     {
@@ -461,14 +479,29 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Legiones Daemonica Tzeentch unit from your army that has not been selected to shoot or fight that phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 2 to the Strength characteristic of weapons equipped by models in your unit, or spend one Flux token and add 3 to the Strength characteristic of those weapons and improve the Armour Penetration characteristic of those weapons by 1 instead.",
-      "effect": {
-        "effects": {
-          "apMod": 1,
-          "strengthMod": 2
+      "options": [
+        {
+          "name": "Fuerza +2",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "strengthMod": 2
+            }
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Fuerza +3, AP +1 (gastar Flux)",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "strengthMod": 3,
+              "apMod": 1
+            }
+          }
+        }
+      ]
     },
     {
       "id": "fateborne-nightmares",
@@ -561,7 +594,7 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Shadow Legion unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit has the Khorne keyword, until the end of the phase, improve the Armour Penetration characteristic of those weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "woundMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -743,7 +776,8 @@
         "effects": {
           "woundMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "slaanesh"
       }
     },
     {
@@ -776,14 +810,30 @@
       "detachmentId": "daemonic-incursion",
       "detachmentName": "Daemonic Incursion",
       "description": "Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1/+1)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "En Shadow of Chaos (+2/+2)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "soulstealer",
@@ -844,7 +894,8 @@
         "effects": {
           "hitMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "slaanesh"
       }
     },
     {
@@ -919,13 +970,28 @@
       "detachmentId": "daemonic-incursion",
       "detachmentName": "Daemonic Incursion",
       "description": "Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3\". While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6\" instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "combatType": "ranged",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "bearerOnly": true
-      }
+        {
+          "name": "Fuerza +2 (en Shadow of Chaos)",
+          "effect": {
+            "combatType": "ranged",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "soul-glutton",
@@ -1295,7 +1361,8 @@
               "attacksMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "khorne"
           }
         },
         {
@@ -1436,7 +1503,8 @@
             "effects": {
               "rerollAllHits": true,
               "rerollAllWounds": true
-            }
+            },
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -1563,19 +1631,45 @@
           "id": "blood-throne",
           "name": "Blood Throne",
           "description": "At the start of the Fight phase, select one enemy unit within 18\" of and visible to this model. Until the end of the phase, each time a friendly Khorne Legiones Daemonica unit makes an attack that targets that unit, improve the Strength, Armour Penetration and Damage characteristics of that attack by 1.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1,
+              "damageMod": 1
+            },
+            "combatType": "melee",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "khorne"
+          }
         },
         {
           "id": "champion-slayer",
           "name": "Champion Slayer",
           "description": "Each time this model makes a melee attack that targets a <span class=\"kwb\">CHARACTER</span> or <span class=\"kwb\">MONSTER</span> unit, you can re-roll the Wound roll. Each time this model destroys an enemy <span class=\"kwb\">CHARACTER</span> or <span class=\"kwb\">MONSTER</span> unit, this model regains up to D6 lost wounds.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Character",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "character"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -2574,7 +2668,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ],
@@ -2705,7 +2800,8 @@
           "effect": {
             "effects": {
               "woundMod": -1
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -2896,7 +2992,8 @@
               "strengthMod": 1
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "tzeentch"
           }
         },
         {
@@ -3897,7 +3994,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "the-shadow-of-chaos",
@@ -4236,7 +4339,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "target": "defender"
           }
         }
       ],
@@ -4545,7 +4649,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "requiresAttackerKeyword": "nurgle",
+            "appliesToNearby": true
           }
         }
       ],
@@ -4700,12 +4805,29 @@
           "name": "The Eternal Dance",
           "description": "At the start of the Fight phase, select one enemy unit within 6\" of this model. Until the end of the phase: <br><ul><li>Each time a friendly Slaanesh Legiones Daemonica model makes a melee attack that targets that enemy unit, add 1 to the Wound roll. </li><li>Each time a model in that enemy unit makes a melee attack, subtract 1 from the Wound roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundMod": -1
+          "options": [
+            {
+              "name": "Bono a atacantes Slaanesh",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "melee",
+                "requiresAttackerKeyword": "slaanesh",
+                "appliesToNearby": true
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Penalizacion al enemigo marcado",
+              "effect": {
+                "effects": {
+                  "woundMod": -1
+                },
+                "combatType": "melee",
+                "target": "defender"
+              }
+            }
+          ]
         },
         {
           "id": "dazzling-acrobatics",
@@ -4920,7 +5042,8 @@
               "apMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "slaanesh"
           }
         },
         {
@@ -5093,12 +5216,24 @@
           "name": "Tranceweaver",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "symphony-of-pain-psychic",
@@ -5975,7 +6110,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "legiones daemonica"
           }
         }
       ],
@@ -7443,7 +7579,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "the-shadow-of-chaos",
@@ -7466,7 +7608,9 @@
             "effects": {
               "damageMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "nurgle",
+            "appliesToNearby": true
           }
         },
         {
@@ -7726,7 +7870,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -8204,7 +8354,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ],
@@ -8337,7 +8489,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ],
@@ -8676,7 +8830,8 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "target": "defender"
           }
         }
       ],
@@ -9318,7 +9473,8 @@
               "hitMod": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "khorne"
           }
         },
         {
@@ -9975,7 +10131,8 @@
               "effect": {
                 "effects": {
                   "lethalHitsBonus": true
-                }
+                },
+                "combatType": "melee"
               }
             },
             {
@@ -9983,7 +10140,8 @@
               "effect": {
                 "effects": {
                   "sustainedHitsBonus": 1
-                }
+                },
+                "combatType": "melee"
               }
             }
           ]
@@ -12296,7 +12454,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "scouts-6",
@@ -13851,12 +14015,26 @@
           "name": "Veterans of the Long War",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "chaos-icon",
@@ -15050,7 +15228,7 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         }
       ],
@@ -15448,7 +15626,8 @@
               "sustainedHitsBonus": 1
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "slaanesh"
           }
         },
         {

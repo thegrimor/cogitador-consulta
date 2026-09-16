@@ -18,7 +18,6 @@
         {
           "name": "Darkness — Stealth (-1 impactar a distancia recibido, Def)",
           "effect": {
-            "combatType": "ranged",
             "target": "defender",
             "effects": {
               "hitMod": -1
@@ -98,6 +97,15 @@
                 },
                 "target": "defender"
               }
+            },
+            {
+              "name": "Unnatural Fortitude — 5+ Invulnerable Save",
+              "effect": {
+                "effects": {
+                  "saveMod": 1
+                },
+                "target": "defender"
+              }
             }
           ]
         }
@@ -131,7 +139,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "requiresAttackerKeyword": "war dog"
           }
         }
       ]
@@ -164,7 +173,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "knight tyrant"
           }
         }
       ]
@@ -293,7 +303,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "war dog"
       }
     },
     {
@@ -349,6 +360,7 @@
         "effects": {
           "lethalHitsBonus": true
         },
+        "requiresAttackerKeyword": "damned",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -425,6 +437,7 @@
         "effects": {
           "saveMod": 1
         },
+        "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
         "cpCost": 1
@@ -469,14 +482,44 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Chaos Knights Character unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit. Until the end of the phase, each time a model in your unit makes an attack that targets that enemy unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. Each time a model in your unit makes an attack that targets that enemy unit, if that enemy unit is <span class=\"kwb\">TITANIC</span>, you can re-roll the Hit roll and you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll de 1 (Hit+Wound) — vs Monster",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true
+            },
+            "requiresTargetKeyword": "monster"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll de 1 (Hit+Wound) — vs Vehicle",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true
+            },
+            "requiresTargetKeyword": "vehicle"
+          }
+        },
+        {
+          "name": "Reroll completo (vs Titanic)",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true,
+              "rerollAllWounds": true
+            },
+            "requiresTargetKeyword": "titanic"
+          }
+        }
+      ]
     },
     {
       "id": "runes-of-disdain",
@@ -617,6 +660,7 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
+        "requiresTargetKeyword": "knight tyrant",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -639,14 +683,7 @@
       "type": "Bastions of Tyranny – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">KNIGHT TYRANT</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">KNIGHT TYRANT</span> unit.<br><br><b>EFFECT:</b> Select one enemy unit hit by those attacks. That enemy unit is suppressed until the start of your next Command phase: While a unit is suppressed, that unit's attacks have -1 to hit rolls.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">KNIGHT TYRANT</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">KNIGHT TYRANT</span> unit.<br><br><b>EFFECT:</b> Select one enemy unit hit by those attacks. That enemy unit is suppressed until the start of your next Command phase: While a unit is suppressed, that unit's attacks have -1 to hit rolls."
     },
     {
       "id": "insensate-bloodthirst",
@@ -823,14 +860,7 @@
       "cost": 35,
       "detachmentId": "infernal-lance",
       "detachmentName": "Infernal Lance",
-      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. Add 1 to the bearer’s Toughness characteristic. While the bearer is using the Unnatural Fortitude ability, each time an attack with a Damage characteristic of 1 is allocated to the bearer, add 1 to any armour saving throw made against that attack.",
-      "effect": {
-        "effects": {
-          "saveMod": 1
-        },
-        "target": "defender",
-        "bearerOnly": true
-      }
+      "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. Add 1 to the bearer’s Toughness characteristic. While the bearer is using the Unnatural Fortitude ability, each time an attack with a Damage characteristic of 1 is allocated to the bearer, add 1 to any armour saving throw made against that attack."
     },
     {
       "id": "malevolent-heraldry",
@@ -871,14 +901,30 @@
       "detachmentId": "traitoris-lance",
       "detachmentName": "Traitoris Lance",
       "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer has a 4+ invulnerable save against ranged attacks, and a 5+ invulnerable save against melee attacks.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
+      "options": [
+        {
+          "name": "4+ Invulnerable Save (Ranged)",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "target": "defender",
-        "bearerOnly": true
-      }
+        {
+          "name": "5+ Invulnerable Save (Melee)",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "combatType": "melee",
+            "target": "defender",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "panoply-of-the-cursed-knight",
@@ -928,9 +974,8 @@
       "description": "<span class=\"kwb\">CHAOS</span> <span class=\"kwb\">KNIGHTS</span> model only. The bearer has the Stealth ability. In addition, once per battle, after you make a saving throw for the bearer, you can change the Damage characteristic of that attack to 0.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -1488,7 +1533,8 @@
               "sustainedHitsBonus": 1
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "war dog"
           }
         }
       ],
@@ -1737,12 +1783,30 @@
           "name": "Consumed with Hunger (Aura)",
           "description": "While a friendly War Dog model is within 6\" of this model, each time that <span class=\"kwb\">WAR</span> <span class=\"kwb\">DOG</span> model makes an attack that targets a <span class=\"kwb\">TITANIC</span> or <span class=\"kwb\">TOWERING</span> unit, you can re-roll the Hit roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
+          "options": [
+            {
+              "name": "vs Titanic",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                },
+                "requiresAttackerKeyword": "war dog",
+                "requiresTargetKeyword": "titanic",
+                "appliesToNearby": true
+              }
             },
-            "appliesToNearby": true
-          }
+            {
+              "name": "vs Towering",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                },
+                "requiresAttackerKeyword": "war dog",
+                "requiresTargetKeyword": "towering",
+                "appliesToNearby": true
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -2891,12 +2955,24 @@
           "name": "Seething Hatred",
           "description": "Each time this model is selected to shoot or fight, you can re-roll one Hit roll or you can re-roll one Wound roll when resolving those attacks.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "Seething Hatred — Reroll Hit",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            },
+            {
+              "name": "Seething Hatred — Reroll Wound",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -3498,7 +3574,8 @@
               "rerollHitsOf1": true
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "war dog"
           }
         }
       ],
@@ -3745,7 +3822,8 @@
               "rerollHitsOf1": true
             },
             "combatType": "melee",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "war dog"
           }
         }
       ],
@@ -3969,13 +4047,28 @@
           "name": "Sunderer of Fortresses",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">VEHICLE</span>, improve the Strength and Damage characteristics of that attack by 1 (if that attack targets a <span class=\"kwb\">FORTIFICATION</span>, improve the Strength and Damage characteristics of that attack by 2 instead).",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "strengthMod": 1,
-              "damageMod": 1
+          "options": [
+            {
+              "name": "vs Vehicle (+1S/+1D)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 1,
+                  "damageMod": 1
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Fortification (+2S/+2D)",
+              "effect": {
+                "effects": {
+                  "strengthMod": 2,
+                  "damageMod": 2
+                },
+                "requiresTargetKeyword": "fortification"
+              }
+            }
+          ]
         },
         {
           "id": "conversion",
@@ -5280,11 +5373,26 @@
           "name": "Huntsman",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -6283,7 +6391,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "scouts-6",
@@ -6989,7 +7103,8 @@
             "effects": {
               "apMod": 1
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "war dog"
           }
         }
       ],

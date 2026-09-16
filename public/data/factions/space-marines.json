@@ -39,12 +39,26 @@
       "id": "templar-vows",
       "name": "Templar Vows",
       "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of the first battle round, select one of the following Vows to be active for <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army. While a Vow is active for a unit from your army, that unit has the associated ability shown below.<br><br><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Abhor the Witch, Destroy the Witch</p><p>This unit's melee attacks that target a <span class=\"kwb\">PSYKER</span> unit have the [PRECISION] ability. When this unit declares a charge, if an enemy <span class=\"kwb\">PSYKER</span> unit is within 12″ of this unit, you can use this part of this ability. If you do: this unit can re-roll that Charge roll, but this unit must end that charge move engaged with one or more of those enemy <span class=\"kwb\">PSYKER</span> units.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Accept Any Challenge, No Matter the Odds</p><p>Each time a model in this unit makes a melee attack, if the Strength characteristic of that attack is less than or equal to the Toughness characteristic of the target, add 1 to the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Suffer Not the Unclean to Live</p><p>This unit is eligible to <a href=\"/wh40k10ed/the-rules/core-rules/#CHARGE-PHASE\">declare a charge</a> in a turn in which it <span class=\"tooltip00013\" data-tooltip-content=\"#tooltip_content00013\"><span class=\"tt kwbu\">Fell</span> <span class=\"tt kwbu\">Back</span></span>, and each time a model in this unit makes a <span class=\"tooltip00042\" data-tooltip-content=\"#tooltip_content00042\"><span class=\"tt kwbu\">Pile-in</span></span> or <span class=\"tooltip00043\" data-tooltip-content=\"#tooltip_content00043\"><span class=\"tt kwbu\">Consolidation</span> <span class=\"tt kwbu\">move</span></span>, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Uphold the Honour of the Emperor</p><p>If this unit has the <span class=\"tooltip00051\" data-tooltip-content=\"#tooltip_content00051\" data-tooltip-anchor=\"#tooltip_content00051\"><span class=\"kwb kwbu\">INFANTRY</span></span> keyword:<br><ul><li>At the end of your <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, if this unit is within range of an <span class=\"tooltip00048\" data-tooltip-content=\"#tooltip_content00048\"><span class=\"tt kwbu\">objective</span> <span class=\"tt kwbu\">marker</span></span> you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</li><li>If the mission you are playing features <a href=\"/wh40k10ed/the-rules/chapter-approved-2025-26/#Actions\">Actions</a>, this unit is eligible to start to perform an Action in a turn in which it <span class=\"tooltip00010\" data-tooltip-content=\"#tooltip_content00010\"><span class=\"tt kwbu\">Advanced</span></span>.</li></ul></p></td></tr></tbody></tbody></table></div>",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "Abhor the Witch, Destroy the Witch"
         },
-        "combatType": "melee"
-      }
+        {
+          "name": "Accept Any Challenge, No Matter the Odds",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee"
+          }
+        },
+        {
+          "name": "Suffer Not the Unclean to Live"
+        },
+        {
+          "name": "Uphold the Honour of the Emperor"
+        }
+      ]
     },
     {
       "id": "assigned-agents",
@@ -94,7 +108,8 @@
           "description": "Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
           "effect": {
             "effects": {
-              "strengthMod": 2
+              "strengthMod": 2,
+              "attacksMod": 1
             },
             "combatType": "melee"
           }
@@ -218,7 +233,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender"
           }
         }
       ]
@@ -261,12 +277,24 @@
           "id": "mission-tactics",
           "name": "Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all units from your army with this ability. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FUROR TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MALLEUS TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PURGATUS TACTICS</p><p>While this Mission Tactic is active, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes an attack, if a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span> is scored, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Furor Tactics",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Malleus Tactics",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -302,7 +330,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "deathwing"
           }
         }
       ]
@@ -336,11 +365,28 @@
           "id": "a-noble-death-in-combat",
           "name": "A Noble Death in Combat",
           "description": "Each time a Death Company model from your army makes a melee attack, re-roll a Wound roll of 1 if that model’s unit is below its Starting Strength; if that model’s unit is Below Half-strength, you can re-roll the Wound roll instead.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>If you select this Detachment, Death Company Marines and Death Company Marines with Bolt Rifles units from your army have the <span class=\"kwb\">BATTLELINE</span> keyword.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLOOD</span> <span class=\"kwb\">ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "requiresAttackerKeyword": "death company",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (Below Half-strength)",
+              "effect": {
+                "combatType": "melee",
+                "requiresAttackerKeyword": "death company",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -393,12 +439,51 @@
           "id": "psychic-disciplines",
           "name": "Psychic Disciplines",
           "description": "At the start of the battle round, select one of the following Psychic Disciplines. Until the end of the battle round, that Psychic Discipline is active and its effects apply to all Adeptus Astartes Psyker units from your army.<br><br><span class=\"h_custom\">Biomancy Discipline</span><br>Add 2\" to the Move characteristic of models in this unit.<br><br><span class=\"h_custom\">Divination Discipline</span><br>Each time a model in this unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.<br><br><span class=\"h_custom\">Pyromancy Discipline</span><br>Each time a ranged attack made by a model in this unit targets an enemy unit within 12\", improve the Armour Penetration characteristic of that attack by 1.<br><br><span class=\"h_custom\">Telekinesis Discipline</span><br>Each time a ranged attack targets this unit, subtract 1 from the Strength characteristic of that attack.<br><br><span class=\"h_custom\">Telepathy Discipline</span><br>Each time a model in this unit makes an attack, you can ignore any or all modifiers to that attack’s Weapon Skill or Ballistic Skill characteristics and/or any or all modifiers to the Hit roll.",
-          "effect": {
-            "effects": {
-              "apMod": 1
+          "options": [
+            {
+              "name": "Biomancy Discipline"
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Divination Discipline",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "requiresAttackerKeyword": "psyker"
+              }
+            },
+            {
+              "name": "Pyromancy Discipline",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "psyker"
+              }
+            },
+            {
+              "name": "Telekinesis Discipline",
+              "effect": {
+                "effects": {
+                  "strengthMod": -1
+                },
+                "target": "defender",
+                "combatType": "ranged",
+                "requiresAttackerKeyword": "psyker"
+              }
+            },
+            {
+              "name": "Telepathy Discipline",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "requiresAttackerKeyword": "psyker"
+              }
+            }
+          ]
         }
       ]
     },
@@ -415,12 +500,18 @@
           "id": "legacy-of-the-angel",
           "name": "Legacy of the Angel",
           "description": "At the start of the first battle round, select two of the Angelic Legacy abilities listed below. Until the end of the battle, those Angelic Legacy abilities are active and their effects apply to all Adeptus Astartes Character units from your army.<br><br><b>Sanguinary Grace:</b> This unit is eligible to shoot and declare a charge in a turn in which it Fell Back.<br><br><b>Carmine Wrath:</b> Each time a model in this unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.<br><br><b>Their Appointed Hour:</b> You can re-roll Advance and Charge rolls made for this unit.<br><br><span class=\"hi_custom\">Restrictions</span><br>Your army can include Blood Angels units, but it cannot include <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Carmine Wrath (selected)",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "requiresAttackerKeyword": "character"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -486,7 +577,8 @@
             "effects": {
               "woundMod": -1
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "infantry"
           }
         }
       ]
@@ -506,8 +598,10 @@
           "description": "Each time a model in a Space Wolves unit from your army makes a melee attack that targets an enemy unit, if that enemy unit is within Engagement Range of one or more other Adeptus Astartes units from your army, or if the attacking unit contains more models than that enemy unit:<br><ul><li>Add 1 to the Hit roll.</li><li>If your Saga is completed (see below), add 1 to the Wound roll as well.</li></ul><br><span class=\"hi_custom\">Saga of the Hunter</span><br>At the start of the first battle round, your Quarry tally is 0. Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army fights, after all of those attacks have been resolved, add 1 to your Quarry tally for each enemy unit destroyed by those attacks.<br><br>Once your Quarry tally is equal to or greater than the number shown in the table below (depending on the battle size), your Saga is completed.<br><br><div class=\"BreakInsideAvoid\"  style=\"\"\"><table width=\"0\" border=\"0\" bordercolor=\"#888\" cellpadding=\"4\" cellspacing=\"0\" style=\"border-collapse:collapse;border-width:0px\"><tbody><tr><td><table class=\" customTable tablefont\" border=\"1\" bordercolor=\"#888\" cellpadding=\"4\" style=\"border-collapse:collapse;border-color:#888888;border-width:0px\"><tbody><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(75,98,98);color:rgb(255,255,255);text-align:left;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>BATTLE SIZE</b></td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;background-color:rgb(75,98,98);color:rgb(255,255,255);text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>QUARRY TALLY</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Incursion</td><td style=\"border-width:1px 1px 1px 1px;border-style:none none none none;text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>2</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Strike Force</td><td style=\"border-width:1px 1px 1px 1px;border-style:dotted none dotted none;text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>3</b></td></tr><tr><td style=\"border-width:1px 1px 1px 1px;border-style:none none dotted none;text-align:left;vertical-align:middle;font-size:18px;width:240px;height:0px;\">Onslaught</td><td style=\"border-width:1px 1px 1px 1px;border-style:none none dotted none;text-align:center;vertical-align:middle;font-size:22px;width:240px;height:0px;\"><b>4</b></td></tr></tbody></table></td></tr></tbody></table></div>",
           "effect": {
             "effects": {
-              "woundMod": 1
-            }
+              "hitMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "space wolves"
           }
         }
       ]
@@ -599,7 +693,8 @@
             "effects": {
               "woundMod": -1
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "ancient"
           }
         }
       ]
@@ -620,7 +715,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "melee"
           }
         }
       ]
@@ -638,11 +734,25 @@
           "id": "wrath-of-dorn",
           "name": "Wrath of Dorn",
           "description": "Each time a model from your army with the Oath of Moment ability makes an attack that targets your Oath of Moment target, you can re-roll a Wound roll of 1.<br><br>Each time a model in a Darnath Lysander unit from your army makes an attack that targets your Oath of Moment target, you can re-roll the Wound roll.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include Imperial Fists units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Oath of Moment target (base)",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Darnath Lysander",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresAttackerKeyword": "lysander"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -662,7 +772,8 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -763,12 +874,28 @@
           "id": "maddened-ferocity",
           "name": "Maddened Ferocity",
           "description": "Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model from your army makes a melee attack, re-roll a Wound roll of 1.<br><br>Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. If your unit is Battle-shocked, add 2 to the Attacks characteristic of melee weapons equipped by models in that unit instead.<br><br><span class=\"hi_custom\">Restrictions</span><br>Your army can include Blood Angels units, but it cannot include <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Base (Charged)",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true,
+                  "attacksMod": 1
+                },
+                "combatType": "melee"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Battle-shocked",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true,
+                  "attacksMod": 2
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
@@ -785,13 +912,38 @@
           "id": "master-of-wolves",
           "name": "Master of Wolves",
           "description": "At the start of your Command phase, you can select one of the Hunting Packs listed below. Until the start of your next Command phase, that Hunting Pack is active and its effects apply to all <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army. You can only select each Hunting Pack once per battle.<br><ul><li><b>Encircling Jaws:</b> This unit can re-roll Advance rolls and Charge rolls.</li><li><b>Hunter’s Eye:</b> Each time a model in this unit makes a ranged attack, add 1 to the Hit roll.</li><li><b>Ferocious Strike:</b> Each time this unit is selected to fight, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in this unit have the selected ability.</li></ul>",
-          "effect": {
-            "effects": {
-              "hitMod": 1,
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Encircling Jaws"
+            },
+            {
+              "name": "Hunter's Eye",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "combatType": "ranged"
+              }
+            },
+            {
+              "name": "Ferocious Strike (Lethal Hits)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee"
+              }
+            },
+            {
+              "name": "Ferocious Strike (Sustained Hits 1)",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "combatType": "melee"
+              }
             }
-          }
+          ]
         },
         {
           "id": "howling-onslaught",
@@ -876,7 +1028,18 @@
               "woundMod": -1
             },
             "target": "defender"
-          }
+          },
+          "options": [
+            {
+              "name": "Ataque cuerpo a cuerpo cerca de objetivo (AP+1)",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "combatType": "melee"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1116,7 +1279,8 @@
             "effects": {
               "bsMod": -1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "ravenwing"
           }
         }
       ]
@@ -1202,7 +1366,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is Below Half-strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 0
@@ -1283,14 +1447,29 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a Character unit, until the end of the phase, those weapons have the [LANCE] ability as well.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Focused Fury",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lance for Characters",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "character"
+          }
+        }
+      ]
     },
     {
       "id": "armour-of-contempt-space-marines-2",
@@ -1373,7 +1552,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -1547,13 +1727,28 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have that ability while targeting an auspex scanned unit or if the bearer has the Battleline keyword.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
+        }
+      ]
     },
     {
       "id": "guided-disruption",
@@ -1573,14 +1768,7 @@
       "type": "Bastion Task Force – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, just after an Adeptus Astartes Battleline unit from your army finished making its attacks.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">BATTLELINE</span> unit.<br><br><b>EFFECT:</b> When an enemy unit is auspex scanned as a result of those attacks this turn, until the start of your next turn, it is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, just after an Adeptus Astartes Battleline unit from your army finished making its attacks.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">BATTLELINE</span> unit.<br><br><b>EFFECT:</b> When an enemy unit is auspex scanned as a result of those attacks this turn, until the start of your next turn, it is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "heresy-undone",
@@ -1639,15 +1827,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Kill Team unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons (excluding Devastating Wounds weapons) equipped by models in your unit have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 5+] abilities.<br><br><b>RESTRICTIONS:</b> You cannot select any units that have already been targeted with either the Kraken Rounds or Dragonfire Rounds Stratagems this phase.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 2
+      "options": [
+        {
+          "name": "Anti-Infantry 2+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "infantry",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Anti-Monster 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "kraken-rounds-space-marines",
@@ -1706,7 +1911,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "hitMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -1724,7 +1930,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "bsMod": -1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -1796,14 +2003,42 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Select either the [SUSTAINED HITS 1] or [LETHAL HITS] abilities. Until the end of the phase, ranged weapons equipped by models in your unit have the selected ability. If your unit is <span class=\"kwb\">ENTRENCHED</span>, until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] and [LETHAL HITS] abilities instead.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
+        },
+        {
+          "name": "Ambos (unidad Entrenched)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "sustainedHitsBonus": 1,
+              "lethalHitsBonus": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "priority-strike",
@@ -1814,13 +2049,41 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
-      "effect": {
-        "effects": {
-          "rerollAllWounds": true
+      "options": [
+        {
+          "name": "vs Character",
+          "effect": {
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "character"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 2
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "monster"
+          }
+        },
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "isStratagem": true,
+            "cpCost": 2,
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "unyielding-might",
@@ -1893,13 +2156,22 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Chaplain or Judiciar unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a melee attack that targets an enemy unit, re-roll a Hit roll of 1. If that target is a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, re-roll a Wound roll of 1 as well.",
       "effect": {
         "effects": {
-          "rerollHitsOf1": true,
-          "rerollWoundsOf1": true
+          "rerollHitsOf1": true
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        "combatType": "melee"
+      },
+      "options": [
+        {
+          "name": "vs Monster/Vehicle (Herida de 1)",
+          "effect": {
+            "effects": {
+              "rerollWoundsOf1": true
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "hearts-hardened-to-duty",
@@ -1999,10 +2271,11 @@
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">ADEPTUS ASTARTES</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS ASTARTES</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have [LANCE].",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "melee"
       }
     },
     {
@@ -2054,7 +2327,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and improve the Armour Penetration characteristic of such weapons by 1.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "bsMod": -1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -2082,7 +2356,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below its Starting Strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
         "isStratagem": true,
         "cpCost": 0
@@ -2283,7 +2557,8 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "hitMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -2301,7 +2576,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "bsMod": -1
         },
         "combatType": "ranged",
         "isStratagem": true,
@@ -2365,14 +2641,30 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, if it disembarked from a Transport this turn, re-roll a Wound roll of 1. If that <span class=\"kwb\">TRANSPORT</span> has the Land Raider keyword, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Transport con keyword Land Raider)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "blessed-hull",
@@ -2462,9 +2754,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Dreadnought, Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below Starting Strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         },
-        "combatType": "melee",
         "isStratagem": true,
         "cpCost": 0
       }
@@ -2506,14 +2797,30 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Dreadnought, Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [SUSTAINED HITS 1] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "dominator-beacon",
@@ -2534,14 +2841,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Tank Ace unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a ranged attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, improve the Armour Penetration characteristic of that attack by 1.<br><br><b>RESTRICTIONS:</b> A unit cannot be targeted with this and the Kill Shot Stratagem in the same phase.",
-      "effect": {
-        "effects": {
-          "apMod": 1
+      "options": [
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "kill-shot",
@@ -2552,14 +2877,56 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Tank Ace unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, re-roll a Wound roll of 1. If the target unit is below its Starting Strength, you can re-roll the Wound roll instead.<br><br><b>RESTRICTIONS:</b> A unit cannot be targeted with this and the Target Weak Point Stratagem in the same phase.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (objetivo Below Starting Strength)",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Wound de 1 (vs Monster)",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Wound completo (objetivo Below Starting Strength) (vs Monster)",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "machine-vengeance",
@@ -2643,7 +3010,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "deathwing"
       }
     },
     {
@@ -2665,14 +3033,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Deathwing Infantry unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If your unit is within range of your Vowed objective marker, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            },
+            "requiresAttackerKeyword": "deathwing"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (cerca de objetivo Vowed)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "requiresAttackerKeyword": "deathwing"
+          }
+        }
+      ]
     },
     {
       "id": "duty-unto-death",
@@ -2702,7 +3088,14 @@
       "type": "Ironstorm Spearhead – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that is below its Starting Strength.<br><br><b>EFFECT:</b> Until the end of the turn, your unit can ignore any or all modifiers to its characteristics and/or to any roll or test made for it (excluding modifiers to saving throws)."
+      "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that is below its Starting Strength.<br><br><b>EFFECT:</b> Until the end of the turn, your unit can ignore any or all modifiers to its characteristics and/or to any roll or test made for it (excluding modifiers to saving throws).",
+      "effect": {
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "armour-of-contempt-space-marines-16",
@@ -2733,12 +3126,20 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is below its Starting Strength, that attack has the [SUSTAINED HITS 1] ability, and when making such an attack, if the attacking model is a <span class=\"kwb\">VEHICLE</span>, a successful unmodified Hit roll of 5+ scores a Critical Hit.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1,
-          "critThreshold": 5
-        },
-        "isStratagem": true,
-        "cpCost": 2
-      }
+          "sustainedHitsBonus": 1
+        }
+      },
+      "options": [
+        {
+          "name": "Modelo atacante VEHICLE (Critico a 5+)",
+          "effect": {
+            "effects": {
+              "critThreshold": 5
+            },
+            "requiresAttackerKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "vengeful-animus",
@@ -2764,7 +3165,8 @@
           "hitMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "walker"
       }
     },
     {
@@ -2786,15 +3188,42 @@
       "turn": "Opponent’s turn",
       "phase": "Charge phase",
       "description": "<b>WHEN:</b> Your opponent’s Charge phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that was just charged by an enemy unit.<br><br><b>EFFECT:</b> Select either the Strength or Attacks characteristic of melee weapons equipped by models in your unit. Until the end of the turn, add 1 to the selected characteristic. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it) and until the end of the turn, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in your unit.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "attacksMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Ataques +1",
+          "effect": {
+            "effects": {
+              "attacksMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Entregarse a la Sed de Sangre)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "attacksMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "red-rampage",
@@ -2805,14 +3234,42 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [LANCE] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. You can instead choose for your unit to give in to the Red Thirst; if it does, then it becomes Battle-shocked (but the effects of this Stratagem still apply to it) and until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lance",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Entregarse a la Sed de Sangre)",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true,
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "armour-of-contempt-space-marines-17",
@@ -2913,7 +3370,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -2935,14 +3393,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry unit from your army that is within 18\" of one or more Adeptus Astartes Psyker models from your army and has not been selected to Fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 1 to the Strength characteristic of melee weapons equipped by models in your unit, or add 2 if the Biomancy Discipline is active for your army.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1S)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "infantry"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Biomancy Discipline active (+2S)",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "infantry"
+          }
+        }
+      ]
     },
     {
       "id": "fiery-shield",
@@ -2953,15 +3429,34 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that is within 18\" of one or more friendly Adeptus Astartes Psyker models, and that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll, and if the Pyromancy Discipline is active for your army, weapons that target your unit have the [HAZARDOUS] ability.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
+      "options": [
+        {
+          "name": "vs Infantry",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "infantry",
+            "combatType": "melee"
+          }
         },
-        "combatType": "melee",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Mounted",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "mounted",
+            "combatType": "melee"
+          }
+        }
+      ]
     },
     {
       "id": "strength-in-unity",
@@ -2977,9 +3472,9 @@
           "hitMod": -1,
           "woundMod": -1
         },
-        "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "melee"
       }
     },
     {
@@ -2995,9 +3490,10 @@
         "effects": {
           "woundMod": 1
         },
-        "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "deathwing",
+        "combatType": "ranged"
       }
     },
     {
@@ -3057,14 +3553,28 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Select the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have this ability in a turn in which they disembarked from a Drop Pod or while targeting an enemy unit within 12\".",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1,
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "tactical-decapitation",
@@ -3080,7 +3590,8 @@
           "hitMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -3121,14 +3632,7 @@
       "type": "Orbital Assault Force – Strategic Ploy Stratagem",
       "turn": "Either player’s turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army.<br><br><b>EFFECT:</b> Select one enemy unit visible to and within 18\" of your unit. That enemy unit takes a Battle-shock test. When doing so, subtract 1 from that test and, if that test is failed, until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.<br><br><b>RESTRICTIONS:</b> You cannot use this Stratagem more than once per battle round.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army.<br><br><b>EFFECT:</b> Select one enemy unit visible to and within 18\" of your unit. That enemy unit takes a Battle-shock test. When doing so, subtract 1 from that test and, if that test is failed, until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.<br><br><b>RESTRICTIONS:</b> You cannot use this Stratagem more than once per battle round."
     },
     {
       "id": "armour-of-contempt-space-marines-20",
@@ -3177,15 +3681,42 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that made a Charge move this turn.<br><br><b>EFFECT:</b> Select either the Strength or Armour Penetration characteristic of melee weapons equipped by models in your unit. Until the end of the phase, add 1 to the selected characteristic. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it), and until the end of the phase, add 1 to the Strength and Armour Penetration characteristics of melee weapons equipped by models in your unit.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "AP +1",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Entregarse a la Sed de Sangre)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "red-wrath",
@@ -3212,7 +3743,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "death company"
       }
     },
     {
@@ -3298,7 +3830,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "space wolves"
       }
     },
     {
@@ -3366,7 +3899,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "character"
       }
     },
     {
@@ -3385,7 +3919,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "space wolves"
       }
     },
     {
@@ -3412,7 +3947,8 @@
           "rerollAllHits": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "space wolves"
       }
     },
     {
@@ -3623,7 +4159,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -3673,16 +4210,34 @@
       "turn": "Opponent’s turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Adeptus Astartes Mounted or Adeptus Astartes Fly Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1,
-          "woundMod": -1
+      "options": [
+        {
+          "name": "vs Mounted",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "mounted"
+          }
         },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Fly Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "fly"
+          }
+        }
+      ]
     },
     {
       "id": "mobile-lethality",
@@ -3703,14 +4258,42 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [LANCE] or [LETHAL HITS] ability. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. If it is a <span class=\"kwb\">MOUNTED</span> unit, until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities instead.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lance",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "woundMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true
+            }
+          }
+        },
+        {
+          "name": "Ambos (unidad Mounted)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "lethalHitsBonus": true,
+              "woundMod": 1
+            }
+          }
+        }
+      ]
     },
     {
       "id": "armour-of-contempt-space-marines-22",
@@ -3795,16 +4378,34 @@
       "turn": "Opponent’s turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES FLY VEHICLE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1,
-          "woundMod": -1
+      "options": [
+        {
+          "name": "vs Mounted",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "mounted"
+          }
         },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Fly Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "fly"
+          }
+        }
+      ]
     },
     {
       "id": "shock-assault",
@@ -3877,7 +4478,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "jump pack"
       }
     },
     {
@@ -3915,7 +4517,8 @@
           "rerollAllWounds": true
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "sanguinary guard"
       }
     },
     {
@@ -3967,11 +4570,14 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Death Company unit from your army that is below Starting Strength and has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, improve the Attacks, Stength and Armour Penetration characteristics of melee weapons equipped by models in your unit by 1 and, unless your unit is within 12\" of one or more friendly Chaplain models, until the end of the phase, those weapons have the [HAZARDOUS] ability.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": 1,
+          "attacksMod": 1,
+          "strengthMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "death company"
       }
     },
     {
@@ -4043,7 +4649,6 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, weapons equipped by models in your unit have the [LETHAL HITS] ability. In addition, if one or more <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army are currently Battle-shocked, until the end of the phase, each time a model in your unit makes an attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.",
       "effect": {
         "effects": {
-          "critThreshold": 5,
           "lethalHitsBonus": true
         },
         "isStratagem": true,
@@ -4104,7 +4709,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -4173,7 +4779,30 @@
       "type": "Vindication Task Force – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll.",
+      "options": [
+        {
+          "name": "Ignores Cover (ranged)",
+          "effect": {
+            "effects": {
+              "bsMod": -1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ignore Hit-roll modifiers",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "litanies-of-purgation",
@@ -4229,7 +4858,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "ancient"
       }
     },
     {
@@ -4313,14 +4943,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 2 to the Strength characteristic of ranged weapons equipped by models in your unit.",
-      "effect": {
-        "effects": {
-          "strengthMod": 2
+      "options": [
+        {
+          "name": "Infantry",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "infantry"
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Mounted",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "mounted"
+          }
+        }
+      ]
     },
     {
       "id": "leonine-aggression",
@@ -4343,7 +4991,9 @@
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and you can ignore any or all modifiers to the following: that attack’s Weapon Skill characteristic; the Hit roll; the Wound roll.",
       "effect": {
         "effects": {
-          "rerollHitsOf1": true
+          "rerollHitsOf1": true,
+          "hitMod": 1,
+          "woundMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -4389,11 +5039,12 @@
       "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">CHAPLAIN</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHAPLAIN</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 4+ against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "feelNoPainThreshold": 4
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "chaplain"
       }
     },
     {
@@ -4485,15 +5136,34 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> The Fight phase, when a friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks that target a <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit have +2 S.",
-      "effect": {
-        "effects": {
-          "strengthMod": 2
+      "options": [
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "sword brethren squad",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "sword brethren squad",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "sword brethren squad",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "blade-of-detestation",
@@ -4534,14 +5204,30 @@
       "turn": "Your turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">ADEPTUS ASTARTES CHARACTER</span> unit is selected to attack.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS ASTARTES CHARACTER</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks have [LETHAL HITS] or [SUSTAINED HITS 1] (your choice).",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "requiresAttackerKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "requiresAttackerKeyword": "character",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "requiresAttackerKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "souldarkened-fury",
@@ -4564,11 +5250,12 @@
       "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">ADEPTUS ASTARTES CHARACTER</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHARACTER</span> unit.<br><br><b>EFFECT:</b> Your unit has a 5+ invulnerable save.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "saveMod": 1
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -4602,9 +5289,8 @@
       "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">SANGUINARY GUARD</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">SANGUINARY GUARD</span> unit.<br><br><b>EFFECT:</b> Your unit has the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "requiresTargetKeyword": "sanguinary guard",
         "isStratagem": true,
@@ -4740,9 +5426,9 @@
         "effects": {
           "hitMod": -1
         },
-        "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "target": "defender"
       }
     },
     {
@@ -4794,15 +5480,32 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">GREY HUNTERS</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">GREY HUNTERS</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have [SUSTAINED HITS 1] or [LETHAL HITS] (your choice).",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "grey hunters",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "grey hunters",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "grey hunters",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "icy-calm",
@@ -4901,6 +5604,7 @@
       "description": "Deathwing model only. Melee weapons equipped by the bearer have the [lethal hits] ability, and each time the bearer makes a melee attack, if it is within range of your Vowed objective marker, a Critical Hit is scored on an unmodified Hit roll of 5+.",
       "effect": {
         "effects": {
+          "lethalHitsBonus": true,
           "critThreshold": 5
         },
         "combatType": "melee",
@@ -4982,15 +5686,32 @@
       "detachmentId": "black-spear-task-force",
       "detachmentName": "Black Spear Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Improve the Strength, Damage and Armour Penetration characteristics of the bearer’s melee weapons by 1. At the end of the Fight phase, if one or more enemy models were destroyed as a result of a melee attack made by the bearer this phase, until the end of the battle, improve the Strength, Damage and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "damageMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1S/+1D/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1,
+              "damageMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Tras destruir enemigo este Fight phase (+2/+2/+2)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2,
+              "damageMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "incendiary-animus",
@@ -5003,8 +5724,7 @@
         "effects": {
           "apMod": 1
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "judiciar"
+        "combatType": "melee"
       }
     },
     {
@@ -5052,7 +5772,12 @@
       "cost": 10,
       "detachmentId": "firestorm-assault-force",
       "detachmentName": "Firestorm Assault Force",
-      "description": "TACTICUS model only. While the bearer is leading a unit, models in that unit can ignore any or all modifiers to their characteristics and/or to any roll or test made for them (excluding modifiers to saving throws)."
+      "description": "TACTICUS model only. While the bearer is leading a unit, models in that unit can ignore any or all modifiers to their characteristics and/or to any roll or test made for them (excluding modifiers to saving throws).",
+      "effect": {
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "grimnars-mark",
@@ -5118,11 +5843,10 @@
       "description": "Black Templars model only. Models in the bearer’s unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
-        "requiresAttackerKeyword": "black templars"
+        "requiresTargetKeyword": "black templars"
       }
     },
     {
@@ -5132,14 +5856,30 @@
       "detachmentId": "stormlance-task-force",
       "detachmentName": "Stormlance Task Force",
       "description": "ADEPTUS ASTARTES MOUNTED model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer ends a Charge move, until the end of the turn, improve the Strength and Armour Penetration characteristics of the bearers melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1S/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Tras cargar (+2S/+2AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "target-augury-web",
@@ -5213,8 +5953,8 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
-        "requiresAttackerKeyword": "vehicle",
-        "bearerOnly": true
+        "bearerOnly": true,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -5255,14 +5995,30 @@
       "detachmentId": "spearpoint-task-force",
       "detachmentName": "Spearpoint Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer ends a Charge move, until the end of the turn, improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Base (+1S/+1AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Tras cargar (+2S/+2AP)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "strengthMod": 2,
+              "apMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "prescient-flash",
@@ -5414,14 +6170,30 @@
       "detachmentId": "gladius-task-force",
       "detachmentName": "Gladius Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearers melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1A/+1S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "En Assault Doctrine (+2A/+2S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "stubborn-tenacity",
@@ -5432,7 +6204,7 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Battle-shocked and below its Starting Strength.",
       "effect": {
         "effects": {
-          "woundMod": 1
+          "hitMod": 1
         }
       }
     },
@@ -5471,7 +6243,7 @@
           "hitMod": -1
         },
         "combatType": "ranged",
-        "target": "defender"
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -5609,9 +6381,8 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. The bearer has the Stealth and Lone Operative abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -5718,14 +6489,30 @@
       "detachmentId": "blade-of-ultramar",
       "detachmentName": "Blade of Ultramar",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1A/+1S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "En Assault Doctrine (+2A/+2S)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "master-of-the-red-thirst",
@@ -5790,9 +6577,8 @@
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. The bearer has the Stealth and Lone Operative abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -5808,8 +6594,7 @@
         "effects": {
           "rerollAllHits": true
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "judiciar"
+        "combatType": "melee"
       }
     },
     {
@@ -5819,13 +6604,29 @@
       "detachmentId": "the-angelic-host",
       "detachmentName": "The Angelic Host",
       "description": "Adeptus Astartes Jump Pack model only. The bearer’s melee weapons have the [Anti-Chaos 5+] and [Lance] abilities.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "Lance",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Anti-Chaos 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "chaos",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "forged-in-battle",
@@ -5842,15 +6643,32 @@
       "detachmentId": "unforgiven-task-force",
       "detachmentName": "Unforgiven Task Force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is Battle-shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer s melee weapons instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 1,
-          "damageMod": 1
+      "options": [
+        {
+          "name": "Base (+1/+1/+1)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 1,
+              "strengthMod": 1,
+              "damageMod": 1
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Battle-shocked (+2/+2/+2)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2,
+              "strengthMod": 2,
+              "damageMod": 2
+            }
+          }
+        }
+      ]
     },
     {
       "id": "forged-in-battle-space-marines",
@@ -6013,7 +6831,8 @@
         "effects": {
           "apMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "battleline"
       }
     },
     {
@@ -6102,14 +6921,7 @@
       "cost": 35,
       "detachmentId": "ironstorm-spearhead",
       "detachmentName": "Ironstorm Spearhead",
-      "description": "TECHMARINE model only. Once per battle round, when a saving throw is failed for a friendly ADEPTUS ASTARTES VEHICLE model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
-      }
+      "description": "TECHMARINE model only. Once per battle round, when a saving throw is failed for a friendly ADEPTUS ASTARTES VEHICLE model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0."
     },
     {
       "id": "wolf-master",
@@ -6133,13 +6945,28 @@
       "detachmentId": "saga-of-the-bold",
       "detachmentName": "Saga of the Bold",
       "description": "Space Wolves model only. At the start of the Fight phase, if there are more enemy models than friendly models wholly within 6\" of the bearer, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer. If the bearer’s unit has achieved one or more Boasts, add 3 to the Attacks characteristic instead.",
-      "effect": {
-        "effects": {
-          "attacksMod": 2
+      "options": [
+        {
+          "name": "Ataques +2",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 2
+            }
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Ataques +3 (con Boasts logrados)",
+          "effect": {
+            "combatType": "melee",
+            "bearerOnly": true,
+            "effects": {
+              "attacksMod": 3
+            }
+          }
+        }
+      ]
     },
     {
       "id": "elders-guidance",
@@ -6313,13 +7140,7 @@
       "cost": 30,
       "detachmentId": "black-spear-task-force",
       "detachmentName": "Black Spear Task Force",
-      "description": "Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement. If it does, select a second enemy unit to be an Oath of Moment target.<br><br><b>Designer’s Note:</b> <i>This means that each time a model with the Oath of Moment ability makes an attack that targets either of your Oath of Moment targets, you can re-roll the Hit roll.</i>",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        },
-        "bearerOnly": true
-      }
+      "description": "Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement. If it does, select a second enemy unit to be an Oath of Moment target.<br><br><b>Designer’s Note:</b> <i>This means that each time a model with the Oath of Moment ability makes an attack that targets either of your Oath of Moment targets, you can re-roll the Hit roll.</i>"
     },
     {
       "id": "shadow-war-veteran",
@@ -6378,10 +7199,9 @@
       "description": "Adeptus Astartes Psyker model only. This unit’s ranged attacks have:<br><ul><li>[LETHAL HITS].</li><li>If this unit has the Pyromancy Discipline ability, [SUSTAINED HITS 1].</li></ul>",
       "effect": {
         "effects": {
-          "woundCritThreshold": 5
+          "lethalHitsBonus": true
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "vehicle"
+        "combatType": "ranged"
       }
     },
     {
@@ -6443,14 +7263,41 @@
       "detachmentId": "rage-cursed-onslaught",
       "detachmentName": "Rage-cursed Onslaught",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Each time the bearer makes a melee attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that attack has the [SUSTAINED HITS 2] ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 2
+      "options": [
+        {
+          "name": "vs Character",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "character",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "requiresTargetKeyword": "vehicle",
-        "bearerOnly": true
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "gift-of-foresight-space-marines",
@@ -6467,12 +7314,26 @@
       "detachmentId": "unforgiven-task-force",
       "detachmentName": "Unforgiven Task Force",
       "description": "Ancient model only. While the bearer is leading a unit, models in that unit have the Feel No Pain 6+ ability. While that unit is Battle-shocked, models in that unit have the Feel No Pain 4+ ability instead.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 6
+      "options": [
+        {
+          "name": "FNP 6+",
+          "effect": {
+            "target": "defender",
+            "effects": {
+              "feelNoPainThreshold": 6
+            }
+          }
         },
-        "target": "defender"
-      }
+        {
+          "name": "FNP 4+ (Battle-shocked)",
+          "effect": {
+            "target": "defender",
+            "effects": {
+              "feelNoPainThreshold": 4
+            }
+          }
+        }
+      ]
     },
     {
       "id": "defensive-mastery",
@@ -6489,13 +7350,38 @@
       "detachmentId": "saga-of-the-beastslayer",
       "detachmentName": "Saga of the Beastslayer",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Each time an attack made by a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> model targets the bearer’s unit, reduce the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": -1
+      "options": [
+        {
+          "name": "vs Character",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "target": "defender",
+            "requiresAttackerKeyword": "character"
+          }
         },
-        "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "target": "defender",
+            "requiresAttackerKeyword": "monster"
+          }
+        },
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "target": "defender",
+            "requiresAttackerKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "thunderwolfs-fortitude",
@@ -6616,9 +7502,8 @@
       "description": "<span class=\"kwb\">PHOBOS</span> model only. This model has the Lone Operative and Stealth abilities.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "bearerOnly": true
       }
@@ -6629,12 +7514,7 @@
       "cost": 15,
       "detachmentId": "subversion-assets",
       "detachmentName": "Subversion Assets",
-      "description": "<span class=\"kwb\">INFANTRY</span> <span class=\"kwb\">PHOBOS</span> unit only. This unit's attacks that target a hidden unit have +1 to hit rolls.",
-      "effect": {
-        "effects": {
-          "hitMod": 1
-        }
-      }
+      "description": "<span class=\"kwb\">INFANTRY</span> <span class=\"kwb\">PHOBOS</span> unit only. This unit's attacks that target a hidden unit have +1 to hit rolls."
     },
     {
       "id": "temporal-corridor",
@@ -6682,13 +7562,21 @@
       "detachmentId": "wrathful-procession",
       "detachmentName": "Wrathful Procession",
       "description": "<span class=\"kwb\">EXECRATOR</span> model only. When this unit is selected to fight, this model's melee attacks have [CLEAVE 1] or [PRECISION] (your choice each time).",
-      "effect": {
-        "effects": {
-          "cleaveBonus": 1
+      "options": [
+        {
+          "name": "Cleave 1",
+          "effect": {
+            "effects": {
+              "cleaveBonus": 1
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Precision"
+        }
+      ]
     },
     {
       "id": "blood-boil",
@@ -6719,12 +7607,26 @@
       "detachmentId": "encarmine-speartip",
       "detachmentName": "Encarmine Speartip",
       "description": "<span class=\"kwb\">ADEPTUS ASTARTES JUMP PACK</span> model only. When this unit is selected to fight, this unit's melee attacks have [LETHAL HITS] or [SUSTAINED HITS 1] (your choice).",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee"
+          }
         },
-        "combatType": "melee"
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee"
+          }
+        }
+      ]
     },
     {
       "id": "shadow-of-abomination",
@@ -8121,13 +9023,7 @@
           "id": "suppression-fire",
           "name": "Suppression Fire",
           "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks made with an accelerator autocannon. Until the start of your next turn, while this unit is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -10100,7 +10996,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "infiltrators",
@@ -10134,7 +11036,8 @@
           "effect": {
             "effects": {
               "rerollWoundsOf1": true
-            }
+            },
+            "appliesToNearby": true
           }
         },
         {
@@ -10605,7 +11508,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresAttackerKeyword": "psyker"
           }
         },
         {
@@ -11688,7 +12592,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "fly"
           }
         }
       ],
@@ -13325,7 +14230,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "target": "defender",
+            "combatType": "ranged"
           }
         },
         {
@@ -13636,9 +14543,11 @@
           "effect": {
             "effects": {
               "rerollAllHits": true,
-              "rerollAllWounds": true
+              "rerollAllWounds": true,
+              "rerollAllDamage": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -15466,7 +16375,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "infantry"
           }
         }
       ],
@@ -16149,7 +17059,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresAttackerKeyword": "psyker"
           }
         },
         {
@@ -16925,7 +17836,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -17947,7 +18859,8 @@
             "effects": {
               "hitMod": 1
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "vehicle"
           }
         },
         {
@@ -18674,7 +19587,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -20557,13 +21471,7 @@
           "id": "techmarine",
           "name": "Techmarine",
           "description": "While this model is within 3\" of one or more friendly Adeptus Astartes Vehicle units, this model has the Lone Operative ability.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "blessing-of-the-omnissiah",
@@ -21825,7 +22733,13 @@
           "id": "feel-no-pain-4",
           "name": "Feel No Pain 4+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "fights-first",
@@ -22790,9 +23704,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "apMod": 1
+              "feelNoPainThreshold": 5
             },
-            "combatType": "melee"
+            "target": "defender"
           }
         },
         {
@@ -23188,7 +24102,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -24013,7 +24933,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "oath-of-moment",
@@ -25785,7 +26711,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresAttackerKeyword": "psyker"
           }
         },
         {
@@ -26252,8 +27179,7 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         },
         {
@@ -29028,7 +29954,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "blood claws"
           }
         },
         {
@@ -29721,7 +30648,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -29748,8 +30681,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+              "hitMod": 1
             },
             "combatType": "melee"
           }
@@ -30118,7 +31050,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "oath-of-moment",
@@ -30130,13 +31068,7 @@
           "id": "legendary-tenacity",
           "name": "Legendary Tenacity",
           "description": "Each time an attack targets this model, if the Strength characteristic of that attack is greater than this model’s Toughness characteristic, subtract 1 from the Wound roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundMod": -1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "ancient-tactician",
@@ -30870,11 +31802,24 @@
           "name": "Cunning Hunters",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -31220,13 +32165,7 @@
           "id": "iron-priest",
           "name": "Iron Priest",
           "description": "While this model is within 3\" of one or more friendly Adeptus Astartes Vehicle units, this model has the Lone Operative ability.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
-            },
-            "combatType": "melee"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "gift-of-the-iron-wolf",
@@ -31657,7 +32596,8 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "bearerOnly": true
           }
         }
       ],
@@ -31990,7 +32930,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "curse-of-the-wulfen",
@@ -32346,7 +33292,8 @@
               "rerollAllHits": true,
               "rerollAllWounds": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -32725,13 +33672,7 @@
           "id": "rugged-resilience",
           "name": "Rugged Resilience",
           "description": "Each time an attack targets this unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of this unit, subtract 1 from the Wound roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundMod": -1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "storm-shield",
@@ -35316,7 +36257,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -38224,13 +39166,7 @@
           "id": "siege-shield",
           "name": "Siege Shield",
           "description": "When making ranged attacks with its demolisher cannon, this model can target enemy units within Engagement Range of it (provided no other friendly units are also within Engagement Range of that enemy unit). In addition, when making ranged attacks, this model does not suffer the penalty to its Hit rolls for being within Engagement Range of one or more enemy units.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",
@@ -39401,12 +40337,26 @@
           "name": "Decimator Protocols",
           "description": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Hit completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -40745,12 +41695,26 @@
           "name": "Shock Assault",
           "description": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -41138,7 +42102,8 @@
             "effects": {
               "woundMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -41468,7 +42433,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         }
@@ -41833,7 +42797,9 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 2
-            }
+            },
+            "requiresTargetKeyword": "infantry",
+            "combatType": "ranged"
           }
         }
       ],
@@ -42545,7 +43511,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -42942,7 +43910,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "oath-of-moment",
@@ -42967,11 +43941,24 @@
           "name": "An Honourable Death in Combat",
           "description": "Each time a model in this unit makes an attack, that attack has the [SUSTAINED HITS 1] ability if this unit is below its Starting Strength, or the [SUSTAINED HITS 2] ability if this unit is Below Half-strength.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "Below Starting Strength",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
+            },
+            {
+              "name": "Below Half-strength",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 2
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "attached-unit",
@@ -46186,7 +47173,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresAttackerKeyword": "psyker"
           }
         },
         {
@@ -47143,7 +48131,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "oath-of-moment",
@@ -48193,7 +49187,7 @@
               "apMod": 2,
               "damageMod": 2
             },
-            "combatType": "melee"
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -49441,8 +50435,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+              "hitMod": 1
             }
           }
         },
@@ -49961,7 +50954,8 @@
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "combatType": "melee"
           }
         },
         {
@@ -50336,13 +51330,7 @@
           "id": "suppression-fire",
           "name": "Suppression Fire",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more attacks made with its twin macro-accelerator cannon this phase. Until the start of your next turn, while this model is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -51109,7 +52097,8 @@
             "effects": {
               "sustainedHitsBonus": 2
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -51495,9 +52484,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true,
+              "rerollDamageOf1": true
             },
             "combatType": "ranged"
           }
@@ -51804,7 +52793,8 @@
           "effect": {
             "effects": {
               "attacksMod": 1
-            }
+            },
+            "combatType": "melee"
           }
         }
       ],
@@ -53273,9 +54263,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1,
-              "attacksMod": 1
+              "hitMod": 1
             }
           }
         },
@@ -53653,7 +54641,8 @@
             "effects": {
               "rerollAllDamage": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -54010,7 +54999,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry"
           }
         },
         {
@@ -56289,7 +57279,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -57033,7 +58024,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "oath-of-moment",
@@ -60360,8 +61357,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "woundMod": 1
+              "hitMod": 1
             }
           }
         },
@@ -61402,11 +62398,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "astartes-shield",
@@ -62311,9 +63320,9 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "rerollAllHits": true,
-              "rerollAllWounds": true,
-              "rerollAllDamage": true
+              "rerollHitsOf1": true,
+              "rerollWoundsOf1": true,
+              "rerollDamageOf1": true
             },
             "combatType": "ranged"
           }
@@ -62663,7 +63672,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
           }
         }
       ],
@@ -63023,7 +64034,9 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 2
-            }
+            },
+            "requiresTargetKeyword": "infantry",
+            "combatType": "ranged"
           }
         }
       ],
@@ -64215,7 +65228,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -64608,11 +65627,24 @@
           "name": "Vehement Aggression",
           "description": "While this model is leading a unit, each time that unit is selected to fight, take a Leadership test for that unit: if passed, until the end of the phase, each time a model in that unit makes an attack, you can re-roll the Hit roll; if failed, until the end of the phase, each time a model in that unit makes an attack, re-roll a Hit roll of 1.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Passed",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            },
+            {
+              "name": "Failed",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "prioritised-eradication",
@@ -67636,7 +68668,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         },
@@ -67648,7 +68679,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "requiresTargetKeyword": "character"
           }
         },
         {
@@ -68541,7 +69573,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -69060,7 +70098,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -69919,7 +70963,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -70934,8 +71984,7 @@
           "effect": {
             "effects": {
               "apMod": 1
-            },
-            "combatType": "melee"
+            }
           }
         },
         {
@@ -72235,8 +73284,7 @@
           "effect": {
             "effects": {
               "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
+            }
           }
         },
         {
@@ -72622,13 +73670,7 @@
           "id": "hammer-blow",
           "name": "Hammer Blow",
           "description": "In the Fight phase, after this unit has fought, select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit hit by one or more of those attacks. Until the end of the next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "melee"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "death-totem",
@@ -72990,7 +74032,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "curse-of-the-wulfen",
@@ -75151,7 +76199,7 @@
               "rerollHitsOf1": true,
               "rerollWoundsOf1": true
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         },
         {
@@ -75804,7 +76852,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -75823,12 +76877,25 @@
           "name": "Cold and Calculating",
           "description": "Each time a model in this model’s unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that attack has the [LETHAL HITS] ability. Each time a model in this model’s unit makes an attack that targets any other unit, that attack has the [SUSTAINED HITS 1] ability.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true,
-              "sustainedHitsBonus": 1
+          "options": [
+            {
+              "name": "vs Monster/Vehicle",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
+            },
+            {
+              "name": "vs other targets",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "cerebrex-logic-engine",
@@ -76765,11 +77832,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "astartes-shield",
@@ -77479,7 +78559,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "oath-of-moment",
@@ -79361,7 +80447,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",

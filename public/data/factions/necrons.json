@@ -43,7 +43,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "destroyer cult"
           }
         }
       ]
@@ -59,11 +60,44 @@
           "id": "power-matrix",
           "name": "Power Matrix",
           "description": "Certain areas of the battlefield are considered to be within your army’s Power Matrix, as follows: <br><br><ul><li>Your deployment zone is always within your army’s Power Matrix. </li><li>At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Power Matrix. </li><li>At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Power Matrix. </li></ul>Each time a model in a CRYPTEK or CANOPTEK unit from your army makes an attack, re-roll a Hit roll of 1. If such a unit is wholly within your army’s Power Matrix, you can re-roll the Hit roll instead.",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Cryptek",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "cryptek"
+              }
+            },
+            {
+              "name": "Cryptek — Wholly within Power Matrix",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                },
+                "requiresAttackerKeyword": "cryptek"
+              }
+            },
+            {
+              "name": "Canoptek",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "canoptek"
+              }
+            },
+            {
+              "name": "Canoptek — Wholly within Power Matrix",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                },
+                "requiresAttackerKeyword": "canoptek"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -78,11 +112,35 @@
           "id": "worthy-foes",
           "name": "Worthy Foes",
           "description": "In your Command phase, select one enemy unit. Until the start of your next Command phase, each time a Noble, Lychguard or Triarch unit from your army makes an attack that targets that unit, add 1 to the Wound roll.",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Noble",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "noble"
+              }
+            },
+            {
+              "name": "Lychguard",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "lychguard"
+              }
+            },
+            {
+              "name": "Triarch",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "triarch"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -114,8 +172,7 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            },
-            "combatType": "ranged"
+            }
           }
         }
       ]
@@ -148,7 +205,8 @@
           "effect": {
             "effects": {
               "strengthMod": 2
-            }
+            },
+            "requiresAttackerKeyword": "destroyer cult"
           }
         }
       ]
@@ -202,7 +260,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "tomb blades"
           }
         }
       ]
@@ -282,6 +341,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One DESTROYER CULT or FLAYED ONES unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model from your unit makes an attack that targets a unit below Starting Strength, add 1 to the Hit roll. If the target is Below Half-strength, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
+          "hitMod": 1,
           "woundMod": 1
         },
         "isStratagem": true,
@@ -326,14 +386,30 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">NECRONS</span> unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a unit within half range, re-roll a Hit roll of 1. If a NECRONS CHARACTER is leading your unit, until the end of the phase, you can re-roll the Hit roll for that attack instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Hit completo (Necrons Character liderando)",
+          "effect": {
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "protocol-of-the-eternal-revenant",
@@ -390,7 +466,8 @@
           "woundMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "canoptek"
       }
     },
     {
@@ -458,7 +535,14 @@
       "type": "Cryptek Conclave – Battle Tactic Stratagem",
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">NECRONS</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll. If your unit has the Cryptek keyword, you can also ignore any or all modifiers to the Wound roll."
+      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">NECRONS</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll. If your unit has the Cryptek keyword, you can also ignore any or all modifiers to the Wound roll.",
+      "effect": {
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "untapped-power",
@@ -951,7 +1035,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged"
       }
     },
     {
@@ -968,7 +1053,6 @@
           "apMod": -1
         },
         "target": "defender",
-        "requiresAttackerKeyword": "titanic",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -997,7 +1081,6 @@
           "apMod": 1
         },
         "combatType": "ranged",
-        "requiresAttackerKeyword": "tesseract vault",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -1108,12 +1191,7 @@
       "cost": 5,
       "detachmentId": "annihilation-legion",
       "detachmentName": "Annihilation Legion",
-      "description": "<span class=\"kwb\">NECRONS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        }
-      }
+      "description": "<span class=\"kwb\">NECRONS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1."
     },
     {
       "id": "miniaturised-nebuloscope",
@@ -1146,11 +1224,24 @@
       "detachmentId": "hypercrypt-legion",
       "detachmentName": "Hypercrypt Legion",
       "description": "<span class=\"kwb\">NECRONS</span> model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. If the bearer’s unit was set up on the battlefield this turn, you can re-roll the Hit roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Reroll Hit de 1",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Hit completo (unidad desplegada este turno)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            }
+          }
         }
-      }
+      ]
     },
     {
       "id": "quantum-goad",
@@ -1175,13 +1266,28 @@
       "detachmentId": "cryptek-conclave",
       "detachmentName": "Cryptek Conclave",
       "description": "Cryptek model only. In your Shooting phase, each time the bearer’s unit is selected to shoot, when selecting an ability for the Technosorcerous Augmentations Detachment rule, you can also select from the following abilities: [ANTI-MONSTER 5+], [ANTI-VEHICLE 5+].",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 5
+      "options": [
+        {
+          "name": "Anti-Monster 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster"
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "Anti-Vehicle 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "nether-realm-casket",
@@ -1192,9 +1298,8 @@
       "description": "<span class=\"kwb\">NECRONS</span> model only. While the bearer is leading a unit, models in that unit have the Stealth ability.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1231,9 +1336,9 @@
       "description": "C’tan Shard of the Void Dragon model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy <span class=\"kwb\">VEHICLE</span> unit visible to the bearer. That unit must take a Leadership test. Until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll and, if that Leadership test was failed, subtract 1 from the Wound roll as well.",
       "effect": {
         "effects": {
-          "hitMod": -1
+          "hitMod": -1,
+          "woundMod": -1
         },
-        "target": "defender",
         "requiresAttackerKeyword": "vehicle"
       }
     },
@@ -1381,7 +1486,8 @@
         "effects": {
           "damageReduction": 1
         },
-        "target": "defender"
+        "target": "defender",
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -1423,12 +1529,26 @@
       "detachmentId": "the-phaerons-armoury",
       "detachmentName": "The Phaeron’s Armoury",
       "description": "<span class=\"kwb\">NECRONS</span> model only. When this unit is selected to shoot, if this unit was set up using a Monolith’s Eternity Gate ability this turn, this unit’s ranged attacks have: [LETHAL HITS] or [SUSTAINED HITS 1].",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "ranged"
+          }
         },
-        "combatType": "ranged"
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged"
+          }
+        }
+      ]
     },
     {
       "id": "mortality-shroud-upgrade",
@@ -2592,11 +2712,24 @@
           "name": "Implacable Eradication",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         }
       ],
       "keywords": [
@@ -3574,7 +3707,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "reanimation-protocols",
@@ -3739,7 +3878,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "stealth",
@@ -4210,13 +4355,26 @@
           "name": "Atavistic Instigation",
           "description": "Each time this model targets an enemy unit with its heavy death ray, your opponent must declare if that unit will stand firm or duck for cover:<br><ul><li>If it stands firm, when resolving ranged attacks against that unit this phase, a successful unmodified Hit roll of 5+ scores a Critical Hit.  </li><li>If it ducks for cover, until the start of your next Shooting phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "critThreshold": 5
+          "options": [
+            {
+              "name": "Stands Firm (defiende contra disparo)",
+              "effect": {
+                "effects": {
+                  "critThreshold": 5
+                },
+                "target": "defender",
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Ducks for Cover (ataques propios)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -4753,7 +4911,8 @@
               "feelNoPainThreshold": 6
             },
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresTargetKeyword": "vehicle"
           }
         },
         {
@@ -5436,7 +5595,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "reanimation-protocols",
@@ -6124,7 +6289,13 @@
           "id": "feel-no-pain-4",
           "name": "Feel No Pain 4+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "reanimation-protocols",
@@ -6143,13 +6314,29 @@
           "name": "Mechanical Augmentation (Aura)",
           "description": "While a friendly Necrons Battleline unit is within 3\" of this model, each time a model in that unit makes an attack, improve the Armour Penetration characteristic of that attack by 1, and each time an attack targets that unit, worsen the Armour Penetration characteristic of that attack by 1.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "apMod": -1
+          "options": [
+            {
+              "name": "Ataques salientes",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "appliesToNearby": true,
+                "requiresAttackerKeyword": "battleline"
+              }
             },
-            "target": "defender",
-            "appliesToNearby": true
-          }
+            {
+              "name": "Ataques entrantes",
+              "effect": {
+                "effects": {
+                  "apMod": -1
+                },
+                "target": "defender",
+                "appliesToNearby": true,
+                "requiresTargetKeyword": "battleline"
+              }
+            }
+          ]
         },
         {
           "id": "atomic-energy-manipulator",
@@ -6670,12 +6857,26 @@
           "name": "Whirling Onslaught",
           "description": "Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1. If this unit made a Charge move this turn, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "Reroll Hit completo (hizo Carga este turno)",
+              "effect": {
+                "combatType": "melee",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -6831,7 +7032,8 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -6964,7 +7166,13 @@
           "id": "feel-no-pain-4",
           "name": "Feel No Pain 4+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 4
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "reanimation-protocols",
@@ -7976,13 +8184,7 @@
           "id": "technomancer",
           "name": "Technomancer",
           "description": "At the end of your Movement phase, you can select one friendly <span class=\"kwb\">NECRONS</span> model within 6\" of the bearer. That model regains up to D3 lost wounds. Each model can only be selected for this ability once per turn.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -8332,7 +8534,6 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "melee",
             "target": "defender"
           }
         },
@@ -8755,7 +8956,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "reanimation-protocols",
@@ -9066,12 +9273,26 @@
           "name": "Hard-wired for Destruction",
           "description": "Each time a model in this unit makes a ranged attack that targets the closest eligible enemy unit, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker your opponent controls, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Hit completo (objetivo cerca de marcador enemigo)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -9308,13 +9529,7 @@
           "id": "the-silent-king",
           "name": "The Silent King",
           "description": "While a friendly <span class=\"kwb\">NECRONS</span> unit is within 6\" of this unit’s Szarekh model, improve that unit’s Leadership characteristic by 1.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "supreme-commander",
@@ -9484,7 +9699,8 @@
               "feelNoPainThreshold": 6
             },
             "target": "defender",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresTargetKeyword": "infantry"
           }
         },
         {
@@ -10015,7 +10231,8 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "hitMod": 1
+              "hitMod": 1,
+              "woundMod": 1
             },
             "combatType": "ranged"
           }
@@ -10398,7 +10615,8 @@
             "effects": {
               "sustainedHitsBonus": 1
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "destroyer cult"
           }
         },
         {
@@ -10410,7 +10628,8 @@
             "effects": {
               "rerollWoundsOf1": true
             },
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "destroyer cult"
           }
         },
         {

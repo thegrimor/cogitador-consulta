@@ -12,7 +12,8 @@
           "effect": {
             "effects": {
               "rerollHitsOf1": true
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -20,7 +21,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -28,7 +30,8 @@
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -36,7 +39,8 @@
           "effect": {
             "effects": {
               "apMod": 2
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ]
@@ -59,12 +63,26 @@
           "id": "flow-of-magic",
           "name": "Flow of Magic",
           "description": "Certain areas of the battlefield are within your army’s Flow of Magic, as follows:<br><ul><li>Your deployment zone is always within your army’s Flow of Magic.</li><li>At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Flow of Magic.</li><li>At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Flow of Magic.</li></ul><br>Each time a <span class=\"kwb\">THOUSAND</span> <span class=\"kwb\">SONS</span> model from your army makes a Psychic Attack, re-roll a Wound roll of 1. If such a model is wholly within your army’s Flow of Magic, each time it makes a Psychic Attack, add 1 to the Wound roll instead.",
-          "effect": {
-            "effects": {
-              "woundMod": 1,
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "requiresAttackerKeyword": "thousand sons",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Wound +1 (dentro de Flow of Magic)",
+              "effect": {
+                "requiresAttackerKeyword": "thousand sons",
+                "effects": {
+                  "woundMod": 1
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -79,11 +97,26 @@
           "id": "kindred-sorcery",
           "name": "Kindred Sorcery",
           "description": "In your Command phase, you can select one of the abilities listed below to take effect until the start of your next Command phase. You can only select each of these abilities once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Imbued Manifestation</p><p>Add 6\" to the Range characteristic of ranged <span class=\"tooltip00082\" data-tooltip-content=\"#tooltip_content00082\"><span class=\"tt kwbu\">Psychic</span> <span class=\"tt kwbu\">weapons</span></span> equipped by <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> models from your army.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Psychic Maelstrom</p><p>Each time a <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> model from your army makes an attack with a <span class=\"tooltip00082\" data-tooltip-content=\"#tooltip_content00082\"><span class=\"tt kwbu\">Psychic</span> <span class=\"tt kwbu\">weapon</span></span>, add 1 to the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Wrath of the Immaterium</p><p><span class=\"tooltip00082\" data-tooltip-content=\"#tooltip_content00082\"><span class=\"tt kwbu\">Psychic</span> <span class=\"tt kwbu\">weapons</span></span> equipped by <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> models from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00027\" data-tooltip-content=\"#tooltip_content00027\"><span class=\"tt kwbu\">[devastating</span> <span class=\"tt kwbu\">wounds]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Psychic Maelstrom",
+              "effect": {
+                "requiresAttackerKeyword": "thousand sons",
+                "effects": {
+                  "woundMod": 1
+                }
+              }
+            },
+            {
+              "name": "Wrath of the Immateriuim",
+              "effect": {
+                "requiresAttackerKeyword": "thousand sons",
+                "effects": {
+                  "devastatingWoundsBonus": true
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -112,12 +145,27 @@
           "id": "warpmeld-sacrifice",
           "name": "Warpmeld Sacrifice",
           "description": "Each time an enemy unit is selected to shoot or fight and one or more Tzeentch Mutant Infantry or Tzeentch Mutant Mounted units from your army are selected as a target of one or more of those attacks, each of those <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> units can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time an attack targets that unit, subtract 1 from the Wound roll. At the end of the phase, that <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> unit suffers D3 mortal wounds.<br><br>Each time a <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> <span class=\"kwb\">MOUNTED</span> unit from your army is selected to shoot or fight, before selecting its targets, that unit can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time a model in that unit makes an attack, add 1 to the Wound roll. At the end of the phase, that <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> unit suffers D3 mortal wounds.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Tzaangors units from your army have the <span class=\"kwb\">BATTLELINE</span> keyword, and while such a unit is not Battle-shocked, add 1 to the Objective Control characteristic of <span class=\"kwb\">TZAANGOR</span> models in that unit.",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Offensive Sacrifice",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "mutant"
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "Defensive Sacrifice",
+              "effect": {
+                "target": "defender",
+                "requiresTargetKeyword": "mutant",
+                "effects": {
+                  "woundMod": -1
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -178,7 +226,8 @@
             "effects": {
               "wsMod": -1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "requiresAttackerKeyword": "sekhetar robots"
           }
         }
       ]
@@ -283,7 +332,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -301,7 +351,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "thousand sons"
       }
     },
     {
@@ -322,15 +373,7 @@
       "type": "Grand Coven – Epic Deed Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase, just after a saving throw is failed for a Thousand Sons Psyker model from your army. If you are using fast dice rolling, this Stratagem can still be used after rolling multiple saving throws at once.<br><br><b>TARGET:</b> That <span class=\"kwb\">PSYKER</span> model.<br><br><b>EFFECT:</b> Change the Damage characteristic of that attack to 0. If you are using fast dice rolling, select one of those attacks you failed a saving throw for.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Any phase, just after a saving throw is failed for a Thousand Sons Psyker model from your army. If you are using fast dice rolling, this Stratagem can still be used after rolling multiple saving throws at once.<br><br><b>TARGET:</b> That <span class=\"kwb\">PSYKER</span> model.<br><br><b>EFFECT:</b> Change the Damage characteristic of that attack to 0. If you are using fast dice rolling, select one of those attacks you failed a saving throw for."
     },
     {
       "id": "arcane-focus",
@@ -427,7 +470,9 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "rubric marines",
+        "combatType": "melee"
       }
     },
     {
@@ -456,7 +501,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresTargetKeyword": "rubric marines"
       }
     },
     {
@@ -504,7 +550,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "vehicle"
       }
     },
     {
@@ -522,7 +569,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 2
+        "cpCost": 2,
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -543,7 +591,15 @@
       "type": "Warpforged Cabal – Epic Deed Stratagem",
       "turn": "Your turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Thousand Sons Vehicle unit from your army within 6\" of one or more friendly Thousand Sons Psyker units.<br><br><b>EFFECT:</b> Until the start of your next Command phase, your <span class=\"kwb\">VEHICLE</span> unit is malevolent. While a unit is malevolent, it can ignore any or all modifiers to the following: the profile characteristics of its models; the Weapon Skill and Ballistic Skill characteristics of weapons equipped by its models; any roll or test made for it (excluding modifiers to saving throws)."
+      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Thousand Sons Vehicle unit from your army within 6\" of one or more friendly Thousand Sons Psyker units.<br><br><b>EFFECT:</b> Until the start of your next Command phase, your <span class=\"kwb\">VEHICLE</span> unit is malevolent. While a unit is malevolent, it can ignore any or all modifiers to the following: the profile characteristics of its models; the Weapon Skill and Ballistic Skill characteristics of weapons equipped by its models; any roll or test made for it (excluding modifiers to saving throws).",
+      "effect": {
+        "requiresAttackerKeyword": "vehicle",
+        "isStratagem": true,
+        "cpCost": 1,
+        "effects": {
+          "hitMod": 1
+        }
+      }
     },
     {
       "id": "cyberspirit-machinations",
@@ -620,7 +676,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "tzaangors"
       }
     },
     {
@@ -707,7 +764,9 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged",
+        "requiresTargetKeyword": "sekhetar robots"
       }
     },
     {
@@ -781,11 +840,24 @@
       "detachmentId": "hexwarp-thrallband",
       "detachmentName": "Hexwarp Thrallband",
       "description": "<span class=\"kwb\">THOUSAND</span> <span class=\"kwb\">SONS</span> model only. Add 1 to the Strength characteristic of Psychic weapons equipped by models in the bearer’s unit. While the bearer’s unit is wholly within your army’s Flow of Magic, add 2 to the Strength characteristic of Psychic weapons equipped by models in that unit instead.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Fuerza +1",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            }
+          }
+        },
+        {
+          "name": "Fuerza +2 (dentro de Flow of Magic)",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            }
+          }
         }
-      }
+      ]
     },
     {
       "id": "warp-syphon",
@@ -1680,12 +1752,26 @@
           "name": "Bringers of Change",
           "description": "Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If that attack targets a unit within range of an objective marker you do not control, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Reroll Wound completo (objetivo cerca de marcador no controlado)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
+            }
+          ]
         },
         {
           "id": "icon-of-flame",
@@ -2238,7 +2324,7 @@
               "hitMod": 1,
               "woundMod": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true
           }
         }
       ],
@@ -2356,7 +2442,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "regenerating-monstrosities",
@@ -3290,13 +3382,7 @@
           "id": "blazing-salvoes",
           "name": "Blazing Salvoes",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -5517,7 +5603,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "mutating-vortex-aura",
@@ -5947,12 +6039,30 @@
           "name": "Ensorcelled Annihilation",
           "description": "Each time this model makes a ranged attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit that was hit by one or more Psychic Attacks made by a Thousand Sons Psyker model from your army this phase (including the Doombolt Ritual), you can re-roll the Hit roll and you can re-roll the Damage roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -6347,12 +6457,28 @@
           "name": "Hunter of Souls",
           "description": "Each time this model makes an attack that targets a <span class=\"kwb\">CHARACTER</span> unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1 (if that attack targets a <span class=\"kwb\">PSYKER</span> <span class=\"kwb\">CHARACTER</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll instead). Each time this model destroys a <span class=\"kwb\">CHARACTER</span> unit, this model regains up to D3 lost wounds (if that <span class=\"kwb\">CHARACTER</span> unit was a <span class=\"kwb\">PSYKER</span> unit, this model regains up to 3 lost wounds instead).",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "vs Character",
+              "effect": {
+                "requiresTargetKeyword": "character",
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "vs Character Psyker (reroll completo)",
+              "effect": {
+                "requiresTargetKeyword": "character",
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "aetherstride-psychic",
@@ -6361,7 +6487,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 3
+              "sustainedHitsBonus": 2
             }
           }
         }
@@ -7082,7 +7208,8 @@
               "strengthMod": 1
             },
             "combatType": "ranged",
-            "appliesToNearby": true
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "scintillating legions"
           }
         },
         {

@@ -25,12 +25,26 @@
           "id": "deathwatch-mission-tactics",
           "name": "Deathwatch Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all DEATHwATCH units from your army. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Furor Tactics</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"tooltip00070\" data-tooltip-content=\"#tooltip_content00070\" data-tooltip-anchor=\"#tooltip_content00070\"><span class=\"kwb kwbu\">DEATHWATCH</span></span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Malleus Tactics</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"tooltip00070\" data-tooltip-content=\"#tooltip_content00070\" data-tooltip-anchor=\"#tooltip_content00070\"><span class=\"kwb kwbu\">DEATHWATCH</span></span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Purgatus Tactics</p><p>While this Mission Tactic is active, each time a <span class=\"tooltip00070\" data-tooltip-content=\"#tooltip_content00070\" data-tooltip-anchor=\"#tooltip_content00070\"><span class=\"kwb kwbu\">DEATHWATCH</span></span> model from your army makes an attack, on a <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Wound</span></span>, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "sustainedHitsBonus": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "Furor Tactics",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "requiresAttackerKeyword": "deathwatch"
+              }
+            },
+            {
+              "name": "Malleus Tactics",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "requiresAttackerKeyword": "deathwatch"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -47,7 +61,7 @@
           "description": "Ranged weapons equipped by ADEPTUS ARbITES, INqUISITOR, INqUISITORIAl AGENTS and ORDO HERETICUS models from your army have the [IGNORES COvER] ability.<br><br>Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ARBITES</span>, <span class=\"kwb\">INQUISITOR</span>, <span class=\"kwb\">INQUISITORIAL</span> <span class=\"kwb\">AGENTS</span> or <span class=\"kwb\">ORDO</span> <span class=\"kwb\">HERETICUS</span> model from your army makes an attack that targets a <span class=\"kwb\">CHAOS</span> unit containing 5 or more models, that attack has the [SUSTAINED HITS 1] ability.",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "bsMod": -1
             },
             "combatType": "ranged"
           }
@@ -67,8 +81,7 @@
           "description": "Each time an INqUISITOR, INqUISITORIAl AGENTS or ORDO MAllEUS model from your army makes an attack, re-roll a Hit roll of 1 and, if the target of that attack is a <span class=\"kwb\">DAEMON</span> unit, re-roll a Wound roll of 1 as well.",
           "effect": {
             "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+              "rerollHitsOf1": true
             }
           }
         }
@@ -85,11 +98,25 @@
           "id": "at-all-costs",
           "name": "At all Costs",
           "description": "At the start of your Command phase, you can select one of the following to apply:<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Eliminate At All Costs</p><p>Select one enemy unit on the battlefield. Until the start of your next <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, each time an <span class=\"tooltip00071\" data-tooltip-content=\"#tooltip_content00071\" data-tooltip-anchor=\"#tooltip_content00071\"><span class=\"kwb kwbu\">AGENTS</span> <span class=\"kwb2 kwbu\">OF</span> <span class=\"kwb2 kwbu\">THE</span> <span class=\"kwb kwbu\">IMPERIUM</span></span> model from your army makes an attack that targets that enemy unit, add 1 to the <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Hit</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Acquire At All Costs</p><p>Select one <span class=\"tooltip00048\" data-tooltip-content=\"#tooltip_content00048\"><span class=\"tt kwbu\">objective</span> <span class=\"tt kwbu\">marker</span></span> on the battlefield. Until the start of your next <a href=\"/wh40k10ed/the-rules/core-rules/#COMMAND-PHASE\">Command phase</a>, while an <span class=\"tooltip00071\" data-tooltip-content=\"#tooltip_content00071\" data-tooltip-anchor=\"#tooltip_content00071\"><span class=\"kwb kwbu\">AGENTS</span> <span class=\"kwb2 kwbu\">OF</span> <span class=\"kwb2 kwbu\">THE</span> <span class=\"kwb kwbu\">IMPERIUM</span></span> unit from your army is within range of that objective marker, improve the Leadership and Objective Control characteristics of models in that unit by 1 and models in that unit have a 5+ <span class=\"tooltip00072\" data-tooltip-content=\"#tooltip_content00072\"><span class=\"tt kwbu\">invulnerable</span> <span class=\"tt kwbu\">save</span></span>.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "hitMod": 1
+          "options": [
+            {
+              "name": "Eliminate At All Costs",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                }
+              }
+            },
+            {
+              "name": "Acquire At All Costs",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 5
+                },
+                "target": "defender"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -123,6 +150,7 @@
           "apMod": -1
         },
         "target": "defender",
+        "requiresTargetKeyword": "deathwatch",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -156,15 +184,34 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One DEATHwATCH INFANTRy unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons (excluding Devastating Wounds weapons) equipped by models in your unit have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 5+] abilities.<br><br><b>RESTRICTIONS:</b> You cannot select any units that have already been targeted with either the Kraken Rounds or Dragonfire Rounds Stratagems this phase.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 2
+      "options": [
+        {
+          "name": "Anti-Infantry 2+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry",
+            "requiresAttackerKeyword": "deathwatch",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "infantry",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Anti-Monster 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "requiresAttackerKeyword": "deathwatch",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "dragonfire-rounds",
@@ -190,6 +237,7 @@
           "apMod": 1
         },
         "combatType": "ranged",
+        "requiresAttackerKeyword": "deathwatch",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -256,6 +304,7 @@
           "lethalHitsBonus": true
         },
         "combatType": "ranged",
+        "requiresAttackerKeyword": "grey knights terminator squad",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -274,6 +323,7 @@
           "apMod": -1
         },
         "target": "defender",
+        "requiresTargetKeyword": "grey knights terminator squad",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -289,9 +339,11 @@
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One VOIDFARERS unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a ranged attack that targets a unit within 12\", improve the Strength and Armour Penetration characteristics of that attack by 1.",
       "effect": {
         "effects": {
+          "strengthMod": 1,
           "apMod": 1
         },
         "combatType": "ranged",
+        "requiresAttackerKeyword": "voidfarers",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -337,7 +389,8 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One AGENTS OF THE IMpERIUM unit from your army.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of an objective marker, that attack has the [SUSTAINED HITS 1], [LANCE] and [IGNORES COVER] abilities.",
       "effect": {
         "effects": {
-          "sustainedHitsBonus": 1
+          "sustainedHitsBonus": 1,
+          "bsMod": -1
         },
         "isStratagem": true,
         "cpCost": 2
@@ -358,7 +411,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "character"
       }
     },
     {
@@ -402,6 +456,7 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender",
+        "requiresTargetKeyword": "infantry",
         "isStratagem": true,
         "cpCost": 1
       }
@@ -434,14 +489,7 @@
       "type": "Purgation Force – Wargear Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Start of any phase (excluding the Command phase).<br><br><b>TARGET:</b> One ADEpTUS ARbITES, INQUISITORIAl AGENTS or ORDO HERETICUS GRENADES unit from your army that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> or <span class=\"kwb\">VEHICLES</span>) within 8\" of and visible to your unit. That enemy unit must take a Battle-shock test and, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Start of any phase (excluding the Command phase).<br><br><b>TARGET:</b> One ADEpTUS ARbITES, INQUISITORIAl AGENTS or ORDO HERETICUS GRENADES unit from your army that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> or <span class=\"kwb\">VEHICLES</span>) within 8\" of and visible to your unit. That enemy unit must take a Battle-shock test and, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "prime-target",
@@ -452,13 +500,31 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One Agents of the Imperium unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">CHARACTER</span> unit, re-roll a Wound roll of 1. If that attack is made by an Officio Assassinorum model and it targets the enemy <span class=\"kwb\">WARLORD</span>, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "requiresTargetKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Officio Assassinorum vs Warlord)",
+          "effect": {
+            "requiresTargetKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            },
+            "requiresAttackerKeyword": "officio assassinorum"
+          }
+        }
+      ]
     },
     {
       "id": "hyperstimms",
@@ -474,6 +540,7 @@
           "feelNoPainThreshold": 4
         },
         "target": "defender",
+        "requiresTargetKeyword": "eversor assassin",
         "isStratagem": true,
         "cpCost": 2
       }
@@ -575,10 +642,9 @@
       "description": "INqUISITOR model only. Add 1 to the Attacks characteristic of the bearers melee weapons, and those weapons have the [ANTI-DAEMON 3+] ability.",
       "effect": {
         "effects": {
-          "woundCritThreshold": 3
+          "attacksMod": 1
         },
         "combatType": "melee",
-        "requiresTargetKeyword": "daemon",
         "bearerOnly": true
       }
     },
@@ -684,14 +750,30 @@
       "detachmentId": "veiled-blade-elimination-force",
       "detachmentName": "Veiled Blade Elimination Force",
       "description": "Vindicare Assassin models only. This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 4
+      "options": [
+        {
+          "name": "Anti-Vehicle 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "vehicle",
+            "bearerOnly": true
+          }
         },
-        "combatType": "ranged",
-        "requiresTargetKeyword": "vehicle",
-        "bearerOnly": true
-      }
+        {
+          "name": "Anti-Monster 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "grimoire-of-true-names-aura",
@@ -738,14 +820,30 @@
       "detachmentId": "ordo-xenos-alien-hunters",
       "detachmentName": "Ordo Xenos Alien Hunters",
       "description": "AGENTS OF THE IMPERIUM model only. Melee weapons equipped by the bearer have the [ANTI-INFANTRy 2+] and [ANTI-MONSTER 4+] abilities.",
-      "effect": {
-        "effects": {
-          "woundCritThreshold": 4
+      "options": [
+        {
+          "name": "Anti-infantry 2+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "infantry",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "requiresTargetKeyword": "monster",
-        "bearerOnly": true
-      }
+        {
+          "name": "Anti-monster 4+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 4
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        }
+      ]
     }
   ],
   "datasheets": [
@@ -1743,12 +1841,27 @@
           "name": "Malefic Wardings (Psychic)",
           "description": "While this model is leading a unit, models in that unit have a 6+ invulnerable save, and a 4+ invulnerable save against Psychic Attacks and attacks made by <span class=\"kwb\">DAEMON</span> models.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 6
+          "options": [
+            {
+              "name": "6+ Invulnerable (base)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 6
+                },
+                "target": "defender"
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "4+ Invulnerable (vs Daemon attacker)",
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "target": "defender",
+                "requiresAttackerKeyword": "daemon"
+              }
+            }
+          ]
         },
         {
           "id": "spy-network",
@@ -2690,11 +2803,24 @@
           "name": "Breaching Team",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "gheistskull",
@@ -4163,7 +4289,8 @@
           "effect": {
             "effects": {
               "woundMod": -1
-            }
+            },
+            "target": "defender"
           }
         },
         {
@@ -4753,7 +4880,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -5211,11 +5344,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "astartes-shield",
@@ -7279,11 +7425,24 @@
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo sin Imperium/Chaos)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "kill-team",
@@ -7548,7 +7707,9 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "requiresAttackerKeyword": "agents of the imperium",
+            "appliesToNearby": true
           }
         },
         {

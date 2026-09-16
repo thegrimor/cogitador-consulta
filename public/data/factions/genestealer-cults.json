@@ -15,7 +15,8 @@
         "effects": {
           "strengthMod": 1
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "requiresAttackerKeyword": "tyranids"
       }
     },
     {
@@ -51,8 +52,10 @@
           "description": "Each time a <span class=\"kwb\">GENESTEALER</span> <span class=\"kwb\">CULTS</span> unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities.",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
-            }
+              "sustainedHitsBonus": 1,
+              "bsMod": -1
+            },
+            "requiresAttackerKeyword": "genestealer cults"
           }
         }
       ]
@@ -113,7 +116,9 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "genestealer cults"
           }
         },
         {
@@ -134,11 +139,26 @@
           "id": "psionic-parasitism",
           "name": "Psionic Parasitism",
           "description": "At the end of your Movement phase, for each Tyranids Synapse unit from your army, you can select one friendly Genestealer Cults unit (excluding Purestrain Genestealer and Patriarch units) and one friendly Tyranids unit each within 9\" of and visible to that <span class=\"kwb\">SYNAPSE</span> unit. If you do, that <span class=\"kwb\">GENESTEALER</span> <span class=\"kwb\">CULTS</span> unit from your army suffers D3+1 mortal wounds and one model in the selected <span class=\"kwb\">TYRANIDS</span> unit regains up to that many lost wounds and until the start of your next Movement phase, each time a model in the selected <span class=\"kwb\">TYRANIDS</span> unit makes an attack, add 1 to the Hit roll.<br><br><span class=\"kwb\">TYRANIDS</span> units from your army have the following ability:<br><br><b>Catalyst (Aura):</b> While an enemy unit is within 6\" of this unit, each time a friendly <span class=\"kwb\">GENESTEALER</span> <span class=\"kwb\">CULTS</span> unit makes an attack that targets that enemy unit, add 1 to the Hit roll.<br><br><span class=\"hi_custom\">The Star Children’s Blessings</span><br>You can include Tyranids Vanguard Invader units (excluding <span class=\"kwb\">AIRCRAFT</span>, <span class=\"kwb\">BROODLORD</span> and <span class=\"kwb\">GENESTEALERS</span> units) in your army. The combined points cost of such units depends on your battle size:<br><ul><li><b>Incursion:</b> Up to 500 pts</li><li><b>Strike Force:</b> Up to 1000 pts</li><li><b>Onslaught:</b> Up to 1500 pts</li></ul><br>No <span class=\"kwb\">TYRANIDS</span> models from your army can be your <span class=\"kwb\">WARLORD</span>.",
-          "effect": {
-            "effects": {
-              "hitMod": 1
+          "options": [
+            {
+              "name": "Unidad Tyranids seleccionada (+1 Impacto)",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "requiresAttackerKeyword": "tyranids"
+              }
+            },
+            {
+              "name": "Catalyst (Aura) — Genestealer Cults vs. objetivo marcado (+1 Impacto)",
+              "effect": {
+                "effects": {
+                  "hitMod": 1
+                },
+                "requiresAttackerKeyword": "genestealer cults"
+              }
             }
-          }
+          ]
         }
       ]
     },
@@ -205,14 +225,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Aberrants, Biophagus or Purestrain Genestealers unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span>, add 1 to the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "hyper-metabolic-vigour",
@@ -249,7 +287,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "target": "defender"
       }
     },
     {
@@ -349,14 +388,30 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Genestealer Cults unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit, re-roll a Wound roll of 1. If one or more friendly Tyranids units are within 6\" of that enemy unit, you can re-roll the Wound roll instead.",
-      "effect": {
-        "effects": {
-          "rerollWoundsOf1": true
+      "options": [
+        {
+          "name": "Reroll Wound de 1",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Reroll Wound completo (Tyranids cerca)",
+          "effect": {
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        }
+      ]
     },
     {
       "id": "avenge-the-star-children",
@@ -373,7 +428,8 @@
           "woundMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "genestealer cults"
       }
     },
     {
@@ -583,13 +639,74 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit destroys a Genestealer Cults Character model from your army.<br><br><b>TARGET:</b> One other <span class=\"kwb\">GENESTEALER</span> <span class=\"kwb\">CULTS</span> <span class=\"kwb\">CHARACTER</span> model from your army.<br><br><b>EFFECT:</b> Until the end of the battle, each time a friendly Acolyte Hybrids, Hybrid Metamorphs or Neophyte Hybrids model makes an attack that targets that enemy unit, re-roll a Hit roll of 1. If the destroyed model was a Magus, Primus or Acolyte Iconward, you can re-roll the Hit roll instead.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Acolyte Hybrids",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "acolyte hybrids"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Acolyte Hybrids (Magus/Primus/Iconward destroyed)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "acolyte hybrids"
+          }
+        },
+        {
+          "name": "Hybrid Metamorphs",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "hybrid metamorphs"
+          }
+        },
+        {
+          "name": "Hybrid Metamorphs (Magus/Primus/Iconward destroyed)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "hybrid metamorphs"
+          }
+        },
+        {
+          "name": "Neophyte Hybrids",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "neophyte hybrids"
+          }
+        },
+        {
+          "name": "Neophyte Hybrids (Magus/Primus/Iconward destroyed)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "neophyte hybrids"
+          }
+        }
+      ]
     },
     {
       "id": "the-downtrodden-rise",
@@ -756,13 +873,28 @@
       "detachmentId": "brood-brother-auxilia",
       "detachmentName": "Brood Brother Auxilia",
       "description": "GENESTEALER CULTS INFANTRy model only. Once per turn, when a friendly ASTRA MILITARUm INFANTRy or ASTRA MILITARUm MOUNTED unit within 9\" of the bearer is selected to shoot, the bearer can use this Enhancement. If it does, until the end of the phase, improve the Armour Penetration characteristic of ranged weapons equipped by models in that unit by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
+      "options": [
+        {
+          "name": "Infantry",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "infantry"
+          }
         },
-        "combatType": "ranged",
-        "requiresAttackerKeyword": "astra militarum"
-      }
+        {
+          "name": "Mounted",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "mounted"
+          }
+        }
+      ]
     },
     {
       "id": "serpentine-tactics",
@@ -889,8 +1021,7 @@
       "effect": {
         "effects": {
           "hitMod": -1
-        },
-        "target": "defender"
+        }
       }
     },
     {
@@ -1052,7 +1183,18 @@
           "strengthMod": 1
         },
         "combatType": "melee"
-      }
+      },
+      "options": [
+        {
+          "name": "Salvación mejorada (4+)",
+          "effect": {
+            "effects": {
+              "saveMod": 1
+            },
+            "target": "defender"
+          }
+        }
+      ]
     },
     {
       "id": "talons-of-the-sire",
@@ -1330,13 +1472,27 @@
           "name": "Mind Control (Psychic)",
           "description": "At the start of your opponent’s Shooting phase, one Psyker model from your army with this ability can use it. If used, select one enemy unit within 18\" of that <span class=\"kwb\">PSYKER</span> model and roll one D6: on a 1, that <span class=\"kwb\">PSYKER</span> model suffers D3 mortal wounds; on a 2-5, until the end of the phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll; on a 6, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll and subtract 1 from the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "woundMod": -1
+          "options": [
+            {
+              "name": "Resultado 2-5 (Impacto -1)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                },
+                "combatType": "ranged"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Resultado 6 (Impacto -1 y Herida -1)",
+              "effect": {
+                "effects": {
+                  "hitMod": -1,
+                  "woundMod": -1
+                },
+                "combatType": "ranged"
+              }
+            }
+          ]
         },
         {
           "id": "psychic-familiar",
@@ -1687,12 +1843,27 @@
           "name": "Nexus of Devotion",
           "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Hybrid Metamorphs keyword, models in that unit have the Feel No Pain 4+ ability instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
+          "options": [
+            {
+              "name": "FNP 5+",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 5
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "FNP 4+ (unidad Hybrid Metamorphs)",
+              "effect": {
+                "target": "defender",
+                "effects": {
+                  "feelNoPainThreshold": 4
+                },
+                "requiresAttackerKeyword": "hybrid metamorphs"
+              }
+            }
+          ]
         },
         {
           "id": "summon-the-cult",
@@ -2426,7 +2597,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "scouts-6",
@@ -2596,7 +2773,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "cult-ambush",
@@ -2927,7 +3110,8 @@
             "effects": {
               "rerollAllWounds": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -3258,7 +3442,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -3449,7 +3639,9 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "genestealer cults"
           }
         },
         {
@@ -4422,8 +4614,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "lethalHitsBonus": true,
-              "woundMod": 1
+              "lethalHitsBonus": true
             },
             "combatType": "melee"
           }
@@ -4646,7 +4837,8 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "genestealer cults"
           }
         },
         {
@@ -5527,11 +5719,24 @@
           "name": "Industrialised Destruction",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "cult-icon",
@@ -5705,13 +5910,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "feeder-tendrils",
@@ -5857,13 +6056,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "parasitic-infection",
@@ -6049,13 +6242,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "will-of-the-hive-mind",
@@ -6189,13 +6376,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "alpha-warrior",
@@ -6325,13 +6506,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "winged-swarm",
@@ -6461,13 +6636,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "aerial-seeding",
@@ -6592,13 +6761,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "feeder-tendrils",
@@ -6724,13 +6887,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "terror-from-the-deep",
@@ -6868,13 +7025,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "feeder-tendrils",
@@ -6893,13 +7044,26 @@
           "name": "Psychological Saboteur (Aura)",
           "description": "While an enemy unit is within 12\" of this model, if that unit is Battle-shocked:<br><ul><li>Each time a model in that unit makes an attack, subtract 1 from the Hit roll.</li><li>Each time a friendly <span class=\"kwb\">TYRANIDS</span> model makes an attack that targets that unit, add 1 to the Wound roll.</li></ul>",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1,
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Maldicion sobre unidad enemiga cercana",
+              "effect": {
+                "effects": {
+                  "hitMod": -1
+                }
+              }
             },
-            "target": "defender"
-          }
+            {
+              "name": "Bono de herida contra esa unidad",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "appliesToNearby": true,
+                "requiresAttackerKeyword": "tyranids"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -6994,13 +7158,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "death-from-below",
@@ -7116,13 +7274,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "subterranean-tunnels",
@@ -7252,13 +7404,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "pouncing-leap",
@@ -11307,7 +11453,8 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         }
       ],
@@ -11435,7 +11582,9 @@
             "effects": {
               "feelNoPainThreshold": 4
             },
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "infantry"
           }
         },
         {
@@ -11446,7 +11595,10 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -11686,11 +11838,26 @@
           "name": "Mobile Hunter-killers",
           "description": "Each time a model in this unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
+            },
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "monster"
+              }
             }
-          }
+          ]
         },
         {
           "id": "one-shot",
@@ -13099,12 +13266,26 @@
           "name": "Covering Fire",
           "description": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or on unmodified Hit rolls of 4+ instead if this unit is within 6\" of one or more friendly Platoon units.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "overwatchThreshold": 5
+          "options": [
+            {
+              "name": "Overwatch 5+",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 5
+                }
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Overwatch 4+ (cerca de Platoon)",
+              "effect": {
+                "combatType": "ranged",
+                "effects": {
+                  "overwatchThreshold": 4
+                }
+              }
+            }
+          ]
         },
         {
           "id": "embarking",
@@ -13328,13 +13509,30 @@
           "name": "Bring it Down!",
           "description": "Each time a model in this unit makes a ranged attack that targets a <span class=\"kwb\">MONSTER</span> of <span class=\"kwb\">VEHICLE</span> unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         },
         {
           "id": "embarking",
@@ -14052,7 +14250,8 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
@@ -14715,7 +14914,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "requiresTargetKeyword": "fly"
           }
         },
         {
@@ -15880,11 +16080,24 @@
           "name": "Armoured Spearhead",
           "description": "Each time this model makes an attack that targets an enemy unit, re-roll a Hit roll of 1 and, if that unit is within range of an objective marker you do not control, you can re-roll the Hit roll instead.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
+          "options": [
+            {
+              "name": "Reroll Hit de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Hit completo (objetivo cerca de marcador no controlado)",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "one-shot",
@@ -16448,7 +16661,8 @@
             "effects": {
               "damageReduction": 1
             },
-            "target": "defender"
+            "target": "defender",
+            "combatType": "ranged"
           }
         },
         {
@@ -16745,7 +16959,8 @@
           "effect": {
             "effects": {
               "hitMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -17028,7 +17243,9 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "astra militarum"
           }
         },
         {
@@ -17586,12 +17803,28 @@
           "name": "Tank-killer",
           "description": "Each time this model makes a ranged attack with its vanquisher battle cannon that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         },
         {
           "id": "one-shot",
@@ -18036,13 +18269,7 @@
           "id": "ablative-plating",
           "name": "Ablative Plating",
           "description": "Once per battle, when an attack is allocated to this model, you change the Damage characteristic of that attack to 0.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -18321,7 +18548,9 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "astra militarum"
           }
         },
         {
@@ -19076,13 +19305,7 @@
           "id": "suppression-bombardment",
           "name": "Suppression Bombardment",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that was hit by one or more of those attacks made with this model’s Wyvern quad stormshard mortar. Until the start of your next Shooting phase, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",
@@ -19382,13 +19605,7 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "alpha-invader",
@@ -19866,25 +20083,45 @@
           "id": "synapse",
           "name": "Synapse",
           "description": "If your Army Faction is <span class=\"kwb\">TYRANIDS</span>, while a <span class=\"kwb\">TYRANIDS</span> unit from your army is within 6\" of one or more friendly Synapse models, that <span class=\"kwb\">TYRANIDS</span> unit is said to be within Synapse Range of that model and of your army. While a <span class=\"kwb\">TYRANIDS</span> unit from your army is within Synapse Range of your army: <br><ul><li>Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6. </li><li>Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.</li></ul>",
-          "type": "Faction",
-          "effect": {
-            "effects": {
-              "strengthMod": 1
-            },
-            "combatType": "melee"
-          }
+          "type": "Faction"
         },
         {
           "id": "swallow-whole",
           "name": "Swallow Whole",
           "description": "Each time an attack with this model’s gaping maw targets an <span class=\"kwb\">INFANTRY</span>, <span class=\"kwb\">MOUNTED</span> or <span class=\"kwb\">BEASTS</span> unit, each successful unmodified Wound roll is a Critical Wound. Each time an <span class=\"kwb\">INFANTRY</span>, <span class=\"kwb\">MOUNTED</span> or <span class=\"kwb\">BEASTS</span> model is destroyed as a result of an attack made by this model’s gaping maw, this model regains up to D3+2 lost wounds.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundCritThreshold": 2
+          "options": [
+            {
+              "name": "vs Infantry",
+              "effect": {
+                "effects": {
+                  "woundCritThreshold": 2
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "infantry"
+              }
             },
-            "combatType": "melee"
-          }
+            {
+              "name": "vs Mounted",
+              "effect": {
+                "effects": {
+                  "woundCritThreshold": 2
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "mounted"
+              }
+            },
+            {
+              "name": "vs Beasts",
+              "effect": {
+                "effects": {
+                  "woundCritThreshold": 2
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "beast"
+              }
+            }
+          ]
         },
         {
           "id": "subterranean-hunter",

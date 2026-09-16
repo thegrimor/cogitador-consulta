@@ -11,16 +11,9 @@
           "name": "Riled Up (5+ Invulnerable Save)",
           "effect": {
             "effects": {
-              "saveMod": 1
+              "feelNoPainThreshold": 5
             },
             "target": "defender"
-          }
-        },
-        {
-          "name": "Riled Up (Ranged attacks have Assault)",
-          "effect": {
-            "effects": {},
-            "combatType": "ranged"
           }
         }
       ]
@@ -121,11 +114,7 @@
         {
           "id": "dakka-dakka-dakka",
           "name": "Dakka! Dakka! Dakka!",
-          "description": "Always hunting for something to kill, when Orks spot a target they saturate it with dakka. Friendly <span class=\"kwb\">ORKS INFANTRY</span> units' ranged attacks have <span class=\"kwb\">[ASSAULT]</span>. While this unit is riled up, +3\" R.",
-          "effect": {
-            "effects": {},
-            "combatType": "ranged"
-          }
+          "description": "Always hunting for something to kill, when Orks spot a target they saturate it with dakka. Friendly <span class=\"kwb\">ORKS INFANTRY</span> units' ranged attacks have <span class=\"kwb\">[ASSAULT]</span>. While this unit is riled up, +3\" R."
         }
       ]
     },
@@ -174,12 +163,28 @@
           "id": "da-hunt-is-on",
           "name": "Da Hunt is On",
           "description": "Beast Snaggas fanatically hunt the biggest targets and are experts in finding their weak spots. Friendly <span class=\"kwb\">BEAST SNAGGA</span> units' attacks that target a <span class=\"kwb\">MONSTER/VEHICLE</span> unit have +1 AP.",
-          "effect": {
-            "effects": {
-              "apMod": 1
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresTargetKeyword": "monster",
+                "requiresAttackerKeyword": "beast snagga"
+              }
             },
-            "requiresTargetKeyword": "MONSTER"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "apMod": 1
+                },
+                "requiresTargetKeyword": "vehicle",
+                "requiresAttackerKeyword": "beast snagga"
+              }
+            }
+          ]
         }
       ]
     },
@@ -254,7 +259,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "aircraft"
           }
         }
       ]
@@ -287,7 +293,8 @@
           "effect": {
             "effects": {
               "strengthMod": 1
-            }
+            },
+            "requiresAttackerKeyword": "psyker"
           }
         }
       ]
@@ -319,7 +326,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "vehicle"
       }
     },
     {
@@ -427,13 +435,28 @@
       "turn": "Your turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit is selected to attack.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks can re-roll hit rolls of 1, or: if your unit is riled up, re-roll hit rolls.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
+      "options": [
+        {
+          "name": "Base",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Riled Up",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "hulking-brutes",
@@ -444,15 +467,32 @@
       "turn": "Opponent's turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your opponent's Shooting phase, when an enemy unit targets a friendly <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEGANOBZ/NOBZ</span> unit.<br><br><b>EFFECT:</b> Ranged attacks that target your unit with a S greater than your unit's T have -1 to wound rolls, or (+1CP): ranged attacks that target your unit have -1 to wound rolls.",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "Base",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "+1CP (sin restriccion S>T)",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 2
+          }
+        }
+      ]
     },
     {
       "id": "infested-war-zone",
@@ -494,6 +534,7 @@
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ORKS INFANTRY</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ORKS INFANTRY</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks that target a unit (excluding <span class=\"kwb\">MONSTER/VEHICLE</span> units) have +1 to wound rolls.",
       "effect": {
+        "requiresAttackerKeyword": "infantry",
         "effects": {
           "woundMod": 1
         },
@@ -517,7 +558,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -535,7 +577,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "infantry"
       }
     },
     {
@@ -583,7 +626,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "transport"
       }
     },
     {
@@ -645,14 +689,42 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">MEK GUNZ</span> unit is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">MEK GUNZ</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have <span class=\"kwb\">[LETHAL HITS]</span>, or: <span class=\"kwb\">[SUSTAINED HITS 1]</span>, or: <span class=\"kwb\">[HAZARDOUS]</span>, <span class=\"kwb\">[LETHAL HITS]</span> and <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ambos (Hazardous)",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true,
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "crazed-rampage",
@@ -739,7 +811,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "speed freeks"
       }
     },
     {
@@ -830,13 +903,28 @@
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
       "description": "<span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1
+      "options": [
+        {
+          "name": "Base",
+          "effect": {
+            "effects": {
+              "attacksMod": 1
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "11+ modelos",
+          "effect": {
+            "effects": {
+              "attacksMod": 2
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "ardboyz",
@@ -1236,16 +1324,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -1491,16 +1572,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -1748,16 +1822,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -1954,16 +2021,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -2159,16 +2219,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -2179,8 +2232,11 @@
           "description": "This model's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>. While this unit is riled up, this model's ranged attacks also have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
           "type": "Datasheet",
           "effect": {
-            "effects": {},
-            "combatType": "ranged"
+            "effects": {
+              "bsMod": -1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         },
         {
@@ -2444,16 +2500,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -2470,8 +2519,11 @@
           "description": "This model's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>. While this unit is riled up, this model's ranged attacks also have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
           "type": "Datasheet",
           "effect": {
-            "effects": {},
-            "combatType": "ranged"
+            "effects": {
+              "bsMod": -1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         },
         {
@@ -2481,7 +2533,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "saveMod": 1
+              "feelNoPainThreshold": 4
             },
             "combatType": "ranged",
             "target": "defender"
@@ -2638,16 +2690,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -2658,8 +2703,11 @@
           "description": "This model's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>. While this unit is riled up, this model's ranged attacks also have <span class=\"kwb\">[SUSTAINED HITS 1]</span>.",
           "type": "Datasheet",
           "effect": {
-            "effects": {},
-            "combatType": "ranged"
+            "effects": {
+              "bsMod": -1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         },
         {
@@ -2830,16 +2878,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -3008,16 +3049,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -3028,8 +3062,11 @@
           "description": "This model's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>.",
           "type": "Datasheet",
           "effect": {
-            "effects": {},
-            "combatType": "ranged"
+            "effects": {
+              "bsMod": -1
+            },
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         },
         {
@@ -3232,16 +3269,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -3382,7 +3412,13 @@
           "id": "feel-no-pain-6",
           "name": "Feel No Pain 6+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "leader",
@@ -3406,16 +3442,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -3579,16 +3608,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -3796,16 +3818,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -3985,7 +4000,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "waaagh",
@@ -3997,16 +4018,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -4022,13 +4036,30 @@
           "name": "Da Bigger Dey Iz...",
           "description": "This model's melee attacks that target a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit can re-roll wound rolls.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster",
+                "bearerOnly": true
+              }
             },
-            "combatType": "melee",
-            "requiresTargetKeyword": "MONSTER"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "vehicle",
+                "bearerOnly": true
+              }
+            }
+          ]
         },
         {
           "id": "beast-snagga-following",
@@ -4209,7 +4240,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "da-boss",
@@ -4227,16 +4264,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -4245,10 +4275,7 @@
           "id": "thundering-stampede",
           "name": "Thundering Stampede",
           "description": "(Aura): While a friendly <span class=\"kwb\">BEAST SNAGGA</span> unit is within 6\" of this unit, that unit has +1 to charge rolls.",
-          "type": "Datasheet",
-          "effect": {
-            "appliesToNearby": true
-          }
+          "type": "Datasheet"
         },
         {
           "id": "keep-huntin",
@@ -4425,16 +4452,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -4608,16 +4628,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -4769,16 +4782,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -4922,16 +4928,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -5088,16 +5087,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -5237,16 +5229,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -5266,8 +5251,7 @@
             "effects": {
               "woundMod": -1
             },
-            "target": "defender",
-            "requiresAttackerKeyword": ""
+            "target": "defender"
           }
         },
         {
@@ -5391,16 +5375,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -5560,16 +5537,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -5911,16 +5881,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -6205,16 +6168,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -6474,16 +6430,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -6786,16 +6735,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -7119,16 +7061,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -7350,16 +7285,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -7564,16 +7492,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -7812,16 +7733,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -8048,16 +7962,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -8295,16 +8202,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -8326,14 +8226,30 @@
           "name": "Pulsa Rokkit",
           "description": "(Once per battle, per unit, wargear ability): In your Shooting phase, when this unit is selected to shoot, you can select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit within 24\" of this unit. This unit's attacks that target that unit have +1 AP and <span class=\"kwb\">[LETHAL HITS]</span> until the end of the phase.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "apMod": 1,
-              "lethalHitsBonus": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "apMod": 1,
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged",
-            "requiresTargetKeyword": "MONSTER"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "apMod": 1,
+                  "lethalHitsBonus": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
@@ -8544,16 +8460,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -8717,16 +8626,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -8934,16 +8836,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -9136,16 +9031,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -9374,16 +9262,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -9619,16 +9500,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -9875,16 +9749,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -10086,16 +9953,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -10394,16 +10254,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -10641,7 +10494,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "firing-deck-11",
@@ -10659,16 +10518,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -10912,7 +10764,13 @@
           "id": "feel-no-pain-5",
           "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core"
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         },
         {
           "id": "unstable-energies",
@@ -10930,16 +10788,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -11145,16 +10996,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -11387,16 +11231,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -11645,16 +11482,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -11904,16 +11734,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -12166,16 +11989,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -12374,16 +12190,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -12565,16 +12374,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -12723,16 +12525,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -12921,16 +12716,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -13133,16 +12921,9 @@
               "name": "Riled Up (5+ Invulnerable Save)",
               "effect": {
                 "effects": {
-                  "saveMod": 1
+                  "feelNoPainThreshold": 5
                 },
                 "target": "defender"
-              }
-            },
-            {
-              "name": "Riled Up (Ranged attacks have Assault)",
-              "effect": {
-                "effects": {},
-                "combatType": "ranged"
               }
             }
           ]
@@ -13152,13 +12933,28 @@
           "name": "Go fer da Weak Spot",
           "description": "In your Shooting phase, this unit's ranged attacks that target a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit have +1 to wound rolls.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged",
-            "requiresTargetKeyword": "MONSTER"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         },
         {
           "id": "blastajet-force-field",
@@ -13167,7 +12963,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "saveMod": 1
+              "feelNoPainThreshold": 5
             },
             "target": "defender"
           }
