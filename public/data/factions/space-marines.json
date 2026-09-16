@@ -5204,14 +5204,30 @@
       "turn": "Your turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">ADEPTUS ASTARTES CHARACTER</span> unit is selected to attack.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS ASTARTES CHARACTER</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks have [LETHAL HITS] or [SUSTAINED HITS 1] (your choice).",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "requiresAttackerKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "requiresAttackerKeyword": "character",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "requiresAttackerKeyword": "character",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "souldarkened-fury",
@@ -5411,7 +5427,8 @@
           "hitMod": -1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "target": "defender"
       }
     },
     {
@@ -5463,15 +5480,32 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">GREY HUNTERS</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">GREY HUNTERS</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have [SUSTAINED HITS 1] or [LETHAL HITS] (your choice).",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "grey hunters",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "grey hunters",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "grey hunters",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "icy-calm",
@@ -5570,7 +5604,8 @@
       "description": "Deathwing model only. Melee weapons equipped by the bearer have the [lethal hits] ability, and each time the bearer makes a melee attack, if it is within range of your Vowed objective marker, a Critical Hit is scored on an unmodified Hit roll of 5+.",
       "effect": {
         "effects": {
-          "lethalHitsBonus": true
+          "lethalHitsBonus": true,
+          "critThreshold": 5
         },
         "combatType": "melee",
         "requiresAttackerKeyword": "deathwing",
@@ -5689,8 +5724,7 @@
         "effects": {
           "apMod": 1
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "judiciar"
+        "combatType": "melee"
       }
     },
     {
@@ -6570,13 +6604,29 @@
       "detachmentId": "the-angelic-host",
       "detachmentName": "The Angelic Host",
       "description": "Adeptus Astartes Jump Pack model only. The bearer’s melee weapons have the [Anti-Chaos 5+] and [Lance] abilities.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "Lance",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
+        {
+          "name": "Anti-Chaos 5+",
+          "effect": {
+            "effects": {
+              "woundCritThreshold": 5
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "chaos",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "forged-in-battle",
@@ -6871,14 +6921,7 @@
       "cost": 35,
       "detachmentId": "ironstorm-spearhead",
       "detachmentName": "Ironstorm Spearhead",
-      "description": "TECHMARINE model only. Once per battle round, when a saving throw is failed for a friendly ADEPTUS ASTARTES VEHICLE model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
-      }
+      "description": "TECHMARINE model only. Once per battle round, when a saving throw is failed for a friendly ADEPTUS ASTARTES VEHICLE model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0."
     },
     {
       "id": "wolf-master",
@@ -7220,14 +7263,41 @@
       "detachmentId": "rage-cursed-onslaught",
       "detachmentName": "Rage-cursed Onslaught",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Each time the bearer makes a melee attack that targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that attack has the [SUSTAINED HITS 2] ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 2
+      "options": [
+        {
+          "name": "vs Character",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "character",
+            "bearerOnly": true
+          }
         },
-        "combatType": "melee",
-        "requiresTargetKeyword": "vehicle",
-        "bearerOnly": true
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 2
+            },
+            "combatType": "melee",
+            "requiresTargetKeyword": "vehicle",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "gift-of-foresight-space-marines",
@@ -7280,13 +7350,38 @@
       "detachmentId": "saga-of-the-beastslayer",
       "detachmentName": "Saga of the Beastslayer",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Each time an attack made by a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> model targets the bearer’s unit, reduce the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": -1
+      "options": [
+        {
+          "name": "vs Character",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "target": "defender",
+            "requiresAttackerKeyword": "character"
+          }
         },
-        "target": "defender",
-        "requiresAttackerKeyword": "vehicle"
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "target": "defender",
+            "requiresAttackerKeyword": "monster"
+          }
+        },
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "target": "defender",
+            "requiresAttackerKeyword": "vehicle"
+          }
+        }
+      ]
     },
     {
       "id": "thunderwolfs-fortitude",
