@@ -683,14 +683,7 @@
       "type": "Bastions of Tyranny – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">KNIGHT TYRANT</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">KNIGHT TYRANT</span> unit.<br><br><b>EFFECT:</b> Select one enemy unit hit by those attacks. That enemy unit is suppressed until the start of your next Command phase: While a unit is suppressed, that unit's attacks have -1 to hit rolls.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">KNIGHT TYRANT</span> unit has shot.<br><br><b>TARGET:</b> That <span class=\"kwb\">KNIGHT TYRANT</span> unit.<br><br><b>EFFECT:</b> Select one enemy unit hit by those attacks. That enemy unit is suppressed until the start of your next Command phase: While a unit is suppressed, that unit's attacks have -1 to hit rolls."
     },
     {
       "id": "insensate-bloodthirst",

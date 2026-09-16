@@ -5335,12 +5335,7 @@
           "id": "saturation-volleys",
           "name": "Saturation Volleys",
           "description": "In your Shooting phase, after this unit has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) hit by one or more of those attacks. Until the start of your next turn, while this unit is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "disintegration-beams",

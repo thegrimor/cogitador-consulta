@@ -1339,13 +1339,7 @@
       "cost": 20,
       "detachmentId": "recon-element",
       "detachmentName": "Recon Element",
-      "description": "Astra Militarum Infantry model only. Each time an enemy <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">MOUNTED</span> unit ends a Normal, Advance, Charge or Fall Back move within 8\" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "target": "defender"
-      }
+      "description": "Astra Militarum Infantry model only. Each time an enemy <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">MOUNTED</span> unit ends a Normal, Advance, Charge or Fall Back move within 8\" of the bearer’s unit, roll one D6: on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "reactive-command",
@@ -3913,13 +3907,7 @@
           "id": "suppression-bombardment",
           "name": "Suppression Bombardment",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that was hit by one or more of those attacks made with this model’s Wyvern quad stormshard mortar. Until the start of your next Shooting phase, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",
@@ -13229,7 +13217,8 @@
               "hitMod": -1
             },
             "target": "defender",
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {

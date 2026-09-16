@@ -489,14 +489,7 @@
       "type": "Purgation Force – Wargear Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Start of any phase (excluding the Command phase).<br><br><b>TARGET:</b> One ADEpTUS ARbITES, INQUISITORIAl AGENTS or ORDO HERETICUS GRENADES unit from your army that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> or <span class=\"kwb\">VEHICLES</span>) within 8\" of and visible to your unit. That enemy unit must take a Battle-shock test and, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
+      "description": "<b>WHEN:</b> Start of any phase (excluding the Command phase).<br><br><b>TARGET:</b> One ADEpTUS ARbITES, INQUISITORIAl AGENTS or ORDO HERETICUS GRENADES unit from your army that is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> or <span class=\"kwb\">VEHICLES</span>) within 8\" of and visible to your unit. That enemy unit must take a Battle-shock test and, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "prime-target",

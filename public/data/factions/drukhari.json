@@ -5595,13 +5595,7 @@
           "id": "agonising-suppression-pain",
           "name": "Agonising Suppression (Pain)",
           "description": "In your Shooting phase, when you select this model to shoot, you can spend 1 Pain token to Empower this model. While Empowered, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "eradicate-the-foe",

@@ -1189,12 +1189,7 @@
       "cost": 15,
       "detachmentId": "hearthband",
       "detachmentName": "Hearthband",
-      "description": "Kâhl model only. In your Shooting phase, after the bearer has shot, select one enemy unit (excluding <span class=\"kwb\">TITANIC</span> units) hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        }
-      }
+      "description": "Kâhl model only. In your Shooting phase, after the bearer has shot, select one enemy unit (excluding <span class=\"kwb\">TITANIC</span> units) hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "dead-reckoning",
@@ -1322,12 +1317,7 @@
       "cost": 5,
       "detachmentId": "hearthfyre-arsenal",
       "detachmentName": "Hearthfyre Arsenal",
-      "description": "Iron-master model only. In your Shooting phase, after the bearer has shot, and in the Fight phase, after the bearer has fought, select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        }
-      }
+      "description": "Iron-master model only. In your Shooting phase, after the bearer has shot, and in the Fight phase, after the bearer has fought, select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "ancestral-crest",
@@ -6030,12 +6020,7 @@
           "id": "scanner-uplinks",
           "name": "Scanner Uplinks",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            }
-          }
+          "type": "Datasheet"
         },
         {
           "id": "smoke-launcher",

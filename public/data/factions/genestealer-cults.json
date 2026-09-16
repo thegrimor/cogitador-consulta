@@ -11597,7 +11597,8 @@
               "hitMod": -1
             },
             "combatType": "ranged",
-            "target": "defender"
+            "target": "defender",
+            "appliesToNearby": true
           }
         },
         {
@@ -19304,13 +19305,7 @@
           "id": "suppression-bombardment",
           "name": "Suppression Bombardment",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that was hit by one or more of those attacks made with this model’s Wyvern quad stormshard mortar. Until the start of your next Shooting phase, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "one-shot",

@@ -889,13 +889,7 @@
       "cost": 10,
       "detachmentId": "goretrack-onslaught",
       "detachmentName": "Goretrack Onslaught",
-      "description": "World Eaters model only. At the start of your Shooting phase, you can select one Vehicle model within 6\" of the bearer or, if the bearer is embarked within a Transport, you can select that <span class=\"kwb\">TRANSPORT</span> model. Until the end of the phase, after the selected model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "target": "attacker"
-      }
+      "description": "World Eaters model only. At the start of your Shooting phase, you can select one Vehicle model within 6\" of the bearer or, if the bearer is embarked within a Transport, you can select that <span class=\"kwb\">TRANSPORT</span> model. Until the end of the phase, after the selected model has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
     },
     {
       "id": "brazen-form",
@@ -3785,13 +3779,7 @@
           "id": "punishing-suppression",
           "name": "Punishing Suppression",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>). Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [

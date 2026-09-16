@@ -3734,12 +3734,7 @@
           "id": "storm-of-bolts",
           "name": "Storm of Bolts",
           "description": "In your Shooting phase, after this model has shot, select one unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) hit by one or more of those attacks. Until the start of your next turn, while this model is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            }
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -4710,12 +4705,7 @@
           "id": "suppression-protocols",
           "name": "Suppression Protocols",
           "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) hit by one or more of those attacks made with an Armiger autocannon. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            }
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
