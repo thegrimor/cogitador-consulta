@@ -68,7 +68,6 @@
           "description": "Each time a T’au Empire Battlesuit model from your army makes a ranged attack that targets a unit within 12\", improve the Strength characteristic of that attack by 1. If that attack targets a unit within 8\", improve the Armour Penetration characteristic of that attack by 1 as well.",
           "effect": {
             "effects": {
-              "apMod": 1,
               "strengthMod": 1
             },
             "combatType": "ranged",
@@ -90,7 +89,6 @@
           "description": "Each time a Kroot model from your army makes an attack, add 1 to the Hit roll if the target of that attack is below its Starting Strength, and add 1 to the Wound roll as well if the target of that attack is Below Half-strength.",
           "effect": {
             "effects": {
-              "woundMod": 1,
               "hitMod": 1
             },
             "requiresAttackerKeyword": "kroot"
@@ -329,7 +327,8 @@
           "apMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "kroot"
       }
     },
     {
@@ -591,7 +590,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "ranged"
       }
     }
   ],
@@ -699,7 +699,6 @@
       "description": "<span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> model only. Each time the bearer makes a ranged attack, add 1 to the Hit roll. From the third battle round onwards, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "woundMod": 1,
           "hitMod": 1
         },
         "combatType": "ranged",
@@ -1129,7 +1128,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         }
       ],
@@ -3641,7 +3641,8 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged"
+            "combatType": "ranged",
+            "bearerOnly": true
           }
         }
       ],
@@ -5141,7 +5142,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
@@ -6137,8 +6139,7 @@
             "effects": {
               "hitMod": 1
             },
-            "combatType": "ranged",
-            "bearerOnly": true
+            "combatType": "ranged"
           }
         },
         {
@@ -6151,7 +6152,7 @@
               "rerollAllHits": true
             },
             "combatType": "ranged",
-            "requiresTargetKeyword": "titanic"
+            "requiresTargetKeyword": "towering"
           }
         }
       ],
@@ -6828,7 +6829,8 @@
           "effect": {
             "effects": {
               "rerollHitsOf1": true
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -7608,7 +7610,9 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "combatType": "ranged",
+            "appliesToNearby": true
           }
         },
         {
@@ -9553,7 +9557,6 @@
             "effects": {
               "rerollAllHits": true
             },
-            "combatType": "ranged",
             "appliesToNearby": true,
             "requiresAttackerKeyword": "kroot"
           }
