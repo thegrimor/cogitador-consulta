@@ -12,7 +12,8 @@
           "effect": {
             "effects": {
               "rerollHitsOf1": true
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -20,7 +21,8 @@
           "effect": {
             "effects": {
               "rerollAllHits": true
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -28,7 +30,8 @@
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         },
         {
@@ -36,7 +39,8 @@
           "effect": {
             "effects": {
               "apMod": 2
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ]
@@ -93,12 +97,26 @@
           "id": "kindred-sorcery",
           "name": "Kindred Sorcery",
           "description": "In your Command phase, you can select one of the abilities listed below to take effect until the start of your next Command phase. You can only select each of these abilities once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Imbued Manifestation</p><p>Add 6\" to the Range characteristic of ranged <span class=\"tooltip00082\" data-tooltip-content=\"#tooltip_content00082\"><span class=\"tt kwbu\">Psychic</span> <span class=\"tt kwbu\">weapons</span></span> equipped by <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> models from your army.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Psychic Maelstrom</p><p>Each time a <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> model from your army makes an attack with a <span class=\"tooltip00082\" data-tooltip-content=\"#tooltip_content00082\"><span class=\"tt kwbu\">Psychic</span> <span class=\"tt kwbu\">weapon</span></span>, add 1 to the <span class=\"tooltip00008\" data-tooltip-content=\"#tooltip_content00008\"><span class=\"tt kwbu\">Wound</span> <span class=\"tt kwbu\">roll</span></span>.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Wrath of the Immaterium</p><p><span class=\"tooltip00082\" data-tooltip-content=\"#tooltip_content00082\"><span class=\"tt kwbu\">Psychic</span> <span class=\"tt kwbu\">weapons</span></span> equipped by <span class=\"tooltip00036\" data-tooltip-content=\"#tooltip_content00036\" data-tooltip-anchor=\"#tooltip_content00036\"><span class=\"kwb kwbu\">THOUSAND</span> <span class=\"kwb kwbu\">SONS</span></span> models from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00027\" data-tooltip-content=\"#tooltip_content00027\"><span class=\"tt kwbu\">[devastating</span> <span class=\"tt kwbu\">wounds]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Psychic Maelstrom",
+              "effect": {
+                "requiresAttackerKeyword": "thousand sons",
+                "effects": {
+                  "woundMod": 1
+                }
+              }
             },
-            "requiresAttackerKeyword": "thousand sons"
-          }
+            {
+              "name": "Wrath of the Immateriuim",
+              "effect": {
+                "requiresAttackerKeyword": "thousand sons",
+                "effects": {
+                  "devastatingWoundsBonus": true
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -127,12 +145,27 @@
           "id": "warpmeld-sacrifice",
           "name": "Warpmeld Sacrifice",
           "description": "Each time an enemy unit is selected to shoot or fight and one or more Tzeentch Mutant Infantry or Tzeentch Mutant Mounted units from your army are selected as a target of one or more of those attacks, each of those <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> units can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time an attack targets that unit, subtract 1 from the Wound roll. At the end of the phase, that <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> unit suffers D3 mortal wounds.<br><br>Each time a <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> <span class=\"kwb\">INFANTRY</span> or <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> <span class=\"kwb\">MOUNTED</span> unit from your army is selected to shoot or fight, before selecting its targets, that unit can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time a model in that unit makes an attack, add 1 to the Wound roll. At the end of the phase, that <span class=\"kwb\">TZEENTCH</span> <span class=\"kwb\">MUTANT</span> unit suffers D3 mortal wounds.<br><br><span class=\"hi_custom\">KEYWORDS</span><br>Tzaangors units from your army have the <span class=\"kwb\">BATTLELINE</span> keyword, and while such a unit is not Battle-shocked, add 1 to the Objective Control characteristic of <span class=\"kwb\">TZAANGOR</span> models in that unit.",
-          "effect": {
-            "effects": {
-              "woundMod": 1
+          "options": [
+            {
+              "name": "Offensive Sacrifice",
+              "effect": {
+                "effects": {
+                  "woundMod": 1
+                },
+                "requiresAttackerKeyword": "mutant"
+              }
             },
-            "requiresAttackerKeyword": "mutant"
-          }
+            {
+              "name": "Defensive Sacrifice",
+              "effect": {
+                "target": "defender",
+                "requiresTargetKeyword": "mutant",
+                "effects": {
+                  "woundMod": -1
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -318,7 +351,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "thousand sons"
       }
     },
     {
@@ -339,16 +373,7 @@
       "type": "Grand Coven – Epic Deed Stratagem",
       "turn": "Either player’s turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase, just after a saving throw is failed for a Thousand Sons Psyker model from your army. If you are using fast dice rolling, this Stratagem can still be used after rolling multiple saving throws at once.<br><br><b>TARGET:</b> That <span class=\"kwb\">PSYKER</span> model.<br><br><b>EFFECT:</b> Change the Damage characteristic of that attack to 0. If you are using fast dice rolling, select one of those attacks you failed a saving throw for.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "psyker"
-      }
+      "description": "<b>WHEN:</b> Any phase, just after a saving throw is failed for a Thousand Sons Psyker model from your army. If you are using fast dice rolling, this Stratagem can still be used after rolling multiple saving throws at once.<br><br><b>TARGET:</b> That <span class=\"kwb\">PSYKER</span> model.<br><br><b>EFFECT:</b> Change the Damage characteristic of that attack to 0. If you are using fast dice rolling, select one of those attacks you failed a saving throw for."
     },
     {
       "id": "arcane-focus",
@@ -446,7 +471,8 @@
         "target": "defender",
         "isStratagem": true,
         "cpCost": 1,
-        "requiresTargetKeyword": "rubric marines"
+        "requiresTargetKeyword": "rubric marines",
+        "combatType": "melee"
       }
     },
     {
@@ -6013,13 +6039,30 @@
           "name": "Ensorcelled Annihilation",
           "description": "Each time this model makes a ranged attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit that was hit by one or more Psychic Attacks made by a Thousand Sons Psyker model from your army this phase (including the Doombolt Ritual), you can re-roll the Hit roll and you can re-roll the Damage roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true,
-              "rerollAllDamage": true
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ],
       "keywords": [
