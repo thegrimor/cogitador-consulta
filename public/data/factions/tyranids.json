@@ -58,6 +58,15 @@
                 },
                 "requiresTargetKeyword": "vehicle"
               }
+            },
+            {
+              "name": "Swarming Instincts (vs Swarm)",
+              "effect": {
+                "effects": {
+                  "sustainedHitsBonus": 1
+                },
+                "requiresTargetKeyword": "swarm"
+              }
             }
           ]
         }
@@ -297,7 +306,8 @@
             "cpCost": 2,
             "effects": {
               "feelNoPainThreshold": 5
-            }
+            },
+            "requiresTargetKeyword": "harvester"
           }
         },
         {
@@ -308,7 +318,8 @@
             "cpCost": 2,
             "effects": {
               "feelNoPainThreshold": 4
-            }
+            },
+            "requiresTargetKeyword": "harvester"
           }
         }
       ]
@@ -381,7 +392,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "monster"
       }
     },
     {
@@ -401,7 +413,8 @@
         "combatType": "melee",
         "isStratagem": true,
         "cpCost": 1,
-        "target": "defender"
+        "target": "defender",
+        "requiresTargetKeyword": "monster"
       }
     },
     {
@@ -639,7 +652,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "synapse"
       }
     },
     {
@@ -715,7 +729,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "endless multitude"
       }
     },
     {
@@ -733,7 +748,8 @@
           "critThreshold": 5
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "endless multitude"
       }
     },
     {
@@ -787,10 +803,12 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, just after a Vanguard Invader unit from your army has selected its targets.<br><br><b>TARGET:</b> That <span class=\"kwb\">VANGUARD</span> <span class=\"kwb\">INVADER</span> unit.<br><br><b>EFFECT:</b> Select one enemy unit that was selected as the target of one or more of your unit’s attacks. That enemy unit must take a Battle-shock test. Until the end of the phase, each time a model in your unit makes an attack that targets that enemy unit, add 1 to the Hit roll. If the Battle-shock test was failed, add 1 to the Wound roll as well.",
       "effect": {
         "effects": {
-          "hitMod": 1
+          "hitMod": 1,
+          "woundMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "vanguard invader"
       }
     },
     {
@@ -842,14 +860,32 @@
       "turn": "Opponent's turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your opponent's Shooting phase or the Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">TYRANID</span> <span class=\"kwb\">WARRIORS</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">TYRANID</span> <span class=\"kwb\">WARRIORS</span> unit.<br><br><b>EFFECT:</b> Attacks that target your unit with a Strength characteristic greater than your unit's Toughness characteristic have -1 to their Wound rolls.",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "vs Melee Bio-weapons",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "tyranid warriors with melee bio-weapons"
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "vs Ranged Bio-weapons",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "tyranid warriors with ranged bio-weapons"
+          }
+        }
+      ]
     },
     {
       "id": "parasitic-payload",
@@ -880,15 +916,60 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span>/<span class=\"kwb\">VON RYAN'S LEAPERS</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">DEATHLEAPER</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">NEUROLICTOR</span>/<span class=\"kwb\">VON RYAN'S LEAPERS</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks that target a hidden unit have +1 Strength and +1 Armour Penetration.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1,
-          "apMod": 1
+      "options": [
+        {
+          "name": "Deathleaper",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "deathleaper"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1,
-        "combatType": "melee"
-      }
+        {
+          "name": "Lictor",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "lictor"
+          }
+        },
+        {
+          "name": "Neurolictor",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "neurolictor"
+          }
+        },
+        {
+          "name": "Von Ryan'S Leapers",
+          "effect": {
+            "effects": {
+              "strengthMod": 1,
+              "apMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresAttackerKeyword": "von ryan's leapers"
+          }
+        }
+      ]
     },
     {
       "id": "hypersensory-adaptations",
@@ -924,9 +1005,9 @@
           "feelNoPainThreshold": 4
         },
         "target": "defender",
-        "requiresAttackerKeyword": "norn assimilator",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "norn assimilator"
       }
     },
     {
@@ -1054,9 +1135,8 @@
       "description": "<span class=\"kwb\">TYRANIDS</span> model only. At the start of the first battle round, select up to three friendly Endless Multitude units within 9\" of the bearer. Until the end of the battle round, each time a ranged attack targets one of those units, models in that unit have the Benefit of Cover against that attack.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender",
         "requiresTargetKeyword": "endless multitude"
       }
@@ -1124,9 +1204,8 @@
       "description": "Vanguard Invader model only. This unit has Stealth.",
       "effect": {
         "effects": {
-          "bsMod": 1
+          "hitMod": -1
         },
-        "combatType": "ranged",
         "target": "defender"
       }
     },
@@ -1205,12 +1284,7 @@
       "cost": 25,
       "detachmentId": "unending-swarm",
       "detachmentName": "Unending Swarm",
-      "description": "<span class=\"kwb\">TYRANIDS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        }
-      }
+      "description": "<span class=\"kwb\">TYRANIDS</span> model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1."
     },
     {
       "id": "monstrous-nemesis",
@@ -3083,7 +3157,8 @@
             "effects": {
               "feelNoPainThreshold": 5
             },
-            "target": "defender"
+            "target": "defender",
+            "requiresTargetKeyword": "character"
           }
         }
       ],
@@ -6479,13 +6554,7 @@
           "id": "resilient-organism",
           "name": "Resilient Organism",
           "description": "Once per battle, when an attack is allocated to this model, you can change the Damage characteristic of that attack to 0.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -6946,7 +7015,8 @@
           "effect": {
             "effects": {
               "woundMod": 1
-            }
+            },
+            "combatType": "ranged"
           }
         }
       ],
