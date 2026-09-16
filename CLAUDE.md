@@ -271,37 +271,139 @@ Standalone feature folder at `src/features/mathhammer/`. Computes expected-value
 - `components/`: `UnitSelector` (pick attacker/defender), `UnitPanel`, `ModifierPanel` (toggle applicable rules/stratagems), `DamageCalculator` + `GaussianChart` (results + distribution chart), plus `StatsBar`/`WeaponCard`/`AbilityList`/`StratList` variants local to this feature.
 - `hooks/usePanelState.ts` — panel selection state, synced to the `?faction=&datasheet=&detachments=&character=&roster=` query params via `mathhammerAttackerPath`.
 
-**`CombatEffect` authoring convention** — when adding/editing an `effect` on an Ability,
-Stratagem, Enhancement or DetachmentAbility in `public/data/factions/*.json`, the payload must
-actually represent the ability's real text, and its scoping fields must match who the text says
-benefits:
+**`CombatEffect` authoring convention** — read this in full before adding/editing an `effect` on
+an Ability, Stratagem, Enhancement or DetachmentAbility in `public/data/factions/*.json` (this
+is the checklist a future codex import must follow — a two-pass full-game audit, see below,
+found that skipping any one of these produces a real, silent mismodel, not just an incomplete
+one). The payload must actually represent the ability's real text, and its scoping fields must
+match who the text says benefits. Before touching the stored `effect` at all, read the real text
+and independently work out from scratch what it *should* be — don't start from "does the stored
+value look plausible."
+
 - `effects` should only use `CombatModifiers` keys that represent what the rule text describes.
   If the text describes something this app doesn't model in `CombatModifiers` (Leadership,
-  healing wounds, Lone Operative, etc.), **do not** invent a loose substitute modifier — leave
-  `effect` off entirely rather than attach a wrong one (a stored `strengthMod`/`hitMod` that
-  doesn't correspond to the text is worse than no effect, since it silently mismodels the rule).
+  healing wounds, Lone Operative, Objective Control, a SET/override of a named characteristic
+  rather than a relative modifier — "change the Damage characteristic of that attack to 0/1", a
+  condition tied to one specific dice-roll outcome like "on a Critical Wound", a per-attack
+  numeric comparison like "if this attack's Strength is greater than the target's Toughness"),
+  **do not** invent a loose substitute modifier — leave `effect` off entirely (or leave that one
+  sub-clause unrepresented, if the rest of the ability *is* representable) rather than attach a
+  wrong one. A stored `strengthMod`/`hitMod`/`damageReduction` that doesn't correspond to the text
+  is worse than no effect, since it silently mismodels the rule rather than just omitting it —
+  and `damageReduction` in particular is a strictly *subtractive* modifier floored at 1 damage in
+  `mathhammer.ts`, so it can never actually reach a "set Damage to 0" result no matter what value
+  is stored.
+- **"Select one of the following" / "select either X or Y" is always `options[]`, one entry per
+  choice, never a single combined or single-branch effect.** This is the single most common
+  authoring bug found across the whole dataset. Two sub-cases both need a split, but for
+  different reasons:
+  - A true either/or between **independent** abilities ("select either [LETHAL HITS] or
+    [SUSTAINED HITS 1]", "improve BS by 1 or WS by 1") — each option should carry only its own
+    branch's effect.
+  - A **replacement** of the same field's strength under an escalated condition ("re-roll a Hit
+    roll of 1; if X, you can re-roll the Hit roll *instead*", "[SUSTAINED HITS 1]; if Below
+    Half-strength, [SUSTAINED HITS 2] instead") — this needs a base-tier option and an
+    upgraded-tier option, **not** just the weaker tier kept alone (dropping the escalation
+    understates the ability) and **not** both values summed into one effect (double-counts it).
+  - Contrast this with a **genuine additive superset** — "add 1 to the Hit roll; add 1 to the
+    Wound roll *as well* if [unrepresentable condition]" — where the correct move is the
+    opposite: keep only the unconditional baseline field and drop the rarer conditional add-on
+    entirely, with **no** options split (adding an "as well" option here would let a user
+    incorrectly toggle the Wound bonus without the Hit bonus, or without the condition ever being
+    checked at all). The tell: does the escalation replace the same field's *value*, or add a
+    *different* field on top? Replace → options. Add-on to a real but unrepresentable condition →
+    drop the add-on, no split.
+- The schema's `requiresAttackerKeyword`/`requiresTargetKeyword`/`requiresAntiKeyword` are all
+  **single-string only** — no AND/OR of two keywords anywhere in the dataset. If the text ORs two
+  real keywords (**"MONSTER or VEHICLE"**, **"Infantry or Mounted"**, two named unit types that
+  are each real, distinct, non-dominant keywords in this faction's own datasheets), and *neither*
+  one covers virtually the whole eligible population by itself, **split into `options[]`, one per
+  keyword** — do not collapse to whichever one keyword happens to be listed first (this was the
+  single largest bug category found in the full-game audit: dozens of "vs Monster or Vehicle"
+  abilities silently kept only the Vehicle branch). Collapsing to one keyword is only correct when
+  that keyword is genuinely dominant (e.g. a chapter/legion `factionKeywords` entry that already
+  covers ~100% of that book's roster, so the OR's other side is unreachable in practice) — check
+  this against the faction's actual datasheet keyword lists, don't assume.
 - If the text restricts who benefits ("friendly KHORNE unit", "select one enemy unit ... friendly
   ADEPTUS MECHANICUS unit that targets it", "if it is a VEHICLE model"), set
   `requiresAttackerKeyword` (restriction on who attacks) or `requiresTargetKeyword` (restriction
   on the target/defender) to that keyword, lowercased-compared against
   `[...datasheet.keywords, ...datasheet.factionKeywords]` in `UnitPanel.tsx`'s `visibleRules`
-  filter. The schema only supports **one** keyword string (no AND/OR of two keywords anywhere in
-  the dataset) — pick the single most specific keyword; when a rule's text ORs two conditions and
-  one of them (typically a `factionKeywords` entry) already covers virtually every unit in that
-  faction, that one keyword is normally the right (if imperfect) choice.
+  filter. Note that for a `target: "defender"` rule, `requiresAttackerKeyword` and
+  `requiresTargetKeyword` end up checking the *same* unit in practice — the defender panel's own
+  `selectedUnit` (what `requiresAttackerKeyword` compares against) and the `defenderKeywords` prop
+  every panel receives (what `requiresTargetKeyword` compares against) both resolve to whichever
+  unit is loaded in the defender/right-hand panel — so either field works for a plain
+  self-restriction; the choice only matters once `appliesToNearby` puts the rule on *other* units'
+  panels (see below), where `requiresAttackerKeyword` is what actually gates who the buffed unit
+  must be.
+- **"Mark an enemy unit, then *that same marked unit's own future attacks* are debuffed"**
+  (worded as "that unit is suppressed/stunned/prosecuted/pinned...; while a unit is
+  suppressed/stunned/..., each time a model in that unit makes an attack, subtract 1 from the Hit
+  roll") is **not representable at all, under any `target` value** — leave `effect` off entirely.
+  This was traced through `deriveRules.ts`/`UnitPanel.tsx` directly: `target: "attacker"`
+  (default) only ever applies the modifier when *this ability's own bearer* is the unit loaded as
+  attacker; `target: "defender"` only ever applies it when the bearer is loaded as defender.
+  Neither one reaches a dynamically-marked *third-party* unit's own attacks — there is no keyword
+  or aura mechanism for "some other, arbitrarily-chosen unit's stats change," so every value tried
+  (including `target: "defender"`, which looks plausible but is backwards for this exact shape)
+  produces a real, wrong result rather than an incomplete one. Confirmed instances span at least
+  11 factions and several different marking verbs — don't assume this is a solved/rare case.
 - If the rule benefits a friendly unit **other than its own bearer** — a classic proximity aura
   ("while a friendly X unit is within 6\" of this model..."), a "mark an enemy unit, then units
   that attack it get +1" mechanic, or "pick one other friendly model within X\" and buff it" —
   set `appliesToNearby: true` so `deriveRules.ts`'s aura loop offers it on *other* units' panels,
   not just the bearer's own card. Leave it unset when the bearer is the only beneficiary.
+  `appliesToNearby` is **only consulted on datasheet Abilities** — the aura-scan loop never reads
+  Enhancement/Stratagem/DetachmentAbility entries, so setting it there is a silent no-op. (An
+  Enhancement that buffs a nearby *other* unit doesn't need the flag at all: its effect already
+  surfaces on whichever unit is loaded wherever that specific `enhancementId` is selected — just
+  set the right keyword restriction.)
+- If the ability's own wording is "this model"/"the bearer" (not "models in this unit") **and**
+  the bearer's datasheet has the Leader ability (can attach to and lead another unit), set
+  `bearerOnly: true` — otherwise the Mathhammer calculator lets the bonus leak onto the whole
+  attached unit's attacks instead of just that one character's own. This is only consulted on the
+  **attacker** side of the calculation (`MathhammerPage.tsx` splits `attackerBearerMods` out
+  separately; the defender side applies all matching rules unfiltered), so it's a no-op to set on
+  a `target: "defender"` effect — don't add it there even if the text says "the bearer."
+- "[IGNORES COVER]" on the bearer's own attacks → `bsMod: -1`, no `target` (defaults to attacker).
+  "Stealth" / "this unit has the Benefit of Cover against ranged attacks" → `hitMod: -1`,
+  `target: "defender"`, **no** `combatType` — never `bsMod` for either of these (a recurring
+  copy-paste error: `bsMod` improves the *bearer's own* Ballistic Skill, which has no defensive
+  meaning at all when paired with `target: "defender"`).
+- "You can ignore any or all modifiers to the Hit roll [and/or BS/WS]" → `hitMod: 1` only. If the
+  *same sentence* also explicitly extends the ignore-modifiers grant to the Wound roll and/or AP,
+  add `woundMod: 1`/`apMod: 1` too — but only for what's explicitly named in that sentence, never
+  invented from a broader "ignore any modifiers to ... any roll or test" phrasing.
+- A stratagem worded "WHEN: opponent's Shooting/Fight phase, just after the enemy selected
+  targets... EFFECT: your unit has a X+ invulnerable save" is a **reactive** grant → always
+  `saveMod: 1` regardless of the stated X, never `feelNoPainThreshold`. An ability granting a
+  **permanent**/leader/aura/self-declared-per-phase invulnerable save (not a reactive
+  "just after enemy targets" trigger) → always `feelNoPainThreshold`, never `saveMod`. The
+  distinguishing feature is the reactive-vs-permanent trigger *shape*, not whether the source is a
+  Stratagem or an Enhancement/Ability — a reactive Enhancement follows the Stratagem rule too.
 - Always double check `combatType` (`'melee'`/`'ranged'`/omitted = either) and `target`
-  (`'attacker'`/`'defender'`, defaults to `'attacker'` if omitted) match the text.
+  (`'attacker'`/`'defender'`, defaults to `'attacker'` if omitted) match the text — including
+  *duration*, not just the trigger phase: an effect whose WHEN clause fires in one phase but whose
+  wording says "until the end of the turn" (rather than "until the end of the phase") carries over
+  into whichever phase comes next before that turn ends, so a `combatType` restricting it to only
+  the triggering phase's attack type is usually wrong.
+- Army-rule-shaped abilities (`Ability`/`DetachmentAbility` entries that apply to the whole
+  faction, e.g. Doctrina Imperatives, Harbingers of Dread, Cabal of Sorcerers, Code Chivalric) are
+  frequently **denormalized** — the same `id` repeats once per datasheet that carries the ability,
+  but only the first occurrence (usually inside `armyRules[]`) actually carries the `effect`/
+  `options`; the rest are bare `{id, name, description, type}` stubs with no effect data at all.
+  When editing one of these, check every occurrence's shape before assuming the `id` is unique
+  (a plain-text search will find several near-identical hits) — editing the wrong occurrence is a
+  silent no-op, not an error.
 
-An audit of all ~1800 existing `effect` entries across every faction found several of these
-authored wrong from the start (an `appliesToNearby` aura missing the keyword its own text
-requires, so it showed up for every unit regardless of faction; an `effect` payload that didn't
-correspond to the ability's text at all) — `scripts/audit-combat-effects.mjs` (see "One-off data
-script" above) was built to make re-checking this systematically, faction by faction, possible.
+A two-pass audit covering all ~1858 `effect` entries across every faction (first a pattern-based
+sweep for known bug shapes, then a from-scratch, independent-re-derivation re-audit once the
+first pass turned out to be missing real bugs by only checking against a list of already-known
+shapes) found roughly 330 mismodeled entries spanning every rule above — `scripts/
+audit-combat-effects.mjs` (see "One-off data script" above) is the tool that made re-checking
+this systematically, faction by faction, possible, and is the right starting point for auditing
+any faction this hasn't already been run against (e.g. right after importing a new codex).
 
 ### Core rules & missions
 
