@@ -3628,7 +3628,8 @@
               "apMod": 1,
               "damageMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "bearerOnly": true
           }
         }
       ],
@@ -5137,7 +5138,8 @@
           "effect": {
             "effects": {
               "apMod": 1
-            }
+            },
+            "appliesToNearby": true
           }
         }
       ],
@@ -11452,7 +11454,8 @@
             "effects": {
               "hitMod": 1,
               "woundMod": 1
-            }
+            },
+            "bearerOnly": true
           }
         }
       ],
@@ -11781,7 +11784,8 @@
             "effects": {
               "rerollWoundsOf1": true
             },
-            "requiresTargetKeyword": "vehicle"
+            "requiresTargetKeyword": "vehicle",
+            "appliesToNearby": true
           }
         }
       ],
@@ -18443,7 +18447,8 @@
               "strengthMod": 1,
               "apMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "bearerOnly": true
           }
         },
         {
@@ -18751,7 +18756,8 @@
           "effect": {
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "bearerOnly": true
           }
         }
       ],
