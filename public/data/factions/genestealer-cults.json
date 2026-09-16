@@ -52,7 +52,8 @@
           "description": "Each time a <span class=\"kwb\">GENESTEALER</span> <span class=\"kwb\">CULTS</span> unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities.",
           "effect": {
             "effects": {
-              "sustainedHitsBonus": 1
+              "sustainedHitsBonus": 1,
+              "bsMod": -1
             },
             "requiresAttackerKeyword": "genestealer cults"
           }
@@ -224,15 +225,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Aberrants, Biophagus or Purestrain Genestealers unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span>, add 1 to the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "hyper-metabolic-vigour",
@@ -634,6 +652,17 @@
           }
         },
         {
+          "name": "Acolyte Hybrids (Magus/Primus/Iconward destroyed)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "acolyte hybrids"
+          }
+        },
+        {
           "name": "Hybrid Metamorphs",
           "effect": {
             "effects": {
@@ -645,10 +674,32 @@
           }
         },
         {
+          "name": "Hybrid Metamorphs (Magus/Primus/Iconward destroyed)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "hybrid metamorphs"
+          }
+        },
+        {
           "name": "Neophyte Hybrids",
           "effect": {
             "effects": {
               "rerollHitsOf1": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "neophyte hybrids"
+          }
+        },
+        {
+          "name": "Neophyte Hybrids (Magus/Primus/Iconward destroyed)",
+          "effect": {
+            "effects": {
+              "rerollAllHits": true
             },
             "isStratagem": true,
             "cpCost": 1,
@@ -822,13 +873,28 @@
       "detachmentId": "brood-brother-auxilia",
       "detachmentName": "Brood Brother Auxilia",
       "description": "GENESTEALER CULTS INFANTRy model only. Once per turn, when a friendly ASTRA MILITARUm INFANTRy or ASTRA MILITARUm MOUNTED unit within 9\" of the bearer is selected to shoot, the bearer can use this Enhancement. If it does, until the end of the phase, improve the Armour Penetration characteristic of ranged weapons equipped by models in that unit by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
+      "options": [
+        {
+          "name": "Infantry",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "infantry"
+          }
         },
-        "combatType": "ranged",
-        "requiresAttackerKeyword": "astra militarum"
-      }
+        {
+          "name": "Mounted",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "requiresAttackerKeyword": "mounted"
+          }
+        }
+      ]
     },
     {
       "id": "serpentine-tactics",
@@ -1793,7 +1859,8 @@
                 "target": "defender",
                 "effects": {
                   "feelNoPainThreshold": 4
-                }
+                },
+                "requiresAttackerKeyword": "hybrid metamorphs"
               }
             }
           ]
@@ -4770,7 +4837,6 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "ranged",
             "appliesToNearby": true,
             "requiresAttackerKeyword": "genestealer cults"
           }
@@ -5653,11 +5719,24 @@
           "name": "Industrialised Destruction",
           "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "Reroll Wound de 1",
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                }
+              }
+            },
+            {
+              "name": "Reroll Wound completo (cerca de objetivo)",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "cult-icon",
@@ -6980,7 +7059,8 @@
                 "effects": {
                   "woundMod": 1
                 },
-                "appliesToNearby": true
+                "appliesToNearby": true,
+                "requiresAttackerKeyword": "tyranids"
               }
             }
           ]
@@ -11515,7 +11595,9 @@
           "effect": {
             "effects": {
               "hitMod": -1
-            }
+            },
+            "combatType": "ranged",
+            "target": "defender"
           }
         },
         {
@@ -11755,12 +11837,26 @@
           "name": "Mobile Hunter-killers",
           "description": "Each time a model in this unit makes an attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "requiresTargetKeyword": "vehicle"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         },
         {
           "id": "one-shot",
@@ -13412,14 +13508,30 @@
           "name": "Bring it Down!",
           "description": "Each time a model in this unit makes a ranged attack that targets a <span class=\"kwb\">MONSTER</span> of <span class=\"kwb\">VEHICLE</span> unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true
+          "options": [
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "combatType": "ranged",
-            "requiresTargetKeyword": "vehicle"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         },
         {
           "id": "embarking",
@@ -17690,13 +17802,28 @@
           "name": "Tank-killer",
           "description": "Each time this model makes a ranged attack with its vanquisher battle cannon that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, you can re-roll the Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollAllWounds": true
+          "options": [
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
             },
-            "combatType": "ranged",
-            "requiresTargetKeyword": "vehicle"
-          }
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "rerollAllWounds": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            }
+          ]
         },
         {
           "id": "one-shot",
@@ -18141,13 +18268,7 @@
           "id": "ablative-plating",
           "name": "Ablative Plating",
           "description": "Once per battle, when an attack is allocated to this model, you change the Damage characteristic of that attack to 0.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "damageReduction": 1
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
@@ -19188,7 +19309,7 @@
             "effects": {
               "hitMod": -1
             },
-            "combatType": "ranged"
+            "target": "defender"
           }
         },
         {
