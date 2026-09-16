@@ -481,20 +481,7 @@
         "requiresAttackerKeyword": "anathema psykana",
         "isStratagem": true,
         "cpCost": 1
-      },
-      "options": [
-        {
-          "name": "Unidad marcada Psyker (Hit -1 a sus propios ataques)",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "requiresAttackerKeyword": "psyker",
-            "isStratagem": true,
-            "cpCost": 1
-          }
-        }
-      ]
+      }
     },
     {
       "id": "desperations-price",
