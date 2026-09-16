@@ -16,6 +16,9 @@ npm run preview  # Preview production build
 
 npm run server:install  # one-time: npm install inside server/
 npm run server           # backend (Express) with reload, http://localhost:8787
+
+npm run extract-pdf:install                              # one-time: pip install pymupdf
+npm run extract-pdf -- "path/to/book.pdf" <first> <last> [outFile]  # cheap PDF text-layer dump
 ```
 
 The frontend needs the backend running to do anything with the `Ejército` area (login, and
@@ -27,7 +30,8 @@ boot without one. Vite's dev server proxies `/api` to `http://localhost:8787` (s
 frontend can be deployed separately and point at the backend via `VITE_API_BASE_URL` (see
 `server/README.md`).
 
-One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
+One-off data scripts (run manually with `node scripts/<file>.mjs`, not wired to package.json,
+except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text.py`):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
 - `audit-combat-effects.mjs` — triage tool for the Mathhammer combat-effect data audit (see
   "CombatEffect authoring convention" under Mathhammer below): walks every
@@ -45,10 +49,13 @@ One-off data script (run manually with `node scripts/<file>.mjs`, not wired to p
   the start of ability/enhancement/stratagem descriptions — this app's convention, confirmed
   against every other faction, is to start at the mechanical rule text). `README.md` in the same
   folder covers the PDF-reading/OCR mechanics specifically: `extract-text.py` (PyMuPDF-based
-  plain-text-layer extraction — `pip install pymupdf`, no system deps) is the cheap first step,
-  good for most pages (army rules, detachments, stratagems, enhancements) where the PDF's text
-  layer isn't broken; it flags pages whose extracted text looks mangled so you know which ones
-  need OCR instead. `render-and-ocr.mjs` (poppler `pdftoppm` + Tesseract OCR) is the fallback
+  plain-text-layer extraction — deps in `requirements.txt`, install via `npm run
+  extract-pdf:install` (or `pip install -r scripts/pdf-codex-tools/requirements.txt` directly),
+  no system deps; run via `npm run extract-pdf -- <pdf> <first> <last> [outFile]`, see Commands
+  above) is the cheap first step, good for most pages (army rules, detachments, stratagems,
+  enhancements) where the PDF's text layer isn't broken; it flags pages whose extracted text
+  looks mangled so you know which ones need OCR instead. `render-and-ocr.mjs` (poppler
+  `pdftoppm` + Tesseract OCR) is the fallback
   for when the text layer produces garbage on a book's datasheet pages (a broken embedded-font
   glyph mapping, not a layout issue — confirmed on the Orks 11th-ed codex across every
   `pdftotext` mode). OCR reads pixels instead, so it doesn't care that the text layer is

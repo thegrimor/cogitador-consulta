@@ -13,8 +13,9 @@ extract correctly here -- this script can't fix that, only detect it. For those,
 render-and-ocr.mjs in this same folder. Read README.md before trusting this tool on a new book.
 
 Usage:
-  pip install pymupdf   # one-time
-  python3 extract-text.py "path/to/book.pdf" <firstPage> <lastPage> [outFile]
+  npm run extract-pdf:install   # one-time
+  npm run extract-pdf -- "path/to/book.pdf" <firstPage> <lastPage> [outFile]
+  # or directly: pip install -r requirements.txt && python3 extract-text.py "path/to/book.pdf" <firstPage> <lastPage> [outFile]
 
 Output: one combined <outFile> (default: <pdf-dir>/text-<first>-<last>.txt) with a
 "===== PAGE N =====" marker before each page's text, matching render-and-ocr.mjs's format.

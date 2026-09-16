@@ -17,8 +17,9 @@ you need. It's free (well, `pip install pymupdf` once) and reads instantly, and 
 in a codex -- army rules, detachments, stratagems, enhancements -- it just works.
 
 ```
-pip install pymupdf   # one-time
-python3 scripts/pdf-codex-tools/extract-text.py "path/to/codex.pdf" <firstPage> <lastPage> [outFile]
+npm run extract-pdf:install   # one-time: pip install -r scripts/pdf-codex-tools/requirements.txt
+npm run extract-pdf -- "path/to/codex.pdf" <firstPage> <lastPage> [outFile]
+# equivalently: python3 scripts/pdf-codex-tools/extract-text.py "path/to/codex.pdf" <firstPage> <lastPage> [outFile]
 ```
 
 Writes one combined `.txt` with `===== PAGE N =====` markers (same format `render-and-ocr.mjs`
