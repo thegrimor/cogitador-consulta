@@ -2797,14 +2797,30 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Dreadnought, Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad or Vanguard Veteran Squad unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Select either the [SUSTAINED HITS 1] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability.",
-      "effect": {
-        "effects": {
-          "sustainedHitsBonus": 1
+      "options": [
+        {
+          "name": "Sustained Hits 1",
+          "effect": {
+            "effects": {
+              "sustainedHitsBonus": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Lethal Hits",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "dominator-beacon",
@@ -2825,15 +2841,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Tank Ace unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a ranged attack that targets a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, improve the Armour Penetration characteristic of that attack by 1.<br><br><b>RESTRICTIONS:</b> A unit cannot be targeted with this and the Kill Shot Stratagem in the same phase.",
-      "effect": {
-        "effects": {
-          "apMod": 1
+      "options": [
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "kill-shot",
@@ -2862,6 +2895,30 @@
           "effect": {
             "combatType": "ranged",
             "requiresTargetKeyword": "vehicle",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollAllWounds": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Wound de 1 (vs Monster)",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
+            "isStratagem": true,
+            "cpCost": 1,
+            "effects": {
+              "rerollWoundsOf1": true
+            }
+          }
+        },
+        {
+          "name": "Reroll Wound completo (objetivo Below Starting Strength) (vs Monster)",
+          "effect": {
+            "combatType": "ranged",
+            "requiresTargetKeyword": "monster",
             "isStratagem": true,
             "cpCost": 1,
             "effects": {
@@ -2953,7 +3010,8 @@
         "combatType": "ranged",
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "deathwing"
       }
     },
     {
@@ -2984,7 +3042,8 @@
             "cpCost": 1,
             "effects": {
               "rerollWoundsOf1": true
-            }
+            },
+            "requiresAttackerKeyword": "deathwing"
           }
         },
         {
@@ -2995,7 +3054,8 @@
             "cpCost": 1,
             "effects": {
               "rerollAllWounds": true
-            }
+            },
+            "requiresAttackerKeyword": "deathwing"
           }
         }
       ]
@@ -3105,7 +3165,8 @@
           "hitMod": 1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "walker"
       }
     },
     {
@@ -3178,7 +3239,7 @@
           "name": "Lance",
           "effect": {
             "effects": {
-              "hitMod": 1
+              "woundMod": 1
             },
             "combatType": "melee",
             "isStratagem": true,
@@ -3200,8 +3261,8 @@
           "name": "Ambos (Entregarse a la Sed de Sangre)",
           "effect": {
             "effects": {
-              "hitMod": 1,
-              "lethalHitsBonus": true
+              "lethalHitsBonus": true,
+              "woundMod": 1
             },
             "combatType": "melee",
             "isStratagem": true,
@@ -3309,7 +3370,8 @@
         },
         "combatType": "ranged",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "psyker"
       }
     },
     {
@@ -3331,14 +3393,32 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry unit from your army that is within 18\" of one or more Adeptus Astartes Psyker models from your army and has not been selected to Fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 1 to the Strength characteristic of melee weapons equipped by models in your unit, or add 2 if the Biomancy Discipline is active for your army.",
-      "effect": {
-        "effects": {
-          "strengthMod": 1
+      "options": [
+        {
+          "name": "Base (+1S)",
+          "effect": {
+            "effects": {
+              "strengthMod": 1
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "infantry"
+          }
         },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Biomancy Discipline active (+2S)",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "infantry"
+          }
+        }
+      ]
     },
     {
       "id": "fiery-shield",
@@ -3349,15 +3429,34 @@
       "turn": "Either player’s turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that is within 18\" of one or more friendly Adeptus Astartes Psyker models, and that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll, and if the Pyromancy Discipline is active for your army, weapons that target your unit have the [HAZARDOUS] ability.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
+      "options": [
+        {
+          "name": "vs Infantry",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "infantry",
+            "combatType": "melee"
+          }
         },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "infantry"
-      }
+        {
+          "name": "vs Mounted",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "mounted",
+            "combatType": "melee"
+          }
+        }
+      ]
     },
     {
       "id": "strength-in-unity",
@@ -3374,7 +3473,8 @@
           "woundMod": -1
         },
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "combatType": "melee"
       }
     },
     {
@@ -3392,7 +3492,8 @@
         },
         "isStratagem": true,
         "cpCost": 1,
-        "requiresAttackerKeyword": "deathwing"
+        "requiresAttackerKeyword": "deathwing",
+        "combatType": "ranged"
       }
     },
     {
@@ -3642,7 +3743,8 @@
         },
         "target": "defender",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresTargetKeyword": "death company"
       }
     },
     {
@@ -4108,16 +4210,34 @@
       "turn": "Opponent’s turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Adeptus Astartes Mounted or Adeptus Astartes Fly Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "vs Mounted",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "mounted"
+          }
         },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "mounted"
-      }
+        {
+          "name": "vs Fly Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "fly"
+          }
+        }
+      ]
     },
     {
       "id": "mobile-lethality",
@@ -4146,7 +4266,7 @@
             "isStratagem": true,
             "cpCost": 1,
             "effects": {
-              "hitMod": 1
+              "woundMod": 1
             }
           }
         },
@@ -4168,8 +4288,8 @@
             "isStratagem": true,
             "cpCost": 1,
             "effects": {
-              "hitMod": 1,
-              "lethalHitsBonus": true
+              "lethalHitsBonus": true,
+              "woundMod": 1
             }
           }
         }
@@ -4258,16 +4378,34 @@
       "turn": "Opponent’s turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES FLY VEHICLE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.",
-      "effect": {
-        "effects": {
-          "woundMod": -1
+      "options": [
+        {
+          "name": "vs Mounted",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "mounted"
+          }
         },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "mounted"
-      }
+        {
+          "name": "vs Fly Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": -1
+            },
+            "combatType": "ranged",
+            "target": "defender",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "fly"
+          }
+        }
+      ]
     },
     {
       "id": "shock-assault",
@@ -4438,7 +4576,8 @@
         },
         "combatType": "melee",
         "isStratagem": true,
-        "cpCost": 1
+        "cpCost": 1,
+        "requiresAttackerKeyword": "death company"
       }
     },
     {
@@ -4641,15 +4780,29 @@
       "turn": "Either player’s turn",
       "phase": "Shooting or Fight phase",
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll.",
-      "effect": {
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1,
-        "effects": {
-          "bsMod": -1,
-          "hitMod": 1
+      "options": [
+        {
+          "name": "Ignores Cover (ranged)",
+          "effect": {
+            "effects": {
+              "bsMod": -1
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        },
+        {
+          "name": "Ignore Hit-roll modifiers",
+          "effect": {
+            "effects": {
+              "hitMod": 1
+            },
+            "isStratagem": true,
+            "cpCost": 1
+          }
         }
-      }
+      ]
     },
     {
       "id": "litanies-of-purgation",
@@ -4790,15 +4943,32 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, add 2 to the Strength characteristic of ranged weapons equipped by models in your unit.",
-      "effect": {
-        "effects": {
-          "strengthMod": 2
+      "options": [
+        {
+          "name": "Infantry",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "infantry"
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresAttackerKeyword": "infantry"
-      }
+        {
+          "name": "Mounted",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresAttackerKeyword": "mounted"
+          }
+        }
+      ]
     },
     {
       "id": "leonine-aggression",
@@ -4822,7 +4992,8 @@
       "effect": {
         "effects": {
           "rerollHitsOf1": true,
-          "hitMod": 1
+          "hitMod": 1,
+          "woundMod": 1
         },
         "combatType": "melee",
         "isStratagem": true,
@@ -4965,16 +5136,34 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> The Fight phase, when a friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks that target a <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit have +2 S.",
-      "effect": {
-        "effects": {
-          "strengthMod": 2
+      "options": [
+        {
+          "name": "vs Vehicle",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "sword brethren squad",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "vehicle"
+          }
         },
-        "combatType": "melee",
-        "requiresAttackerKeyword": "sword brethren squad",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "vehicle"
-      }
+        {
+          "name": "vs Monster",
+          "effect": {
+            "effects": {
+              "strengthMod": 2
+            },
+            "combatType": "melee",
+            "requiresAttackerKeyword": "sword brethren squad",
+            "isStratagem": true,
+            "cpCost": 1,
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "blade-of-detestation",
