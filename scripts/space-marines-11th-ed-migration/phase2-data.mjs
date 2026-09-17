@@ -1221,3 +1221,127 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'For every 5 models in this unit, 1 Intercessor model can be equipped with 1 Grenade Launcher.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Assault Intercessor Squad (pg 45 / printed 202)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Assault Intercessor Squad',
+  role: 'Battleline',
+  models: models('ASSAULT INTERCESSOR SQUAD|6"|5|3+||2|6+|2|'),
+  weapons: weapons(
+    'Hand Flamer [CLOSE-QUARTERS, TORRENT]|9|3|-|4|0|1',
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-1|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Chainsword|Melee|4|3+|5|-1|1',
+    'Power Fist|Melee|3|3+|8|-2|2',
+    'Power Weapon|Melee|4|3+|5|-2|1',
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|3|4+|8|-2|3',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Targeted Intercession', "If this unit made a charge move this turn, this unit's melee attacks have +1 S and AP."),
+  ],
+  keywords: ['Infantry', 'Battleline', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Assault Intercessor Sergeant model', '4-9 Assault Intercessor models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'chainsword', count: 10 }, { name: 'heavy bolt pistol', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Chainsword; 1 Heavy Bolt Pistol.',
+  options: [
+    { button: '•', description: 'The Assault Intercessor Sergeant can have their Heavy Bolt Pistol replaced with one of the following: <ul style="list-style-type:circle"><li>1 Hand Flamer</li><li>1 Plasma Pistol</li></ul>' },
+    { button: '•', description: 'The Assault Intercessor Sergeant can have their Chainsword replaced with one of the following: <ul style="list-style-type:circle"><li>1 Power Fist</li><li>1 Power Weapon</li><li>1 Thunder Hammer</li></ul>' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Assault Intercessors with Jump Packs (pg 46 / printed 203)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Assault Intercessors with Jump Packs',
+  role: 'Battleline',
+  models: models('ASSAULT INTERCESSORS WITH JUMP PACKS|12"|5|3+||2|6+|1|'),
+  weapons: weapons(
+    'Hand Flamer [CLOSE-QUARTERS, TORRENT]|9|3|-|4|0|1',
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-1|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Chainsword|Melee|4|3+|5|-1|1',
+    'Power Fist|Melee|3|3+|8|-2|2',
+    'Power Weapon|Melee|4|3+|5|-2|1',
+  ),
+  abilities: [
+    core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Hammer of Wrath', 'When this unit ends a charge move, you can select one enemy unit engaged with this unit. For each model in this unit engaged with that enemy unit, roll one D6:<ul><li>On a 4+, that enemy unit suffers 1 mortal wound.</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Fly', 'Imperium', 'Jump Pack', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Assault Intercessor Sergeant with Jump Pack model', '4-9 Assault Intercessor with Jump Pack models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'chainsword', count: 10 }, { name: 'heavy bolt pistol', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Chainsword; 1 Heavy Bolt Pistol.',
+  options: [
+    { button: '•', description: 'The Assault Intercessor Sergeant with Jump Pack can have their Heavy Bolt Pistol replaced with one of the following: <ul style="list-style-type:circle"><li>1 Hand Flamer</li><li>1 Plasma Pistol</li></ul>' },
+    { button: '•', description: 'The Assault Intercessor Sergeant with Jump Pack can have their Chainsword replaced with one of the following: <ul style="list-style-type:circle"><li>1 Power Fist</li><li>1 Power Weapon</li></ul>' },
+    { button: '•', description: 'For every 5 models in this unit, 1 Assault Intercessor with Jump Pack model can have their Heavy Bolt Pistol replaced with 1 Plasma Pistol.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Heavy Intercessor Squad (pg 47 top / printed 204 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Heavy Intercessor Squad',
+  role: 'Battleline',
+  models: models('HEAVY INTERCESSOR SQUAD|5"|6|3+||3|6+|2|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Heavy Bolt Rifle [HEAVY, RAPID FIRE 1]|30|2|3+|5|-1|2',
+    'Heavy Bolter [HEAVY, RAPID FIRE 2, SUSTAINED HITS 1]|36|3|3+|5|-1|2',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Unyielding in the Face of the Foe', 'While this unit is controlling an objective, this unit has +1 to save rolls.'),
+  ],
+  keywords: ['Infantry', 'Battleline', 'Explosives', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Heavy Intercessor Sergeant model', '4-9 Heavy Intercessor models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'ceramite fists', count: 10 }, { name: 'heavy bolt rifle', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists; 1 Heavy Bolt Rifle.',
+  options: [
+    { button: '•', description: 'For every 5 models in this unit, 1 Heavy Intercessor model can have their Heavy Bolt Rifle replaced with 1 Heavy Bolter.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Hellblaster Squad (pg 47 bottom / printed 204 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Hellblaster Squad',
+  role: 'Battleline',
+  models: models('HELLBLASTER SQUAD|6"|5|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Plasma Incinerator - Standard [ASSAULT, RAPID FIRE 1]|24|2|3+|7|-2|2',
+    'Plasma Incinerator - Supercharge [ASSAULT, HAZARDOUS, RAPID FIRE 1]|24|2|3+|8|-3|2',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Rites of Thermal Appeasement', 'This unit has +1 to hazard rolls made for its Plasma Incinerator and Plasma Pistol weapons.'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Hellblaster Sergeant model', '4-9 Hellblaster models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'ceramite fists', count: 10 }, { name: 'plasma incinerator', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists; 1 Plasma Incinerator.',
+  options: [
+    { button: '•', description: 'The Hellblaster Sergeant can have their Bolt Pistol replaced with 1 Plasma Pistol.' },
+  ],
+}))
