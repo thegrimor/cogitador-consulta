@@ -1458,3 +1458,78 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'The Bladeguard Veteran Sergeant can have their Heavy Bolt Pistol replaced with one of the following: <ul style="list-style-type:circle"><li>1 Neo-volkite Pistol</li><li>1 Plasma Pistol</li></ul>' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Sternguard Veteran Squad (pg 50 / printed 207)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Sternguard Veteran Squad',
+  role: 'Fire Support',
+  models: models('STERNGUARD VETERAN SQUAD|6"|5|3+||2|6+|1|'),
+  weapons: weapons(
+    'Artificer Firearm - Infernus [ASSAULT, RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Artificer Firearm - Purgatus [ASSAULT, RAPID FIRE 1]|24|1|3+|7|-2|2',
+    'Artificer Firearm - Damnatus [ASSAULT, MELTA 2]|12|1|3+|9|-3|D3+2',
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Heavy Bolter [HEAVY, RAPID FIRE 2, SUSTAINED HITS 1]|36|3|3+|5|-1|2',
+    'Pyrecannon [BLAST 2, TORRENT]|12|4|-|6|-1|1',
+    'Ceramite Fists|Melee|4|3+|5|0|1',
+    'Chainsword|Melee|6|3+|5|-1|1',
+    'Power Fist|Melee|4|3+|8|-2|2',
+    'Power Weapon|Melee|5|3+|5|-2|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Veteran Marksmen', "This unit's ranged attacks can re-roll hit rolls of 1."),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Sternguard Veteran Sergeant model', '4-9 Sternguard Veteran models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [
+    { name: 'artificer firearm', count: 10 }, { name: 'bolt pistol', count: 9 },
+    { name: 'ceramite fists', count: 9 }, { name: 'chainsword', count: 1 },
+  ],
+  loadout: 'The Sternguard Veteran Sergeant is equipped with: 1 Artificer Firearm; 1 Bolt Pistol; 1 Chainsword.<br>' +
+    'Every Sternguard Veteran is equipped with: 1 Artificer Firearm; 1 Bolt Pistol; 1 Ceramite Fists.',
+  options: [
+    { button: '•', description: 'The Sternguard Veteran Sergeant can have their Chainsword replaced with one of the following: <ul style="list-style-type:circle"><li>1 Power Fist</li><li>1 Power Weapon</li></ul>' },
+    { button: '•', description: 'For every 5 models in this unit, 1 Sternguard Veteran model can have their Artificer Firearm replaced with one of the following: <ul style="list-style-type:circle"><li>1 Heavy Bolter</li><li>1 Pyrecannon</li></ul>' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Vanguard Veteran Squad with Jump Packs (pg 51 / printed 208)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Vanguard Veteran Squad with Jump Packs',
+  role: 'Fire Support',
+  models: models('VANGUARD VETERAN SQUAD WITH JUMP PACKS|12"|5|3+||2|6+|1|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-1|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Master-crafted Power Weapon|Melee|3|3+|5|-2|2',
+    'Power Fist|Melee|3|3+|8|-2|2',
+    'Relic Blade [CLEAVE 1, LETHAL HITS: non-MONSTER/VEHICLE]|Melee|3|3+|6|-2|2',
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|3|4+|8|-2|3',
+  ),
+  abilities: [
+    core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Vanguard Assault', "If this unit made a charge move this turn, this unit's melee attacks have +1 A."),
+    ability('Combat Shield', 'This model has 5+ InSv.'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Fly', 'Imperium', 'Jump Pack', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Vanguard Veteran Sergeant with Jump Pack model', '4-9 Vanguard Veteran with Jump Pack models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 10 }, { name: 'master-crafted power weapon', count: 9 }, { name: 'relic blade', count: 1 }],
+  loadout: 'The Vanguard Veteran Sergeant with Jump Pack is equipped with: 1 Heavy Bolt Pistol; 1 Relic Blade.<br>' +
+    'Every Vanguard Veteran with Jump Pack is equipped with: 1 Heavy Bolt Pistol; 1 Master-crafted Power Weapon.',
+  options: [
+    { button: '•', description: 'The Vanguard Veteran Sergeant with Jump Pack can have their Relic Blade replaced with one of the following: <ul style="list-style-type:circle"><li>1 Power Fist</li><li>1 Thunder Hammer</li></ul>' },
+    { button: '•', description: 'The Vanguard Veteran Sergeant with Jump Pack can have their Heavy Bolt Pistol replaced with 1 Plasma Pistol.' },
+    { button: '•', description: 'All models in this unit can each have their Heavy Bolt Pistol replaced with 1 Combat Shield.' },
+    { button: '•', description: 'For every 5 models in this unit, up to 2 Vanguard Veteran with Jump Pack models can each have their Heavy Bolt Pistol replaced with 1 Plasma Pistol.' },
+  ],
+}))
