@@ -2394,3 +2394,111 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'armoured impact', count: 1 }, { name: 'stormfury missile launcher', count: 1 }, { name: 'thunderstrike icarus rocket pod', count: 1 }, { name: 'thunderstrike las-talon', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Armoured Impact; 1 Stormfury Missile Launcher; 1 Thunderstrike Icarus Rocket Pod; 1 Thunderstrike Las-talon.',
 }))
+
+// ---------------------------------------------------------------------------
+// Land Speeder (pg 71 top / printed 228 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Land Speeder',
+  role: 'Fire Support',
+  models: models('LAND SPEEDER|14"|8|3+||9|6+|3|'),
+  weapons: weapons(
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+2',
+    'Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE]|24|8|3+|5|-1|1',
+    'Pyrecannon [BLAST 2, TORRENT]|12|4|-|6|-1|1',
+    'Stormfury Missile Launcher|48|1|3+|10|-3|D3+3',
+    'Armoured Impact|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Purgation Run', 'In your Shooting phase, when this unit has shot, you can use this ability. If you do:<ul><li>This unit can make a normal move of up to D6".</li><li>This unit is not eligible to declare a charge until the end of the turn.</li></ul>'),
+  ],
+  keywords: ['Vehicle', 'Fly', 'Frame', 'Imperium', 'Speeder'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Land Speeder model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured impact', count: 1 }, { name: 'multi-melta', count: 1 }, { name: 'onslaught gatling cannon', count: 1 }, { name: 'stormfury missile launcher', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Impact; 1 Multi-melta; 1 Onslaught Gatling Cannon; 1 Stormfury Missile Launcher.',
+  options: [
+    { button: '•', description: "This model's Onslaught Gatling Cannon can be replaced with 1 Pyrecannon." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Gladiator Lancer (pg 71 bottom / printed 228 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Gladiator Lancer',
+  role: 'Fire Support',
+  models: models('GLADIATOR LANCER|10"|10|3+||12|6+|3|'),
+  weapons: weapons(
+    'Defensive Array [RAPID FIRE 6]|24|6|3+|5|-1|1',
+    'Laser Destroyer [HEAVY]|72|2|3+|14|-3|D6+3',
+    'Armoured Hull|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), armyRule('Combat Doctrines'),
+    ability('Aquilon Optics', "This unit's ranged attacks that target a <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit can:<ul><li>Re-roll one hit roll.</li><li>Re-roll one wound roll.</li><li>Re-roll one damage roll.</li></ul>"),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Frame', 'Imperium', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Gladiator Lancer model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured hull', count: 1 }, { name: 'defensive array', count: 1 }, { name: 'laser destroyer', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Hull; 1 Defensive Array; 1 Laser Destroyer.',
+}))
+
+// ---------------------------------------------------------------------------
+// Gladiator Reaper (pg 72 top / printed 229 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Gladiator Reaper',
+  role: 'Fire Support',
+  models: models('GLADIATOR REAPER|10"|10|3+||12|6+|3|'),
+  weapons: weapons(
+    'Defensive Array [RAPID FIRE 12]|24|12|3+|5|-1|1',
+    'Twin Heavy Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE, SUSTAINED HITS 2: non-MONSTER/VEHICLE, TWIN-LINKED]|24|12|3+|6|-1|1',
+    'Armoured Hull|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), armyRule('Combat Doctrines'),
+    ability('Reaping Tally', "This unit's ranged attacks that target a unit (excluding MONSTER/VEHICLE units) have +1 AP."),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Frame', 'Imperium', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Gladiator Reaper model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured hull', count: 1 }, { name: 'defensive array', count: 1 }, { name: 'twin heavy onslaught gatling cannon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Hull; 1 Defensive Array; 1 Twin Heavy Onslaught Gatling Cannon.',
+}))
+
+// ---------------------------------------------------------------------------
+// Gladiator Valiant (pg 72 bottom / printed 229 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Gladiator Valiant',
+  role: 'Fire Support',
+  models: models('GLADIATOR VALIANT|10"|10|3+||12|6+|3|'),
+  weapons: weapons(
+    'Defensive Array [RAPID FIRE 6]|24|6|3+|5|-1|1',
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+2',
+    'Twin Las-talon [TWIN-LINKED]|36|2|3+|10|-3|D3+3',
+    'Armoured Hull|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), armyRule('Combat Doctrines'),
+    ability('Priority Target Acquisition', "This unit's ranged attacks that target a unit within 12\" of this unit have +1 S."),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Frame', 'Imperium', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Gladiator Valiant model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured hull', count: 1 }, { name: 'defensive array', count: 1 }, { name: 'multi-melta', count: 2 }, { name: 'twin las-talon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Hull; 1 Defensive Array; 2 Multi-melta; 1 Twin Las-talon.',
+}))
