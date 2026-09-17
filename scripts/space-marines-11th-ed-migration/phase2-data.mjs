@@ -662,3 +662,177 @@ newDatasheets.push(datasheet({
     { button: '•', description: "This model's Master-crafted Heavy Bolt Rifle and Master-crafted Power Weapon can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Boltstorm Gauntlet and 1 Relic Blade</li><li>1 Boltstorm Gauntlet and 1 Relic Chainsword</li><li>1 Boltstorm Gauntlet and 1 Relic Power Fist</li></ul>" },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Captain on Bike (pg 33 / printed 190)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Captain on Bike',
+  role: 'Characters',
+  models: models('CAPTAIN ON BIKE|12"|6|3+|4|6|6+|2|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|2+|5|-1|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|2+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|2+|8|-3|2',
+    'Twin Bolt Rifle [ASSAULT, RAPID FIRE 2, TWIN-LINKED]|24|2|2+|5|-1|1',
+    'Master-crafted Power Weapon|Melee|6|2+|6|-2|2',
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|5|3+|8|-2|3',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Strategic Acumen', 'In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.'),
+    ability('Into the Fray', "If this unit made a charge move this turn, this unit's melee attacks have [CLEAVE 1]."),
+  ],
+  keywords: ['Mounted', 'Captain', 'Character', 'Explosives', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Captain on Bike model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 1 }, { name: 'master-crafted power weapon', count: 1 }, { name: 'twin bolt rifle', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Heavy Bolt Pistol; 1 Master-crafted Power Weapon; 1 Twin Bolt Rifle.',
+  options: [
+    { button: '•', description: "This model's Heavy Bolt Pistol can be replaced with 1 Plasma Pistol." },
+    { button: '•', description: "This model's Master-crafted Power Weapon can be replaced with 1 Thunder Hammer." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Lieutenant (pg 34 / printed 191)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Lieutenant',
+  role: 'Characters',
+  models: models('LIEUTENANT|6"|5|3+|4|4|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|2+|5|-1|1',
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|2+|5|-1|1',
+    'Master-crafted Bolter|24|2|2+|5|-1|2',
+    'Neo-volkite Pistol [CLOSE-QUARTERS, DEVASTATING WOUNDS]|12|1|2+|5|0|2',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|2+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|2+|8|-3|2',
+    'Ceramite Fists|Melee|5|2+|5|0|1',
+    'Master-crafted Power Weapon|Melee|5|2+|6|-2|2',
+    'Power Fist|Melee|4|2+|8|-2|2',
+  ),
+  abilities: [
+    core('Support'), armyRule('Combat Doctrines'),
+    ability('Demi-company Commander (Once per turn, per unit)', "When a friendly <span class=\"kwb\">CAPTAIN</span> unit uses its Strategic Acumen ability, you can use this ability. If you do, the selected combat doctrine is active for this unit until the start of your next Command phase."),
+    ability('Tactical Precision', "This unit's attacks have [LETHAL HITS: non-MONSTER/VEHICLE]."),
+    ability('Storm Shield', 'This model has 4+ InSv.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Lieutenant model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: 'ceramite fists', count: 1 }, { name: 'master-crafted bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Ceramite Fists; 1 Master-crafted Bolter.',
+  options: [
+    { button: '•', description: "This model's Master-crafted Bolter and Bolt Pistol can be replaced with 1 Neo-volkite Pistol and 1 Master-crafted Power Weapon." },
+    { button: '•', description: "If this model is equipped with 1 Neo-volkite Pistol, it can be equipped with 1 Storm Shield (this model's 1 Neo-volkite Pistol cannot be replaced)." },
+    { button: '•', description: "This model's Bolt Pistol can be replaced with 1 Heavy Bolt Pistol." },
+    { button: '•', description: "This model's Master-crafted Bolter can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Master-crafted Power Weapon</li><li>1 Plasma Pistol</li><li>1 Power Fist</li></ul>" },
+    { button: '•', description: "This model's Ceramite Fists can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Master-crafted Power Weapon</li><li>1 Power Fist</li></ul>" },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Lieutenant in Phobos Armour (pg 35 top / printed 192 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Lieutenant in Phobos Armour',
+  role: 'Characters',
+  models: models('LIEUTENANT IN PHOBOS ARMOUR|8"|4|3+|4|4|6+|1|'),
+  weapons: weapons(
+    'Master-crafted Bolt Carbine [ASSAULT, RAPID FIRE 1]|24|2|2+|5|-1|2',
+    'Special-issue Bolt Pistol [CLOSE-QUARTERS, PRECISION]|12|1|2+|5|-2|2',
+    'Monomolecular Combat Blades [PRECISION, SUSTAINED HITS 1]|Melee|6|2+|5|-1|1',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Infiltrators'), core('Scouts 6"'), core('Support'),
+    armyRule('Combat Doctrines'),
+    ability('Demi-company Commander (Once per turn, per unit)', "When a friendly <span class=\"kwb\">CAPTAIN</span> unit uses its Strategic Acumen ability, you can use this ability. If you do, the selected combat doctrine is active for this unit until the start of your next Command phase."),
+    ability('Tactical Precision', "This unit's attacks have [LETHAL HITS: non-MONSTER/VEHICLE]."),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Phobos', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Lieutenant in Phobos Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'monomolecular combat blades', count: 1 }, { name: 'special-issue bolt pistol', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Monomolecular Combat Blades; 1 Special-issue Bolt Pistol.',
+  options: [
+    { button: '•', description: "This model's Special-issue Bolt Pistol can be replaced with 1 Master-crafted Bolt Carbine." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Lieutenant with Combi-weapon (pg 35 bottom / printed 192 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Lieutenant with Combi-weapon',
+  role: 'Characters',
+  models: models('LIEUTENANT WITH COMBI-WEAPON|8"|4|3+|4|4|6+|1|'),
+  weapons: weapons(
+    'Combi-weapon - Bolter [ASSAULT, RAPID FIRE 1]|24|2|2+|5|-1|2',
+    'Combi-weapon - Flamer [ASSAULT, BLAST 1, TORRENT]|12|3|-|5|-1|1',
+    'Paired Combat Blades [SUSTAINED HITS 1]|Melee|6|2+|5|-1|1',
+  ),
+  abilities: [
+    core('Feel No Pain 5+'), core('Infiltrators'), core('Lone Operative'), core('Stealth'),
+    armyRule('Combat Doctrines'),
+    ability('Priority Target Identified (Once per battle, per unit)', 'In your Command phase, you can use this ability. If you do, select one visible terrain feature. That terrain feature is identified until the end of the turn.<ul><li>While an enemy unit is within an identified terrain feature, that enemy unit has +3" detection range.</li></ul>'),
+    ability('Evade and Survive (Once per phase, per unit)', 'In your opponent\'s Movement phase, when an enemy unit ends a move within 8" of this unit, if this unit is unengaged, this unit can make a normal move of up to D3+3".'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Phobos', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Lieutenant with Combi-weapon model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'combi-weapon', count: 1 }, { name: 'paired combat blades', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Combi-weapon; 1 Paired Combat Blades.',
+}))
+
+// ---------------------------------------------------------------------------
+// Chaplain (pg 36 top / printed 193 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Chaplain',
+  role: 'Characters',
+  models: models('CHAPLAIN|6"|5|3+|4|4|5+|1|'),
+  weapons: weapons(
+    'Absolvor Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-2|2',
+    'Crozius Arcanum [CLEAVE 1]|Melee|5|2+|6|-1|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'),
+    ability('Litany of Hate', "This unit's melee attacks have [LANCE]."),
+    ability('Spiritual Leader (Once per battle round, per unit)', 'At the start of any phase, you can select one friendly battle-shocked <span class="kwb">ADEPTUS ASTARTES</span> unit within 6" of this model. That unit is no longer battle-shocked.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Chaplain model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'crozius arcanum', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Crozius Arcanum.',
+}))
+
+// ---------------------------------------------------------------------------
+// Chaplain with Jump Pack (pg 36 bottom / printed 193 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Chaplain with Jump Pack',
+  role: 'Characters',
+  models: models('CHAPLAIN WITH JUMP PACK|12"|5|3+|4|4|5+|1|'),
+  weapons: weapons(
+    'Absolvor Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-2|2',
+    'Crozius Arcanum [CLEAVE 1]|Melee|5|2+|6|-1|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Leader'), armyRule('Combat Doctrines'),
+    ability('Litany of Hate', "This unit's melee attacks have [LANCE]."),
+    ability('Exhortation of Rage', "While this unit is at or below half-strength, this unit's melee attacks can re-roll wound rolls."),
+  ],
+  keywords: ['Infantry', 'Chaplain', 'Character', 'Explosives', 'Fly', 'Imperium', 'Jump Pack', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Chaplain with Jump Pack model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'crozius arcanum', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Crozius Arcanum.',
+}))
