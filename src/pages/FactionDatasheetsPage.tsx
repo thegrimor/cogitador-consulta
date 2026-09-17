@@ -2,10 +2,13 @@ import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
-import { chapterOf, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
+import { chapterOf, chapterLabel, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 
-const IS_SPACE_MARINES = (factionId: string | undefined) => factionId === 'SM'
+// The faction's actual id (public/data/factions/space-marines.json's top-level `id`) is
+// 'space-marines', not 'SM' -- this check used the wrong literal since it was introduced,
+// which meant the chapter filter row below never actually rendered for anyone.
+const IS_SPACE_MARINES = (factionId: string | undefined) => factionId === 'space-marines'
 
 export function FactionDatasheetsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -20,17 +23,23 @@ export function FactionDatasheetsPage() {
   const [activeRole, setActiveRole] = useState('Todos')
   const [search, setSearch] = useState('')
 
+  // 'Space Marines' (the generic/core bucket, shown as "Núcleo") pinned right after "Todos",
+  // then every real chapter alphabetically — otherwise it'd sort wherever "S" falls and read
+  // like just another chapter instead of the default/all-purpose bucket it actually is.
   const chapters = isSM
-    ? ['Todos', ...Array.from(new Set(factionSheets.map(d => chapterOf(d.factionKeywords)))).sort()]
+    ? ['Todos', 'Space Marines', ...Array.from(new Set(factionSheets.map(d => chapterOf(d.factionKeywords))))
+        .filter(c => c !== 'Space Marines').sort((a, b) => a.localeCompare(b, 'es'))]
     : []
   const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
 
-  const filtered = factionSheets.filter(d => {
-    const matchRole = activeRole === 'Todos' || d.role === activeRole
-    const matchChapter = !isSM || activeChapter === 'Todos' || chapterOf(d.factionKeywords) === activeChapter
-    const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
-    return matchRole && matchChapter && matchSearch
-  })
+  const filtered = factionSheets
+    .filter(d => {
+      const matchRole = activeRole === 'Todos' || d.role === activeRole
+      const matchChapter = !isSM || activeChapter === 'Todos' || chapterOf(d.factionKeywords) === activeChapter
+      const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
+      return matchRole && matchChapter && matchSearch
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'es'))
 
   if (!faction) {
     return (
@@ -91,7 +100,7 @@ export function FactionDatasheetsPage() {
                   : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
               }`}
             >
-              {chapter}
+              {chapterLabel(chapter)}
             </button>
           ))}
         </div>
