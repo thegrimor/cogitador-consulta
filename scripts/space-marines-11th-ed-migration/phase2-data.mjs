@@ -1051,3 +1051,99 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 1 }, { name: 'relics of battle', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Heavy Bolt Pistol; 1 Relics of Battle.',
 }))
+
+// ---------------------------------------------------------------------------
+// Ancient in Terminator Armour (pg 41 top / printed 198 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Ancient in Terminator Armour',
+  role: 'Characters',
+  models: models('ANCIENT IN TERMINATOR ARMOUR|5"|6|2+|4|5|6+|2|'),
+  weapons: weapons(
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Master-crafted Power Weapon|Melee|5|3+|5|-2|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Support'), armyRule('Combat Doctrines'),
+    ability('Raise the Banner', 'At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.'),
+    ability('Never Shall the Standard Fall', "While this unit is within range of an objective, attacks that target this unit with a S greater than this unit's T have -1 to wound rolls."),
+  ],
+  keywords: ['Infantry', 'Ancient', 'Character', 'Imperium', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Ancient in Terminator Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'master-crafted power weapon', count: 1 }, { name: 'storm bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Master-crafted Power Weapon; 1 Storm Bolter.',
+}))
+
+// ---------------------------------------------------------------------------
+// Techmarine (pg 41 bottom / printed 198 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Techmarine',
+  role: 'Characters',
+  models: models('TECHMARINE|6"|5|2+||4|6+|1|'),
+  weapons: weapons(
+    'Forge Bolter [SUSTAINED HITS 1]|24|3|2+|5|-1|2',
+    'Grav-pistol [ANTI-VEHICLE 2+, CLOSE-QUARTERS]|12|2|2+|2|-1|3',
+    'Omnissian Power Axe and Servo-arm|Melee|5|3+|6|-2|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'),
+    ability('Techmarine', 'While this model is within 3" of a friendly <span class="kwb">ADEPTUS ASTARTES VEHICLE</span> unit, this unit has Lone Operative.'),
+    ability('Blessings of the Omnissiah', 'In your Movement phase, at the start or end of this unit\'s move, you can select one friendly <span class="kwb">ADEPTUS ASTARTES VEHICLE</span> model within 3" of this model:<ul><li>That <span class="kwb">VEHICLE</span> model heals D3 wounds.</li><li>That <span class="kwb">VEHICLE</span> model\'s attacks can ignore modifiers to hit rolls and wound rolls until the start of your next Movement phase.</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Techmarine model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'forge bolter', count: 1 }, { name: 'grav-pistol', count: 1 }, { name: 'omnissian power axe and servo-arm', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Forge Bolter; 1 Grav-pistol; 1 Omnissian Power Axe and Servo-arm.',
+}))
+
+// ---------------------------------------------------------------------------
+// Apothecary (pg 42 top / printed 199 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Apothecary',
+  role: 'Characters',
+  models: models('APOTHECARY|6"|5|3+||4|6+|1|'),
+  weapons: weapons(
+    'Absolvor Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-2|2',
+    'Reductor Pistol [EXTRA ATTACKS]|Melee|1|3+|5|-4|2',
+    'Servo-armature|Melee|4|3+|5|0|1',
+  ),
+  abilities: [
+    core('Support'), armyRule('Combat Doctrines'),
+    ability('Narthecium', 'In your Command phase, this unit heals D3+1 wounds.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Apothecary model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'reductor pistol', count: 1 }, { name: 'servo-armature', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Reductor Pistol; 1 Servo-armature.',
+}))
+
+// ---------------------------------------------------------------------------
+// Apothecary Biologis (pg 42 bottom / printed 199 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Apothecary Biologis',
+  role: 'Characters',
+  models: models('APOTHECARY BIOLOGIS|5"|6|3+||5|6+|1|'),
+  weapons: weapons(
+    'Absolvor Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-2|2',
+    'Servo-armature|Melee|4|3+|5|0|1',
+  ),
+  abilities: [
+    core('Support'), armyRule('Combat Doctrines'),
+    ability('Vivispectral Analysis Targeting', "This unit's attacks have [LETHAL HITS: non-VEHICLE]."),
+  ],
+  keywords: ['Infantry', 'Apothecary', 'Character', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Apothecary Biologis model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'servo-armature', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Servo-armature.',
+}))
