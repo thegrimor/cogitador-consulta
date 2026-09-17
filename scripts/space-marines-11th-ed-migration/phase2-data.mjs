@@ -2343,3 +2343,54 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'armoured impact', count: 1 }, { name: 'fragstorm grenade launchers', count: 1 }, { name: 'ironhail heavy stubber array', count: 1 }, { name: 'onslaught gatling cannon', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Armoured Impact; 1 Fragstorm Grenade Launchers; 1 Ironhail Heavy Stubber Array; 1 Onslaught Gatling Cannon.',
 }))
+
+// ---------------------------------------------------------------------------
+// Storm Speeder Hammerstrike (pg 70 top / printed 227 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Storm Speeder Hammerstrike',
+  role: 'Fire Support',
+  models: models('STORM SPEEDER HAMMERSTRIKE|14"|9|3+||11|6+|3|'),
+  weapons: weapons(
+    'Hammerstrike Missile Launcher|36|2|3+|10|-3|D3+2',
+    'Krakstorm Grenade Launchers|18|2|3+|9|-1|2',
+    'Melta Destroyer [MELTA 3]|18|3|3+|10|-3|D3+2',
+    'Armoured Impact|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Hammerstrike', "This unit's ranged attacks that target an enemy unit within a terrain area have [SUSTAINED HITS 1]."),
+  ],
+  keywords: ['Vehicle', 'Fly', 'Frame', 'Imperium', 'Speeder'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Storm Speeder Hammerstrike model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured impact', count: 1 }, { name: 'hammerstrike missile launcher', count: 1 }, { name: 'krakstorm grenade launchers', count: 1 }, { name: 'melta destroyer', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Impact; 1 Hammerstrike Missile Launcher; 1 Krakstorm Grenade Launchers; 1 Melta Destroyer.',
+}))
+
+// ---------------------------------------------------------------------------
+// Storm Speeder Thunderstrike (pg 70 bottom / printed 227 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Storm Speeder Thunderstrike',
+  role: 'Fire Support',
+  models: models('STORM SPEEDER THUNDERSTRIKE|14"|9|3+||11|6+|3|'),
+  weapons: weapons(
+    'Stormfury Missile Launcher|48|2|3+|10|-3|D3+3',
+    'Thunderstrike Icarus Rocket Pod [ANTI-FLY 2+]|24|6|3+|6|-1|2',
+    'Thunderstrike Las-talon|36|2|3+|10|-3|D3+3',
+    'Armoured Impact|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Thunderstrike', "This unit's ranged attacks that target a <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> unit have +1 to wound rolls."),
+    ability('Shattered Defences', 'In your Shooting phase, when this unit has shot, select one enemy <span class="kwb">MONSTER</span>/<span class="kwb">VEHICLE</span> unit hit by those attacks. Friendly <span class="kwb">ADEPTUS ASTARTES</span> units\' ranged attacks that target that enemy unit have +1 AP.'),
+  ],
+  keywords: ['Vehicle', 'Fly', 'Frame', 'Imperium', 'Speeder'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Storm Speeder Thunderstrike model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured impact', count: 1 }, { name: 'stormfury missile launcher', count: 1 }, { name: 'thunderstrike icarus rocket pod', count: 1 }, { name: 'thunderstrike las-talon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Impact; 1 Stormfury Missile Launcher; 1 Thunderstrike Icarus Rocket Pod; 1 Thunderstrike Las-talon.',
+}))
