@@ -1837,3 +1837,88 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'For every 5 models in this unit, 1 Terminator model can have their Storm Bolter replaced with one of the following: <ul style="list-style-type:circle"><li>1 Assault Cannon</li><li>1 Heavy Flamer</li><li>1 Cyclone Missile Launcher and 1 Storm Bolter (that model\'s Storm Bolter cannot be replaced)</li></ul>' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Terminator Assault Squad (pg 58 / printed 215)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Terminator Assault Squad',
+  role: 'Fire Support',
+  models: models('TERMINATOR ASSAULT SQUAD|5"|6|2+|4|3|6+|1|'),
+  weapons: weapons(
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|3|3+|8|-2|3',
+    'Twin Lightning Claws [TWIN-LINKED]|Melee|6|3+|5|-2|1',
+  ),
+  abilities: [
+    core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Teleport Homer (Once per battle, per unit)', 'At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do:<ul><li>When you target this unit with the Rapid Ingress stratagem, you can use that Teleport Homer token. If you do, that use is -1 CP, but when resolving that stratagem, this unit must be set up within 3" of that Teleport Homer token and not within 8" of an enemy unit. That Teleport Homer token is then removed from the battlefield.</li><li>If an enemy unit ends a move within 1" of that Teleport Homer token, that Teleport Homer token is removed from the battlefield.</li></ul>'),
+    ability('Terminatus Assault', "If this unit made a charge move this turn, this unit's:<ul><li>Lightning Claws weapons have [SUSTAINED HITS 1: non-MONSTER/VEHICLE].</li><li>Thunder Hammer weapons have [SUSTAINED HITS 1: MONSTER/VEHICLE].</li></ul>"),
+    ability('Storm Shield', 'This model has +1 W.'),
+  ],
+  keywords: ['Infantry', 'Imperium', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Terminator Sergeant model', '4-9 Terminator models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'twin lightning claws', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Twin Lightning Claws.',
+  options: [
+    { button: '•', description: 'Any number of models can each have their Twin Lightning Claws replaced with 1 Storm Shield and 1 Thunder Hammer.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Invader ATVs (pg 59 top / printed 216 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Invader ATVs',
+  role: 'Fire Support',
+  models: models('INVADER ATV|10"|6|3+||8|6+|2|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+2',
+    'Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE]|24|8|3+|5|-1|1',
+    'Twin Bolt Rifle [ASSAULT, RAPID FIRE 2, TWIN-LINKED]|24|2|3+|5|-1|1',
+    'Armoured Impact|Melee|4|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Aggressive Reconnaissance', "In your Shooting phase, this unit's ranged attacks that target an enemy unit that is not within 6\" of any other enemy units have +1 to wound rolls."),
+  ],
+  keywords: ['Mounted', 'Vehicle', 'Frame', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1-2 Invader ATV models'],
+  modelCountMin: 1, modelCountMax: 2,
+  defaultWeaponNames: [{ name: 'armoured impact', count: 2 }, { name: 'bolt pistol', count: 2 }, { name: 'onslaught gatling cannon', count: 2 }, { name: 'twin bolt rifle', count: 2 }],
+  loadout: 'Every model is equipped with: 1 Armoured Impact; 1 Bolt Pistol; 1 Onslaught Gatling Cannon; 1 Twin Bolt Rifle.',
+  options: [
+    { button: '•', description: 'All models in this unit can each have their Onslaught Gatling Cannon replaced with 1 Multi-melta.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Rhino (pg 59 bottom / printed 216 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Rhino',
+  role: 'Transport',
+  models: models('RHINO|12"|9|3+||10|6+|2|'),
+  weapons: weapons(
+    'Hunter-killer Missile [ONE SHOT]|48|1|2+|14|-3|D3+3',
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Armoured Tracks|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), core('Firing Deck 2'), armyRule('Combat Doctrines'),
+    ability('Veiling Smoke (Once per phase, per unit)', 'You can target this unit with the Smokescreen stratagem, regardless of any other uses of that stratagem this phase. If you do:<ul><li>That use is -1 CP.</li><li>That use does not prevent any uses of that stratagem on other units this phase.</li></ul>'),
+    ability('Transport', 'This model has a transport capacity of 12 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">GRAVIS</span>/<span class="kwb">JUMP PACK</span>/<span class="kwb">TERMINATOR</span> models.'),
+  ],
+  keywords: ['Vehicle', 'Dedicated Transport', 'Frame', 'Imperium', 'Smoke', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Rhino model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured tracks', count: 1 }, { name: 'storm bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Tracks; 1 Storm Bolter.',
+  options: [
+    { button: '•', description: 'This model can be equipped with 1 Hunter-killer Missile.' },
+  ],
+}))
