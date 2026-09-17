@@ -2010,3 +2010,72 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'Any number of models can each have their Twin Firestrike Las-talon replaced with 1 Twin Firestrike Autocannon.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Repulsor (pg 62 / printed 219)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Repulsor',
+  role: 'Transport',
+  models: models('REPULSOR|10"|12|3+||16|6+|5|'),
+  weapons: weapons(
+    'Defensive Array|24|18|3+|5|-1|1',
+    'Heavy Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE, SUSTAINED HITS 2: non-MONSTER/VEHICLE]|24|12|3+|6|-1|1',
+    'Hunter-slayer Missile [INDIRECT FIRE, ONE SHOT]|48|1|2+|14|-3|D3+3',
+    'Las-talon|36|2|3+|10|-3|D3+3',
+    'Twin Heavy Bolter [SUSTAINED HITS 1, RAPID FIRE 2, TWIN-LINKED]|36|3|3+|5|-1|2',
+    'Twin Lascannon [TWIN-LINKED]|48|1|3+|12|-3|D3+3',
+    'Armoured Hull|Melee|6|4+|8|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D6'), armyRule('Combat Doctrines'),
+    ability('Combat Embarkation', 'In your opponent\'s Charge phase, when an enemy unit has selected charge targets, you can select one friendly unengaged <span class="kwb">ADEPTUS ASTARTES</span> unit that was one of those charge targets and is eligible to embark within this <span class="kwb">TRANSPORT</span>. If every model in that unit is within 3" of this <span class="kwb">TRANSPORT</span>, that unit can embark within this <span class="kwb">TRANSPORT</span>. That enemy unit can then select new charge targets for that charge move.'),
+    ability('Transport', 'This model has a transport capacity of 14 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">JUMP PACK</span> models. Each <span class="kwb">GRAVIS</span>/<span class="kwb">TERMINATOR</span> model takes up the space of 2 models.'),
+  ],
+  damagedW: 6,
+  damagedDescription: 'While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Frame', 'Imperium', 'Smoke', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Repulsor model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured hull', count: 1 }, { name: 'defensive array', count: 1 }, { name: 'heavy onslaught gatling cannon', count: 1 }, { name: 'hunter-slayer missile', count: 1 }, { name: 'twin heavy bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Hull; 1 Defensive Array; 1 Heavy Onslaught Gatling Cannon; 1 Hunter-slayer Missile; 1 Twin Heavy Bolter.',
+  options: [
+    { button: '•', description: "This model's Heavy Onslaught Gatling Cannon can be replaced with 1 Las-talon." },
+    { button: '•', description: "This model's Twin Heavy Bolter can be replaced with 1 Twin Lascannon." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Repulsor Executioner (pg 63 / printed 220)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Repulsor Executioner',
+  role: 'Transport',
+  models: models('REPULSOR EXECUTIONER|10"|12|3+||16|6+|5|'),
+  weapons: weapons(
+    'Defensive Array|24|18|3+|5|-1|1',
+    'Heavy Laser Destroyer [DEVASTATING WOUNDS, HEAVY]|72|2|3+|16|-4|D6+4',
+    'Heavy Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE, SUSTAINED HITS 2: non-MONSTER/VEHICLE]|24|12|3+|6|-1|1',
+    'Macro Plasma Incinerator - Standard [BLAST 1]|36|D3+3|3+|9|-3|2',
+    'Macro Plasma Incinerator - Supercharge [BLAST 1, HAZARDOUS]|36|D3+3|3+|10|-4|3',
+    'Twin Heavy Bolter [RAPID FIRE 2, SUSTAINED HITS 1, TWIN-LINKED]|36|3|3+|5|-1|2',
+    'Armoured Hull|Melee|6|4+|8|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D6'), armyRule('Combat Doctrines'),
+    ability('Executioner', "This unit's ranged attacks that target a unit not below half-strength have +1 to hit rolls."),
+    ability('Transport', 'This model has a transport capacity of 7 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">JUMP PACK</span> models. Each <span class="kwb">GRAVIS</span>/<span class="kwb">TERMINATOR</span> model takes up the space of 2 models.'),
+  ],
+  damagedW: 6,
+  damagedDescription: 'While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Frame', 'Imperium', 'Smoke', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Repulsor Executioner model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured hull', count: 1 }, { name: 'defensive array', count: 1 }, { name: 'heavy laser destroyer', count: 1 }, { name: 'heavy onslaught gatling cannon', count: 1 }, { name: 'twin heavy bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Hull; 1 Defensive Array; 1 Heavy Laser Destroyer; 1 Heavy Onslaught Gatling Cannon; 1 Twin Heavy Bolter.',
+  options: [
+    { button: '•', description: "This model's Heavy Laser Destroyer can be replaced with 1 Macro Plasma Incinerator." },
+  ],
+}))
