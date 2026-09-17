@@ -1345,3 +1345,116 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'The Hellblaster Sergeant can have their Bolt Pistol replaced with 1 Plasma Pistol.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Desolation Squad (pg 48 top / printed 205 top) -- fixed 5 models
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Desolation Squad',
+  role: 'Fire Support',
+  models: models('DESOLATION SQUAD|6"|5|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Castellan Launcher [HEAVY]|24|2|3+|5|-1|1',
+    'Superfrag Rocket Launcher [BLAST 1, HEAVY]|48|4|3+|5|-1|1',
+    'Superkrak Rocket Launcher [HEAVY]|48|1|3+|10|-2|D3+3',
+    'Vengor Launcher [BLAST 1, HEAVY, INDIRECT FIRE]|48|4|3+|7|-1|2',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Targeter Optics', "This unit's ranged attacks that target a visible enemy unit have [IGNORES COVER]."),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Desolation Sergeant model', '4 Desolation Marine models'],
+  modelCountMin: 5, modelCountMax: 5,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 5 }, { name: 'castellan launcher', count: 5 }, { name: 'ceramite fists', count: 5 }, { name: 'superfrag rocket launcher', count: 5 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Castellan Launcher; 1 Ceramite Fists; 1 Superfrag Rocket Launcher.',
+  options: [
+    { button: '•', description: 'The Desolation Sergeant can have their Superfrag Rocket Launcher replaced with 1 Vengor Launcher.' },
+    { button: '•', description: 'The Desolation Sergeant can have their Superkrak Rocket Launcher replaced with 1 Vengor Launcher.' },
+    { button: '•', description: 'All models in this unit can each have their Superfrag Rocket Launcher replaced with 1 Superkrak Rocket Launcher.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Infernus Squad (pg 48 bottom / printed 205 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Infernus Squad',
+  role: 'Fire Support',
+  models: models('INFERNUS SQUAD|6"|5|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Pyreblaster [BLAST 1, TORRENT]|12|3|-|5|-1|1',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Driven from Cover', "In your Shooting phase, when this unit has shot, select one enemy unit hit by those attacks. Friendly <span class=\"kwb\">ADEPTUS ASTARTES</span> units' ranged attacks that target that enemy unit have [IGNORES COVER]."),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Infernus Sergeant model', '4-9 Infernus Marine models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'ceramite fists', count: 10 }, { name: 'pyreblaster', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists; 1 Pyreblaster.',
+}))
+
+// ---------------------------------------------------------------------------
+// Infiltrator Squad (pg 49 top / printed 206 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Infiltrator Squad',
+  role: 'Fire Support',
+  models: models('INFILTRATOR SQUAD|8"|4|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Marksman Bolt Carbine [PRECISION, RAPID FIRE 1]|24|2|3+|5|-1|1',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    core('Infiltrators'), armyRule('Combat Doctrines'),
+    ability('Omni-scramblers', 'In your Shooting phase, you can select one visible enemy unit within 18" of this unit. That unit is detected:<ul><li>While a unit is detected, that unit has +3" detection range.</li></ul>'),
+    ability('Helix Gauntlet', 'In your Command phase, this unit heals D3 wounds.'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Phobos', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Infiltrator Sergeant model', '4-9 Infiltrator models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'ceramite fists', count: 10 }, { name: 'marksman bolt carbine', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists; 1 Marksman Bolt Carbine.',
+  options: [
+    { button: '•', description: '1 model can be equipped with 1 Helix Gauntlet.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Bladeguard Veteran Squad (pg 49 bottom / printed 206 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Bladeguard Veteran Squad',
+  role: 'Fire Support',
+  models: models('BLADEGUARD VETERAN SQUAD|6"|5|3+|4|3|6+|1|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-1|1',
+    'Neo-volkite Pistol [CLOSE-QUARTERS, DEVASTATING WOUNDS]|12|1|3+|5|0|2',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Master-crafted Power Sword|Melee|4|3+|5|-2|2',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Bladeguard (Once per turn, per unit)', "In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:<ul><li>This unit's melee attacks have +1 to hit rolls.</li><li><u>Or:</u> Attacks that target this unit have -1 to hit rolls.</li></ul>"),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Bladeguard Veteran Sergeant model', '2-5 Bladeguard Veteran models'],
+  modelCountMin: 3, modelCountMax: 6,
+  defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 6 }, { name: 'master-crafted power sword', count: 6 }],
+  loadout: 'Every model is equipped with: 1 Heavy Bolt Pistol; 1 Master-crafted Power Sword.',
+  options: [
+    { button: '•', description: 'The Bladeguard Veteran Sergeant can have their Heavy Bolt Pistol replaced with one of the following: <ul style="list-style-type:circle"><li>1 Neo-volkite Pistol</li><li>1 Plasma Pistol</li></ul>' },
+  ],
+}))
