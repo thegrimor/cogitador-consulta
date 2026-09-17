@@ -2225,3 +2225,121 @@ newDatasheets.push(datasheet({
     { button: '•', description: "This model's Heavy Onslaught Gatling Cannon can be replaced with 1 Macro Plasma Incinerator." },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Ballistus Dreadnought (pg 68 top / printed 225 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Ballistus Dreadnought',
+  role: 'Fire Support',
+  models: models('BALLISTUS DREADNOUGHT|8"|10|2+||12|6+|4|'),
+  weapons: weapons(
+    'Ballistus Lascannon|48|2|3+|12|-3|D3+3',
+    'Ballistus Missile Launcher - Frag [BLAST 2]|48|D6+6|3+|5|-1|1',
+    'Ballistus Missile Launcher - Krak|48|2|3+|10|-2|D3+3',
+    'Storm Bolters [RAPID FIRE 4]|24|4|3+|5|-1|1',
+    'Armoured Feet|Melee|5|3+|7|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), armyRule('Combat Doctrines'),
+    ability('Ballistus Strike', "This unit's ranged attacks that target an enemy unit within 24\" of this unit have [SUSTAINED HITS 1]."),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Dreadnought', 'Imperium', 'Walker'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Ballistus Dreadnought model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured feet', count: 1 }, { name: 'ballistus lascannon', count: 1 }, { name: 'ballistus missile launcher', count: 1 }, { name: 'storm bolters', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Feet; 1 Ballistus Lascannon; 1 Ballistus Missile Launcher; 1 Storm Bolters.',
+}))
+
+// ---------------------------------------------------------------------------
+// Brutalis Dreadnought (pg 68 bottom / printed 225 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Brutalis Dreadnought',
+  role: 'Fire Support',
+  models: models('BRUTALIS DREADNOUGHT|10"|10|2+||12|6+|4|'),
+  weapons: weapons(
+    'Bolt Rifles [TWIN-LINKED]|24|4|3+|5|-1|1',
+    'Twin Heavy Bolter [RAPID FIRE 2, SUSTAINED HITS 1, TWIN-LINKED]|36|3|3+|5|-1|2',
+    'Twin Icarus Ironhail Heavy Stubber [ANTI-FLY 3+, RAPID FIRE 3, TWIN-LINKED]|36|3|3+|4|-1|1',
+    'Twin Multi-melta [MELTA 3, TWIN-LINKED]|18|2|3+|10|-3|D3+2',
+    'Brutalis Fists [TWIN-LINKED]|Melee|6|3+|12|-3|D3+3',
+    'Brutalis Talons [CLEAVE 2, SUSTAINED HITS 1: non-MONSTER/VEHICLE, TWIN-LINKED]|Melee|8|3+|10|-2|2',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), armyRule('Combat Doctrines'),
+    ability('Brutalis Charge (Once per phase, per unit)', 'You can target this unit with the Crushing Impact stratagem, regardless of any other uses of that stratagem this phase. If you do:<ul><li>That use is -1 CP.</li><li>That use does not prevent any uses of that stratagem on other units this phase.</li></ul>'),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Dreadnought', 'Imperium', 'Walker'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Brutalis Dreadnought model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt rifles', count: 1 }, { name: 'brutalis fists', count: 1 }, { name: 'twin heavy bolter', count: 1 }, { name: 'twin icarus ironhail heavy stubber', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Bolt Rifles; 1 Brutalis Fists; 1 Twin Heavy Bolter; 1 Twin Icarus Ironhail Heavy Stubber.',
+  options: [
+    { button: '•', description: "This model's Bolt Rifles and Brutalis Fists can be replaced with 1 Brutalis Talons." },
+    { button: '•', description: "This model's Twin Heavy Bolter can be replaced with 1 Twin Multi-melta." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Invictor Tactical Warsuit (pg 69 top / printed 226 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Invictor Tactical Warsuit',
+  role: 'Fire Support',
+  models: models('INVICTOR TACTICAL WARSUIT|10"|9|3+||12|6+|4|'),
+  weapons: weapons(
+    'Fragstorm Grenade Launcher [BLAST 1]|18|3|3+|4|-1|1',
+    'Heavy Bolter [RAPID FIRE 2, SUSTAINED HITS 1]|36|3|3+|5|-1|2',
+    'Incendium Cannon [BLAST 2, TORRENT]|12|4|-|6|-1|2',
+    'Ironhail Heavy Stubbers [RAPID FIRE 6]|36|6|3+|4|-1|1',
+    'Twin Ironhail Autocannon [TWIN-LINKED]|48|4|3+|9|-1|3',
+    'Invictor Fist|Melee|5|3+|12|-2|3',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), core('Scouts 8"'), armyRule('Combat Doctrines'),
+    ability('Forward Assault Warsuit', "At the start of the first battle round, you can select one enemy unit to be this unit's mark:<ul><li>This unit's attacks that target this unit's mark can re-roll wound rolls of 1.</li><li>Each time this unit's mark is destroyed, select one enemy unit to be this unit's mark.</li></ul>"),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Imperium', 'Phobos', 'Walker'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Invictor Tactical Warsuit model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'fragstorm grenade launcher', count: 1 }, { name: 'heavy bolter', count: 1 }, { name: 'incendium cannon', count: 1 }, { name: 'invictor fist', count: 1 }, { name: 'ironhail heavy stubbers', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Fragstorm Grenade Launcher; 1 Heavy Bolter; 1 Incendium Cannon; 1 Invictor Fist; 1 Ironhail Heavy Stubbers.',
+  options: [
+    { button: '•', description: "This model's Incendium Cannon can be replaced with 1 Twin Ironhail Autocannon." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Storm Speeder Hailstrike (pg 69 bottom / printed 226 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Storm Speeder Hailstrike',
+  role: 'Fire Support',
+  models: models('STORM SPEEDER HAILSTRIKE|14"|9|3+||11|6+|3|'),
+  weapons: weapons(
+    'Fragstorm Grenade Launchers [BLAST 2, IGNORES COVER]|18|6|3+|4|-1|1',
+    'Ironhail Heavy Stubber Array [IGNORES COVER, RAPID FIRE 6]|36|6|3+|4|-1|1',
+    'Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE, IGNORES COVER]|24|8|3+|5|-1|1',
+    'Armoured Impact|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Hailstrike', "In your Shooting phase, when this unit has shot, select one enemy unit hit by those attacks. Friendly <span class=\"kwb\">ADEPTUS ASTARTES</span> units' ranged attacks that target that enemy unit have [IGNORES COVER]."),
+  ],
+  keywords: ['Vehicle', 'Fly', 'Frame', 'Imperium', 'Speeder'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Storm Speeder Hailstrike model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured impact', count: 1 }, { name: 'fragstorm grenade launchers', count: 1 }, { name: 'ironhail heavy stubber array', count: 1 }, { name: 'onslaught gatling cannon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Impact; 1 Fragstorm Grenade Launchers; 1 Ironhail Heavy Stubber Array; 1 Onslaught Gatling Cannon.',
+}))
