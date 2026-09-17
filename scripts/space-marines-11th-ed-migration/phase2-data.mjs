@@ -1743,3 +1743,97 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'For every 3 models in this unit, 1 Eradicator model can have their Melta Rifle replaced with 1 Multi-melta.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Aggressor Squad (pg 56 top / printed 213 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Aggressor Squad',
+  role: 'Fire Support',
+  models: models('AGGRESSOR SQUAD|5"|6|3+||3|6+|1|'),
+  weapons: weapons(
+    'Auto Boltstorm Gauntlets [CLOSE-QUARTERS, TWIN-LINKED]|18|3|3+|5|-1|1',
+    'Flamestorm Gauntlets - Close Quarters [CLOSE-QUARTERS, TORRENT, TWIN-LINKED]|12|3|-|4|-1|1',
+    'Flamestorm Gauntlets - Ranged [BLAST 2, TORRENT, TWIN-LINKED]|12|3|-|4|-1|1',
+    'Fragstorm Grenade Launcher [BLAST 1]|18|3|3+|4|-1|1',
+    'Twin Power Fists [TWIN-LINKED]|Melee|3|3+|8|-2|2',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Close-quarters Firestorm', "This unit's attacks that target an enemy unit within 9\" of this unit have +1 S."),
+  ],
+  keywords: ['Infantry', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Aggressor Sergeant model', '2-5 Aggressor models'],
+  modelCountMin: 3, modelCountMax: 6,
+  defaultWeaponNames: [{ name: 'flamestorm gauntlets', count: 6 }, { name: 'twin power fists', count: 6 }],
+  loadout: 'Every model is equipped with: 1 Flamestorm Gauntlets; 1 Twin Power Fists.',
+  options: [
+    { button: '•', description: 'All models in this unit can each have their Flamestorm Gauntlets replaced with 1 Auto Boltstorm Gauntlets and 1 Fragstorm Grenade Launcher.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Inceptor Squad (pg 56 bottom / printed 213 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Inceptor Squad',
+  role: 'Fire Support',
+  models: models('INCEPTOR SQUAD|10"|6|3+||3|6+|1|'),
+  weapons: weapons(
+    'Assault Bolters [ASSAULT, CLOSE-QUARTERS, SUSTAINED HITS 2, TWIN-LINKED]|18|3|3+|5|-1|2',
+    'Plasma Exterminators - Standard [ASSAULT, CLOSE-QUARTERS, TWIN-LINKED]|18|2|3+|7|-2|2',
+    'Plasma Exterminators - Supercharge [ASSAULT, CLOSE-QUARTERS, HAZARDOUS, TWIN-LINKED]|18|2|3+|8|-3|3',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Meteoric Descent', "If this unit made an ingress move this turn, this unit's ranged attacks have +1 to hit rolls."),
+    ability('Parabolic Jetleap', "At the end of your opponent's Fight phase, if this unit is unengaged, you can place this unit in strategic reserves."),
+  ],
+  keywords: ['Infantry', 'Fly', 'Gravis', 'Imperium', 'Jump Pack'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Inceptor Sergeant model', '2-5 Inceptor models'],
+  modelCountMin: 3, modelCountMax: 6,
+  defaultWeaponNames: [{ name: 'assault bolters', count: 6 }, { name: 'ceramite fists', count: 6 }],
+  loadout: 'Every model is equipped with: 1 Assault Bolters; 1 Ceramite Fists.',
+  options: [
+    { button: '•', description: 'All models in this unit can each have their Assault Bolters replaced with 1 Plasma Exterminators.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Terminator Squad (pg 57 / printed 214)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Terminator Squad',
+  role: 'Fire Support',
+  models: models('TERMINATOR SQUAD|5"|6|2+|4|3|6+|1|'),
+  weapons: weapons(
+    'Assault Cannon [SUSTAINED HITS 1]|24|6|3+|6|-2|1',
+    'Cyclone Missile Launcher - Frag [BLAST 2]|36|8|3+|4|-1|1',
+    'Cyclone Missile Launcher - Krak|36|2|3+|10|-2|D3+3',
+    'Heavy Flamer [BLAST 2, TORRENT]|12|3|-|5|-1|1',
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Chainfist - Standard|Melee|2|4+|8|-2|2',
+    'Chainfist - Hunter [HUNTER: MONSTER/VEHICLE]|Melee|3|3+|12|-2|3',
+    'Power Fist|Melee|3|3+|8|-2|2',
+    'Power Weapon|Melee|5|3+|5|-2|1',
+  ),
+  abilities: [
+    core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Teleport Homer (Once per battle, per unit)', 'At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do:<ul><li>When you target this unit with the Rapid Ingress stratagem, you can use that Teleport Homer token. If you do, that use is -1 CP, but when resolving that stratagem, this unit must be set up within 3" of that Teleport Homer token and not within 8" of an enemy unit. That Teleport Homer token is then removed from the battlefield.</li><li>If an enemy unit ends a move within 1" of that Teleport Homer token, that Teleport Homer token is removed from the battlefield.</li></ul>'),
+    ability('Fury of the First', "This unit's attacks that target a unit within 9\" of this unit have +1 AP."),
+  ],
+  keywords: ['Infantry', 'Imperium', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Terminator Sergeant model', '4-9 Terminator models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'power fist', count: 10 }, { name: 'storm bolter', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Power Fist; 1 Storm Bolter.',
+  options: [
+    { button: '•', description: 'The Terminator Sergeant can have their Power Fist replaced with one of the following: <ul style="list-style-type:circle"><li>1 Chainfist</li><li>1 Power Weapon</li></ul>' },
+    { button: '•', description: 'Any number of Terminator models can each have their Power Fist replaced with 1 Chainfist.' },
+    { button: '•', description: 'For every 5 models in this unit, 1 Terminator model can have their Storm Bolter replaced with one of the following: <ul style="list-style-type:circle"><li>1 Assault Cannon</li><li>1 Heavy Flamer</li><li>1 Cyclone Missile Launcher and 1 Storm Bolter (that model\'s Storm Bolter cannot be replaced)</li></ul>' },
+  ],
+}))
