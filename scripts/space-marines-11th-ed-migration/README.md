@@ -65,19 +65,53 @@ replaced (unlike the Orks migration, which did backfill).
     enhancement/stratagem's `detachmentId` resolves to a real new detachment, counts match the
     page-by-page read (15 detachments / 32 enhancements / 48 stratagems).
 
-- **Phase 2 (not started): datasheets.** The PDF's datasheet section runs pages 19/20–72
-  (~55-62 units, characters first, ending mid-way through the Gladiator vehicle family on the
-  last page). Needs the same per-page visual verification as Phase 1 — OCR undercounted
-  detachments by 33%, and weapon/model stat tables are explicitly unreliable under OCR (see
-  `../pdf-codex-tools/README.md`), so every datasheet's tables need a rendered-PNG cross-check,
-  not just the OCR text.
+- **Phase 2 (done, staged in `phase2-data.mjs`): 85 datasheets**, every one of the book's 72
+  pages read visually against the rendered PNG (not OCR alone — weapon/model stat tables are
+  explicitly unreliable under OCR, see `../pdf-codex-tools/README.md`). Covers every named
+  character (Guilliman, Calgar, Tigurius, Cato Sicarius, chapter-flavoured named characters
+  that aren't one of this app's 5 protected chapters — Kor'sarro Khan, Vulkan He'stan, Kayvaan
+  Shrike, etc.), the full generic troop/elite roster (Intercessor/Assault Intercessor/Heavy
+  Intercessor/Hellblaster/Sternguard/Vanguard/Scout/Terminator squads and their variants), and
+  vehicles through Rhino/Impulsor/Repulsor/Land Raider variants/Dreadnoughts/Storm
+  Speeders/Land Speeder/the Gladiator family (the PDF's last page). Uses `helpers.mjs`
+  (adapted from the Orks migration's `weapons()`/`models()` compact-line parsers, unchanged,
+  plus a `core()` ability lookup sourced from every ability already in the kept/protected
+  portion of this same file, and an `armyRule()` helper embedding Phase 1's army-rule text).
 
-- **Final assembly (not started):** merge Phase 1 + Phase 2 into `armyRules`/`detachments`/
-  `enhancements`/`stratagems`/`datasheets`, keeping every `protected`-classified entry from the
-  current file byte-for-byte, cross-reference stratagem/enhancement/detachmentAbility ids against
-  the new datasheets (heuristic, same caveats as the Orks migration's `build-final.mjs`), write
-  `public/data/factions/space-marines.json`, then verify in `npm run dev` (a datasheet, a
-  detachment page, Mathhammer with a new-detachment unit selected) before considering this done.
+- **Final assembly (done, `build-final.mjs`):** merges kept-protected + new content and writes
+  `public/data/factions/space-marines.json` directly (**not idempotent against its own
+  output** — it reads `currentSM` from that same file, so re-running it after a prior run
+  requires the already-merged new army rules to be excluded from "kept" by id, not just by the
+  general protected/core classification the other collections use; datasheets/detachments/
+  enhancements/stratagems don't have this problem since their new ids never match the
+  classification's "protected" criteria). Final counts: **165 datasheets, 45 detachments, 130
+  enhancements, 193 stratagems, 8 army rules.** Stratagem/enhancement/detachment-ability
+  cross-referencing against the new datasheets is the same best-effort keyword heuristic as the
+  Orks migration, broadened to also match `<b>WORD</b>` (this migration's own text mixes that
+  with `<span class="kwb">`, since neither is required for `ruleHtml.ts`'s auto-highlighting to
+  work) — avg. 7.8 stratagems, 7.8 enhancements, 1.8 detachment-abilities per new datasheet.
+  `canBeLedBy` is left empty for every new datasheet, same known gap as the Orks migration (not
+  printed per-character in this simplified card layout).
+
+- **Verified in the running app** (`npm run dev` + Playwright): the datasheets list, a new
+  character page (Roboute Guilliman), a new squad page (Intercessor Squad, wargear options +
+  points placeholder), a new detachment page (Gladius Task Force — enhancements, stratagems,
+  correct `type` display string), a preserved Blood Angels detachment still present
+  ("The Angelic Host"), and Mathhammer with a new-detachment unit selected. No console errors
+  after the fixes below.
+  - Found and fixed a real pre-existing bug this migration was the first to surface broadly:
+    `WeaponCard.tsx` nested an interactive `<button>` (the "Se movió" HEAVY-weapon toggle)
+    inside the card's own outer `<button>` — invalid HTML, React hydration error, browser
+    silently reparents the inner button breaking its click target. No datasheet already in the
+    app happened to have a `[HEAVY]` weapon exercising that exact code path; this codex's
+    generic troops (Intercessor Squad, Heavy Intercessor Squad, etc.) do. Fixed by changing the
+    inner control to a `role="button"`-accessible `<span>` (`src/features/mathhammer/components/
+    WeaponCard/WeaponCard.tsx`).
+  - Found and fixed a formatting bug in this migration's own `phase1-data.mjs`: stratagem
+    `type` strings were built as `<kebab-detachment-id>::<category> Stratagem` instead of
+    matching the existing convention (`<Detachment Display Name> – <category> Stratagem`, en
+    dash) — fixed by having `detachment()` register its display name for `stratagem()` to look
+    up.
 
 ## Tooling notes specific to this PDF
 

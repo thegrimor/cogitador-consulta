@@ -37,13 +37,19 @@ export const newArmyRules = [
 // oath-of-moment is dropped (superseded by Combat Doctrines/Transhuman Strategist above) -- see
 // classification.json / build-final.mjs for the drop list.
 
+// detachmentId -> display name, populated by detachment() -- stratagem()'s `type` field
+// matches the existing data's convention ("Gladius Task Force – Battle Tactic Stratagem": the
+// detachment's display NAME with an en dash, not its kebab-case id) rather than inventing a
+// new format.
+const detachmentNames = {}
 function stratagem(id, name, detachmentId, cpCost, category, phase, turn, description, options) {
-  return { id, name, detachmentId, cpCost, type: `${detachmentId}::${category} Stratagem`, turn, phase, description, ...(options ? { options } : {}) }
+  return { id, name, detachmentId, cpCost, type: `${detachmentNames[detachmentId] || detachmentId} – ${category} Stratagem`, turn, phase, description, ...(options ? { options } : {}) }
 }
 function enhancement(id, name, detachmentId, description) {
   return { id, name, cost: 0, detachmentId, description }
 }
 function detachment(id, name, ruleId, ruleName, ruleDescription) {
+  detachmentNames[id] = name
   return {
     id, name, disposition: '', dp: 0, chapters: CHAPTERS_ALL,
     abilities: [{ id: ruleId, name: ruleName, description: ruleDescription }],

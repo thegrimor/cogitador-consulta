@@ -71,6 +71,20 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   with that instead). See that folder's README for the full methodology and the gaps this run
   left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
   stratagem/enhancement/detachmentAbility cross-references).
+- `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
+  PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
+  with the user) covers only the core/generic Adeptus Astartes content (army rules, 15
+  detachments, 85 datasheets), not the full previous roster. Per explicit user instruction,
+  this migration **replaced only the "core" slice** of `space-marines.json` with what the PDF
+  actually contains and **left untouched** everything chapter-locked to Dark Angels, Deathwatch,
+  Space Wolves, Black Templars or Blood Angels — `space-marines.json` is therefore now a mix of
+  this new codex's core roster plus five untouched, differently-sourced chapter rosters (check
+  a datasheet's/detachment's chapter scope — `factionKeywords`/`chapters` — before assuming
+  which codex printing its text came from). See that folder's README for the classification
+  rule (`classification.json`), the same points-placeholder/heuristic-cross-reference caveats
+  as Orks, and two real bugs this run found and fixed along the way (a `render-and-ocr.mjs`
+  filename-padding bug, and a pre-existing `WeaponCard.tsx` invalid-HTML nested-button bug that
+  no previously-existing datasheet happened to trigger).
 
 No test suite yet.
 
