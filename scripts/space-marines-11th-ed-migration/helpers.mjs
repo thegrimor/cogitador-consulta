@@ -46,7 +46,8 @@ function parseWeapon(line, idx) {
     else if (/^TORRENT$/i.test(tag)) rules.isTorrent = true
     else if (/^BLAST/i.test(tag)) rules.isBlast = true
     else if (/^CLOSE-QUARTERS$/i.test(tag)) { /* text-only, no schema flag */ }
-    // else: HUNTER: ..., SUPA-HAZARDOUS, etc. -- kept in description text only.
+    else if ((mm = tag.match(/^HUNTER:\s*(.+)$/i))) rules.hunterKeyword = mm[1].trim()
+    // else: SUPA-HAZARDOUS, etc. -- kept in description text only.
   }
   const rangeTrim = range.trim()
   return {

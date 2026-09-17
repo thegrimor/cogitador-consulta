@@ -33,6 +33,23 @@ export const newArmyRules = [
     name: 'Librarius',
     description: `${AA} <span class="kwb">PSYKER</span> units with this ability have a psyker level of 1 or higher, specified in that unit's abilities. Each psychic ability has a psychic level of 1 or higher, specified in that ability's name.<br><br>In a battle round, a friendly ${AA} <span class="kwb">PSYKER</span> unit can use a number of psychic abilities whose total psychic level does not exceed that <span class="kwb">PSYKER</span> unit's psyker level.<br><br><i>Example: In a battle round, a psyker level 3 PSYKER unit could use three psychic level 1 abilities, or one psychic level 1 ability and one psychic level 2 ability, or one psychic level 3 ability.</i>`,
   },
+  // "Special Move Types" (pg 2 / printed 157) -- not a per-unit ability like the three above
+  // (no datasheet "has" these, they're move-type *definitions* other abilities reference by
+  // name, e.g. Rhino's "Rapid Disembarkation" ability says a unit "can make a shock disembark
+  // move"), but the user asked for them in the Army Rules page specifically, so they're listed
+  // here rather than folded into the generic core-rules "Disembarking" glossary entry (which
+  // only covers the older "Rapid"/"Tactical" disembark-mode terminology, not these named move
+  // types this codex printing actually uses).
+  {
+    id: 'shock-disembark-move',
+    name: 'Shock Disembark Move',
+    description: `<b>SET-UP DISTANCE:</b> 3"<br><br><b>ELIGIBLE IF:</b> As stated in the rule allowing this move type, if all of the following apply to your unit:<ul><li>Embarked within a <span class="kwb">TRANSPORT</span> model that is on the battlefield.</li><li>Did not embark within that <span class="kwb">TRANSPORT</span> this phase.</li></ul><b>EFFECT:</b> Your unit is set up as described in Set Up (Core Rules, 03.02).<br><br><b>WHILE MOVING:</b> Set up each model in your unit wholly within the set-up distance of that <span class="kwb">TRANSPORT</span>.<br><br><b>AFTER MOVING:</b> Your unit is not eligible to declare a charge until the end of the turn.`,
+  },
+  {
+    id: 'assault-disembark-move',
+    name: 'Assault Disembark Move',
+    description: `<b>SET-UP DISTANCE:</b> 3"<br><br><b>ELIGIBLE IF:</b> As stated in the rule allowing this move type, if all of the following apply to your unit:<ul><li>Embarked within a <span class="kwb">TRANSPORT</span> model that is on the battlefield.</li><li>Did not embark within that <span class="kwb">TRANSPORT</span> this phase.</li><li>That <span class="kwb">TRANSPORT</span> has not made an advance/fall-back move this phase.</li></ul><b>EFFECT:</b> Your unit is set up as described in Set Up (Core Rules, 03.02).<br><br><b>WHILE MOVING:</b><ul><li>Set up each model in your unit wholly within the set-up distance of that <span class="kwb">TRANSPORT</span>.</li></ul>`,
+  },
 ]
 // oath-of-moment is dropped (superseded by Combat Doctrines/Transhuman Strategist above) -- see
 // classification.json / build-final.mjs for the drop list.

@@ -13,9 +13,15 @@ interface Props {
   ownerLabel?: string
 }
 
-function Badge({ label }: { label: string }) {
+function Badge({ label, variant = 'default' }: { label: string; variant?: 'default' | 'restriction' }) {
   return (
-    <span className="text-[7px] uppercase font-mono px-1 py-0.5 bg-crimson/20 border border-crimson/40 text-crimson-bright leading-none">
+    <span
+      className={`text-[7px] uppercase font-mono px-1 py-0.5 border leading-none ${
+        variant === 'restriction'
+          ? 'bg-gold/20 border-gold/50 text-gold'
+          : 'bg-crimson/20 border-crimson/40 text-crimson-bright'
+      }`}
+    >
       {label}
     </span>
   )
@@ -32,7 +38,8 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
     weapon.isMelta || weapon.antiEntries.length > 0 ||
     weapon.isAssault || weapon.rapidFireValue !== '' || weapon.isHazardous || weapon.isPistol ||
     weapon.isPsychic || weapon.isPrecision || weapon.isOneShot || weapon.isIndirectFire ||
-    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion
+    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion ||
+    weapon.hunterKeyword !== ''
 
   return (
     <button
@@ -94,6 +101,9 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
           {weapon.isLance        && <Badge label="Lance" />}
           {weapon.cleaveValue > 0 && <Badge label={`Cleave ${weapon.cleaveValue}`} />}
           {weapon.isConversion   && <Badge label="Conversion" />}
+          {weapon.hunterKeyword !== '' && (
+            <Badge label={`Hunter: solo vs ${weapon.hunterKeyword}`} variant="restriction" />
+          )}
           {weapon.isHeavy && onHeavyToggle && (
             // Not a <button>: this whole card is already a <button> (line 38), and a <button>
             // cannot contain another <button> per the HTML spec -- React logs a hydration

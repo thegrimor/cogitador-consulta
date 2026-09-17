@@ -17,7 +17,7 @@ const WEAPON_RULE_DEFAULTS: Omit<Weapon, 'line' | 'name' | 'description' | 'rang
   isTwinLinked: false, isMelta: false, meltaValue: 0, cleaveValue: 0, sustainedHitsValue: 0, antiEntries: [],
   isIgnoresCover: false, isHazardous: false, isAssault: false, isPistol: false, isPsychic: false,
   isPrecision: false, isOneShot: false, isIndirectFire: false, isExtraAttacks: false, isLance: false,
-  isConversion: false, rapidFireValue: '',
+  isConversion: false, rapidFireValue: '', hunterKeyword: '',
 }
 
 interface WeaponJson {

@@ -78,6 +78,12 @@ export interface Weapon {
   isLance: boolean
   isConversion: boolean
   rapidFireValue: string
+  /** Non-empty for a [HUNTER: <keyword>] profile — an alternate, usually harder-hitting weapon
+   * profile that can only be used against targets with the given keyword(s) (e.g. "MONSTER/
+   * VEHICLE"). Empty string for a normal, unrestricted profile. No other schema flag models
+   * this (bare target-restriction, not a to-hit/wound/damage modifier), so it's surfaced only
+   * as a label — see WeaponCard's Badge — not factored into the mathhammer calculation itself. */
+  hunterKeyword: string
 }
 
 export type CombatType = 'ranged' | 'melee' | 'any'
