@@ -1533,3 +1533,96 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'For every 5 models in this unit, up to 2 Vanguard Veteran with Jump Pack models can each have their Heavy Bolt Pistol replaced with 1 Plasma Pistol.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Incursor Squad (pg 52 top / printed 209 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Incursor Squad',
+  role: 'Fire Support',
+  models: models('INCURSOR SQUAD|8"|4|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Occulus Bolt Carbine [ASSAULT, IGNORES COVER]|24|2|3+|5|-1|1',
+    'Paired Combat Blades [SUSTAINED HITS 1]|Melee|3|3+|5|-1|1',
+  ),
+  abilities: [
+    core('Scouts 6"'), armyRule('Combat Doctrines'),
+    ability('Divinator-class Auspexes (Once per phase, per unit)', 'In your Shooting phase, when a friendly <span class="kwb">ADEPTUS ASTARTES</span> unit is selected to shoot, you can use this ability. If you do, select one visible enemy unit within 18" of this unit. That unit is scanned:<ul><li>While a unit is scanned, ranged attacks that target that unit can re-roll hit rolls of 1.</li></ul>'),
+    ability('Haywire Mine (Once per battle, per unit)', 'In your Shooting phase, you can select one visible enemy unit within 6" of this unit and roll one D6. On a 2+:<ul><li>That enemy unit suffers D3 mortal wounds.</li><li><u>Or:</u> If that enemy unit is a <span class="kwb">VEHICLE</span> unit, that enemy unit suffers 2D3 mortal wounds.</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Phobos', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Incursor Sergeant model', '4-9 Incursor models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'occulus bolt carbine', count: 10 }, { name: 'paired combat blades', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Occulus Bolt Carbine; 1 Paired Combat Blades.',
+}))
+
+// ---------------------------------------------------------------------------
+// Reiver Squad (pg 52 bottom / printed 209 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Reiver Squad',
+  role: 'Fire Support',
+  models: models('REIVER SQUAD|8"|4|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Carbine [ASSAULT, PRECISION]|18|3|3+|5|-1|1',
+    'Special-issue Bolt Pistol [CLOSE-QUARTERS, PRECISION]|12|1|3+|5|-2|1',
+    'Monomolecular Combat Knife [PRECISION]|Melee|4|3+|5|-1|1',
+  ),
+  abilities: [
+    core('Scouts 6"'), armyRule('Combat Doctrines'),
+    ability('Terror Troops (Aura)', 'While an enemy model is within 3" of this unit, that enemy model has -1 OC.'),
+    ability('Fearsome Assault', 'At the start of the Fight phase, each enemy unit engaged with a unit with this ability makes a battle-shock roll, with -1 to that battle-shock roll.'),
+    ability('Grapnel Launchers', 'When this unit makes a move, this unit can:<ul><li>Move through all types of model.</li><li>Ignore all vertical distance for the purposes of how far this unit has moved.</li></ul>'),
+    ability('Grav-chutes', 'This unit has Deep Strike.'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Phobos', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Reiver Sergeant model', '4-9 Reiver models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt carbine', count: 10 }, { name: 'monomolecular combat knife', count: 10 }, { name: 'special-issue bolt pistol', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Carbine; 1 Monomolecular Combat Knife; 1 Special-issue Bolt Pistol.',
+  options: [
+    { button: '•', description: 'This unit can be equipped with 1 Grav-chutes.' },
+    { button: '•', description: 'This unit can be equipped with 1 Grapnel Launchers.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Scout Squad (pg 53 / printed 210)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Scout Squad',
+  role: 'Fire Support',
+  models: models('SCOUT SQUAD|6"|4|4+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Boltgun [RAPID FIRE 1]|24|1|3+|5|-1|1',
+    'Heavy Bolter [HEAVY, RAPID FIRE 2, SUSTAINED HITS 1]|36|3|4+|5|-1|2',
+    'Missile Launcher - Frag [BLAST 1, HEAVY]|48|4|4+|4|-1|1',
+    'Missile Launcher - Krak|48|1|4+|10|-2|D3+3',
+    'Shotgun [ASSAULT, BLAST 1]|18|2|3+|4|-1|1',
+    'Sniper Rifle [HEAVY, PRECISION]|36|1|3+|5|-2|2',
+    'Chainsword|Melee|4|3+|4|-1|1',
+    'Combat Knife|Melee|3|3+|4|-1|1',
+  ),
+  abilities: [
+    core('Infiltrators'), core('Scouts 6"'), armyRule('Combat Doctrines'),
+    ability('Flexible Asset', "When this unit is selected to make an advance/fall-back move, that advance/fall-back move does not prevent this unit from being eligible to start an action."),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Scout Sergeant model', '4-9 Scout models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'boltgun', count: 10 }, { name: 'combat knife', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Boltgun; 1 Bolt Pistol; 1 Combat Knife.',
+  options: [
+    { button: '•', description: 'The Scout Sergeant can have their Boltgun replaced with 1 Shotgun.' },
+    { button: '•', description: 'The Scout Sergeant can have their Combat Knife replaced with 1 Chainsword.' },
+    { button: '•', description: 'Any number of Scout models can each have their Boltgun replaced with one of the following: <ul style="list-style-type:circle"><li>1 Shotgun</li></ul>' },
+    { button: '•', description: 'For every 5 models in this unit, 1 Scout model can have their Boltgun replaced with 1 Sniper Rifle.' },
+    { button: '•', description: 'For every 5 models in this unit, 1 Scout model can have their Boltgun replaced with one of the following: <ul style="list-style-type:circle"><li>1 Heavy Bolter</li><li>1 Missile Launcher</li></ul>' },
+  ],
+}))
