@@ -836,3 +836,107 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'crozius arcanum', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Crozius Arcanum.',
 }))
+
+// ---------------------------------------------------------------------------
+// Chaplain in Terminator Armour (pg 37 top / printed 194 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Chaplain in Terminator Armour',
+  role: 'Characters',
+  models: models('CHAPLAIN IN TERMINATOR ARMOUR|5"|6|2+|4|5|5+|1|'),
+  weapons: weapons(
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Crozius Arcanum [CLEAVE 1]|Melee|5|2+|6|-1|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Leader'), armyRule('Combat Doctrines'),
+    ability('Litany of Hate', "This unit's melee attacks have [LANCE]."),
+    ability('Zealous Fortitude', 'This unit has Feel No Pain 4+ against mortal wounds.'),
+    ability('Relic Shield', 'This model has +1 W.'),
+  ],
+  keywords: ['Infantry', 'Chaplain', 'Character', 'Imperium', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Chaplain in Terminator Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'crozius arcanum', count: 1 }, { name: 'storm bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Crozius Arcanum; 1 Storm Bolter.',
+  options: [
+    { button: '•', description: "This model's Storm Bolter can be replaced with 1 Relic Shield." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Chaplain on Bike (pg 37 bottom / printed 194 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Chaplain on Bike',
+  role: 'Characters',
+  models: models('CHAPLAIN ON BIKE|12"|6|3+|4|5|5+|2|'),
+  weapons: weapons(
+    'Absolvor Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-2|2',
+    'Twin Bolt Rifle [RAPID FIRE 2, TWIN-LINKED]|24|2|3+|5|-1|1',
+    'Crozius Arcanum [CLEAVE 1]|Melee|5|2+|6|-1|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'),
+    ability('Litany of Hate', "This unit's melee attacks have [LANCE]."),
+    ability('Catechism of Fire', "In your Shooting phase, when this unit is selected to shoot, you can select one visible enemy unit. This unit's ranged attacks that target that unit have [DEVASTATING WOUNDS]."),
+  ],
+  keywords: ['Mounted', 'Chaplain', 'Character', 'Explosives', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Chaplain on Bike model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'crozius arcanum', count: 1 }, { name: 'twin bolt rifle', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Crozius Arcanum; 1 Twin Bolt Rifle.',
+}))
+
+// ---------------------------------------------------------------------------
+// Judiciar (pg 38 top / printed 195 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Judiciar',
+  role: 'Characters',
+  models: models('JUDICIAR|6"|5|3+|4|4|6+|1|'),
+  weapons: weapons(
+    'Absolvor Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-2|2',
+    'Executioner Relic Blade [DEVASTATING WOUNDS, PRECISION]|Melee|5|2+|7|-2|2',
+  ),
+  abilities: [
+    core('Fights First'), core('Support'), armyRule('Combat Doctrines'),
+    ability('Tempormortis', 'This unit has Fights First.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Judiciar model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'executioner relic blade', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Executioner Relic Blade.',
+}))
+
+// ---------------------------------------------------------------------------
+// Librarian (pg 38 bottom / printed 195 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Librarian',
+  role: 'Characters',
+  models: models('LIBRARIAN|6"|5|3+|4|6|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Smite - Focused Witchfire [DEVASTATING WOUNDS, HAZARDOUS, PSYCHIC]|24|D3+3|3+|6|-1|2',
+    'Smite - Witchfire [PSYCHIC]|24|D6|3+|6|-1|2',
+    'Force Weapon [PSYCHIC]|Melee|4|3+|6|-2|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'), armyRule('Librarius'),
+    ability('Librarian (psyker level 1)', 'This model has the psychic abilities listed in the Psychic Abilities section.'),
+    ability('Psychic Hood (Psychic)', 'This unit has Feel No Pain 4+ against psychic attacks.'),
+    ability('Veil of Time (psychic level 1)', 'When this unit is selected to make an advance move, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:<ul><li>On a 1, this unit is battle-shocked.</li><li>This unit can change that advance roll to a 6.</li></ul>'),
+    ability('Force Dome (psychic level 1)', 'In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:<ul><li>On a 1, this unit is battle-shocked.</li><li>This unit has 4+ InSv until the start of your next turn.</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Psyker', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Librarian model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: 'force weapon', count: 1 }, { name: 'smite', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Force Weapon; 1 Smite.',
+}))
