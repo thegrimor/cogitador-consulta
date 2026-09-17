@@ -2079,3 +2079,75 @@ newDatasheets.push(datasheet({
     { button: '•', description: "This model's Heavy Laser Destroyer can be replaced with 1 Macro Plasma Incinerator." },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Land Raider (pg 64 / printed 221)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Land Raider',
+  role: 'Transport',
+  models: models('LAND RAIDER|10"|12|2+||16|6+|5|'),
+  weapons: weapons(
+    'Godhammer Lascannon|48|2|3+|12|-3|D3+3',
+    'Hunter-killer Missile [ONE SHOT]|48|1|2+|14|-3|D3+3',
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+2',
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Twin Heavy Bolter [RAPID FIRE 2, SUSTAINED HITS 1, TWIN-LINKED]|36|3|3+|5|-1|2',
+    'Armoured Tracks|Melee|6|4+|8|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D6'), armyRule('Combat Doctrines'),
+    ability('Assault Ramp', 'In your Movement phase, when this unit ends a normal move, units embarked within this unit can make an assault disembark move.'),
+    ability('Power of the Machine Spirit', "This unit's ranged attacks can:<ul><li>Re-roll one hit roll.</li><li>Re-roll one wound roll.</li></ul>"),
+    ability('Transport', 'This model has a transport capacity of 14 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">JUMP PACK</span> models. Each <span class="kwb">GRAVIS</span>/<span class="kwb">TERMINATOR</span> model takes up the space of 2 models.'),
+  ],
+  damagedW: 6,
+  damagedDescription: 'While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Frame', 'Imperium', 'Smoke', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Land Raider model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured tracks', count: 1 }, { name: 'godhammer lascannon', count: 2 }, { name: 'twin heavy bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Tracks; 2 Godhammer Lascannon; 1 Twin Heavy Bolter.',
+  options: [
+    { button: '•', description: 'This model can be equipped with 1 Hunter-killer Missile.' },
+    { button: '•', description: 'This model can be equipped with 1 Multi-melta.' },
+    { button: '•', description: 'This model can be equipped with 1 Storm Bolter.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Land Raider Crusader (pg 65 / printed 222)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Land Raider Crusader',
+  role: 'Transport',
+  models: models('LAND RAIDER CRUSADER|12"|12|2+||16|6+|5|'),
+  weapons: weapons(
+    'Hunter-killer Missile [ONE SHOT]|48|1|2+|14|-3|D3+3',
+    'Hurricane Bolter [RAPID FIRE 6, TWIN-LINKED]|24|6|3+|5|-1|1',
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+3',
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Twin Assault Cannon [SUSTAINED HITS 1, TWIN-LINKED]|24|6|3+|6|-2|1',
+    'Armoured Tracks|Melee|6|4+|8|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D6'), armyRule('Combat Doctrines'),
+    ability('Assault Ramp', 'In your Movement phase, when this unit ends a normal move, units embarked within this unit can make an assault disembark move.'),
+    ability('Fury of the Machine Spirit', 'This unit\'s ranged attacks that target a unit within 12" of this unit have [LETHAL HITS].'),
+    ability('Transport', 'This model has a transport capacity of 16 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">JUMP PACK</span> models. Each <span class="kwb">GRAVIS</span>/<span class="kwb">TERMINATOR</span> model takes up the space of 2 models.'),
+  ],
+  damagedW: 6,
+  damagedDescription: 'While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Explosives', 'Frame', 'Imperium', 'Smoke', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Land Raider Crusader model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured tracks', count: 1 }, { name: 'hurricane bolter', count: 2 }, { name: 'twin assault cannon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Tracks; 2 Hurricane Bolter; 1 Twin Assault Cannon.',
+  options: [
+    { button: '•', description: 'This model can be equipped with 1 Hunter-killer Missile.' },
+    { button: '•', description: 'This model can be equipped with 1 Multi-melta.' },
+    { button: '•', description: 'This model can be equipped with 1 Storm Bolter.' },
+  ],
+}))
