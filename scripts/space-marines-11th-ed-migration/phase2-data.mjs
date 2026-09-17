@@ -940,3 +940,114 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: 'force weapon', count: 1 }, { name: 'smite', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Force Weapon; 1 Smite.',
 }))
+
+// ---------------------------------------------------------------------------
+// Librarian in Phobos Armour (pg 39 top / printed 196 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Librarian in Phobos Armour',
+  role: 'Characters',
+  models: models('LIBRARIAN IN PHOBOS ARMOUR|8"|4|3+|4|6|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Smite - Focused Witchfire [DEVASTATING WOUNDS, HAZARDOUS, PSYCHIC]|24|D3+3|3+|6|-2|2',
+    'Smite - Witchfire [PSYCHIC]|24|D6|3+|6|-1|2',
+    'Force Weapon [PSYCHIC]|Melee|4|3+|6|-2|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Infiltrators'), core('Leader'), core('Scouts 6"'), core('Stealth'),
+    armyRule('Combat Doctrines'), armyRule('Librarius'),
+    ability('Librarian (psyker level 1)', 'This model has the psychic abilities listed in the Psychic Abilities section.'),
+    ability('Psychic Hood (Psychic)', 'This unit has Feel No Pain 4+ against psychic attacks.'),
+    ability('Shrouding (psychic level 1)', 'When an enemy unit targets this unit, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:<ul><li>On a 1, this unit is battle-shocked.</li><li>Attacks that target this unit have -1 to hit rolls until the end of the phase.</li></ul>'),
+    ability('Soul Sight (psychic level 1)', 'In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:<ul><li>On a 1, this unit is battle-shocked.</li><li>Select one visible enemy unit. Ranged attacks that target that enemy unit have [IGNORES COVER].</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Phobos', 'Psyker'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Librarian in Phobos Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: 'force weapon', count: 1 }, { name: 'smite', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Force Weapon; 1 Smite.',
+}))
+
+// ---------------------------------------------------------------------------
+// Librarian in Terminator Armour (pg 39 bottom / printed 196 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Librarian in Terminator Armour',
+  role: 'Characters',
+  models: models('LIBRARIAN IN TERMINATOR ARMOUR|5"|6|2+|4|5|6+|1|'),
+  weapons: weapons(
+    'Smite - Focused Witchfire [DEVASTATING WOUNDS, HAZARDOUS, PSYCHIC]|24|D3+3|3+|6|-2|2',
+    'Smite - Witchfire [PSYCHIC]|24|D6|3+|6|-1|2',
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Force Weapon [PSYCHIC]|Melee|4|3+|6|-2|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Leader'), armyRule('Combat Doctrines'), armyRule('Librarius'),
+    ability('Librarian (psyker level 1)', 'This model has the psychic abilities listed in the Psychic Abilities section.'),
+    ability('Psychic Hood (Psychic)', 'This unit has Feel No Pain 4+ against psychic attacks.'),
+    ability('Might of Heroes (psychic level 1)', "In the Fight phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:<ul><li>On a 1, this unit is battle-shocked.</li><li>This unit's melee attacks have +2 S.</li></ul>"),
+    ability('Thunderous Force (psychic level 1)', "In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:<ul><li>On a 1, this unit is battle-shocked.</li><li>This unit's ranged attacks have +6\" R.</li></ul>"),
+  ],
+  keywords: ['Infantry', 'Imperium', 'Psyker', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Librarian in Terminator Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'force weapon', count: 1 }, { name: 'smite', count: 1 }, { name: 'storm bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Force Weapon; 1 Smite; 1 Storm Bolter.',
+}))
+
+// ---------------------------------------------------------------------------
+// Ancient (pg 40 top / printed 197 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Ancient',
+  role: 'Characters',
+  models: models('ANCIENT|6"|5|3+||4|6+|2|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Bolt Rifle - Focused Fire [HEAVY, RAPID FIRE 1]|24|1|3+|6|-1|2',
+    'Bolt Rifle - Saturation [ASSAULT, RAPID FIRE 1]|24|2|3+|5|-1|1',
+    'Ceramite Fists|Melee|4|3+|5|0|1',
+    'Power Weapon|Melee|5|3+|5|-2|1',
+  ),
+  abilities: [
+    core('Support'), armyRule('Combat Doctrines'),
+    ability('Raise the Banner', 'At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.'),
+    ability('Honour of the Company', 'This unit has +1 OC.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Ancient model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: 'bolt rifle', count: 1 }, { name: 'ceramite fists', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Bolt Rifle; 1 Ceramite Fists.',
+  options: [
+    { button: '•', description: "This model's Bolt Rifle can be replaced with 1 Power Weapon." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Bladeguard Ancient (pg 40 bottom / printed 197 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Bladeguard Ancient',
+  role: 'Characters',
+  models: models('BLADEGUARD ANCIENT|6"|5|3+|4|4|6+|3|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-1|1',
+    'Relics of Battle|Melee|4|3+|5|-2|2',
+  ),
+  abilities: [
+    core('Support'), armyRule('Combat Doctrines'),
+    ability('Raise the Banner', 'At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.'),
+    ability('Deeds of Legend', "While this unit is within range of an objective, this unit's melee attacks have +1 A."),
+  ],
+  keywords: ['Infantry', 'Ancient', 'Character', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Bladeguard Ancient model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 1 }, { name: 'relics of battle', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Heavy Bolt Pistol; 1 Relics of Battle.',
+}))
