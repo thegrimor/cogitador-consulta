@@ -2135,7 +2135,30 @@
       "cost": 10,
       "detachmentId": "veterans-of-the-long-war",
       "detachmentName": "Veterans of the Long War",
-      "description": "HERETIC ASTARTES model only (excluding DAMNED models). Once per turn, you can re-roll one Hit roll, one Wound roll or one saving throw made for the bearer."
+      "description": "HERETIC ASTARTES model only (excluding DAMNED models). Once per turn, you can re-roll one Hit roll, one Wound roll or one saving throw made for the bearer.",
+      "options": [
+        {
+          "name": "Hit roll",
+          "effect": {
+            "effects": {
+              "rerollOneHit": true
+            },
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "Wound roll",
+          "effect": {
+            "effects": {
+              "rerollOneWound": true
+            },
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "Saving throw"
+        }
+      ]
     },
     {
       "id": "shroud-of-obfuscation",
@@ -4511,7 +4534,13 @@
           "id": "ascended-daemon",
           "name": "Ascended Daemon",
           "description": "Each time this model shoot or fights, while resolving those attacks, you can re-roll one Hit roll and you can re-roll one Wound roll.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "rerollOneHit": true,
+              "rerollOneWound": true
+            }
+          }
         },
         {
           "id": "lord-of-chaos",

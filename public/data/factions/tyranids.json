@@ -1185,7 +1185,39 @@
       "cost": 15,
       "detachmentId": "invasion-fleet",
       "detachmentName": "Invasion Fleet",
-      "description": "<span class=\"kwb\">TYRANIDS</span> model only. Once per turn, you can re-roll one Hit roll, one Wound roll, one Damage roll, one Advance roll, one Charge roll or one saving throw made for the bearer."
+      "description": "<span class=\"kwb\">TYRANIDS</span> model only. Once per turn, you can re-roll one Hit roll, one Wound roll, one Damage roll, one Advance roll, one Charge roll or one saving throw made for the bearer.",
+      "options": [
+        {
+          "name": "Hit roll",
+          "effect": {
+            "effects": {
+              "rerollOneHit": true
+            },
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "Wound roll",
+          "effect": {
+            "effects": {
+              "rerollOneWound": true
+            },
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "Damage roll"
+        },
+        {
+          "name": "Advance roll"
+        },
+        {
+          "name": "Charge roll"
+        },
+        {
+          "name": "Saving throw"
+        }
+      ]
     },
     {
       "id": "chameleonic",
