@@ -1147,3 +1147,77 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'absolvor bolt pistol', count: 1 }, { name: 'servo-armature', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Absolvor Bolt Pistol; 1 Servo-armature.',
 }))
+
+// ---------------------------------------------------------------------------
+// Company Heroes (pg 43 / printed 200) -- 4 named roles, one shared statline
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Company Heroes',
+  role: 'Characters',
+  models: models('COMPANY HEROES|6"|5|3+||4|6+|2|'),
+  weapons: weapons(
+    'Master-crafted Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|2',
+    'Master-crafted Bolt Rifle [ASSAULT, RAPID FIRE 1]|24|2|3+|5|-1|2',
+    'Master-crafted Heavy Bolter [ASSAULT, HEAVY, RAPID FIRE 2, SUSTAINED HITS 1]|36|4|3+|6|-1|2',
+    'Combat Knife|Melee|5|3+|5|-1|1',
+    'Master-crafted Power Weapon [PRECISION]|Melee|6|2+|6|-2|2',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Raise the Banner', 'At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.'),
+    ability('Command Squad', 'Attacks that target this unit have -1 to wound rolls.'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Tacticus', 'Ancient', 'Champion'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Ancient model', '1 Company Champion model', '1 Company Veteran with Bolt Rifle model', '1 Company Veteran with Heavy Bolter model'],
+  modelCountMin: 4, modelCountMax: 4,
+  defaultWeaponNames: [
+    { name: 'combat knife', count: 3 }, { name: 'master-crafted bolt pistol', count: 3 },
+    { name: 'master-crafted bolt rifle', count: 1 }, { name: 'master-crafted heavy bolter', count: 1 },
+    { name: 'master-crafted power weapon', count: 1 },
+  ],
+  loadout: 'The Ancient is equipped with: 1 Combat Knife; 1 Master-crafted Bolt Pistol; 1 Master-crafted Bolt Rifle.<br>' +
+    'The Company Champion is equipped with: 1 Master-crafted Bolt Pistol; 1 Master-crafted Power Weapon.<br>' +
+    'The Company Veteran with Bolt Rifle is equipped with: 1 Combat Knife; 1 Master-crafted Bolt Pistol; 1 Master-crafted Bolt Rifle.<br>' +
+    'The Company Veteran with Heavy Bolter is equipped with: 1 Combat Knife; 1 Master-crafted Bolt Pistol; 1 Master-crafted Heavy Bolter.',
+}))
+
+// ---------------------------------------------------------------------------
+// Intercessor Squad (pg 44 / printed 201) -- Battleline, 5-10 models
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Intercessor Squad',
+  role: 'Battleline',
+  models: models('INTERCESSOR SQUAD|6"|5|3+||2|6+|2|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Bolt Rifle - Focused Fire [HEAVY, RAPID FIRE 1]|24|1|3+|6|-1|2',
+    'Bolt Rifle - Saturation [ASSAULT, RAPID FIRE 1]|24|2|3+|5|-1|1',
+    'Grenade Launcher - Frag [BLAST 1]|24|4|3+|4|-1|1',
+    'Grenade Launcher - Krak [RAPID FIRE 1]|24|1|3+|10|-2|3',
+    'Hand Flamer [CLOSE-QUARTERS, TORRENT]|9|3|-|4|0|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Chainsword|Melee|5|3+|5|-1|1',
+    'Knives and Fists|Melee|3|3+|5|0|1',
+    'Power Fist|Melee|3|3+|8|-2|2',
+    'Power Weapon|Melee|4|3+|5|-2|1',
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|3|4+|8|-2|3',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Bolter Discipline', "In your Shooting phase, if any of the following apply, this unit's ranged attacks have +1 to hit rolls:<ul><li>This unit is within range of an objective.</li><li>The target of that attack is within range of an objective.</li></ul>"),
+    ability('Tactical Mainstay', 'Being engaged/battle-shocked does not prevent this unit from being eligible to start an action.<ul><li>When this unit starts an action, that action does not prevent this unit from being eligible to shoot.</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Battleline', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Intercessor Sergeant model', '4-9 Intercessor models'],
+  modelCountMin: 5, modelCountMax: 10,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 10 }, { name: 'bolt rifle', count: 10 }, { name: 'knives and fists', count: 10 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Bolt Rifle; 1 Knives and Fists.',
+  options: [
+    { button: '•', description: 'The Intercessor Sergeant can have their Knives and Fists replaced with one of the following: <ul style="list-style-type:circle"><li>1 Chainsword</li><li>1 Power Fist</li><li>1 Power Weapon</li><li>1 Thunder Hammer</li></ul>' },
+    { button: '•', description: 'The Intercessor Sergeant can have their Bolt Rifle replaced with one of the following: <ul style="list-style-type:circle"><li>1 Chainsword</li><li>1 Hand Flamer</li><li>1 Plasma Pistol</li><li>1 Power Weapon</li></ul>' },
+    { button: '•', description: 'For every 5 models in this unit, 1 Intercessor model can be equipped with 1 Grenade Launcher.' },
+  ],
+}))
