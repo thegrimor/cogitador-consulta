@@ -1626,3 +1626,120 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'For every 5 models in this unit, 1 Scout model can have their Boltgun replaced with one of the following: <ul style="list-style-type:circle"><li>1 Heavy Bolter</li><li>1 Missile Launcher</li></ul>' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Eliminator Squad (pg 54 top / printed 211 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Eliminator Squad',
+  role: 'Fire Support',
+  models: models('ELIMINATOR SQUAD|8"|4|3+||2|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Bolt Sniper Rifle [HEAVY, PRECISION]|36|1|3+|6|-2|3',
+    'Instigator Bolt Carbine [LETHAL HITS: non-MONSTER/VEHICLE, PRECISION, RAPID FIRE 2]|24|2|2+|5|-2|2',
+    'Las Fusil [HEAVY]|36|1|3+|10|-3|D3+3',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    core('Infiltrators'), core('Stealth'), armyRule('Combat Doctrines'),
+    ability('Chameleoline Cloaks', 'This unit has -3" detection range.'),
+    ability('Special-issue Optics and Ammunition', 'In your Shooting phase, when this unit is selected to shoot, you can select one of the following:<ul><li>This unit\'s ranged attacks have [IGNORES COVER].</li><li><u>Or:</u> Select one enemy unit within 24" of this unit. That enemy unit has +6" detection range until this unit has shot.</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Imperium', 'Phobos', 'Smoke'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Eliminator Sergeant model', '2 Eliminator models'],
+  modelCountMin: 3, modelCountMax: 3,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 3 }, { name: 'bolt sniper rifle', count: 3 }, { name: 'ceramite fists', count: 3 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Bolt Sniper Rifle; 1 Ceramite Fists.',
+  options: [
+    { button: '•', description: 'The Eliminator Sergeant can have their Bolt Sniper Rifle replaced with one of the following: <ul style="list-style-type:circle"><li>1 Instigator Bolt Carbine</li><li>1 Las Fusil</li></ul>' },
+    { button: '•', description: 'All Eliminator models in this unit can each have their Bolt Sniper Rifle replaced with 1 Las Fusil.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Outrider Squad (pg 54 bottom / printed 211 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Outrider Squad',
+  role: 'Fire Support',
+  models: models('OUTRIDER SQUAD|12"|6|3+||4|6+|2|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|3+|5|-1|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|3+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|3+|8|-3|2',
+    'Twin Bolt Rifle [ASSAULT, RAPID FIRE 2, TWIN-LINKED]|24|2|3+|5|-1|1',
+    'Chainsword|Melee|4|3+|5|-1|1',
+    'Power Weapon|Melee|3|3+|5|-2|1',
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|3|4+|8|-2|3',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Full-throttle Assault', "If this unit made a charge move this turn, this unit's:<ul><li>Thunder Hammer weapons have +1 to hit rolls and [SUSTAINED HITS 1].</li><li>Other melee weapons have +1 D and [SUSTAINED HITS 1].</li></ul>"),
+  ],
+  keywords: ['Mounted', 'Explosives', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Outrider Sergeant model', '2-5 Outrider models'],
+  modelCountMin: 3, modelCountMax: 6,
+  defaultWeaponNames: [{ name: 'chainsword', count: 6 }, { name: 'heavy bolt pistol', count: 6 }, { name: 'twin bolt rifle', count: 6 }],
+  loadout: 'Every model is equipped with: 1 Chainsword; 1 Heavy Bolt Pistol; 1 Twin Bolt Rifle.',
+  options: [
+    { button: '•', description: 'The Outrider Sergeant can have their Chainsword replaced with one of the following: 1 Power Weapon; 1 Thunder Hammer.' },
+    { button: '•', description: 'For every 3 models in this unit, 1 model can have their Heavy Bolt Pistol replaced with 1 Plasma Pistol.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Eradicator Squad with Heavy Bolters (pg 55 top / printed 212 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Eradicator Squad with Heavy Bolters',
+  role: 'Fire Support',
+  models: models('ERADICATOR SQUAD WITH HEAVY BOLTERS|5"|6|3+||3|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Heavy Bolter [HEAVY, RAPID FIRE 2, SUSTAINED HITS 1]|36|3|3+|6|-1|2',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Overlapping Destruction', "In your Shooting phase, you can select one enemy unit. This unit's Heavy Bolter weapons that target that enemy unit have [BLAST 1]."),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Eradicator Sergeant model', '2-5 Eradicator models'],
+  modelCountMin: 3, modelCountMax: 6,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 6 }, { name: 'ceramite fists', count: 6 }, { name: 'heavy bolter', count: 6 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists; 1 Heavy Bolter.',
+}))
+
+// ---------------------------------------------------------------------------
+// Eradicator Squad with Melta Rifles (pg 55 bottom / printed 212 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Eradicator Squad with Melta Rifles',
+  role: 'Fire Support',
+  models: models('ERADICATOR SQUAD WITH MELTA RIFLES|5"|6|3+||3|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|3+|5|-1|1',
+    'Melta Rifle [MELTA 2]|18|1|3+|10|-3|D3+2',
+    'Melta Rifle - Hunter [MELTA 2, HUNTER: MONSTER/VEHICLE]|18|1|2+|12|-3|D3+2',
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+2',
+    'Multi-melta - Hunter [MELTA 3, HUNTER: MONSTER/VEHICLE]|18|2|2+|12|-3|D3+2',
+    'Ceramite Fists|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Total Obliteration', "This unit's ranged attacks can re-roll damage rolls."),
+  ],
+  keywords: ['Infantry', 'Explosives', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Eradicator Sergeant model', '2-5 Eradicator models'],
+  modelCountMin: 3, modelCountMax: 6,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 6 }, { name: 'ceramite fists', count: 6 }, { name: 'melta rifle', count: 6 }],
+  loadout: 'Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists; 1 Melta Rifle.',
+  options: [
+    { button: '•', description: 'For every 3 models in this unit, 1 Eradicator model can have their Melta Rifle replaced with 1 Multi-melta.' },
+  ],
+}))
