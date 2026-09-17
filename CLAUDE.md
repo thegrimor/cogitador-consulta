@@ -293,6 +293,18 @@ value look plausible."
   and `damageReduction` in particular is a strictly *subtractive* modifier floored at 1 damage in
   `mathhammer.ts`, so it can never actually reach a "set Damage to 0" result no matter what value
   is stored.
+- **"You can re-roll one Hit/Wound/Damage roll" (no "of 1") is a single-use reroll of any one die
+  in the pool, regardless of what it shows — leave `effect` off entirely, do not approximate with
+  `rerollHitsOf1`/`rerollWoundsOf1`/`rerollDamageOf1` or with `rerollAllHits`/`rerollAllWounds`/
+  `rerollAllDamage`.** This was tried as an approximation for a while (reasoning: `rerollXOf1` is
+  the closer of the two available fields, since it's at least bounded rather than unlimited) and
+  then deliberately reverted dataset-wide once challenged — neither field is *precise*: `rerollXOf1`
+  applies to every qualifying die across the whole attack sequence (not just one), while
+  `rerollAllX` is unlimited on top of that. Don't confuse this with "re-roll **a** Hit roll **of
+  1**" (note the "of 1") — that phrasing genuinely means "for every Hit roll that comes up a
+  natural 1, you may re-roll it," which `rerollHitsOf1` represents exactly, no approximation
+  involved. The tell is the word "of": "one Hit roll" (no value named) → unrepresentable, no
+  effect; "a Hit roll **of 1**" (a value named) → `rerollHitsOf1`, correct as stored.
 - **"Select one of the following" / "select either X or Y" is always `options[]`, one entry per
   choice, never a single combined or single-branch effect.** This is the single most common
   authoring bug found across the whole dataset. Two sub-cases both need a split, but for

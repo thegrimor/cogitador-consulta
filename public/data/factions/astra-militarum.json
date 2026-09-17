@@ -16949,15 +16949,7 @@
           "id": "called-shots",
           "name": "Called Shots",
           "description": "Each time this model is selected to shoot, you can re-roll one Hit roll, you can re-roll one Wound roll and you can re-roll one Damage roll when resolving its attacks.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true,
-              "rerollWoundsOf1": true,
-              "rerollDamageOf1": true
-            },
-            "combatType": "ranged"
-          }
+          "type": "Datasheet"
         },
         {
           "id": "orders",
