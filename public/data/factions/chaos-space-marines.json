@@ -4535,12 +4535,16 @@
           "name": "Ascended Daemon",
           "description": "Each time this model shoot or fights, while resolving those attacks, you can re-roll one Hit roll and you can re-roll one Wound roll.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollOneHit": true,
-              "rerollOneWound": true
+          "options": [
+            {
+              "name": "Hit roll",
+              "effect": { "effects": { "rerollOneHit": true } }
+            },
+            {
+              "name": "Wound roll",
+              "effect": { "effects": { "rerollOneWound": true } }
             }
-          }
+          ]
         },
         {
           "id": "lord-of-chaos",

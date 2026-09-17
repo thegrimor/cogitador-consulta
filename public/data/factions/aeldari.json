@@ -334,15 +334,26 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase.<br><br><b>TARGET:</b> One Aeldari Vehicle unit from your army that has not been selected to shoot this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time your unit is selected to shoot, you can re-roll one Hit roll, one Wound roll and one Damage roll made for a model in your unit. If you are using fast dice rolling, you can select one of those rolls to re-roll before moving onto the next step of the attack sequence.",
-      "effect": {
-        "effects": {
-          "rerollOneHit": true,
-          "rerollOneWound": true
+      "options": [
+        {
+          "name": "Hit roll",
+          "effect": {
+            "effects": { "rerollOneHit": true },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
         },
-        "combatType": "ranged",
-        "isStratagem": true,
-        "cpCost": 1
-      }
+        {
+          "name": "Wound roll",
+          "effect": {
+            "effects": { "rerollOneWound": true },
+            "combatType": "ranged",
+            "isStratagem": true,
+            "cpCost": 1
+          }
+        }
+      ]
     },
     {
       "id": "anti-grav-repulsion",
@@ -9061,13 +9072,16 @@
           "name": "Crystal Matrix",
           "description": "Each time this model is selected to shoot, you can re-roll one Hit roll and you can re-roll one Wound roll when resolving those attacks.",
           "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "rerollOneHit": true,
-              "rerollOneWound": true
+          "options": [
+            {
+              "name": "Hit roll",
+              "effect": { "effects": { "rerollOneHit": true }, "combatType": "ranged" }
             },
-            "combatType": "ranged"
-          }
+            {
+              "name": "Wound roll",
+              "effect": { "effects": { "rerollOneWound": true }, "combatType": "ranged" }
+            }
+          ]
         },
         {
           "id": "linked-fire",

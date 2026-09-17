@@ -311,15 +311,21 @@ value look plausible."
   roll" (no value named) → `rerollOneHit`/`rerollOneWound`; "a Hit roll **of 1**" (a value named)
   → `rerollHitsOf1`/`rerollWoundsOf1`.
   There's no `rerollOneDamage` — only Hit and Wound are covered, since no audited ability needed it.
-  Also watch for the **AND vs OR** shape when an ability grants more than one reroll type in the
-  same sentence: "re-roll one Hit roll **and** one Wound roll" (simultaneous, independent grants)
-  is a single `effect` with both `rerollOneHit: true` and `rerollOneWound: true` set together — no
-  `options[]` split needed. "Re-roll one Hit roll, one Wound roll **or** one saving throw" (the
-  player picks exactly one) *does* need `options[]`, one entry per choice, each carrying only its
-  own field (and `bearerOnly: true` on each if the ability's wording restricts it, per the
-  `bearerOnly` rule above) — plus a no-op option for any named choice this app doesn't model (e.g.
-  "saving throw" reroll has no corresponding `CombatModifiers` field), so the option list still
-  accounts for every real choice without inventing an effect for the unrepresentable one.
+  **Always split `rerollOneHit`/`rerollOneWound` into separate `options[]` entries, one per reroll
+  type, even when the ability's own wording grants both simultaneously with "and" rather than
+  offering a choice with "or".** This was tried the other way first (a single combined `effect`
+  with both fields set together for the AND-phrased case, keeping `options[]` only for the
+  OR-phrased case) and reverted once it became clear the modifier panel needs each reroll type as
+  its own independently toggleable button regardless of the ability's phrasing — for an AND-phrased
+  ability (e.g. Code Chivalric: "you can re-roll one Hit roll and you can re-roll one Wound roll"),
+  the user just toggles both of that ability's option-buttons on to get the full effect; for an
+  OR-phrased ability (e.g. "re-roll one Hit roll, one Wound roll **or** one saving throw"), they
+  toggle only the one they're choosing. Either way: one `options[]` entry per named reroll type,
+  each carrying only its own field (and `bearerOnly: true` on each if the ability's wording
+  restricts it, per the `bearerOnly` rule above) — plus, for the OR case, a no-op option for any
+  named choice this app doesn't model (e.g. "saving throw" reroll has no corresponding
+  `CombatModifiers` field), so the option list still accounts for every real choice without
+  inventing an effect for the unrepresentable one.
 - **"Select one of the following" / "select either X or Y" is always `options[]`, one entry per
   choice, never a single combined or single-branch effect.** This is the single most common
   authoring bug found across the whole dataset. Two sub-cases both need a split, but for
