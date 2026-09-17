@@ -1922,3 +1922,91 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'This model can be equipped with 1 Hunter-killer Missile.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Impulsor (pg 60 / printed 217)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Impulsor',
+  role: 'Transport',
+  models: models('IMPULSOR|12"|9|3+||11|6+|2|'),
+  weapons: weapons(
+    'Bellicatus Missile Array - Frag [BLAST 1]|48|4|3+|4|-1|1',
+    'Bellicatus Missile Array - Icarus [ANTI-FLY 2+]|48|3|3+|6|-1|2',
+    'Bellicatus Missile Array - Krak|48|1|3+|10|-2|D3+3',
+    'Fragstorm Grenade Launchers [BLAST 2]|18|6|3+|4|-1|1',
+    'Ironhail Heavy Stubber [RAPID FIRE 3]|36|3|3+|4|-1|1',
+    'Ironhail Skytalon Array [RAPID FIRE 6]|36|6|3+|4|-1|1',
+    'Storm Bolters [RAPID FIRE 4]|24|4|3+|5|-1|1',
+    'Armoured Hull|Melee|3|4+|6|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D3'),
+    { ...core('Firing Deck 2'), id: 'firing-deck-7', name: 'Firing Deck 7' },
+    armyRule('Combat Doctrines'),
+    ability('Rapid Disembarkation', 'In your Movement phase, when this unit ends an advance move, units embarked within this unit can make a shock disembark move.'),
+    ability('Orbital Comms Array', 'This unit has Scouts 6".'),
+    ability('Shield Dome', 'This unit has 5+ InSv.'),
+    ability('Transport', 'This model has a transport capacity of 7 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">TERMINATOR</span>/<span class="kwb">JUMP PACK</span> models. Each <span class="kwb">GRAVIS</span> model takes up the space of 2 models.'),
+  ],
+  keywords: ['Vehicle', 'Dedicated Transport', 'Frame', 'Imperium', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Impulsor model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured hull', count: 1 }, { name: 'storm bolters', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Hull; 1 Storm Bolters.',
+  options: [
+    { button: '•', description: 'This model can be equipped with one of the following: <ul style="list-style-type:circle"><li>1 Bellicatus Missile Array</li><li>1 Orbital Comms Array</li><li>1 Ironhail Skytalon Array</li><li>1 Shield Dome</li></ul>' },
+    { button: '•', description: "This model's Storm Bolters can be replaced with 1 Fragstorm Grenade Launchers." },
+    { button: '•', description: 'This model can be equipped with 1 Ironhail Heavy Stubber.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Drop Pod (pg 61 top / printed 218 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Drop Pod',
+  role: 'Transport',
+  models: models('DROP POD|-|7|3+||8|6+|0|'),
+  weapons: weapons(),
+  abilities: [
+    core('Deadly Demise 1'), core('Deep Strike'), armyRule('Combat Doctrines'),
+    ability('Drop Pod Assault', 'This unit must start the battle in strategic reserves.<ul><li>In your first Movement phase, this unit can make an ingress move.</li><li>When this unit is set up, all units embarked within this unit must make a disembark/assault disembark move, and those units must be set up more than 8" away from all enemy units.</li></ul>'),
+    ability('Deployment Complete', 'When this unit is set up and all units embarked within it have disembarked, units cannot embark within this unit.'),
+    ability('Transport', 'This model has a transport capacity of 12 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">GRAVIS</span>/<span class="kwb">JUMP PACK</span>/<span class="kwb">TERMINATOR</span> models.'),
+  ],
+  keywords: ['Vehicle', 'Dedicated Transport', 'Frame', 'Imperium', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Drop Pod model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [],
+  loadout: '',
+}))
+
+// ---------------------------------------------------------------------------
+// Firestrike Servo-turrets (pg 61 bottom / printed 218 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Firestrike Servo-turrets',
+  role: 'Fire Support',
+  models: models('FIRESTRIKE SERVO-TURRETS|5"|6|2+||6|6+|2|'),
+  weapons: weapons(
+    'Twin Firestrike Autocannon [RAPID FIRE 2, TWIN-LINKED]|48|4|2+|9|-1|3',
+    'Twin Firestrike Las-talon [TWIN-LINKED]|36|2|2+|10|-3|D3+3',
+    'Hovering Bulk|Melee|3|3+|5|0|1',
+  ),
+  abilities: [
+    armyRule('Combat Doctrines'),
+    ability('Sentinel Protocols (Once per phase, per unit)', "You can target this unit with the Fire Overwatch stratagem, regardless of any other uses of that stratagem this phase. If you do:<ul><li>This unit's snap shooting attacks hit on unmodified hit rolls of 4+ until that stratagem is resolved.</li><li>That use does not prevent any uses of that stratagem on other units this phase.</li></ul>"),
+  ],
+  keywords: ['Vehicle', 'Artillery', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1-2 Firestrike Servo-turrets models'],
+  modelCountMin: 1, modelCountMax: 2,
+  defaultWeaponNames: [{ name: 'hovering bulk', count: 2 }, { name: 'twin firestrike las-talon', count: 2 }],
+  loadout: 'Every model is equipped with: 1 Hovering Bulk; 1 Twin Firestrike Las-talon.',
+  options: [
+    { button: '•', description: 'Any number of models can each have their Twin Firestrike Las-talon replaced with 1 Twin Firestrike Autocannon.' },
+  ],
+}))
