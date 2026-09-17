@@ -1,0 +1,5 @@
+# Rendered page PNGs and per-page OCR text are large, regenerable local working files (see
+# README.md -- re-run render-and-ocr.mjs against the PDF to get them back). Only the combined
+# multi-page OCR dumps are kept, since those are small and cheap to skim without re-rendering.
+ocr-out/*.png
+ocr-out/page-*.txt
