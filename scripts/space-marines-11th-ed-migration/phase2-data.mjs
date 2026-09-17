@@ -2151,3 +2151,77 @@ newDatasheets.push(datasheet({
     { button: '•', description: 'This model can be equipped with 1 Storm Bolter.' },
   ],
 }))
+
+// ---------------------------------------------------------------------------
+// Land Raider Redeemer (pg 66 / printed 223)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Land Raider Redeemer',
+  role: 'Transport',
+  models: models('LAND RAIDER REDEEMER|12"|12|2+||16|6+|5|'),
+  weapons: weapons(
+    'Flamestorm Cannon [BLAST 2, TORRENT]|12|4|-|6|-2|2',
+    'Hunter-killer Missile [ONE SHOT]|48|1|2+|14|-3|D3+3',
+    'Multi-melta [MELTA 3]|18|2|3+|10|-3|D3+2',
+    'Storm Bolter [RAPID FIRE 2]|24|2|3+|5|-1|1',
+    'Twin Assault Cannon [SUSTAINED HITS 1, TWIN-LINKED]|24|6|3+|6|-2|1',
+    'Armoured Tracks|Melee|6|4+|8|0|1',
+  ),
+  abilities: [
+    core('Deadly Demise D6'), armyRule('Combat Doctrines'),
+    ability('Assault Ramp', 'In your Movement phase, when this unit ends a normal move, units embarked within this unit can make an assault disembark move.'),
+    ability('Wrath of the Machine Spirit', 'This unit\'s ranged attacks that target a unit within 12" of this unit have [DEVASTATING WOUNDS: non-MONSTER/VEHICLE].'),
+    ability('Transport', 'This model has a transport capacity of 14 <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> models. It cannot transport <span class="kwb">JUMP PACK</span> models. Each <span class="kwb">GRAVIS</span>/<span class="kwb">TERMINATOR</span> model takes up the space of 2 models.'),
+  ],
+  damagedW: 6,
+  damagedDescription: 'While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Explosives', 'Frame', 'Imperium', 'Smoke', 'Transport'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Land Raider Redeemer model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'armoured tracks', count: 1 }, { name: 'flamestorm cannon', count: 2 }, { name: 'twin assault cannon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Armoured Tracks; 2 Flamestorm Cannon; 1 Twin Assault Cannon.',
+  options: [
+    { button: '•', description: 'This model can be equipped with 1 Hunter-killer Missile.' },
+    { button: '•', description: 'This model can be equipped with 1 Multi-melta.' },
+    { button: '•', description: 'This model can be equipped with 1 Storm Bolter.' },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Redemptor Dreadnought (pg 67 / printed 224)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Redemptor Dreadnought',
+  role: 'Fire Support',
+  models: models('REDEMPTOR DREADNOUGHT|8"|10|2+||12|6+|4|'),
+  weapons: weapons(
+    'Fragstorm Grenade Launchers [BLAST 2]|18|6|3+|4|-1|1',
+    'Heavy Flamer [BLAST 2, TORRENT]|12|3|-|5|-1|1',
+    'Heavy Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE, SUSTAINED HITS 2: non-MONSTER/VEHICLE]|24|12|3+|6|-1|1',
+    'Icarus Rocket Pod [ANTI-FLY 2+]|24|3|3+|6|-1|2',
+    'Macro Plasma Incinerator - Standard [BLAST 1]|36|D3+3|3+|9|-3|2',
+    'Macro Plasma Incinerator - Supercharge [BLAST 1, HAZARDOUS]|36|D3+3|3+|10|-4|3',
+    'Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE]|24|8|3+|5|-1|1',
+    'Storm Bolters [RAPID FIRE 4]|24|4|3+|5|-1|1',
+    'Redemptor Fist|Melee|5|3+|12|-3|D3+3',
+  ),
+  abilities: [
+    core('Deadly Demise D3'), armyRule('Combat Doctrines'),
+    ability('Duty Eternal', "Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls."),
+  ],
+  damagedW: 4,
+  damagedDescription: 'While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.',
+  keywords: ['Vehicle', 'Dreadnought', 'Imperium', 'Walker'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Redemptor Dreadnought model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'fragstorm grenade launchers', count: 1 }, { name: 'heavy flamer', count: 1 }, { name: 'heavy onslaught gatling cannon', count: 1 }, { name: 'redemptor fist', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Fragstorm Grenade Launchers; 1 Heavy Flamer; 1 Heavy Onslaught Gatling Cannon; 1 Redemptor Fist.',
+  options: [
+    { button: '•', description: 'This model can be equipped with 1 Icarus Rocket Pod.' },
+    { button: '•', description: "This model's Fragstorm Grenade Launchers can be replaced with 1 Storm Bolters." },
+    { button: '•', description: "This model's Heavy Flamer can be replaced with 1 Onslaught Gatling Cannon." },
+    { button: '•', description: "This model's Heavy Onslaught Gatling Cannon can be replaced with 1 Macro Plasma Incinerator." },
+  ],
+}))
