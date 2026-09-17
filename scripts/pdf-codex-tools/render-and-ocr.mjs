@@ -49,9 +49,16 @@ function findExe(exeName, wingetParentGlob) {
 const pdftoppm = findExe('pdftoppm.exe', 'Microsoft/WinGet/Packages/oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe/poppler-*')
 const tesseract = (() => {
   try { execFileSync('where', ['tesseract.exe'], { stdio: 'ignore' }); return 'tesseract.exe' } catch {}
-  const guess = path.join(process.env.LOCALAPPDATA || '', 'Tesseract-OCR', 'tesseract.exe')
-  if (fs.existsSync(guess)) return guess
-  throw new Error('tesseract.exe not found on PATH or at the default winget install path -- install it (see README).')
+  // The winget package installs machine-wide (Program Files) despite the tool being a
+  // per-user install in some other package's case -- checked both real locations rather than
+  // just the first guess, since either is plausible depending on how winget resolved scope.
+  const guesses = [
+    path.join(process.env.LOCALAPPDATA || '', 'Tesseract-OCR', 'tesseract.exe'),
+    path.join(process.env['ProgramFiles'] || 'C:\\Program Files', 'Tesseract-OCR', 'tesseract.exe'),
+  ]
+  const found = guesses.find(g => fs.existsSync(g))
+  if (found) return found
+  throw new Error('tesseract.exe not found on PATH or at the default winget install paths -- install it (see README).')
 })()
 
 console.log('pdftoppm:', pdftoppm)
@@ -61,12 +68,20 @@ const prefix = path.join(outDir, 'page')
 console.log(`Rendering pages ${first}-${last} at 200dpi...`)
 execFileSync(pdftoppm, ['-png', '-r', '200', '-f', String(first), '-l', String(last), pdfPath, prefix])
 
+// pdftoppm zero-pads page numbers to the digit width of the *document's* page count, not the
+// requested range -- e.g. asking for pages 1-4 of a 72-page PDF still yields "page-01.png", not
+// "page-1.png". Discover the actual width from what pdftoppm wrote instead of guessing it.
+const rendered = fs.readdirSync(outDir).filter(f => f.startsWith(`${path.basename(prefix)}-`) && f.endsWith('.png'))
+const pageToPng = new Map()
+for (const f of rendered) {
+  const m = f.match(/-(\d+)\.png$/)
+  if (m) pageToPng.set(Number(m[1]), path.join(outDir, f))
+}
+
 let combined = ''
 for (let p = first; p <= last; p++) {
-  // pdftoppm zero-pads to the width of the largest page number in the range.
-  const width = String(last).length
-  const png = `${prefix}-${String(p).padStart(width, '0')}.png`
-  if (!fs.existsSync(png)) { console.warn('missing render for page', p, '-- skipping'); continue }
+  const png = pageToPng.get(p)
+  if (!png || !fs.existsSync(png)) { console.warn('missing render for page', p, '-- skipping'); continue }
   process.stdout.write(`OCR page ${p}... `)
   const txtBase = png.replace(/\.png$/, '')
   execFileSync(tesseract, [png, txtBase])
