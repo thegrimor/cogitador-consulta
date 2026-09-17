@@ -397,3 +397,268 @@ newDatasheets.push(datasheet({
   defaultWeaponNames: [{ name: 'drakkis', count: 1 }, { name: 'malleus noctum', count: 1 }],
   loadout: '<b>This model is equipped with:</b> 1 Drakkis; 1 Malleus Noctum.',
 }))
+
+// ---------------------------------------------------------------------------
+// Caanok Var (pg 27 top / printed 184 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Caanok Var',
+  role: 'Characters',
+  models: models('CAANOK VAR|5"|6|2+|4|6|6+|1|'),
+  weapons: weapons(
+    'Storm Bolter [RAPID FIRE 2]|24|2|2+|5|-1|1',
+    'Axiom [CLEAVE 1]|Melee|5|2+|8|-3|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Feel No Pain 5+'), core('Leader'),
+    armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Cold and Calculating', "In your Shooting phase or the Fight phase, when this unit is selected to attack, you can select one of the following for this unit's attacks to have:<ul><li>[LETHAL HITS: MONSTER/VEHICLE].</li><li><u>Or:</u> [SUSTAINED HITS 1: non-MONSTER/VEHICLE].</li><li><u>Or:</u> If the tactical doctrine is active for this unit, [LETHAL HITS: MONSTER/VEHICLE] and [SUSTAINED HITS 1: non-MONSTER/VEHICLE].</li></ul>"),
+    ability('Cerebrex Logic Engine', 'In the Declare Battle Formations step, you can select one friendly <span class="kwb">ADEPTUS ASTARTES INFANTRY</span> unit. That unit has Scouts 6".'),
+  ],
+  keywords: ['Infantry', 'Captain', 'Character', 'Epic Hero', 'Imperium', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes', 'Iron Hands'],
+  unitComposition: ['1 Caanok Var model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'axiom', count: 1 }, { name: 'storm bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Axiom; 1 Storm Bolter.',
+}))
+
+// ---------------------------------------------------------------------------
+// Iron Father Feirros (pg 27 bottom / printed 184 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Iron Father Feirros',
+  role: 'Characters',
+  models: models('IRON FATHER FEIRROS|5"|6|2+|4|6|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|2+|5|-1|1',
+    "Gorgon's Wrath [RAPID FIRE 2, SUSTAINED HITS 2]|36|3|2+|6|-1|2",
+    'Harrowhand|Melee|6|3+|7|-2|2',
+    'Medusan Manipuli [EXTRA ATTACKS]|Melee|2|3+|10|-2|3',
+  ),
+  abilities: [
+    core('Feel No Pain 5+'), core('Leader'),
+    armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Master of the Forge', 'In your Movement phase, at the start or end of this unit\'s move, you can select one friendly <span class="kwb">ADEPTUS ASTARTES VEHICLE</span> model within 3" of this model:<ul><li>That <span class="kwb">VEHICLE</span> model heals 3 wounds.</li><li>That <span class="kwb">VEHICLE</span> model\'s attacks can ignore modifiers to the following until the start of your next Movement phase:<ul><li>BS.</li><li>Hit rolls and wound rolls.</li></ul></li></ul>'),
+    ability('Rites of Tempering', "Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls."),
+    ability('Iron Father', 'While this model is within 3" of a friendly <span class="kwb">ADEPTUS ASTARTES VEHICLE</span> unit, this unit has Lone Operative.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Epic Hero', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes', 'Iron Hands'],
+  unitComposition: ['1 Iron Father Feirros model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: "gorgon's wrath", count: 1 }, { name: 'harrowhand', count: 1 }, { name: 'medusan manipuli', count: 1 }],
+  loadout: "<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Gorgon's Wrath; 1 Harrowhand; 1 Medusan Manipuli.",
+}))
+
+// ---------------------------------------------------------------------------
+// Kor'sarro Khan (pg 28 top / printed 185 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: "Kor'sarro Khan",
+  role: 'Characters',
+  models: models("KOR'SARRO KHAN|6\"|5|3+|4|5|6+|1|"),
+  weapons: weapons(
+    'Anzuq [ANTI-INFANTRY 4+, CLOSE-QUARTERS, DEVASTATING WOUNDS: INFANTRY]|18|2|3+|4|-1|2',
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|2+|5|-1|1',
+    'Moonfang [ANTI-CHARACTER 5+, DEVASTATING WOUNDS, PRECISION]|Melee|6|2+|6|-3|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Trophy Taker', 'This unit\'s attacks that target a <span class="kwb">CHARACTER</span> unit can:<ul><li>Re-roll hit rolls of 1.</li><li>Re-roll wound rolls of 1.</li></ul>'),
+    ability('For the Khan!', "<ul><li>This unit's ranged attacks have [ASSAULT].</li><li>This unit's melee attacks have [LANCE].</li></ul>"),
+  ],
+  keywords: ['Infantry', 'Captain', 'Character', 'Epic Hero', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes', 'White Scars'],
+  unitComposition: ["1 Kor'sarro Khan model"],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'anzuq', count: 1 }, { name: 'bolt pistol', count: 1 }, { name: 'moonfang', count: 1 }],
+  loadout: "<b>This model is equipped with:</b> 1 Anzuq; 1 Bolt Pistol; 1 Moonfang.",
+}))
+
+// ---------------------------------------------------------------------------
+// Suboden Khan (pg 28 bottom / printed 185 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Suboden Khan',
+  role: 'Characters',
+  models: models('SUBODEN KHAN|12"|6|3+|4|8|6+|2|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|2+|5|-1|1',
+    'Onslaught Gatling Cannon [DEVASTATING WOUNDS: non-MONSTER/VEHICLE]|24|8|2+|5|-1|1',
+    'Power Sword [EXTRA ATTACKS, SUSTAINED HITS 1: non-MONSTER/VEHICLE]|Melee|3|2+|5|-2|1',
+    'Stormtooth [ANTI-MONSTER/VEHICLE 4+, LANCE]|Melee|6|2+|7|-3|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Spear of Chogoris', "<ul><li>This unit's ranged attacks have [ASSAULT].</li><li>When this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge.</li><li>If the assault doctrine is active for this unit, this unit has +1 to advance rolls and charge rolls.</li></ul>"),
+    ability('Skilled Riders', 'This unit has MOBILE.'),
+  ],
+  keywords: ['Mounted', 'Captain', 'Character', 'Epic Hero', 'Explosives', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes', 'White Scars'],
+  unitComposition: ['1 Suboden Khan model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 1 }, { name: 'onslaught gatling cannon', count: 1 }, { name: 'power sword', count: 1 }, { name: 'stormtooth', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Heavy Bolt Pistol; 1 Onslaught Gatling Cannon; 1 Power Sword; 1 Stormtooth.',
+}))
+
+// ---------------------------------------------------------------------------
+// Captain (pg 29 / printed 186) -- generic, buildable
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Captain',
+  role: 'Characters',
+  models: models('CAPTAIN|6"|5|3+|4|5|6+|1|'),
+  weapons: weapons(
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|2+|5|-1|1',
+    'Master-crafted Bolter [ASSAULT, RAPID FIRE 1]|24|2|2+|5|-1|2',
+    'Neo-volkite Pistol [CLOSE-QUARTERS, DEVASTATING WOUNDS]|12|1|2+|5|0|2',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|2+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|2+|8|-3|2',
+    'Master-crafted Power Weapon|Melee|6|2+|6|-2|2',
+    'Power Fist|Melee|5|2+|8|-2|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Strategic Acumen', 'In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.'),
+    ability('Finest Hour (Once per battle, per unit)', 'In the Fight phase, when this unit is selected to fight, you can use this ability. If you do, this unit\'s melee attacks have:<ul><li>+3 A.</li><li>[DEVASTATING WOUNDS].</li></ul>'),
+    ability('Relic Shield', 'This model has +1 W.'),
+  ],
+  keywords: ['Infantry', 'Character', 'Explosives', 'Imperium', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Captain model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'heavy bolt pistol', count: 1 }, { name: 'master-crafted bolter', count: 1 }, { name: 'master-crafted power weapon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Heavy Bolt Pistol; 1 Master-crafted Bolter; 1 Master-crafted Power Weapon.',
+  options: [
+    { button: '•', description: "This model's Master-crafted Bolter and Heavy Bolt Pistol can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Neo-volkite Pistol</li><li>1 Plasma Pistol</li></ul>" },
+    { button: '•', description: "This model's Master-crafted Bolter can be replaced with 1 Relic Shield (this model's Master-crafted Power Weapon cannot be replaced)." },
+    { button: '•', description: "This model's Master-crafted Power Weapon can be replaced with 1 Power Fist." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Captain with Jump Pack (pg 30 / printed 187) -- generic, buildable
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Captain with Jump Pack',
+  role: 'Characters',
+  models: models('CAPTAIN WITH JUMP PACK|12"|5|3+|4|5|6+|1|'),
+  weapons: weapons(
+    'Hand Flamer [CLOSE-QUARTERS, TORRENT]|9|3|-|4|0|1',
+    'Heavy Bolt Pistol [CLOSE-QUARTERS]|18|1|2+|5|-1|1',
+    'Plasma Pistol - Standard [CLOSE-QUARTERS]|12|1|2+|7|-2|1',
+    'Plasma Pistol - Supercharge [CLOSE-QUARTERS, HAZARDOUS]|12|1|2+|8|-3|2',
+    'Chainsword [SUSTAINED HITS 1]|Melee|8|2+|5|-1|1',
+    'Power Fist|Melee|5|2+|8|-2|2',
+    'Relic Weapon|Melee|6|2+|6|-2|2',
+    'Thunder Hammer [DEVASTATING WOUNDS]|Melee|5|3+|8|-2|3',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Strategic Acumen', 'In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.'),
+    ability("Angel's Wrath", 'This unit has +1 to advance rolls and charge rolls.'),
+    ability('Relic Shield', 'This model has +1 W.'),
+  ],
+  keywords: ['Infantry', 'Captain', 'Character', 'Explosives', 'Fly', 'Imperium', 'Jump Pack', 'Tacticus'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Captain with Jump Pack model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'chainsword', count: 1 }, { name: 'heavy bolt pistol', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Chainsword; 1 Heavy Bolt Pistol.',
+  options: [
+    { button: '•', description: "This model's Heavy Bolt Pistol can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Hand Flamer</li><li>1 Plasma Pistol</li></ul>" },
+    { button: '•', description: "This model's Chainsword can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Power Fist</li><li>1 Relic Weapon</li></ul>" },
+    { button: '•', description: "This model's Heavy Bolt Pistol and Chainsword can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Thunder Hammer and 1 Relic Shield</li><li>1 Chainsword and 1 Relic Shield</li></ul>" },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Captain in Phobos Armour (pg 31 top / printed 188 top)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Captain in Phobos Armour',
+  role: 'Characters',
+  models: models('CAPTAIN IN PHOBOS ARMOUR|8"|4|3+|4|5|6+|1|'),
+  weapons: weapons(
+    'Bolt Pistol [CLOSE-QUARTERS]|12|1|2+|5|-1|1',
+    'Instigator Bolt Carbine [ASSAULT, PRECISION, RAPID FIRE 1]|24|2|2+|5|-2|2',
+    'Combat Knife [PRECISION, SUSTAINED HITS 1]|Melee|6|2+|5|-1|1',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Infiltrators'), core('Leader'), core('Scouts 6"'), core('Stealth'),
+    armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Strategic Acumen', 'In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.'),
+    ability('Tactical Fluidity (Once per battle round, per unit)', 'In your Shooting phase, when this unit has shot, if this unit is unengaged, this unit can make a normal move of up to D6":<ul><li><u>Or:</u> At the end of your opponent\'s Fight phase, if this unit is engaged, this unit can make a fall-back move of up to 6".</li></ul>'),
+  ],
+  keywords: ['Infantry', 'Captain', 'Character', 'Explosives', 'Imperium', 'Phobos'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Captain in Phobos Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'bolt pistol', count: 1 }, { name: 'combat knife', count: 1 }, { name: 'instigator bolt carbine', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Bolt Pistol; 1 Combat Knife; 1 Instigator Bolt Carbine.',
+}))
+
+// ---------------------------------------------------------------------------
+// Captain in Terminator Armour (pg 31 bottom / printed 188 bottom)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Captain in Terminator Armour',
+  role: 'Characters',
+  models: models('CAPTAIN IN TERMINATOR ARMOUR|5"|6|2+|4|6|6+|1|'),
+  weapons: weapons(
+    'Combi-weapon - Infernus [BLAST 1, TORRENT]|12|3|-|4|0|1',
+    'Combi-weapon - Purgatus|24|2|2+|7|-2|2',
+    'Combi-weapon - Damnatus [MELTA 2]|12|1|2+|9|-3|D3+2',
+    'Storm Bolter [RAPID FIRE 2]|24|2|2+|5|-1|1',
+    'Relic Fist|Melee|5|2+|8|-2|2',
+    'Relic Weapon|Melee|6|2+|6|-2|2',
+  ),
+  abilities: [
+    core('Deep Strike'), core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Strategic Acumen', 'In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.'),
+    ability('Unstoppable Valour', 'You can re-roll charge rolls for this unit.'),
+  ],
+  keywords: ['Infantry', 'Captain', 'Character', 'Imperium', 'Terminator'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Captain in Terminator Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'relic weapon', count: 1 }, { name: 'storm bolter', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Relic Weapon; 1 Storm Bolter.',
+  options: [
+    { button: '•', description: "This model's Relic Weapon can be replaced with 1 Relic Fist." },
+    { button: '•', description: "This model's Storm Bolter can be replaced with 1 Combi-weapon." },
+  ],
+}))
+
+// ---------------------------------------------------------------------------
+// Captain in Gravis Armour (pg 32 / printed 189)
+// ---------------------------------------------------------------------------
+newDatasheets.push(datasheet({
+  name: 'Captain in Gravis Armour',
+  role: 'Characters',
+  models: models('CAPTAIN IN GRAVIS ARMOUR|5"|6|3+|4|6|6+|1|'),
+  weapons: weapons(
+    'Boltstorm Gauntlet [CLOSE-QUARTERS]|12|3|2+|5|-1|1',
+    'Master-crafted Heavy Bolt Rifle [ASSAULT, HEAVY, RAPID FIRE 1]|30|2|2+|6|-1|3',
+    'Boltstorm Gauntlet|Melee|5|2+|8|-2|2',
+    'Master-crafted Power Weapon|Melee|6|2+|6|-2|2',
+    'Relic Blade [EXTRA ATTACKS]|Melee|2|2+|6|-2|2',
+    'Relic Chainsword [EXTRA ATTACKS]|Melee|3|2+|5|-1|2',
+    'Relic Power Fist [EXTRA ATTACKS]|Melee|1|2+|8|-2|2',
+  ),
+  abilities: [
+    core('Leader'), armyRule('Combat Doctrines'), armyRule('Transhuman Strategist'),
+    ability('Strategic Acumen', 'In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.'),
+    ability('Refuse to Yield', 'Attacks allocated to this model have -1 D.'),
+  ],
+  keywords: ['Infantry', 'Captain', 'Character', 'Explosives', 'Gravis', 'Imperium'],
+  factionKeywords: ['Adeptus Astartes'],
+  unitComposition: ['1 Captain in Gravis Armour model'],
+  modelCountMin: 1, modelCountMax: 1,
+  defaultWeaponNames: [{ name: 'master-crafted heavy bolt rifle', count: 1 }, { name: 'master-crafted power weapon', count: 1 }],
+  loadout: '<b>This model is equipped with:</b> 1 Master-crafted Heavy Bolt Rifle; 1 Master-crafted Power Weapon.',
+  options: [
+    { button: '•', description: "This model's Master-crafted Heavy Bolt Rifle and Master-crafted Power Weapon can be replaced with one of the following: <ul style=\"list-style-type:circle\"><li>1 Boltstorm Gauntlet and 1 Relic Blade</li><li>1 Boltstorm Gauntlet and 1 Relic Chainsword</li><li>1 Boltstorm Gauntlet and 1 Relic Power Fist</li></ul>" },
+  ],
+}))
