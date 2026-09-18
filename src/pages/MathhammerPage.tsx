@@ -6,7 +6,7 @@ import { usePanelState } from '@/features/mathhammer/hooks/usePanelState'
 import { UnitPanel } from '@/features/mathhammer/components/UnitPanel'
 import { DamageCalculator } from '@/features/mathhammer/components/DamageCalculator'
 import { resolveModifiers, mergeMods, combineAttackerMods, DEFAULT_MODS, getInnateFeelNoPain } from '@/features/mathhammer/utils/mathhammer'
-import { deriveModifierRules } from '@/features/mathhammer/utils/deriveRules'
+import { deriveModifierRules, isRuleApplicable } from '@/features/mathhammer/utils/deriveRules'
 import { useAppSelector } from '@/store/hooks'
 import { selectRosterById } from '@/store/rosterSlice'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
@@ -270,13 +270,61 @@ export function MathhammerPage() {
     setDefenderModel(null)
   }
 
+  // Rule-visibility context — mirrors UnitPanel's own `visibleRules` filter (see
+  // isRuleApplicable in deriveRules.ts). A modifier the player toggled on can fall out of
+  // scope later without them un-toggling it (e.g. switching the selected weapon from melee to
+  // ranged after activating a melee-only Ka'tah stance, or deselecting the weapon that made an
+  // ANTI-keyword rule available) — resolveModifiers must only honor ids whose rule is still
+  // applicable here, or a rule no longer shown in the panel keeps silently affecting combat
+  // types/targets it was never meant for.
+  const defenderKeywords: string[] = rightPanel.selectedUnit
+    ? [...rightPanel.selectedUnit.keywords, ...rightPanel.selectedUnit.factionKeywords]
+    : []
+  const attackerKeywords: string[] = leftPanel.selectedUnit
+    ? [...leftPanel.selectedUnit.keywords, ...leftPanel.selectedUnit.factionKeywords]
+    : []
+  const selectedWeaponAntiKeywords: string[] = selectedWeapons.flatMap(w =>
+    w.antiEntries.map(e => e.keyword)
+  )
+  const leftRuleCtx = {
+    isAttacker: true,
+    enhancementId: leftPanel.selection.enhancementId,
+    combatType,
+    anySelectedHeavy: selectedWeapons.some(w => w.isHeavy),
+    anySelectedLance: selectedWeapons.some(w => w.isLance),
+    anySelectedTorrent: selectedWeapons.some(w => w.isTorrent),
+    anySelectedIndirect: selectedWeapons.some(w => w.isIndirectFire),
+    anySelectedPsychic: selectedWeapons.some(w => w.isPsychic),
+    weaponAntiKeywords: selectedWeaponAntiKeywords,
+    defenderKeywords,
+    attackerKeywords,
+  }
+  // The defender panel doesn't track a weapon selection of its own (see the right-side
+  // UnitPanel instantiation below, which passes none) — so the weapon-conditional and
+  // ANTI-keyword fields UnitPanel would default to empty/false stay that way here too.
+  const rightRuleCtx = {
+    isAttacker: false,
+    enhancementId: rightPanel.selection.enhancementId,
+    combatType,
+    anySelectedHeavy: false,
+    anySelectedLance: false,
+    anySelectedTorrent: false,
+    anySelectedIndirect: false,
+    anySelectedPsychic: false,
+    weaponAntiKeywords: [] as string[],
+    defenderKeywords: [] as string[],
+    attackerKeywords: defenderKeywords,
+  }
+  const applicableLeftRules = leftRules.filter(r => isRuleApplicable(r, leftRuleCtx))
+  const applicableRightRules = rightRules.filter(r => isRuleApplicable(r, rightRuleCtx))
+
   // Split attacker rules into "applies to any selected weapon" vs "bearer-only" (e.g.
   // enhancements phrased as "this model's melee attacks have +1 A") so a character's own
   // bonus doesn't leak onto the unit it's attached to when both share a weapon selection.
   const attackerIdsList = Array.from(attackerActiveIds)
-  const attackerUnitMods = resolveModifiers(attackerIdsList, leftRules.filter(r => !r.bearerOnly))
-  const attackerBearerMods = resolveModifiers(attackerIdsList, leftRules.filter(r => r.bearerOnly))
-  const defenderMods = resolveModifiers(Array.from(defenderActiveIds), rightRules)
+  const attackerUnitMods = resolveModifiers(attackerIdsList, applicableLeftRules.filter(r => !r.bearerOnly))
+  const attackerBearerMods = resolveModifiers(attackerIdsList, applicableLeftRules.filter(r => r.bearerOnly))
+  const defenderMods = resolveModifiers(Array.from(defenderActiveIds), applicableRightRules)
 
   // When no character is attached, the selected unit IS the bearer — bearer-only effects
   // apply to it directly, same as a unit-wide effect would.
@@ -324,13 +372,6 @@ export function MathhammerPage() {
   const effectiveDefenderModel = defenderModel ?? rightPanel.selectedUnit?.models[0] ?? null
   const attackerName = leftPanel.selectedUnit?.name ?? ''
   const defenderName = rightPanel.selectedUnit?.name ?? ''
-
-  const defenderKeywords: string[] = rightPanel.selectedUnit
-    ? [...rightPanel.selectedUnit.keywords, ...rightPanel.selectedUnit.factionKeywords]
-    : []
-  const selectedWeaponAntiKeywords: string[] = selectedWeapons.flatMap(w =>
-    w.antiEntries.map(e => e.keyword)
-  )
 
   const mobileTabs: { id: MobileTab; label: string }[] = [
     { id: 'attacker', label: 'Atacante' },

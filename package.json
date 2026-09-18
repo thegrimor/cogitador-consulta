@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "server": "npm run dev --prefix server",
     "server:install": "npm install --prefix server",
-    "server:start": "npm start --prefix server"
+    "server:start": "npm start --prefix server",
+    "extract-pdf:install": "pip install -r scripts/pdf-codex-tools/requirements.txt",
+    "extract-pdf": "python3 scripts/pdf-codex-tools/extract-text.py"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",

@@ -1,4 +1,4 @@
-import type { GameData, CombatEffect, Datasheet, DetachmentAbility, Stratagem } from '@/types'
+import type { GameData, CombatEffect, CombatType, Datasheet, DetachmentAbility, Stratagem } from '@/types'
 import type { ModifierRule } from '../types'
 import type { PanelSelection } from '../types'
 
@@ -127,4 +127,52 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   }
 
   return rules
+}
+
+/** Everything ModifierPanel needs to know to decide whether a given rule is currently "in
+ * scope" — same conditions UnitPanel already used to build its own `visibleRules` list, pulled
+ * out here so MathhammerPage can apply the identical check before resolving effects (see
+ * `isRuleApplicable`). */
+export interface RuleVisibilityContext {
+  isAttacker: boolean
+  enhancementId: string | null
+  combatType?: CombatType
+  anySelectedHeavy: boolean
+  anySelectedLance: boolean
+  anySelectedTorrent: boolean
+  anySelectedIndirect: boolean
+  anySelectedPsychic: boolean
+  weaponAntiKeywords: string[]
+  defenderKeywords: string[]
+  attackerKeywords: string[]
+}
+
+/**
+ * Whether `rule` currently applies given the panel/weapon-selection context — the same set of
+ * conditions that decide whether ModifierPanel shows it as toggleable at all (combat type,
+ * equipped enhancement, which weapon-conditional keywords are in play, ANTI-/target-/attacker-
+ * keyword requirements). A rule the player toggled on earlier can fall out of scope later (e.g.
+ * switching the selected weapon from melee to ranged after activating a melee-only Ka'tah
+ * stance) without the player un-toggling it — `resolveModifiers` must run its active ids through
+ * this same check, or a rule that's no longer shown in the panel keeps silently contributing its
+ * effect to combat types/targets it was never meant for.
+ */
+export function isRuleApplicable(rule: ModifierRule, ctx: RuleVisibilityContext): boolean {
+  const ruleTarget = rule.target ?? 'attacker'
+  if (ctx.isAttacker && ruleTarget === 'defender') return false
+  if (!ctx.isAttacker && ruleTarget === 'attacker') return false
+  if (rule.enhancementId && rule.enhancementId !== ctx.enhancementId) return false
+  if (rule.combatType && rule.combatType !== ctx.combatType) return false
+  if (rule.id === 'weapon-heavy'       && !ctx.anySelectedHeavy)      return false
+  if (rule.id === 'weapon-lance'       && !ctx.anySelectedLance)      return false
+  if (rule.id === 'weapon-torrent'     && !ctx.anySelectedTorrent)    return false
+  if (rule.id === 'weapon-indirect'    && !ctx.anySelectedIndirect)   return false
+  if (rule.id === 'weapon-psychic'     && !ctx.anySelectedPsychic)    return false
+  if (rule.requiresAntiKeyword && !ctx.weaponAntiKeywords.includes(rule.requiresAntiKeyword)) return false
+  if (rule.requiresTargetKeyword) {
+    const defKwLower = ctx.defenderKeywords.map(k => k.toLowerCase())
+    if (!defKwLower.includes(rule.requiresTargetKeyword.toLowerCase())) return false
+  }
+  if (rule.requiresAttackerKeyword && !ctx.attackerKeywords.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
+  return true
 }

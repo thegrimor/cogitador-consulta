@@ -16,6 +16,9 @@ npm run preview  # Preview production build
 
 npm run server:install  # one-time: npm install inside server/
 npm run server           # backend (Express) with reload, http://localhost:8787
+
+npm run extract-pdf:install                              # one-time: pip install pymupdf
+npm run extract-pdf -- "path/to/book.pdf" <first> <last> [outFile]  # cheap PDF text-layer dump
 ```
 
 The frontend needs the backend running to do anything with the `Ejército` area (login, and
@@ -27,7 +30,8 @@ boot without one. Vite's dev server proxies `/api` to `http://localhost:8787` (s
 frontend can be deployed separately and point at the backend via `VITE_API_BASE_URL` (see
 `server/README.md`).
 
-One-off data script (run manually with `node scripts/<file>.mjs`, not wired to package.json):
+One-off data scripts (run manually with `node scripts/<file>.mjs`, not wired to package.json,
+except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text.py`):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
 - `audit-combat-effects.mjs` — triage tool for the Mathhammer combat-effect data audit (see
   "CombatEffect authoring convention" under Mathhammer below): walks every
@@ -44,15 +48,21 @@ One-off data script (run manually with `node scripts/<file>.mjs`, not wired to p
   to avoid up front rather than clean up after: don't leave the PDF's flavour-text sentence at
   the start of ability/enhancement/stratagem descriptions — this app's convention, confirmed
   against every other faction, is to start at the mechanical rule text). `README.md` in the same
-  folder covers the PDF-reading/OCR mechanics specifically: `render-and-ocr.mjs` (poppler
-  `pdftoppm` + Tesseract OCR)
-  for when `pdftotext` produces garbage on a book's datasheet pages (a broken embedded-font
+  folder covers the PDF-reading/OCR mechanics specifically: `extract-text.py` (PyMuPDF-based
+  plain-text-layer extraction — deps in `requirements.txt`, install via `npm run
+  extract-pdf:install` (or `pip install -r scripts/pdf-codex-tools/requirements.txt` directly),
+  no system deps; run via `npm run extract-pdf -- <pdf> <first> <last> [outFile]`, see Commands
+  above) is the cheap first step, good for most pages (army rules, detachments, stratagems,
+  enhancements) where the PDF's text layer isn't broken; it flags pages whose extracted text
+  looks mangled so you know which ones need OCR instead. `render-and-ocr.mjs` (poppler
+  `pdftoppm` + Tesseract OCR) is the fallback
+  for when the text layer produces garbage on a book's datasheet pages (a broken embedded-font
   glyph mapping, not a layout issue — confirmed on the Orks 11th-ed codex across every
   `pdftotext` mode). OCR reads pixels instead, so it doesn't care that the text layer is
   broken, and it's near-free token-wise for prose (ability text, wargear options, keywords) —
   it's unreliable for the numeric weapon/model stat tables specifically, which still need a
   visual check (or the TSV-based positional table reconstruction sketched in that README, not
-  yet built). Both tools install via `winget`.
+  yet built). `render-and-ocr.mjs`'s poppler/tesseract install via `winget`.
 - `scripts/orks-11th-ed-migration/` — one-off pipeline used to rebuild `orks.json` wholesale
   from the actual 11th-edition Codex PDF (not a Faction Pack dataslate) when that codex
   replaced the old Ork data generation entirely; kept as a worked reference for the next
@@ -61,6 +71,20 @@ One-off data script (run manually with `node scripts/<file>.mjs`, not wired to p
   with that instead). See that folder's README for the full methodology and the gaps this run
   left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
   stratagem/enhancement/detachmentAbility cross-references).
+- `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
+  PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
+  with the user) covers only the core/generic Adeptus Astartes content (army rules, 15
+  detachments, 85 datasheets), not the full previous roster. Per explicit user instruction,
+  this migration **replaced only the "core" slice** of `space-marines.json` with what the PDF
+  actually contains and **left untouched** everything chapter-locked to Dark Angels, Deathwatch,
+  Space Wolves, Black Templars or Blood Angels — `space-marines.json` is therefore now a mix of
+  this new codex's core roster plus five untouched, differently-sourced chapter rosters (check
+  a datasheet's/detachment's chapter scope — `factionKeywords`/`chapters` — before assuming
+  which codex printing its text came from). See that folder's README for the classification
+  rule (`classification.json`), the same points-placeholder/heuristic-cross-reference caveats
+  as Orks, and two real bugs this run found and fixed along the way (a `render-and-ocr.mjs`
+  filename-padding bug, and a pre-existing `WeaponCard.tsx` invalid-HTML nested-button bug that
+  no previously-existing datasheet happened to trigger).
 
 No test suite yet.
 
@@ -266,7 +290,7 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
 Standalone feature folder at `src/features/mathhammer/`. Computes expected-value damage output (hits → wounds → saves → damage → Feel No Pain, with full probability distribution — stddev/percentiles/kill probability) for an attacker unit's weapons against a defender profile.
 
 - `types.ts` — `CombatModifiers` (every numeric/boolean modifier a rule can apply), `ModifierRule` (a single rule's targeting conditions + effects, keyed by faction/detachment/enhancement/datasheet/leader/keyword), `DamageBreakdown` (per-weapon calculation output).
-- `utils/deriveRules.ts` — derives the modifier panel's toggleable rule list directly from the `effect`/`options` fields on whichever Ability/Stratagem/Enhancement/DetachmentAbility are in scope for the current selection (see Data layer above) — there's no separate flat rule catalog.
+- `utils/deriveRules.ts` — derives the modifier panel's toggleable rule list directly from the `effect`/`options` fields on whichever Ability/Stratagem/Enhancement/DetachmentAbility are in scope for the current selection (see Data layer above) — there's no separate flat rule catalog. Also exports `isRuleApplicable` (+ its `RuleVisibilityContext`), the single predicate deciding whether a given rule is currently in scope (combat type, equipped enhancement, weapon-conditional keywords like Heavy/Lance/Torrent/Indirect/Psychic, ANTI-/target-/attacker-keyword requirements). `UnitPanel` uses it to build the rules it shows as toggleable, and `MathhammerPage` runs the player's *active* modifier ids through the same check before calling `resolveModifiers` — a rule can fall out of scope after being toggled on (e.g. switching the selected weapon from melee to ranged after activating a melee-only Ka'tah stance) without the player un-toggling it, so both call sites must agree on what counts as "applicable" or a hidden rule keeps silently contributing its effect.
 - `utils/mathhammer.ts` — the core probability math.
 - `components/`: `UnitSelector` (pick attacker/defender), `UnitPanel`, `ModifierPanel` (toggle applicable rules/stratagems), `DamageCalculator` + `GaussianChart` (results + distribution chart), plus `StatsBar`/`WeaponCard`/`AbilityList`/`StratList` variants local to this feature.
 - `hooks/usePanelState.ts` — panel selection state, synced to the `?faction=&datasheet=&detachments=&character=&roster=` query params via `mathhammerAttackerPath`.

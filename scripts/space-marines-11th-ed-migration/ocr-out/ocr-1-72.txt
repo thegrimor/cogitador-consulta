@@ -1,0 +1,6318 @@
+
+
+===== PAGE 1 (page-01.png) =====
+
+COMBAT DOCTRINES
+
+The Space Marines draw upon the combat
+doctrines of the Codex Astartes as they
+
+flow through each phase of battle: first
+hammering the enemy with devastating
+firepower, then raking them with close-ranged
+
+volleys while manoeuvring to deliver a final
+crushing assault.
+
+At the start of your Command phase, you
+can select one combat doctrine listed
+below. If you do, that combat doctrine |s
+active for friendly ADEPTUS ASTARTES units
+
+with this ability until the start of your next
+Command phase.
+
+ASSAULT DOCTRINE
+
+When this unit is selected to make
+an advance move, that advance
+move does not prevent this unit
+from being eligible to declare
+
+a charge.
+
+DEVASTATOR DOCTRINE
+
+| This unit's ranged attacks
+Pitin 2s have [ASSAULT].
+
+TACTICAL DOCTRINE
+
+. When this unit is selected to make a
+a ied fall-back move, that fall-back move
+
+esc: pris does not prevent this unit from
+
+eS | being eligible to shoot and eligible
+
+i to declare a charge.
+
+A
+
+Unless otherwise stated:
+= You can only select each combat doctrine
+once per battle.
+
+im 2 | a = Only one combat doctrine can be active for
+4 each unit. lf a rule makes a combat doctrine
+Zing active for a unit, any combat doctrine
+
+previously active for that unit is no longer
+active for that unit.
+
+TRANSHUMAN
+STRATEGIST
+
+Those Space Marines who rise to positions
+
+a of command are exceptional strategists
+‘ Ml tacticians,
+
+A tthe
+thi s ability is te pau ulcr,
+
+se
+
+art of the battle round, ifa model with
+
+LIBRARIUS
+
+Space Marine Librarians advance through
+the ranks of Lexicanum, then Codicier, then
+Epistolary, their psychic might and repertoire
+of powers increasing with their hard-
+won experience.
+
+ADEPTUS ASTARTES PSYKER units with this
+ability have a psyker level of 1 or higher,
+specified in that unit's abilities. Each psychic
+ability has a psychic level of 1 or higher
+specified in that ability’s name.
+
+In a battle round, a friendly ADEPTUS ASTARTES
+PSYKER unit can use a number of psychic
+abilities whose total psychic level does not
+exceed that PSYKER unit's psyker level.
+
+Example: /n a battle round, a psyker level 3
+PSYKER unit could use three psychic level 1
+abilities, or one psychic level 1 ability and
+one psychic level 2 ability, or one psychic
+level 3 ability.
+
+‘SPACE MARINE:
+CHAPTERS —
+
+The many Chapters of Space Marines
+are spread perilously thin across the
+Imperium’s countless war zones. He
+it is not unheard of for them scone
+alongside one another on the sam
+battlefield, far more commonly th rei
+strike forces operate alone to fe
+seemingly impossible odds. |
+
+(fan ADEPTUS ASTARTES unit has
+
+-asecond Faction keyword on its
+datasheet, that Faction keywordis
+
++
+
+the name of that unit’s Chapter. For 3
+example, Marneus Calgar has both the
+ADEPTUS ASTARTES and ULTRAMARINES — ’
+
+Faction keywords, and is therefore fron m
+
+: the Ultramarines Chapter. Z rn
+
+2
+a (ef
+a
+
+ety a ~
+ie You cannot Micluae units frm mo more —
+i ; than one ei in your mG Zs
+
+ES ite ail if
+
+2 sae 7a nau _—
+
+
+===== PAGE 2 (page-02.png) =====
+
+cpECIAL MOVE TYPES
+
+rhe follow! ng are special move types that certain
+your units are eligible to make
+
+or all of
+
+SHOCK DISEMBARK HOVE
+
+rule q II 0 Wit 1g
+
+tnis move type, if “al i he following 5 appl ly to
+
+your unit
+« Embarked within a TRANSPORT model! th
+
+is on the battlefield.
+» Did not embark within that TRANSPORT
+
+this phase
+
+t up as described in Set
+
+EFFECT: Your unit iss
+Up (Core Rules, nD)
+
+WHILE MOVING: Set up each model in your
+unit wholly within the set-up distance of
+
+that TRANSPORT.
+
+———
+
+AFTER MOVING: Your unit is not eligible to
+declare a charge until the end of the turn.
+
+ASSAULT DISEMBARK MOVE
+SET-UP DISTANCE: 3” ‘a
+
+ELIGIBLE IF: As stated In the rule allowing
+this move type, If all of the following apply ©
+
+oe your unit:
+* Embarked within a TRANSPORT mode! thal
+
+2
+’ on the battlefield.
+® Did not embark within that TRANSPORT
+
+this phase,
+© That TRANSPORT has not made an advance
+
+fall-back move this phase.
+
+EFFECT: Your unit is set up as described in Set
+Up (Core Rules, 0302).
+
+WHILE MOVING:
+
+* Setup each model in your unit wholly witiin
+the set-up distance of that TRANSPORT.
+
+’ *
+.
+.é
+—_
+s .
+.
+~ ,*
+bs ;
+mt
+.
+}
+
+
+
+===== PAGE 3 (page-03.png) =====
+
+DETACHMENT RULES
+
+CODEX DISCIPLINE
+
+Deployed as a mutually supportive strike force that
+epitomises the flexibility and martial wisdom of the Codex
+Astartes, Space Marines have the answer to any strategic or
+tactical challenge.
+
+You can select one combat doctrine one additional time
+per battle.
+
+STANDARD OF THE EMPEROR ASCENDANT
+
+This venerable banner was carried in the Great Crusade, and
+its presence is a constant inspiration.
+
+ANCIENT model only. This model has:
+= +1 0Cand Ld.
+
+= Feel No Pain 5+.
+
+= The following ability:
+
+Ancient Exhortation (Once per battle, per army): When
+this unit is selected to fight, you can use this ability. If
+you do, this unit's melee attacks have +1 A until the end
+
+of the phase.
+
+LAURELS OF TRIUMPH
+
+A rare honour, the Laurels of Triumph mark out a truly
+accomplished warrior even amongst the Angels of Death.
+
+ADEPTUS ASTARTES model only. This model's melee
+
+attacks have:
+= +1S and AP.
+
+= Or: Ifthe assault doctrine is active for this unit,
++2 S and AP.
+
+ADEPT OF THE CODEX
+
+An ardent student of the Codex Astartes, this commander
+epitomises its tactical genius.
+
+CAPTAIN model only. The tactical doctrine is active for this
+unit in addition to any other combat doctrine.
+
+ARTIFICER ARMOUR
+
+Crafted by the Chapter's finest artificers, this suit of armour
+provides superior protection.
+
+ADEPTUS ASTARTES model only. This model has:
+e 2+ Sv.
+" Feel No Pain 5+.
+
+
+
+===== PAGE 4 (page-04.png) =====
+
+iRNOUR OF CONTEMPT
+
+eLADIUS TASK FORCE STRATAGEM
+
+The belligerence of the Adeptus Astartes combined with
+their post-human physiology makes them unyielding foes
+
+to face.
+
+WHEN: Your opponent's Shooting phase or the Fight
+phase, when an enemy unit targets a friendly ADEPTUS
+
+ASTARTES unit.
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Attacks that target your unit have -1 AP until that
+enemy unit has attacked.
+
+mA WORTHY DEATH
+
+GLADIUS TASK FORCE STRATAGEM
+
+a a
+ae Space Marines who specialise in close assault
+} are ready to fight to their last breath and beyond to
+
+‘cut down more foes.
+
+{
+—
+
+WHEN: Fight phase, when an enemy unit targets a friendly |
+ADEPTUS ASTARTES unit.
+
+is NGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: When a model in your unit is destroyed, ifyour |
+unit has not been selected to fight this phase, roll one DS:
+
+Ona 4+, do not remove that model from the battlefield.
+When your unit has fought, or at the end of the phase
+
+whic aver comes first), that model is removed from
+he battlefield.
+
+———
+4 :
+'_ a 4
+Tony -
+7 _
+iy
+ILe@ .
+- : +
+' —
+
+——
+
+MIGHT OF ANGELS
+
+ASK FORCE STRATAGEM
+
+training allows these warriors to
+ready impressive might into @ truly
+lose-quarters onslaught.
+
+ADAPTIVE STRATEGY
+
+GLADIUS TASK FORCE STRATAGEM
+
+7
+
+ie Saba the Codex Astartes allow for unorthodox
+
+it oh ombat tactics and the employment of divergent
+ctrines 1f doing so will lead to victory.
+
+WHEN: Your Command phase.
+
+TARGET: One friendly ADEPTUS ASTARTES unit.
+
+EFFECT: Select one combat doctrine. That combat
+doctrine is active for your unit until the start of your next
+Command phase.
+
+“STORM OF DEVASTATION
+
+BEANS
+
+“GLADIUS TASK FORCE STRATAGEM
+
+-
+
+rear - . *
+
+Masters of the art of long-ranged warfare, these
+warriors unleash utter devastation upon their enemies,
+
+{a
+
+| WHEN: Your Shooting phase, when a friendly ADEPTUS
+| ASTARTES unit is selected to shoot.
+
+| TARGET: That ADEPTUS ASTARTES unit.
+s have [IGNORES COVER].
+
+| EFFECT: Your unit's ranged attack
+
+y ; ound to
+e Marines know precisely when to g1ve gr
+Sate floundering, before surging back and
+
+leave enemies | fore
+driving them from the field in disarray.
+
+e
+
+'s Movement phase, when
+
+ve within 8" of a friendly
+MOUNTED unit.
+
+MOUNTED unit.
+fup to D6.
+
+159
+
+
+===== PAGE 5 (page-05.png) =====
+
+hal
+
+As
+\
+
+Ae
+
+a a2 UNIQUE: DOCTRINES
+
+THE CHAPTER’ S CLOSE-COMBAT SPECIALISTS TEAR
+
+DETACHMENT RULES
+
+ASSAULT MASTERY
+
+Space Marines who specialise in close-quarters brutality
+truly embody their sobriquet Angels of Death.
+
+You can select the assault doctrine one additional time
+per battle.
+
+IMPERIUM 'S SWORD
+
+This champion hurls himself forwards with unbridled
+ferocity, cutting down the foe like a reaping whirlwind.
+
+ADEPTUS ASTARTES model only. This model has the
+following weapon:
+
+Imperium’s Sword
+RANGE A WS S AP D
+Melee 2+ 7 3 3
+
+FURIOUS ASSAULT CLtiz0
+
+Bellicose temperament and advanced training combine to
+make this unit especially terrifying on the charge.
+
+ADEPTUS ASTARTES INFANTRY unit only. This unit's melee
+attacks have [SUSTAINED HITS 1: non-MONSTER/VEHICLE].
+
+“ASSAULT BRETHREN
+
+INTO THE FOE WITH LETHAL INTENT
+
+ARMOUR OF CONTEMPT
+
+ASSAULT BRETHREN STRATAGEM
+
+The belligerence of the Adeptus Astartes combined with
+their post-human physiology makes them unyielding foes
+
+to face.
+
+WHEN: Your opponent's Shooting phase or the Fight
+phase, when an enemy unit targets a friendly ADEPTUS
+
+ASTARTES unit.
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Attacks that target your unit have -1 AP until that
+enemy unit has attacked.
+
+GENE-WROUGHT wil
+
+ASSAULT BRETHREN STRATAGEM ys nee, 4
+
+RRS
+
+Space Marines are blessed with ETE Tatar
+
+WHEN: Fight phase, when a friendly ADEPTUS ASTARTES
+unit is selected to fight.
+
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Your unit’s melee attacks have:
+
+= [LANCE].
+" Or: If the assault doctrine is active for your unit,
+[LANCE] and +1 AP.
+
+DUTY IN DEATH
+
+ASSAULT BRETHREN STRATAGEM |)
+
+Imminent death does not prevent a Space Marine from
+enacting their final justice upon the Emperor’s foes.
+
+WHEN: Fight phase, when an enemy unit targets a friendly
+ADEPTUS ASTARTES unit.
+
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: When a model in your unit is destroyed, if your
+unit has not been selected to fight this phase, roll one
+
+D6, with +1 to that roll if the assault doctrine is active for
+your unit:
+
+= Ona 4+, do not remove that model from the battlefield.
+When your unit has fought, or at the end of the phase
+
+(whichever comes first), that model is removed from
+the battlefield.
+
+
+===== PAGE 6 (page-06.png) =====
+
+rarely are the Adeptus Astartes deadlier than when they
+bring to bear the most fundamental teachings of the
+
+Codex Astartes.
+
+You can select the tactical doctrine one additional time
+per battle.
+
+ENHANCEMENTS = aN |
+~_IAURELS OF VIGILANCE
+
+Those awarded this prestigious honour are ever
+Vigilant, responding swiftly and with measured force tc
+enemy threats.
+
+\DEPTUS ASTARTES model only.
+
+Once per battle round, per army) When you U>
+rire Overwatch/Heroic Intervention stratac°'™
+aigeta friendly ADEPTUS ASTARTES BATTLELLNE uni’ an
+
+2 of this model with that stratagem, that use is -1 CP.
+
+ACTICAL INSIGHT
+nis chan pion understands the deeper flow of pattie ce
+Salways prepared to discern the course of action that W ll
+
+assured victory.
+
+a
+-s .
+The
+
+ARMOUR OF CONTEMPT
+
+TACTICAL BRETHREN STRATAGEM
+
+The belli
+lligerence of the Adeptus Astartes combined with
+
+their post-human physi
+eeeeee physiology makes them unyielding foes
+
+lee ay opponent's Shooting phase or the Fight
+phase, when an enemy unit targets a friendly A
+ASTARTES unit. Fowl
+
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Attacks that target your unit have -1 AP until that
+enemy unit has attacked.
+
+NOMINATION FIRE
+\CTICAL BRETHREN STRATAGEM
+
+| The Codex Astartes dictates when firepower is best
+used to dismay, disrupt and debilitate the enemy.
+
+Ak
+8
+if
+
+WHEN: Your Shooting phase, when a friendly ADEPTUS
+
+ASTARTES unit has shot.
+TARGET: That ADEPTUS ASTARTES unit
+
+lect one enemy unit hit by those
+d until the start of your next turn:
+
+EFFECT: Se attacks. That
+enemy unit Is suppresse
+
+« While a unit!s suppressed, that unit's attacks have -|
+
+such is the 2pae
+that even the most ©
+out of position.
+
+
+
+===== PAGE 7 (page-07.png) =====
+
+DETACHMENT RULES
+
+DEVASTATOR MASTERY
+
+Unceasing and unmerciful, Adeptus Astartes fire support
+formations lay waste to all that falls under their gunsights.
+
+You can select the devastator doctrine one additional time
+per battle.
+
+MASTER-FORGED FIREARMS
+
+The finest ballistic armaments the Chapter's artificers can
+create, these weapons reap a grievous tally of foes.
+
+ADEPTUS ASTARTES INFANTRY /MOUNTED model only. This
+model's ranged attacks (excluding [PSYCHIC] attacks) have
++] A,S, AP and D.
+
+HONOUR OF VIGILANCE
+
+A savant of applied firepower, this warrior ensures their
+comrades’ big guns are always optimally positioned
+and targeted.
+
+ADEPTUS ASTARTES model only.
+
+= This unit's ranged attacks have [LETHAL HITS].
+
+« |fthe devastator doctrine is active for this unit, this unit
+can re-roll advance rolls.
+
+ARMOUR OF CONTEMPT
+
+DEVASTATOR BRETHREN STRATAGEM
+
+The belligerence of the Adeptus Astartes combined with
+their post-human physiology makes them unyielding foes
+to face.
+
+WHEN: Your opponent's Shooting phase or the Fight
+phase, when an enemy unit targets a friendly ADEPTUS
+
+ASTARTES unit.
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Attacks that target your unit have -1 AP until that
+enemy unit has attacked.
+
+STORM OF FIRE
+DEVASTATOR BRETHREN STRATAGEM
+
+There is no escaping the wrath of the Space Marines,
+and they use their weapons to bring swift death to
+their foes wherever they may hide.
+
+WHEN: Your Shooting phase, when a friendly ADEPTUS
+ASTARTES unit is selected to shoot.
+
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Your unit's ranged attacks have:
+
+= [IGNORES COVER].
+
+= Or: If the devastator doctrine is active for your unit,
+[IGNORES COVER] and +1 AP.
+
+HAIL OF VENGEANCE
+
+DEVASTATOR BRETHREN STRATAGEM
+
+Space Marines’ incredible battlefield awareness
+enables them to instinctively identify the origin of
+any enemy fire and punish their attackers.
+
+WHEN: Your opponent's Shooting phase, when an enemy
+
+unit has shot, if those attacks destroyed a model ina
+friendly ADEPTUS ASTARTES unit.
+
+TARGET: That ADEPTUS ASTARTES unit.
+
+EFFECT: Your unit shoots using normal shooting, but while
+doing so your unit can only target that enemy unit.
+
+
+
+===== PAGE 8 (page-08.png) =====
+
+TACTICAL DREADNOUGHT FORTITUDE
+
+TERMINATOR STORM FORCE STRATAGEM
+
+The combination of Tactical Dreadnought armour and
+transhuman physiology is redoubtable indeed.
+
+WHEN: Your opponent's Shooting phase or the Fight phase,
+when an enemy unit targets a friendly ADEPTUS ASTARTES
+TERMINATOR unit.
+
+TARGET: That ADEPTUS ASTARTES TERMINATOR unit.
+
+EFFECT: Attacks that target your unit have -1 D until that
+enemy unit has attacked.
+
+rans of a hundred decapitating strikes, these First
+Company warriors know that if they land their first blow
+with sufficiently furious momentum, they will need
+
+Vete
+
+‘no second.
+
+ Frendly ADEPTUS ASTARTES TERMINATOR units have +1 to
+charge rolls.
+
+a
+‘.
+:
+
+® ENHANCEMENTS "ss Ni MERCILESS VETERANS
+
+TERMINATOR STORM FORCE STRATAGEH
+
+Ct , MPION OF THE FIRST COMPAN\ | Cumulative centuries of military experience help these
+Biinre the enemies this warrior has not faced als ' veterans’ firepower hit home with murderous precision.
+bested and they remember the vulnerabilities 0; every WHEN: Your Shooting phase, when a friendly gti
+defeated foe | ASTARTES TERMINATOR unit is selected to shoot
+
+— | ¢ ASTARTES TERMINATOR unit.
+
+| TARGET: That ADEPTU
+
+EFFECT: Your unit's ranged attacks have:
+
+DEPTUS ASTARTES TERMINATOR model only. 1s U0"
+ielee attacks have [LETHAL HITS].
+
+IRPOREUM RELIQUARY a
+
+archeotech teleportation stabiliser '5 unique, @ Ie
+
+i. = : * Cs. thr ae
+
+IKAge technology that spirits its bearer swiftly troug!
+#
+
+) ASTARTES TERMINATOR model only. !n your a
+shase, this unit can make an ingres® thedabes
+
+
+
+===== PAGE 9 (page-09.png) =====
+
+‘a
+
+DETACHMENT RULES
+
+WRATH OF THE CHAPTER
+
+When the Space Marines are roused to true martial fury,
+they bring their vengeance to their adversaries with the
+
+inescapable speed of a lightning strike.
+
+Friendly TACTICUS units can re-roll advance rolls.
+
+MARTIAL PARAGON
+
+Leading his battle-brothers by example, this champion of
+the Chapter strives to embody the martial teachings of the
+
+Codex Astartes.
+
+TACTICUS model only. This unit's attacks can:
+= Re-roll one hit roll.
+= Re-roll one wound roll.
+
+SPEARPOINT WAR LEADER
+
+Once the enemy are sighted, this warrior leads the attack
+from the very front, striving to be first in amongst the
+foe’s ranks.
+
+TACTICUS model only. This unit has Scouts 6°.
+
+. ;
+AY Ny ’ 4 { F :
+\ ~~ ¢ : ¥ ‘
+m. :
+je * jo « 4 “4 |
+y -_ - ,
+\ » ‘ :
+
+RELENTLESS ASSAULT
+
+- TACTICUS ATTACK FORCE STRATAGEM
+
+Pressing mercilessly forward, these warriors place
+shots and blows perfectly, no matter their targets.
+
+WHEN: Your Shooting phase or the Fight phase, when a
+friendly TACTICUS unit is selected to attack.
+
+TARGET: That TACTICUS unit.
+EFFECT: Your unit's attacks have:
+
+= [SUSTAINED HITS 1: non-MONSTER/ VEHICLE],
+= Or: [LETHAL HITS: MONSTER/VEHICLE].
+
+TRANSHUMAN SWIFTNESS
+
+PNT fe only i
+
+TACTICUS ATTACK FORCE STRATAGEM |)
+
+Poised and aware of their foes’ every move,
+these warriors strike at the most tactically
+advantageous moment.
+
+WHEN: Fight phase, when an enemy unit has fought.
+
+TARGET: One friendly TACTICUS unit that is within range of
+an objective and is eligible to fight.
+
+EFFECT: Your unit has Fights First and must be the next
+unit you select to fight.
+
+TACTICAL FOCUS
+
+TACTICUS ATTACK FORCE STRATAGEM
+
+Even amidst the fiercest fighting, this squad retains
+Sight of their assigned mission.
+
+WHEN: Fight phase, when a friendly TACTICUS unit Is
+selected to make a consolidation move.
+
+TARGET: That TACTICUS unit.
+
+EFFECT: When making that consolidation move, yOur unit
+can move up to D3+3".
+
+
+
+===== PAGE 10 (page-10.png) =====
+
+TACTICUS FIRESTORM FORCE
+
+eTICUS-ARMOURED WARRIORS LAY DOWN DISCIPLINED
+
+Faced with multiple threats that must be efficiently
+Pe cied the Space Marines employ time-honoured
+
+pallistic doctrines to great effect.
+
+Friendly TACTICUS units’ [RAPID FIRE] attacks benefit
+fom [RAPID FIRE] when targeting units up to that attack's
+
+maximum range.
+ENHANCEMENTS
+CYBER-FAMILIAR
+
+H overing high overhead on grav- impellers, this nall
+meecotre cogitates emergent threats an rts its
+* tactical openings.
+
+ACTIC JS model only. When both players nave © ploye
+heir arr ies, you can redeploy up to three friend!
+IEPTUS ASTARTES INFANTRY units. When doing 59, YOu
+
+tt those units up in strategic reserves, regard
+) any u jits are already in strategic reserve>.
+
+MPERED IN BATTLE (AURA)
+eeenrought reputation and unfaltering
+ination of this commander serve a5 © linchpin for
+
+| i lost hard-pressed strike force.
+
+FOR THE EMPEROR!
+
+TACTICUS FIRESTORM FORCE STRATAGEM
+
+J
+
+Pieen ee their loyalty to Chapter and Primarch,
+
+feat ers seize and hold their objectives with
+elenting determination and zealous fury.
+
+WHEN: Command phase.
+
+TARGET: One friendly TACTICUS unit that is within range of
+an objective.
+
+EFFECT: Your unit has +1 OC until the end of the turn.
+
+RELENTLESS ASSAULT
+
+Beary :
+iN “TacTICUS FIRESTORM FORCE STRATAGEM
+
+pReesine pene eee yy forward, these warriors place
+shots and blows perfectly, no matter their targets.
+
+| WHEN: Your Shooting phase or the Fight phase, when a
+| friendly TACTICUS unit Is selected to attack.
+
+TARGET: That TACTICUS unit.
+
+EFFECT: Your unit's attacks have:
+
+TAINED HITS 1: non-MONSTER/ VEHICLE].
+Aa LE THAL HITS: MONSTER/ VEHICLE].
+
+rT-BLANK BR
+
+.
+:
+
+-BLAN RUTALITY
+
+4 ; FIRESTORN nee STRATAGEN
+
+Baye
+TACTIC
+
+Ais AY ‘
+
+der these space
+
+on times ren
+nd reacts y blade.
+
+ee skill 4
+PEN ee as deadly up close as an
+
+Marines’ firearms
+
+WHEN: Your Shooting phase, when a friendly engaged
+
+Ube? unit is selected to shoot.
++ TACTICUS unit.
+
+
+
+===== PAGE 11 (page-11.png) =====
+
+DETACHMENT RULES STRIKE FROM THE SHADOWS
+
+SHADOW MASTERS PHOBOS SHADOW FORCE STRATAGEM
+
+To evade one’s enemies and sow confusion can be a
+Holding to the shadows and choosing victims with care, deadly weapon in itself.
+
+Plobos-armoured aetaites Raa We enenyyrans WHEN: Your Shooting phase or the Fight phase, when a
+without ever revealing their positions. friendly hidden PHOBOS unit is selected to attack.
+
+TARGET: That PHOBOS unit.
+EFFECT: Your unit’s attacks have:
+
+=» +1S.
+= [LETHAL HITS].
+
+%,
+ve
+
+C)
+
+When a friendly PHOBOS or SCOUT SQUAD unit has shot:
+
+= Those attacks do not prevent that unit from
+being hidden.
+
+= Or: That unit can make a normal move of up to D6". That
+unit is not eligible to declare a charge until the end of
+
+the turn. MORTIS SNARES
+
+PHOBOS SHADOW FORCE STRATAGEM
+
+These stealth operatives lace the battlefield with
+ENHANCEMENTS explosive devices that trigger by mico-auspex and
+VENATOR OMNI AUSPEX las-wire when foes blunder into then.
+Bete, Hetocti q ee; mbt h WHEN: End of your Movement phase.
+onstan etecting and analysing viable targets, this |
+y J gue J TARGET: One friendly unengaged PHOBOS/
+
+artefact feeds advanced combat data directly into the SCOUT SQUAD unit.
+bearer's autosenses.
+
+EFFECT: If your unit is controlling an objective, that
+objective is snared. While an objective is snared, when
+
+PHOBOS model only. This unit's attacks that target a hidden an enemy unit ends a move within range of that objective,
+unit can: roll one D6:
+= Re-roll wound rolls of 1. = Ona 2+, that enemy unit suffers D6 mortal wounds.
+= Or: If the assault doctrine is active for this unit, re-roll " That objective is no longer snared.
+wound rolls of 1 and 2.
+FXECUTE AND REDEPLOY TACTICAL WITHDRAWAL
+This war leader excels in harrying tactics, wielding their PHOBOS SHADOW FORCE STRATAGEM
+strike force like a weapon of utmost stealth and cunning. At an opportune moment, Space Marine infiltration
+
+units slip away from battle, only to relocate ready to
+Strike the foe again.
+
+PHOBOS mode! only. In your Shooting phase, after this unit
+has shot, if this unit is unengaged, this unit can make a WHEN: End of your opponent's Fight phase.
+
+normal move of up to 6". If it does, this unit is not eligible TARGET: One friendly unengaged PHOBOS/
+
+> _ to declare a charge until the end of the turn. SCOUT SQUAD unit.
+ef EFFECT: Place your unit in strategic reserves.
+
+“'_ i : ji dy
+a i 7 on - . _ : Y - gre
+* ae * 5 i —« » —" —— i * 7 ‘ ¥ i , ? é‘ - ~*
+
+
+===== PAGE 12 (page-12.png) =====
+
+e +
+e)
+
+IQUE: PHOBOS
+
+HOBOS SHOCK FO
+
+EXPLODING FROM THE SHADOWS, PHOBOS-ARMOURED KILLERS CATCH THE FOE IN A BLOODY AMBUSH
+
+STRIKE FROM THE SHADOWS
+
+PHOBOS SHOCK FORCE STRATAGEM
+
+To evade one’s enemies and sow confusion can be a
+deadly weapon in itself.
+
+WHEN: Your Shooting phase or the Fight phase, when a
+friendly hidden PHOBOS unit is selected to attack.
+
+= a TARGET: That PHOBOS unit.
+At the end of your Movement phase, if a friendly HIN | a rarer gir PATEL ETS
+uy ; iis
+init is hidden, that unit's attacks can re-roll wound rolls 1 ee
+
+luntil the end of the turn. © [LETHAL HITS].
+
+DETACHMENT RULES
+
+VANGUARD AMBUSHERS
+
+Few experiences are SO terrifying for Mankind's
+enemies as finding themselves the victims of
+
+ Phobos-armoured ambushers.
+
+at)
+
+ENHANCEMENTS RANSHUMAN REACTIONS
+
+EALU Seemingly with the speed of instinct, these warriors
+
+enposition in response to the enemy’s movements.
+
+wilt into what appears a simple wax purity sec" “i> ° li Be
+scrambles enemy targeting when the bearer !s 0) ts 1" ve sonent’s Movement phase, when an
+
+—_—
+
+WHEN: Your OD[
+
+snemy unit ends a move within 3" of a friendly unengage
+
+unit DHNBOS unit.
+
+0S model only. Enemy units cannot target this
+TARGET: That PHOBOS unit.
+
+snap shooting attacks.
+
+| cecerq: Your unit can make a normal move of,
+
+IR C MNI-AUSPEX |» Up to DO’. < active for your unit, up to ©.
+
+| “i¢the tact trine
+ly detecting and analysing viable targets, this « Or, Ifthe tactical doctrin
+seds advanced combat data directly into the
+
+del only. This unit's attacks that target 4 hidden
+
+
+===== PAGE 13 (page-13.png) =====
+
+DETACHMENT RULES ANNIHILATING FORCE
+
+GRAVIS LINEBREAKER FORCE STRATAGEM
+
+WALKING FORTRESS :
+Knowing well their duty to shatter the foe’s lines,
+With their plan in motion and targets designated, these warriors strike with devastating strength.
+
+Gravis-armoured warriors stride unstoppably into battle as }
+ev ich'd +h h WHEN: Your Shooting phase or the Fight phase, when a
+0 LTD AEA ering hails of firepower. friendly GRAVIS unit is selected to attack.
+
+TARGET: That GRAVIS unit.
+
+in aturn a friendly GRAVIS unit made a normal move, that |
+EFFECT: Your unit's attacks have [LETHAL HITS].
+
+unit's ranged attacks:
+= Do not have [HEAVY].
+= Have +1 to hit rolls.
+
+PURGATION PUSH
+
+GRAVIS LINEBREAKER FORCE “STRATAGEM tea
+
+Gravis assault tactics stipulate a relentless advance
+
+INDEFATIGABLE FORTITUDE coupled with unfaltering firepower.
+Renowned for being a living engine of war, this warrior WHEN: Your Shooting phase, when a friendly GRAVIS unit
+inspires his comrades to shrug off even the most has shot.
+devastating attacks. TARGET: That GRAVIS unit.
+EFFECT:
+GRAVIS model only. AVEINE that target this unit with aS = |f your unit is unengaged, your unit can make a normal
+greater than this unit's T have -1 to wound rolls. move of up to 5",and must end that move within range
+of an objective.
+RELENTLESS ADVANCE Your unit is not eligible to declare a charge or embark
+
+within a TRANSPORT until the end of the turn.
+
+Ever on the move, this warrior leads his battle-brothers
+in a tireless crusade across the battlefields of the
+
+Alst millennium. ARMOURED IMPACT
+
+GRAVIS LINEBREAKER FORCE STRATAGEM
+
+GRAVIS model only. This unit has Scouts 5".
+
+Throwing their armoured mass into an assault, a
+
+Space Marine in Gravis armour can crush and trample
+their foe.
+
+WHEN: Your Charge phase, when a friendly GRAVIS unit
+ends a charge move.
+
+TARGET: That GRAVIS unit.
+
+EFFECT: When your unit ends a charge move, you can
+
+select one enemy unit engaged with your unit. If you do,
+
+roll one D6 for each model in your unit engaged with that
+enemy unit:
+
+" For each 3+, that enemy unit suffers 1 mortal wound.
+
+
+
+===== PAGE 14 (page-14.png) =====
+
+‘s I ANNTIHILATING RE
+- WoOMTABLE DEFENCE GRAVIS SIEGE. FORCE STRATAGEM
+
+=
+ef. Knowing well their duty to shatter the foe’s lines,
+ea ees Astartes stand as an maaentine wall against these warriors strike with devastating strength.
+
+] oT | ’ WHEN: Your Shooting phase or the Fight phase, when a
+| friendly GRAVIS unit is selected to attack.
+
+Wh
+ile a friendly GRAVIS unit is within range of an objective, mene ero CTT
+7
+att aks that target that unit with aS greater than that unit's soi ena te de eave TLETHAL HITS].
+Thave -1 to wound rolls.
+
+ENHANCEMENTS ee ‘Ta wuVTELOIIG
+
+IMMO VABLE CONQUERORS —
+
+Ince the: se Gravis-armoured warriors have plantec tie!"
+eet and braced for battle, no force in the galaxy ca"
+
+RAVIS uni’ tonly.1 This unit has +1 OC.
+AR HEC IS GAUNTLET
+
+are Supp slementary medicae suite allows this
+tnecary to p rovide support t to their battle-brothers
+
+being outfi ted fora seer role.
+es ee,
+IEC CARY BIOLOGIS mode el only. Bpyour.com
+
+Unit heals D3+1 wo unds % )
+
+7 mal
+F a i
+
+RATS SEC ae il Wi
+
+WHEN: End of your Movement phase.
+
+TARGET: One friendly GRAVIS unit
+EFFECT: Select one objective your unit is controlling. That
+
+objective is secured.
+
+mand
+
+a it hit by those attacks. That
+i is k roll, with -1 to that
+
+a | kes a battle-shoc
+aN -
+
+oer, a”
+
+
+
+===== PAGE 15 (page-15.png) =====
+
+SPACE MARINE BIKE SQUADRONS, SPEEDERS AND LIGHT ARMOUR RACE INTO BATTLE
+
+DETACHMENT RULES
+
+LIGHTNING-FAST STRIKE
+
+Racing into battle at breakneck speeds, Space Marine
+fast-attack squadrons often punch into the enemy lines
+before the foe even realises their peril.
+
+Friendly ADEPTUS ASTARTES MOUNTED /SPEEDER units have
++2" M.
+
+SUPERCHARGED ENGINES (ati
+
+Built from ancient and dimly understood designs, these
+engines generate incredible power and torque.
+
+ADEPTUS ASTARTES MOUNTED unit only. This unit can re-roll
+advance rolls.
+
+AUSPEX TRIANGULATION SHRINES Catz
+
+Fitted to the Chapter's swift grav-speeders, these vigilant
+devices runelock the positions of enemy forces, laying them
+bare to the Space Marines’ wrath.
+
+ADEPTUS ASTARTES SPEEDER unit only. At the start of your
+Shooting phase, select one visible enemy unit within 12” of
+
+this unit. That enemy unit is spotted:
+s While a unit is spotted, that unit has
+
++3" detection range.
+
+ae
+
+WIND-SWIFT EVASION
+
+STORMLANCE TASK FORCE STRATAGEM
+
+Employing their steeds’ pace to utmost effect, these
+warriors stay ever on the move.
+
+WHEN: End of the Fight phase.
+
+TARGET: One friendly ADEPTUS ASTARTES MOUNTED unit that
+was eligible to fight this phase.
+
+EFFECT:
+
+= |f your unit is unengaged, your unit can make a
+
+normal move.
+= Or: If your unit is engaged, your unit can make a
+
+fall-back move.
+
+SUDDEN ONSLAUGHT
+STORNLANCE TASK FORCE STRATAGEM
+
+Speed and shock are key to the ae Marine way of
+war: never more so than on rapid-strike missions,
+
+WHEN: Your Movement phase, when a friendly ADEPTUS
+ASTARTES MOUNTED /SPEEDER unit is selected to make an
+
+advance move.
+TARGET: That ADEPTUS ASTARTES MOUNTED /SPEEDER unit.
+
+EFFECT: Your unit can change its advance rolls to a 6.
+
+HURTLING TARGETS
+STORMLANCE TASK FORCE STRATAGEM
+
+With nerves of steel and transhuman reactions,
+the Space Marines jink and weave cooly through
+incoming fire.
+
+WHEN: Your opponent's Shooting phase, when an enemy
+unit targets a friendly ADEPTUS ASTARTES MOUNTED/
+SPEEDER unit.
+
+TARGET: That ADEPTUS ASTARTES MOUNTED /SPEEDER unit.
+
+EFFECT: Ranged attacks that target your unit have -1 to
+hit rolls.
+
+) ee a oT rin N STAND IN ou our 2 WAY FOR WE ARE THE SPACE NARINES +4
+
+hie
+
+As LP oot es
+
+'@.
+
+
+
+===== PAGE 16 (page-16.png) =====
+
+ENDURING VENGEANCE
+
+Those who pilot Dreadnoughts combine the skill of
+undying champions with a cold and vengeful hatred of the
+
+Emperor's countless enemies.
+
+_ Friendly ADEPTUS ASTARTES DREADNOUGHT units can re-roll
+__ hitrolls of 1.
+he ENHANCEMENTS
+
+&
+
+_ ARTIFICER SARCOPHAGUS EEEXEE
+Fashioned by an artificer of exceptional skill over an
+enti e lifetime, this sarcophagus resists even the mos
+grievous blows.
+
+r~>
+
+DREADNOUGHT unit only. Attacks that target this unit
+
+VENERABLE CHAMPION (AURA) CS:
+
+70ViNg won innumerable triumphs, this timeless
+aIN'Or Confers the boon of their martial wisdom upo!
+
+Neir halo. t
+eirba | ameupters.
+
+Pe UGHT unit only. While a friendly ADEPTUS ASTARTES
+NANTRY /MOUNTED unit is within 6" of this unit, that unit's
+© Can fe-roll hit rolls of 1.
+
+ADAMANTINE TERROR
+
+TRONCLAD CHAMPIONS STRATAGEM
+
+Booming war cries throu fj
+gh his vox-amplifiers, this
+Dreadnought rampages through the terrified foe.
+
+WHEN: Start of the Fight phase.
+TARGET: One friendly DREADNOUGHT unit.
+
+EFFECT: Each enemy unit engaged with your unit makes a
+battle-shock roll, with -1 to that battle-shock roll.
+
+IS WEAKNESS
+Fc SOB fey.) Be] Beh SFR. ay AAT Ce at OL oe
+
+Sey aht Hoey 5. )
+
+Once a foe is marked for destruction, the Angels of
+Neath must not relent until the target is annihilated.
+
+WHEN: Your Shooting phase or the Fight phase, when a
+friendly DREADNOUGHT unit is selected to attack.
+
+TARGET: That NREADNOUGHT unit.
+EFFECT: Your units attacks have:
+
+e [LETHAL HITS).
+© Or [SUSTAINED HITS 1].
+
+few such structures
+
+s, bunkers;
+Ruins, barricad?s advance of an Adeptus
+
+can impede the relentless 4
+Astartes Dreadnought.
+
+arge phase, when a friendly
+d to move or declares
+
+WHEN: Your Movernent/Ch
+OREADNOUGHT unit is selecte
+
+TARGE!:
+EFFECT: Your unit has MOBILE.
+
+
+
+===== PAGE 17 (page-17.png) =====
+
+eS
+
+ow.
+
+ay a
+
+~~ bd
+» |)
+.
+
+a
+
+SQUADS OF BATTLE-BROTHERS RACE INTO BATTLE ABOARD TNDOMETABLE ARMOURED: TRANSPORTS
+
+Pe eS? NESE I ee
+
+DETACHMENT RULES AGGRESSIVE DISEMBARKATION 1CP
+GAUNTLET TASK FORCE STRATAGEM
+COMBINED DEPLOYMENT : , VY
+Bursting out of their transport, the Space Marines are
+Space Marine crews train to provide armoured fire support already on the move before their foes can react.
+Beememgeuuried passengers while on the sissele WHEN: Any phase, when a friendly ADEPTUS ASTARTES unit
+. embarked within a TRANSPORT is selected to move. C)
+In your shooting phase, when a friendly ADEPTUS ASTARTES TARGET: That ADEPTUS ASTARTES unit
+TRANSPORT unit has shot, you can select one enemy unit hit | | |
+BVth iereigen ey, ‘led ‘1th d EFFECT: While making that move, each model in
+y those attacks, That enemy unit Is assalle oft SS your unit can be set up within the set-up distance of
+of the turn: that TRANSPORT.
+7 While * = is assailed, when an ADEPTUS ASTARTES This allows you to set up your unit within the set-up
+unit that disembarked this turn targets that unit, those distance of your TRANSPORT, instead of wholly within
+attacks have [SUSTAINED HITS 1]. that distance.
+
+| ENHANCEMENTS DUTY IS NEVER DONE
+
+‘| GAUNTLET TASK FORCE STRATAGEM |) be
+
+LINEBREAKER ONSLAUGHT eee Per
+There is no time to rest upon laurels while any
+These battle-brothers excel in bursting from the cover of portion of the Emperor’s realm remains in enemy hands.
+their transport and straight into the enemy lines. WHEN: End of the Fight phase.
+. TARGET: One friendly unengaged ADEPTUS ASTARTES
+ADEPTUS ASTARTES INFANTRY model only. If this unit INFANTRY unit that was eligible to fight this phase, |s
+disembarked this turn: wholly within 6" of a friendly TRANSPORT unit, and |s
+= This unit can re-roll charge rolls. eligible to embark within that TRANSPORT unit.
+= Enemy units cannot target this unit with EFFECT: Your unit embarks within that TRANSPORT unit.
+snap shooting attacks.
+
+DAMOCLES-CLASS UPLINK STORM AND SECURE
+
+This portable strat-shrine plugs directly into the bearer’s GAUNTLET TASK FORCE STRATAGEM
+armour, enhancing their command and control abilities.
+
+The advanced mechanised assault tactics employed by
+
+this force allow ground to be seized rapidly while on
+the move.
+
+CAPTAIN model only. In your Movement phase, if this unit
+ie is embarked within a TRANSPORT unit, you can select one
+‘ext friendly ADEPTUS ASTARTES INFANTRY unit within 6" of
+
++ x ~_ that TRANSPORT unit and select one combat doctrine. That
+
+-__ combat doctrine is active for that INFANTRY unit.
+- os ECreCT: select one objective your unit is controlling. That
+Le is! Ee) objective is secured.
+
+, “< “vt
+
+WHEN: End of your Movement phase.
+
+TARGET: One friendly ADEPTUS ASTARTES TRANSPORT unit
+
+that has an ADEPTUS ASTARTES BATTLELINE unit embarked
+within it.
+
+us
+x
+
+. ‘
+’
+a *
+~ 7 1 ‘
+y 5
+
+
+===== PAGE 18 (page-18.png) =====
+
+space MARINE TANKS DEPLOY AT SQUADRON STRENGTH TO PUNCH THROUGH ENEMY LINES
+
+DETACHMENT RULES LAYERED CERAMITE
+
+IRONSTORM AUTO-TARGETERS TRONSTORM SPEARHEAD STRATAGEM
+
+, The labours of artisans in the Chapter armoury no
+eet eons Fapicly snare
+
+_cogitated targeting data to augment their already superb
+
+a WHEN: Any phase, when a friendly ADEPTUS ASTARTES
+ae WS
+
+- marksmanship and reaction time VEHICLE unit suffers a mortal wound.
+
+| TARGET: That ADEPTUS ASTARTES VEHICLE unit.
+rie RTES VEHICLE units’ (excludin
+Fr ndly ADEPTUS ASTA . EFFECT: Your unit has Feel No Pain 5+ against
+
+Rie ;
+{ALKER units) ranged attacks can: Se eatery
+Re-roll one hit roll. [oar
+
+: Re-roll one wound roll. a
+: IGHT OF THE MACHINE SPIRIT
+hea TRONSTORN SPEARHEAD STRATAGEH
+
+re many tales of machine spirits wreaking havoc
+
+ftep the crews of their vehicles
+
+ENHANCEMENTS es |
+REDOUBTABLE MACHINE SPIRIT C2 are slain. =
+
+bis ancient war machine has endured millennia | JHEN:
+: sne friendly ADEPTUS ASTARTES VEHICLE unit
+
+emeueuoaenemacnne SP i /v cluding DEDICATED TRANSPORT /FLY/WALKER units)
+ae EFFECT: Until the start of your next Command phase, youl
+SPTUS ASTARTES VEHICLE unit only (exclucins ©
+ANSPORT/FLY /WALKER units). This unit ene
+as 5+ InSv. | « Hit rolls and wound rolls
+r heals 1 wound. a.
+
+1e end of your Command phase,
+
+ERY HONOURS CoE "HEADHUNTER DOCTRIN
+hine demonstrate exemplary “yponstoRN. SPEARHEAD STRATAGEN
+for oe
+
+/ of this war mac
+and have earned the highest honours
+
+7
+
+; hooting phase, W
+
+(excluding DEDICATED
+
+TES VEHICL onl
+
+ALKER units). This unit's ran
+
+ee
+
+ey
+* ie
+a
+
+
+===== PAGE 19 (page-19.png) =====
+
+4 | ROBOUTE GUILLIMAN
+
+> SS
+
+» &2 MELEEWEAPONS
+
+Sliahe Emperor’s Sword [CLEAVE 2, DEVASTATING WOUNDS]
+
+eae eee eee eaeraereteeee
+
+UNIT COMPOSITION
+Rite * 1Roboute Guilliman model
+Oe ae
+
+This model is equipped with: 1 Emperor's Sword; 1 Hand of Dominion.
+
+Tee ePEe Eee eee eee ee ee
+CORO OEE FEE HEEE RHEE RHE HEHEHE HOHE E Serer HsseesesEFoeeerHHeeHEHES
+TURUPEL EULA LER ER ee eee eee
+
+ay, a
+Berga — —_ ba a a
+
+KEYWORDS: MONSTER; CHARACTER; EPIC HERO; TWPERIUN WOBILE; PRINARCH
+
+end
+
+t
+
+: Say SS
+
+“MARNEUS | CALGAR
+
+te YY ;
+‘ ‘ rm
+
+,—_ECLOSE=QUARTERS, TWINGLINKED] 0 ea
+ee ea PERE BR aL EUR CBRU CUS ALN tele Enh Ee yo yihve tae h ays Sap eos be 1091 bs \ovevestbestvearerste teh eccorespovyqretnsisconynercarbecscorsessorecopes
+4 ks MELEE WEAPONS RANGE A
+
+Gauntlets of Ultramar [TWIN-LINKED]
+Gauntlets of Ultramar - Overhead Smash
+
+Melee 6 2+ F105 -3 3
+
+[EXTRAATIAGKS, TWIN-LINED] MO
+are ICHER ro; 1" esa [ Mi; TERATUATOR | |
+ee hE RE ae ie
+¢* HG ee c
+ae a , a. .
+Fe RR hs
+Sy" dA ear ry. \ Opa age e AR
+
+PERCE REE EEE ET ERE EEE EEE EERE HEHEHE EEE FEE TERETE EERE EERE POH EH EERE HEE eee ee eaweee
+
+CORE ABILITIES Feel No Pain 5+
+
+ARMY RULES
+
+Combat Doctrines, Transhuman Strategist
+
+Codex Adept: The assault doctrine, devastator doctrine and
+tactical doctrine are active for this unit.
+
+CORO O EEE e ENE a OOO HOH eE EEA HEE EH ET ERTEEEFEREETEEESEFEUEF EME ETE DEH OREEH ENED EEE SH wes euunay
+
+Primarch of the XIII (Aura): While a friendly ADEPTUS ASTARTES unit
+is within 6" of this unit, that unit’s attacks can:
+
+«= Re-roll hit rolls of 1.
+«= Re-roll wound rolls of 1.
+
+Author of the Codex: In your Movement phase, you can select one
+visible friendly ADEPTUS ASTARTES unit within 12" of this model, and
+select one combat doctrine. That combat doctrine js active for that
+unit in addition to any other combat doctrines that are active for
+
+that unit until the start of your next Command phase.
+
+CRORE RAE REE EE TERETE E REET E HEHE REHEAT OH EE EH EHH HHH TREE E EEE EHH EHT EEE TRE HERS HE w ewes Heat bee estes
+
+Leader of Astartes: While this unit is within 3” of a friendly ADEPTUS
+ASTARTES INFANTRY unit, this unit has Lone Operative.
+
+COCR EEE EEE OEE ESE EH OEE PEER EEE EERE EME RHEE EEE EH EEE ERE EPO TH HEHE TE OTHE CET ER HRE EEE EERE HE EE Owe saresaes
+
+COREABILITIES
+
+Deep Strike, Leader
+
+5 Combat Doctrines, Transhuman Strategist
+
+ARMY RULES
+
+aL ie!
+
+ABILITIES
+
+Codex Adept: The assault doctrine, devastator doctrine and
+tactical doctrine are active for this unit
+
+evetteteree
+
+o40etss ogee
+coeeetit-
+
+POPP PPP ee eee eee eee Pee eee ee eee ee ee eee eee eee
+
+Master Tactician: In your Movement phase you can select one ;
+visible friendly ADEPTUS ASTARTES unit within 9" of this model, fs
+select one combat doctrine. That combat doctrine Is active for tha
+unit until the start of your next Command phase.
+
+dodqaeer
+od oooreseret
+
+ou
+Thunderhawk Insertion: In the Declare Battle Formations step, y
+hat unit has
+
+can select one friendly GRAVIS /PHOBOS/TACTICUS unit. T
+Deep Strike.
+
+~-reeee
+ceneewwwerere
+Dither ee ee ee eee ee ene
+
+r=
+aeaeeet
+seerracerree
+omebereret
+eanee
+
+ind Pee eee ee eee eee eee ee eee 2 ee eee
+
+UNIT COMPOSITION
+
+* 1Marneus Calgar model
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES; ULTRAMARINES
+
+
+===== PAGE 20 (page-20.png) =====
+
+| oF LIBRARIAN TIGURIUS
+
+SsBeon
+
+Hood of Hellfire (Psychi nate ane v3.
+: ychic): This unit | |
+prescience (psychic level 2): In your Movement phase, if this unit is not battle- ‘as Feel No Pain 4+ against
+
+Psychic attacks and
+shocked vou can rele etnies. mortal wounds.
+
+SS a psychic roll for this unit by rolling one D6. If you do: CG YOU Can Make it ressnesenstinneeen pet SS Sch a, mem
+“Sth » Onai,this unit is battle-shocked. UNIT COMPOSITION
+“Ray » This unit has +1 Sv until the start of your next turn. |
+thy EMR co * 1 Chief Librarian Tigurius model
+beh Telepathic Assault (psychic level 1): In your Shooting phase, If this unit is not battle-shocked, you can This model is equipped with: 1 Bolt Pistol: 1 Rod of lus’
+
+make a psychic roll for this unit by rolling one D6. If you do: 1 Storm of the Emperor's Wrath 1 ROO OF Tigurius,
+> » Onal,this unit is battle-shocked. ifs Narada ee a ede ae Tae fa NU |
+(Ne » Select one visible enemy unit within 24" of this unit. That enemy unit suffers 203 mortal wounds.
+
+4 : Perey eRe REAR ORE OE Oe SUSUR S CCS ECCS SP eee ee eee ee eee eee ee
+Pi puedaaa en sb es hose sp svimsreseres vob d assets ssensess eure seen aesesgsesnsscesnnetindunsaresteeessretvessservasesccie
+Sores Os ed eerestorenerediosisassseevectes
+
+ny _
+
+Pt SHES fo fe Rp he FACTION KEYWORDS:
+SHARACTER; EPIC HERO; EXPLOSIVES; PSYXER: TACTICUS
+Ty Be Title be: ae rk Ad) .2 6 d " ADEPTUS ASTARTES; ULTRAMARINES
+’ RANGED WEAPONS Combat Doctrines, Transhuman Strategist
+1 Plasma Pistol [CLOSE-QUARTERS] ee
+, PGR aaa be eles ans ss ccs codec paccccrsevcuresseaerpesrserne®
+NEAPONS RANGE —_ “ Captain of the Honour nt Apia al with the Support
+ee 74 6 -3 7 + replace this un! ph BAe
+af Tempest Blade - Strike Melee os J rine et eh still be attached to the same US ae
+‘ATI » WOUNDS] ability (this Seat Saige Caio eee er army): In your
+1 Te est Blade Coup de Grace 7 . 6 gctia as “champion of Macragge (Once per Phastite
+-ripes - ec ‘ne uni 2
+“ried Pp Me arith Movement phase, when an iiss sa CaN (rake 2
+pest Bi: hy See | ees of this unit, if this unit is unengaged,
+rar fees: Blade Sweep Melee 2 “ Pe Ao saci Sd se yp to 6" pb Ee |
++ meee TMG AT ane ceaaaS ttacks with. ee eee 2 , hen Ou target this unit with the H
++ a | 7 ofiles to make 0 or Death: When y ;
+Hing tarne oi) 5 Gib ys elect one of its eligible pr Honour that use |S -1 CP.
+rgets for this weapon, sete intervention stratagem, wen aceeceeete
+"
+i
+pee pot
+
+
+===== PAGE 21 (page-21.png) =====
+
+ay
+
+‘CAPTAIN Us:
+
+es
+
+B 19 RANGED WEAPONS
+Bolt Pistol [CLOSE-QUARTERS ]
+
+E MELEE WEAPONS
+
+Master-crafted Chainsword
+[ANTI-non-MONSTER/VEHICLE 2+]
+
+COOTER ERROR EOE HEE EP HR TTHE ED
+
+CEE ete
+
+teeeeeeereenrer
+ecoeerceseseodresseypesertres?s
+eoetoresewressseesgsesoeoresrere
+COCR O EEO E TOE HHS SOHELESHSS
+
+it nies , : > er tr oe “a6: fae _——
+" Tees mat GA es ae a a he, « ha mf <r . _ ‘
+
+- é
+~ rv, hark
+man! _-
+-_
+a
+
+— > &
+~-e
+¢@
+
+7 -
+OO ~Fe
+5
+
+IVES; THPERIUM; TACTICUS
+
+|
+
+CORE ABILITIES Feel No Pain 5+, Leader
+ARMY RULES Combat Doctrines, Transhuman Strategist
+
+Press the Attack: This unit’s melee attacks have:
+
+» [SUSTAINED HITS 1: non-MONSTER/VEHICLE}].
+= Or: Ifthe assault doctrine is active for this unit,
+
+[SUSTAINED HITS 1].
+
+woe he VetsdGebee de doedsolacrneredesdnetere eres reoremrebesetas dev ude page ds 90) ¢¥ USPGY) LL) Ve VseSPl el less) erieer
+
+Righteous Fury (Once per battle, per army): In the Fight phase, you
+can use this ability. If you do, this unit's melee attacks have +1S, and
+
+when this unit has fought:
+
+» This unit heals D3 wounds,
+
+* Or: If this unit destroyed an enemy model this phase, this unit
+heals 2D3 wounds.
+
+ee PO dee HHL EH ORE HHEERE EHH SERE EHP EST OEP HOHE ERODED A HH FPERMHOTHPFOSEPEEHOSCEIFEFOREODE PEP HEEL OTADiDooeTy senneuniasy
+
+Honour of Ultramar: In the fight phase, when this model is
+destroyed, if this unit has not been selected to fight this phase,
+
+roll one D6:
+* Ona 2+, do not remove this model from the battlefield, When
+
+your unit has fought, or at the end of the phase (whichever
+comes first), this model is removed from the battlefield.
+
+UNITCOMPOSITION =
+
+* 1Captain Titus model
+
+This model is equipped with: 1 Bolt Pistol; 1 Master-crafted Bolter,
+1 Master-crafted Chains word,
+
+COPE OOOO OEE EAE aE Dem aee ewan
+
+TiS ya Ji
+FACTION KEYWORDS; > Bhs £
+
+ADEPTUS ASTARTES; ULTRAMARINES,
+
+
+
+===== PAGE 22 (page-22.png) =====
+
+GAIUS SILVA
+
+AEMELIA MINERVAS
+DAINALKORNELIUS
+LUCIAVESTHA
+
+(y RANGE
+
+archeotech Laspistol [CLOSE-QUARTERS] eee tee "i
+
+—s ae sen ne
+
+a Bs! Focused Fire (HEAVY, RAPIDFIRE1] == ae aT es
+p Bolt Rifle - - Saturation [ASSAULT, RAPID FIRE 1] 5A" 5 af Mae Beh
+
+———
+
+Lh oe
+
+Ceramite ‘Ws Melee 4 3+. iS 0
+saesntseesnstt Tesi ssooraseasennacaanenneansaprenicataneatntian cede
+Forces Stave [PSYCHIC] VG hate eRe at LY,
+Wal) evvewieeeesetye eve DP VAIO i8 fat rte lish le rete vA L901 eV PPA LEA rected VV A
+Master-crafted Power Weapon [PRECISION] Melee 5 24 eS ae eZ
+secsspasesane Loomer e- Neay a ROT oe Sp Ew i ED ARB tnd
+Power Weapon Melee A nee SOPs:
+a WAL. View's SUUPUUTTST ET ITS eV TSUNTET U Peer use tviveviersserery besrrrsvecesyersrs ™ oiee't o's é Fo cdc ch Lea T TVG Hi dieters
+Ultramarian Combat Weapons Melee sf) 40% Sti io 0
+
+. the eww were
+
+% » Before selecting targets for this weapon, select one of its elig
+
+Li
+
+ible profiles to moke attacks with.
+
+ail
+ol
+
+FA
+> eo, t, ° if - '
+yor 4 , ae | et Js a“ We >
+~ 4 I : “a = 4% oe
+, . r. A 4 a 7 7 he 4 -
+ag 7 2 2 mY po?
+7 , 4 <t
+- 7 -
+.
+
+VETERAN SERGEANT
+METAURUS
+
+x
+
+epee
+ys Dam Uae: 5
+
+Ly «
+
+CORE ABILITIES
+ARMY RULES
+
+Combat Doctrines
+
+Raise the Banner: At the end of your Movement phase, if this unit Is
+controlling an objective, that objective is secured.
+
+ete w erent etawe oer ‘ ‘ tee . ‘ eeeete tobe eeatet ‘ . een eene
+POEM Emme eee eee eee Cee ee ewe teense eeterr ‘ ‘
+
+Strategium Command: When both players have deployed thelr
+armles, you can redeploy up to three friendly ADEPTUS ASTARTES
+units, When doing so, you can set those unlts up In strategic
+reserves, regardless of how many units are already In
+
+strategic reserves,
+
+Lodk is roa aplaveeeadell eo vboedgstardrnad bos ebesn<dtg b dpb eogeapveodrpryeiqeetsses thnerries © *”
+
+UNITCOMPOSITION
+
+» 1Aemelia Minervas model
+
+« Ancient Gadriel model
+
+» 1Dainal Kornelius model
+
+* 1Gaius Silva model
+
+» Lucia Vestha model
+
+* 1Veteran Sergeant Metaurus model
+
+hy 1 Archeotech Lasplstol,
+
+eeeeewereetarerl
+
+Aemelia Minervas Is equipped wit
+1 Power Weapon,
+
+Ancient Gadriel Is equipped with: 1
+Dainal Kornelius Is equipped with: 1 As
+Galus Silva is equipped with: 1 Archeotech Lasplistol,
+1 Power Weapon.
+
+Lucia Vestha Is equipped with: { Archeotech L
+Combat Weapons.
+
+Veteran Sergeant Metaurus is equipped with: | He
+1Ma aster -crafted Power Weapon.
+
+nentead sot seeerre
+
+3olt Rifle; 1 Ceramite Fists
+tropathic Blast; 1 Force Stave.
+aspistol; 1 Ultramarian
+
+avy Bolt Pistol;
+
+
+===== PAGE 23 (page-23.png) =====
+
+se MELEE WEAPONS | RANGE A WS S$ AP UO Glory of Ultramar: In your opponent's Shooting phase, when an
+enemy unit has shot, if a model in this unit was destroyed by those
+Blades of Honour [PRECISION, TWIN-LINKED] Nore wy ‘ was at sta 3 nts j : Saves : red attacks, this unit can make a surge move of up to D6",
+ye Master-crafted Power Weapon ENG FAS eee Se Soak I 5 aMelee ilo > Acer “ eis ; Wek : ‘ ovksnt te, i he yal Guard of Macragge: Attacks that target this unit have -1to
+x wound rolls.
+< * 0-1 Chapter Ancient model = Atthe end of your Movement phase, if this unit is
+eS * 0-1 Chapter Champion mode! controlling an objective, that objective is secured.
+sf * 1-6 Victrix Honour Guard models = (Once per battle, per army) When this unit is selected to
+nat The Chapter Ancient is equipped with: Banner of Macragge; 1 Master-crafted Bolt Carbine; fight, you can use this ability. lf you do, this unit's melee
+as bs ste A ant Set foe a
+jy} The Chapter Champion is equipped with: 1 Blades of Honour.
+By Every Victrix Honour Guard is equipped with: ] Master-crafted Bolt Carbine; 1 Master-crafted
+ibre Power Weapon,
+TS O25 0S PRS cSt PTEENUESE VSS fod h e105 EVs 63 70082» tavenrapsrisusetiolasecLeveieeesantivertacecadsevcoesoosuneovevegqeuestdet gl coochasrgneniqe th
+3h - KEYWORDS: ALD MODELS: INFANTRY; IMPERIUM; TaCTICUs lo CHAPTER ANCIENT: ANGTENT;€ EPIC HERO| Dims FACTIONKEYWoRDS: |) Vs
+aes | _ CHAPTER CHAMPION: CHAMPION; EATG HERO. his . Sacsi soa ADEPTUS IS ASTARTES; wa !
+
+ST hee
+
+~
+
+~ a Pe A 7
+Be Meh
+~~ Seep = +. 45.5 a \ Re ds . a ee
+Ess : M . A " ,
+
+‘gogo06
+
+oe (a7
+s , Y
+re <> RANGED WEAPONS CORE ABILITIES Support
+Heavy Bolt Pistol [CLOSE-QUARTERS] LC is ee ARMY RULES
+i | a sci
+op &@ MELEE WEAPONS RANGE A WS S$ AP OD ABILITIES
+d m= Severance and Rebuke - Strike [PRECISION] Melee Iiernzt lO 3 3 Veteran Bodyguard: While this model |s attached to a unit, other
+: No Pain 4+.
+» we Severance and Rebuke - - Sweep [CLEAVE 2] NE (aes 2 ah eee pocels in this unit-have Feel No Paln 4)" i aaa
+44 ee UE OES S Cok SENAY Cue Saedl Bemoayes vans tyyeeeGives bey ehoevetted penne cours t pprmnnnvaestane spo esa ceccetes cpamerscecercoccerticdecscecececcs Calgar’s Champion: This ro 9 PR - Stacie that target A CHARACTER
+» mm Before selecting targets for this weapon, select one of its eligible profiles to make attacks with nite are
+4 * Re-roll hit rolls of 1.
+: * Re-roll wound rolls of 1.
+“
+ee UNIT COMPOSITION
+y * 1Kaius Konorius model
+" This model is equipped with: 1 Heavy Bolt Pistol;
+< 1 Severance and Rebuke.
+
+Jel Se Shine Aaa
+
+TS 0; PL osIV IVE aa i Seeeee FACTION KEyWoRDs:
+. +
+
+ety a ¥ ‘seared, ADEPTUS ASTARTES; ULTRAMARINES
+
+be &
+4 *
+
+_—_—- —4
+
+
+
+===== PAGE 24 (page-24.png) =====
+
+rn [CLEAVE 1, DEVASTATING WOUNDS]
+
+Rp ERED Eee eH VSSH UHH HHEHHS HOSEN SHH OSU EVER Hyon weeractatice va
+De eg le ty Th _—— ne | i Pee © o ae mee! Naa ed 8
+ee
+
+Fist of Do
+
+**
+“ee
+geese?
+-
+.
+*
+
+UNIT COMPOSITION
+
+" 1Darnath Lysander model
+
+This model is equipped with: 1 Fist of Dorn.
+
+POPS HVE MPH Hee eee Feet eee Oe eee eetec
+
+ate FACTION KEYWORDS:
+ERRINATOR ADEPTUS ASTARTES; IMPERIAL FISTS
+
+oe
+:
+
+ah,
+re
+‘ff
+
++
+
+) RANGED WEAPONS
+mificer Grav-gun [ANTI-VEHICLE 2+]
+
+es SUT ToS Wn chucks ce es
+
+i 1
+5
+
+® MELEEWEAPONS
+
+Combat Doctrines, Transhuman Strategist
+
+ef
+
+segnenrem—ninte ee visible
+ase you can select one
+In your Shooting phase, Y ave the
+
+. a ee we ey Ss SPST oh enemas Signum Array: 9” of this Tae That enemy unit cannot n
+
+ra
++
+
+1
+
+1 Tor Garadon mode!
+
+del is equipped W
+1 Hand of Defiance.
+
+ith: 1 Artificer Grav-gun,
+This mo
+
+
+===== PAGE 25 (page-25.png) =====
+
+CORE ABILITIES Deep Strike, Lone Operative, Stealth
+ARMY RULES Combat Doctrines, Transhuman Strategist
+
+42 MELEEWEAPONS
+
+dows: In your Command phase, you can select one
+Claws of Severax Master of Sha y p y
+
+7 [SUSTAINED HITS 2: non-MONSTER/VEHICLE, Melee 7 LTE, Oi ate 2 friendly ADEPTUS ASTARTES INFANTRY unit. You can re-roll charge
+oe TWIN-LINKED] FI Da ee IRE Cte ics Cevsk nblagydicsateRpeyst oasdicedecpuoed sytem seg adoate sass os Ore (rolls For thae une uoU) Wie start OF YOUP TERE Opi pand Piiesc Lite,
+E-8 Blackwing Mantle (Once per phase, per army): You can target this
+TAS unit with the Heroic Intervention stratagem, regardless of any
+ae other uses of that stratagem this phase. If you do:
+
+4 ea = That use is -1 CP.
+pita = That use does not prevent any uses of that stratagem on other
+es nits thisphase 9 > ag Me
+
+EE Ce Meta ae ath i tanararoas
+
+et UNIT COMPOSITION
+
+= 1Aethon Shaan model
+
+at
+‘
+ce This model is equipped with: 1 Claws of Severax; 1 Heavy Bolt Pistol.
+
+a w etd + ~~ -
+-_
+
+< xeywonos “INFANTRY; CHAPTER MASTER; (CHARACTER; ‘EPIC HERO EXPLOSIVES; FLY; I IHPERIUN; lide §=FACTIONKEYWORDS: =>) oye
+Need SHOKE? 1 TACTICUS FASTIN TS: rae St | Sai | ADEPTUS ASTARTES; RAY ihe
+
+\e
+
+' Pein
+
+~“
+
+-
+
+‘soo0c8
+
+INSV
+
+Hi
+
+% <> RANGED WEAPONS RANGE A BS S AP OD QMBCOREABILITIES = Deri eraicM RCC eit pate
+a8 Blackout [CLOSE-QUARTERS, PRECISION] 18" bie eZee Si! 1 2 ARMY RULES A combat Doctrines, Transhuman Strategist
+Ph ieusapusssnsanectansrsccanecsasuatesesenccneesaceanvacnsnaversecasesanststeeansnaqatreaccsensersesednenesasenerseanseeneyessseanrnessenenee teases ireatiecreeesen
+
+=)
+
+# D PABILITIES
+
+“
+> Raven's Talons (PRECISION, TWIN-LINKED] Melee. 72+ S22 Trifold Path of Shadow: This unit has:
+
+b 3 TBP aL attuadedessbepareovalvosrveshorsencerrusvevunsanonse eeteent
+
+Fp ".. 73 Getection range. & o's
+at Echo of the Ravenspire: At the end of your opponents Fight
+
+ef phase, if this unit is unengaged, you can place this unit in
+
+Z strategic aserves.iues ae | OD ER
+
+UNIT COMPOSITION
+
+. 7 Abe Ais Shrike model
+
+.
+-*
+eee?
+oop cerPe®
+seer
+o“*e*
+
+eeeewet®
+eeeeeeer
+TER HEHEHE HEHE ESEH ESET DHE TEESE HE EHEHHDEH EHH E THEE HEHEHE T EEE ES
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES; RAVEN GUARD
+
+
+===== PAGE 26 (page-26.png) =====
+
+CORE ABILITIES
+
+sooner tig Forge [CLOSE-QUARTERS, TORRENT] = 2" bes Hida ded
+
+> 5b)
+aaa -
+
+Feel No Pain 6+, Leader
+
+Combat Doctrines, Transhuman Strategist
+
+LTE ST EEE Sa
+
+Seeker of the Unfound: The first time this model is set up on the
+
+battlefield, select one objective on the battlefield. While this model
+Is within range of that objective, this model has:
+
+*" 10 0C.
+= S+Ld,
+" Feel No Pain 4+.
+
+Forgefather: In your Shooting phase, select one visible énemy unit
+Within 24" of this model. Friendly ADEPTUS ASTARTES units’ [MELTA]/
+[TORRENT] attacks that target that enemy unit have +2 S.
+
+CORR ewe eee eee eee eee eee eee ee ee eee eee Pee ee ee eee ee Cee ee eee eee eee eee eee eee eee
+
+UNIT COMPOSITION
+
+*® 1Vulkan He'stan model
+
+This model is equipped with: 1 Bolt Pistol; 1 Gauntlet of the Forge;
+1 Spear of Vulkan.
+
+aeons ion bys ae FACTION KEYWORDS; |
+ERO; EXPLOSIVES; INPERTUM; TAGTIGNS " ADEPTUS ASTARTES; SALAMANDERS
+
+rh -
+
+Tt.
+‘
+
+".e
+-
+
+Combat Doctrines, Transhuman Strategist
+
+NGED WEAPONS
+CLOSE-QUARTERS, TORRENT]
+
+tf we ae kareceeyteneesepeeeees Pe Pal yb as Gehoe bss sanseoerrrecr’
+the A
+« *
+
+um TNE! , i
+(Nid ei ee Unto the Anv
+ON aera al d rolls of | )
+« Re-roll woun na is active for this unit,
+
+
+
+===== PAGE 27 (page-27.png) =====
+
+7
+SS
+,
+iz
+' xe
+S "
+~
+-
+_ ~~ ;
+.
+“J .
+.
+a .
+\
+«*
+< *
+~~
+~
+; . a a
+~ 7
+4 _
+. “se
+-
+» -
+.
+
+re INSV
+
+<5) > RANGEDWEAPONS PTT) 113 Deep Strike, Feel No Pain 5+, Leader
+
+; ae = Storm Bolter [RAPID FIRE 2] 54" SOB sy 1 ARMY RULES Combat Doctrines, Transhuman Strategist
+= 42 MELEEWEAPONS ABILITIES
+
+Se : . Axiom [CLEAVE 1] Melee 5 2957S = w3 2 Cold and Calculating: In your Shooting phase or the Fight phase,
+
+ f OSC RRS REESE coro SRE a ne aaa aaa ae a heh this unit ie selected to attack, you can select one of the
+
+Eacey following for this unit's attacks to have:
+
+RS UNIT COMPOSITION | ieee
+
+oY SY » [LETHAL HITS: MONSTER/VEHICLE].
+
+ae oF * 1Caanok Var model = Or; [SUSTAINED HITS 1: non-MONSTER/VEHICLE},
+
+Byte This model is equipped with: 1 Axiom; 1 Storm Bolter. * Or: If the tactical doctrine is active for this
+
+SAG Pe RUIN, NU CLEC TEIN Llc Ths sy cour dos ta iurss vis eioeSe¥ptoterescscossbectscdadopesrccscpabcabeiesed acd acapsUs¥fessthpabdasbva tetye unit, [LETHAL HITS: MONSTER/VEHICLE] and
+
+Be ‘som [SUSTAINED HITS 1: non-MONSTER/VEHICLE].
+
+2 we, toes x mare nderersadvacdevbsdeneeeredeccseceesbebed oss sere dncseroecr dessert essere nevensresevenbeseresdt isdeocrins Dba iE
+
+re an Cerebrex Logic Engine: In the Declare Battle Formations step, you
+
+Cyt can select one friendly ADEPTUS ASTARTES INFANTRY unit. That unit
+
+Re ht 73 has Scouts 6",
+
+I I TEMS seis caethapovedtrv nce dedeedaeedhavegtevursarestahscosatsenerergresysodehes rerskuebysrarscosttresasentd
+Bats id dary beualaa tee 673.00 6341 Cree Ace
+7 ON ie
+
+AAS © -KeyWORDS INF NTRY; CAPTAIN; CHARACTER; EPIC HERO; TNPERIN TERMINATOR WS 50. TN
+page N i 4 ADEPTUS ASTARTES; TROWHANDS MAS ‘SIN
+
+Re
+ak Se {
+
+»
+7 cyt a4
+« ~ y
+
+“A
+Noe
+oP
+
+Sf,
+
+eo de Ex RANGED WEAPONS TTC cee Feel No Pain 5+, Leader
+i SS “ch Pistol [ELOSESIUMUERS 12" 1 "hoe 4 1 ARMY RULES Combat Doctrines, Transhuman Strategist
+
+A Master of the Forge: In your Movement phase, at the start or end
+, % hs y, Harrowhand Melee 6 5 Fe 3 of this unit's move, you can select one friendly ADEPTUS ASTARTES
+, “6: we - eet ‘ ssateat ie ripull [EXT ree ewe AA ATTACKS] ty TES IM were New Were wee. eee : ei Sunt eee 3 Ae tl VEHICLE model within 4m of this model:
+2% 1 Ie Reslusan Mf web Ate Pn nnTMnnes =" That VEHICLE model heals 3 wounds.
+y + * That VEHICLE model's attacks can ignore modifiers to the
+5 A UNIT COMPOSITION following until the start of your next Movement phase:
+oy o BS.
+=» 1Jron Father Feirros mode site rolleand wound Peis
+This model Is equipped with: 1 Bolt Pistol; 1 Gorgon’s Wrath; 1 Harrowhand; 1 Medusan Manipull erxsvrrers tevin seenronns te asp t3 Rasdbeedtspessfovecriavvscacyacsaeetedag hotvdodgtts neatslehy oy een TEE
+ccusasiysbausabestovserspersannenaprasensscnerseurpeensemaparsruntenyesitarassarecneessenencrtyateryenatseneateyeaesanreenreeriteatenresetestecesessseeeeeeeear tense sos Rites of Tempering: Attacks that target this unit with aS greater
+
+than this unit's T have -1 to wound rolls.
+
+ee TA Yis oT Yee ee. loom), Pe er se pp eee eee, Ae: VRP Oe”
+ee Pe eee YY, Oh Ow (wr RR Fe een eee et Ae), FOR i FRY. Ul 44 od
+COOP MOVED eT ocere rer srenrrcereoednseoversererveessossotryesreressivgrsrsrgeees®
+
+lron Father: While this model is within 3" of a friendly ADEPTUS
+ASTARTES VEHICLE unit, this unit has Lone Operative.
+
+oeuener
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES; IRON HANDS
+
+
+===== PAGE 28 (page-28.png) =====
+
+iq {ANTI-INFANTRY 4+, CLOSE-QUARTERS,
+ATING WOUNDS: INFANTRY]
+
+Me ul. OS ONaROL DE emetmakre. im Ore oat COOOL TOR Oe
+
+ee et A ce) A ND PR SAS Derk bn COTY Corea CP
+aaeanee
+
+aset®
+
+POSS SST CSOT NC VS CU SSC NUE SPUN PU UUUEE
+
+sete tnt Ao ea” eet iat atl a hte ate
+
+ome nt teen nn RR en RNRONOR eee
+ad
+
+avr
+
+Trophy Taker: This unit's attacks that target a CHARACTER unit can:
+
+* Re-roll hit rolls of 1
+MaTT-CHARACTER 5+, DEVASTATING WOUNDS, PRECISION) “lee 6 2 6 3 9 vache FOll Wound rolls of 1
+
+ee Pe ben ONT MMA AT a Ne eT STE MENS ais Pm Code A) mon eery, b 10 Sed Aa
+
+NN MSS OLIN 2 * et Ge ahd Aor LAST EL ERTL POPP OM in UNM SREE irre Se nn aT
+SD TG rm Mer UNG Nk LN sans Ohta re HNN eye esviedehegseriivacdettend. bce chee ea eee Mreteleberestbche sl aascsevratessrefedboscises coc...
+ee eee eee feta one rs eee a rt pushes desesecobapsrpiineseces..,
+
+For the Khan:
+
+" This unit's ranged attacks have [ASSAULT]
+| " This unit’s melee attacks have [LANCE],
+
++
+eviveesert’®
+
+«sheet?
+
+: UNIT COMPOSITION
+Marie,
+
+a ee This model is equipped with: VAnzug, Bolt Pistol, 1 Moonfang,
+
+BRP RSA REPRE ECC E ECC e Cee Cee eee ee ee ee ee ee ee ee et
+
+1 Kor'sarro Khan model
+
+FACTION KEYWORDS:
+IVES; IMPERIUM; TACTICUS ADEPTUS ASTARTES; WHITE SCARS
+
+i SvBODEN RUAN
+
+Pheer)
+
+INSV
+
+Combat Doctrines, Transhuman Strategist
+
+ts RANGED WEAPONS
+deav ape It Pistol eS
+
+Re ee
+X MELEE WEAPONS
+
+oui
+
+EMT RA ae KS, SUSTAINED HITS 1: ees
+
+HICLE x
+
+sognat AeRa!?S
+
+INSTER /\ EHICL (3 At, uy NCE] ..
+
+
+
+===== PAGE 29 (page-29.png) =====
+
+1m
+fo)
+
+a>
+—
+
+| CAPTAIN
+
+goageca
+uv OF
+
+CORE ABILITIES
+ARMY RULES Combat Doctrines, Transhuman Strategist
+
+Neo-volkite Pistol ee > $3 er -ae :
+
+ ) —_FCLOSE-QUARTERS, DEVASTATING WOUNDS] OEY Sake atl ecto Strategic Acumen In your Command phase, you can use ths abil
+mm Plasma Pistol - Standard [CLOSE-QUARTERS] 12" j See Tin a2 1 lf you do, select one combat doctrine to be active for this unit until
+| gp Plasma Pistol - Supercharge BR iiieaiRal eliieameaiieitaeeet a
+ee "| [CLOSE-QUARTERS, HAZARDOUS] ids nll ae wen Fd Yee eee «= Finest Hour (Once per battle, per unit): Ks the Fight Anse @, ihe
+
+ema) this unit is selected to fight, you can use this ability. |f you do, this
++ ©, $2 MELEEWEAPONS RANGE c ws s ae .8 model's melee attacks have:
+te Master-crafted Power W Mel re as3 ke eed eee ree FA
+| len a RN lal ee A ER rhe t aT aria Oe ae yas * Se ee + [DEVASTATING WOUNDS]. — nalic W
+
+eee ee Teh eee twee eee ee hE eee ee Ee ee h
+
+AY m= Before selecting targets for this weapon, select one of its eligible profiles to make attacks with.
+UNIT COMPOSITION
+
+ape 7. 3% _wancearoprions =i
+= 1Captain model
+
+hee | = This model's Master-crafted Bolter and Heavy Bolt Pistol can be replaced with one of the following:
+my 7) A 2 1Neo-volkite Pistol This model is equipped with: 1 Heavy Bolt Pistol; | Master-crafted
+iz © 1 Plasma Pistol Bolter, 1 Master- crafted Power Weapon -
+FERRERS AS NS, OL SL eae!
+] ah © This model's Master-crafted Bolter can be replaced with 1 Relic Shield (this model's Master-crafted >
++ Power pats cannot be replaced) » Thi
+® This model's M aster- crafted Power Weapon can be replaced with 1 Power Fist ,
+* Thi
+C
+
+. me h ' : ’ 4 . 3 7 —"
+
+| FACTION KEYWORDS:
+“oe aie CHARACTER; EXPLOST }TMPERTU ; TACTICUS ADEPTUS ASTARTES
+
+a .
+—
+‘ -
+x we ‘ "
+’ . - ~
+or -*
+
+Ultramarines opti |
+with Master-craftepy
+Power Weapon one
+
+Ultramarines C aptain
+rT with Moster-crofted
+~ Bolter ond Moster-crafted
+
+‘a4 TTS 0 mmm _=.> -
+
+~ Power Weapon \ Op.
+
+ALE
+
+
+===== PAGE 30 (page-30.png) =====
+
+| CORE ABILITIES
+| ARMY RULES
+
+Deep Strike, Leader
+
+Combat Doctrines, Transhuman Strategist
+
+OP cian dard TCLOSE-- ae TOTTI UOTTCRUN RULER ETE
+—“ plasma Pistol - Standard [ QUARTERS] 1? Phy tr =
+plasma Pistol - Supercharge
+SE-QUARTERS, HAZARDOUS] 12" 1 24, Rh: Strategic Acumen: In your Command phase, you can use this ability
+
+ae do, erect one combat doctrine to be active for this unit until
+the start of your next Command phase
+
+CEP eSEd ic
+ee. en
+
+COOP et ea er rece dpeccd
+CP PHHP Oder ides teediccsess
+
+Relic Shield: This mode! has “1 is v5 ae
+access | ee yaa aed AF oe
+ieee lS Me ee 6 5 ERLE = OA IEC DbpbeT on
+
+aunderHammer [DEVASTATING WOUNDS] ome z Melee ° 3+7 <8 o> ee Nal = 1 Captain with Jump Pack model
+
+m Beforeselecting targets for this weapon, select one of its eligible profiles to make attacks with, Dregne ty pose wine Chalnswaes Beeyy Pt 2,
+
+PESTO 0 SSS OP OSOHY4 045 CGCG 6d CoepeGa hd o4 6 04 becten Lewkhhe
+
+tt WARGEAR OPTIONS
+
+= This model's Heavy Bolt Pistol can be replaced with one of the following:
+o Hand Flamer
+sc Plasma Pistol
+
+= This model's Chainsword can be replaced with one of the following:
+5 1 Power Fist
+pb 1Relic Weapon
+
+® This model’s Heavy Bolt Pistol and Chainsword can be replaced with one of the following
+8 1 Thunder Hammer and 1 Relic Shield
+© 1Chainsword and 1 Relic Shield
+
+rorereete
+
+1 wer
+oP
+
+* “ oy , Say 43 dene” am
+bd = A ‘’ » _ v
+: ee. ¥ % { > o SJ Ri ‘ r
+»} ‘ The Hi ’
+1 » , aa) , 7 »
+«* Xe ~
+et : iF 7
+1 38
+
+7 : : . Ve "MDEDT ‘4 Mp f ' A? TA i}
+sits EXPLOSIVES; FI.¥; IMPERIUM; ~
+. “te af ~ .
+
+okt
+
+Ultramarines Captain
+ih jump Pack v
+Heavy Bolt Pisto!
+
+pad Chainsword
+ital
+
+.* —-? —
+
+ines Captain
+mmer.and | ave
+c ese |
+: — = |
+) Blood Angels Captain with Jump Pack a
+: A “ith Hond Flamer and Power Fist
+~~? ) : 4
+
+
+
+===== PAGE 31 (page-31.png) =====
+
+Deep Strike, Infiltrators, Leader, Scouts 6",
+Stealth
+
+ARMY RULES Combat Doctrines, Transhuman Strategist
+
+CORE ABILITIES
+
+ie | 22 MELEE WEAPONS RANGE A WS S AP OD Strategic Acumen: In your Command phase, you can use this ability,
+eee : Combat Knife [PRECISION, SUSTAINED HITS 1] Meine c 5 Ae ee 1 If you do, select one combat doctrine to be active for this unit until
+Reef beeb dys hvu debe Mare lass -stsereVan ys OUD oct veusuusnyh nh vncstags sedreNs cvs ctacvevscebpssghecsstouwessdovp¥ irene sungeurevapnsrdescass toner issoperdenssceqecsadues asses the start of your next Command phase,
+
+oy ay 0 bac OUR Se cece c er cade ME re oer ed eR ees ese Fes Hes sEDOsE Pp OIE GF UPTDwaeeROhheds bods ered beevedresebeverioceséneseteces
+Pare Tactical Fluidity (Once per battle round, per unit):
+
+Sees = In your Shooting phase, when this unit has shot, if this unit is
+Betts unengaged, this unit can make a normal move of up to D6".
+Sas * Or: At the end of your opponent's Fight phase if this unit is
+
+; Seat engaged, this unit can make a fall-back move of up to 6".
+
+ae UNIT COMPOSITION
+
+= eA * 1Captain in Phobos Armour model
+
+Pere ke
+See This model is equipped with: 1 Bolt Pistol; 1 Combat Knife;
+Nis ae 1 Instigator Bolt Carbine.
+
+— - _ ‘ _ ~ —» 4
+
+- :
+: 4 *? r }em~ 9
+
+Sache i | aa See = FACTION KEYWORDS: ie
+if _ KEYWORDS: INFANTRY; CAPTAIN; CHARACTER; EXPLOSIVES; THPERTUN; PHOBOS See ADEPTUS ASTARTES fi
+
+4 7
+QS y S st : +? _™ a ; - 4 4
+4 2% BA . © s? ave 7 . J . . d sa
+
+res
+
+.
+ad
+
+ae i & SS s
+et TARR rai Anau
+
+S CORE ABILITIES Deep Strike, Leader
+4 ARMY RULES Combat Doctrines, Transhuman Strategist
+m= Combi-weapon - Purgatus 24" 2h 4d Slee 2 2
+= Combi-weapon - - Damnatus [MELTA 2) 12" 1 ae. Qt LI}? ALES. Ms |
+Dy ge en a ane ptecee ee Tena AL GARE Ao 3 aR RET Strategic eration: \ sit’ rammend phase, you can use this ability.
+r [RAPID FIRE 2 24 2 Let TA ; y
+Storm Bolter [ if eh eh eh eel eed eee eee If you do, select one combat doctrine to be active for this unit until
+
+the start of your next Command phase.
+
+4e7---
+edesaaaeret
+
+Relic Fist
+
+ts sieWeapon maseraranraree carers? PAPPPE TOPO TEASE DA TTOO SOMO BA DAD® 2 neprees | PPR e renee enna tre nent pet etn enter e enn tnnees tens neenes
+ed n ~
+-_> yo selecting targets ey this weapon, select one of its eligible profiles to make attacks with. * 1Captain in Terminator Armour model
+
+This model is equipped with: 1 Relic Weapon; 1 Storm Bolter.
+
+7a)
+——_*
+eater
+ecdacaerr*
+
+eos sereortore
+PV POSS OEY 00 04 0 0 Ow 0 0 oP oon st 00.50404 006 0 F004 08 8 FOR OSs Pees HORE EHI EE SEP ESITE ROO Ce ©
+
+Pe ees ub bat bo ay RC oe toSen Clee caer Senne \Pe> £00590 os Sv owryes seve rors tmereveee” ee ee ee ee ee ee
+eeweteserrese
+ewwreneesereeee
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+~~.
+oy" ' . 4 ° ‘ 7 . >~* a “* “ >
+2) oS ors NR se ON Be ee
+
+
+===== PAGE 32 (page-32.png) =====
+
+CAPTAIN in cRavis ARMOUR
+t Sv w
+
+4 IS iD oc
+gDoeEoaCs
+INSV
+y
+
+O gANGED WEA
+
+|
+
+poltstorm Gauntlet [CLOSE-QUARTERS} iz 3 ae Pe
+paner crafted Heavy Bolt Rifle : .
+——EE ae
+
+Strategic Acumen: fo your Command phase. you Cart Use (his abil
+{yn =~ < ah ine : a ead >" +a .\
+you Ga, select one combat doctrine to b
+
+poltstorm Gauntlet 7 ro
+— se ‘ . d ; the <tart of vour next Comesand pase
+Master-crafted Power Weapon elce Terese P c
+nelic Blade [EXTRA ATTACKS) Rwy | det |
+pelle Chalnsword [EXTRA ATTACKS) oe ee Femmes oles iam UNIT COMPOSITION
+nelic Power Fist [EXTRA ATTACKS] a. . Ey ciaaakc Bratt Heine
+
+This model is equipped witht | Maste Ree
+
+a Y WARGEAR OPTIONS Leste de todens ety tb
+
+« This model's Master-crafted Heavy Bolt Rifle and!
+‘si with one of the follawing
+
+8 Ii Poltstarm Gauntlet and | Relic Hace
+® \Holtetorm Gauntlet and 1 Rell (hainswot
+8 \Holtstorm Gauntlet and 1 Relic Power Fist
+
+in Groves Armour
+
+ith BOSE COUNEL anne
+Gein Power Fist
+
+
+
+===== PAGE 33 (page-33.png) =====
+
+CORE ABILITIES
+ARMY RULES Combat Doctrines, Transhuman Strategist
+
+== Plasma Pistol - Standard [CLOSE-QUARTERS] 2" {iit ee)
+Plasma Pistol - Supercharge 12° hy ee 5
+[CLOSE-QUARTERS, HAZARDOUS] ) 7 8 2.22. strategic Acumen: In your Command phase, you can use ths abit
+; Twin Bolt Rifle [ASSAULT, RAPID FIRE 2, TWIN- -LINKED] 24" 2 aye FS 4 } lf you do, select one combat doctrine to be active for this unit until
+Pe Sites, eA SUEY, ot RLUE, Fo sek pp een bd) dda ese ei si reds Ali tdery cli li sanrbos raed esogeooroscrtielrecvere map ee euaaeneegs PP cate lecek lO 0S * Nm oles RN the start of your next Command phase.
+fs Ps 1 4 MELEE WEAPONS RANGE A wS S AP O Into the Fray: If this unit made a charge move this turn, thls unit’s
+eS Master-crafted Power Weapon Melee 6 Pky Bei) 2 DASE pave Wake i}
+Fs weeyamayznnntnrcaternncannnvnneapneacennacetpnasey cic ietannreneterttereentcorescentpty yess pile Mei pe SH
+* t Thunder Hammer [D .
+ae anil ce ice Seca om UNIT COMPOSITION
+he 7
+(>. * me Before selecting targets for this weapon, select one of its eligible profiles to make attacks with. * 1Captain on Bike model
+
+This model is equipped with: 1 Heavy Bolt Pistol, | Master-<¢ rafted
+Power Weapon; 1 Twin Bolt Rifle
+
+etewtepeee
+
+. WARGEAR OPTIONS
+
+* This model's Heavy Bolt Pistol can be replaced with 1 Plasma Pistol,
+* This model's Master-crafted Power Weapon can be replaced with Thunder Hammer.
+
+e™ he Nea ew a
+et 7 FACTION KEYWORDS.
+ovo mec IN; CHARACTER; j EXPLOSIVES; 1 INPERTN | ADEPTUS ASTARTES
+
+‘.*
+4
+
+ccorv di Gath Pa iyihss NE LU
+
+
+
+===== PAGE 34 (page-34.png) =====
+
+—_— —,
+
+i | Demi-company Commander (Once t it):
+OSE-QUARTERS, DEVASTATING WOUNDS 12 LSE 2y 8S 'G : , per turn, per unit): When a
+[CLOSE- QUARTERS, DEVASTATING WOUNDS Weed iea e ae SF Ware do Hele RR tral, als wd friendly CAPTAIN unit uses its Strategic Acumen ability, you can use
+= Plasma Pistol - Standard [CLOSE-QUARTERS] 12" 1 pa AL, oe ; this ability. If you do, the selected combat doctrine is active for this
+plasma Pistol - Supercharge unit until the start of your next Command phase.
+
+Tactical Precision: This unit's attacks have
+[LETHAL HITS: non-MONSTER /VEHICLE].
+
+CHOPRA HCE HOTHTEHS EET EVET EC Feeeeeee sah OEE srt Beeerectisiset sbeat onus
+
+Storm Shield: This model has 4+ InSv.
+
+UNIT COMPOSITION
+
+* Lieutenant model
+
+This model is equipped with; 1 Bolt Pistol; 1 Ceramite Fists;
+
+s This model's Master-crafted Bolter and Bolt Pistol can be replaced with 1 Neo-volkite Pistol and
+1 Master-crafted Power Weapon.
+s (fthis model is equipped with 1 Neo-volkite Pistol, it can be equipped Wi
+model's 1 Neo-volkite Pistol cannot be replaced).
+s This model's Bolt Pistol can be replaced with 1 Heavy Bolt Pistol.
+= This model's Master-crafted Bolter can be replaced with one 0!
+5s 1Master-crafted Power Weapon
+o 1Plasma Pistol
+5 Power Fist
+
+This model's Ceramite Fists can be replaced with one o f the |
+0 1Master-crafted Power Weapon
+(ORES ae een ee
+
+~ (eOeUUTESUEURS UES ESSESECUR SEES, ’
+
+th 1 Storm Shield (this
+
+nang
+
+he or" &
+
+wt" @ iis
+t
+
+Bh INPERIUM; TACTLCUS
+| A nS
+
+a
+
+~ ee
+
+
+===== PAGE 35 (page-35.png) =====
+
+a
+
+aT LIEUTENANT m PHOBOS ana
+
+: = 1d RANGED WEAPONS RANGE BS S$ AP OD CORE ABILITIES Deep Strike, Infiltrators, Scouts 6", Support
+
+Se : Master-crafted Bolt Carbine [ASSAULT, RAPID FIRE 1] ARMY RULES Combat Doctrines
+
+ne ny
+ee ee
+DIP DESD 29 158 622209.50.000.0:90.00000090000006)0)0000000200050n0000000)
+hen eeaee eee ee
+
+eee e eee
+aaa te hn pends ih a ndanaiin
+
+. E MELEE WEAPONS Demi-company Commander (Once per turn, per unit): When a
+: DN , Monomolecular Combat Blades friendly CAPTAIN unit uses its Strategic Acumen ability, you can use
+= this ability. If you do, the selected combat doctrine js active for this
+unit until the start of your next Command phase.
+
+SEERA OTHER EERE EERE H THEO E HEH TEETER FH EE EHH EEE EHH SH EERE EE HEHEHE HEH S HHS THEE HEHEHE EE OHH EEE HEE eee h buen
+
+Tactical Precision: This unit's attacks have
+[LETHAL HITS: non-MONSTER/VEHICLE].
+
+SOTTO OH TEETH EEE EEE RH EERE RE HEHE TE EHH EEE SEH EEE ESEHEHENE EE HEHEHE OE EE EH EET EHS ETHER EEE SETHE HEN EEE EE EEE hbaes
+
+UNIT COMPOSITION
+
+# 1Lieutenant in Phobos Armour model
+
+This model is equipped with: 1 Monomolecular Combat Blades;
+1 special- -issue Bolt Pistol.
+
+Pee Pee eee Pee ee eee eee eee eee eee Pe ee eee Cee eee ee eee ee ee eee ee ee ee ee ee
+
+CHORE RRO Oe eR beet tow et ett eebetes
+
+es 2 fs “ = oP 4
+Pisce, oe ‘KEYWORDS: INFANTRY; CHARACTER; EXPLOSIVES; INERT PHOBOS; ‘SMOKE. ea ey Halidnhicriphlitss
+oo —- |
+
+Set!
+
+Paes Hh y pg Ti
+
+ae a ‘ f - tts ,
+
+€ uM . ' ; wy
+
+€.) oe -
+
+Ww wi a
+
+SRE,
+P Li * Stealth
+ie _~ mm Combi-weapon - Bolter [ASSAULT, RAPID FIRE 1] 24" 2 rE gy pS 2 “
+git ARMY RULES Combat Doctrines
+—,, 4) m= Combi-weapon - Flamer [ASSAULT, BLAST 1, TORRENT] 12” 3 : 5.1 1
+
+¢ a) cwwa wees esaat teat eh ene eree hed se Prasat EP SseGA PES OtN ES daeaes ty SHEP Ea seeasesee ssa sen nest eee eeeens neh eees et eee HVE Ehnee rent es enen setae arene eT tees rene rneeee eset eect ishess
+FAP. » ABILITIES
+
+7 42 MELEEWEAPONS RANGE A 3
+fe Priority Target Identified (Once per battle, per unit): In your
+Ee ET cntiepade keh ME ot ene tte arent hctemstsaan — CoMMand phase, you can use this ability. If you do, select one
+ee ik i. visible terrain feature. That terrain feature |s identified until the
+ake. 4 m= Before selecting targets for this weapon, select one of its eligible profiles to make attacks with. Bnd ofthe turcs
+i bit . UNIT COMPOSITION * While an enemy unit ts within an Identified terrain feature, that
+Ws enemy unit has +3” detection range.
+% as “ 1 Lieutenant with Combi- -weapon model POs Pec ecwaetess Fed bd Jo gdsoodecestorustaerert beeutes ts dbbtovsecetnae oD cemented tied Its ns toadeidseectapt Teste
+fe | 4 SIA Evade and Survive (Once per phase, per unit): In your opponent's
+3 CTS REET Te) Baie ia tla a Movement phase, when an enemy unit ends a move within
+
+8" of this unit, if this unit is unengaged, this unit can make a
+normal move of up to D3+3".
+
+geeneee
+SOO? FOSS OPCS SOSS SS © CCS OS SOF COG OOO¢ COD oc er do 6 06d 6 Cow weeewncen dé o4thas 6 0 edt 9 ¢ cub otsserpotRet!
+
+{SS HRMS ALAS Fe OE ROPER
+y cee §=— FACTION KEYWORDS:
+i Pens OE: rey Shas ise 7 ADEPTUS ASTARTES
+IBA Kod ey) Wet asve 5 } - a
+he Pe A 5k: ’ ¢ S
+
+— SS a ee
+
+
+
+===== PAGE 36 (page-36.png) =====
+
+t Pistol [CLOSE-QUARTERS] CORE ABILITIES
+on SUR AIVEZ SSR SASSIOS AGES SILC PSES, JESSEN rt ARMY RULES
+
+Absolvor Bol
+
+Combat Doctrines
+
+Bue 5 a: SSCS [a
+
+| oc bein iA ;.,,i 11 Wee} Litany of Hate: This unit's melee attacks have [LANCE].
+
+J Spiritual Leader (Once per battle round, per unit): At the eat”
+start of any phase, you can select one friendly battle-shocked
+
+ej : ADEPTUS ASTARTES unit within 6" of thic model. That unit is no
+
+) longer battle-shocked.
+
+UNIT COMPOSITION
+
+; * 1Chaplain model
+This model is equipped with: 1 Absolvor Bolt Pistol:
+1 Crozius Arcanum.
+
+| |
+
+CHAPLAIN with yume pack
+
+M T SV W
+on —_— =<.
+© RANGED WEAPONS
+
+ae a
+bas wu ory Geen a : - | : 7 . ANCE]
+a Vy Pee aa Pa SES . - This unit’s melee attacks have [L ys eS Nib otin v—- «
+X MELEE WEAPONS mame tee cuey G2 og. Uitany of fate: Ts Ur ‘ihic unit is at or below half-strength,
+2 dare he tong asia a - While this unit is e
+pa: Ns exhortation of Rage: W
+
+eee em eee wt ener tee eeaetenene
+
+oo Saabah ae
+
+roll wound rolls.
+
+this unit's me!
+
+1 Chaplain with Jump Pack model
+
+
+===== PAGE 37 (page-37.png) =====
+
+CORE ABILITIES Deep Strike, Leader
+ARMY RULES Combat Doctrines
+
+&2 MELEEWEAPONS RANGE A WS SAP ABILITIES
+Crozius Arcanum [CLEAVE 1] Melee 5 245." St 4} 2 Litany of Hate: This unit’s melee attacks have [LANCE].
+
+eee eee eee eee eee eee ee.
+2 eee eee eee eee eee eee ee ee:
+SECEECSUCUCCOUCTCOSOSOCCECOOOOESTCSUSTOCCOCEST ISOS CII eee eee eee eee
+WE oa eb ech cUCdbbSS6 00 CES oP UEE EEE POU DOO COD STS PELE CEO DOES CEDASEPOPOTETESGOUTOSEP GT fgg Sig Ge F {Ad Pee FESIFETEPIED SG Fed PTINVOToSSS CSUDOHOS SUTOOOTOVAED OO CUS EN. POPE el OP EPS ees et
+
+Zealous Fortitude: This unit has Feel No Pain 4+ against
+
+E3 WARGEAR OPTIONS mortal wounds.
+
+ae » This model's Storm Bolter can be replaced with 1 Relic Shield. Relic Shield: This model has +1 W.
+
+Aw
+ess UNIT COMPOSITION
+Saas = 1Chaplain in Terminator Armour mode!
+
+= vate This model is equipped with: 1 Crozius Arcanum; 1 storm Bolter.
+
+’
+
+: a ° - ’
+
+~ : « -
+
+; : ;, . —EE = =
+
+»- a : : ; Mes
+. >
+
+- ? < 2 a 7 o br «4 Ps ee | Lat 4 ofan
+
+ee KEYWORDS: INFANTRY; CHAPLAIN; CHARACTER; IMPERIUN; Rati Ae eed ADEPTUS ASTARTES
+
+—.
+
+'
+
+~ay a ’ x
+=a - ow ee Pn
+— =. tse oed
+
+.* a. ,
+ray Le aor fn
+‘~~ ,. we a= a
+, wt ee
+st ee
+<=
+
+—os ¥ =
+" AN a =
+
+z As “CHAPLAIN ove.
+
+Pas
+
+<> RANGED WEAPONS CORE ABILITIES
+
+~) __ Absolvor Bolt Pistol [CLOSE-QUARTERS] 18" 1 3 5 2 2 FRIIS
+
+“£5 Twin Bolt Rifle [RAPID FIRE 2, TWIN-LINKED] EEG PEN tae $0 ae
+
+“ ’ | © svowedve SEEDETUUNT TUNEL UR TEERTETURUU TUT YTVRVCTU Cet TTRTuuuerrueren ven lueeuoceLE revuuereNCToTnt sere e re ree renee ere sveseess sv rworvenevoseversevussvosroevere veces ABILITIES
+
+— f i *]
+
+1, &2 MELEEWEAPONS RANGE A WS S$ AP OD
+
+Ry core mca acne ame eaten! Yeh  MEICE 6 9 Fut Oe Sl,» Catechism of Fire: In your Shooting phase, when this unit
+Ber em k nOke ain leg 6h selected to shoot, you can select one visible enemy unit. This unit's ,
+ranged attacks that target that unit have [DEVASTATING WOUNDS]. 1a ;
+
+hocoeessseoetisttdstece
+COCO ETP ES HOSEA TO CETT OOOH PeeadsseasraeHaesesivereroerieererEeHatter
+
+UNIT COMPOSITION
+
+* 1Chaplain on Bike model
+
+This model is equipped with: ] Absolvor Bolt Pistol;
+1 Crozius Arcanum, 1 Twin Bolt Rifle.
+
+= hoo docsces 6400 e dbo Felt be} Ome ee's oem res.6 obs (00 06066 61466 dhacorsetrs errr
+
+ood gage eeet-
+ab sod hOeOtee er"
+
+"7; ) AsH5 ae ee AN ae ren eg
+“ ie LAN Sp of aeeae Gbetei Ser ral leat rere a7}
+Bein mn a, isa
+
+or 2 as ren, . *
+
+
+===== PAGE 38 (page-38.png) =====
+
+Combat Doctrines
+WN ioner Relic Blade '
+| FpeVASTATING WOUNDS, PRECISION] Re ugee ph 2g
+\ UNIT COMPOSITION
+: " Judiciar mode!
+& This model is equipped with: 1 Absolvor Bolt Pistol
+} Executioner Relic Blade.
+& |
+>
+peste es
+ARACTE Ry IMPERIUM;  TACTICUS FACTION KEYWORDS:
+ON es tN ; ADEPTUS ASTARTES
+
+ELL.
+
+ou RANGED WEAPONS RANGE
+stol {OLOSE-QUARTERS)
+
+‘4S live 12 oRrd?p
+
+3s SAPO MCOREABILITIES © SE
+- ae ARMYRULES Ds Combat Doctrines, Librarius >
+
+Pewee eeeerety )) A eee
+
+va rhis model has the psychic abilities
+
+ae 7. Z Librarian (psyker leve as
+chfire [PS ) ae ] . an ct @ Psychic Abilitle action (see elt)
+ee LIK (a) ay perenne oe {ist ed jn tn y
+: P a S al Seba we es Cee eewte be - _ | i : - a
+KA . nt NGE SS AP eke Psychic Hood (Psychic); Th) 12s Feel No Paln 4% agai!
+
+. oe - : ’ 1{ Hrafian moce
+
+a > Livia ake _- t Comite
+; “— p Tal } Ford ¥¥eADOT, 1 eri
+; #7‘,
+
+— ne ielEe 4 :
+ree Weapon [PSYCHIC] Seta ens
+ANTS EMRE De) pee ee weeny F Deeeen¥Es KS 6 Gqeme eee oRrs Pewee eet” on eto war
+. atiloc to make OU OCA> 9 Li UNIT COMPO
+are sel ting targets for this weapon, select one of its eligible props —
+
+o eles
+
+ima tn: is sel i
+me (psychic level 1): When this unit is ane DE Ifyou
+le-shock d, yo can make a psychic roll for this unit by roiling one ©
+
+this unit fs not This model Is equipped vith: |
+
+ected to make an paar move.
+
+“ar
+a
+
+frst advance roll toa 6
+
+i as -sh cked, yOU can
+er Movement phase, if this unit is ool battle-sno
+or this unit by rlling one 0S IF¥o% do:
+as 4- Insv unt the start of your next tur ———— . caction KEYWORDS
+athena naa . 7 | hy r cus ADEPTUS ASTARTES
+ER; TAC (1
+A . a
+
+
+===== PAGE 39 (page-39.png) =====
+
+we LIBRARIAN ww exopos armour. |
+Sog5o0caqm
+
+oe <> RANGED WEAPONS Deep Strike, Infiltrators, Leader, Scouts 6",
+
+Sas tealth
+= Bolt Pistol [CLOSE-QUARTERS ] 12" 1 34 445 eel wet
+
+a
+
+Ta 7
+Z 4 A + a .
+d = .
+‘ >
++ -
+e "+ . >
+- . ~ %
+. 7 7 bd
+. -y eC
+- - t,,’ ro C4E
+.
+- of
+7 -
+Tt.) ° , ;
+7 *
+y, ARS
+ees . 2 7 .
+- J a ¥ _
+“—< :
+— » “~ a4
+j 7 ~S : ; 7. |
+. Gin ° “~<
+ys > - 7
+hy ,
+‘4
+—
+—.
+P
+
+ne
+
+CORE ABILITIES
+
+oe ssvsntnannnnennsctannannssntnarnnansnenanissnnnansnncnntennonnrantnsastnsannaannnssnaneaninnasttteatnnanstnnnaannannnnsanntnnsansnnnnannarnanansnnunstinnssat ARMY RULES Combat Doctrines, Librarius ,
+Smite - Focused Witchfire
+
+fan [DEVASTATING WOUNDS, HAZARDOUS, PSYCHIC]
+> = Smite - Witchfire [PSYCHIC] PROC eR er ns ee ABILITIES
+(| nats eateunnn moan patentee yy Me et ee eS Ra bk FPR hE eee eh ee a distaltan (pdybad level 1): Thi model hactthe payehte Abus f
+
+$2 MELEE WEAPONS TTT MCE CM II listed in the Psychic Abilities section (See lef Es
+
+ys
+Psychic Hood (Psychic): This unit has Feel No Pain 4+ against
+
+Bass Force Weapon [PSYCHIC] Melee 4 Bete GHZ 2
+wrt ta tte aubacnseesteeraernstnbeneanceratseyennecsessanecssssperaredusstnecnecssuscuveatnccoavansacsuesensnsgassasauscasetsccsecssuscccensussesseenesescsseesie este sere e% psychic attacks.
+
+Seer ws
+—
+<
+
+ee m= Before selecting targets for this weapon, select one of its eligible profiles to make attacks with. ,
+
+=} ® PSycHIcABILITIES rbd ala
+
+# 1Librarian in Phobos Armour model
+
+~
+
+Asa Ss Shrouding (psychic level 1): When an enemy unit targets this unit, if this unit is not battle-shocked,
+
+ay: re you can make a psychic roll for this unit by rolling one D6. If you do: This model is equipped with: 1 Bolt Pistol; 1 Force Weapon; 1 Smite.
+St; = Onai,this unit is Sle shociottey x tt Ghee ao ee. fe, 9 aeons Se: aa ae; Be ST GIT aes Beta e creche eas opl ccntss tecehyde eet ren
+eb iechal fen bearer dia Rae rolls UGu} neene Of the pase Meee penne AL ee
+
+Seat ‘ Soul Sight (psychic level 1): In your Shooting phase, if this unit is not battle-shocked, you can make a
+
+at psychic roll for this unit by rolling one D6. If you do:
+
+teh = Onatl,this unit is battle-shocked.
+
+BERS i = Select one visible enemy unit. Ranged attacks that target that enemy unit have [IGNORES COVER].
+
+i se ; Meera eee eae ery iracronsscoosttestpudtabadsequsesovsusepnass MPospwendosererseseseedgeud\asaveysbevosserecssterseneenevestsnaafeatesest te
+
+~~ KEYWORDS; INFANTRY; CHARACTER; EXPLOSIVES; IMPERIUM; PHOBOS; PSYKER iy
+
+Pets GU Neeser eth URE seaR TEN ES ; ADEPTUS ASTARTES
+
+> a
+«ae .
+. Aa - , > 2
+¢
+
+wi
+,
+
+pe “
+ee ww - an tire" - i <r
+- A 4: ‘* . »
+fo heya, “LIB A IN TERMINATOR ARMOUR
+be | eed a.m ee . - es 5
+me EF ay ‘ Ve ‘Sows
+(Ak as . : 1M ‘«S T : \ wt SV 7 W
+
+yy (A a Smite - Focused Witchfire 24" 03+3 3+ 6 48, 2 ARMY RULES Combat Doctrines, Librarius
+Kw! + [DEVASTATING WOUNDS, HAZARDOUS, PSYCHIC]
+ag 5 epee der [RAPID FIRE PY Poe 0S 8 igs 24 “ie 2. 3 5 1) Librarian (psyker level 1); This model has the psychic abilities
+
+eee Se oo listed in the Psychic Abilities section (seeleft) 4 £8 8 8 2
+
+«.
+i occeneed 6164605 OF
+————— sr rrttltlttststi‘CsSS NE OUACUWSCOUSCOPCOsC i EI SP AE te We SAN TY 8 on:
+RANGE A Psychic Hood (Psychic): This unit has Feel No Pain 4+ against
+pee - psychic attacks.
+
+ew tye pe oe ge ae me Ah foe!) Ql annreld (abe hophemrena re: UY - 46 Te aeeae)\ oe ret ah smee tees el eee) Ahhh hea ar he
+eset dbeceseerrs te eeee tee
+
+yf UNIT COMPOSITION
+4 r: 5 * 1Librarian in Terminator Armour mode! f
+a . " , : fo } im 4 7
+ay 4 Might of Heroes (psychic level 1): In the Se BD if this unit is not battle-shocked, you can make a This model is equipped with: 1 Force Weapon; 1 Smite; |
+0 Gn psychic roll for this unit by rolling one LM bees Storm Bolter. Me’ pa Sal) eee oe
+pe’ * Onai,this unit Is battle-shocked.
+oe | This unit's melee attacks have #28. penne ee... pila
+a ‘Thunderous Force (psychic level 1): In your Shooting phase, if this unit is not battle-shocked, you can
+ef make a psychic roll for this unit by rolling one D6. If you do:
+<0 » Onai,this unit is battle-shocked.
+| F This unit's ranged attacks Mave +6, Rc ceansntnmn nent
+- pera IOY WUT ee
+STHATDR: 48 9 SNC Ya PSE Vee FACTION KEYWORDS:
+wk ten roe bath AY gag Beg oo OG wen iGosmer, | ADEPTUSASTARTES
+
+> 4!
++ “e*
+a’
+ae ed es \e
+a ae
+
+
+
+===== PAGE 40 (page-40.png) =====
+
+ny NEO OOO OS VOU OUI OT IOUT ITTT TIES TICUIT TTS
+
+and yell Ba sau UNIT COMPOSITION
+
+1 Before selecting targets for this weapon, select one of its eligible profiles to make attacks with, Si Rhone nae
+tt WARGEAR OPTIONS | This model is equipped with: 1 Bolt Pistol; 1 Bolt Rifle
+] Ceramite Fists.
+. | ® This model's Bolt Rifle can be replaced with 1 Power ease Teper ke a Se MR LT > BA RARE 2 a aie Re LO
+
+a ee ee POT LUE P TSS bERESY OY SIE 06D Ta Van Sus bat sods FVbe8 ceaenéasie bey epeibechd cde é
+eee ee ee ee eee eee ee eee eee ee ee ee ee
+
+ee
+
+-_—_—
+
+Sek eames hay FACTION KEYWORDS:
+ACTER; eames TNPERIUM; TACTICUS -ADEPTUS ASTARTES |
+
+, ah pete
+
+—
+
+BLADEGUARD ANCIENT | :
+
+Yan 4, .¥
+
+: Tae ‘
+yw
+
+) RANGED WEAPONS
+avy B B olt Pistol [CLOSE-QUARTERS] —
+
+thee b ees eeeees theater rere nthe
+
+ement phase, If this unit Is
+
+our Mov
+er, At the end of y tee
+
+& NGE | a Raise the Bann
+R cE WEAPON | |
+
+SofBattle
+' cate
+
+
+
+===== PAGE 41 (page-41.png) =====
+
+RANGE A BS S_ AP CORE ABILITIES Deep Strike, Support
+
++).
+
+tne ARMY RULES Combat Doctrines
+
+=2y "Sqr, : aaa STITT tietitiriieiiitiitiriT iter tr iter eeeee treet ea eee ee
+
+See & MELEEWEAPONS RANGE A WS S AP OD a 2S Se
+Sta Master-crafted Power Weapon Melee peg ie Rng Gal aay, 2 Raise the Banner: At the end of your Movement phase, if this unit is
+I OI 889 6.02 o0 cn naposscsovacyese signs stineCingsin ese cen eee aa Len PRS Gh ERENT, Gc C RAY. crssccclecesarctiletiedetion
+
+iA
+
+yi ots
+. A. » ¢lf
+wy ey
+*
+* >
+
+—-
+
+?
+
+an objective, attacks that target this unit with a $ greater than this
+unit's T have -1 to wound rolls.
+
+UNIT COMPOSITION
+
+* 1Ancient in Terminator Armour model
+
+This model is equipped with: 1 Master-crafted Power Weapon;
+1 Storm Bolter.
+
+——
+
+FACTIONKEYWORDS: ae bast
+ADEPTUSASTARTES =
+
+- FECHMARING =
+Y's «kB 5 % | ; ' SOW t. ; :
+eee <> RANGEDWEAPONS RANGE A BS S$ AP OD COREABILITIES [RrCry
+Ae pry he Forge Bolter [SUSTAINED HITS 1] 24" 3 rh AL t= ee o 2 ARMY RULES Combat Doctrines
+©" Gravepisto! [ANTI-VEHICLE 2+, CLOSE-QUARTERS] Teen Ms tes che ea
+; at 7 en ag eed a errant trate See OOD. ote ee error ABILITIES ; | POs
+a? . ,
+: 2 7 yo ag MELEE WEAPONS RANGE A WS SAP Techmarine: While this model is within 3” of a friendly ADEPTUS
+id ‘eel is unit has Operative.
+Ley AG Omnissian Power Axe and Servo-arm Melee ) 5 Soran A -2 2 Pare em vereme tts Mp lt as Lone es WER BA Pcie an
+oO + Dl ccnacteccsesdptpsctectnnsssccvecsateprenteveqshenee Pa etttennsestsneeneesenetsneenereneceten tan eeeeeenened etree ssenrnneseee sp nesssenwere cnet ybneestheenaeteeeseete Blessings a the Omnissiake in your Movement phase, at the start
+
+or end of this unit's move, you can select one friendly ADEPTUS
+ASTARTES VEHICLE model within 3" of this model:
+
+« That VEHICLE model heals D3 wounds, |
+= That VEHICLE model's attacks can ignore modifiers to hit rolls
+and wound rolls until the start of your next Movement phase. : :
+
+ithe ee Ce PPP CP eT ee Cee eee Pee eee ee ee,
+
+UNIT COMPOSITION
+
+= 1Techmarine model
+
+This model is equipped with: 1 Forge Bolter, 1 Grav-pistol,
+1 Omnissian Power Axe and Servo-arm. | eet, ’
+
+eintenie cane rs deen Uk FACTION KEYWORDS:
+. Ss he :
+: serenty Daaexeiae § ieee Bem ADEPTUS ASTARTES
+
+
+
+===== PAGE 42 (page-42.png) =====
+
+CORE ABILITIES
+
+ARMY RULES Combat Doctrines
+ABILITIES
+_ Reductor Pistol [EXTRA ATTACKS] oe ee Melee | SHO 34 2 Narthecium: In your Command phase, this unit heals 03+1 wounds.
+| Shaan Deanna nanan aman Annas nentcoanetitnnnentstetetnnnezryntren ie Peirce i LN one |. S00 blind = Sone ‘ i ae
+
+matt -
+
+oten SS UNIT COMPOSITION
+
+* Apothecary model
+This model is equipped with: 1 Absolvor Bolt Pistol;
+
+‘OTHECARY BIOLOGIS
+
+noe oeG
+
+_—
+
+4ED WEAPONS
+
+; ay, Fuerpasscors vesrerscennyesc set ene ’*” ; , P on it’ ave ~
+
+LEE TS Vivispectral Analysis Targeting: This unit's attacks .
+“> HEAPONS LETHAL HITS: non-VEHICLE]. PS asco fk Re ee | ea.
+2 is mode! rae
+» Apothecary Blologis me eS
+
+I
+his model is equipped with: 1 Absolvor Bolt Pisto | %
+
+ssa eee?
+
+
+===== PAGE 43 (page-43.png) =====
+
+' - SA
+See
+
+es NY
+. : - Yad,
+
+th hb id adadbhi inna pndiisAraant iti bssiisbobhr it thia dike atte LL fe tee
+OO EO OOF OO ORO EEO Se ENO EE ORE ERT ROU E OE EH OTT EEE HE THAN
+
+Raise the Banner: At the end of your Movement phase, if this unit is
+[ASSAULT, HEAVY, RAPID FIRE 2, SUSTAINED HITS 1] 3 4 3+ controlling an objective, that objective is secured.
+
+POORER eee wee
+PLLC ors! Chor CCCP S USSD SEEPS POs Ot CIN SC ESOP TSeD Gas Fe YESS 606-40 be OR UTEPUY © URED FO CLEASED D FOCUS DOSES EY BPO O.5 266495654 COESOS SEED OO ESTEE OD TSESCABES | - OU EATVOGE ROS? EBD AG SD D0 ON ee Oe ee ee he ee hE Te ee eS RAS OCE IOS
+
+Command Squad: Attacks that target this unit have : to
+wound rolls.
+
+=| $2 MELEE WEAPONS
+Combat Knife
+
+PPP PAP SIRTF R EERE A ERR A EHO RHEE EERO EEE EER EEHEA EEE EREEEREFENEEEEEEE mR PDE REDPDEERERALE EERERHEEREEDDAE REREAD E HE EE EREEEDADES ERE ADEE ESSE EE EREEEE EERE SAREE RSE RROD S GF
+
+UNIT COMPOSITION
+
+ARR DRDO ROBO EEE SAAR REAR ORO Ree Pee RRR EAEO ERD SREP EES REE BRR EEE ERE CSRS RU ARSE ELE Se aS EEE ERE Sea eee eee eee
+
+* 1Ancient model
+
+«= 1Company Champion model
+
+= 1Company Veteran with Bolt Rifle model
+
+* 1Company Veteran with Heavy Bolter model
+
+The Ancient is equipped with: 1 Combat Knife; 1 Master-crafted Bolt
+Pistol; 1 Master-crafted Bolt Rifle
+
+The Company Champion is equipped with: | Master-crafted Bolt Knives
+Pistol; 1 Master-crafted Power Weapon.
+
+The Company Veteran with Bolt Rifle is equipped with: ) Combat
+Knife; 1 Master-crafted Bolt Pistol; 1 Master-crafted Bolt Rifle, Power
+
+The Company Veteran with Heavy Bolter is equipped with:
+
+1 Combat Knife; 1 Master-crafted Bolt Pistol; 1 Master-crafted Thun
+Heavy Bolter. | © efor
+bi
+mel
+Te, :
+“Keywords: -ALLMODELS; INFANTRY; EXPLOSIVES; LINPERIUN;, A FACTION KEYWORDS:
+
+| TACTICUS | ANCIENT: ANCIENT | COMPANY’ CHAMPION: CHAMPION 2 ADEPTUS ASTARTES
+. 7% ~ ott See baht aed Te Tt x23 ’
+“1 ij
+
+Ptr ©
+
+ry
+8
+
+his fe
+
+feos ‘i ‘A bite mre oa”
+
+—e iuEieatst ohne
+
+. P ~
+g Chie hs os oe
+
+
+===== PAGE 44 (page-44.png) =====
+
+| WTERCESSOR SQUAD
+
+iG B88
+
+;
+
+ee
+> RANGED WEAPONS
+Bolt Pistol [CLOSE-QUARTERS]
+
+12"
+
+1
+
+<" fmm /
+
+secspranncnfnarnansnenanstsnannes nohaansthabenabbbabaattabeenemnesieemnbeaeainntetee te
+
+a: Rifle - Focused Fire [HEAVY, RAPID FIRE 1] 24" 1 .
+
+. aa ie
+
+- Bolt Rifle - Saturation [ASSAULT, RAPID FIRE 1] 24" , a et ; Bolter Discipline: In your Shooting phase, if any of the following . h
+
+: BE ST et See Fant ee nn nt FARR EN 6 BT. hI IIT DRAW ae An BO bd ch akuh joel apply, this unit's ranged attacks have +1 to hit rolls: er
+nade Launcher - Frag [BLAST 1] 24" 4 we)
+
+=m Gre g 4 si | | = This unit is within range of an objective.
+
+wm Grenade Launcher - Krak [RAPID FIRE 1] 24" 1 5 Tale, %! 3 « The target of that attack is within range of an objective.
+a sescenspatntnmmnents osinssnnncazsannantnnesantss Aer sid ect pine a rca oe 2, es ataney AA ban 1 ee OTR Se Na AR Et SEILER PENS ad oT RGR gd SORES RLY Deeg baal
+
+and Flamer [CLOSE-QUARTERS, TORRENT] tal Malnstay
+CRUG Ped NN a eet ded vee ieee lt Jievewsttes INV ON CN eS 86 0 5d oe OW ONs esc eed ocd ri ’ CFe08 SOOT eS eb ee eG s ele eeed fo See bacobedeveved a Being engaged/battle-shocked does not prevent this unit from
+- Standard [CLOSE-QUARTERS 12 1 + :
+m Plasma Pistol - S L Q | 3 r : being eligible to start an action.
+- Plasma Pistol - Supercharge 12" ; 34 g a 7 * When this unit starts an action, that action does not prevent
+
+this unit from being eligible to shoot.
+
+liek o UNIT COMPOSITION
+Chainsword Melee > Stee. 2 © 1 me * 1Intercessor Sergeant model |
+: Dp natrecenasresensrrasepcsnreses tiet i DIP iist n> Norn er seer Are 1 Tm a Sara eS 0 as at aban enema bt pbs emma bes ane) } < |
+e BRT Fists | f Melee ; 3+. 5/0 1 4-9 Intercessor models |
+el Toy 7 3 ie “34 g oy) 2 Every model is equipped with: 1 Bolt Pistol; 1 Bolt Rifle, |
+qd ’ BoeLr ist  alnhemnehhaenhaboeaee wive NRIFS pent nl —s dR ER crete 1 Knives and Fists, ita lew ah. 7
+. J at ied Be wiicey PO RIAC A crite Newry t He Nod ay eee = ve ‘
+
+4 wewerewtdeteenr
+
+m® Before selecting targets for this weapon, select one of its eligible profiles © make attacks w!
+
+#
+
+%¢ WARGEAR OPTIONS | .
+ey aplaced with one of the following:
+
+* The intercessor Sergeant can have their Knives and Fists rs
+@ 1Chainsword
+
+© 1 Power Fist
+
+© 1Power Weapon
+
+© 1Thunder Hammer
+
+-
+
+T e Intercessor Sergeant can have their Bolt Rifle replaced with on
+© 1Chainsword
+
+© Hand Flamer
+© 1Plasma Pistol
+
+© 1Power Weapon
+
+a loped with 1 Gr
+= For every 5 models in this unit, 1 Intercessor model can D8 SPIT
+
+1. i~ 7 aseeeerer
+‘Vel peewee teehee =>
+bi a
+
+e of the following:
+
+enade Launcher.
+
+ee 7 7
+ra)
+
+r, i:
+sal
+
+7
+a
+a a
+-
+
+
+
+===== PAGE 45 (page-45.png) =====
+
+Combat Doctrines
+
+)
+
+Hand Flamer [CLOSE-QUARTERS, TORRENT]
+
+Heavy Bolt Pistol [CLOSE-QUARTERS]
+
+i
+co;
+ae
+
+bd . . ~~ . - . G16"
+> = AS | Pel thal, > > rT
+DA Dee ee, CRN aes MO sr,
+a eae Agee Css" ; 7. E> “h 54, v4 S¥-
+‘’ 4 \
+
+'
+
+IwevTs>
+
+ssors
+OM
+;
+
+-
+
+der Hammer
+
+ave +1S and AP.
+£
+
+he. s = ’
+gn re am
+‘ : ~ 7
+
+i
+
+«
+-
+
+1 Assault Intercessor Sergeant model
+
+4-9 Assault Intercessor models
+Every model is equipped with: 1 Chainsword; 1 Heavy Bolt Pistol,
+
+Targeted Intercession: If this unit made a charge move this turn
+
+this unit's melee attacks h
+
+UNIT COMPOSITION
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+Flamera
+
+~
+.
+“—“™ ve
+'
+-
+:
+a
+.
+
+1
+2
+D
+1
+2
+1
+3
+
+7
+Se Oe 6 tle ee ee ein ad
+7 e .
+’ :
+
+7
+8
+WS S_ AP
+S
+8
+S
+8
+
+:
+]
+A
+4
+3
+4
+3
+
+Art:
+iy
+
+e
+aa
+-s
+=)
+
+12"
+12"
+RANGE
+Melee
+JIS WO)
+“a,
+
+~~)
+
+es We!
+
+. 10 Cf)
+
+3X
+a
+>
+a
+af ye Paw
+* -
+— » ©
+- 2 +
+: rs
+: : 4
+¢ .
+' et,
+od
+
+YW
+
+; EXPLOSIVES; IMPERIUM; TACTICUS -
+
+:
+
+:
+
++. ae. .
+
+ATTLELINE
+
+Non \ es
+
+:
+v -
+zee koe
+
+_—_ = @ Fs
+
+> . . ~~ >
+LAN - we Sts). |
+Ute SY Sob: Soc yes ¥ |
+79 oe Waa
+— r. ‘7
+
+1 Thunder Hammer
+TRY; B
+
+1 Hand Flamer
+
+1 Plasma Pistol
+
+1 Power Fist
+
+1 Power Weapon
+
+SINFAN
+
+The Assault Intercessor Sergeant can have their Heavy Bolt Pistol replaced with one of
+0
+0
+
+the following:
+
+ae!
+.
+
+= The Assault Intercessor Sergeant can have their Chainsword replaced with one of the following:
+
+‘Thunder Hammer [DEVASTATING WOUNDS]
+
+Power Weapon
+
+Power Fist
+
+Plasma Pistol - Supercharge
+
+Chainsword
+
+teeteee
+
+=> Plasma Pistol - Standard [CLOSE-
+
+%& WARGEAR OPTIONS
+
+“KEYWORDS
+
+>
+2 #
+eset TS
+
+- “ a)
+« . “ - 7 < aT *
+- “, -- - ——n P=
+£ . ry . o> ax ig ae
+- ’ 7 — -
+
+4&2 MELEE WEAPONS
+
+—T Cn Sie Re Tea so > : .
+7 ere ois i yee banoy ; — - ”
+" pS. Fe yt aoe Rd . : ."
+: . - ‘
+
+‘. She
+
+‘
+_
+»
+¢
+,
+is
+peo
+.
+? he a
+> q
+>
+*
+
+te -
+a <a ~~ m
+are? < 2% «_*> x 5 Aha : >»
+. ~~ 7¢ «~ ‘ - a . me “ . +)
+Tb . : - aa ~~ \ .* _ ne “A
+. . * os ~~ ™ _ * 5 ae —
+BA re XG = We Ty
+
+—— ~ -_-- = - > _ — — -—<-—@e*~ — « —
+
+4 4 »!
+MOP aT Ne OED? Sine ah
+ore Seay ere OE
+
+
+
+===== PAGE 46 (page-46.png) =====
+
+; /
+P : ; ; - »* “+ — UT hn
+‘ ; a cy WA “ J ine i) Ae aan b af ,
+4 t . . ‘ 2 am “ei, MAY meee poe ne BN Oh Se fe \ ee te Sea
+: bs a IP = eS s ey a o Ae, : ae
+BY) : Pega Ripe aes OE state 3 ee OE el LE 7
+i . Ay "Ss ; : ae ena , 5m 4 a 7 SAG -" a re 7a 4 LEA 5g ae 7.
+: ‘ 7 Sn _ v = a +4 = . - << » * ~ a ‘ .
+7 ws “bi : +o. *% Ath 7 : Oe ie OE oly GAs bo? { 7 Bh he Ci eM CY Age ¢
+: . { ri STING « We, e > uae f os 4 ‘gh Py
+"LA . ; ; oS ae rer si ae ae
+, . Y ; ~ ves
+. ’ "i . - e
+ASS WITH JUMP PACKS ens beet rN Apis
+: } ‘ - r wy - . . bh. ed ~ “-
+‘ ’ oc a - . ed
+. ' ‘ . a : . : 4 . ‘
+— y x | A y 4 ’ 2 ¢
+a
+
+¢} RANGED WEAPONS }
+and Flamer [CLOSE-QUARTERS, TORRENT] 12 TTT SS Deep Strike
+| IMM Pe COLNE aE raphe ANE een Mae go IO CORAL ON ARMY RULES Ponibat partis
+a plasma Petes). so ee
+plasma Pistol - Supercharge
+12" | Syst ATE ; Hammer of Wrath: When this unit ends a charge move, you can
+
+= [CLOSE-QUARTERS, HAZARDOUS]
+
+rte be OA al ds Ah Siete De ie Bele tdi adit SD a ats ha at
+ee ee ee
+oe ee
+Settee ee teee
+#eee
+Cow ewe eae
+eee ee wee eeee
+eee eee ee ee
+
+select one enemy unit engaged with this unit. For each model in
+this unit engaged with that enemy unit, roll one D6:
+
+ae MELEE WEAPONS RANGE A WS CS ADD * Ona4+,that enemy unit suffers 1 mortal wound.
+Wace sR ga pie eae
+
+Chainsword Melee 4 3+ | 1
+settee OL ee ee a S| ARAL AN A Si ieee UN
+i... wee 3 ee alll
+Power Weapon Melee we aly iia "tm =x : apne sa = 1Assault Intercessor Sergeant with Jump Pack model
+ER I lll enerssrirequtsnntinrtincie hp ecyiel nen = 4-9 Assault Intercessor with Jump Pack models
+se» Before selecting targets for this weapon, select one of its eligible profiles to make attacks with. Every model is equipped with: 1 Chainsword; 1 Heavy Bolt Pistol,
+
+gaceeeer?
+
+re) WARGEAR OPTIONS
+The Assault Intercessor Sergeant with Jump Pack can have their Heavy Bolt Pistol replaced with
+
+one of the following:
+op 1Hand Flamer
+on 1Plasma Pistol
+
+» The Assault Intercessor Sergeant with Jump Pack c
+
+the following:
+o 1 Power Fist
+
+o 1Power Weapon
+
+= For every 5S models in this unit, | Assault Intercessor with }
+Bolt Pistol replaced with 1 Plasma Pistol. BB eel ee
+
+SPEER ob ab cons bee hsdebbercesrarenr” ..
+
+an have their Chalnsword replaced with one of
+
+ump Pack model can have their Heavy
+
+SEER UNV a buvacn tbat osesceastrr cer isreshionfersects reer’
+
+ERTU
+
+Ms GUMP PACK; TACTICUS
+
+
+
+===== PAGE 47 (page-47.png) =====
+
+“HEAVY INTERCESSOR SQUAD
+
+M
+
+GogeGcga
+
+= _ © RANGED WEAPONS § ARMY RULES Combat Doctrines
+aie Bolt Pistol [CLOSE-QUARTERS] 12" Perse ans 2-1 ae
+
+ABILITIES
+
+Unyielding in the Face of the Foe: While this unit Is controlling an
+objective, this unit has +1 to save rolls.
+
+MELEE WEAPONS Soerte
+E UNIT COMPOSITION
+Ceramite Fists
+
+* 1Heavy Intercessor Sergeant model
+® 4-9 Heavy Intercessor models
+
+Xt WARGEAR OPTIONS ak |
+Every model is equipped with: | Bolt Pistol; 1 Ceramite Fists;
+
+vy es o = For every 5 models in this unit, 1 Heavy Intercessor model can have their Heavy Bolt Rifle replaced 1 Heavy Bolt Rifle.
+tnenin aed, with 1 Heavy Bolter. *
+
+FACTION KEYWORDS;
+
+ADEPTUSASTARTES = n
+
+-
+
+a >i STEN squall
+
+Ses
+
+.
+:
+
+ek Ae Bolt Pistol [CLOSE-QUARTERS] 12" Mes SR) — z=
+
+‘ + Yelsenmeys Say ht C1” cee nen aa "= ’ pa : al ‘
+
+Feed = Pla rae [ASSAULT, RAPID FIRE 1] 24 2 34°) 7 ie? 2 a
+5 BS = . tor - Rites of Thermal Appeasement: This unit has +1 to hazard rons
+‘¢ _-_ — Be sic EieXD Hee 24" 2 3+ 8 -3 2 made for its Plasma incinerator and Plasma Pistol v/eapons
+
+wie ard CL 1Z . s? j ~ :
+
+“ey a -_ pisena otf Standard [ OSE-QUARTERS) | cig perma
+
+Plasma Pistol - Supercharge 2 , 327 a3. 2 .
+
+5s 49 9 Hellb’ as fork mc oie
+
+Every model is equipped with: | Bolt Pistol, 1 Ceramite Fists;
+
+Melee 1 Plasma Incinerator
+
+4
+. *@
+
+3 WARGEAR OPTIONS
+es The Sayaaeee Sergeant can have their Bolt Pista Pistol replaced with } Pigsma Pstal
+
+ee Te eee LA mete “at het atta aan ra
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+
+===== PAGE 48 (page-48.png) =====
+
+Bolt Pistol [CLOSE-QUARTERS]
+
+Ree RS ne R DPR R ERE mem mene mete eemaneanee
+man? DTI A DSS) Da deamon nanan dccnidens eo. ..
+*\\ 8 ee ee ee
+
+Castellan Launcher [HEAVY]
+
+Wisc at ho) I ee VO OOS COCO OCCU UU COU UUUU UU UCU UT CUNT
+VET SW Veue ley ee ee
+See PSV Te CEU STV SG
+
+Superfrag Rocket Launcher [BLAST 1, HEAVY]
+Superkrak Rocket Launcher [HEAVY} ES 0S LET,
+
++h ith Potente ll ln tattle hd td dn sd nh nh a. bs ay
+wr ee eee VP EVs
+wweS SVE ebay
+
+48"
+rier Ys TMOIRECT FIRE] Of ag saree ee A UNIT COMPOSITION
+
+| Desolation Sergeant mode}
+" 4 Desolation Marine models
+
+5 a UE era Every model is equipped with: 1 Bolt Pistol: 1 Castellan Launcher,
+
+1 Ceramite Fists, 1 supertrag Rocket Launcher,
+es WARGEAR OPTIONS 00200220 crercteeeccrsopnetnrssonetaganeneevernderenennennineeuinsetee area iT
+
+= The Desolation Sergeant can have their Superfrag Rocket Launcher replaced with
+1 Vengor Launcher.
+
+= The Desolation Sergeant can have their Superkrak Rocket Launcher replaced with 1 Vengor
+Launcher.
+
+= All models in this unit can each have their Superfrag Rocket Launcher replaced with 1 Superkrak
+Rocket Launcher.
+
+rr a eee Se SS SSS SSL ES SO SSES OR ELF FPSO THOSE S EE SSESEESOSEDHEFESESE HE ETO STE ESET ESE ESE REESE Oe HOLDER ED EEE EE OEE Ed EDO EEE HES SOS oeererrsicdbesevesreerosere
+
+jae oy er? mae “Faction evwoRos.
+Stren TACTICUS he mt eras
+
+y INFERNUS une
+
+ECC
+
+Se RANGED WEAPONS RANGE <8” Lid
+A ae ee mh 3 . eR r: In your Shooting Pp
+Rie? niin 4 )RREN Li + A nemunanaats Driven from Cove y rays Sect ee a Friendly ADEPTUS |
+
+cats — ene SCE Rees ee tha target that enemy unit have aye
+ASTARTES units range? 2 Ke
+ES To 1a nm cat
+» 1Infernus Sefeeariniore er ae:
+
+odels fos
+
+. 4-9 Infernus Marine m me Ase
+Balt Pistol; 1 Ceramite re
+uipped with: | 2 Os
+
+EST OOS agg a ae oy es he i2
+
+1 Pyreblaster Spi a fp EET: ia a A a 7 ot
+
+
+
+===== PAGE 49 (page-49.png) =====
+
+>
+_
+ros
+a4
+7 AA
+x
+» eS
+2
+~
+Sw
+~
+
+v
+
+~
+~\>
+
+<> RANGED WEAPONS i191: Infiltrators
+
+Bolt Pisto -
+| Bolt Pisto UTCLMSEWUNRTERS oi SW tatipn Wai NSU Combat Doctrines
+ee eamunieemnntet ae
+Se + ABILITIES
+2 ADS
+PS ARC re MELEE WEAPONS RANGE A WS S AP OD Omni-scramblers: In your Shooting phase, you can select one
+soe . Ceramite Fists Malan 3 33) “5 0 visible enemy unit within 18" of this unit. That unit is detected:
+ene 3 PrRCueEs MVOREEMS © SSSDED Dele Cds DEDELOU YS DUSDY EAU ESUDYD Yep6 0b dun vps Voos suosuatabe vigps tvs sctbdcbips cba cecthectne caved tecgecccccccenvsvcccscadbectscvccs » While a unit is detected, that unit has +3" detection range.
+
+Helix Gauntlet: In your Command phase, this unit heals
+D3 wounds.
+
+TRE REEEEETEEREE EEE SEER OC ECO COEE EEE O ECC OCOCC SESS OER EU CERT O EEE P SURE E CESS e ECC eee eee eee eee ee ee ee eee 7
+
+fn Ory UNIT COMPOSITION
+
+Ra = 1Infiltrator Sergeant model
+ae « 4-9 Infiltrator models
+
+HN Every model is equipped with: 1 Bolt Pistol;
+; sf 1 Ceramite Fists; 1 Marksman Bolt Carbine,
+
+PURE CSCO UEP OEP OU USERS TS CPPCC UE SUEUR SESS CEP OU EEUU EPEC S ROSE
+
+<
+—- — . - —~ _ rr ° <~wrre we ee ee ee _ w — . ~—= .
+¢ ms ~~ . . % ¢. , ‘ : : 5 ¥ ay | . i Fh 4) i . , A ‘ : at
+
+A 4 ‘ . ’ : 4 . 7
+— {4+ f a~ ° “ - ; tiela@ i¢ %
+-
+
+:
+
+©) KEYWORDS: INF NTRY;
+
++
+7 re s ~
+* ae ov
+‘—
+
+*
+
+See een WD.
+> *BLADEGUARD.VETERAN SQUAD
+BRS hte T “RUSSSY sole LD oc
+
+Lf
+
+> ~
+\4
+
+a
+¢
+
+. . , . - ‘ ,
+> RANGEDWEAPONS RANGE A BS S AP D QmARMVRULES  § feEeneeeunee
+* "5 erro Te ve ue ne .
+
+< ‘Neo-volkite Pistol 1 33. /°5 "#0 2
+‘guez TCL OSE-QUARTERS, DEVASTATING WOUNDS] take ae UML <> ai aL oats Bladeguard (Once per turn, per unit): In the Fight phase, when this
+
+ene, . it is ; one it targets this unit, you
+a 12 , Whee. 1 unit is selected to fight or when an enemy unit targets t
+
+~~ = Plasma Pistol - Standard [CLOSE-QUARTERS ] Bein ae the folhcind
+
+EH Plasma Pistol - Supercharge 12" 1 Sto Bed Z * This unit’s melee attacks have +1 to hit rolls,
+
+BY 7 _— [CLOSE-QUARTERS, HAZARDOUS ] Ce ee cen veenlibesess SO © Or. Attacks that target this unit have -1 to hit rolls.
+ee —s OR RE, een oy ee eaeees BG! Smee ry 0,
+yay rrr UNIT COMPOSITION
+
+Br & Melee 4 + -
+
+; Miss Master-crafted Power Sword ass enanees meayr—eersen= vo arr temeener ar 9 ae ee ae Sep ~~ _s 1Bladeguard Veteran Sergeant model
+
+’ ii hha ns enocoaveronvoresere | J , Pa : & p ‘
+
+an => Before selecting targets for this weapon, select one of its eligible profiles to make attacks wit 2-5 Bladeguard Veteran mode
+
+x pws Every model is equipped with: 1 Heavy Bolt Pistol;
+
+bre 1 Master-crafted Power Sword.
+
+TOK : “na : ¢ Ee ee aD i A Oy A, 9) no POWs. ee Ph RIT
+
+ohn eir Heavy bolt pistol replaced with one o
+
+ea » The Bladeguard Veteran Sergeant can have thei vy p
+
+moe B the following:
+
+ag 2 1Neo-volkite Pistol
+FA mipeemapetolie . 0) oy Pkg ce SS See
+
+ye Star 37>) FACTION KEYWORDS:
+ci 5 ADEPTUS ASTARTES
+
+
+
+===== PAGE 50 (page-50.png) =====
+
+~~
+
+> RANGED WEAPONS
+
+| = Artificer Firearm - Infernus [ASSAULT, RAPID FIRE 2] 2A" 3 3, 3 ARMY RULES ABR Doctrines
+| = Artificer Firearm - Purgatus [ASSAULT, RAPID FIRE 1] 24° yee
+. ~ Bienen). Samnatus [ASSAULT, MELTA 2] rate, mie I2° | Bi 9 435) D34> Veteran Marksmen: This unit's ranged attacks can re-roll
+ee ee Sips ees
+Heavy Bolter [HEAVY, RAPID FIRE 2, SUSTAINED HITS 1] Se EM oe eee
+
+nel hei adrenal eta niche A a ERI yr composition
+
+on [BLAST 2, TORRE ;
+
+yferannon (BLAST 2, TORRENT] + 1 Stermguard Veteran Sergeant mode
+" 4-9 Sternguard Veteran models
+
+&® MELEE WEAPONS
+
+Ss The Sternguard Veteran Sergeant is equipped with: | Artificer
+
+Ceramite Fists jie te en Firearm; 1 Bolt Pistol; 1 Chainsword,
+: paaesacns ye 1+ oepene nnn nnn OTN ole Tr nara TTY VV) WY aay TTT ayaa aE eh ae Every Sternguard Veteran ls equipped with: ] Artificer Firearm:
+Chainsword Melee ie peed od, 1 1 Bolt Pistol; 1 Ceramite Fists.
+
+een LALADALA ALARA RAE Lee SOS eC OCs 0 ds bh Few eUNe Vee IF dt wi et ierurs cicecyies bbb bbb idhem thei tities ile.) with IR eee C8 Sals hss ENR
+Power Fist Melee 4 3+ 58. HZ 2
+
+tpnssnansnnrtnnentrneratnnnennnensnsnnasstnnstn res pee Le The 67 tnd ore ie Ni lt Oe ipsa: ee ee ee
+Power Weapon Melee 5 ST ES ee? 1
+
+TUUPPIV ETT TIENTS VEY OUST U ICCC ST TT UV STV TENE SOINUD EVV HCAS Ub NG we dEV Te DEEN LNA ry eew cece ests ryulblacaey Uvby cecesesse, ere Ve Pleo des Neat coe ON
+
+<$ WARGEAR OPTIONS
+
+= The Sternguard Veteran Sergeant can have their Chainsword replaced with one of the following:
+& 1 Power Fist
+
+‘ © 1Power Weapon | .
+| * For every 5 models in this unit, 1 Sternguard Veteran model can have thelr Artificer Firearm ) .
+. replaced with one of the following:
+® 1 Heavy Bolter
+Beeryrecamnon |
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+‘
+See),
+ri
+> et
+Len
+4 x
+AS
+* “4 4.
+-
+
+‘= Pl.
+
+% )! a
+ultramoarines Sternguo Abia ays}
+with Artificec Fireorm pai
+
+
+
+===== PAGE 51 (page-51.png) =====
+
+;
+:
+
+VANGUARD VETERAN SQUAD ws junooncns
+
+7
+
+, .
+t 4h ve ’ *
+i
+’ - + *
+Aa Te” L q
+
+ay
+is
+is
+
+4
+
+hi
+
+M ase F
+
+BEBaBaoH
+
+U
+
++
+in
+
+A>
+
+|
+el) . o
+
+fd
+a
+t
+4
+
+% 39
+
+anid
+
+| :
+UT 2 3 Deep Strike
+a ith aboot ARMY RULES Combat Doctrines
+
+NO eee een naan connntaanmnnnnnnrrnnncnnnccenssece.. 5.5,
+
+VOC eRe eee eee
+
+4
+rive wevwsu se vW¥vevevONSOnwv OST WO vOuODUTT WWI VUIUO STUD TTTESTISU NTNU RECUR NTTn . “coe.  Wanguard Assault: If this unit made a charge move this turn, this ,
+-
+25> unit’s melee attacks have + 1A.
+
+UNIT COMPOSITION
+
+-
+St.
+° » +
+
+7 ,
+aw
+-
+
++
+
+’
+'
+4 ’
+
+ARAN LETHAL HITS: non-MONSTER/ VEHICLE} Melos 3 3+)" 6 ame 2 " 1 Vanguard Veteran Sergeant with Jump Pack model
+° bs
+
+WRGAS 2 909205049542) 000009.000149000000050 004000006 n)1440000
+
+NENA SV OE PETE Do SOON RTA ALN TN Wine Td aid = 4-3 Vanguard Veteran with Jump Pack models
+
+laa bd paid hnpisadiiinidsoniiinncic.. clin...
+
+Ss Ean St 27 aie ete Se Wrnuimuaccnee, The Vanguard Veteran Sergeant with Jump Pack is equipped with:
+
+Bae XO ie indi’ pe ; 1H Bolt Pistol; 1 Relic Blade.
+Ea m> Before selecting targets for this weapon, select one of its eligible profiles to make attacks with. Sal A EAA BAU ES
+
+Fate ge Every Vanguard Veteran with Jump Pack is equipped with: 1 Heavy
+>) Xk _WARGEAR OPTIONS RSH A) Niemi Aiaocly
+omy fF)? “74
+Tex witee = The Vanguard Veteran Sergeant with Jump Pack can have their Relic Blade replaced with one of
+aS we the following:
+
+PV Re a 1 Power Fist
+
+Pie 5) 9 1Thunder Hammer
+
+7
+
+Liat
+a
+
+x = The Vanguard Veteran Sergeant with Jump Pack can have their Heavy Bolt Pistol replaced with 1
+
+S Plasma Pistol, iy
+= All models in this unit can each have their Heavy Bolt Pistol replaced with 1 Combat Shield. .
+= For every 5 models in this unit, up to 2 Vanguard Veteran with Jump Pack models can each have
+
+their Heavy Bolt Pistol replaced with 1 Plasma Pistol.
+
+re ¥
+
+: %) : ; j ’ ¥ -
+
+a4)
+
+OOM
+
+// KeYWORDS:INFANTRY; EXPLOSIVES; FLY; IMPERIUM; JUMP PACK; TACTICUS Lis Be ON RENE RDS:
+
+oe, ADEPTUS ASTARTES
+oe (Sad ie ose CAE TIN BENET |
+
+; 4 ia iv ch , 4
+
+a i
+
+AY; LEN
+
+7
+i, hee ~* } 4
+a7 Lea r . a + =
+,r : _— a
+ed _<4 wh
+“7 ott Y ae!
+Ww . : 7 +
+. - 4 i ‘4
+L» ; ¢ ey i or
+_< - .
+io q ; L
+sf : ed ea
+' “~ "is
+MN COPE.
+f) tates
+. Pre
+< i ’ > | -*
++, s §———>H
+: : +,
+, _ ¥ »
+t 7 Py oe eo me ; :
+: . y ; : : :
+¢ t ss _ ~- ~ ‘ 7
+¥ 7 . ~P © ? -t ‘ss
+: - a 4 rm
+, i” \ 7 wa
+i .* ”~ me
+» & . Gees ’ 7 .
+yf a6 De es eer oa ~~ ~«
+« e ; 7 Cc am %
+7 a i | ant : :
+a ’ e) - +i ow 4h “. . a nS
+d 7 - ;
+o
+
+Re ge
+P ‘ rs “ <<? —~ ae
+5 oR OI
+to eS Cre eae wii
+SIA ey ea te
+arine: ing Veteran Sergeant.» U tramarines Vi nguara\Veteran with: + Ultramarines Vanguard Veteran with Jump }
+. eet An WW. el SE ees Se ES IE GE Ms Sit oy “A ue tad. I RSI, a7 abs Be ee +> ot “ i ls} AT 4S ae. Pak be Se >
+with Jun > PACK, with R slic and” {25 Jump Pack ith Plasma Pistol Gnd '—}\ y Pack, with Master-crafted Power Weapon
+. , e° ae" 9 Fhe : wd tyes maak, a Beene zi P ~wixe a en) ed _— _—- <P be aha oot 7 -s— - A ae “ ea # ? ono ae
+3 ombat SER ath t -crafted Power Weapon < . ee | ‘| and Combat Shield)...
+# f i ’
+~ . ; —_o
+. J , - _ '
+
+
+===== PAGE 52 (page-52.png) =====
+
+an
+(>) RANGED WEAPONS eae
+BILITIE n
+tabs Tk ieee z 1 5 ri
+ulus Bolt Carbine [ ASS AULT, IGNORES COVER] Dy tor Oye AN gyre ——. STEAD vo LES Combat Doctrines
+MELEE WEAPONS RANGE
+us bat Blades [SUSTAINED HITS 4 . Divinator-class Auspexes (Once per phase, per unit): In your
+Lo A ae See lage hla AAV ay aK Meee Boot 5 ct 1 Shgoting phase, when a friendly ADEPTUS ASTARTES units selected
+me IN NY Mere ntaredeeenenerlecseevenssesesaseiesetesussanertercens to shoot, you can use this ability. If you do, select one visible enemy
+JNITCOMPOSITION unit within 18" of this unit. That unit is seanned:
+* While a unit is scanned, ranged attacks that target that unit can
+« 1\ncursor Sergeant model re-roll hit rolls of 1.
+
+* 4-9 Incursor models - RA sade Rope | a Tite Sey 1S an. Sa 3
+| ' | aywire Mine (Once per battle, per unit): In your Shooting {eos
+Every model is equipped with: 1 Bolt Pistol; 1 Occulus Bolt Carbine; 1 Paired Combat Blades. you can select one visible enemy unit within 6” of this unit and roll
+
+* That enemy unit suffers D3 mortal wounds.
+* Or: If that enemy unit is a VEHICLE unit, that enemy unit suffers
+2D3 mortal wounds.
+
+x - IEA aN wTUy LE
+
+p Peiver san
+
+‘so9oGgI
+
+a
+
+ran |
+< daha iS
+
+dolt Cart ine LST, peeeksiON) Le
+iste Hl K OSE- QU y §) PRECISION] Ue:
+
+—oeeS—-—
+ce ? eee ses thet
+: “ wee Jelave rs
+
+| <a Terror
+
+/\. re EAE - unit, tr
+nol cula r Combat Knife [PRECISION] | SSUNAERE POSS i Fearsome /
+
+tere
+bo tusace dab) Soop dhe bo) 0?
+
+Fight phase, each enemy Un
+iIt: At ne wan 7 the
+a #t with this ability makes a battle-shock roll, with
+
+td, 4 > 62-9 9 Hoare eewrewenle ney we ereeeteree
+
+=
+
+jcnsee
+
+'* WARGEAR OPTIONS os Launchers: When this unit m
+
+‘unit ran be equ qulpp ed with 1 Grav-chutes
+Ws ur uit can in Dee te sipped with} Grapnel | Launchers |
+
+unit can. Fenatal
+es 0
+« Move throug) al NPE ee for the purposes of how far this
+
+« |gnore all vertical ey
+
+ve Ape 3 4A ae yr te)" beoets
+= unit pas moved, hes |
+
+UNITCOMPOSITION dake is unit thas Deep Strike ; by ek oe oe
+
+ith: 1 Bolt Carbine; 1
+
+tee
+: orey Ys he:
+daeonpeereete c*
+aeher ,
+
+
+
+===== PAGE 53 (page-53.png) =====
+
+-_
+;
+
+we tn
+~ {= a
+Ys _ fi" » 7
+ve. ~ an
+
+“~ =
+* |
+VP fee
+
+ary
+
+>»
+Sa
+
+—
+_— =
+-
+<
+i" ¥
+* * >»*
+Srv re
+.
+
+Ata
+
+Le LN
+
+oh -'
+"I y -
+- =
+
++ Tay
+a a
+
+—
+
+ee
+:
+>
+
+———
+
+*-
+4
+
+~ * '
+~~ -
+”
+
++3 whit:
+arp}
+AS r
+me
+
+‘ion st
+
+pe!
+
+S
+
+Te
+=’
+>-
+
+2
+
+~ah.
+
+AS
+.
+- >) Ps
+
+rN
+is
+
+“ea
+
+Ts
+
+-
+
+—<—
+
+_—
+
+> RANGED WEAPONS
+
+DW ABEDO5 22539 05 265002209080420392905020500606.0200008)1083800008512044.5.00.0002009110.04465200005595505.10000000006)0000008541000000065 65600045) 51454404)0444550444n0004 00000400004
+
+PFE OPAEAA AAAS DORA Ree A EEE FAD AASA DALES REREAD EAS SAREE EERE EERE EAE ARERR EEE RE REE EERE AREER ERED EERE EERE eR eee eee ee eee eee eee ee ewe mee eet eee ee tess enns
+
+pbb hhh hh hhh eae hahahahahaha hhh hhh hahha hah ehhh AAA LA ALLELE
+
+| WARGEAR OPTIONS
+
+* The Scout Sergeant can have their Boltgun replaced with 1 Shotgun.
+* The Scout Sergeant can have their Combat Knife replaced with 1 Chainsword.
+* Any number of Scout models can each have their Boltgun replaced with one of the following:
+
+o
+
+Bolt Pistol [CLOSE-QUARTERS]
+
+CAFFRA MA OMe m tena mew eee rene ne
+D99O9099P98220100.09.29.00050009000000.001000000040)00002044000290050)0600000000)4455000044 0000060004
+el ll alate lela ltt ee ee ee ee ee ee ee ee ee ee ra
+
+1 Shotgun
+
+the following:
+
+‘so
+
+Pu Xo ws
+
+7
+
+es eerie a
+: Oe
+‘=a oles
+
+rr}
+e*
+.™
+
+1 Heavy Bolter
+
+1 Missile Launcher
+
+TUTE LEAP EL TEER ET LEELA LLOEEEO CEE eee eee ee eee ere cee
+SPEER ERROR RHEE ERO EERE REE EERE R AER EEE ERE HEHEHE EERE HOHE ERE HR ENEE HEH EER EE EE HEE HSH HEHE EH HHH HEHE EE ewe eee
+
+iY, ii
+at awit TF
+bf : »%e : - 1
+-. ye hee (Se one
+: .. - -
+pes k | os et
+- ; +* 4: - -
+; : . :
+' eS ae et -h
+. 4 ;
+SNS PALER
+a oe ; #4
+ee ; '
+-
+ts o r Asam =i
+oe :
+4 set IM he
+ER sh Rs
+;
+; F ‘
+.
+-
+
+.
+
+° #
+
+vie Heavy
+
+cm Pas aed -
+
+— 2 o~-
+
+“a@ TP a ee
+
+/ Bolter.
+
+—=>. - -,
+Vy |
+
+vt
+
+Pe eee eee eee ee eee ee ee
+ODDO O00 98906 008500209000058053.0000000099090000000501090092200.00202 00090062100) 00.0000001060000000000.000 15000000060 000000410b0n0 05a nnnnnennnnnesnnsncas
+
+m= Missile Launcher - Frag [BLAST 1, is
+
+m= Missile Launcher - Krak
+
+dalla aaah hla ala a la teh bbe ppdhe hips ppdpppaphpnpashppddprarprnnnrnciiicn dn dncrcnacranhannchs scan.
+| bh pba hhh hahah hhh hhh hh hahha LA naa LALLA LLL ek
+
+= For every 5 models in this unit, 1] Scout model can have their Boltgun replaced with 1 Sniper Rifle.
+= For every 5 models in this unit, 1 Scout model can have their Boltgun replaced with one of
+
+:
++
+Pee ow oF OO Wt © ape
+i :
+
+=~" *
+
+os
+
+' ; ¢ t
+oo f= ~ ae ee
+
+ps ema seein 7 ie
+
+poate P
+
+redeen “Raven cuara Scou AVE cat
+
+| poe Se che
+
+a. _ with Missile Launch r 1
+
+aap eg, wet” D —-_——_-
+
+:
+
+Cal awe:
+
+0 Oe
+
+CORE ABILITIES
+
+Infiltrators, Scouts 6"
+
+ARMY RULES
+
+Combat Doctrines
+
+ABILITIES
+
+Flexible Asset: When this unit is selected to make an advance/
+fall-back move, that advance/fall-back move does not prevent this
+
+unit from being eligible to start an action.
+
+UNIT COMPOSITION
+
+= 1Scout Sergeant model
+* 4-9 Scout models
+
+Every model is equipped with: 1 Boltgun; 1 Bolt Pistol;
+1 Combat Knife.
+
+POPP PPR RSE EE eee EE PCE RCE CUP ECE SECC E LORE TCS E ECCS CSCC ee TCC eee CLL eS Cece ee ee ee ee ee ee eee eee eee ee eee eee
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+we mats ae 2G he
+
+- 7 ] 23 Ge 2g)" s < ii»
+’
+
+“Raven Guard scout
+| with Shotgun, gia!
+
+
+
+===== PAGE 54 (page-54.png) =====
+
+7 ®
+t } a :
+ra > Pai, -
+
+) euMINATOR SQUAD
+
+TULLE
+
+O RANGED WEAPONS
+
+polt Pistol [CLOSE-QUARTERS Pasa a eS infiltrators, Stealth
+~ Fee) 1
+
+| Bolt Sniper RiNe [HEAVY, PRECISION] Le eee NUL combat Doctrine:
+| cone Bolt Carbine is ;
+[LETHAL HITS: non-MONSTER/VEHICLE, PRECISION 24"
+
+RAPID FIRE 2) ; sy OT ata aC Chameleoline Cloaks: Th
+
+ma earn A A te ae IE EA Oo ONS SL LACT . - |is unit has -3° detection range
+las Derettcses seo cA be 36° | 1 3+ 10 -3 0343 Special-issue Optics and Ammunition: In your Shoot! ing phase,
+
+when this unit is selected to shoot, you can select one of
+the following
+
+* This unit's ranged attacks have [IGNORES COVER]
+Ceramite Fists 2 ets re ee | | Melee 3 3+ 5 0 ] * Or. Select one enemy unit within 24" of this unit That enemy
+ae ax unit has +6" detection range until this unit has shot
+
+{& WARGEAR OPTIONS |
+
+s the Eliminator Sergeant can have their Bolt Sniper Rifle replaced with one of the following
+© iInstigator Bolt Carbine
+© Las Fusil
+
+= All Giminator models in this unit can each have their Bolt Sniper Rifle replaced with 1 Las Fusil
+
+&® MELEEWEAPONS
+
+UNIT COMPOSITION
+
+* 1 Eliminator Sergeant model
+* 2 Eliminator models
+
+Every model is equipped with: | Bolt Pistol; 1 Bolt Sniper Rifle
+1 Ceramite Fists
+
+at es Sieeee ye FACTION KEYWORDS:
+
+Y; EXPLOSIVES; tay PHOBOS; SMOK! ADEPTUS ASTARTES
+
+Q RAGED WEAPONS
+
+Dien
+
+rien Heavy Bolt Pistol [CLOSE-QUARTERS]
+
+pepecs pee see. pee see-4e
+
+re 1. -Standa as hae . QUARTERS] this units +1 to hit rolls and
+tol - Sup rge [CLOSE-QUARTERS, 12" les 5 Thunder Hammer ae have
+einige -LINKE D] 24" DB 2 on at melee weapons have +1 Dand [SUSTAINED HITS 1)
+vin Bolt Rifle ASSAULT, RAPID FIRE 2, TWIN- od “ih pees - ott
+
+Pres eweeees ee ee cccaswooccopocsccegooesescle”
+
+: & ae
+LEE WEAPONS
+
+er Sergeant model
+
+: » 10utrid Aa
+pao essreneerssteee EES : . trider moce | |
+spect MSE assent OT a ee eibaianes) sn : 2-5 Ou vanes with: 1 Chainsword, 1 Heavy Bolt Pistol,
+re a ations ) every modells
+
+, Melee Diy! yoogeoeeee.. 1 Twin Bolt Rifle.
+
+r Hammer [DEVASTATING wounDS} aS ER ae make attacks with
+
+eocsdusvocceeperee®
+
+: tHerdraveare, eteeteer secedeeencebecteeererre*?
+sii ng targets for this weapon, select one of its eligible pr fi
+
+o
+ee?
+
+a;
+
+tie). OPTIONS
+
+he Outrider ‘Sergeant can have thel
+1 Thunder Hammer.
+
+rChainsword replaced
+
+PE
+
+
+
+===== PAGE 55 (page-55.png) =====
+
+RANGE A
+
+12° ]
+Heavy Bolter [HEAVY, RAPID FIRE 2, SUSTAINED HITS 1] 36" 3
+a ) Overlapping Destruction: In your Shooting phase you can select .
+as | 4 MELEE WEAPONS RANGE A ws s AP D one enemy unit. This unit's Heavy Bolter weapons thatt irget that
+ee enemy unit have [BLAST 1] »
+ter Ceramite Fists Melee 3 3+ 5 0 1
+me UNIT COMPOSITION
+
+* 1 Eradicator Sergeant model
+
+*® 2-5 Eradicator models
+
+we ~ At + % 7 ae
+_ . ~
+
+pia. Every model Is equipped with: | Bolt Pistol 1 Ceramite Fists
+
+TY ] Heavy Bolter
+
+ie
+
+rv eg Ax
+
+KEYWORDS: INFANTRY; EXPLOSIVES; GRAVIS; IMPERIUM FACTION KEYWORDS:
+ADEPTUSASTARTES TH
+£3 DICATOR SQUAD with metta rirtes
+T SV
+
+)
+~)’
+<oe ; Ww
+
+| > RANGED WEAPONS
+Bolt Pistol [CLOSE-QUARTERS]
+
+=> Melita Rifle [MELTA2] 3° «6 WCO-3sCO3
+unre reusren vencLe YS 2 ES eee Total Obliteration: Ths unit's ranged attacks can re-rol
+_, ™ (Melta Rifle - Hunter (HELTA 2] = 082 damage rolls
+=> Multi-melta [MELTA 3] 18 ; 30) wn 3 D367
+
+HUNTER: MONSTER/ VEHICLE
+— Multi-melta - Hunter [MELTA 3]
+
+UNIT COMPOSITION
+
+® 1€Eradicator Sergeant mode
+
+UD
+ww
+RJ
+
+>
+
+«@
+i a
+\A
+
+i ee8s ° 2-5 Eradicator models
+7) 4 MELEEWEAPONS RANGE A WS S$ AP OD
+ri > : Every model is equipped with: 1 Bolt Pistol; 1 Ceramite Fists
+ot Ceramite Fists Melee 3 39 aes 0 1 1 Melta Rifle
+re =m Before selecting targets for this weapon, select one of its eligible profiles to make attacks with
+Hunter profiles can only target units with the specified keywords
+tt WARGEAR OPTIONS
+iy rs © For every 3 models in this unit, 1 Eradicator model can have their Melta Rifle replaced with
+1 Multi-melta.
+7
+res + EXPLOSIVES; GRAVIS; IMPERIUM — FACTION KEYWORDS
+hs. bok et by, a be Pion Kan ADEPTUS ASTARTES
+Wg wo a A t < ~ -
+ae |) ++ ZEAL IS ITS OWN EXCUSE ++
+7 ery? ©
+
+
+===== PAGE 56 (page-56.png) =====
+
+AGGRESSOR sitio
+
+= ati — ee
+
+goBHog
+
+(> RANGED WEAPONS
+
+Auto Boltstorm Gauntlets Coa.
+[CLOSE-QUARTERS» TWIN-LINKED } 18” oan Combat Doctrines
+F lan rm Gauntlets - Close Quarters
+Close-quarters Firestorm: This unit's attacks that target an enemy
+
+Flamestorm Gauntlets - Ranged [BLAST 2, TORRENT
+; lo ‘TWIN-LINKED) _ ’ 12" - : 2 Z : Unit within 9° of this unit have +15
+
+Fragstorm Grenade Launcher [BLAST 1] | 48" } eye ee UNIT COMPOSITION
+
+* Aggressor Sergeant mode
+
+MELEE WEAPONS
+ae RANGE A WS SS AP D * 2-5 Aggressor models
+
+Twin Power Fists [TWIN-LINKED ]
+ees scdevecesycebosese. 3 Melee 3 3+ 8rar-2 2 Every model Is equipped with: 1 Flamestorm Gauntlets
+1 Twin Power Fists
+
+3 WARGEAR OPTIONS
+
+= All models in this unit can each have their Flamestorm Gauntlets replaced with 1 Auto Boltstorm
+Gauntlets and 1 Fragstorm Grenade Launcher |
+
+Ingeo
+
+“Sane
+
+PANGED WEAPONS ESA
+
+Sault Bolters [ASSAULT, CLOSE-QUARTERS, SUST AINED : 3 IRMY RULE
+vr ) : Je an Ingress move this turn, tn!s
+
+: gesessrene sit oS * anenee
+
+A 13” :
+Meteoric Descent: /f this unit made
+
+have +1to hit rolls
+
+ed attacks
+
+i
+
+units ran}
+
+mn ey
+~—
+
+Fignt phase if this
+
+the end of your opponents
+lace this unitin strategic reserves
+
+a> aided unitis unengaged, you can Pp
+
+MELEE WEAPONS
+
+A.
+
+eant mode!
+
+: .
+rat at e¢
+: padres CAREER ESE H FA Dm ee ee ee ove sesseeaawerre?
+
+selecting 9 targets for this weapon, select one ori its Piicibie -
+
+» 1inceptor Serg
+2-5 Inceptor models
+
+el is equipped with: 1 Assault Bolters 1 Ceramite Fists
+
+IARGEA TON ant
+
+ey dels int sul nit can each. have thelr Assault Bolters r re
+
+aa sepetens
+ie.
+
+ae <a
+NE Sn ek Se
+
+placed with 1 Plasma Exterminators
+
+
+
+===== PAGE 57 (page-57.png) =====
+
+« .
+
+>
+
+TERMINATOR SQUAD
+
+A CORE ABILITIES
+6 ARMY RULES
+m> Cyclone Missile Launcher - Frag [BLAST 2] )
+ts mm (Cyclone Missile Launcher - Krak 2 {
+Sie), Heavy Flamer [BLAST 2, TORRENT] 12" 3 ] : 4 Teleport Homer (Once per battle, per unit): At the start of the
+J a ro wn = See sak ae _— battle, you can set up one Teleport Homer token for this unit on the
+roa Storm Bolter [RAPID FIRE 2] 24" 2 3¢45- Sue] 1 battlefield. If you do
+ae : | * When you target this unit with the Rapid Ingress stratagem,
+. 4
+| ee ef op ed MELEE WEAPONS RANGE A ws SS. AP D you can use that Teleport Homer token. If you do, that use Is
+oo oe -1 CP, but when resolving that stratagem, this unit must be set
+1h wee ¢ m= Chainfist - Standard Melee 2 At no noe 2 up within 3" of that Teleport Homer token and not within 8" of
+ay fo a a HUNTER: MONSTER/VENICLE . , 3 an enemy unit. That Teleport Homer token is then removed from
+yA ¥y Chainfist - Hunter Melee 3 3* +t the battlefield
+ae 2 Power Fist Melee 2 3+ g 2 , ® ifan enemy unit ends a move within 1" of that Teleport
+re a Pt: banseonananes : nnee nar ernees ntnnee ; Homer token, that Teleport Homer token |s removed from
+ae Pb Power Weapon Melee 5 Se Qo 1 the battlefield
+Kg ARS: |
+ey a Before selecting targets for this weapon, select one of its eligible profiles to make attacks with Fury of the First: This unit's attacks that target a unit within 9° of
+aN ss ~ Hunter profiles can only target units with the specified keywords this unit have +1 AP.
+
+ae 7
+
+2 4 WARGEAR OPTIONS UNIT COMPOSITION
+
+® The Terminator Sergeant can have their Power Fist replaced with one of the following
+a 1Chainfist
+o 1Power Weapon
+
+° 1 Terminator Sergeant mode!
+e 4-9 Terminator models
+
+: 1 Power Fist: 1 Storm Bolter
+* Any number of Terminator models can each have their Power Fist replaced with 1 Chainfist Every model Is equipped with: | Power rrr)
+
+ns * For every 5 models in this unit, 1 Terminator model can have their Storm Bolter replaced with one
+Am of the following
+© 1Assauit Cannon
+
+Ff Ati cm, © Heavy Flamer
+-) a , ® Cyclone Missile Launcher and 1 Storm Bolter (that model's Storm Bolter cannot be replaced)
+
+: FACTIONKEYWORDS: = :
+«KEYWORDS: INFANTRY; IMPERIUM; TERKINATOR AEP TUS ASTARTES EE | .
+4 .
+
+- §
+
+os ie ne ee ee
+: 4
+
+- aS ee — ~.y > Ls > ; oF, a. f ~ oe o 3 4s: . 4. ‘ ile oO
+e525 Ultramanines Terminator with White Scars Terminator with cyclone tie i
+2) Assault Cannon and Power Fist’ ‘Launcher, Storm Bolter and Power Fis
+7 " ~S* - ‘ s ; - : J * ;
+uy £. ; ie Pe, Fi | hd ie a i : $s - ‘
+
+
+
+===== PAGE 58 (page-58.png) =====
+
+S) TERMINATOR F ASSAULT SQUAD
+
+ooB00n
+
+INSV
+
+ae MELEE WEAPONS
+Thunder Hammer [DEVASTATING WOUNDS] Melee 3 3 g
+M -2
+
+ores
+
+Faisilgining awe (WD-LDWED] Mee Ges
+
+1 WARGEAR OPTIONS
+
+s Any number of models can each have their Twin Lightning Claws r
+eplaced with
+1 Thunder Hammer. P vith 1 Storm Shield and
+
+CORE ABILITIES Deep Strike
+ARMY RULES Combat Doctrines
+
+Teleport Homer (Once per battle, per unit): At the start of the
+battle, you can Set up one Teleport Homer token for this unit on the
+battlefield. if you do
+
+* When you target this unit with the Rapid Ingress stratagem
+you can use that Teleport Homer token. If you do, that use is
+~1 CP. but when resolving that stratagem, this unit must be set
+up within 3” of that Teleport Homer token and not within 8° of
+an enemy unit. That Teleport Homer token Is then removed from
+the battlefield
+
+© ifan enemy unit ends a move within 1" of that Teleport
+Homer token, that Teleport Homer token is removed from
+
+the battlefield
+
+Terminatus Assault: if this unit made a charge move this turn
+this units
+
+© Lightning Claws weapons have
+[SUSTAINED HITS 1: NON-MONSTER/VEHICLE)
+
+* Thunder Hammer weapons have
+
+[SUSTAINED HITS 1: MONSTER / VEHICLE)
+
+9 storm Shield: This model has +} W
+UNIT COMPOSITION
+
+ergeant imc ie}
+
+es itTerminator
+es 4.9 Termit for mod
+
+Every model is equipped with: |
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+
+
+===== PAGE 59 (page-59.png) =====
+
+INVADER ATVs
+
+Sv Ww Ti oc
+DHooBOoo B
+
+Bolt Pistol [CLOSE-QUARTERS ] ; -] 1
+Multi-melta [MELTA 3] | 18" > F mS) we
+Onslaught Gatling Cannon re a Aggressive Reconnaissance: |n your Shooting phase, this unit's ,*
+
+other enemy units have +1 to wound rolls
+
+UNIT COMPOSITION h
+
+® 1-2 Invader ATV models
+
+Ly
+
+Twin Bolt Rifle [ASSAULT, RAPID FIRE 2, TWIN-LINKED]
+
+~~ $& _MELEEWEAPONS RANGE A WS S AP OD
+
+a Armoured Impact Melee 4 tr H 1
+| : canes : Every model is equipped with: | Armoured Impact, 1 Bolt Pistol,
+
+sense 1 Onslaught Gatling Cannon; 1 Twin Bolt Rifle
+> X& WARGEAR OPTIONS len taal Rae
+:
+
+é © All models in this unit can each have their Onslaught Gatling Cannon replaced with 1 Multi-melta
+
+\ 73% 5
+
+Rot a) D
+TADS
+
+me ¢
+
+FACTION KEYWORDS:
+
+KEYWORDS: MOUNTED; VEHICLE; FRAME; IMPERIUM ADEPTUS ASTARTES
+
+<> RANGED WEAPONS MTT Se Deadly Demise D3, Firing Deck 2
+Hunter-killer Missile [ONE SHOT] 43” 1 24°14). »-3me 343 ARMY RULES Combat Doctrines
+
+Storm Bolter [RAPID FIRE 2] _ MeMiae 2 RS Saal byl
+
+A WS S_ AP 0 Veiling Smoke (Once per phase, per unit): You can target this unit :
+with the Smokescreen stratagem, regardless of any other uses of
+that stratagem this phase. If you do
+
+4&2 MELEE WEAPONS
+
+Armoured Tracks
+
+Melee 3 4+ 5 0 1
+
+* That use is -1CP
+it WARGEAR OPTIONS © That use does not prevent any uses of that stratagem on other
+av units this phase
+
+® This model can be equipped with I Hunter-kill issile
+
+TRANSPORT
+
+N
+
+UNIT COMPOSITIO This model has a transport capacity of 12 ADEPTUS ASTARTES
+
+s 1Rhino model INFANTRY models. it cannot transport GRAVIS/ JUMP PACK/
+TERMINATOR models.
+
+This model Is equipped with: | Armoured Tracks; 1 Storm Bolter
+
+FACTION KEYWORDS
+
+ADEPTUS ASTARTES
+
+BT; DOUBT BEGETS HERESY ++
+
+7
+
+é
+
+
+===== PAGE 60 (page-60.png) =====
+
+O RANGED WEAPONS
+
+= Bellicatus Missile Array - Frag [BLAST 1] 43° , TF
+= Bellicatus Missile Array - Icarus [ANTI-FLY 2+] 48" peta: hia
+(LL SIO lear 310
+Frgsorm Grenade Launchers [BLAST 2], ee, Soa
+| ironhall Heavy Stubber (RAPIDFIRES] rT ares
+| iad aijaton Arey (RAPID RE 6) lt te or ) : ait = pean
+
+| Armoured Hull Melee Ue
+
+s This model can be equipped with one of the following
+© 1Bellicatus Missile Array
+8 1 Orbital Comms Array
+® 1Ironhail Skytalon Array
+8 Shield Dome
+
+8 This model's Storm Bolters can be replaced with | Fragstorm Grenade Launch
+* This model can be equipped with 1 Ironhail Heavy Stubber
+
+CORE ABILITIES Deadly Demise D3, Firing Deck?
+
+] ARMY RULES Combat Doctrines
+
+2
+
+D3+3
+
+Rapid Disembarkatlon: In your Movement phase, when this unit
+ends an advance move, units embarked within this unit can make a
+
+y ___ Shock disembark move (pg 157)
+
+1 Orbital Comms Array: This unit has Scouts 6"
+
+|
+
+Shield Dome: This unit has S+ InSv
+
+TRANSPORT
+
+! This mode! has a transport capacity of 7 ADEPTUS ASTARTES
+INFANTRY models. It cannot transport TERMINATOR/ JUMP PACK
+models. Each GRAVIS model takes up the space of 2 models
+
+UNIT COMPOSITION
+
+* 1impulsor mode!
+
+This model Is equipped with: | Armoured Hull, } Storm Bolters
+
+FACTION KEYWORDS:
+_ ADEPTUS ASTARTES
+
+
+
+===== PAGE 61 (page-61.png) =====
+
+TRANSPORT
+
+Bs Soo This model has a transport capacity of 12 ADEPTUS ASTARTES INFANTRY models. |t cannot transport
+
+GRAVIS/ JUMP PACK/TERMINATOR models
+
+UNIT COMPOSITION
+= 1Drop Pod model
+
+7 FIRESTRIKESERVO-TURRETS
+
+>
+
+<> RANGED WEAPONS
+
+Twin Firestrike Autocannon
+[RAPID FIRE 2, TWIN-LINKED}
+
+Twin Firestrike Las-talon [TWIN-LINKED]
+
+“eer eude veces 6 ste ¢
+
+9 ed MELEE WEAPONS
+Hovering Bulk A
+
+E WARGEAR OPTIONS
+
+1 Twin Firestrike Autocannon.
+
+RANGE
+
+mh
+
+RANGE WS SAP
+
+Melee
+
+aced with
+
+s Any number of models can each have their Twin Firestrike Las-talon repia
+
+CORE ABILITIES Deadly Demise 1, Deep Strike
+
+ARMY RULES Combat Doctrines
+
+Drop Pod Assault:
+
+* This unit must start the battle in strategic reserves
+
+e in your first Movement phase, this unit can make an
+ingress move
+
+e When this unitis set up, all units embarked within this unit must
+make a disembark/assault disembark move (pg 157). and those
+units must be set up more than 8" away from all enemy units
+
+Deployment Complete: When this unit is set up and all units
+embarked within it have disembarked. units cannot embark within
+this unit
+
+FACTIONKEYWORDS:
+ADEPTUS ASTARTES
+
+Sentinel Protocols (Once per phase, per unit): You can target this
+
+Jnit with the Fire Overwatch stratagem, regardiess of any other
+
+uses of that stratagem this phase. If you d
+
+* This unit's snap shooting attacks hit on unmodified hit rolls of
+4+ until that stratagem |s resolved
+
+° That use does not prevent any uses of that stratagem on other
+
+un sth 5 pna rs)
+
+UNIT COMPOSITION
+
+© 1-2 Firestrike Servo-turrets models
+
+Every model is equipped with: ] Hovering Bulk
+1 Twin Firestrike Las-talon
+
+FACTION KEYWORDS |
+ADEPTUS ASTARTES as
+
+
+
+===== PAGE 62 (page-62.png) =====
+
+€> RANGED WEAPONS
+
+CE eh Daa 2425 M18
+Heavy Onslaught Gatling Cannon ae re
+
+|[DEVASTATING WOUNDS: non-MONSTER/VEHICLE, 24M. 35
+‘SUSTAINED HITS 2: non-MONSTER/VEHICLE] =
+Hunter-slayer Missile [INDIRECT FIRE, ONE SHOT} 48" yop eae
+
+438" ] 3+
+
+Twin Lascannon [TWIN-LINKED]
+
+TO) 42 MELEEWEAPONS
+
+Armoured Hull
+
+Melee 6 4+
+
+i+ WARGEAR OPTIONS
+
+= This model's Heavy Onslaught Gatling Cannon can be replaced with 1 Las-talon
+* This model's Twin Heavy Bolter can be replaced with 1 Twin Lascannon
+
+i te eh PREECE LL E ST EEE ith eh ehh eee Pee REE REEEE UT OCOCOEL ELSES. CL e ee
+
+“gs
+
+=
+
+-
+-
+
+* <* =
+cS wee oo,
+
+CORE ABILITIES
+
+Damaged 6, Deadly Demise D6
+
+ARMY RULES
+
+Combat Doctrines
+
+Combat Embarkation: in your opponent's Charge phase, when
+
+an enemy unit has selected charge targets, you can select one
+friendly unengaged ADEPTUS ASTARTES unit that was one of those
+charge targets and is eligible to embark within this TRANSPORT |f
+every model in that unit is within 3° of this TRANSPORT. that unit can
+embark within this TRANSPORT. That enemy unit can then select new
+charge targets for that charge move.
+
+TRANSPORT
+
+This model has a transport capacity of 14 ADEPTUS ASTARTES
+INFANTRY models. |t cannot transport JUMP PACK models. Each
+GRAVIS/TERMINATOR model takes up the space of 2 models
+
+UNIT COMPOSITION
+
+*» 1Repulsor model
+
+This model Is equipped with: 1 Armoured Hull; 1 Defensive
+Array; | Heavy Onslaught Gatling Cannon; 1 Hunter-slayer Missile
+
+] Twin Heavy Bolter
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+
+
+===== PAGE 63 (page-63.png) =====
+
+=
+
+EPULSOR EXECUTIONER
+
+~-) ©} RANGED WEAPONS RANGE A BS S$ AP D 19-1011 SS Damaged 6, Deadly Demise Dé
+
+7
+
+% Defensive Array 24" 18 34905) ARMY RULES Combat Doctrines
+
+Heavy Laser Destroyer
+
+, + - +4
+
+[DEVASTATING WOUNDS, HEAVY] L oe Sites Ne eae
+
+Heavy Onslaught Gatling Cannon ‘0 ‘ks that target a unit not
+
+[DEVASTATING WOUNDS: non-HONSTER/VEHICLE, 24 Do es ee melee ere ie pls vee Heat ek A,
+
+SUSTAINED HITS 2: non-MONSTER/VEHICLE] 2 SAUL a al
+oon > iM Plasma Incinerator - Standard [BLAST 1 36” D373 Sto ee 2
+ee acro ma Incinerator n 5 [ ] TRANSPORT
+es Macro Plasma Incinerator - Supercharge -
+Kage =< [BLAST 1, HAZARDOUS] tu 36 D3¢3 Resta lOme -4 3 This model has a transport capacity atl ASTARTES
+AAS an Heavy Bolter | INFANTRY models. It cannot transport models. Each
+i oe 7 + -] ode « ) Q | ep of 27 mod
+see [RAPID FIRE 2, SUSTAINED HITS 1, TWIN-LINKED] 36 3 3 5 2 GRAVIS/TERMINATOR model takes up the space of ; lel
+~ $2 MELEEWEAPONS RANGE A WS S$ AP OD UNIT COMPOSITION aN ee . |
+y >)
+i Armoured Hull Melee 6 4+ 8 0 ] * 1 Repulsor Executioner mode!
+cwne This model Is equipped with: 1 Armoured Hull, 1 Defensive Array
+Sy . m> Before selecting targets for this weapon, select one of its eligible profiles to make attacks with | He ee : yy “a irate air Hy “sl : | [eae 7
+“ = , ‘ ' vy it} ittil Lannon
+Tie | 1 Twin Heavy Bolter
+> X& WARGEAR OPTIONS
+:
+MM * This model's Heavy Laser Destroyer can be replaced with 1 Macro Plasma Incinerator
+,
+oe.
+| 4. et fe TS. AIRE FACTION KEYWORDS:
+yh olsen FRAME; IMPERIUN; SMOKE; TRANSPORT ADEPTUS ASTARTES |
+
+-—-
+
+Di ————_
+
+—_—
+
+—__
+
+} 9) Heavy Gnslought Gatling cannon |
+
+
+
+===== PAGE 64 (page-64.png) =====
+
+ma
+
+6; RANGED WEAPONS
+
+Godhammer Lascannon
+
+eee ete eROOAEe LOOP LOLREREEE LORE SORES
+
+ee eh te del
+
+Mult i-melta [MELTA 3
+
+- CORE ABILITIES Damaged 6, Deadly Demise D6
+45 2 + »
+3 $512) 3 D343 ARMY RULES Combat Doctrines
+
+18 2 3+
+Storm Bolter [RAPID FIRE 2] 24" 2 3+ 5 -} ] Assault Ramp: in your Movement phase when this unit ends a
+Twin Heavy Bolter normal move, units embarked within this unit can make an assault
+[RAPID FIRE 2, SUSTAINED HITS 1, TWIN-LINKED] 36 3 StS =I 2 disembark move (pg 157)
+
+"rrr T) ttt sd
+
+&*® MELEEWEAPONS
+
+Armoured Tracks
+
+<¢ WARGEAR OPTIONS
+
+Power of the Machine Spirit: This unit's ranged attacks can
+
+* ke-roll one hit roll
+* Re-roll one wound roll
+
+— | Ss This model has a transport capacity of 14 ADEPTUS ASTARTES
+* This model can be equipped with 1 Hunter-killer Missile INFANTRY models. |t cannot transport JUMP PACK models. Each
+
+* This model can be equipped with 1 Multi-melta GRAVIS / TERMINATOR mode! takes up the space of 2 mode!
+
+* This model can be equipped with 1 storm Bolter
+
+| ;
+* <4 <=
+a ad
+
+> + A £2)
+
+aa ae |
+
+3
+
+ns
+
+py be
+
+This model is equipped with: 1 Armoured Tracks
+mnor miviisees iy Malifal
+
+’
+
+Loot 7 - wit) MEY /ORD
+
+wy me TRANSPORT ADEPTUS ASTARTES
+
+f tal het
+
+
+
+===== PAGE 65 (page-65.png) =====
+
+o
+
+>) > RANGED WEAPONS RANGE
+
+. Hunter-killer Missile [ONE SHOT] 48" rasan 403 ee 345
+Hurricane Bolter [RAPID FIRE 6, TWIN-LINKED] 24" 3. hye ee ape
+
+Multi-melta [MELTA 3] 18 2 3+ +10 3 03+3
+S Storm Bolter [RAPID FIRE 2] yD aE Gaeas
+’ Twin Assault Cannon [SUSTAINED HITS 1, TWIN-LINKED] 24” 6st (6-295
+pyA Be Armoured Tracks Melee 7 4+ 8 O 1
+
+> 3 WARGEAROPTIONS
+
+* This model can be equipped with 1 Hunter-killer Missile
+: * This model can be equipped with 1 Multi-melta
+e eke * This model can be equipped with 1 Storm Bolter
+
+CORE ABILITIES
+
+Damaged 6, Deadly Demise D6
+
+ARMY RULES
+
+Combat Doctrines
+
+Assault Ramp: In your Movement phase, when this unit ends a
+disembark move (pg 157)
+
+Fury of the Machine Spirit: This unit's ranged attacks that target a
+unit within 12" of this unit have [LETHAL HITS]
+
+TRANSPORT
+This model has a transport capacity of 16 ADEPTUS ASTARTES
+INFANTRY models. It cannot transport JUMP PACK models. Each
+
+GRAVIS/TERMINATOR model takes up th:
+
+mo 1e| :
+
+Dade f ?
+
+Fa rs ; -
+UNITCOMPOSITION, =
+
+© lLand Raider Crusader mode!
+
+2 Hurricane Bolter
+
+This model is equipped with: 1 Armoured Track
+1 Twin Assault Cannon
+
+
+
+===== PAGE 66 (page-66.png) =====
+
+re ogy a Dina
+
+Storm Bolter [RAPID FIRE 2]
+Twin Assault Cannon [SUSTAINED HITS 1, TWIN-LINKED]
+
+&® MELEEWEAPONS
+
+Armoured Tracks
+
+{£ WARGEAR OPTIONS
+
+® This model can be equipped with 1 Hunter-killer Missile
+= This model can be equipped with 1 Multi-melta
+
+* This model can be equipped with 1 Storm Bolter
+
+~~ a aoe
+
+CORE ABILITIES Damaged 6, Deadly Demise D6
+ARMY RULES Combat Doctrines
+
+Assault Ramp: In your Movement phase. when this un tendsa
+normal move, units embarked within this unit can make an assault
+disembark move (pg 157)
+
+Wrath of the Machine Spirit: This unit's ranged
+
+attacks that target a unit within 12" of this unit hav
+[DEVASTATING WOUNDS: non-HONSTER/VEHICLE}]
+
+TRANSPORT
+
+This mode! has a transport capacity of 14 ADEPTUS ASTARTES
+INFANTRY models. It cannot transport JUMP PACK models. Each
+GRAVIS / TERMINATOR model takes up the space of 2 model:
+
+UNIT COMPOSITION
+oan gh tre bh pm 4 ,
+
+® Land Raider Redeemer mocel
+
+This model Is equipped with: | Armoured Irack:
+
+? Flamestorm Cannon: | Twin Assault Cannon
+
+a Vhs) pie
+
+
+
+===== PAGE 67 (page-67.png) =====
+
+.
+
+.
+
+*
+
+_ REDEMPTOR DREADNOUGHT
+
+or)
+,, »
+
+8
+cs
+
+~
+
+ek. -
+“a SZ > RANGED WEAPONS CORE ABILITIES Damaged 4, Deadly Demise D3
+
+: Fragstorm Grenade Launchers [BLAST 2] 18 ; 3490 145 vt -] ARMY RULES Combat Doctrines
+a
+Heavy Flamer [BLAST 2, TORRENT] 12" 3 mS. =I 1
+Heavy Onslaught Gatling Cannon
+~. [DEVASTATING WOUNDS: non-MONSTER/VEHICLE, 24" 12 343 46h 1 ] target thi: vith | :
+Ft Du Eternal: Attacks that target this unit wit! 1S greater than thic
+ee. oe SUSTAINED HITS 2: non-MONSTER/VEHICLE] sar: 7 have! to wound rolls
+Icarus Rocket Pod [ANTI-FLY 2+] 24" SES ais pee
+m> Macro Plasma Incinerator - Standard [BLAST 1] 36" 03435 3+ 9594.5 -35. "92 UNIT COMPOSITION
+~ Macro Plasma Incinerator - Supercharge 36° 3433+ «410.4 3 «= 1Redemptor Dreadnought model
+
+[BLAST 1, HAZARDOUS)
+
+Onslaught Gatling Cannon
+[DEVASTATING WOUNDS: non-HONSTER/VEHICLE]
+
+Storm Bolters [RAPID FIRE 4} 24" 4 3985 ] ]
+
+This model Is equipped with: | Fragstorm Grenade Launcher
+24° 8 3+ 65 -) 1 1 Heavy Flamer, 1 Heavy Onslaught Gatling Cannon; 1] Redemptor Fist
+
+MELEE WEAPONS RANGE A WS S AP O
+Redemptor Fist Melee 5 3+ «12 3. 0343
+
+me (Before selecting targets for this weapon, select one of its eligible profiles to make attacks with
+
+) %& WARGEAR OPTIONS
+
+is tS | © This model can be equipped with 1 Icarus Rocket Pod
+
+® This model's Fragstorm Grenade Launchers can be replaced with 1 Storm Bolters
+
+* This model's Heavy Flamer can be replaced with 1 Onslaught Gatling Cannon
+
+~ ® This model's Heavy Onslaught Gatling Cannon can be replaced with 1 Macro Plasma Incinerator
+
+FACTION KEYWORDS:
+
+ADEPTUS ASTARTES
+
+WORDS; VEHICLE; DREADNOUGHT; THPERTUN; WALKER
+
+i ieee
+, a . =o
+
+Ultramarines Redemptor
+
+Dreadnought with Heovy Onslaught Gatling Cannon
+Onsidught Gatling Cannon, and Redemptor Fist
+
+_= Heavy Famer and
+Pte Redemptor Fist) jf yt
+
+wad ‘G ‘ |
+
+Leeda -~
+~
+
+= s)
+~ We v2 a
+
+
+
+===== PAGE 68 (page-68.png) =====
+
+erate, CORE ABILITIES Damaged 4, Deadly Demise D3
+D6+6 3+ S +4 1
+=> Ballistus Missile Launcher - Krak 48" 2 3+ 10 -2 03+3
+ph, a ER Re he ett ett pte nner ip) 0 ys OCC SCWS EUS See Wee wcc de oeeebcwres clocecs y ; ¥
+Storm Boers [PIDFIRES] Aes Nis cy gps Saussure nts ange atx tat eta eremy un
+| Th ete peechastacetetecbocene tenet eae within 24" of this unit have [SUSTAINED HITS 1}
+
+TI 62 MELEE WEAPONS RANGE A
+
+Armoured Feet Melee 5
+
+ele telah Riad t dda ent ELLE LLL ELL LEE
+BRORRERESE STEERS ELIOT TT eT eT eee
+PERRET R CLES Teese TT eee TT eee
+
+UNIT COMPOSITION
+
+* 1Ballistus Dreadnought model
+
+m> Before selecting targets for this weapon, select one of its eligible profiles to make attacks with This model Is equipped with: 1 Armoured Feet: 1 Ballistus
+
+Lascannon; 1 Ballistus Missile Launcher, 1 Storm Bolters
+
+‘otic eden g Pc ao) 7) > he EO el A
+" > \Ballistus Missile Launcher-Frag [BLAST2]) nn ie AR I aA ey STL | RMY RULES Combat Doctrines
+
+ao paeER oS SES Sia a FACTION KEYWORDS,
+EHICLE; DREADNOUGHT; IMPERIUM; WALKER ADEPTUS ASTARTES
+<n 688 oe eee . Mays =A os Bae eh’
+yO
+ae et |
+. a
+PPT See Damaged 4, Deadly Demise D2
+ines
+© RANGED WEAPONS ARMY RULES Combat Doctrine
+24” | ie
+Bolt Rifles [TWIN-LINKED Se cee
+ne te cet 36° 3 3+ 5 -1 2 ne } f
+em ea olter rey ‘ ——— : it): You can targe is uni
+[RAPID FIRE 2, SUSTAINED HITS 1, TWAN-LINCED] ee Ve Brutalis Charge (Once per phase, per Un f any other uses of
+
+m, regardless 0
+
+: 1
+To Skngiodess with the Crushing Impact stratage
+
+Twin Icarus lronhail Heavy Stubber 36° m this phase. If you ¢o
+
+TATE-FLY 3+, RAPID FIRE 3, TWIN-LINKED] sssmsnmmmmssemmnngy" jg) 3032, thatstratage
+
+PPSOb ar Da pgnconrrertorpornsss 4 e That use is «| CP
+
+a heo tae.” iT q eetess 0
+Multi-melta (MELTA 3 TWIN-LINKED] sors Te | » That use does not prevent any uses
+
+9 = Oa et ae ”
+units this phase Ac
+
+f that stratagem On other
+
+Brutalis Fists [TWIN-LINKED] eee
+
+EAVE 2, SUSTAINED HITS 1: non-
+
+*
+PUOO SF BER BOC bowl ee rere cs vese du te Severe
+
+s 1Brutalls Dreadnought mode!
+
+ith: 1 Bolt Rifle
+del Is equipped W
+Mie Sty Rolter, | Twin Icarus lronha!
+wi
+
+s 1 Brutalis Fists
+| Heavy Stubber
+
+Léews te
+jos?
+<<
+ewaeterr
+eeeer”
+
+
+
+===== PAGE 69 (page-69.png) =====
+
+Fragstorm Grenade Launcher [BLAST 1] 18" 3 3+ 4
+Heavy Bolter [RAPID FIRE2, SUSTAINEDHITS1] 36° #43 #3 S
+Incendium Cannon [BLAST 2, TORRENT] 12" 4 | 6
+| Ironhail Heavy Stubbers [RAPIDFIRE6] = 36° 6 3+ 4
+; RN SS Twin ironhall/Autocannon [TWIN-LINKED] : 4g" 4 m3: 9
+
+5 3+ 812
+
+KEYWORDS: VEHICLE; IMPERIUM; PHOBOS; WALKER
+
+“STORM SPEEDER HAILSTRIKE
+
+:
+MN
+
+‘ =
+
+-] ]
+-] 2
+4 | !
+z Hoos po
+
+-2
+
+3
+
+a es 4 <> RANGED WEAPONS RANGE A BS S AP OD
+
+ee, Fragstorm Grenade Launchers 18” 6 34 45] 1
+Sak. [BLAST|2 IGNORES COVER) SS
+9 ea, Onslaught Gatling Cannon :
+
+5m [DEVASTATING WOUNDS: non-HONSTER/VEHICLE, 24 Siyst es Se u-le
+Erouomes coven] emmmrerg LS Oe
+
+WS S AP O
+
+J 1
+
+rt Be
+
+CORE ABILITIES
+ARMY RULES
+
+Damaged 4, Deadly Demise D3, Scouts 8"
+
+Combat Doctrines
+
+Forward Assault Warsuit: At the start of the first battle round you
+can select one enemy unit to be this unit's mark
+
+* This unit’s attacks that target this unit's mark can re-roll
+wound rolls of |
+
+* Each time this unit’s mark is destroyed, select one enemy unit
+to be this unit's mark
+
+UNIT COMPOSITION
+
+* 1Invictor Tactical Warsuit model
+
+This model is equipped with: | Fragstorm Grenade Launcher,
+1 Heavy Bolter; 1 Incendium Cannon; 1 Invictor Fist; 1 Ironhail!
+Heavy Stubbers
+
+FACTION KEYWORDS:
+
+ADEPTUS ASTARTES
+
+CORE ABILITIES Deadly Demise D3, Deep Strike
+
+ARMY RULES
+
+Combat Doctrines
+
+Hailstrike: In your Shooting phase, when this unit has shot,
+select one enemy unit hit by those attacks. Friendly ADEPTUS
+ASTARTES units’ ranged attacks that target that enemy unit have
+[IGNORES COVER]
+
+UNIT COMPOSITION
+
+* 1Storm Speeder Hailstrike model
+
+This model is equipped with: 1 Armoured Impact; 1 Fragstorm
+Grenade Launchers; 1 |ronhall Heavy Stubber Array, 1 Onslaught
+Gatling Cannon
+
+FACTION KEYWORDS
+ADEPTUS ASTARTES
+
+Ag
+
+S IS AN EVIL, DOUBT AN INDULGENCE ++
+
+ae,
+
+
+
+===== PAGE 70 (page-70.png) =====
+
+STORM SPEEDER HAMMERSTRIKE
+
+a
+
+a«
+
+“rg
+
+a.
+le
+—2
+
+(> RANGED WEAPONS
+
+Hammerstrike h Missile Launcher 36) COREABILITIES Deadly Demise D3, Deep Strike
+| semmena tr ; | 10-3 0342 Es
+: | storm. Grenade Launchers 1 ; : Combat Doctrines
+| ORNS IREB Ese on nk = + -] 2
+Melta Destroyer [MELTA 3] ;
+re inact J} Eke 40)... )oepr
+. +?
+ae MELEEWEAPONS SIGE 7 pera erstrike: This unit's ranged attacks that target an enemy unlit
+within a terrain area have [SUSTAINED HITS 1]
+‘CCM ce 2 a a Melee igi i
+| UNIT COMPOSITION
+= 1Storm Speeder Hammerstrike mode!
+' This model is equipped with: 1] Armoured Impact: 1 Hammerstrike
+Missile Launcher, 1 Krakstorm Grenade Launchers; 1 Melta Destroyer
+
+a : § Ai Extys
+
+7 -
+. i
+
+ANE; IMPERIUM; | SPEEDER | ‘emia
+
+“4 “Ee « ;
+
+g STORM SPEEDER THUNDERSTRIE
+
+CORE ABILITIES Deadly Demise D3, Deep Strike
+ARMY RULES Combat Doctrines
+
+hat targeta
+. unit’s ranged attacks that tare
+
+e +1 to wound rolls
+
+Thunderstrike: Th
+MONSTER/ VEHICLE unit hav
+
+s: In your Shoow ing pha
+MONSTER/ VEHICLE unit hit by th
+
+< that target that
+
+Meee eee tne ees <\ aon
+
+-e when tnis unit has
+
+Shattered Defence ose attacks
+
+shot, select one enemy
+
+criendly ADEPTUS ASTARTES units ranged attack
+
+enemy unit have +) AP
+
+er Thunderstrike mode!
+
+moured Impa
+arus Rocket Pod
+
+» 1Storm Speed
+uipped with: 1Ar
+1 Thunderstrike Ic
+
+ct 1Stormfury
+
+This model is eq
+Missile Launcher,
+1 Thunders
+
+‘ke Las-talon
+
+
+
+===== PAGE 71 (page-71.png) =====
+
+CORE ABILITIES Deep Strike
+
+ARMY RULES Combat Doctrines
+wc [DEVASTATING WOUNDS: non-NONSTER/ VEHICLE] 24° J th Ose 4
+ee “ Be eT ro nace RE MO en a Omar Or ES ke
+Ee bs ¥ enemas 2 [ samen iso . RENT] oe pnt re rr v9 teltinrre e — ¢ a Seis! ie ee oe ie Purgation Run: In your Shooting phase, when this unit has shot, you
+ee , SSL Missile Launcher 48° 1 32en | Omee—3 ee 3+ can use this ability. If you do
+
+* This unit can make a normal move of up to D6"
+* This unit is not eligible to declare a charge until the end of
+_the turn:
+
+UNIT COMPOSITION
+
+* 1Land Speeder model
+
+7s
+
+*
+a.
+
+a
+
+ca Tr ODLEECPUET COOOL CUO CEE OPEC PEEPS oor er Pe her ee cere BOSH. Ee . This model Is equipped with: 1 Armoured Impact; 1 Multi-metta;
+1 Onslaught Gatling Cannon; 1 Stormfury Missile Launcher
+
+FACTION KEYWORDS:
+ADEPTUS ASTARTES
+
+Rom
+
+=r
+xs-~
+= 1
+‘
+a See
+
+a indete
+
+E RANGED WEAPONS RANGE CORE ABILITIES Damaged 4, Deadly Demise D3
+Defensive Array [RAPID FIRE 6] 24" 1 ARMY RULES Combat Doctrines
+[Laser Destroyer [HEAVY] TAD 3+* 143 0663
+
+KS MELEE WEAPONS RANGE A Aqullon Optics: This unit's ranged attacks that target a
+
+MONSTER/VEHICLE unit can
+
+Armoured Hull
+
+eeeeee eee eee eeeeeeeeee
+sveereere
+seeeeeeeeeee
+etteeeeeeeeee
+eeeveeeee
+
+* Re-roll one hit roll.
+* Re-roll one wound roll.
+* Re-roll one damage roll.
+
+UNIT COMPOSITION
+
+* 1Gladiator Lancer model
+
+This model is equipped with: 1 Armoured Hull; 1 Defensive Array;
+1 Laser Destroyer.
+
+"TTTTELILILELILI LEE LILI
+
+eeeeeee®
+eeaveeer
+eeteeeseeeeeerere*
+eeeeeeeeeeeeeeeeeeteeeerre
+
+FACTION KEYWORDS
+ADEPTUS ASTARTES
+/
+r » - 3 ‘“*
+7 BUT te tag 4 ae ta en ; >.
+1. . c gery S . 3 ' a. *y, 4 _
+* ey  ~ohel ’ PES: = ati - ‘~ ee =e A
+
+
+===== PAGE 72 (page-72.png) =====
+
+O RANGED WEAPONS
+Defensive Array [RAPID FIRE 12]
+
+SOGSEDO2OOOSOSOL SOS OOOO 2 O22 2 22LALDADODDAD9P2LOO2 099 000200000000000r00000.
+asneeere**
+
+Twin Heavy Onslaught Gatling Cannon
+[DEVASTATING WOUNDS: non-MONSTER/VEHICLE,
+SUSTAINED HITS 2: non-MONSTER/VEHICLE, 24 2k 48 3660 9
+
+‘TWIN-LINKED]
+
+eevee OCCU Pees ew we wes we PSCC STE UVP ewe Oe bee TOUT TCTT Pe eeee we POCS Cee ee eer eeeeee eevee ere erwes oe ee ee -
+:
+eee _
+°
+
+&® MELEEWEAPONS
+
+Armoured Hull
+
+RA A ae ied Neh Ot whalebone ead db L LAL LALLA LALA DLL ATLAS TTT y ye eee epee
+a Seana DREN UONE EUR nterinn tar tun onc Wayr geese ee CSCC C0200 oC esc eeseeccseeseesoseatecceceroetarsececcececeecscceci,..
+
+nen 3 SMOKE 4. |
+
+CORE ABILITIES Damaged 4, Deadly Demise D3
+ARMY RULES Combat Doctrines
+
+ALTE EMG oy
+
+Reaping Tally: This unit's ranged attacks that target a unit
+(excluding HONSTER/VEHICLE units) have +1 AP.
+
+UNIT COMPOSITION
+
+= 1Gladiator Reaper model
+
+This model Is equipped with: 1 Armoured Hull: 1 Defensive Array
+! Twin Heavy Onslaught Gatling Cannon
+
+FACTION KEYWORDS:
+
+ADEPTUS ASTARTES
+
+CORE ABILITIES Damaged 4, Deadly Demise D3
+ARMY RULES Combat Doctrines
+
+s ranged attacks that target a
+
+Priority Target Acquisition: This unit
+unit within 12° of this unit have +15
+
+UNIT COMPOSITION
+
+e Gladiator Valiant mode!
+
+This model is equipped with: | Armou
+2 Multi-melta; 1 Twin Las-talon
+
+red Hull; 1 Defensive Array
+

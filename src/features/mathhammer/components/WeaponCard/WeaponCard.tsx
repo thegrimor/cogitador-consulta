@@ -95,16 +95,23 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
           {weapon.cleaveValue > 0 && <Badge label={`Cleave ${weapon.cleaveValue}`} />}
           {weapon.isConversion   && <Badge label="Conversion" />}
           {weapon.isHeavy && onHeavyToggle && (
-            <button
+            // Not a <button>: this whole card is already a <button> (line 38), and a <button>
+            // cannot contain another <button> per the HTML spec -- React logs a hydration
+            // error and the browser auto-closes/reparents the inner one, breaking the click
+            // target. role="button" keeps it keyboard/AT-accessible without the nesting.
+            <span
+              role="button"
+              tabIndex={0}
               onClick={e => { e.stopPropagation(); onHeavyToggle() }}
-              className={`text-[8px] px-1.5 py-0.5 border font-mono transition-colors ${
+              onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onHeavyToggle() } }}
+              className={`text-[8px] px-1.5 py-0.5 border font-mono transition-colors cursor-pointer ${
                 heavyModActive
                   ? 'border-crimson text-crimson bg-crimson/10'
                   : 'border-rim-bright text-parchment-dim hover:border-gold/50'
               }`}
             >
               {heavyModActive ? '▶ Movido (−1)' : '○ Se movió'}
-            </button>
+            </span>
           )}
         </div>
       )}
