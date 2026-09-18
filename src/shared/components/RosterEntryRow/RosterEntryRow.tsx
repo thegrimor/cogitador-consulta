@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import type { Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
+import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
 import {
   resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge,
 } from '@/core/utils/roster'
 import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
+import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
 import { WeaponSelector } from '@/shared/components/WeaponSelector'
 import { WeaponOptionsEditor } from '@/shared/components/WeaponOptionsEditor'
 import { AbilityList } from '@/shared/components/AbilityList'
+import { RuleTooltip } from '@/shared/components/RuleTooltip'
 
 interface Props {
   entry: RosterEntry
@@ -32,6 +34,31 @@ interface Props {
 
 const linkClass =
   'text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors'
+
+// Core-type abilities (Feel No Pain, Sigilo, Despliegue Profundo, etc.) as tappable badges,
+// same treatment as DatasheetDetailPage's "Reglas Especiales" box — kept out of AbilityList's
+// collapsed "Habilidades Comunes" group so they're visible without opening the accordion.
+function CoreAbilityBadges({ abilities }: { abilities: Ability[] }) {
+  const { coreRulesMap } = useGameDataContext()
+  const coreAbils = abilities.filter(a => a.type === 'Core')
+  if (coreAbils.length === 0) return null
+
+  return (
+    <div className="flex flex-wrap gap-1.5 px-3 py-2 border-b border-rim-bright bg-surface-3">
+      {coreAbils.map((ab, i) => {
+        const key = ab.name.toLowerCase()
+        const rule = coreRulesMap[key] ?? Object.values(coreRulesMap).find(r => key.startsWith(r.name.toLowerCase()))
+        return (
+          <RuleTooltip key={i} name={ab.name} description={ab.description || rule?.description || ''} ruleId={rule?.id}>
+            <span className="inline-block text-[10px] font-mono uppercase tracking-wide border border-gold/60 text-gold bg-surface-2 px-2 py-1 leading-none">
+              {ab.name}
+            </span>
+          </RuleTooltip>
+        )
+      })}
+    </div>
+  )
+}
 
 function pillClass(selected: boolean): string {
   return `text-[10px] font-mono uppercase tracking-widest px-2 py-1 border transition-colors whitespace-nowrap ${
@@ -252,6 +279,8 @@ export function RosterEntryRow({
           )}
 
           <StatsBar models={datasheet.models} />
+
+          <CoreAbilityBadges abilities={datasheet.abilities} />
 
           <WeaponSelector weapons={datasheet.weapons} quantities={weaponQuantities} />
 

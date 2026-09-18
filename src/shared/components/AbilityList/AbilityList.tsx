@@ -38,14 +38,17 @@ function AbilityItem({ ability }: { ability: Ability }) {
 
 export function AbilityList({ abilities, detachmentAbilities }: Props) {
   const [open, setOpen] = useState(false)
-  const total = abilities.length + detachmentAbilities.length
-  if (total === 0) return null
 
   const datasheetAbilities = abilities.filter(a => a.type === 'Datasheet')
   const factionAbilities = abilities.filter(a => a.type === 'Faction')
-  // Catches Core plus the data's other rule-ish types (Wargear, Primarch, Fortification, etc.)
-  // so every ability still renders even though the user-facing grouping only distinguishes four buckets.
-  const commonAbilities = abilities.filter(a => a.type !== 'Datasheet' && a.type !== 'Faction')
+  // Core abilities (Feel No Pain, Sigilo, Despliegue Profundo, etc.) surface as their own badge
+  // row above the stats block (see RosterEntryRow's CoreAbilityBadges) instead of here, so they're
+  // excluded to avoid listing them twice. This still catches the data's other rule-ish types
+  // (Wargear, Primarch, Fortification, etc.) so every non-Core ability still renders somewhere.
+  const commonAbilities = abilities.filter(a => a.type !== 'Datasheet' && a.type !== 'Faction' && a.type !== 'Core')
+
+  const total = datasheetAbilities.length + factionAbilities.length + commonAbilities.length + detachmentAbilities.length
+  if (total === 0) return null
 
   return (
     <div className="border-b border-rim-bright">
