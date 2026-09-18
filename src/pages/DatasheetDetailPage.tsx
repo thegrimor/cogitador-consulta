@@ -166,6 +166,34 @@ function ModelStats({ model }: { model: ModelProfile }) {
   )
 }
 
+// ── Reglas especiales (habilidades "Core": FNP, Sigilo, Despliegue Profundo...) ─
+
+function CoreAbilityBadge({ ab }: { ab: Ability }) {
+  const { coreRulesMap } = useGameDataContext()
+  const key = ab.name.toLowerCase()
+  const rule = coreRulesMap[key] ?? Object.values(coreRulesMap).find(r => key.startsWith(r.name.toLowerCase()))
+  return (
+    <RuleTooltip name={ab.name} description={ab.description || rule?.description || ''} ruleId={rule?.id}>
+      <span className="inline-block text-[11px] font-mono uppercase tracking-wide border border-gold/60 text-gold bg-surface-3 px-2 py-1 leading-none">
+        {ab.name}
+      </span>
+    </RuleTooltip>
+  )
+}
+
+function CoreAbilitiesBox({ abilities }: { abilities: Ability[] }) {
+  const coreAbils = abilities.filter(a => a.type === 'Core')
+  if (coreAbils.length === 0) return null
+  return (
+    <div className="border border-rim-bright mb-3">
+      <SectionHeader title="Reglas Especiales" />
+      <div className="flex flex-wrap gap-1.5 px-3 py-2 bg-surface-2">
+        {coreAbils.map((ab, i) => <CoreAbilityBadge key={i} ab={ab} />)}
+      </div>
+    </div>
+  )
+}
+
 // ── Bloque de habilidades ─────────────────────────────────────────────────────
 
 function AbilRow({ ab, factionId }: { ab: Ability; factionId: string }) {
@@ -203,7 +231,7 @@ function AbilitiesBlock({
   factionId: string
 }) {
   const unitAbils = abilities.filter(a => a.type === 'Datasheet')
-  const genericAbils = abilities.filter(a => a.type !== 'Datasheet')
+  const genericAbils = abilities.filter(a => a.type === 'Faction')
 
   return (
     <div className="border border-rim-bright mb-3">
@@ -220,7 +248,7 @@ function AbilitiesBlock({
             className="w-full flex items-center justify-between px-3 py-1.5 bg-surface-3 border-t border-rim-bright hover:bg-surface-4 transition-colors"
           >
             <span className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">
-              Genéricas / Facción ({genericAbils.length})
+              Habilidades de Facción ({genericAbils.length})
             </span>
             <span className="text-[11px] font-mono text-parchment-dim">
               {genericOpen ? '▲' : '▼'}
@@ -368,6 +396,9 @@ export function DatasheetDetailPage() {
         )}
         {currentModel && <ModelStats model={currentModel} />}
       </div>
+
+      {/* Reglas especiales (FNP, Sigilo, Despliegue Profundo, etc.) */}
+      <CoreAbilitiesBox abilities={ds.abilities} />
 
       {/* Armas ranged */}
       {rangedWeapons.length > 0 && (
