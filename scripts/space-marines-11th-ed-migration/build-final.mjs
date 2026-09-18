@@ -34,12 +34,16 @@ const keptDatasheets = currentSM.datasheets.filter(isProtectedDatasheet)
 const keptDetachments = currentSM.detachments.filter(d => isProtectedDetachment(d.id))
 const keptEnhancements = currentSM.enhancements.filter(e => isProtectedDetachment(e.detachmentId))
 const keptStratagems = currentSM.stratagems.filter(s => isProtectedDetachment(s.detachmentId))
-// Excludes 'oath-of-moment' (superseded, see README) AND any id this run is about to add --
-// this script reads from and writes to the SAME file, so a second run must not re-keep army
-// rules a prior run already appended (unlike detachments/datasheets/etc., army rules have no
-// classification-based protected/core split to filter by, so this is the only guard).
+// Excludes 'oath-of-moment' (superseded, see README), 'assigned-agents' (explicit user request
+// 2026-09-18 -- Inquisition/Agents of the Imperium already has its own faction entry in this
+// app, so the "you can ally them into a non-Agents Imperium army" rule doesn't belong on the
+// Space Marines page), AND any id this run is about to add -- this script reads from and
+// writes to the SAME file, so a second run must not re-keep army rules a prior run already
+// appended (unlike detachments/datasheets/etc., army rules have no classification-based
+// protected/core split to filter by, so this is the only guard).
+const DROPPED_ARMY_RULE_IDS = new Set(['oath-of-moment', 'assigned-agents'])
 const newArmyRuleIds = new Set(newArmyRules.map(r => r.id))
-const keptArmyRules = currentSM.armyRules.filter(r => r.id !== 'oath-of-moment' && !newArmyRuleIds.has(r.id))
+const keptArmyRules = currentSM.armyRules.filter(r => !DROPPED_ARMY_RULE_IDS.has(r.id) && !newArmyRuleIds.has(r.id))
 
 console.log('kept (protected):', keptDatasheets.length, 'datasheets,', keptDetachments.length, 'detachments,',
   keptEnhancements.length, 'enhancements,', keptStratagems.length, 'stratagems,', keptArmyRules.length, 'army rules')
