@@ -17,7 +17,7 @@ import {
 } from '@/store/rosterSlice'
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints,
-  resolveCostsForUnitIndex, unitIndexInRoster, resolveRosterTotalPoints,
+  resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
@@ -29,7 +29,7 @@ import { THEMES } from '@/themes/themes'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 
 /** Agents of the Imperium can be taken as allies by any other Imperium-aligned faction. */
-const ALLY_FACTION_ID = 'AoI'
+const ALLY_FACTION_ID = 'imperial-agents'
 
 export function RosterEditPage() {
   const { rosterId: rosterIdParam } = useParams<{ rosterId: string }>()
@@ -229,7 +229,10 @@ export function RosterEditPage() {
             // narrow to whichever tier this entry's position in the roster falls into,
             // leaving only genuine squad-size choices (if any) selectable.
             const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
-            const costs = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
+            const contextCosts = resolveCostsForFactionContext(
+              pointsCostMap[entry.datasheetId] ?? [], datasheet.factionId, roster.factionId,
+            )
+            const costs = resolveCostsForUnitIndex(contextCosts, unitIndex)
             const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
             const availableEnhancements = enhancements.filter(
               e => selectedDetachmentIds.has(e.detachmentId) &&
@@ -299,6 +302,7 @@ export function RosterEditPage() {
         pointsCostMap={pointsCostMap}
         entries={roster.entries}
         pointsLimit={roster.pointsLimit}
+        rosterFactionId={roster.factionId}
         onAdd={handleAddUnit}
       />
 
@@ -322,6 +326,7 @@ export function RosterEditPage() {
                 pointsCostMap={pointsCostMap}
                 entries={roster.entries}
                 pointsLimit={roster.pointsLimit}
+                rosterFactionId={roster.factionId}
                 onAdd={handleAddUnit}
               />
             </div>

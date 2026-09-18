@@ -1,7 +1,7 @@
 import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhancement, WargearCost, PointsCost } from '@/types'
 import {
-  weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, sortCostVariants, sumDetachmentPoints,
-  ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
+  weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, resolveCostsForFactionContext, sortCostVariants,
+  sumDetachmentPoints, ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
@@ -101,7 +101,10 @@ export function exportRosterToText(
   // rather than trusted off the entry/roster — see resolveEntryTotalPoints/resolveRosterTotalPoints.
   function linesFor(entry: RosterEntry, datasheet: Datasheet): string[] {
     const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
-    const costsForTier = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
+    const contextCosts = resolveCostsForFactionContext(
+      pointsCostMap[entry.datasheetId] ?? [], datasheet.factionId, roster.factionId,
+    )
+    const costsForTier = resolveCostsForUnitIndex(contextCosts, unitIndex)
     const wargearCosts = wargearCostMap[entry.datasheetId] ?? []
     return entryLines(entry, datasheet, costsForTier, wargearCosts, enhancements)
   }
@@ -691,7 +694,8 @@ export function resolveImportedRoster(
       // to the cheapest variant overall.
       const unitIndex = (unitIndexCounter.get(datasheet.id) ?? 0) + 1
       unitIndexCounter.set(datasheet.id, unitIndex)
-      const allCosts = sortCostVariants(resolveCostsForUnitIndex(pointsCostMap[datasheet.id] ?? [], unitIndex))
+      const contextCosts = resolveCostsForFactionContext(pointsCostMap[datasheet.id] ?? [], datasheet.factionId, factionId)
+      const allCosts = sortCostVariants(resolveCostsForUnitIndex(contextCosts, unitIndex))
       const matchingCost = allCosts.find(c => resolveModelCount(c, datasheet) === modelCount)
         ?? allCosts.find(c => resolveModelCount(c, datasheet) >= modelCount)
         ?? allCosts[allCosts.length - 1]

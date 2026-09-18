@@ -2,7 +2,8 @@ import { useState } from 'react'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import {
-  compareByRolePriority, resolveCostsForUnitIndex, unitIndexInRoster, maxCopiesAllowed, resolveModelCount,
+  compareByRolePriority, resolveCostsForUnitIndex, resolveCostsForFactionContext,
+  unitIndexInRoster, maxCopiesAllowed, resolveModelCount,
 } from '@/core/utils/roster'
 
 function modelCountLabel(ds: Datasheet): string {
@@ -18,10 +19,11 @@ interface Props {
   pointsCostMap: Record<string, PointsCost[]>
   entries: RosterEntry[]
   pointsLimit: number | null
+  rosterFactionId: string
   onAdd: (datasheet: Datasheet, cost: PointsCost) => void
 }
 
-export function AddUnitPanel({ datasheets, pointsCostMap, entries, pointsLimit, onAdd }: Props) {
+export function AddUnitPanel({ datasheets, pointsCostMap, entries, pointsLimit, rosterFactionId, onAdd }: Props) {
   const roles = [
     'Todos',
     ...Array.from(new Set(datasheets.map(d => d.role))).sort((a, b) =>
@@ -76,12 +78,12 @@ export function AddUnitPanel({ datasheets, pointsCostMap, entries, pointsLimit, 
       ) : (
         <div className="flex flex-col gap-px max-h-[420px] overflow-y-auto">
           {filtered.map(ds => {
-            const allCosts = pointsCostMap[ds.id] ?? []
+            const contextCosts = resolveCostsForFactionContext(pointsCostMap[ds.id] ?? [], ds.factionId, rosterFactionId)
             // The Nth copy of a datasheet (e.g. a 2nd Defiler) can have a different
             // surcharge tier than the 1st - that's not a player choice, so narrow to
             // whichever tier this next copy would fall into before offering any picker.
             const unitIndex = unitIndexInRoster(entries, ds.id, null)
-            const costs = resolveCostsForUnitIndex(allCosts, unitIndex)
+            const costs = resolveCostsForUnitIndex(contextCosts, unitIndex)
             const cap = maxCopiesAllowed(ds, pointsLimit)
             const atCap = unitIndex > cap
             return (

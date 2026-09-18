@@ -999,8 +999,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (Detachment)",
           "points": 110
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -1340,8 +1344,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 100
+          "description": "1 model (Detachment)",
+          "points": 110
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -1915,8 +1923,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (Detachment)",
           "points": 75
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -2139,8 +2151,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (Detachment)",
           "points": 55
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -2329,8 +2345,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (Detachment)",
           "points": 75
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -2542,8 +2562,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "6 models",
+          "description": "6 models (Detachment)",
           "points": 50
+        },
+        {
+          "description": "6 models (Assigned Agent)",
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -3343,8 +3367,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "11 models",
+          "description": "11 models (Detachment)",
           "points": 85
+        },
+        {
+          "description": "11 models (Assigned Agent)",
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -3915,8 +3943,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "4 models",
+          "description": "4 models (Detachment)",
           "points": 75
+        },
+        {
+          "description": "4 models (Assigned Agent)",
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -4057,8 +4089,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (Detachment)",
           "points": 60
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -4364,12 +4400,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "6 models",
+          "description": "6 models (Detachment)",
           "points": 50
         },
         {
-          "description": "12 models",
+          "description": "12 models (Detachment)",
           "points": 100
+        },
+        {
+          "description": "6 models (Assigned Agent)",
+          "points": 60
+        },
+        {
+          "description": "12 models (Assigned Agent)",
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -4777,8 +4821,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 175
+          "description": "5 models (Detachment)",
+          "points": 190
+        },
+        {
+          "description": "5 models (Assigned Agent)",
+          "points": 210
         }
       ],
       "wargearCosts": [
@@ -5084,8 +5132,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (Detachment)",
           "points": 95
+        },
+        {
+          "description": "1 model (Assigned Agent)",
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -5443,8 +5495,12 @@
           "points": 100
         },
         {
-          "description": "10 models",
+          "description": "10 models (Detachment)",
           "points": 190
+        },
+        {
+          "description": "10 models (Assigned Agent)",
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -6086,8 +6142,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "10 models",
+          "description": "10 models (Detachment)",
           "points": 100
+        },
+        {
+          "description": "10 models (Assigned Agent)",
+          "points": 115
         }
       ],
       "wargearCosts": [],
@@ -6304,12 +6364,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 3rd units)",
-          "points": 90
+          "description": "1 model (Detachment)",
+          "points": 100
         },
         {
-          "description": "1 model (4th + unit)",
-          "points": 100
+          "description": "1 model (Assigned Agent)",
+          "points": 115
         }
       ],
       "wargearCosts": [
@@ -6566,11 +6626,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 3rd units)",
-          "points": 60
-        },
-        {
-          "description": "1 model (4th + unit)",
+          "description": "1 model",
           "points": 70
         }
       ],
@@ -6722,11 +6778,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 3rd units)",
-          "points": 65
-        },
-        {
-          "description": "1 model (4th + unit)",
+          "description": "1 model",
           "points": 75
         }
       ],

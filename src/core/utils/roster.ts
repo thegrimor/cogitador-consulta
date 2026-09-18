@@ -91,6 +91,29 @@ export function resolveCostsForUnitIndex(costs: PointsCost[], unitIndex: number)
   })
 }
 
+/** Imperial Agents datasheets are the only ones that get taken as an ally into a foreign
+ * faction's roster, and GW prices that "Assigned Agent" use higher than fielding the same unit
+ * in a native AGENTS OF THE IMPERIUM army — encoded as a "(Assigned Agent)" description suffix
+ * alongside the native "(...Detachment)" one, same convention as the "(2nd+ unit)" tier suffix
+ * `parseTierRange` reads above. */
+export function isAssignedAgentCost(description: string): boolean {
+  return /\(assigned agent\)\s*$/i.test(description.trim())
+}
+
+/** Narrows `costs` to whichever of the two price tiers above applies — the ally price when
+ * `datasheet` isn't native to the roster's own faction, the native price otherwise. A no-op for
+ * every datasheet that doesn't carry this second price tier at all (i.e. everything outside
+ * Imperial Agents). */
+export function resolveCostsForFactionContext(
+  costs: PointsCost[],
+  datasheetFactionId: string,
+  rosterFactionId: string,
+): PointsCost[] {
+  if (!costs.some(c => isAssignedAgentCost(c.description))) return costs
+  const isAlly = datasheetFactionId !== rosterFactionId
+  return costs.filter(c => isAssignedAgentCost(c.description) === isAlly)
+}
+
 /** 1-indexed position of `entryId` among entries sharing its datasheetId, in roster order.
  * Pass `entryId: null` to get the index the *next* added copy of `datasheetId` would take. */
 export function unitIndexInRoster(
@@ -177,7 +200,10 @@ export function resolveRosterTotalPoints(
     const datasheet = datasheetById.get(entry.datasheetId)
     if (!datasheet) return sum
     const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
-    const costsForTier = resolveCostsForUnitIndex(pointsCostMap[entry.datasheetId] ?? [], unitIndex)
+    const contextCosts = resolveCostsForFactionContext(
+      pointsCostMap[entry.datasheetId] ?? [], datasheet.factionId, roster.factionId,
+    )
+    const costsForTier = resolveCostsForUnitIndex(contextCosts, unitIndex)
     const wargearCosts = wargearCostMap[entry.datasheetId] ?? []
     return sum + resolveEntryTotalPoints(entry, datasheet, costsForTier, wargearCosts, enhancements)
   }, 0)
