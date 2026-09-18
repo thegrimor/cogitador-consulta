@@ -239,6 +239,36 @@ Implemented: create/edit/list rosters with points limits, detachment selection (
 
 24 faction themes defined in `src/themes/themes.ts`. Each theme is a set of CSS custom property values. `useTheme` (in `src/shared/hooks/useTheme.ts`) writes them to `data-theme` on `<html>`, which activates overrides defined in `src/index.css` under `[data-theme="<id>"]` blocks. Colors referenced in Tailwind classes (`bg-crimson`, `text-parchment-dim`, etc.) are CSS variables defined in `@theme` in `index.css` — they update automatically when the theme changes. Persisted to localStorage via `ThemePicker`.
 
+### PWA (installable app)
+
+The frontend is an installable Progressive Web App via `vite-plugin-pwa` (config in
+`vite.config.ts`, `mode: 'generateSW'` — Workbox-generated service worker, not a hand-written
+one). `registerSW()` (from the `virtual:pwa-register` module the plugin provides — typed via
+`vite-plugin-pwa/client` in `tsconfig.app.json`'s `types`) is called once in `main.tsx` with
+`{ immediate: true }`; it's a no-op in `npm run dev` (the plugin only emits a service worker for
+production builds), so `npm run build && npm run preview` is the only way to actually exercise
+install/offline behavior locally.
+
+- Manifest (`manifest.webmanifest`, generated at build time from the `manifest` option in
+  `vite.config.ts`) — name/short_name/colors/icons. `theme_color`/`background_color` are
+  `#080808` (`--color-surface`), matching the app's dark shell regardless of the active faction
+  theme.
+- Icons live under `public/icons/` (192/512/maskable-512 PNGs + a 180px `apple-touch-icon.png`),
+  generated from `public/favicon.svg` centered on a `#080808` square. They're not wired to any
+  npm script — regenerate by re-running the puppeteer-based rasterization script used to create
+  them (render the SVG in a sized `<body>` via `page.setContent` + `page.screenshot`; `puppeteer`
+  is already a devDependency) if `favicon.svg` ever changes.
+- Runtime caching (`workbox.runtimeCaching` in `vite.config.ts`): `/data/*` (the faction/catalog/
+  mission JSON under `public/data`, ~15MB total) is `StaleWhileRevalidate` — served from cache
+  instantly (and offline) once visited, refreshed in the background on every fetch, *not*
+  eagerly precached on install (that data is excluded from `globPatterns`, which only precaches
+  the built JS/CSS/HTML/icons — precaching the full 15MB would make the first install slow).
+  `/api/*` (auth, rosters, chat) is `NetworkOnly` — those responses are per-user/dynamic and must
+  never be served stale or offline.
+- `registerType: 'autoUpdate'` means a new deployed build's service worker activates and reloads
+  the page automatically on the next visit, without a manual "update available" prompt — there's
+  no in-app update-toast UI.
+
 ### Routing
 
 Routes defined in `src/core/constants/routes.ts` with helper functions (`factionPath`, `datasheetPath`, `mathhammerAttackerPath`, etc.). Router tree configured in `src/App.tsx` (nested under `AppShell`, data-provided by `GameDataProvider`).
