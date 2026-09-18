@@ -16,6 +16,12 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
   const multiMode = unconstrained || isMultiDetachmentAllowed(pointsLimit)
   const totalDp = sumDetachmentPoints(detachments, draftIds)
 
+  // A detachment whose DP wouldn't fit the remaining budget can't be picked anyway — hide it
+  // instead of showing it greyed out, rather than making the player parse a disabled state.
+  const visibleDetachments = detachments.filter(
+    d => draftIds.includes(d.id) || unconstrained || !multiMode || totalDp + d.dp <= DETACHMENT_POINTS_BUDGET,
+  )
+
   function toggle(detachment: Detachment) {
     if (!multiMode) {
       setDraftIds([detachment.id])
@@ -65,21 +71,21 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
             <p className="text-[11px] font-mono text-parchment-dim text-center py-6 uppercase tracking-widest">
               Sin destacamentos disponibles
             </p>
+          ) : visibleDetachments.length === 0 ? (
+            <p className="text-[11px] font-mono text-parchment-dim text-center py-6 uppercase tracking-widest">
+              Ningún otro destacamento cabe en tu presupuesto de DP
+            </p>
           ) : (
-            detachments.map(d => {
+            visibleDetachments.map(d => {
               const selected = draftIds.includes(d.id)
-              const disabled = !selected && multiMode && !unconstrained && totalDp + d.dp > DETACHMENT_POINTS_BUDGET
               return (
                 <button
                   key={d.id}
                   onClick={() => toggle(d)}
-                  disabled={disabled}
                   className={`text-left px-3 py-2 border transition-colors flex items-center justify-between gap-2 ${
                     selected
                       ? 'border-crimson-bright bg-crimson/10'
-                      : disabled
-                        ? 'border-rim-bright opacity-40 cursor-not-allowed'
-                        : 'border-rim-bright hover:border-crimson'
+                      : 'border-rim-bright hover:border-crimson'
                   }`}
                 >
                   <span className="min-w-0">
