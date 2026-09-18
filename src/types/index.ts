@@ -91,6 +91,10 @@ export interface CombatModifiers {
   wsMod: number
   rerollHitsOf1: boolean
   rerollAllHits: boolean
+  /** "You can re-roll one Hit roll" (no "of 1") — a single bounded re-roll of any one die in
+   * the attack sequence, regardless of what it shows. Distinct from rerollHitsOf1/rerollAllHits,
+   * which both apply per-die across the whole sequence — see mathhammer.ts's rerollOneBonus(). */
+  rerollOneHit: boolean
   critThreshold: number
   overwatchHit: boolean
   overwatchThreshold: number
@@ -98,6 +102,8 @@ export interface CombatModifiers {
   woundMod: number
   rerollWoundsOf1: boolean
   rerollAllWounds: boolean
+  /** Same idea as rerollOneHit, for the Wound roll. */
+  rerollOneWound: boolean
   lethalHitsBonus: boolean
   sustainedHitsBonus: number
   cleaveBonus: number

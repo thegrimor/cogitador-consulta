@@ -49,8 +49,13 @@ function RuleButton({
             {optionEffect}
           </div>
         )}
-        {rule.description && (
-          <div className="wh-html text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70"
+        {/* Options share their parent ability's full `description` (often a whole army-rule
+         * writeup with tables, e.g. Code Chivalric) — `optionEffect` above already says what
+         * this specific branch does, so skip re-rendering that huge shared HTML block per
+         * option. Non-option rules still show their own description, clamped so an unusually
+         * long one doesn't blow up the toggle card. */}
+        {rule.description && !rule.isOption && (
+          <div className="wh-html text-[10px] font-mono leading-snug mt-0.5 pl-4 opacity-70 line-clamp-3"
             dangerouslySetInnerHTML={{ __html: rule.description }}
           />
         )}

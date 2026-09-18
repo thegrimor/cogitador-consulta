@@ -267,10 +267,10 @@ export function DamageCalculator({
 
   function isActive(m: CombatModifiers): boolean {
     return (
-      m.hitMod !== 0 || m.rerollHitsOf1 || m.rerollAllHits ||
+      m.hitMod !== 0 || m.rerollHitsOf1 || m.rerollAllHits || m.rerollOneHit ||
       m.critThreshold !== 6 || m.sustainedHitsBonus !== 0 || m.lethalHitsBonus ||
       m.cleaveBonus !== 0 || m.devastatingWoundsBonus ||
-      m.strengthMod !== 0 || m.rerollWoundsOf1 || m.rerollAllWounds ||
+      m.strengthMod !== 0 || m.rerollWoundsOf1 || m.rerollAllWounds || m.rerollOneWound ||
       m.woundMod !== 0 || m.apMod !== 0 || m.saveMod !== 0 ||
       m.attacksMod !== 0 || m.rerollDamageOf1 || m.rerollAllDamage ||
       m.feelNoPainThreshold !== null

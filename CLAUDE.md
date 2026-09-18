@@ -317,6 +317,39 @@ value look plausible."
   and `damageReduction` in particular is a strictly *subtractive* modifier floored at 1 damage in
   `mathhammer.ts`, so it can never actually reach a "set Damage to 0" result no matter what value
   is stored.
+- **"You can re-roll one Hit/Wound roll" (no "of 1") is a single-use reroll of any one die in the
+  pool, regardless of what it shows.** This is a genuinely different mechanic from `rerollXOf1`
+  (rerolls every qualifying die across the whole sequence that shows a natural 1) and `rerollAllX`
+  (unlimited reroll of every die), and conflating it with either was tried and reverted twice
+  before a precise, purpose-built mechanic was added: `rerollOneHit`/`rerollOneWound` in
+  `CombatModifiers` (`src/types/index.ts`), applied in `mathhammer.ts` via
+  `rerollOneBonus(p, n) = p * (1 - p^n)` — the exact expected-value gain from optimally rerolling
+  one die in a pool of `n` i.i.d. Bernoulli(p) trials (reroll only if at least one die missed,
+  `1 - p^n`, and the reroll itself succeeds with probability `p`). Exact for integer `n`, and a
+  consistent expected-value extension for the fractional/dice-average `n` this engine already uses
+  everywhere else (e.g. `D6` attacks). Use these two fields for this exact phrasing — don't fall
+  back to `rerollXOf1`/`rerollAllX` as a stand-in, and don't leave the ability unmodeled either.
+  Don't confuse this with "re-roll **a** Hit roll **of 1**" (note the "of 1") — that phrasing
+  genuinely means "for every Hit roll that comes up a natural 1, you may re-roll it," which
+  `rerollHitsOf1` represents exactly, no new mechanic needed. The tell is the word "of": "one Hit
+  roll" (no value named) → `rerollOneHit`/`rerollOneWound`; "a Hit roll **of 1**" (a value named)
+  → `rerollHitsOf1`/`rerollWoundsOf1`.
+  There's no `rerollOneDamage` — only Hit and Wound are covered, since no audited ability needed it.
+  **Always split `rerollOneHit`/`rerollOneWound` into separate `options[]` entries, one per reroll
+  type, even when the ability's own wording grants both simultaneously with "and" rather than
+  offering a choice with "or".** This was tried the other way first (a single combined `effect`
+  with both fields set together for the AND-phrased case, keeping `options[]` only for the
+  OR-phrased case) and reverted once it became clear the modifier panel needs each reroll type as
+  its own independently toggleable button regardless of the ability's phrasing — for an AND-phrased
+  ability (e.g. Code Chivalric: "you can re-roll one Hit roll and you can re-roll one Wound roll"),
+  the user just toggles both of that ability's option-buttons on to get the full effect; for an
+  OR-phrased ability (e.g. "re-roll one Hit roll, one Wound roll **or** one saving throw"), they
+  toggle only the one they're choosing. Either way: one `options[]` entry per named reroll type,
+  each carrying only its own field (and `bearerOnly: true` on each if the ability's wording
+  restricts it, per the `bearerOnly` rule above) — plus, for the OR case, a no-op option for any
+  named choice this app doesn't model (e.g. "saving throw" reroll has no corresponding
+  `CombatModifiers` field), so the option list still accounts for every real choice without
+  inventing an effect for the unrepresentable one.
 - **"Select one of the following" / "select either X or Y" is always `options[]`, one entry per
   choice, never a single combined or single-branch effect.** This is the single most common
   authoring bug found across the whole dataset. Two sub-cases both need a split, but for

@@ -29,6 +29,19 @@ function normalCDF(z: number): number {
   return (1 + erf(z / Math.sqrt(2))) / 2
 }
 
+/** Expected extra successes from a single bounded re-roll ("you can re-roll one Hit/Wound
+ * roll") over a pool of `n` independent attempts each succeeding with probability `p`.
+ * Exact when `n` is an integer count: P(≥1 failure exists to spend the re-roll on) = 1 − pⁿ,
+ * and spending it succeeds with probability p, so the expected gain is p·(1 − pⁿ). `n` is
+ * itself an expected-attack-count in this engine (never a full count distribution), so this is
+ * exact whenever the underlying characteristic (Attacks, or the hit count feeding into wounds)
+ * is a fixed integer, and the same expected-value approximation as everywhere else in this file
+ * when it's a dice average — unlike rerollHitsOf1/rerollAllHits, it is never applied per-die, so
+ * it can't double- or under-count the way reusing those fields for this mechanic would. */
+function rerollOneBonus(p: number, n: number): number {
+  return n > 0 ? p * (1 - Math.pow(p, n)) : 0
+}
+
 /** P(deal ≥ `wounds` damage) for a Gaussian-approximated damage total, with continuity
  * correction. Reused to get a kill-probability both for a single weapon copy and for a
  * whole weapon group (mean/standardDeviation scaled up by quantity beforehand). */
@@ -183,6 +196,7 @@ export const DEFAULT_MODS: CombatModifiers = {
   wsMod: 0,
   rerollHitsOf1: false,
   rerollAllHits: false,
+  rerollOneHit: false,
   critThreshold: 6,
   overwatchHit: false,
   overwatchThreshold: 6,
@@ -190,6 +204,7 @@ export const DEFAULT_MODS: CombatModifiers = {
   woundMod: 0,
   rerollWoundsOf1: false,
   rerollAllWounds: false,
+  rerollOneWound: false,
   lethalHitsBonus: false,
   sustainedHitsBonus: 0,
   cleaveBonus: 0,
@@ -218,8 +233,10 @@ function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): voi
   if (e.damageReduction)     result.damageReduction     += e.damageReduction
   if (e.rerollHitsOf1)       result.rerollHitsOf1        = true
   if (e.rerollAllHits)       result.rerollAllHits        = true
+  if (e.rerollOneHit)        result.rerollOneHit         = true
   if (e.rerollWoundsOf1)     result.rerollWoundsOf1      = true
   if (e.rerollAllWounds)     result.rerollAllWounds      = true
+  if (e.rerollOneWound)      result.rerollOneWound       = true
   if (e.rerollDamageOf1)     result.rerollDamageOf1      = true
   if (e.rerollAllDamage)     result.rerollAllDamage      = true
   if (e.lethalHitsBonus)     result.lethalHitsBonus      = true
@@ -273,8 +290,10 @@ export function mergeMods(
     overwatchThreshold: Math.min(base.overwatchThreshold, attackerRuleMods.overwatchThreshold),
     rerollHitsOf1:      base.rerollHitsOf1      || attackerRuleMods.rerollHitsOf1,
     rerollAllHits:      base.rerollAllHits      || attackerRuleMods.rerollAllHits,
+    rerollOneHit:       base.rerollOneHit       || attackerRuleMods.rerollOneHit,
     rerollWoundsOf1:    base.rerollWoundsOf1    || attackerRuleMods.rerollWoundsOf1,
     rerollAllWounds:    base.rerollAllWounds    || attackerRuleMods.rerollAllWounds,
+    rerollOneWound:     base.rerollOneWound     || attackerRuleMods.rerollOneWound,
     rerollDamageOf1:    base.rerollDamageOf1    || attackerRuleMods.rerollDamageOf1,
     rerollAllDamage:    base.rerollAllDamage    || attackerRuleMods.rerollAllDamage,
     lethalHitsBonus:    base.lethalHitsBonus    || attackerRuleMods.lethalHitsBonus,
@@ -308,7 +327,11 @@ export function calculateDamage(
   const pHitNoReroll = weapon.isTorrent
     ? 1
     : hitProbabilityWithMods(weapon.bsWs, { ...mods, rerollHitsOf1: false, rerollAllHits: false }, isMeleeWeapon)
-  const rerollExtraHits = Math.max(0, avgAttacks * (pHit - pHitNoReroll))
+  // "Re-roll one Hit roll" (rerollOneHit) is a separate, bounded mechanic from rerollHitsOf1/
+  // rerollAllHits above — see rerollOneBonus()'s doc comment — so it's added on top rather than
+  // folded into pHit itself (which only ever holds a per-die probability).
+  const rerollOneHitBonus = mods.rerollOneHit ? rerollOneBonus(pHit, avgAttacks) : 0
+  const rerollExtraHits = Math.max(0, avgAttacks * (pHit - pHitNoReroll)) + rerollOneHitBonus
   const effectiveMods = weapon.isTwinLinked
     ? { ...mods, rerollAllWounds: true }
     : mods
@@ -373,17 +396,21 @@ export function calculateDamage(
   // contarlos dos veces.
   if (isLethal) {
     autoWoundsFromCrits  = avgAttacks * CRIT
-    const normalHits     = avgAttacks * Math.max(0, pHit - CRIT) + sustainedExtraHits
-    expectedHits         = avgAttacks * pHit + sustainedExtraHits
+    const normalHits     = avgAttacks * Math.max(0, pHit - CRIT) + sustainedExtraHits + rerollOneHitBonus
+    expectedHits         = avgAttacks * pHit + sustainedExtraHits + rerollOneHitBonus
     antiCritWounds       = hasWoundCrit ? normalHits * WOUND_CRIT : 0
     expectedWounds       = autoWoundsFromCrits + antiCritWounds + normalHits * Math.max(0, pWound - WOUND_CRIT)
   } else {
     autoWoundsFromCrits  = 0
-    expectedHits         = avgAttacks * pHit + sustainedExtraHits
+    expectedHits         = avgAttacks * pHit + sustainedExtraHits + rerollOneHitBonus
     antiCritWounds       = hasWoundCrit ? expectedHits * WOUND_CRIT : 0
     expectedWounds       = antiCritWounds + expectedHits * Math.max(0, pWound - WOUND_CRIT)
   }
-  const rerollExtraWounds = Math.max(0, expectedHits * (pWound - pWoundNoReroll))
+  // Same bounded-reroll mechanic as rerollOneHitBonus above, but for the Wound roll — the pool
+  // size is the (already rerollOneHitBonus-inclusive) hit count feeding into wounds.
+  const rerollOneWoundBonus = mods.rerollOneWound ? rerollOneBonus(pWound, expectedHits) : 0
+  expectedWounds += rerollOneWoundBonus
+  const rerollExtraWounds = Math.max(0, expectedHits * (pWound - pWoundNoReroll)) + rerollOneWoundBonus
 
   // Sin Devastating Wounds, esas heridas críticas ya están contadas arriba pero siguen
   // necesitando salvación normal. Con Devastating Wounds, esquivan la salvación.
