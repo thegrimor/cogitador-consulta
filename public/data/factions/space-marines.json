@@ -2891,17 +2891,17 @@
           "line": 1,
           "name": "Perdition Pistol",
           "description": "melta 2, pistol, sustained hits d3",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "2",
-          "S": 9,
+          "S": 10,
           "AP": -4,
-          "D": "D6",
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
             "meltaValue": 2,
-            "sustainedHitsValue": 2,
+            "sustainedHitsValue": 1,
             "isPistol": true
           }
         },
@@ -2943,7 +2943,7 @@
         {
           "id": "warden-of-the-imperium-nihilus",
           "name": "Warden of the Imperium Nihilus",
-          "description": "While this model is leading a unit, add 1 to Advance and Charge rolls made for that unit and each time a model in that unit makes an attack, add 1 to the Hit roll.",
+          "description": "This model is treated as being in the Assault Doctrine and the Tactical Doctrine, in addition to any other Doctrine active for it.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -3208,10 +3208,10 @@
         {
           "line": 1,
           "name": "Chief Librarian Mephiston",
-          "M": "7\"",
-          "T": 5,
+          "M": "8\"",
+          "T": 6,
           "Sv": "2+",
-          "invSv": "5",
+          "invSv": "4",
           "W": 6,
           "Ld": "6+",
           "OC": 1,
@@ -3227,9 +3227,9 @@
           "type": "Ranged",
           "A": "3",
           "bsWs": "2",
-          "S": 4,
+          "S": 5,
           "AP": -1,
-          "D": "D3",
+          "D": "2",
           "rules": {
             "sustainedHitsValue": 1,
             "isPistol": true,
@@ -3244,14 +3244,15 @@
           "type": "Ranged",
           "A": "3",
           "bsWs": "2",
-          "S": 5,
+          "S": 6,
           "AP": -2,
           "D": "D3",
           "rules": {
             "sustainedHitsValue": 3,
             "isHazardous": true,
             "isPistol": true,
-            "isPsychic": true
+            "isPsychic": true,
+            "isAssault": true
           }
         },
         {
@@ -3293,9 +3294,9 @@
           "type": "Melee",
           "A": "6",
           "bsWs": "2",
-          "S": 9,
+          "S": 10,
           "AP": -3,
-          "D": "D3",
+          "D": "3",
           "rules": {
             "isLethalHits": true,
             "isPsychic": true
@@ -3305,7 +3306,7 @@
       "abilities": [
         {
           "id": "feel-no-pain-4",
-          "name": "Feel No Pain 4+",
+          "name": "Feel No Pain 5+",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
           "type": "Core",
           "effect": {
@@ -3336,7 +3337,7 @@
         {
           "id": "the-quickening-psychic",
           "name": "The Quickening (Psychic)",
-          "description": "This model is eligible to declare a charge in a turn in which it Advanced.",
+          "description": "At the start of your Command phase, this model gains the benefit of the Assault Doctrine, in addition to any other Doctrine active for it.",
           "type": "Datasheet"
         },
         {
@@ -3955,13 +3956,13 @@
         {
           "id": "redeemer-of-the-lost",
           "name": "Redeemer of the Lost",
-          "description": "While this model is leading a unit, each time a model in that unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 4+, do not remove it from play; that destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.",
+          "description": "While this model is leading a unit, each time a model in that unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6 (add 1 if that model was engaged with an enemy unit with a Toughness characteristic greater than this model's unit's Toughness characteristic). On a 4+, do not remove it from play; that destroyed model can fight after the attacking model's unit has finished making its attacks, and is then removed from play.",
           "type": "Datasheet"
         },
         {
           "id": "mass-of-doom",
           "name": "Mass of Doom",
-          "description": "Each time this model’s unit makes a Charge move, until the end of the turn, melee weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability.",
+          "description": "Each time this model's unit makes a Charge move, until the end of the turn, melee weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability when targeting a non-MONSTER, non-VEHICLE unit.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -4273,8 +4274,8 @@
         },
         {
           "id": "sanguinary-priest",
-          "name": "Sanguinary Priest",
-          "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability.",
+          "name": "Narthecium",
+          "description": "While this model is leading a unit, in your Command phase, you can heal that unit D3+1 wounds, allocated as you choose.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -4286,7 +4287,7 @@
         {
           "id": "blood-chalice",
           "name": "Blood Chalice",
-          "description": "While this model is leading a unit, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.",
+          "description": "While this model is leading a unit, that unit's models have +1 to their Toughness characteristic.",
           "type": "Datasheet"
         }
       ],
@@ -4627,7 +4628,7 @@
           "T": 4,
           "Sv": "3+",
           "invSv": "4",
-          "W": 4,
+          "W": 5,
           "Ld": "5+",
           "OC": 1,
           "baseSize": "40mm"
@@ -4643,7 +4644,7 @@
           "A": "1",
           "bsWs": "2",
           "S": 5,
-          "AP": -1,
+          "AP": -2,
           "D": "2",
           "rules": {
             "isPistol": true
@@ -4655,13 +4656,14 @@
           "description": "lethal hits",
           "range": "Melee",
           "type": "Melee",
-          "A": "5",
+          "A": 6,
           "bsWs": "2",
           "S": 6,
           "AP": -2,
           "D": "2",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "cleaveValue": 1
           }
         }
       ],
@@ -4979,7 +4981,7 @@
           "invSv": "4",
           "W": 3,
           "Ld": "6+",
-          "OC": 1,
+          "OC": 2,
           "baseSize": "40mm"
         }
       ],
@@ -4990,8 +4992,8 @@
           "description": "pistol",
           "range": "12",
           "type": "Ranged",
-          "A": "2",
-          "bsWs": "3",
+          "A": "3",
+          "bsWs": "2",
           "S": 4,
           "AP": 0,
           "D": "1",
@@ -5003,16 +5005,16 @@
           "line": 2,
           "name": "Inferno pistol",
           "description": "melta 2, pistol",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
-          "bsWs": "3",
+          "bsWs": "2",
           "S": 8,
-          "AP": -4,
-          "D": "D3",
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2,
+            "meltaValue": 1,
             "isPistol": true
           }
         },
@@ -5074,7 +5076,7 @@
         {
           "id": "heirs-of-azkaellon",
           "name": "Heirs of Azkaellon",
-          "description": "While a Character model is leading this unit, each time a melee attack targets this unit, subtract 1 from the Wound roll.",
+          "description": "Each time a melee attack with a Strength characteristic greater than this unit's Toughness characteristic targets this unit, subtract 1 from the Wound roll.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -5083,12 +5085,6 @@
             "combatType": "melee",
             "target": "defender"
           }
-        },
-        {
-          "id": "sanguinary-banner",
-          "name": "Sanguinary Banner",
-          "description": "Add 1 to the Objective Control characteristic of models in the bearer’s unit.",
-          "type": "Datasheet"
         },
         {
           "id": "attached-unit",
@@ -6242,7 +6238,7 @@
         {
           "id": "masterful-tactician",
           "name": "Masterful Tactician",
-          "description": "At the start of your Command phase, if this model is on the battlefield, you gain 1CP.",
+          "description": "In your Movement phase, select one friendly ADEPTUS ASTARTES unit within 9\" of this model. That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase.",
           "type": "Datasheet"
         }
       ],
@@ -6535,7 +6531,7 @@
           "A": "6",
           "bsWs": "2",
           "S": 6,
-          "AP": -2,
+          "AP": -3,
           "D": "2",
           "rules": {
             "isPrecision": true
@@ -6564,13 +6560,13 @@
         {
           "id": "grand-master-of-the-deathwing",
           "name": "Grand Master of the Deathwing",
-          "description": "While this model is leading a unit, each time a model in that unit makes an attack, if a Critical Hit is scored, that attack has the [PRECISION] ability.",
+          "description": "While this model is leading a unit, each time a model in that unit makes an attack that targets a CHARACTER unit, add 1 to the Wound roll.",
           "type": "Datasheet"
         },
         {
           "id": "strikes-of-retribution",
           "name": "Strikes of Retribution",
-          "description": "Each time a melee attack is allocated to this model, after the attacking model’s unit has finished making its attacks, roll one D6 (to a maximum of six D6 per attacking unit): for each 4+, the attacking unit suffers 1 mortal wound.",
+          "description": "Each time a melee attack is allocated to this model, that attack automatically fights on death: this model can fight after the attacking model's unit has finished making its attacks (on a 2+), and is then removed from play.",
           "type": "Datasheet"
         }
       ],
@@ -6887,7 +6883,9 @@
           "S": 5,
           "AP": -2,
           "D": "1",
-          "rules": {}
+          "rules": {
+            "cleaveValue": 1
+          }
         }
       ],
       "abilities": [
@@ -6918,7 +6916,7 @@
         {
           "id": "feared-interrogator",
           "name": "Feared Interrogator",
-          "description": "At the start of the Fight phase, each enemy <span class=\"kwb\">CHARACTER</span> unit within 6\" of this model must take a Battle-shock test, subtracting 1 from that test when they do. In addition, each time this model destroys an enemy <span class=\"kwb\">CHARACTER</span> model with a melee attack, you gain 1CP.",
+          "description": "At the start of the Fight phase, each enemy CHARACTER unit within 6\" of this model must take a Battle-shock test, subtracting 1 from that test when they do.",
           "type": "Datasheet"
         }
       ],
@@ -7214,7 +7212,8 @@
           "rules": {
             "isDevastatingWounds": true,
             "isPsychic": true,
-            "isPrecision": true
+            "isPrecision": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -7227,7 +7226,7 @@
           "bsWs": "2",
           "S": 6,
           "AP": -2,
-          "D": "D6",
+          "D": "D3+3",
           "rules": {
             "isDevastatingWounds": true,
             "antiEntries": [
@@ -7238,7 +7237,8 @@
             ],
             "isHazardous": true,
             "isPsychic": true,
-            "isPrecision": true
+            "isPrecision": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -7253,13 +7253,9 @@
           "AP": -2,
           "D": "D3",
           "rules": {
-            "antiEntries": [
-              {
-                "keyword": "chaos",
-                "threshold": 2
-              }
-            ],
-            "isPsychic": true
+            "antiEntries": [],
+            "isPsychic": true,
+            "isPrecision": true
           }
         }
       ],
@@ -7292,14 +7288,19 @@
         {
           "id": "engulfing-fear-psychic",
           "name": "Engulfing Fear (Psychic)",
-          "description": "In your Shooting phase, you can select one enemy unit within 18\" of this model. That enemy unit must take a Battle-shock test.",
+          "description": "In your Shooting phase, you can select one enemy unit within 12\" of this model. That enemy unit must take a Battle-shock test at -1.",
           "type": "Datasheet"
         },
         {
           "id": "book-of-salvation",
           "name": "Book of Salvation",
-          "description": "While this model is leading a unit, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. When this model is destroyed, each friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit within 6\" of this model must take a Battle-shock test.",
+          "description": "While this model is leading a unit, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit.",
           "type": "Datasheet"
+        },
+        {
+          "id": "whispers-of-the-shadow-forest",
+          "name": "Whispers of the Shadow Forest (Psychic)",
+          "description": "WHEN: Your opponent's Shooting phase, or the Fight phase (up to twice per battle round), when an enemy unit targets this model's unit. EFFECT: Until the end of the phase, attacks that target this model's unit have -1 to their Hit roll."
         }
       ],
       "keywords": [
@@ -7564,7 +7565,7 @@
           "line": 1,
           "name": "Deathwing Terminator Squad",
           "M": "5\"",
-          "T": 5,
+          "T": 6,
           "Sv": "2+",
           "invSv": "4",
           "W": 3,
@@ -7639,11 +7640,11 @@
           "description": "blast",
           "range": "36",
           "type": "Ranged",
-          "A": "D3",
+          "A": "3",
           "bsWs": "3",
           "S": 7,
           "AP": -2,
-          "D": "1",
+          "D": 2,
           "rules": {
             "isBlast": true
           }
@@ -7654,11 +7655,11 @@
           "description": "blast, hazardous",
           "range": "36",
           "type": "Ranged",
-          "A": "D3",
+          "A": "3",
           "bsWs": "3",
           "S": 8,
           "AP": -3,
-          "D": "2",
+          "D": 3,
           "rules": {
             "isBlast": true,
             "isHazardous": true
@@ -7748,7 +7749,7 @@
         {
           "id": "deathwing",
           "name": "Deathwing",
-          "description": "Each time a model in this unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill or Weapon Skill characteristics and/or to the Hit roll. In addition, each time a model in this unit makes an attack that targets the enemy unit you selected at the start of your Command phase for the Oath of Moment ability, add 1 to the Hit roll.",
+          "description": "Each time a model in this unit makes an attack, you can ignore any or all modifiers to that attack's Ballistic Skill or Weapon Skill characteristics and to the Hit roll.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -8059,7 +8060,7 @@
           "line": 1,
           "name": "Deathwing Knights",
           "M": "5\"",
-          "T": 5,
+          "T": 6,
           "Sv": "2+",
           "invSv": "4",
           "W": 4,
@@ -8160,7 +8161,7 @@
         {
           "id": "inner-circle",
           "name": "Inner Circle",
-          "description": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack.",
+          "description": "Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack. This ability is not cumulative with the Tactical Dreadnought Fortitude Stratagem.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -8538,8 +8539,18 @@
         {
           "id": "icon-of-old-caliban-aura",
           "name": "Icon of Old Caliban (Aura)",
-          "description": "Friendly <span class=\"kwb\">ADEPTUS ASTARTES</span> units within 6\" of this unit have Stealth.",
+          "description": "Friendly <span class=\"kwb\">DARK ANGELS</span> units within 6\" of this unit have Stealth.",
           "type": "Datasheet"
+        },
+        {
+          "id": "lone-operative",
+          "name": "Lone Operative",
+          "description": "Unless part of an Attached unit, this unit can only be selected as the target of a ranged attack if the attacking model is within 15\"."
+        },
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "description": "During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models."
         }
       ],
       "keywords": [
@@ -8795,7 +8806,7 @@
           "bsWs": "3",
           "S": 8,
           "AP": -2,
-          "D": "D6",
+          "D": "D3+2",
           "rules": {
             "antiEntries": [
               {
@@ -8815,7 +8826,7 @@
           "bsWs": "3",
           "S": 12,
           "AP": -3,
-          "D": "D6+1",
+          "D": "D3+3",
           "rules": {}
         },
         {
@@ -9119,8 +9130,8 @@
           "type": "Ranged",
           "A": "6",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
             "isTwinLinked": true,
@@ -9480,11 +9491,11 @@
         },
         {
           "line": 6,
-          "name": "Black Knight combat weapon",
+          "name": "Corvus Hammers",
           "description": "devastating wounds",
           "range": "Melee",
           "type": "Melee",
-          "A": "3",
+          "A": 4,
           "bsWs": "3",
           "S": 5,
           "AP": -2,
@@ -9765,10 +9776,10 @@
           "line": 1,
           "name": "Land Speeder Vengeance",
           "M": "14\"",
-          "T": 8,
+          "T": 9,
           "Sv": "3+",
           "invSv": "5",
-          "W": 10,
+          "W": 11,
           "Ld": "6+",
           "OC": 3,
           "baseSize": "60mm flying base"
@@ -9811,9 +9822,9 @@
           "description": "blast, twin-linked",
           "range": "36",
           "type": "Ranged",
-          "A": "D6+1",
+          "A": "D3+3",
           "bsWs": "3",
-          "S": 8,
+          "S": 9,
           "AP": -2,
           "D": "2",
           "rules": {
@@ -9827,9 +9838,9 @@
           "description": "blast, hazardous, twin-linked",
           "range": "36",
           "type": "Ranged",
-          "A": "D6+1",
+          "A": "D3+3",
           "bsWs": "3",
-          "S": 9,
+          "S": 10,
           "AP": -3,
           "D": "3",
           "rules": {
@@ -9870,6 +9881,11 @@
           "name": "Storm of Vengeance",
           "description": "Once per turn, in your opponent’s Shooting phase, when a friendly <b>Adeptus Astartes</b> unit within 6\" of this model is destroyed, this model can use this ability (it cannot use this ability when it is itself destroyed). If it does, after the attacking unit has finished making its attacks, this model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).",
           "type": "Datasheet"
+        },
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "description": "During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models."
         }
       ],
       "keywords": [
@@ -10098,7 +10114,7 @@
           "line": 1,
           "name": "Logan Grimnar",
           "M": "6\"",
-          "T": 5,
+          "T": 6,
           "Sv": "2+",
           "invSv": "4",
           "W": 8,
@@ -10131,7 +10147,7 @@
           "type": "Melee",
           "A": "6",
           "bsWs": "2",
-          "S": 8,
+          "S": 10,
           "AP": -2,
           "D": "3",
           "rules": {}
@@ -10147,7 +10163,9 @@
           "S": 6,
           "AP": -2,
           "D": "1",
-          "rules": {}
+          "rules": {
+            "cleaveValue": 1
+          }
         },
         {
           "line": 4,
@@ -10193,7 +10211,7 @@
         {
           "id": "guile-of-the-wolf-aura",
           "name": "Guile of the Wolf (Aura)",
-          "description": "Once per turn, when your opponent targets a unit from their army within 12\" of this model with a stratagem, you can use this ability. If you do, increase the CP cost of that use of that stratagem by 1CP.",
+          "description": "This model's unit is treated as having all three Combat Doctrines (Assault, Devastator and Tactical) active for it at all times.",
           "type": "Datasheet"
         },
         {
@@ -10201,6 +10219,11 @@
           "name": "EMBARKING WITHIN TRANSPORTS",
           "description": "This model can embark within friendly Adeptus Astartes Transport models that can transport Terminator models. When doing so, it takes up the space of 4 Infantry models.",
           "type": "Datasheet"
+        },
+        {
+          "id": "transhuman-strategist",
+          "name": "Transhuman Strategist",
+          "description": "At the start of your Command phase, if this model is on the battlefield, you gain 1CP."
         }
       ],
       "keywords": [
@@ -10473,7 +10496,7 @@
           "line": 1,
           "name": "Ragnar Blackmane",
           "M": "7\"",
-          "T": 4,
+          "T": 5,
           "Sv": "3+",
           "invSv": "4",
           "W": 5,
@@ -10530,7 +10553,7 @@
         {
           "id": "war-howl",
           "name": "War Howl",
-          "description": "While this model is leading a Blood Claws unit, each time a model in that unit makes a melee attack, you can re-roll the Wound roll. While this model is leading a Wolf Guard Headtakers unit, that unit is eligible to declare a charge in a turn in which it Advanced.",
+          "description": "While this model is leading a Blood Claws unit, that unit's melee attacks have +1 to their Strength characteristic and the [SUSTAINED HITS 1] ability. While this model is leading a Wolf Guard Headtakers unit, that unit is eligible to declare a charge in a turn in which it Advanced.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -10545,6 +10568,11 @@
           "name": "Battle-lust",
           "description": "Each time this model ends a Charge move, until the end of the turn, add 2 to the Attacks characteristic of this model’s Frostfang weapon.",
           "type": "Datasheet"
+        },
+        {
+          "id": "transhuman-strategist",
+          "name": "Transhuman Strategist",
+          "description": "At the start of your Command phase, if this model is on the battlefield, you gain 1CP."
         }
       ],
       "keywords": [
@@ -10799,7 +10827,7 @@
           "line": 1,
           "name": "Njal Stormcaller",
           "M": "7\"",
-          "T": 4,
+          "T": 5,
           "Sv": "3+",
           "invSv": "4",
           "W": 4,
@@ -10817,8 +10845,8 @@
           "type": "Ranged",
           "A": "1",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
             "isPistol": true
@@ -10830,10 +10858,10 @@
           "description": "psychic, sustained hits 2",
           "range": "24",
           "type": "Ranged",
-          "A": "D6",
+          "A": "D3+3",
           "bsWs": "3",
           "S": 7,
-          "AP": -1,
+          "AP": -2,
           "D": "1",
           "rules": {
             "sustainedHitsValue": 2,
@@ -10846,7 +10874,7 @@
           "description": "hazardous, psychic, sustained hits 2",
           "range": "24",
           "type": "Ranged",
-          "A": "2D6",
+          "A": "D6+6",
           "bsWs": "3",
           "S": 7,
           "AP": -1,
@@ -10867,7 +10895,7 @@
           "bsWs": "3",
           "S": 7,
           "AP": -1,
-          "D": "D3",
+          "D": "2",
           "rules": {
             "sustainedHitsValue": 2,
             "isPsychic": true
@@ -11253,7 +11281,7 @@
         {
           "id": "slayers-oath",
           "name": "Slayer’s Oath",
-          "description": "At the start of the battle, select one of the following keywords to be this model’s Slayer’s Oath: <span class=\"kwb\">CHARACTER</span>; <span class=\"kwb\">MONSTER</span>; <span class=\"kwb\">VEHICLE</span>. The first time this model’s unit destroys a unit with this model’s Slayer’s Oath keyword, if your Detachment rule has a Saga, until the end of the battle, this model’s unit receives the benefits of that Detachment rule as if that Saga had been completed.",
+          "description": "At the start of the battle, select one enemy CHARACTER, MONSTER or VEHICLE unit. This model's unit can ignore any or all modifiers to its Ballistic Skill and Weapon Skill characteristics and to the Hit roll when attacking that unit.",
           "type": "Datasheet"
         },
         {
@@ -11520,7 +11548,7 @@
           "line": 1,
           "name": "Bjorn The Fell-handed",
           "M": "9\"",
-          "T": 9,
+          "T": 10,
           "Sv": "2+",
           "invSv": "5",
           "W": 8,
@@ -11567,13 +11595,14 @@
           "description": "torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 6,
           "AP": -1,
           "D": "2",
           "rules": {
-            "isTorrent": true
+            "isTorrent": true,
+            "isBlast": true
           }
         },
         {
@@ -11584,8 +11613,8 @@
           "type": "Ranged",
           "A": "1",
           "bsWs": "2",
-          "S": 10,
-          "AP": -3,
+          "S": 11,
+          "AP": -2,
           "D": "5",
           "rules": {}
         },
@@ -11655,7 +11684,7 @@
         {
           "id": "ancient-tactician",
           "name": "Ancient Tactician",
-          "description": "At the start of your Command phase, if this model is on the battlefield, you gain 1CP.",
+          "description": "Once per turn, when a Stratagem is used that targets this model, that Stratagem costs 1CP less (to a minimum of 0CP).",
           "type": "Datasheet"
         }
       ],
@@ -13792,11 +13821,11 @@
           "line": 1,
           "name": "Foehammer",
           "description": "anti-monster 3+, anti-vehicle 3+, assault",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "2",
-          "S": 8,
+          "S": 10,
           "AP": -2,
           "D": "3",
           "rules": {
@@ -13821,7 +13850,7 @@
           "type": "Melee",
           "A": "5",
           "bsWs": "2",
-          "S": 8,
+          "S": 10,
           "AP": -2,
           "D": "3",
           "rules": {
@@ -13867,7 +13896,7 @@
         {
           "id": "champion-of-the-kingsguard",
           "name": "Champion of the Kingsguard",
-          "description": "Each time this model makes a melee attack that targets a <span class=\"kwb\">CHARACTER</span> unit, you can re-roll the Hit roll and you can re-roll the Wound roll.",
+          "description": "Each time this model makes a melee attack that targets a CHARACTER unit, you can re-roll a Hit roll of 1 and you can re-roll a Wound roll of 1.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -15223,8 +15252,8 @@
           "type": "Ranged",
           "A": "6",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
             "isTwinLinked": true,
@@ -15619,16 +15648,16 @@
           "line": 3,
           "name": "Inferno pistol",
           "description": "pistol, melta 2",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "3",
           "S": 8,
-          "AP": -4,
-          "D": "D3",
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2,
+            "meltaValue": 1,
             "isPistol": true
           }
         },
@@ -16161,16 +16190,16 @@
           "line": 6,
           "name": "Inferno pistol",
           "description": "pistol, melta 2",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "3",
           "S": 8,
-          "AP": -4,
-          "D": "D3",
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2,
+            "meltaValue": 1,
             "isPistol": true
           }
         },
@@ -16647,11 +16676,11 @@
           "description": "blast",
           "range": "36",
           "type": "Ranged",
-          "A": "D3",
+          "A": "3",
           "bsWs": "2",
           "S": 8,
           "AP": -3,
-          "D": "2",
+          "D": 3,
           "rules": {
             "isBlast": true
           }
@@ -16704,7 +16733,7 @@
         {
           "id": "grand-master-of-the-ravenwing",
           "name": "Grand Master of the Ravenwing",
-          "description": "This unit's ranged attacks have [ASSAULT]. When this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge. This unit has MOBILE.",
+          "description": "At the start of your Command phase, this unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase. This unit has MOBILE.",
           "type": "Datasheet"
         },
         {
@@ -17021,7 +17050,7 @@
         {
           "id": "the-spiritshield-helm",
           "name": "The Spiritshield Helm",
-          "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "description": "Models in this model's unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
           "type": "Datasheet"
         }
       ],
@@ -17275,10 +17304,10 @@
           "line": 1,
           "name": "Lion El’Jonson",
           "M": "8\"",
-          "T": 9,
+          "T": 10,
           "Sv": "2+",
           "invSv": "3",
-          "W": 10,
+          "W": 16,
           "Ld": "5+",
           "OC": 4,
           "baseSize": "60mm"
@@ -17293,8 +17322,8 @@
           "type": "Ranged",
           "A": "4",
           "bsWs": "2",
-          "S": 4,
-          "AP": -1,
+          "S": 6,
+          "AP": -2,
           "D": "2",
           "rules": {
             "isPistol": true
@@ -17308,9 +17337,9 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "2",
-          "S": 8,
+          "S": 10,
           "AP": -3,
-          "D": "2",
+          "D": 3,
           "rules": {
             "isPistol": true
           }
@@ -17336,13 +17365,13 @@
           "description": "sustained hits 1",
           "range": "Melee",
           "type": "Melee",
-          "A": "16",
+          "A": 12,
           "bsWs": "2",
           "S": 6,
           "AP": -3,
           "D": "2",
           "rules": {
-            "sustainedHitsValue": 1
+            "cleaveValue": 2
           }
         }
       ],
@@ -17398,7 +17427,7 @@
         {
           "id": "martial-exemplar-aura",
           "name": "Martial Exemplar (Aura)",
-          "description": "While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit is within 6\" of this model, each time a model in that unit makes a melee attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.",
+          "description": "While a friendly <span class=\"kwb\">DARK ANGELS</span> unit is within 6\" of this model, each time a model in that unit makes a melee attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -17412,8 +17441,18 @@
         {
           "id": "no-hiding-from-the-watchers-aura",
           "name": "No Hiding From the Watchers (Aura)",
-          "description": "While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit is within 6\" of this model, models in that unit have the Feel No Pain 4+ ability against mortal wounds.",
+          "description": "While a friendly <span class=\"kwb\">DARK ANGELS</span> unit is within 6\" of this model, models in that unit have the Feel No Pain 5+ ability against mortal wounds and Psychic Attacks.",
           "type": "Datasheet"
+        },
+        {
+          "id": "master-strategist",
+          "name": "Master Strategist",
+          "description": "At the start of your Command phase, this model gains the benefit of the Combat Doctrine of your choice, in addition to any other Doctrine active for it."
+        },
+        {
+          "id": "the-watchers",
+          "name": "The Watchers",
+          "description": "This model has the Feel No Pain 4+ ability against Psychic Attacks and mortal wounds."
         }
       ],
       "keywords": [
@@ -17665,16 +17704,16 @@
           "line": 3,
           "name": "Inferno pistol",
           "description": "pistol, melta 2",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "3",
           "S": 8,
-          "AP": -4,
-          "D": "D3",
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2,
+            "meltaValue": 1,
             "isPistol": true
           }
         },
@@ -18188,11 +18227,11 @@
         },
         {
           "line": 6,
-          "name": "Black Knight combat weapon",
+          "name": "Corvus Hammers",
           "description": "devastating wounds",
           "range": "Melee",
           "type": "Melee",
-          "A": "3",
+          "A": 4,
           "bsWs": "3",
           "S": 5,
           "AP": -2,
@@ -18231,7 +18270,7 @@
         {
           "id": "narthecium",
           "name": "Narthecium",
-          "description": "While this unit contains a Ravenwing Apothecary, in your Command phase, you can return 1 destroyed model (excluding Character and Invader ATV models) to this unit.",
+          "description": "While this unit contains a Ravenwing Apothecary, in your Command phase, you can heal this unit D3+1 wounds, allocated as you choose (excluding Character and Invader ATV models).",
           "type": "Datasheet"
         },
         {
@@ -24474,7 +24513,8 @@
                 "threshold": 5
               }
             ],
-            "isPrecision": true
+            "isPrecision": true,
+            "isDevastatingWounds": true
           }
         },
         {
@@ -24513,13 +24553,13 @@
         {
           "id": "armour-of-faith",
           "name": "Armour of Faith",
-          "description": "Once per phase, when an attack is allocated to this model and the saving throw is failed, you can change the Damage characteristic of that attack to 0.",
+          "description": "Attacks allocated to this model have -1 to their Damage characteristic (to a minimum of 1).",
           "type": "Datasheet"
         },
         {
           "id": "sigismunds-heir",
           "name": "Sigismund’s Heir",
-          "description": "<ul><li>When this unit declares a charge, if an enemy <span class=\"kwb\">CHARACTER</span> unit is within 12″ of this unit, you can use this part of this ability. If you do:<ul><li>This unit can re-roll that Charge roll.</li><li>This unit must end that charge move engaged with one or more of those enemy <span class=\"kwb\">CHARACTER</span> units.</li></ul></li><li>(Once per battle, per army) In the Fight phase, when this unit is selected to fight, if this unit is engaged with a <span class=\"kwb\">CHARACTER</span> unit, you can use this part of this ability. If you do, this unit's melee attacks have [DEVASTATING WOUNDS].</li></ul>",
+          "description": "Add 1 to Charge rolls made for this unit.",
           "type": "Datasheet"
         },
         {
@@ -26699,7 +26739,7 @@
           "line": 1,
           "name": "Inner Circle Companions",
           "M": "6\"",
-          "T": 4,
+          "T": 5,
           "Sv": "3+",
           "invSv": "-",
           "W": 3,
@@ -27103,16 +27143,16 @@
           "line": 2,
           "name": "Inferno pistol",
           "description": "melta 2, pistol",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "2",
           "S": 8,
-          "AP": -4,
-          "D": "D3",
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2,
+            "meltaValue": 1,
             "isPistol": true
           }
         },
@@ -27561,16 +27601,16 @@
           "line": 2,
           "name": "Inferno pistol",
           "description": "melta 2, pistol",
-          "range": "6",
+          "range": "9",
           "type": "Ranged",
           "A": "1",
           "bsWs": "2",
           "S": 8,
-          "AP": -4,
-          "D": "D3",
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2,
+            "meltaValue": 1,
             "isPistol": true
           }
         },
@@ -27642,13 +27682,13 @@
         {
           "id": "forlorn-hero",
           "name": "Forlorn Hero",
-          "description": "While this model is leading a unit, unless that unit starts the battle embarked within a Transport, models in that unit have the Scouts 6\" ability.",
+          "description": "While this model is leading a unit, models in that unit have the Scouts 6\" ability.",
           "type": "Datasheet"
         },
         {
           "id": "black-rage",
           "name": "Black Rage",
-          "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
+          "description": "Each time a model in this unit makes a melee attack, you can re-roll a Hit roll of 1. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -28557,7 +28597,7 @@
           "line": 1,
           "name": "Watch Master",
           "M": "6\"",
-          "T": 4,
+          "T": 5,
           "Sv": "2+",
           "invSv": "4",
           "W": 5,
@@ -28575,7 +28615,7 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "2",
-          "S": 4,
+          "S": 5,
           "AP": -1,
           "D": "2",
           "rules": {}
@@ -28590,10 +28630,8 @@
           "bsWs": "2",
           "S": 6,
           "AP": -2,
-          "D": "D3",
-          "rules": {
-            "isLance": true
-          }
+          "D": "2",
+          "rules": {}
         }
       ],
       "abilities": [
@@ -28617,15 +28655,19 @@
         },
         {
           "id": "strategic-knowledge",
-          "name": "Strategic Knowledge",
-          "description": "While this model is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back.",
+          "name": "Strategic Acumen",
+          "description": "At the start of your Command phase, select one friendly unit. That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase.",
           "type": "Datasheet"
         },
         {
-          "id": "watch-master",
-          "name": "Watch Master",
-          "description": "Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.",
-          "type": "Datasheet"
+          "id": "zealous-vindicator",
+          "name": "Zealous Vindicator",
+          "description": "Each time this model makes an attack that targets a CHARACTER unit, you can re-roll a Hit roll of 1 and you can re-roll a Wound roll of 1."
+        },
+        {
+          "id": "purgatus-quarry",
+          "name": "Purgatus Quarry",
+          "description": "At the start of Battle Round 1, select one enemy unit to be this model's Purgatus Quarry. Each time this model's unit makes an attack that targets that unit, you can re-roll a Wound roll of 1. Each time that unit is destroyed, you can select a new Purgatus Quarry."
         }
       ],
       "keywords": [
@@ -28973,7 +29015,7 @@
           "description": "anti-infantry 4+, devastating wounds, ignores cover, torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 4,
           "AP": -1,
@@ -28998,7 +29040,7 @@
           "type": "Melee",
           "A": "6",
           "bsWs": "2",
-          "S": 5,
+          "S": 6,
           "AP": -2,
           "D": "2",
           "rules": {}
@@ -29038,7 +29080,7 @@
         {
           "id": "tactical-instinct",
           "name": "Tactical Instinct",
-          "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability.",
+          "description": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -29049,7 +29091,7 @@
         {
           "id": "unstoppable-champion",
           "name": "Unstoppable Champion",
-          "description": "The first time this model is destroyed, roll one D6 at the end of the phase. On a 2+, set this model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 1 wound remaining.",
+          "description": "The first time this model is destroyed, roll one D6 at the end of the phase. On a 2+, set this model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining.",
           "type": "Datasheet"
         }
       ],
