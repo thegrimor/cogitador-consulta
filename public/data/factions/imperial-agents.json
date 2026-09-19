@@ -1345,11 +1345,11 @@
       "pointsCosts": [
         {
           "description": "1 model (Detachment)",
-          "points": 110
+          "points": 100
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -3675,8 +3675,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "11 models",
+          "description": "11 models (Detachment)",
           "points": 90
+        },
+        {
+          "description": "11 models (Assigned Agent)",
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -4822,11 +4826,11 @@
       "pointsCosts": [
         {
           "description": "5 models (Detachment)",
-          "points": 190
+          "points": 175
         },
         {
           "description": "5 models (Assigned Agent)",
-          "points": 210
+          "points": 190
         }
       ],
       "wargearCosts": [
@@ -5132,12 +5136,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model (Detachment)",
+          "description": "1 model",
           "points": 95
-        },
-        {
-          "description": "1 model (Assigned Agent)",
-          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -5495,12 +5495,8 @@
           "points": 100
         },
         {
-          "description": "10 models (Detachment)",
+          "description": "10 models",
           "points": 190
-        },
-        {
-          "description": "10 models (Assigned Agent)",
-          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -6147,7 +6143,7 @@
         },
         {
           "description": "10 models (Assigned Agent)",
-          "points": 115
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -6364,11 +6360,19 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (Detachment)",
+          "description": "1 model (1st to 3rd units) (Detachment)",
+          "points": 90
+        },
+        {
+          "description": "1 model (4th + unit) (Detachment)",
           "points": 100
         },
         {
-          "description": "1 model (Assigned Agent)",
+          "description": "1 model (1st to 3rd units) (Assigned Agent)",
+          "points": 105
+        },
+        {
+          "description": "1 model (4th + unit) (Assigned Agent)",
           "points": 115
         }
       ],
@@ -6626,7 +6630,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 60
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 70
         }
       ],
@@ -6778,7 +6786,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 75
         }
       ],

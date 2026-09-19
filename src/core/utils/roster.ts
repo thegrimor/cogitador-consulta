@@ -60,26 +60,32 @@ export function sortCostVariants(costs: PointsCost[]): PointsCost[] {
  * datasheet are already in the roster. This range is what `description` encodes. */
 export interface CostTierRange { min: number; max: number }
 
+/** A description can carry more than one trailing "(...)" annotation at once (e.g. a per-copy
+ * surcharge tier *and* an Assigned Agent context, on the one datasheet that needs both —
+ * Sisters of Battle Immolator) — each parenthetical is checked independently against the tier
+ * patterns below rather than assuming the tier is always the last (or only) one. */
 export function parseTierRange(description: string): CostTierRange | null {
-  const m = description.match(/\(([^)]+)\)\s*$/)
-  if (!m) return null
-  const tier = m[1].toLowerCase().trim()
+  for (const m of description.matchAll(/\(([^)]+)\)/g)) {
+    const tier = m[1].toLowerCase().trim()
 
-  const plus = tier.match(/^(\d+)(?:st|nd|rd|th)\s*\+\s*units?$/)
-  if (plus) return { min: parseInt(plus[1], 10), max: Infinity }
+    const plus = tier.match(/^(\d+)(?:st|nd|rd|th)\s*\+\s*units?$/)
+    if (plus) return { min: parseInt(plus[1], 10), max: Infinity }
 
-  const range = tier.match(/^1st\s*(?:-|to)\s*(\d+)(?:st|nd|rd|th)\s*units?$/)
-  if (range) return { min: 1, max: parseInt(range[1], 10) }
+    const range = tier.match(/^1st\s*(?:-|to)\s*(\d+)(?:st|nd|rd|th)\s*units?$/)
+    if (range) return { min: 1, max: parseInt(range[1], 10) }
 
-  const exact = tier.match(/^(\d+)(?:st|nd|rd|th)\s*units?$/)
-  if (exact) return { min: parseInt(exact[1], 10), max: parseInt(exact[1], 10) }
-
+    const exact = tier.match(/^(\d+)(?:st|nd|rd|th)\s*units?$/)
+    if (exact) return { min: parseInt(exact[1], 10), max: parseInt(exact[1], 10) }
+  }
   return null
 }
 
-/** Strips a tier suffix like " (2nd+ unit)" so two tiers of the same squad size compare equal. */
+/** Strips every trailing "(...)" annotation (tier suffix, Assigned Agent context, or both) so
+ * variants that only differ by one of those annotations compare/display equal. */
 export function stripTierSuffix(description: string): string {
-  return description.replace(/\s*\([^)]+\)\s*$/, '').trim()
+  let s = description.trim()
+  while (/\s*\([^)]+\)\s*$/.test(s)) s = s.replace(/\s*\([^)]+\)\s*$/, '')
+  return s.trim()
 }
 
 /** Narrows `costs` down to whichever tier applies to the Nth (1-indexed) copy of this
@@ -92,12 +98,13 @@ export function resolveCostsForUnitIndex(costs: PointsCost[], unitIndex: number)
 }
 
 /** Imperial Agents datasheets are the only ones that get taken as an ally into a foreign
- * faction's roster, and GW prices that "Assigned Agent" use higher than fielding the same unit
- * in a native AGENTS OF THE IMPERIUM army — encoded as a "(Assigned Agent)" description suffix
+ * faction's roster, and GW prices that "Assigned Agent" use differently from fielding the same
+ * unit in a native AGENTS OF THE IMPERIUM army — encoded as a "(Assigned Agent)" annotation
  * alongside the native "(...Detachment)" one, same convention as the "(2nd+ unit)" tier suffix
- * `parseTierRange` reads above. */
+ * `parseTierRange` reads above (and, on the one datasheet needing both, a separate parenthetical
+ * from the tier one — matched anywhere in the description, not just at the very end). */
 export function isAssignedAgentCost(description: string): boolean {
-  return /\(assigned agent\)\s*$/i.test(description.trim())
+  return /\(assigned agent\)/i.test(description)
 }
 
 /** Narrows `costs` to whichever of the two price tiers above applies — the ally price when
