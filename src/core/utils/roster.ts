@@ -11,24 +11,32 @@ export function isMultiDetachmentAllowed(pointsLimit: number | null): boolean {
 }
 
 /** Battle size tiers, by points-limit upper bound, and how many copies of a single
- * (non-Epic Hero) datasheet are allowed at each one. Incursion 2 / Strike Force 3 / Onslaught 4. */
-const BATTLE_SIZE_COPY_CAPS: { maxPoints: number; cap: number }[] = [
-  { maxPoints: 1000, cap: 2 },
-  { maxPoints: 2000, cap: 3 },
-  { maxPoints: Infinity, cap: 4 },
+ * (non-Epic Hero) datasheet are allowed at each one - `cap` for an ordinary datasheet,
+ * `battlelineCap` for one with the Battleline or Dedicated Transports role (core rules:
+ * "twice at Incursion, three times at Strike Force and Onslaught", doubled for Battleline/
+ * Dedicated Transport). */
+const BATTLE_SIZE_COPY_CAPS: { maxPoints: number; cap: number; battlelineCap: number }[] = [
+  { maxPoints: 1000, cap: 2, battlelineCap: 4 },
+  { maxPoints: Infinity, cap: 3, battlelineCap: 6 },
 ]
 
 export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
+function isBattlelineRole(role: string): boolean {
+  return role === 'Battleline' || role === 'Dedicated Transports'
+}
+
 /** How many copies of `datasheet` the roster may contain. Epic Heroes are always
- * capped at 1 (unique named characters); everything else scales with battle size.
+ * capped at 1 (unique named characters); Battleline/Dedicated Transports datasheets get
+ * double the ordinary cap; everything else scales with battle size.
  * Returns Infinity if no points limit is set (battle size can't be determined). */
 export function maxCopiesAllowed(datasheet: Datasheet, pointsLimit: number | null): number {
   if (isEpicHero(datasheet)) return 1
   if (pointsLimit === null) return Infinity
-  return (BATTLE_SIZE_COPY_CAPS.find(t => pointsLimit <= t.maxPoints) ?? BATTLE_SIZE_COPY_CAPS.at(-1)!).cap
+  const tier = BATTLE_SIZE_COPY_CAPS.find(t => pointsLimit <= t.maxPoints) ?? BATTLE_SIZE_COPY_CAPS.at(-1)!
+  return isBattlelineRole(datasheet.role) ? tier.battlelineCap : tier.cap
 }
 
 export function sumDetachmentPoints(detachments: Detachment[], detachmentIds: string[]): number {
