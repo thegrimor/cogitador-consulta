@@ -274,35 +274,6 @@
       ]
     },
     {
-      "id": "wrathful-procession",
-      "name": "Wrathful Procession",
-      "disposition": "TAKE AND HOLD",
-      "dp": 1,
-      "chapters": [
-        "Black Templars"
-      ],
-      "abilities": [
-        {
-          "id": "chant-of-deathless-devotion",
-          "name": "Chant of Deathless Devotion",
-          "description": "Friendly <span class=\"kwb\">CHAPLAIN</span> units have 5+ InSv against ranged attacks.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include Black Templars units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter."
-        }
-      ],
-      "combatEffects": [
-        {
-          "sourceRuleId": "sm_benediction_of_fury",
-          "label": "Benediction of Fury — Devastating Wounds, CaC (Chaplain)",
-          "description": "Benediction of Fury: Chaplain model only. The bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.",
-          "effect": {
-            "effects": {
-              "devastatingWoundsBonus": true
-            },
-            "combatType": "melee"
-          }
-        }
-      ]
-    },
-    {
       "id": "champions-of-fenris",
       "name": "Champions of Fenris",
       "disposition": "PRIORITY ASSETS",
@@ -393,67 +364,6 @@
           "id": "legendary-slayers",
           "name": "Legendary Slayers",
           "description": "Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model from your army makes an attack, if that attack targets a <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit or if your Saga is completed (see below), that attack has the [lethal hits] ability.<br><br><span class=\"hi_custom\">Saga of the Beastslayer</span><br>At the start of the first battle round, your Beastslayer tally is 0, and you determine your Beastslayer target by halving the number of units from your opponent’s army (including those embarked within <span class=\"kwb\">TRANSPORTS</span>) that have one or more of the following keywords (rounding up): <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span>, <span class=\"kwb\">VEHICLE</span>.<br><br>Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army shoots or fights, after all of those attacks have been resolved, add 1 to your Beastslayer tally for each enemy unit with one or more of the following keywords destroyed by those attacks: <span class=\"kwb\">CHARACTER</span>, <span class=\"kwb\">MONSTER</span>, <span class=\"kwb\">VEHICLE</span>.<br><br>Once your Beastslayer tally is equal to or greater than your Beastslayer target, your Saga is completed."
-        }
-      ]
-    },
-    {
-      "id": "companions-of-vehemence",
-      "name": "Companions of Vehemence",
-      "disposition": "PURGE THE FOE",
-      "dp": 2,
-      "chapters": [
-        "Black Templars"
-      ],
-      "abilities": [
-        {
-          "id": "righteous-fervour",
-          "name": "Righteous Fervour",
-          "description": "You can re-roll Advance and Charge rolls made for <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include Black Templars units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter."
-        }
-      ]
-    },
-    {
-      "id": "vindication-task-force",
-      "name": "Vindication Task Force",
-      "disposition": "PRIORITY ASSETS",
-      "dp": 2,
-      "chapters": [
-        "Black Templars"
-      ],
-      "abilities": [
-        {
-          "id": "purge-and-sanctify",
-          "name": "Purge and Sanctify",
-          "description": "<ul><li>Each time an attack targets an Ancient unit from your army, if that unit is within range of one or more objective markers and the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll.</li><li>Each time a friendly Crusader Squad unit makes a surge move, instead of selecting a surge target, you can select the closest objective to that unit. When that unit makes that surge move, each model in that unit must end that surge move as close as possible to that objective instead.</li></ul><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include Black Templars units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "woundMod": -1
-            },
-            "target": "defender",
-            "requiresTargetKeyword": "ancient"
-          }
-        }
-      ]
-    },
-    {
-      "id": "godhammer-assault-force",
-      "name": "Godhammer Assault Force",
-      "disposition": "PURGE THE FOE",
-      "dp": 2,
-      "chapters": [
-        "Black Templars"
-      ],
-      "abilities": [
-        {
-          "id": "shock-and-awe",
-          "name": "Shock and Awe",
-          "description": "<ul><li>Each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army declares a charge, if it disembarked from a Transport this turn, after selecting the targets of that charge, select one of those targets; that enemy unit must take a Battle-shock test.</li><li>Each time a model in an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes a melee attack, if it disembarked from a <span class=\"kwb\">TRANSPORT</span> this turn, add 1 to the Hit roll.</li></ul><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include Black Templars units, but it cannot include any <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units drawn from any other Chapter.",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "combatType": "melee"
-          }
         }
       ]
     },
@@ -566,22 +476,6 @@
           "id": "faith-fuelled-resolve",
           "name": "Faith-Fuelled Resolve",
           "description": "Friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> units have +1 OC.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLACK TEMPLARS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
-        }
-      ]
-    },
-    {
-      "id": "the-living-miracle",
-      "name": "The Living Miracle",
-      "disposition": "DISRUPTION",
-      "dp": 1,
-      "chapters": [
-        "Black Templars"
-      ],
-      "abilities": [
-        {
-          "id": "anointed-champion",
-          "name": "Anointed Champion",
-          "description": "When a friendly <span class=\"kwb\">EMPEROR'S CHAMPION</span> unit is selected to fight, that model's melee attacks can re-roll one Hit roll and re-roll one Wound roll.<br><br>Enhancements selected from this detachment do not count towards the total number of enhancements in your army.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLACK TEMPLARS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
         }
       ]
     },
@@ -1046,6 +940,150 @@
           "description": "Friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">VEHICLE</span> units' (excluding <span class=\"kwb\">WALKER</span> units) ranged attacks can:<ul><li>Re-roll one hit roll.</li><li>Re-roll one wound roll.</li></ul>"
         }
       ]
+    },
+    {
+      "id": "medusas-wrath",
+      "name": "Medusa's Wrath",
+      "disposition": "PURGE THE FOE",
+      "dp": 2,
+      "chapters": [
+        "Space Marines"
+      ],
+      "abilities": [
+        {
+          "id": "armoured-wrath",
+          "name": "Armoured Wrath",
+          "description": "Each time a friendly unit from your army is selected to shoot or fight, you can re-roll one Hit roll, one Wound roll or one Damage roll made for that unit. If your army includes CAANOK VAR or IRON FATHER FEIRROS, each of those models has a 6\" aura: while a friendly ADEPTUS ASTARTES unit is within range of one or more of those models, each time that unit is selected to shoot or fight, you can re-roll one Hit roll, one Wound roll AND one Damage roll made for that unit (instead of just one of the three)."
+        }
+      ]
+    },
+    {
+      "id": "vow-sworn-crusaders",
+      "name": "Vow-sworn Crusaders",
+      "disposition": "PURGE THE FOE",
+      "dp": 2,
+      "chapters": [
+        "Black Templars"
+      ],
+      "abilities": [
+        {
+          "id": "templar-vows",
+          "name": "Templar Vows",
+          "description": "At the start of the first Battle Round, select one of the following Vows; it applies to your Adeptus Astartes units for the rest of the battle:<ul><li><b>Abhor the Witch, Destroy the Witch:</b> Melee attacks made by your units against PSYKER units have the [PRECISION] and [LANCE] abilities.</li><li><b>Accept Any Challenge, No Matter the Odds:</b> Add 1 to the Wound roll for melee attacks made by your units that target a unit with a Toughness characteristic greater than that attack's Strength characteristic.</li><li><b>Uphold the Honour of the Emperor:</b> Your INFANTRY units that are controlling an objective marker at the end of your Movement phase Secure that objective marker, and can still be given an Advance order or perform an Action that phase.</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "blade-of-ultramar",
+      "name": "Blade of Ultramar",
+      "disposition": "PRIORITY ASSETS or TAKE AND HOLD",
+      "dp": 3,
+      "chapters": [
+        "Space Marines"
+      ],
+      "abilities": [
+        {
+          "id": "mastered-doctrines",
+          "name": "Mastered Doctrines",
+          "description": "If your army includes a MARNEUS CALGAR model, each time you would select a Combat Doctrine, you can select it twice instead of once (subject to the normal once-per-doctrine-per-battle-round restrictions). Requires MARNEUS CALGAR."
+        }
+      ]
+    },
+    {
+      "id": "shadowmark-talon",
+      "name": "Shadowmark Talon",
+      "disposition": "DISRUPTION",
+      "dp": 2,
+      "chapters": [
+        "Space Marines"
+      ],
+      "abilities": [
+        {
+          "id": "masters-of-shadow",
+          "name": "Masters of Shadow",
+          "description": "All friendly ADEPTUS ASTARTES units have the Stealth ability. All friendly PHOBOS and SCOUT SQUAD units have -3\" Detection Range. If your army includes AETHON SHAAN, friendly AETHON SHAAN units have the following ability — <b>Unparalleled Tactician (Once per battle round, once per army):</b> When you use the Into Darkness stratagem, that use costs 1CP less (to a minimum of 0CP)."
+        }
+      ]
+    },
+    {
+      "id": "forgefathers-seekers",
+      "name": "Forgefather's Seekers",
+      "disposition": "PRIORITY ASSETS",
+      "dp": 2,
+      "chapters": [
+        "Space Marines"
+      ],
+      "abilities": [
+        {
+          "id": "vulkans-quest",
+          "name": "Vulkan's Quest",
+          "description": "You can select the Devastator Doctrine an additional time per battle (subject to the normal once-per-battle-round restriction). Each time a friendly ADEPTUS ASTARTES unit makes a ranged attack that targets a unit within 12\", add 1 to that attack's Strength characteristic. If your army includes VULKAN HE'STAN, friendly INFERNUS SQUAD units can Advance or Fall Back and still perform an Action that phase, and if an INFERNUS SQUAD unit performs an Action, it can still be selected to shoot in that phase."
+        }
+      ]
+    },
+    {
+      "id": "ceramite-sentinels",
+      "name": "Ceramite Sentinels",
+      "disposition": "TAKE AND HOLD",
+      "dp": 2,
+      "chapters": [
+        "Space Marines"
+      ],
+      "abilities": [
+        {
+          "id": "adaptive-defence",
+          "name": "Adaptive Defence",
+          "description": "While a friendly ADEPTUS ASTARTES unit is within a terrain feature, re-roll Wound rolls of 1 for that unit's attacks. A friendly unit is Entrenched while it is within a terrain feature and it was not set up on the battlefield this phase and has not moved more than 3\" this phase. If your army includes DARNATH LYSANDER or TOR GARADON, that model's unit is treated as being Entrenched at all times, regardless of the above conditions."
+        }
+      ]
+    },
+    {
+      "id": "fist-of-the-god-emperor",
+      "name": "Fist of the God-Emperor",
+      "disposition": "TAKE AND HOLD",
+      "dp": 1,
+      "chapters": [
+        "Black Templars"
+      ],
+      "abilities": [
+        {
+          "id": "purge-and-sanctify",
+          "name": "Purge and Sanctify",
+          "description": "Each time a friendly CRUSADER SQUAD unit makes a Surge move, you can choose for that unit to move towards the closest objective marker instead of towards a Surge target; each model in that unit must end that move as close as possible to that objective marker (and, having no Surge target, cannot end that move within Engagement Range of any enemy units)."
+        }
+      ]
+    },
+    {
+      "id": "deathwatch-support",
+      "name": "Deathwatch Support",
+      "disposition": "DISRUPTION",
+      "dp": 1,
+      "chapters": [
+        "Deathwatch"
+      ],
+      "abilities": [
+        {
+          "id": "mission-tactics-and-deathwatch-allies",
+          "name": "Mission Tactics and Deathwatch Allies",
+          "description": "Friendly KILL TEAM units gain a bonus based on the active Combat Doctrine: Devastator Doctrine grants [SUSTAINED HITS 1] (Furor Tactics); Tactical Doctrine grants [LETHAL HITS] (Malleus Tactics); Assault Doctrine grants [PRECISION] against units within 9\" (Purgatus Tactics). Deathwatch Allies: your army can include up to 500 points of DEATHWATCH units in addition to your other Chapter's units (normally armies cannot mix units from different Chapters); a DEATHWATCH unit cannot be your Warlord, and KILL TEAM units can only be given Enhancements from this Detachment. Characters attached to a Kill Team count towards that 500-point limit; transports (other than the Corvus Blackstar) do not."
+        }
+      ]
+    },
+    {
+      "id": "spearpoint-task-force",
+      "name": "Spearpoint Task Force",
+      "disposition": "RECONNAISSANCE",
+      "dp": 2,
+      "chapters": [
+        "Space Marines"
+      ],
+      "abilities": [
+        {
+          "id": "storm-swift-onslaught",
+          "name": "Storm-Swift Onslaught",
+          "description": "You can select the Assault Doctrine or the Tactical Doctrine an additional time per battle (subject to the normal once-per-battle-round restriction). Add 1 to Advance rolls for friendly MOUNTED and SPEEDER units. If your army includes a SUBODEN KHAN unit, that unit gains the following ability — <b>Wrath of the First Khan:</b> If this unit is Engaged at the end of the Fight phase, it can make a Fall Back move; otherwise, it can make a Normal move."
+        }
+      ]
     }
   ],
   "stratagems": [
@@ -1261,84 +1299,6 @@
       "description": "<b>WHEN:</b> End of your Movement phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">ADEPTUS ASTARTES INFANTRY CHARACTER</span> unit.<br><br><b>EFFECT:</b> Select one objective your unit is controlling. That objective is secured."
     },
     {
-      "id": "devout-push",
-      "name": "DEVOUT PUSH",
-      "detachmentId": "companions-of-vehemence",
-      "cpCost": 1,
-      "type": "Companions of Vehemence – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6\" instead of up to 3\".<br><br><b>RESTRICTIONS:</b> A unit cannot be targeted with this and the Hearts Hardened to Duty Stratagem in the same phase unless it has the Chaplain or Judiciar keywords."
-    },
-    {
-      "id": "for-the-emperors-honour",
-      "name": "FOR THE EMPEROR'S HONOUR!",
-      "detachmentId": "companions-of-vehemence",
-      "cpCost": 1,
-      "type": "Companions of Vehemence – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability."
-    },
-    {
-      "id": "pious-enmity",
-      "name": "PIOUS ENMITY",
-      "detachmentId": "companions-of-vehemence",
-      "cpCost": 1,
-      "type": "Companions of Vehemence – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One Chaplain or Judiciar unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a melee attack that targets an enemy unit, re-roll a Hit roll of 1. If that target is a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, re-roll a Wound roll of 1 as well.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true
-        },
-        "combatType": "melee"
-      },
-      "options": [
-        {
-          "name": "vs Monster/Vehicle (Herida de 1)",
-          "effect": {
-            "effects": {
-              "rerollWoundsOf1": true
-            },
-            "combatType": "melee",
-            "requiresTargetKeyword": "vehicle"
-          }
-        }
-      ]
-    },
-    {
-      "id": "hearts-hardened-to-duty",
-      "name": "HEARTS HARDENED TO DUTY",
-      "detachmentId": "companions-of-vehemence",
-      "cpCost": 1,
-      "type": "Companions of Vehemence – Strategic Ploy Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase, just before an Adeptus Astartes Infantry unit from your army Consolidates.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes a Consolidation move, it does not need to end that move closer to the closest enemy model (or the closest enemy unit if the Suffer Not the Unclean to Live Vow is active for it)."
-    },
-    {
-      "id": "heresy-begets-retribution",
-      "name": "HERESY BEGETS RETRIBUTION",
-      "detachmentId": "companions-of-vehemence",
-      "cpCost": 1,
-      "type": "Companions of Vehemence – Strategic Ploy Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.<br><br><b>TARGET:</b> One Chaplain or Judiciar unit from your army that is within 8″ of that enemy unit and is not within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Your unit can make a surge move of up to D6″."
-    },
-    {
-      "id": "dread-crusaders",
-      "name": "DREAD CRUSADERS",
-      "detachmentId": "companions-of-vehemence",
-      "cpCost": 1,
-      "type": "Companions of Vehemence – Strategic Ploy Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Charge phase",
-      "description": "<b>WHEN:</b> Your opponent’s Charge phase, just after an enemy unit declares a charge.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry unit from your army that was selected as one of the targets of that charge.<br><br><b>EFFECT:</b> That enemy unit must take a Battle-shock test, subtracting 1 from the result."
-    },
-    {
       "id": "death-on-the-wind",
       "name": "DEATH ON THE WIND",
       "detachmentId": "company-of-hunters",
@@ -1422,99 +1382,6 @@
       "turn": "Either player’s turn",
       "phase": "Command phase",
       "description": "<b>WHEN:</b> Command phase.<br><br><b>TARGET:</b> One Ravenwing Mounted unit from your army that is within range of an objective marker you control.<br><br><b>EFFECT:</b> That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
-    },
-    {
-      "id": "condemnatory-info-screed",
-      "name": "CONDEMNATORY INFO-SCREED",
-      "detachmentId": "godhammer-assault-force",
-      "cpCost": 1,
-      "type": "Godhammer Assault Force – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, if it disembarked from a Transport this turn, re-roll a Wound roll of 1. If that <span class=\"kwb\">TRANSPORT</span> has the Land Raider keyword, you can re-roll the Wound roll instead.",
-      "options": [
-        {
-          "name": "Reroll Wound de 1",
-          "effect": {
-            "combatType": "melee",
-            "isStratagem": true,
-            "cpCost": 1,
-            "effects": {
-              "rerollWoundsOf1": true
-            }
-          }
-        },
-        {
-          "name": "Reroll Wound completo (Transport con keyword Land Raider)",
-          "effect": {
-            "combatType": "melee",
-            "isStratagem": true,
-            "cpCost": 1,
-            "effects": {
-              "rerollAllWounds": true
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "blessed-hull",
-      "name": "BLESSED HULL",
-      "detachmentId": "godhammer-assault-force",
-      "cpCost": 2,
-      "type": "Godhammer Assault Force – Battle Tactic Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Adeptus Astartes Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack.",
-      "effect": {
-        "effects": {
-          "damageReduction": 1
-        },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 2
-      }
-    },
-    {
-      "id": "a-ceaseless-cause",
-      "name": "A CEASELESS CAUSE",
-      "detachmentId": "godhammer-assault-force",
-      "cpCost": 1,
-      "type": "Godhammer Assault Force – Strategic Ploy Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> End of the Fight phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry unit from your army that was eligible to fight this phase.<br><br><b>EFFECT:</b> If your unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\". It cannot embark within a Transport at the end of this move if it disembarked from a <span class=\"kwb\">TRANSPORT</span> this turn."
-    },
-    {
-      "id": "focused-hatred",
-      "name": "FOCUSED HATRED",
-      "detachmentId": "godhammer-assault-force",
-      "cpCost": 1,
-      "type": "Godhammer Assault Force – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Charge phase",
-      "description": "<b>WHEN:</b> Your Charge phase, just after you make a Charge roll for an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that disembarked from a Transport this turn.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, each time your unit makes a Charge move, models in your unit can move through models (when doing so, its models can move within Engagement Range of enemy models, but they can only end that move within Engagement Range of enemy models if those enemy models belong to a unit that your unit declared a charge against this turn)."
-    },
-    {
-      "id": "uncompromising-egress",
-      "name": "UNCOMPROMISING EGRESS",
-      "detachmentId": "godhammer-assault-force",
-      "cpCost": 1,
-      "type": "Godhammer Assault Force – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Land Raider model from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit embarked within your <span class=\"kwb\">LAND</span> <span class=\"kwb\">RAIDER</span> can disembark. When doing so, models in that unit can be set up anywhere on the battlefield wholly within 6\" of your <span class=\"kwb\">LAND</span> <span class=\"kwb\">RAIDER</span> and can be set up within Engagement Range of one or more enemy units."
-    },
-    {
-      "id": "gauntlet-of-the-god-emperor",
-      "name": "GAUNTLET OF THE GOD-EMPEROR",
-      "detachmentId": "godhammer-assault-force",
-      "cpCost": 1,
-      "type": "Godhammer Assault Force – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One Adeptus Astartes Vehicle model from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time your model makes a Normal or Advance move, it can move horizontally through terrain features."
     },
     {
       "id": "armour-of-contempt-space-marines-15",
@@ -2524,114 +2391,6 @@
       "description": "<b>WHEN:</b> Your Movement phase, just after an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army Falls Back.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit.<br><br><b>EFFECT:</b> Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
     },
     {
-      "id": "spoor-of-the-unholy",
-      "name": "SPOOR OF THE UNHOLY",
-      "detachmentId": "vindication-task-force",
-      "cpCost": 1,
-      "type": "Vindication Task Force – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to shoot or fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll.",
-      "options": [
-        {
-          "name": "Ignores Cover (ranged)",
-          "effect": {
-            "effects": {
-              "bsMod": -1
-            },
-            "combatType": "ranged",
-            "isStratagem": true,
-            "cpCost": 1
-          }
-        },
-        {
-          "name": "Ignore Hit-roll modifiers",
-          "effect": {
-            "effects": {
-              "hitMod": 1
-            },
-            "isStratagem": true,
-            "cpCost": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "litanies-of-purgation",
-      "name": "LITANIES OF PURGATION",
-      "detachmentId": "vindication-task-force",
-      "cpCost": 1,
-      "type": "Vindication Task Force – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, if that model’s unit is within range of one or more objective markers or the target unit is within range of one or more objective markers, improve the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "id": "refusal-to-yield",
-      "name": "REFUSAL TO YIELD",
-      "detachmentId": "vindication-task-force",
-      "cpCost": 1,
-      "type": "Vindication Task Force – Epic Deed Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase, just after an Ancient model from your army is destroyed.<br><br><b>TARGET:</b> That <span class=\"kwb\">ANCIENT</span> model. You can use this Stratagem on that model even though it was just destroyed.<br><br><b>EFFECT:</b> At the end of the phase, set your model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with its full wounds remaining.<br><br><b>RESTRICTIONS:</b> You cannot target the same model with this Stratagem more than once per battle."
-    },
-    {
-      "id": "perfervid-intervention",
-      "name": "PERFERVID INTERVENTION",
-      "detachmentId": "vindication-task-force",
-      "cpCost": 2,
-      "type": "Vindication Task Force – Strategic Ploy Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Charge phase",
-      "description": "<b>WHEN:</b> End of your opponent’s Charge phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that is within 6\" of one or more enemy units and would be eligible to declare a charge against one or more of those enemy units if it were your Charge phase.<br><br><b>EFFECT:</b> Your unit now declares a charge that only targets one or more of those enemy units, and you resolve that charge.<br><br><b>RESTRICTIONS:</b> Note that even if this charge is successful, your unit does not receive any Charge bonus this turn."
-    },
-    {
-      "id": "recitation-of-the-revered",
-      "name": "RECITATION OF THE REVERED",
-      "detachmentId": "vindication-task-force",
-      "cpCost": 1,
-      "type": "Vindication Task Force – Strategic Ploy Stratagem",
-      "turn": "Opponent’s turn",
-      "phase": "Shooting phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One Ancient unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "combatType": "ranged",
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "ancient"
-      }
-    },
-    {
-      "id": "reclaim-our-honour",
-      "name": "RECLAIM OUR HONOUR!",
-      "detachmentId": "vindication-task-force",
-      "cpCost": 1,
-      "type": "Vindication Task Force – Strategic Ploy Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit destroys an Ancient model from your army that has not been targeted with the Refusal to Yield Stratagem this phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army visible to that enemy unit.<br><br><b>EFFECT:</b> Until the end of the battle, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model from your army makes an attack that targets that enemy unit, add 1 to the Hit roll.<br><br><b>RESTRICTIONS:</b> You cannot target that <span class=\"kwb\">ANCIENT</span> model with the Refusal to Yield Stratagem this phase.",
-      "effect": {
-        "effects": {
-          "hitMod": 1
-        },
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
       "id": "armour-of-contempt-space-marines-28",
       "name": "ARMOUR OF CONTEMPT",
       "detachmentId": "wrath-of-the-rock",
@@ -2733,93 +2492,6 @@
       "description": "<b>WHEN:</b> End of your opponent’s Charge phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army within 3\" of one or more enemy units, or one Deathwing unit from your army within 6\" of one or more enemy units.<br><br><b>EFFECT:</b> Your unit now declares a charge that only targets one or more of those enemy units, and you resolve that charge.<br><br><b>RESTRICTIONS:</b> Note that even if this charge is successful, your unit does not receive any Charge bonus this turn."
     },
     {
-      "id": "brute-fervour",
-      "name": "BRUTE FERVOUR",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and you can ignore any or all modifiers to the following: that attack’s Weapon Skill characteristic; the Hit roll; the Wound roll.",
-      "effect": {
-        "effects": {
-          "rerollHitsOf1": true,
-          "hitMod": 1,
-          "woundMod": 1
-        },
-        "combatType": "melee",
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "id": "castigate-the-demagogues",
-      "name": "CASTIGATE THE DEMAGOGUES",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase, when a friendly <span class=\"kwb\">CHAPLAIN</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHAPLAIN</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have [PRECISION]."
-    },
-    {
-      "id": "armour-of-contempt-space-marines-29",
-      "name": "ARMOUR OF CONTEMPT",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Shooting or Fight phase",
-      "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that was selected as the target of one or more of the attacking unit’s attacks.<br><br><b>EFFECT:</b> Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.",
-      "effect": {
-        "effects": {
-          "apMod": -1
-        },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1
-      }
-    },
-    {
-      "id": "fuelled-by-faith",
-      "name": "FUELLED BY FAITH",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Battle Tactic Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Any phase",
-      "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">CHAPLAIN</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHAPLAIN</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 4+ against mortal wounds.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 4
-        },
-        "target": "defender",
-        "isStratagem": true,
-        "cpCost": 1,
-        "requiresTargetKeyword": "chaplain"
-      }
-    },
-    {
-      "id": "voice-of-devotion",
-      "name": "VOICE OF DEVOTION",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army.<br><br><b>EFFECT:</b> Select the Chorus of Relentless Hate, Rite of Perfervid Wrath or Chant of Deathless Devotion Litany. Until the end of the battle round, that Litany is active for your unit instead of any other Litany that is active for your army."
-    },
-    {
-      "id": "relentless-momentum",
-      "name": "RELENTLESS MOMENTUM",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Strategic Ploy Stratagem",
-      "turn": "Either player’s turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Fight phase.<br><br><b>TARGET:</b> One <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army that has not been selected to fight this phase and is within Engagement Range of one or more enemy units.<br><br><b>EFFECT:</b> Until the end of the phase, when determining which models in your unit are eligible to fight, any models in it that are within 3\" of one or more enemy models are eligible to fight. When resolving those attacks, such models can target one of those enemy units that is within 3\" of them and within Engagement Range of their unit."
-    },
-    {
       "id": "slayers-of-abominations",
       "name": "SLAYERS OF ABOMINATIONS",
       "detachmentId": "marshals-household",
@@ -2876,16 +2548,6 @@
       "turn": "Opponent's turn",
       "phase": "Movement phase",
       "description": "<b>WHEN:</b> Your opponent's Movement phase, when a unit is selected to make a Fall Back move, if that unit is engaged with a friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>EFFECT:</b> When an enemy unit engaged with your unit is selected to make a Fall Back move, that enemy unit must use the Desperate Escape mode, with -1 to those Hazardous tests if that enemy unit is Battle-shocked."
-    },
-    {
-      "id": "rite-of-perfervid-wrath",
-      "name": "RITE OF PERFERVID WRATH",
-      "detachmentId": "wrathful-procession",
-      "cpCost": 1,
-      "type": "Wrathful Procession – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Fight phase",
-      "description": "<b>WHEN:</b> The Fight phase, when a friendly <span class=\"kwb\">CHAPLAIN</span> unit is selected to fight.<br><br><b>TARGET:</b> That <span class=\"kwb\">CHAPLAIN</span> unit.<br><br><b>EFFECT:</b> Your unit's melee attacks have +1 S."
     },
     {
       "id": "martial-paragon",
@@ -3718,6 +3380,476 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">VEHICLE</span> unit (excluding <span class=\"kwb\">DEDICATED TRANSPORT</span>/<span class=\"kwb\">FLY</span>/<span class=\"kwb\">WALKER</span> units) is selected to shoot.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">VEHICLE</span> unit.<br><br><b>EFFECT:</b> Your unit's ranged attacks have [LETHAL HITS: MONSTER/VEHICLE]."
+    },
+    {
+      "id": "ancient-fury",
+      "name": "ANCIENT FURY",
+      "detachmentId": "medusas-wrath",
+      "cpCost": 1,
+      "type": "Medusa's Wrath – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "WHEN: Your Command phase. TARGET: One friendly DREADNOUGHT unit. EFFECT: Until the start of your next Command phase, add 1 to that unit's Move, Toughness, Leadership and Objective Control characteristics, and add 1 to Hit rolls for attacks made by that unit."
+    },
+    {
+      "id": "spirits-of-iron",
+      "name": "SPIRITS OF IRON",
+      "detachmentId": "medusas-wrath",
+      "cpCost": 1,
+      "type": "Medusa's Wrath – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Any phase",
+      "description": "TARGET: One friendly unit. EFFECT: Until the end of the phase, that unit has the Feel No Pain 5+ ability against mortal wounds."
+    },
+    {
+      "id": "mercy-is-weakness-medusas-wrath",
+      "name": "MERCY IS WEAKNESS",
+      "detachmentId": "medusas-wrath",
+      "cpCost": 1,
+      "type": "Medusa's Wrath – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase or Fight phase",
+      "description": "TARGET: One friendly unit that has been selected to shoot or fight. EFFECT: Until the end of the phase, that unit's attacks have the [SUSTAINED HITS 1] ability; if that unit is a VEHICLE, also add 1 to Wound rolls for its attacks."
+    },
+    {
+      "id": "unbowed-conviction",
+      "name": "UNBOWED CONVICTION",
+      "detachmentId": "medusas-wrath",
+      "cpCost": 1,
+      "type": "Medusa's Wrath – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "TARGET: One friendly unit that is below its Starting Strength. EFFECT: Until the end of the round, that unit's models can ignore any or all modifiers to their Ballistic Skill and Weapon Skill characteristics, and to Hit rolls and Wound rolls made for them."
+    },
+    {
+      "id": "power-of-the-machine-spirit",
+      "name": "POWER OF THE MACHINE SPIRIT",
+      "detachmentId": "medusas-wrath",
+      "cpCost": 1,
+      "type": "Medusa's Wrath – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Shooting phase",
+      "description": "WHEN: Your opponent's Shooting phase, after a VEHICLE unit from your army has been targeted by one or more enemy attacks. TARGET: That VEHICLE unit, if it was not destroyed. EFFECT: That unit can be selected to shoot as if it were your Shooting phase, firing as if making an Overwatch attack; if it is at or below Half-strength, it fires normally instead."
+    },
+    {
+      "id": "vengeful-animus",
+      "name": "VENGEFUL ANIMUS",
+      "detachmentId": "medusas-wrath",
+      "cpCost": 1,
+      "type": "Medusa's Wrath – Battle Tactic Stratagem",
+      "turn": "Either player's turn",
+      "phase": "Any phase",
+      "description": "WHEN: A friendly VEHICLE unit is destroyed. EFFECT: That unit's Deadly Demise ability is automatically triggered (treat the test as passed, at maximum effect where applicable)."
+    },
+    {
+      "id": "devout-push-vow-sworn-crusaders",
+      "name": "DEVOUT PUSH",
+      "detachmentId": "vow-sworn-crusaders",
+      "cpCost": 1,
+      "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: An INFANTRY unit from your army piles in or consolidates. EFFECT: That unit can move D3+3\" instead of up to 3\"."
+    },
+    {
+      "id": "dread-crusaders-vow-sworn-crusaders",
+      "name": "DREAD CRUSADERS",
+      "detachmentId": "vow-sworn-crusaders",
+      "cpCost": 1,
+      "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Charge phase",
+      "description": "WHEN: Your opponent's Charge phase, when an enemy unit selects its charge targets and one of them is a friendly INFANTRY unit. EFFECT: That enemy unit must take a Battle-shock test with -1 to the result."
+    },
+    {
+      "id": "for-the-emperors-honour-vow-sworn-crusaders",
+      "name": "FOR THE EMPEROR'S HONOUR",
+      "detachmentId": "vow-sworn-crusaders",
+      "cpCost": 1,
+      "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Any phase",
+      "description": "TARGET: One friendly INFANTRY unit. EFFECT: Until the end of the phase, that unit's attacks have the [PRECISION] ability."
+    },
+    {
+      "id": "heresy-begets-retribution-vow-sworn-crusaders",
+      "name": "HERESY BEGETS RETRIBUTION",
+      "detachmentId": "vow-sworn-crusaders",
+      "cpCost": 1,
+      "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Any phase",
+      "description": "WHEN: An enemy unit ends a move within 8\" of a friendly INFANTRY unit. EFFECT: That friendly unit can make a Normal move of up to D6\"."
+    },
+    {
+      "id": "pious-enmity-vow-sworn-crusaders",
+      "name": "PIOUS ENMITY",
+      "detachmentId": "vow-sworn-crusaders",
+      "cpCost": 1,
+      "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: A friendly CHAPLAIN or JUDICIAR unit is selected to fight. EFFECT: That unit can re-roll Hit rolls of 1; if the target is a MONSTER or VEHICLE, that unit can also re-roll Wound rolls of 1."
+    },
+    {
+      "id": "spoor-of-the-unholy-vow-sworn-crusaders",
+      "name": "SPOOR OF THE UNHOLY",
+      "detachmentId": "vow-sworn-crusaders",
+      "cpCost": 1,
+      "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase or Fight phase",
+      "description": "TARGET: One friendly unit. EFFECT: That unit's attacks can ignore any or all modifiers to Ballistic Skill, Weapon Skill and Hit rolls this phase."
+    },
+    {
+      "id": "armour-of-contempt-blade-of-ultramar",
+      "name": "ARMOUR OF CONTEMPT",
+      "detachmentId": "blade-of-ultramar",
+      "cpCost": 1,
+      "type": "Blade of Ultramar – Battle Tactic Stratagem",
+      "turn": "Either player's turn",
+      "phase": "Opponent's Shooting phase or the Fight phase",
+      "description": "WHEN: Your opponent's Shooting phase or the Fight phase, when an enemy unit targets a friendly unit. TARGET: That unit. EFFECT: Attacks that target your unit have -1 AP until that enemy unit has attacked."
+    },
+    {
+      "id": "practical-tactics",
+      "name": "PRACTICAL TACTICS",
+      "detachmentId": "blade-of-ultramar",
+      "cpCost": 1,
+      "type": "Blade of Ultramar – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Any phase",
+      "description": "WHEN: An enemy unit ends a move within 8\" of an unengaged friendly INFANTRY or MOUNTED unit. EFFECT: That friendly unit can make a Normal move of up to D3+3\"."
+    },
+    {
+      "id": "courage-and-honour",
+      "name": "COURAGE AND HONOUR!",
+      "detachmentId": "blade-of-ultramar",
+      "cpCost": 1,
+      "type": "Blade of Ultramar – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "TARGET: One friendly unit. EFFECT: That unit's melee attacks have the [LANCE] ability until the end of the phase."
+    },
+    {
+      "id": "tactical-foresight",
+      "name": "TACTICAL FORESIGHT",
+      "detachmentId": "blade-of-ultramar",
+      "cpCost": 1,
+      "type": "Blade of Ultramar – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Any phase",
+      "description": "TARGET: One friendly unit under attack. EFFECT: Subtract 1 from Wound rolls for attacks that target that unit this phase, if the attack's Strength is greater than that unit's Toughness."
+    },
+    {
+      "id": "exemplary-vigilance",
+      "name": "EXEMPLARY VIGILANCE",
+      "detachmentId": "blade-of-ultramar",
+      "cpCost": 1,
+      "type": "Blade of Ultramar – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "TARGET: One friendly unit selected to shoot. EFFECT: That unit's ranged attacks ignore the Benefit of Cover this phase."
+    },
+    {
+      "id": "ultramarian-adaptivity",
+      "name": "ULTRAMARIAN ADAPTIVITY",
+      "detachmentId": "blade-of-ultramar",
+      "cpCost": 1,
+      "type": "Blade of Ultramar – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "TARGET: One friendly unit. EFFECT: That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase."
+    },
+    {
+      "id": "feint-and-thrust",
+      "name": "FEINT AND THRUST",
+      "detachmentId": "shadowmark-talon",
+      "cpCost": 1,
+      "type": "Shadowmark Talon – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "TARGET: One friendly unit. EFFECT: That unit is treated as being in the Tactical Doctrine, in addition to any other active Combat Doctrine, until the start of your next Command phase."
+    },
+    {
+      "id": "murderous-fusilade",
+      "name": "MURDEROUS FUSILADE",
+      "detachmentId": "shadowmark-talon",
+      "cpCost": 1,
+      "type": "Shadowmark Talon – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "TARGET: One friendly unit that made an Ingress move this turn. EFFECT: Add 1 to that unit's Ballistic Skill characteristic and 1 to the AP characteristic of its ranged weapons' attacks until the end of the phase."
+    },
+    {
+      "id": "into-darkness",
+      "name": "INTO DARKNESS",
+      "detachmentId": "shadowmark-talon",
+      "cpCost": 1,
+      "type": "Shadowmark Talon – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: End of your opponent's Fight phase. TARGET: One unengaged friendly ADEPTUS ASTARTES INFANTRY unit. EFFECT: Remove that unit from the battlefield and place it into Strategic Reserves."
+    },
+    {
+      "id": "lay-low-the-tyrants",
+      "name": "LAY LOW THE TYRANTS",
+      "detachmentId": "shadowmark-talon",
+      "cpCost": 1,
+      "type": "Shadowmark Talon – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "TARGET: One friendly INFANTRY unit. EFFECT: That unit's melee attacks have the [PRECISION] ability until the end of the phase."
+    },
+    {
+      "id": "suppressed-weapons",
+      "name": "SUPPRESSED WEAPONS",
+      "detachmentId": "shadowmark-talon",
+      "cpCost": 1,
+      "type": "Shadowmark Talon – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "TARGET: One friendly ADEPTUS ASTARTES INFANTRY unit that has shot this phase. EFFECT: That unit's attack does not prevent it from being eligible to remain Hidden (per this Detachment's Masters of Shadow Stealth benefit) this turn."
+    },
+    {
+      "id": "blazing-earth",
+      "name": "BLAZING EARTH",
+      "detachmentId": "forgefathers-seekers",
+      "cpCost": 1,
+      "type": "Forgefather's Seekers – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Charge phase",
+      "description": "WHEN: Start of your opponent's Charge phase. TARGET: One enemy unit within 12\" of a friendly [TORRENT] or [MELTA]-equipped ADEPTUS ASTARTES unit. EFFECT: Subtract 1 from Charge rolls for that enemy unit this phase."
+    },
+    {
+      "id": "forged-in-fire",
+      "name": "FORGED IN FIRE",
+      "detachmentId": "forgefathers-seekers",
+      "cpCost": 1,
+      "type": "Forgefather's Seekers – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "WHEN: Your Shooting phase, when an engaged friendly ADEPTUS ASTARTES unit is selected to shoot. TARGET: That unit. EFFECT: Until the end of the phase, remove the [BLAST] ability from that unit's ranged attacks, and give them the [CLOSE-QUARTERS] ability and +1 Attacks."
+    },
+    {
+      "id": "burning-vengeance",
+      "name": "BURNING VENGEANCE",
+      "detachmentId": "forgefathers-seekers",
+      "cpCost": 1,
+      "type": "Forgefather's Seekers – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Shooting phase",
+      "description": "WHEN: Your opponent's Shooting phase, when a friendly ADEPTUS ASTARTES TRANSPORT unit is targeted by an attack. TARGET: One friendly unit embarked within that TRANSPORT. EFFECT: That unit can disembark and shoot at the enemy unit that targeted the transport, using normal Shooting-phase rules."
+    },
+    {
+      "id": "immolation-protocols",
+      "name": "IMMOLATION PROTOCOLS",
+      "detachmentId": "forgefathers-seekers",
+      "cpCost": 1,
+      "type": "Forgefather's Seekers – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to attack. EFFECT: That unit's [TORRENT] weapons have +1 to their AP characteristic until the end of the phase."
+    },
+    {
+      "id": "crucible-of-battle",
+      "name": "CRUCIBLE OF BATTLE",
+      "detachmentId": "forgefathers-seekers",
+      "cpCost": 1,
+      "type": "Forgefather's Seekers – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase or Fight phase",
+      "description": "WHEN: Your Shooting phase or the Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to attack an enemy unit within 6\". TARGET: That unit. EFFECT: That unit can re-roll Hit rolls of 1 and Wound rolls of 1 this phase."
+    },
+    {
+      "id": "wrath-and-ruin",
+      "name": "WRATH AND RUIN",
+      "detachmentId": "forgefathers-seekers",
+      "cpCost": 1,
+      "type": "Forgefather's Seekers – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "TARGET: One friendly ADEPTUS ASTARTES INFANTRY unit. EFFECT: That unit gains the benefit of the Assault Doctrine or the Tactical Doctrine (your choice) that turn."
+    },
+    {
+      "id": "augmented-targeting",
+      "name": "AUGMENTED TARGETING",
+      "detachmentId": "ceramite-sentinels",
+      "cpCost": 1,
+      "type": "Ceramite Sentinels – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase or Fight phase",
+      "description": "TARGET: One friendly unit selected to shoot or fight. EFFECT: That unit's attacks gain the [LETHAL HITS] or [SUSTAINED HITS 1] ability (your choice) until the end of the phase; if that unit is Entrenched, it gains both."
+    },
+    {
+      "id": "priority-strike",
+      "name": "PRIORITY STRIKE",
+      "detachmentId": "ceramite-sentinels",
+      "cpCost": 1,
+      "type": "Ceramite Sentinels – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase or Fight phase",
+      "description": "TARGET: One friendly INFANTRY or MOUNTED unit selected to shoot or fight, targeting a MONSTER or VEHICLE unit. EFFECT: Add 1 to Wound rolls for that unit's attacks against that target this phase."
+    },
+    {
+      "id": "establish-supremacy",
+      "name": "ESTABLISH SUPREMACY",
+      "detachmentId": "ceramite-sentinels",
+      "cpCost": 1,
+      "type": "Ceramite Sentinels – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: An Entrenched friendly unit consolidates in the Fight phase. EFFECT: That unit can make an Objective Control-consolidation move even if it is within Engagement Range of one or more enemy units."
+    },
+    {
+      "id": "stand-to-the-end",
+      "name": "STAND TO THE END",
+      "detachmentId": "ceramite-sentinels",
+      "cpCost": 1,
+      "type": "Ceramite Sentinels – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Shooting phase or the Fight phase",
+      "description": "TARGET: One friendly non-MONSTER, non-VEHICLE unit under attack. EFFECT: Subtract 1 from Wound rolls for attacks with a Strength characteristic greater than that unit's Toughness this phase; if that unit is Entrenched, subtract 1 from all Wound rolls that target it this phase instead."
+    },
+    {
+      "id": "evasive-repositioning",
+      "name": "EVASIVE REPOSITIONING",
+      "detachmentId": "ceramite-sentinels",
+      "cpCost": 1,
+      "type": "Ceramite Sentinels – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Shooting phase",
+      "description": "WHEN: An unengaged friendly INFANTRY or MOUNTED unit loses a wound as a result of an enemy ranged attack. EFFECT: That unit can make a Normal move of up to D6\" (or D3+3\" if it is Entrenched)."
+    },
+    {
+      "id": "unyielding-might",
+      "name": "UNYIELDING MIGHT",
+      "detachmentId": "ceramite-sentinels",
+      "cpCost": 1,
+      "type": "Ceramite Sentinels – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Any phase",
+      "description": "TARGET: One friendly unit on an objective marker. EFFECT: Add 1 to that unit's Objective Control characteristic until the end of the turn."
+    },
+    {
+      "id": "angels-defiant",
+      "name": "ANGELS DEFIANT",
+      "detachmentId": "fist-of-the-god-emperor",
+      "cpCost": 1,
+      "type": "Fist of the God-Emperor – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Any phase",
+      "description": "WHEN: An enemy unit targets a friendly CRUSADER SQUAD unit with an attack whose Strength characteristic is greater than that unit's Toughness. EFFECT: Subtract 1 from the Wound roll for that attack until the end of the phase."
+    },
+    {
+      "id": "avowed-destruction",
+      "name": "AVOWED DESTRUCTION",
+      "detachmentId": "fist-of-the-god-emperor",
+      "cpCost": 1,
+      "type": "Fist of the God-Emperor – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "TARGET: One friendly CRUSADER SQUAD unit. EFFECT: That unit's melee attacks gain the [LETHAL HITS] or [SUSTAINED HITS 1] ability (your choice) until the end of the phase."
+    },
+    {
+      "id": "doctrinal-flexibility",
+      "name": "DOCTRINAL FLEXIBILITY",
+      "detachmentId": "fist-of-the-god-emperor",
+      "cpCost": 1,
+      "type": "Fist of the God-Emperor – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Command phase",
+      "description": "TARGET: One friendly CRUSADER SQUAD unit. EFFECT: That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase."
+    },
+    {
+      "id": "blackstar-extraction",
+      "name": "BLACKSTAR EXTRACTION",
+      "detachmentId": "deathwatch-support",
+      "cpCost": 1,
+      "type": "Deathwatch Support – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: End of your opponent's Fight phase. TARGET: One unengaged friendly KILL TEAM unit. EFFECT: Remove that unit from the battlefield and place it into Strategic Reserves."
+    },
+    {
+      "id": "dragonfire-rounds-deathwatch-support",
+      "name": "DRAGONFIRE ROUNDS",
+      "detachmentId": "deathwatch-support",
+      "cpCost": 1,
+      "type": "Deathwatch Support – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "TARGET: One friendly KILL TEAM unit. EFFECT: That unit's ranged attacks can re-roll Wound rolls of 1 and have the [IGNORES COVER] ability until the end of the phase."
+    },
+    {
+      "id": "hellfire-rounds-deathwatch-support",
+      "name": "HELLFIRE ROUNDS",
+      "detachmentId": "deathwatch-support",
+      "cpCost": 1,
+      "type": "Deathwatch Support – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Shooting phase",
+      "description": "TARGET: One friendly KILL TEAM unit. EFFECT: That unit's ranged attacks (other than attacks made with weapons that have the [DEVASTATING WOUNDS] ability) have the [ANTI-NON-VEHICLE 4+] ability until the end of the phase."
+    },
+    {
+      "id": "evasive-manoeuvres",
+      "name": "EVASIVE MANOEUVRES",
+      "detachmentId": "spearpoint-task-force",
+      "cpCost": 1,
+      "type": "Spearpoint Task Force – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Shooting phase",
+      "description": "WHEN: Your opponent's Shooting phase, when a friendly MOUNTED or SPEEDER unit is targeted by a ranged attack. TARGET: That unit. EFFECT: Subtract 1 from Wound rolls for ranged attacks that target that unit for the rest of the phase."
+    },
+    {
+      "id": "flawless-riders",
+      "name": "FLAWLESS RIDERS",
+      "detachmentId": "spearpoint-task-force",
+      "cpCost": 1,
+      "type": "Spearpoint Task Force – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase or Charge phase",
+      "description": "TARGET: One friendly MOUNTED unit. EFFECT: That unit has the MOBILE ability until the end of the phase."
+    },
+    {
+      "id": "hunters-instincts-spearpoint-task-force",
+      "name": "HUNTER'S INSTINCTS",
+      "detachmentId": "spearpoint-task-force",
+      "cpCost": 1,
+      "type": "Spearpoint Task Force – Battle Tactic Stratagem",
+      "turn": "Opponent's turn",
+      "phase": "Opponent's Movement phase",
+      "description": "WHEN: An enemy unit ends a move within 8\" of a friendly INFANTRY, MOUNTED or SPEEDER unit. EFFECT: That friendly unit can make a Normal move of up to D3+3\"."
+    },
+    {
+      "id": "mobile-lethality",
+      "name": "MOBILE LETHALITY",
+      "detachmentId": "spearpoint-task-force",
+      "cpCost": 1,
+      "type": "Spearpoint Task Force – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Movement phase",
+      "description": "WHEN: A friendly unit makes an Advance or Fall Back move. TARGET: That unit. EFFECT: That unit's ranged weapons have the [ASSAULT] ability, and that unit remains eligible to shoot this phase even though it Fell Back, until the end of the phase."
+    },
+    {
+      "id": "spear-thrust-and-sabre-swing",
+      "name": "SPEAR THRUST AND SABRE SWING",
+      "detachmentId": "spearpoint-task-force",
+      "cpCost": 1,
+      "type": "Spearpoint Task Force – Battle Tactic Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: A friendly unit is selected to fight. TARGET: That unit. EFFECT: That unit gains the [LETHAL HITS] or [LANCE] ability (your choice) until the end of the phase; if that unit is MOUNTED, it gains both instead."
+    },
+    {
+      "id": "withdraw-and-regroup",
+      "name": "WITHDRAW AND REGROUP",
+      "detachmentId": "spearpoint-task-force",
+      "cpCost": 1,
+      "type": "Spearpoint Task Force – Strategic Ploy Stratagem",
+      "turn": "Your turn",
+      "phase": "Fight phase",
+      "description": "WHEN: End of your opponent's Fight phase. TARGET: One unengaged friendly MOUNTED or SPEEDER unit. EFFECT: Remove that unit from the battlefield and place it into Strategic Reserves."
     }
   ],
   "enhancements": [
@@ -3737,14 +3869,6 @@
         "requiresAttackerKeyword": "deathwing",
         "bearerOnly": true
       }
-    },
-    {
-      "id": "imperialis-of-the-eternal-crusade",
-      "name": "Imperialis of the Eternal Crusade",
-      "cost": 15,
-      "detachmentId": "vindication-task-force",
-      "detachmentName": "Vindication Task Force",
-      "description": "Ancient model only. Each time an enemy unit selects the bearer’s unit as a target of a charge, subtract 2 from the Charge roll (this is not cumulative with any olher negative modifiers to that Charge roll)."
     },
     {
       "id": "thief-of-secrets",
@@ -3781,20 +3905,6 @@
       ]
     },
     {
-      "id": "incendiary-animus",
-      "name": "Incendiary Animus",
-      "cost": 25,
-      "detachmentId": "companions-of-vehemence",
-      "detachmentName": "Companions of Vehemence",
-      "description": "Chaplain or Judiciar model only. Improve the Armour Penetration characteristic of melee weapons equipped by models in the bearer’s unit by 1.",
-      "effect": {
-        "effects": {
-          "apMod": 1
-        },
-        "combatType": "melee"
-      }
-    },
-    {
       "id": "tempered-in-battle-aura",
       "name": "Tempered in Battle (Aura)",
       "cost": 10,
@@ -3817,21 +3927,6 @@
       "detachmentId": "unforgiven-task-force",
       "detachmentName": "Unforgiven Task Force",
       "description": "<span class=\"kwb\">ADEPTUS ASTARTES</span> model only. (Once per battle, per army) When this model is destroyed, at the end of the phase, roll one D6:<ul><li>On a 2+, set up this model on the battlefield, unengaged and as close as possible to where it was destroyed. This model is not part of an attached unit and its unit has a starting strength of 1. This model has 3 wounds remaining, or its full wounds remaining if this model was battle-shocked when it was destroyed.</li></ul>"
-    },
-    {
-      "id": "paragon-of-fury",
-      "name": "Paragon of Fury",
-      "cost": 25,
-      "detachmentId": "godhammer-assault-force",
-      "detachmentName": "Godhammer Assault Force",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Add 2 to the Strength characteristic of melee weapons equipped by the bearer. Each time a melee attack made by the bearer is allocated to an enemy model, if the bearer disembarked from a Transport this turn, add 1 to the Damage characteristic of that attack.",
-      "effect": {
-        "effects": {
-          "strengthMod": 2
-        },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
     },
     {
       "id": "grimnars-mark",
@@ -3886,21 +3981,6 @@
         },
         "requiresAttackerKeyword": "jump pack",
         "bearerOnly": true
-      }
-    },
-    {
-      "id": "pyrebrand",
-      "name": "Pyrebrand",
-      "cost": 25,
-      "detachmentId": "wrathful-procession",
-      "detachmentName": "Wrathful Procession",
-      "description": "Black Templars model only. Models in the bearer’s unit have the Stealth ability.",
-      "effect": {
-        "effects": {
-          "hitMod": -1
-        },
-        "target": "defender",
-        "requiresTargetKeyword": "black templars"
       }
     },
     {
@@ -4065,28 +4145,6 @@
       "description": "Adeptus Astartes Jump Pack model only. In the Battle-shock step of your opponents Command phase, each enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) within Engagement Range of the bearer must take a Battle-shock test."
     },
     {
-      "id": "sacred-rage",
-      "name": "Sacred Rage",
-      "cost": 30,
-      "detachmentId": "wrathful-procession",
-      "detachmentName": "Wrathful Procession",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer’s unit have the Fights First ability."
-    },
-    {
-      "id": "consecrating-aura",
-      "name": "Consecrating Aura",
-      "cost": 25,
-      "detachmentId": "vindication-task-force",
-      "detachmentName": "Vindication Task Force",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Models in the bearer’s unit have a 5+ invulnerable save.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
-        },
-        "target": "defender"
-      }
-    },
-    {
       "id": "lord-of-the-hunt",
       "name": "Lord of the Hunt",
       "cost": 15,
@@ -4120,22 +4178,6 @@
       "description": "Death Company model only. The first time the bearer is destroyed, at the end of the phase, roll one D6: on a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining."
     },
     {
-      "id": "battle-psalm-precentor",
-      "name": "Battle-psalm Precentor",
-      "cost": 10,
-      "detachmentId": "godhammer-assault-force",
-      "detachmentName": "Godhammer Assault Force",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Each time the bearer’s unit declares a charge, if an enemy unit takes a Battle-shock test as a result of the Shock and Awe Detachment rule, subtract 1 from that Battle-shock test."
-    },
-    {
-      "id": "oathbound-exemplar",
-      "name": "Oathbound Exemplar",
-      "cost": 15,
-      "detachmentId": "companions-of-vehemence",
-      "detachmentName": "Companions of Vehemence",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> model only. Add 1 to Advance rolls made for the bearer’s unit. If the mission pack you are playing features Actions, the bearer’s unit is eligible to start to perform an Action in a turn in which it Advanced."
-    },
-    {
       "id": "master-of-the-red-thirst",
       "name": "Master of the Red Thirst",
       "cost": 25,
@@ -4152,34 +4194,12 @@
       "description": "Ravenwing model only. If the bearer’s unit starts the battle in Strategic Reserves, its points value does not count towards the combined points limit for units from your army that are in Strategic Reserve, and for the purposes of setting up that unit on the battlefield, treat the current battle round number as being one higher than it actually is."
     },
     {
-      "id": "orb-of-the-emperors-aegis",
-      "name": "Orb of the Emperor’s Aegis",
-      "cost": 10,
-      "detachmentId": "vindication-task-force",
-      "detachmentName": "Vindication Task Force",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Models in the bearer’s unit have the Deep Strike ability."
-    },
-    {
       "id": "blazing-icon",
       "name": "Blazing Icon",
       "cost": 20,
       "detachmentId": "angelic-inheritors",
       "detachmentName": "Angelic Inheritors",
       "description": "Adeptus Astartes Infantry model only. Enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer’s unit."
-    },
-    {
-      "id": "merciless-denunciation",
-      "name": "Merciless Denunciation",
-      "cost": 25,
-      "detachmentId": "companions-of-vehemence",
-      "detachmentName": "Companions of Vehemence",
-      "description": "Chaplain or Judiciar model only. Each time a model in the bearer’s unit makes a melee attack, you can re-roll the Hit roll.",
-      "effect": {
-        "effects": {
-          "rerollAllHits": true
-        },
-        "combatType": "melee"
-      }
     },
     {
       "id": "archangels-shard",
@@ -4263,20 +4283,6 @@
       "description": "Adeptus Astartes model only. Each time an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) within Engagement Range of the bearer’s unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle-shocked. When doing so, if that enemy unit is also Battle-shocked by other means, subtract 1 from each of those Desperate Escape tests."
     },
     {
-      "id": "augury-servo-host",
-      "name": "Augury Servo-host",
-      "cost": 15,
-      "detachmentId": "godhammer-assault-force",
-      "detachmentName": "Godhammer Assault Force",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. At the start of your Shooting phase, select one enemy unit within 12\" of and visible to the bearer. Until the end of the phase, models in that unit cannot have the Benefit of Cover.",
-      "effect": {
-        "effects": {
-          "bsMod": -1
-        },
-        "combatType": "ranged"
-      }
-    },
-    {
       "id": "to-slay-the-warmaster",
       "name": "To Slay the Warmaster",
       "cost": 15,
@@ -4299,14 +4305,6 @@
       "detachmentId": "saga-of-the-great-wolf",
       "detachmentName": "Saga of the Great Wolf",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. After both players have deployed their armies, select up to three <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
-    },
-    {
-      "id": "taramonds-censer",
-      "name": "Taramond’s Censer",
-      "cost": 15,
-      "detachmentId": "wrathful-procession",
-      "detachmentName": "Wrathful Procession",
-      "description": "Black Templars model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer’s unit must take a Battle-shock test. When doing so, subtract 1 from the result."
     },
     {
       "id": "beacon-angelis-space-marines",
@@ -4467,28 +4465,12 @@
       "description": "Watch Master or Captain model only. Once per battle, after you have selected your Oath of Moment target, the bearer can use this Enhancement. If it does, select a second enemy unit to be an Oath of Moment target.<br><br><b>Designer’s Note:</b> <i>This means that each time a model with the Oath of Moment ability makes an attack that targets either of your Oath of Moment targets, you can re-roll the Hit roll.</i>"
     },
     {
-      "id": "zealous-vanguard",
-      "name": "Zealous Vanguard",
-      "cost": 20,
-      "detachmentId": "companions-of-vehemence",
-      "detachmentName": "Companions of Vehemence",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. Models in the bearer’s unit have the Scouts 6\" ability."
-    },
-    {
       "id": "fulgus-magna",
       "name": "Fulgus Magna",
       "cost": 20,
       "detachmentId": "lions-blade-task-force",
       "detachmentName": "Lion’s Blade Task Force",
       "description": "Deathwing model only. Once per battle, at the end of your opponent’s turn, if the bearer’s unit is not within Engagement Range of one or more enemy units, the bearer can use this Enhancement. If it does, remove the bearer’s unit from the battlefield and place it into Strategic Reserves."
-    },
-    {
-      "id": "herald-of-sacred-slaughter",
-      "name": "Herald of Sacred Slaughter",
-      "cost": 15,
-      "detachmentId": "godhammer-assault-force",
-      "detachmentName": "Godhammer Assault Force",
-      "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. In the Declare Battle Formations step, if the bearer starts the battle embarked within a Dedicated Transport, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> has the Scouts 9\" ability."
     },
     {
       "id": "recon-hunter",
@@ -4641,29 +4623,6 @@
       }
     },
     {
-      "id": "warden-of-honour",
-      "name": "Warden of Honour",
-      "cost": 20,
-      "detachmentId": "vindication-task-force",
-      "detachmentName": "Vindication Task Force",
-      "description": "Crusade Ancient model only. While the bearer is leading a unit, each time you roll one D6 for the bearer’s Vengeful Exhortation ability, add 1 to the result."
-    },
-    {
-      "id": "benediction-of-fury",
-      "name": "Benediction of Fury",
-      "cost": 15,
-      "detachmentId": "wrathful-procession",
-      "detachmentName": "Wrathful Procession",
-      "description": "Chaplain model only. The bearer’s melee weapons have the [DEVASTATING WOUNDS] ability.",
-      "effect": {
-        "effects": {
-          "devastatingWoundsBonus": true
-        },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
-    },
-    {
       "id": "fervent-exemplars-upgrade",
       "name": "Fervent Exemplars Upgrade",
       "cost": 10,
@@ -4678,44 +4637,6 @@
       "detachmentId": "marshals-household",
       "detachmentName": "Marshal's Household",
       "description": "<span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit only. This unit has the Fights First ability."
-    },
-    {
-      "id": "guiding-omens",
-      "name": "Guiding Omens",
-      "cost": 15,
-      "detachmentId": "the-living-miracle",
-      "detachmentName": "The Living Miracle",
-      "description": "<span class=\"kwb\">EMPEROR'S CHAMPION</span> model only. At the start of the first battle round, you can select up to three of the following abilities. This model has those abilities until the end of the battle:<br><ul><li><b>Instrument of the God-Emperor</b> (Once per battle, per army): In the Fight phase, when this unit is selected to fight, if this unit is engaged with an enemy <span class=\"kwb\">CHARACTER</span> unit, you can use this ability. If you do, this model's melee attacks have [DEVASTATING WOUNDS].</li><li><b>Foreseen Paths of the Unholy:</b> This unit has 3\" detection range.</li><li><b>Vision of Momentous Brutality:</b> This model's melee attacks have +2 A.</li><li><b>Augury of Retribution:</b> Melee attacks that target this unit have [HAZARDOUS].</li><li><b>Omen of Sacred Intervention:</b> When you target this unit with the Heroic Intervention Stratagem, that use costs 1 CP less (to a minimum of 0 CP).</li><li><b>Harbinger of Judgement:</b> When an enemy unit (excluding <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> units) engaged with this model is selected to make a Fall Back move, roll one D6: on a 2+, that enemy unit suffers D6 mortal wounds.</li></ul>",
-      "effect": {
-        "effects": {
-          "attacksMod": 2
-        },
-        "combatType": "melee",
-        "bearerOnly": true
-      }
-    },
-    {
-      "id": "adaptable-executioner",
-      "name": "Adaptable Executioner",
-      "cost": 20,
-      "detachmentId": "wrathful-procession",
-      "detachmentName": "Wrathful Procession",
-      "description": "<span class=\"kwb\">EXECRATOR</span> model only. When this unit is selected to fight, this model's melee attacks have [CLEAVE 1] or [PRECISION] (your choice each time).",
-      "options": [
-        {
-          "name": "Cleave 1",
-          "effect": {
-            "effects": {
-              "cleaveBonus": 1
-            },
-            "combatType": "melee",
-            "bearerOnly": true
-          }
-        },
-        {
-          "name": "Precision"
-        }
-      ]
     },
     {
       "id": "blood-boil",
@@ -5137,6 +5058,223 @@
       "cost": 0,
       "detachmentId": "ironstorm-spearhead",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">VEHICLE</span> unit only (excluding <span class=\"kwb\">DEDICATED TRANSPORT</span>/<span class=\"kwb\">FLY</span>/<span class=\"kwb\">WALKER</span> units). This unit's ranged attacks have [HEAVY]."
+    },
+    {
+      "id": "adept-of-the-omnissiah-medusas-wrath",
+      "name": "Adept of the Omnissiah",
+      "cost": 25,
+      "detachmentId": "medusas-wrath",
+      "description": "TECHMARINE model only. Once per battle, in either player's turn, you can select one friendly VEHICLE unit within 6\" of the bearer that is the target of one or more enemy attacks. That unit has the Feel No Pain 5+ ability until the end of that phase."
+    },
+    {
+      "id": "master-of-the-machine-war",
+      "name": "Master of the Machine War",
+      "cost": 25,
+      "detachmentId": "medusas-wrath",
+      "description": "ADEPTUS ASTARTES model only. Once per battle, in your Command phase, select one friendly VEHICLE unit within 6\" of the bearer. That unit gains the benefit of the Devastator Doctrine or the Tactical Doctrine (your choice) until the start of your next Command phase."
+    },
+    {
+      "id": "target-augury-web",
+      "name": "Target Augury Web",
+      "cost": 30,
+      "detachmentId": "medusas-wrath",
+      "description": "TECHMARINE model only. Once per battle, in your Command phase, select one friendly VEHICLE unit within 3\" of the bearer. That unit's attacks have the [LETHAL HITS] ability until the start of your next Command phase."
+    },
+    {
+      "id": "the-flesh-is-weak-medusas-wrath",
+      "name": "The Flesh is Weak",
+      "cost": 15,
+      "detachmentId": "medusas-wrath",
+      "description": "CHARACTER model only. This model has +1 to its Toughness characteristic and the Feel No Pain 5+ ability."
+    },
+    {
+      "id": "augury-servo-host-vow-sworn-crusaders",
+      "name": "Augury Servo-host",
+      "cost": 20,
+      "detachmentId": "vow-sworn-crusaders",
+      "description": "In your Shooting phase, select one visible enemy unit within 18\" of the bearer. That unit is not eligible to receive the Benefit of Cover until the end of the phase."
+    },
+    {
+      "id": "consecrating-aura-vow-sworn-crusaders",
+      "name": "Consecrating Aura",
+      "cost": 20,
+      "detachmentId": "vow-sworn-crusaders",
+      "description": "The bearer's unit has a 5+ invulnerable save."
+    },
+    {
+      "id": "incendiary-animus-vow-sworn-crusaders",
+      "name": "Incendiary Animus",
+      "cost": 25,
+      "detachmentId": "vow-sworn-crusaders",
+      "description": "CHAPLAIN or JUDICIAR model only. Add 1 to the Strength characteristic of the bearer's unit's melee weapons."
+    },
+    {
+      "id": "zealous-vanguard-vow-sworn-crusaders",
+      "name": "Zealous Vanguard",
+      "cost": 25,
+      "detachmentId": "vow-sworn-crusaders",
+      "description": "The bearer's unit has the Scouts 6\" ability."
+    },
+    {
+      "id": "armour-of-antoninus",
+      "name": "Armour of Antoninus",
+      "cost": 15,
+      "detachmentId": "blade-of-ultramar",
+      "description": "The bearer has a 2+ Save characteristic and the Feel No Pain 5+ ability."
+    },
+    {
+      "id": "oath-of-macragge",
+      "name": "Oath of Macragge",
+      "cost": 20,
+      "detachmentId": "blade-of-ultramar",
+      "description": "Add 1 to the Strength and Attacks characteristics of the bearer's melee weapons; while the Assault Doctrine is active, add 2 instead."
+    },
+    {
+      "id": "student-of-the-codex",
+      "name": "Student of the Codex",
+      "cost": 20,
+      "detachmentId": "blade-of-ultramar",
+      "description": "CAPTAIN model only. The bearer's unit is treated as being in the Tactical Doctrine in addition to any other active Doctrine."
+    },
+    {
+      "id": "veteran-of-behemoth",
+      "name": "Veteran of Behemoth",
+      "cost": 20,
+      "detachmentId": "blade-of-ultramar",
+      "description": "The bearer's unit's ranged weapons have the [SUSTAINED HITS 1] ability."
+    },
+    {
+      "id": "blackwing-shroud",
+      "name": "Blackwing Shroud",
+      "cost": 25,
+      "detachmentId": "shadowmark-talon",
+      "description": "INFANTRY model only. The bearer's unit has the Infiltrators ability."
+    },
+    {
+      "id": "coronal-susurrant",
+      "name": "Coronal Susurrant",
+      "cost": 30,
+      "detachmentId": "shadowmark-talon",
+      "description": "PHOBOS model only. While an enemy unit (excluding MONSTER and VEHICLE units) is within Engagement Range of the bearer's unit, that enemy unit's controlling player cannot use Stratagems on it."
+    },
+    {
+      "id": "umbral-raptor",
+      "name": "Umbral Raptor",
+      "cost": 15,
+      "detachmentId": "shadowmark-talon",
+      "description": "The bearer has the Fights First and Lone Operative abilities."
+    },
+    {
+      "id": "hunters-instincts-shadowmark-talon",
+      "name": "Hunter's Instincts",
+      "cost": 25,
+      "detachmentId": "shadowmark-talon",
+      "description": "In your first Movement phase, the bearer's unit can make an Ingress move."
+    },
+    {
+      "id": "adamantine-mantle-forgefathers-seekers",
+      "name": "Adamantine Mantle",
+      "cost": 20,
+      "detachmentId": "forgefathers-seekers",
+      "description": "ADEPTUS ASTARTES model only. Attacks that are allocated to the bearer have -1 to their Damage characteristic (to a minimum of 1)."
+    },
+    {
+      "id": "forged-in-battle",
+      "name": "Forged in Battle",
+      "cost": 25,
+      "detachmentId": "forgefathers-seekers",
+      "description": "ADEPTUS ASTARTES model only. The bearer's unit's attacks can ignore any or all modifiers to Ballistic Skill, Weapon Skill and Hit rolls."
+    },
+    {
+      "id": "immolator-forgefathers-seekers",
+      "name": "Immolator",
+      "cost": 20,
+      "detachmentId": "forgefathers-seekers",
+      "description": "ADEPTUS ASTARTES model only. Add 1 to the Attacks characteristic of the bearer's unit's [TORRENT] weapons."
+    },
+    {
+      "id": "war-tempered-artifice",
+      "name": "War Tempered Artifice",
+      "cost": 25,
+      "detachmentId": "forgefathers-seekers",
+      "description": "ADEPTUS ASTARTES model only. Add 1 to the Strength and Damage characteristics of the bearer's melee weapons."
+    },
+    {
+      "id": "castellum-omnivox",
+      "name": "Castellum Omnivox",
+      "cost": 15,
+      "detachmentId": "ceramite-sentinels",
+      "description": "The bearer's unit can perform Actions in a phase in which it Advanced or Fell Back."
+    },
+    {
+      "id": "defensive-mastery",
+      "name": "Defensive Mastery",
+      "cost": 25,
+      "detachmentId": "ceramite-sentinels",
+      "description": "Once per battle, in your Movement phase, you can redeploy up to 3 friendly ADEPTUS ASTARTES INFANTRY units, including into Strategic Reserves."
+    },
+    {
+      "id": "honour-indefatigable",
+      "name": "Honour Indefatigable",
+      "cost": 25,
+      "detachmentId": "ceramite-sentinels",
+      "description": "GRAVIS model only. If the bearer is destroyed, roll one D6 at the end of that phase: on a 2+, return the bearer to its unit with 3 wounds remaining."
+    },
+    {
+      "id": "spy-skull-data-link",
+      "name": "Spy-skull Data Link",
+      "cost": 20,
+      "detachmentId": "ceramite-sentinels",
+      "description": "The bearer's unit's ranged weapons have the [IGNORES COVER] ability."
+    },
+    {
+      "id": "oathbound-exemplar-fist-of-the-god-emperor",
+      "name": "Oathbound Exemplar",
+      "cost": 10,
+      "detachmentId": "fist-of-the-god-emperor",
+      "description": "INFANTRY model only. The bearer's unit can Advance or Fall Back and still perform an Action that phase."
+    },
+    {
+      "id": "righteous-fervour",
+      "name": "Righteous Fervour",
+      "cost": 15,
+      "detachmentId": "fist-of-the-god-emperor",
+      "description": "Upgrade enhancement. CRUSADER SQUAD unit only. That unit can re-roll Advance rolls."
+    },
+    {
+      "id": "beacon-angelis-deathwatch-support",
+      "name": "Beacon Angelis",
+      "cost": 25,
+      "detachmentId": "deathwatch-support",
+      "description": "The bearer's unit has the Deep Strike ability, and can use the Rapid Ingress Stratagem for 1CP less (to a minimum of 0CP)."
+    },
+    {
+      "id": "chogorian-huntmaster",
+      "name": "Chogorian Huntmaster",
+      "cost": 20,
+      "detachmentId": "spearpoint-task-force",
+      "description": "Upgrade enhancement. Each time the bearer's unit makes an Ingress move, treat the current Battle Round number as 1 higher than it actually is for the purposes of that move."
+    },
+    {
+      "id": "hunters-eye",
+      "name": "Hunter's Eye",
+      "cost": 25,
+      "detachmentId": "spearpoint-task-force",
+      "description": "The bearer's unit's ranged weapons have the [IGNORES COVER] and [SUSTAINED HITS 1] abilities."
+    },
+    {
+      "id": "spearpoint-paragon",
+      "name": "Spearpoint Paragon",
+      "cost": 25,
+      "detachmentId": "spearpoint-task-force",
+      "description": "Add 1 to the Strength and Armour Penetration characteristics of the bearer's melee weapons; if the bearer's unit made a Charge move this turn, add 2 instead."
+    },
+    {
+      "id": "stormseers-wisdom",
+      "name": "Stormseer's Wisdom",
+      "cost": 15,
+      "detachmentId": "spearpoint-task-force",
+      "description": "The bearer's unit can re-roll Advance rolls."
     }
   ],
   "datasheets": [
