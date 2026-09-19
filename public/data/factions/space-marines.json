@@ -5365,7 +5365,7 @@
         {
           "line": 1,
           "name": "Death Company Dreadnought",
-          "M": "8\"",
+          "M": "10\"",
           "T": 10,
           "Sv": "2+",
           "invSv": "-",
@@ -5456,39 +5456,26 @@
           "bsWs": "3",
           "S": 12,
           "AP": -2,
-          "D": "3",
+          "D": "D3+3",
           "rules": {
             "isTwinLinked": true
           }
         },
         {
           "line": 6,
-          "name": "Blood talons - strike",
+          "name": "Blood talons",
           "description": "twin-linked",
           "range": "Melee",
           "type": "Melee",
-          "A": "6",
+          "A": "7",
           "bsWs": "3",
-          "S": 12,
+          "S": 10,
           "AP": -2,
-          "D": "3",
+          "D": "2",
           "rules": {
-            "isTwinLinked": true
-          }
-        },
-        {
-          "line": 7,
-          "name": "Blood talons - sweep",
-          "description": "twin-linked",
-          "range": "Melee",
-          "type": "Melee",
-          "A": "10",
-          "bsWs": "3",
-          "S": 7,
-          "AP": -2,
-          "D": "1",
-          "rules": {
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "cleaveValue": 2,
+            "sustainedHitsValue": 1
           }
         }
       ],
@@ -5532,7 +5519,7 @@
         {
           "id": "driven-by-fury",
           "name": "Driven by Fury",
-          "description": "In your opponent’s Shooting phase, when an enemy unit has shot, if this model lost a wound as a result of those attacks, this unit can make a surge move of up to D6+2\".",
+          "description": "In your opponent's Shooting phase, when an enemy unit has shot, if this model lost a wound as a result of those attacks, this unit can make a surge move of up to D6+1\".",
           "type": "Datasheet"
         }
       ],
@@ -5792,7 +5779,7 @@
           "description": "ASSAULT, IGNORES COVER, TORRENT",
           "range": "18",
           "type": "Ranged",
-          "A": "D6+3",
+          "A": "6",
           "bsWs": "N/A",
           "S": 6,
           "AP": -2,
@@ -5800,7 +5787,8 @@
           "rules": {
             "isTorrent": true,
             "isIgnoresCover": true,
-            "isAssault": true
+            "isAssault": true,
+            "isBlast": true
           }
         },
         {
@@ -5816,7 +5804,8 @@
           "D": "2",
           "rules": {
             "sustainedHitsValue": 1,
-            "isAssault": true
+            "isAssault": true,
+            "rapidFireValue": "2"
           }
         },
         {
@@ -5825,7 +5814,7 @@
           "description": "assault, ignores cover, torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 5,
           "AP": -1,
@@ -5833,7 +5822,8 @@
           "rules": {
             "isTorrent": true,
             "isIgnoresCover": true,
-            "isAssault": true
+            "isAssault": true,
+            "isBlast": true
           }
         },
         {
@@ -5875,12 +5865,12 @@
           "A": "6",
           "bsWs": "3",
           "S": 6,
-          "AP": 0,
+          "AP": -2,
           "D": "1",
           "rules": {
-            "isDevastatingWounds": true,
             "isTwinLinked": true,
-            "isAssault": true
+            "isAssault": true,
+            "sustainedHitsValue": 1
           }
         },
         {
@@ -11920,7 +11910,7 @@
           "line": 1,
           "name": "Blood Claws",
           "M": "7\"",
-          "T": 4,
+          "T": 5,
           "Sv": "3+",
           "invSv": "-",
           "W": 2,
@@ -11938,7 +11928,7 @@
           "type": "Ranged",
           "A": "1",
           "bsWs": "3",
-          "S": 4,
+          "S": 5,
           "AP": 0,
           "D": "1",
           "rules": {
@@ -11984,7 +11974,7 @@
           "type": "Melee",
           "A": "4",
           "bsWs": "3",
-          "S": 4,
+          "S": 5,
           "AP": -1,
           "D": "1",
           "rules": {}
@@ -12290,7 +12280,7 @@
           "line": 1,
           "name": "Grey Hunters",
           "M": "7\"",
-          "T": 4,
+          "T": 5,
           "Sv": "3+",
           "invSv": "-",
           "W": 2,
@@ -12306,10 +12296,10 @@
           "description": "rapid fire 1",
           "range": "24",
           "type": "Ranged",
-          "A": "2",
+          "A": "3",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
             "rapidFireValue": "1"
@@ -12369,7 +12359,7 @@
           "type": "Melee",
           "A": "4",
           "bsWs": "3",
-          "S": 4,
+          "S": 5,
           "AP": -1,
           "D": "1",
           "rules": {}
@@ -12411,7 +12401,7 @@
         {
           "id": "cunning-hunters",
           "name": "Cunning Hunters",
-          "description": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead.",
+          "description": "While this unit is within range of an objective marker, melee attacks made by models in this unit have +1 to their Strength and Armour Penetration characteristics.",
           "type": "Datasheet",
           "options": [
             {
@@ -12431,6 +12421,11 @@
               }
             }
           ]
+        },
+        {
+          "id": "old-greymanes",
+          "name": "Old Greymanes",
+          "description": "During the Declare Battle Formations step, you can split this unit into two units of five models."
         }
       ],
       "keywords": [
@@ -12720,7 +12715,7 @@
           "description": "pistol, torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 4,
           "AP": -1,
@@ -13153,7 +13148,7 @@
           "description": "assault, blast",
           "range": "12",
           "type": "Ranged",
-          "A": "D3",
+          "A": "2",
           "bsWs": "4",
           "S": 4,
           "AP": 0,
@@ -13488,7 +13483,7 @@
           "description": "ignores cover, torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 5,
           "AP": -1,
@@ -13506,8 +13501,8 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
             "rapidFireValue": "2"
@@ -13553,12 +13548,6 @@
           "id": "curse-of-the-wulfen",
           "name": "Curse of the Wulfen",
           "description": "While this unit is within 6\" of one or more friendly Space Wolves Character models (excluding Wulfen models) or within 12\" of one or more friendly Wolf Priest models, if it is not Battle-shocked, add 1 to the Objective Control characteristic of Infantry models in it and add 3 to the Objective Control characteristic of Vehicle models in it.",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -14169,7 +14158,7 @@
           "line": 1,
           "name": "Wolf Guard Terminators",
           "M": "6\"",
-          "T": 5,
+          "T": 6,
           "Sv": "2+",
           "invSv": "4",
           "W": 3,
@@ -14243,7 +14232,7 @@
           "type": "Melee",
           "A": "3",
           "bsWs": "3",
-          "S": 7,
+          "S": 8,
           "AP": -2,
           "D": "3",
           "rules": {
@@ -14694,7 +14683,7 @@
         {
           "id": "thunderous-charge",
           "name": "Thunderous Charge",
-          "description": "Each time a model in this unit makes a melee attack with its Wolf Guard weapon, if it made a Charge move this turn, add 1 to the Damage characteristic of that attack.",
+          "description": "Each time a model in this unit makes a melee attack with its Wolf Guard weapon, if it made a Charge move this turn, add 1 to the Strength characteristic and add 1 to the Damage characteristic of that attack.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -15712,12 +15701,12 @@
           "range": "Melee",
           "type": "Melee",
           "A": "3",
-          "bsWs": "4",
+          "bsWs": "3",
           "S": 7,
           "AP": -2,
           "D": "2",
           "rules": {
-            "sustainedHitsValue": 1
+            "cleaveValue": 1
           }
         },
         {
@@ -20020,7 +20009,7 @@
         {
           "id": "indomitor-doctrines",
           "name": "Indomitor Doctrines",
-          "description": "Each time a model in this unit makes a ranged attack that targets the closest eligible target, or makes a melee attack in a turn in which it made a Charge move, improve the Strength characteristic of that attack by 2.",
+          "description": "Each time a model in this unit makes a ranged attack that targets the closest eligible target, or makes a melee attack in a turn in which it made a Charge move, improve the Strength characteristic of that attack by 1.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -20383,15 +20372,16 @@
           "description": "blast, heavy, rapid fire d3",
           "range": "18",
           "type": "Ranged",
-          "A": "D3",
+          "A": "2",
           "bsWs": "4",
           "S": 7,
-          "AP": -1,
+          "AP": -2,
           "D": "2",
           "rules": {
             "isBlast": true,
             "isHeavy": true,
-            "rapidFireValue": "D3"
+            "rapidFireValue": "1",
+            "isLethalHits": true
           }
         },
         {
@@ -25438,7 +25428,7 @@
           "type": "Melee",
           "A": "6",
           "bsWs": "2",
-          "S": 4,
+          "S": 5,
           "AP": -1,
           "D": "1",
           "rules": {
@@ -25470,7 +25460,7 @@
           "bsWs": "3",
           "S": 8,
           "AP": -2,
-          "D": "2",
+          "D": "3",
           "rules": {
             "isDevastatingWounds": true
           }
@@ -26008,7 +25998,7 @@
         {
           "id": "righteous-zeal",
           "name": "Righteous Zeal",
-          "description": "In your opponent’s Shooting phase, each time an enemy unit has shot, if any models in this unit were destroyed as a result of those attacks, this unit can make a surge move of up to D6+2″.",
+          "description": "In your opponent's Shooting phase, each time an enemy unit has shot, if any models in this unit were destroyed as a result of those attacks, this unit can make a surge move of up to D6+1\".",
           "type": "Datasheet"
         },
         {
@@ -26349,10 +26339,10 @@
           "A": "6",
           "bsWs": "3",
           "S": 6,
-          "AP": 0,
+          "AP": -2,
           "D": "1",
           "rules": {
-            "isDevastatingWounds": true
+            "sustainedHitsValue": 1
           }
         },
         {
@@ -26377,7 +26367,7 @@
           "description": "torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 6,
           "AP": -1,
@@ -26407,12 +26397,12 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "3",
-          "S": 9,
-          "AP": -4,
-          "D": "D6",
+          "S": 10,
+          "AP": -3,
+          "D": "D3+2",
           "rules": {
             "isMelta": true,
-            "meltaValue": 2
+            "meltaValue": 3
           }
         },
         {
@@ -26453,7 +26443,7 @@
           "bsWs": "3",
           "S": 10,
           "AP": -2,
-          "D": "D6+1",
+          "D": "D3+3",
           "rules": {}
         },
         {
@@ -30421,13 +30411,13 @@
         {
           "id": "healing-balms",
           "name": "Healing Balms",
-          "description": "While this model is leading a unit, in your Command phase, you can return 1 destroyed model (excluding <span class=\"kwb\">CHARACTER</span> models) to that unit.",
+          "description": "While this model is leading a unit, in your Command phase, you can heal that unit D3+1 wounds, allocated as you choose.",
           "type": "Datasheet"
         },
         {
           "id": "litany-of-hate",
           "name": "Litany of Hate",
-          "description": "While this model is leading a unit, each time a model in that unit makes a melee attack, add 1 to the Wound roll.",
+          "description": "While this model is leading a unit, melee weapons equipped by models in that unit have the [LANCE] ability.",
           "type": "Datasheet",
           "effect": {
             "effects": {
@@ -30782,7 +30772,7 @@
           "line": 1,
           "name": "Wolf Guard Battle Leader",
           "M": "7\"",
-          "T": 4,
+          "T": 5,
           "Sv": "3+",
           "invSv": "4",
           "W": 5,
@@ -31361,7 +31351,7 @@
         {
           "id": "let-loose-the-wolves",
           "name": "Let Loose the Wolves",
-          "description": "At the start of the Declare Battle Formations step, split this unit into two units, one containing all of its <span class=\"kwb\">HEADTAKERS</span> models and one containing all of its <span class=\"kwb\">HUNTING</span> <span class=\"kwb\">WOLVES</span> models, with new Starting Strengths accordingly.",
+          "description": "At the start of the Declare Battle Formations step, you can choose to split this unit into two units, one containing all of its HEADTAKERS models and one containing all of its HUNTING WOLVES models, with new Starting Strengths based on the number of models in each.",
           "type": "Datasheet"
         },
         {
@@ -31706,7 +31696,7 @@
           "description": "assault, blast",
           "range": "12",
           "type": "Ranged",
-          "A": "D3",
+          "A": "2",
           "bsWs": "4",
           "S": 4,
           "AP": 0,
@@ -31724,18 +31714,35 @@
           "type": "Melee",
           "A": "2",
           "bsWs": "3",
-          "S": 5,
+          "S": 8,
           "AP": -2,
           "D": "3",
           "rules": {
+            "antiEntries": [],
+            "isDevastatingWounds": true
+          }
+        },
+        {
+          "line": 99,
+          "name": "Thunder hammer – hunter",
+          "description": "anti-monster, anti-vehicle",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "3",
+          "bsWs": "2",
+          "S": 8,
+          "AP": -3,
+          "D": "3",
+          "rules": {
+            "isDevastatingWounds": true,
             "antiEntries": [
               {
                 "keyword": "monster",
-                "threshold": 3
+                "threshold": 2
               },
               {
                 "keyword": "vehicle",
-                "threshold": 3
+                "threshold": 2
               }
             ]
           }
@@ -32079,7 +32086,7 @@
           "bsWs": "3",
           "S": 10,
           "AP": -2,
-          "D": "D6+1",
+          "D": "D3+3",
           "rules": {}
         },
         {
@@ -32143,7 +32150,7 @@
         {
           "id": "bestial-rage",
           "name": "Bestial Rage",
-          "description": "In your opponent’s Shooting phase, when an enemy unit has shot, if this model lost a wound as a result of those attacks, this unit can make a surge move of up to D6+2\".",
+          "description": "In your opponent's Shooting phase, when an enemy unit has shot, if this model lost a wound as a result of those attacks, this unit can make a surge move of up to D6+1\".",
           "type": "Datasheet"
         },
         {
@@ -34629,7 +34636,7 @@
           "description": "blast, heavy, lethal hits, rapid fire d3",
           "range": "18",
           "type": "Ranged",
-          "A": "D3",
+          "A": "2",
           "bsWs": "3",
           "S": 7,
           "AP": -2,
@@ -34638,7 +34645,7 @@
             "isBlast": true,
             "isLethalHits": true,
             "isHeavy": true,
-            "rapidFireValue": "D3"
+            "rapidFireValue": "1"
           }
         },
         {
@@ -34840,7 +34847,7 @@
           "bsWs": "3",
           "S": 5,
           "AP": -2,
-          "D": "2",
+          "D": "1",
           "rules": {
             "sustainedHitsValue": 1
           }
