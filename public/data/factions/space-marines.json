@@ -195,7 +195,7 @@
     {
       "id": "marshals-household",
       "name": "Marshal's Household",
-      "disposition": "",
+      "disposition": "PRIORITY ASSETS",
       "dp": 1,
       "chapters": [
         "Black Templars"
@@ -211,7 +211,7 @@
     {
       "id": "encarmine-speartip",
       "name": "Encarmine Speartip",
-      "disposition": "",
+      "disposition": "DISRUPTION",
       "dp": 1,
       "chapters": [
         "Blood Angels"
@@ -227,7 +227,7 @@
     {
       "id": "wrath-of-the-doomed",
       "name": "Wrath of the Doomed",
-      "disposition": "",
+      "disposition": "PURGE THE FOE",
       "dp": 1,
       "chapters": [
         "Blood Angels"
