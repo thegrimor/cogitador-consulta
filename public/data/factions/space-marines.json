@@ -46699,7 +46699,8 @@
           "AP": -1,
           "D": "1",
           "rules": {
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -46715,7 +46716,8 @@
           "D": "1",
           "rules": {
             "isTorrent": true,
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "isCloseQuarters": true
           }
         },
         {
