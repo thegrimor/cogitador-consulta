@@ -40817,7 +40817,7 @@
         },
         {
           "id": "zealous-fortitude",
-          "name": "Zealous Fortitude",
+          "name": "Recitation of Faith",
           "description": "This unit has Feel No Pain 4+ against mortal wounds.",
           "type": "Datasheet"
         },
@@ -41224,7 +41224,7 @@
           "A": "D3+3",
           "bsWs": "3",
           "S": 6,
-          "AP": -1,
+          "AP": -2,
           "D": "2",
           "rules": {
             "isDevastatingWounds": true,
@@ -42300,7 +42300,8 @@
           "AP": -1,
           "D": "2",
           "rules": {
-            "sustainedHitsValue": 1
+            "sustainedHitsValue": 1,
+            "rapidFireValue": "1"
           }
         },
         {
@@ -42311,8 +42312,8 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "2",
-          "S": 2,
-          "AP": -1,
+          "S": 6,
+          "AP": -2,
           "D": "3",
           "rules": {
             "antiEntries": [
@@ -42644,7 +42645,7 @@
         },
         {
           "id": "vivispectral-analysis-targeting",
-          "name": "Vivispectral Analysis Targeting",
+          "name": "Vivispectral Targeting Analysis",
           "description": "This unit's attacks have [LETHAL HITS: non-VEHICLE].",
           "type": "Datasheet"
         }
