@@ -49472,7 +49472,8 @@
           "AP": -1,
           "D": "1",
           "rules": {
-            "isDevastatingWounds": true
+            "isDevastatingWounds": true,
+            "sustainedHitsValue": 2
           }
         },
         {
@@ -49969,7 +49970,8 @@
           "D": "2",
           "rules": {
             "cleaveValue": 2,
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "sustainedHitsValue": 1
           }
         }
       ],
