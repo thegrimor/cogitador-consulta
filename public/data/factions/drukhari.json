@@ -7409,7 +7409,11 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st to 3rd units)",
+          "points": 70
+        },
+        {
+          "description": "1 model (4th + unit)",
           "points": 80
         }
       ],

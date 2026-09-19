@@ -5310,7 +5310,16 @@
         "dakka-dakka-dakka"
       ],
       "canBeLedBy": [],
-      "pointsCosts": [],
+      "pointsCosts": [
+        {
+          "description": "1 model (1st to 2nd units)",
+          "points": 60
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 70
+        }
+      ],
       "wargearCosts": []
     },
     {
@@ -5461,7 +5470,7 @@
           "points": 45
         },
         {
-          "description": "11 Gretchin",
+          "description": "20 Gretchin",
           "points": 80
         }
       ],
@@ -6267,12 +6276,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "10 models",
+          "description": "10 models (1st to 3rd units)",
           "points": 85
         },
         {
-          "description": "20 models",
+          "description": "20 models (1st to 3rd units)",
           "points": 170
+        },
+        {
+          "description": "10 models (4th + unit)",
+          "points": 95
+        },
+        {
+          "description": "20 models (4th + unit)",
+          "points": 180
         }
       ],
       "wargearCosts": []

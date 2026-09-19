@@ -11830,12 +11830,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st to 2nd units)",
           "points": 75
         },
         {
-          "description": "6 models",
+          "description": "6 models (1st to 2nd units)",
           "points": 150
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 85
+        },
+        {
+          "description": "6 models (3rd+ unit)",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -23685,11 +23693,21 @@
           "options": [
             {
               "name": "Hit roll",
-              "effect": { "effects": { "rerollOneHit": true }, "combatType": "ranged" }
+              "effect": {
+                "effects": {
+                  "rerollOneHit": true
+                },
+                "combatType": "ranged"
+              }
             },
             {
               "name": "Wound roll",
-              "effect": { "effects": { "rerollOneWound": true }, "combatType": "ranged" }
+              "effect": {
+                "effects": {
+                  "rerollOneWound": true
+                },
+                "combatType": "ranged"
+              }
             }
           ]
         }
@@ -24907,12 +24925,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 230
-        },
-        {
-          "description": "1 model (3rd+ unit)",
-          "points": 250
+          "description": "1 model",
+          "points": 260
         }
       ],
       "wargearCosts": [
@@ -38088,8 +38102,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 415
         }
       ],
       "wargearCosts": [],
@@ -38239,8 +38253,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -38420,8 +38434,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 115
         }
       ],
       "wargearCosts": [],
@@ -38602,8 +38616,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 115
         }
       ],
       "wargearCosts": [],
@@ -38782,8 +38796,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 115
         }
       ],
       "wargearCosts": [],
@@ -39097,8 +39111,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "6 models",
+          "points": 115
         }
       ],
       "wargearCosts": [],
@@ -39258,8 +39272,20 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models (1st-2nd units)",
+          "points": 120
+        },
+        {
+          "description": "6 models (1st-2nd units)",
+          "points": 250
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 150
+        },
+        {
+          "description": "6 models (3rd+ unit)",
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -39415,8 +39441,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -39553,8 +39579,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -39703,8 +39729,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -39869,8 +39895,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -40038,8 +40064,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -40218,8 +40244,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -40369,8 +40395,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -40533,8 +40559,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -40726,8 +40752,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -40907,8 +40933,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -41101,8 +41127,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -41332,8 +41358,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -41592,8 +41618,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -41791,8 +41817,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -42013,8 +42039,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -42235,8 +42261,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -42454,8 +42480,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -42710,8 +42736,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 50
         }
       ],
       "wargearCosts": [],
@@ -42893,8 +42919,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 40
         }
       ],
       "wargearCosts": [],
@@ -43073,8 +43099,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -43214,8 +43240,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -43363,8 +43389,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -43526,8 +43552,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -43681,8 +43707,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -43810,8 +43836,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 50
         }
       ],
       "wargearCosts": [],
@@ -44005,8 +44031,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -44224,8 +44250,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -44426,8 +44452,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -44613,8 +44639,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 40
         }
       ],
       "wargearCosts": [],
@@ -44753,8 +44779,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -44900,8 +44926,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -45060,8 +45086,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 55
         }
       ],
       "wargearCosts": [],
@@ -45210,8 +45236,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 45
         }
       ],
       "wargearCosts": [],
@@ -45342,8 +45368,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -45540,8 +45566,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "4 models (1st-2nd units)",
+          "points": 125
+        },
+        {
+          "description": "4 models (3rd+ unit)",
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -45850,8 +45880,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 85
+        },
+        {
+          "description": "10 models",
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -46072,8 +46106,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 85
+        },
+        {
+          "description": "10 models",
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -46290,8 +46328,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 95
+        },
+        {
+          "description": "10 models",
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -46463,8 +46505,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 110
+        },
+        {
+          "description": "10 models",
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -46661,8 +46707,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 115
+        },
+        {
+          "description": "10 models",
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -46871,8 +46921,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -47017,8 +47067,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 95
+        },
+        {
+          "description": "10 models",
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -47181,8 +47235,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 85
+        },
+        {
+          "description": "10 models",
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -47356,8 +47414,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models (1st-2nd units)",
+          "points": 90
+        },
+        {
+          "description": "6 models (1st-2nd units)",
+          "points": 180
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 110
+        },
+        {
+          "description": "6 models (3rd+ unit)",
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -47620,8 +47690,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 105
+        },
+        {
+          "description": "10 models",
+          "points": 210
         }
       ],
       "wargearCosts": [],
@@ -47853,8 +47927,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 110
+        },
+        {
+          "description": "10 models",
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -48018,8 +48096,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 90
+        },
+        {
+          "description": "10 models",
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -48203,8 +48285,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 85
+        },
+        {
+          "description": "10 models",
+          "points": 165
         }
       ],
       "wargearCosts": [],
@@ -48473,8 +48559,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 65
+        },
+        {
+          "description": "10 models",
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -48671,8 +48761,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models",
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -48883,8 +48973,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models",
+          "points": 80
+        },
+        {
+          "description": "6 models",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -49019,8 +49113,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models",
+          "points": 100
+        },
+        {
+          "description": "6 models",
+          "points": 215
         }
       ],
       "wargearCosts": [],
@@ -49218,8 +49316,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models",
+          "points": 100
+        },
+        {
+          "description": "6 models",
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -49400,8 +49502,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models",
+          "points": 90
+        },
+        {
+          "description": "6 models",
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -49581,8 +49687,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "3 models",
+          "points": 130
+        },
+        {
+          "description": "6 models",
+          "points": 260
         }
       ],
       "wargearCosts": [],
@@ -49835,11 +49945,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 190
+        },
+        {
+          "description": "10 models",
+          "points": 380
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Cyclone Missile Launcher",
+          "points": 10
+        }
+      ],
       "stratagemIds": [
         "responsive-tactics",
         "masterful-tactics",
@@ -49978,11 +50097,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "5 models",
+          "points": 170
+        },
+        {
+          "description": "10 models",
+          "points": 340
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Storm Shield and Thunder Hammer",
+          "points": 5
+        }
+      ],
       "stratagemIds": [
         "responsive-tactics",
         "masterful-tactics",
@@ -50159,11 +50287,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 65
+        },
+        {
+          "description": "2 models",
+          "points": 120
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Multi-melta",
+          "points": 5
+        }
+      ],
       "stratagemIds": [
         "responsive-tactics",
         "masterful-tactics",
@@ -50321,8 +50458,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -50577,8 +50714,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -50683,8 +50820,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -50822,8 +50959,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 80
+        },
+        {
+          "description": "2 models",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -51043,8 +51184,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -51269,8 +51410,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model (1st to 2nd units)",
+          "points": 255
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 275
         }
       ],
       "wargearCosts": [],
@@ -51485,8 +51630,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 245
         }
       ],
       "wargearCosts": [],
@@ -51704,8 +51849,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -51923,8 +52068,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 245
         }
       ],
       "wargearCosts": [],
@@ -52185,11 +52330,16 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 170
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Macro Plasma Incinerator",
+          "points": 10
+        }
+      ],
       "stratagemIds": [
         "adamantine-terror",
         "mercy-is-weakness",
@@ -52359,8 +52509,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -52575,8 +52725,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -52785,8 +52935,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -52964,8 +53114,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -53129,8 +53279,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -53304,8 +53454,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -53486,8 +53636,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -53628,8 +53778,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -53767,8 +53917,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 165
         }
       ],
       "wargearCosts": [],
@@ -53925,8 +54075,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "Sin puntos oficiales para esta edición del codex todavía",
-          "points": 0
+          "description": "1 model",
+          "points": 165
         }
       ],
       "wargearCosts": [],

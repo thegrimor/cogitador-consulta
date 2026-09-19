@@ -130,6 +130,56 @@ than assuming a unit that only appears to differ actually does (most units repea
 number in both passes; only some genuinely differ, and one — Exaction Squad — is actually
 *cheaper* as an Assigned Agent, so don't assume the ally price is always the higher one).
 
+**A full `pointsCosts` audit against the MFM (every non-Legends faction page, all 23 factions in
+`catalog/factions.json`) was run once, catching real bugs beyond the two above.** The recurring
+shapes, all worth checking for again on any future faction edit:
+- **A per-copy surcharge tier (the `"(2nd+ unit)"`-style split) silently missing entirely** —
+  the JSON has one flat price where the MFM has two (e.g. Adeptus Custodes' Allarus Custodians/
+  Vertus Praetors, Chaos Daemons' Fiends/Poxbringer/Contorted Epitome, Orks' Painboss/Beast Snagga
+  Boyz, several Chaos Space Marines squads also used by Chaos Daemons/Chaos Knights as allies).
+  This is the single most common bug shape found — always check whether the MFM shows one
+  "YOUR ... COST" block or two before trusting a single stored price.
+- **A titanic super-heavy off by roughly a missing leading digit** — Adeptus Titanicus' four
+  Titans, Aeldari's Revenant/Phantom Titan, and T'au's Manta were all stored at 1/10th to 1/20th
+  their real MFM cost (e.g. 100 stored vs. 1,100 actual). Sanity-check any suspiciously round,
+  suspiciously low price on a unit that fluffed-wise should cost a four-figure sum.
+- **A plain typo in the model-count label** — Orks' Gretchin was mislabeled "11 Gretchin" for
+  what both the points (80) and the MFM agree is a 20-model unit, which would silently break
+  `resolveModelCount`'s match for a 20-model roster entry.
+- **`space-marines.json`'s ~85 "core" datasheets from the PDF migration (see that migration's
+  README, referenced above) were still carrying the literal placeholder `pointsCosts` entry
+  `"Sin puntos oficiales para esta edición del codex todavía"` / `0` pts** — the PDF used for that
+  migration didn't include a points section. All of them now have real MFM values; the migration's
+  own README is stale on this point and should be treated as historical, not current. A same-named
+  datasheet that's chapter-locked (Blood Angels/Dark Angels/Space Wolves/Black Templars/
+  Deathwatch) is priced from that chapter's own MFM page, not the core `space-marines` one — check
+  `factionKeywords` for a chapter tag before assuming which page applies. Two space-marines.json
+  entries remain genuinely unresolved and are not bugs: `kaius-konorius` has no published points
+  anywhere on the MFM (current or Legends) — the placeholder is accurate, not stale, for now — and
+  `marneus-calgar` no longer matches any current-or-Legends MFM entry under that plain name (the
+  MFM only has "Marneus Calgar in Armour of Antilochus", a Legends-tagged variant with a different
+  loadout than what's stored) — this needs a content/identity check, not just a price swap, before
+  touching it.
+- **A cross-faction ally copy (an "Assigned Agent"-style datasheet duplicated verbatim into
+  another faction's own JSON, e.g. Genestealer Cults' `-genestealer-cults`-suffixed Astra
+  Militarum/Tyranids units, Chaos Knights'/Chaos Daemons' Chaos Space Marines allies, Drukhari's
+  Harlequin units now folded into the Aeldari book, Imperial Knights' Adeptus Mechanicus allies)
+  drifting out of sync with the source faction's own, correctly-updated copy** — verify against
+  the *actual* home faction's MFM page, not the borrowing faction's own (which usually doesn't
+  list the unit at all). Genestealer Cults' copies of ~25 Astra Militarum vehicles/squads
+  (Leman Russ variants, super-heavies, Chimera, Taurox, etc.) had drifted the furthest — stale
+  single prices with the tier split missing entirely, in some cases by 20-40 points.
+- A handful of "not found on this faction's own MFM page" hits are just a **plural/singular or
+  apostrophe-style name mismatch** with an already-correct price (Aeldari's "Vypers" vs. MFM's
+  "Vyper", Death Guard's "Myphitic Blight-hauler" vs. MFM's "-haulers", Orks' "Big'ed Bossbunka"
+  which only appears under the MFM page's "Show Legends" toggle at an unchanged price) — confirm
+  the price via a name-insensitive cross-check before treating these as bugs.
+- Enhancement/Stratagem/detachment-DP costs were spot-checked (Adeptus Custodes, all clean) but
+  not swept with the same rigor as datasheet `pointsCosts` — a dedicated pass here would need a
+  parser that normalizes MFM's typographic apostrophes/special characters (Ø, ê, ë) against this
+  app's plain-ASCII ones first, since a first attempt at this produced mostly false "not found"
+  hits from that encoding mismatch rather than real gaps.
+
 Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances or Doctrina Imperatives) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
 
 All domain types are in `src/types/index.ts` (`Datasheet`, `Ability`, `CombatEffect`, etc.) — these are what both the JSON files and the live app agree on.
