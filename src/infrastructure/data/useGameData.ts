@@ -41,7 +41,7 @@ interface DatasheetJson {
 }
 
 interface DetachmentJson {
-  id: string; name: string; disposition: string; dp: number; chapters: string[]
+  id: string; name: string; disposition: string | string[]; dp: number; chapters: string[]
   abilities: DetachmentAbility[]
 }
 

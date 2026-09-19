@@ -17,3 +17,9 @@ export const DECK_COLORS: Record<string, { text: string; bar: string; border: st
 export function dispositionDeckSlug(disposition: string): string {
   return disposition.trim().toLowerCase().replace(/\s+/g, '-')
 }
+
+/** Normalizes a Detachment's `disposition` (single string or, for a detachment offering a
+ * choice of two, a string[]) into a flat list for rendering one badge per entry. */
+export function dispositionList(disposition: string | string[]): string[] {
+  return Array.isArray(disposition) ? disposition : disposition ? [disposition] : []
+}
