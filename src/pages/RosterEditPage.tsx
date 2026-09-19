@@ -16,7 +16,7 @@ import {
   setEntryWargearSelections,
 } from '@/store/rosterSlice'
 import {
-  resolveModelCount, compareByRolePriority, sumDetachmentPoints,
+  resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
@@ -87,6 +87,7 @@ export function RosterEditPage() {
     .map(entry => ({ entry, datasheet: datasheetById.get(entry.datasheetId) }))
     .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
     .sort((a, b) => compareByRolePriority(a.datasheet, b.datasheet))
+  const entryGroups = groupByRoleCategory(sortedEntries, x => x.datasheet.role)
 
   const combinedTotal = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
   const overLimit = roster.pointsLimit !== null && combinedTotal > roster.pointsLimit
@@ -224,76 +225,83 @@ export function RosterEditPage() {
             Sin unidades añadidas
           </p>
         ) : (
-          sortedEntries.map(({ entry, datasheet }) => {
-            // Surcharge tiers (2nd+/3rd+ copy of a datasheet) aren't a player choice -
-            // narrow to whichever tier this entry's position in the roster falls into,
-            // leaving only genuine squad-size choices (if any) selectable.
-            const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
-            const contextCosts = resolveCostsForFactionContext(
-              pointsCostMap[entry.datasheetId] ?? [], datasheet.factionId, roster.factionId,
-            )
-            const costs = resolveCostsForUnitIndex(contextCosts, unitIndex)
-            const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
-            const availableEnhancements = enhancements.filter(
-              e => selectedDetachmentIds.has(e.detachmentId) &&
-                (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
-            )
-            const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
-            const enhancementTargetIds = new Set(
-              entry.enhancementId ? ENHANCEMENT_ATTACHMENTS[entry.enhancementId] ?? [] : [],
-            )
-            const attachableEntries = roster.entries
-              .filter(other =>
-                other.id !== entry.id && (eligibleTargetIds.has(other.datasheetId) || enhancementTargetIds.has(other.datasheetId)),
-              )
-              .map(other => ({
-                entry: other,
-                datasheet: datasheetById.get(other.datasheetId),
-                viaEnhancement: !eligibleTargetIds.has(other.datasheetId) && enhancementTargetIds.has(other.datasheetId),
-              }))
-              .filter((x): x is { entry: RosterEntry; datasheet: Datasheet; viaEnhancement: boolean } => !!x.datasheet)
-            const leadingEntries = roster.entries
-              .filter(other => other.attachedToEntryId === entry.id)
-              .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
-              .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
-            return (
-              <RosterEntryRow
-                key={entry.id}
-                entry={entry}
-                datasheet={datasheet}
-                rosterId={rosterId}
-                costs={costs}
-                wargearCosts={wargearCostMap[datasheet.id] ?? []}
-                detachmentAbilities={activeDetachmentAbilities}
-                selectedDetachments={selectedDetachments}
-                availableEnhancements={availableEnhancements}
-                attachableEntries={attachableEntries}
-                leadingEntries={leadingEntries}
-                onChangeCost={cost =>
-                  dispatch(
-                    updateEntry({
-                      rosterId,
-                      entryId: entry.id,
-                      changes: { modelCount: resolveModelCount(cost, datasheet) },
-                    }),
+          entryGroups.map(group => (
+            <div key={group.label} className="flex flex-col gap-2">
+              <p className="text-[11px] font-display uppercase tracking-widest text-crimson-bright px-1">
+                {group.label}
+              </p>
+              {group.items.map(({ entry, datasheet }) => {
+                // Surcharge tiers (2nd+/3rd+ copy of a datasheet) aren't a player choice -
+                // narrow to whichever tier this entry's position in the roster falls into,
+                // leaving only genuine squad-size choices (if any) selectable.
+                const unitIndex = unitIndexInRoster(roster.entries, entry.datasheetId, entry.id)
+                const contextCosts = resolveCostsForFactionContext(
+                  pointsCostMap[entry.datasheetId] ?? [], datasheet.factionId, roster.factionId,
+                )
+                const costs = resolveCostsForUnitIndex(contextCosts, unitIndex)
+                const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
+                const availableEnhancements = enhancements.filter(
+                  e => selectedDetachmentIds.has(e.detachmentId) &&
+                    (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
+                )
+                const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
+                const enhancementTargetIds = new Set(
+                  entry.enhancementId ? ENHANCEMENT_ATTACHMENTS[entry.enhancementId] ?? [] : [],
+                )
+                const attachableEntries = roster.entries
+                  .filter(other =>
+                    other.id !== entry.id && (eligibleTargetIds.has(other.datasheetId) || enhancementTargetIds.has(other.datasheetId)),
                   )
-                }
-                onChangeEnhancement={enhancementId =>
-                  dispatch(setEntryEnhancement({ rosterId, entryId: entry.id, enhancementId }))
-                }
-                onChangeAttachment={attachedToEntryId =>
-                  dispatch(setEntryAttachment({ rosterId, entryId: entry.id, attachedToEntryId }))
-                }
-                onChangeWeaponSelection={(ruleId, selection) =>
-                  dispatch(setEntryWeaponSelection({ rosterId, entryId: entry.id, ruleId, selection }))
-                }
-                onChangeWargearSelections={selections =>
-                  dispatch(setEntryWargearSelections({ rosterId, entryId: entry.id, selections }))
-                }
-                onRemove={() => dispatch(removeEntry({ rosterId, entryId: entry.id }))}
-              />
-            )
-          })
+                  .map(other => ({
+                    entry: other,
+                    datasheet: datasheetById.get(other.datasheetId),
+                    viaEnhancement: !eligibleTargetIds.has(other.datasheetId) && enhancementTargetIds.has(other.datasheetId),
+                  }))
+                  .filter((x): x is { entry: RosterEntry; datasheet: Datasheet; viaEnhancement: boolean } => !!x.datasheet)
+                const leadingEntries = roster.entries
+                  .filter(other => other.attachedToEntryId === entry.id)
+                  .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
+                  .filter((x): x is { entry: RosterEntry; datasheet: Datasheet } => !!x.datasheet)
+                return (
+                  <RosterEntryRow
+                    key={entry.id}
+                    entry={entry}
+                    datasheet={datasheet}
+                    rosterId={rosterId}
+                    costs={costs}
+                    wargearCosts={wargearCostMap[datasheet.id] ?? []}
+                    detachmentAbilities={activeDetachmentAbilities}
+                    selectedDetachments={selectedDetachments}
+                    availableEnhancements={availableEnhancements}
+                    attachableEntries={attachableEntries}
+                    leadingEntries={leadingEntries}
+                    onChangeCost={cost =>
+                      dispatch(
+                        updateEntry({
+                          rosterId,
+                          entryId: entry.id,
+                          changes: { modelCount: resolveModelCount(cost, datasheet) },
+                        }),
+                      )
+                    }
+                    onChangeEnhancement={enhancementId =>
+                      dispatch(setEntryEnhancement({ rosterId, entryId: entry.id, enhancementId }))
+                    }
+                    onChangeAttachment={attachedToEntryId =>
+                      dispatch(setEntryAttachment({ rosterId, entryId: entry.id, attachedToEntryId }))
+                    }
+                    onChangeWeaponSelection={(ruleId, selection) =>
+                      dispatch(setEntryWeaponSelection({ rosterId, entryId: entry.id, ruleId, selection }))
+                    }
+                    onChangeWargearSelections={selections =>
+                      dispatch(setEntryWargearSelections({ rosterId, entryId: entry.id, selections }))
+                    }
+                    onRemove={() => dispatch(removeEntry({ rosterId, entryId: entry.id }))}
+                  />
+                )
+              })}
+            </div>
+          ))
         )}
       </div>
 
