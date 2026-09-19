@@ -177,11 +177,21 @@
           "options": [
             {
               "name": "Protector Imperative activa",
-              "effect": { "effects": { "rerollHitsOf1": true }, "requiresAttackerKeyword": "skitarii" }
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "skitarii"
+              }
             },
             {
               "name": "Conqueror Imperative activa",
-              "effect": { "effects": { "rerollWoundsOf1": true }, "requiresAttackerKeyword": "skitarii" }
+              "effect": {
+                "effects": {
+                  "rerollWoundsOf1": true
+                },
+                "requiresAttackerKeyword": "skitarii"
+              }
             }
           ]
         }
@@ -7850,8 +7860,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "9 models",
+          "description": "9 models (1st to 2nd units)",
           "points": 65
+        },
+        {
+          "description": "9 models (3rd+ unit)",
+          "points": 75
         }
       ],
       "wargearCosts": [],

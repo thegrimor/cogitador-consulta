@@ -338,7 +338,9 @@
         {
           "name": "Hit roll",
           "effect": {
-            "effects": { "rerollOneHit": true },
+            "effects": {
+              "rerollOneHit": true
+            },
             "combatType": "ranged",
             "isStratagem": true,
             "cpCost": 1
@@ -347,7 +349,9 @@
         {
           "name": "Wound roll",
           "effect": {
-            "effects": { "rerollOneWound": true },
+            "effects": {
+              "rerollOneWound": true
+            },
             "combatType": "ranged",
             "isStratagem": true,
             "cpCost": 1
@@ -9075,11 +9079,21 @@
           "options": [
             {
               "name": "Hit roll",
-              "effect": { "effects": { "rerollOneHit": true }, "combatType": "ranged" }
+              "effect": {
+                "effects": {
+                  "rerollOneHit": true
+                },
+                "combatType": "ranged"
+              }
             },
             {
               "name": "Wound roll",
-              "effect": { "effects": { "rerollOneWound": true }, "combatType": "ranged" }
+              "effect": {
+                "effects": {
+                  "rerollOneWound": true
+                },
+                "combatType": "ranged"
+              }
             }
           ]
         },
@@ -10252,7 +10266,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 1100
         }
       ],
       "wargearCosts": [],
@@ -10492,7 +10506,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 2100
         }
       ],
       "wargearCosts": [],
