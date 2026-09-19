@@ -243,8 +243,8 @@ function rolePriority(role: string): number {
   return ROLE_PRIORITY[role] ?? 3
 }
 
-export function compareByRolePriority(a: { role: string }, b: { role: string }): number {
-  return rolePriority(a.role) - rolePriority(b.role)
+export function compareByRolePriority(a: { role: string; name: string }, b: { role: string; name: string }): number {
+  return rolePriority(a.role) - rolePriority(b.role) || a.name.localeCompare(b.name, 'es')
 }
 
 export function roleCategoryLabel(role: string): string {
