@@ -35362,6 +35362,21 @@
           "name": "Supreme Commander",
           "description": "If this model is in your army, it must be your <span class=\"kwb\">WARLORD</span>.",
           "type": "Datasheet"
+        },
+        {
+          "id": "primarch-of-ultramar",
+          "name": "Primarch of Ultramar (Aura)",
+          "description": "Friendly ADEPTUS ASTARTES units within 6\" of this model can re-roll Hit rolls of 1 and Wound rolls of 1."
+        },
+        {
+          "id": "lord-commander-of-the-imperium",
+          "name": "Lord Commander of the Imperium",
+          "description": "This model is always treated as being in the Assault Doctrine, the Devastator Doctrine and the Tactical Doctrine. Once per turn, in your Movement phase, you can select one visible friendly ADEPTUS ASTARTES unit within 12\" of this model and select one Combat Doctrine: that Doctrine is active for that unit, in addition to any other Doctrine active for it, until the start of your next Command phase."
+        },
+        {
+          "id": "primarchs-wisdom",
+          "name": "Primarch's Wisdom",
+          "description": "While this model is within 3\" of one or more friendly SPACE MARINE INFANTRY units, this model has the MOBILE ability and the Lone Operative ability."
         }
       ],
       "keywords": [
@@ -37096,7 +37111,7 @@
         {
           "line": 2,
           "name": "Claws of Severax",
-          "description": "sustained hits 2: non-monster/vehicle, twin-linked",
+          "description": "twin-linked, sustained hits 2 (vs non-Monster/Vehicle)",
           "range": "Melee",
           "type": "Melee",
           "A": "7",
@@ -37105,7 +37120,8 @@
           "AP": -2,
           "D": "2",
           "rules": {
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "sustainedHitsValue": 2
           }
         }
       ],
@@ -38119,7 +38135,8 @@
                 "threshold": 4
               }
             ],
-            "isDevastatingWounds": true
+            "isDevastatingWounds": true,
+            "isCloseQuarters": true
           }
         },
         {
