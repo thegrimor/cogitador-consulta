@@ -167,32 +167,6 @@
       ]
     },
     {
-      "id": "saga-of-the-great-wolf",
-      "name": "Saga of the Great Wolf",
-      "disposition": "TAKE AND HOLD",
-      "dp": 2,
-      "chapters": [
-        "Space Wolves"
-      ],
-      "abilities": [
-        {
-          "id": "master-of-wolves",
-          "name": "Master of Wolves",
-          "description": "Friendly non-MONSTER, non-VEHICLE units with this ability gain the following bonuses based on the active Combat Doctrine: while the Assault Doctrine is active, add 1 to Advance and Charge rolls (Encircling Jaws); while the Devastator Doctrine is active, re-roll Hit rolls of 1 for ranged attacks (Hunter's Eye); while the Tactical Doctrine is active, attacks made by this unit against an enemy unit within 9\" have the [SUSTAINED HITS 1] ability (Ferocious Strike)."
-        },
-        {
-          "id": "howling-onslaught",
-          "name": "Howling Onslaught",
-          "description": "LOGAN GRIMNAR only. Once per battle, in your Command phase, you can use this ability: until the start of your next Command phase, your VEHICLE and MONSTER units also gain the benefit of the Master of Wolves ability."
-        },
-        {
-          "id": "restrictions-space-marines-3",
-          "name": "Restrictions",
-          "description": "Your army can include SPACE WOLVES units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter."
-        }
-      ]
-    },
-    {
       "id": "marshals-household",
       "name": "Marshal's Household",
       "disposition": "PRIORITY ASSETS",
@@ -2079,66 +2053,6 @@
       "detachmentId": "saga-of-the-beastslayer"
     },
     {
-      "id": "battle-instincts",
-      "name": "BATTLE INSTINCTS",
-      "cpCost": 1,
-      "type": "Saga of the Great Wolf – Battle Tactic Stratagem",
-      "turn": "Opponent's turn",
-      "phase": "Opponent's Shooting phase",
-      "description": "WHEN: Your opponent's Shooting phase, after a friendly INFANTRY or MOUNTED unit is targeted by an enemy unit's attacks. EFFECT: That unit can make a Normal move of up to D3+3\".",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "fenrisian-ferocity",
-      "name": "FENRISIAN FEROCITY",
-      "cpCost": 1,
-      "type": "Saga of the Great Wolf – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Movement phase or Charge phase",
-      "description": "TARGET: One friendly MOUNTED or WALKER unit. EFFECT: That unit has the MOBILE ability until the end of the phase.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "eye-of-the-pack",
-      "name": "EYE OF THE PACK",
-      "cpCost": 1,
-      "type": "Saga of the Great Wolf – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Fight phase",
-      "description": "WHEN: The Fight phase, when a friendly INFANTRY unit is selected to fight. EFFECT: That unit can re-roll Hit rolls of 1 or 2 for its melee attacks until the end of the phase.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "grimnars-command",
-      "name": "GRIMNAR'S COMMAND",
-      "cpCost": 1,
-      "type": "Saga of the Great Wolf – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Command phase",
-      "description": "TARGET: One friendly non-MONSTER, non-VEHICLE unit. EFFECT: That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "fangs-of-the-pack-saga-of-the-great-wolf",
-      "name": "FANGS OF THE PACK",
-      "cpCost": 1,
-      "type": "Saga of the Great Wolf – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Fight phase",
-      "description": "TARGET: One friendly INFANTRY or MOUNTED unit. EFFECT: That unit's melee attacks have the [PRECISION] ability until the end of the phase.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "wolf-totems-saga-of-the-great-wolf",
-      "name": "WOLF TOTEMS",
-      "cpCost": 1,
-      "type": "Saga of the Great Wolf – Battle Tactic Stratagem",
-      "turn": "Either player's turn",
-      "phase": "Any phase",
-      "description": "WHEN: A friendly INFANTRY or MOUNTED unit suffers a mortal wound. EFFECT: That unit has the Feel No Pain 5+ ability against mortal wounds until the end of the phase.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
       "id": "skyborne-surveillance",
       "name": "SKYBORNE SURVEILLANCE",
       "cpCost": 1,
@@ -2818,34 +2732,6 @@
       "cost": 15,
       "description": "ADEPTUS ASTARTES model only. This model has the WULFEN keyword and +2\" to its Move characteristic; it can be attached to WULFEN units (with or without Storm Shields).",
       "detachmentId": "saga-of-the-beastslayer"
-    },
-    {
-      "id": "chariots-of-the-storm",
-      "name": "Chariots of the Storm",
-      "cost": 25,
-      "description": "Once per battle, you can redeploy up to 3 friendly units, including into Strategic Reserves.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "grimnars-mark",
-      "name": "Grimnar's Mark",
-      "cost": 15,
-      "description": "TERMINATOR CAPTAIN model only. Once per battle round, per army, the bearer's unit can be targeted by the Rapid Ingress or Heroic Intervention Stratagem regardless of any other use of that Stratagem this phase; if you do, that use costs 1CP less (to a minimum of 0CP) and does not prevent other uses of that Stratagem this phase.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "howlmaw",
-      "name": "Howlmaw",
-      "cost": 15,
-      "description": "WOLF PRIEST model only. Once per turn, per unit, at the start of the Fight phase, you can select one enemy unit within 6\" of the bearer: that unit must take a Battle-shock test with -1 to the result.",
-      "detachmentId": "saga-of-the-great-wolf"
-    },
-    {
-      "id": "skjalds-foretelling",
-      "name": "Skjald's Foretelling",
-      "cost": 20,
-      "description": "WOLF GUARD BATTLE LEADER model only. The bearer's unit's melee attacks have the [LANCE] ability.",
-      "detachmentId": "saga-of-the-great-wolf"
     },
     {
       "id": "nightforged-battery",
@@ -35476,6 +35362,21 @@
           "name": "Supreme Commander",
           "description": "If this model is in your army, it must be your <span class=\"kwb\">WARLORD</span>.",
           "type": "Datasheet"
+        },
+        {
+          "id": "primarch-of-ultramar",
+          "name": "Primarch of Ultramar (Aura)",
+          "description": "Friendly ADEPTUS ASTARTES units within 6\" of this model can re-roll Hit rolls of 1 and Wound rolls of 1."
+        },
+        {
+          "id": "lord-commander-of-the-imperium",
+          "name": "Lord Commander of the Imperium",
+          "description": "This model is always treated as being in the Assault Doctrine, the Devastator Doctrine and the Tactical Doctrine. Once per turn, in your Movement phase, you can select one visible friendly ADEPTUS ASTARTES unit within 12\" of this model and select one Combat Doctrine: that Doctrine is active for that unit, in addition to any other Doctrine active for it, until the start of your next Command phase."
+        },
+        {
+          "id": "primarchs-wisdom",
+          "name": "Primarch's Wisdom",
+          "description": "While this model is within 3\" of one or more friendly SPACE MARINE INFANTRY units, this model has the MOBILE ability and the Lone Operative ability."
         }
       ],
       "keywords": [
@@ -37210,7 +37111,7 @@
         {
           "line": 2,
           "name": "Claws of Severax",
-          "description": "sustained hits 2: non-monster/vehicle, twin-linked",
+          "description": "twin-linked, sustained hits 2 (vs non-Monster/Vehicle)",
           "range": "Melee",
           "type": "Melee",
           "A": "7",
@@ -37219,7 +37120,8 @@
           "AP": -2,
           "D": "2",
           "rules": {
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "sustainedHitsValue": 2
           }
         }
       ],
@@ -38233,7 +38135,8 @@
                 "threshold": 4
               }
             ],
-            "isDevastatingWounds": true
+            "isDevastatingWounds": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -40914,7 +40817,7 @@
         },
         {
           "id": "zealous-fortitude",
-          "name": "Zealous Fortitude",
+          "name": "Recitation of Faith",
           "description": "This unit has Feel No Pain 4+ against mortal wounds.",
           "type": "Datasheet"
         },
@@ -41321,7 +41224,7 @@
           "A": "D3+3",
           "bsWs": "3",
           "S": 6,
-          "AP": -1,
+          "AP": -2,
           "D": "2",
           "rules": {
             "isDevastatingWounds": true,
@@ -42397,7 +42300,8 @@
           "AP": -1,
           "D": "2",
           "rules": {
-            "sustainedHitsValue": 1
+            "sustainedHitsValue": 1,
+            "rapidFireValue": "1"
           }
         },
         {
@@ -42408,8 +42312,8 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "2",
-          "S": 2,
-          "AP": -1,
+          "S": 6,
+          "AP": -2,
           "D": "3",
           "rules": {
             "antiEntries": [
@@ -42741,7 +42645,7 @@
         },
         {
           "id": "vivispectral-analysis-targeting",
-          "name": "Vivispectral Analysis Targeting",
+          "name": "Vivispectral Targeting Analysis",
           "description": "This unit's attacks have [LETHAL HITS: non-VEHICLE].",
           "type": "Datasheet"
         }
@@ -46795,7 +46699,8 @@
           "AP": -1,
           "D": "1",
           "rules": {
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -46811,7 +46716,8 @@
           "D": "1",
           "rules": {
             "isTorrent": true,
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -48437,7 +48343,8 @@
           "AP": -1,
           "D": "1",
           "rules": {
-            "isDevastatingWounds": true
+            "isDevastatingWounds": true,
+            "sustainedHitsValue": 2
           }
         },
         {
@@ -49566,7 +49473,8 @@
           "AP": -1,
           "D": "1",
           "rules": {
-            "isDevastatingWounds": true
+            "isDevastatingWounds": true,
+            "sustainedHitsValue": 2
           }
         },
         {
@@ -50063,7 +49971,8 @@
           "D": "2",
           "rules": {
             "cleaveValue": 2,
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "sustainedHitsValue": 1
           }
         }
       ],
@@ -51255,7 +51164,8 @@
           "D": "1",
           "rules": {
             "isDevastatingWounds": true,
-            "isTwinLinked": true
+            "isTwinLinked": true,
+            "sustainedHitsValue": 2
           }
         },
         {
