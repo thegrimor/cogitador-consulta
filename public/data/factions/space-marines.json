@@ -2935,12 +2935,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "warden-of-the-imperium-nihilus",
           "name": "Warden of the Imperium Nihilus",
           "description": "This model is treated as being in the Assault Doctrine and the Tactical Doctrine, in addition to any other Doctrine active for it.",
@@ -3329,12 +3323,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "the-quickening-psychic",
           "name": "The Quickening (Psychic)",
           "description": "At the start of your Command phase, this model gains the benefit of the Assault Doctrine, in addition to any other Doctrine active for it.",
@@ -3644,12 +3632,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "aura-of-fervour-aura",
           "name": "Aura of Fervour (Aura)",
           "description": "While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit is within 6\" of this model, you can re-roll Battle-shock and Leadership tests taken for that unit.",
@@ -3946,12 +3928,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "redeemer-of-the-lost",
@@ -4265,12 +4241,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "sanguinary-priest",
@@ -4693,12 +4663,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "guardian-of-the-lost",
           "name": "Guardian of the Lost",
           "description": "While this model is leading a unit, each time an attack is allocated to a model in that unit, subtract 1 from the Damage characteristic of that attack.",
@@ -5053,12 +5017,6 @@
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "angelic-visage",
@@ -5499,12 +5457,6 @@
           }
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
@@ -5895,12 +5847,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "overcharged-engines",
           "name": "Overcharged Engines",
           "description": "You can re-roll Advance rolls made for this model.",
@@ -6201,12 +6147,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "the-lion-helm",
@@ -6540,12 +6480,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "grand-master-of-the-deathwing",
@@ -6884,12 +6818,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "exemplar-of-hate",
@@ -7255,12 +7183,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "psychic-hood",
@@ -7725,12 +7647,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "teleport-homer",
           "name": "Teleport Homer",
           "description": "At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3\" horizontally of that token and not within 8\" horizontally of any enemy models. That token is then removed.",
@@ -8137,12 +8053,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "teleport-homer",
           "name": "Teleport Homer",
           "description": "At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3\" horizontally of that token and not within 8\" horizontally of any enemy models. That token is then removed.",
@@ -8521,12 +8431,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "icon-of-old-caliban-aura",
           "name": "Icon of Old Caliban (Aura)",
           "description": "Friendly <span class=\"kwb\">DARK ANGELS</span> units within 6\" of this unit have Stealth.",
@@ -8857,12 +8761,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "lightning-fast-manoeuvres",
           "name": "Lightning-fast Manoeuvres",
           "description": "Ranged attacks that target this unit have -1 to wound rolls.",
@@ -9164,12 +9062,6 @@
           "name": "Deadly Demise D3",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "stasis-bomb",
@@ -9496,12 +9388,6 @@
         }
       ],
       "abilities": [
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
         {
           "id": "knights-of-caliban",
           "name": "Knights of Caliban",
@@ -9861,12 +9747,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "storm-of-vengeance",
           "name": "Storm of Vengeance",
           "description": "Once per turn, in your opponent’s Shooting phase, when a friendly <b>Adeptus Astartes</b> unit within 6\" of this model is destroyed, this model can use this ability (it cannot use this ability when it is itself destroyed). If it does, after the attacking unit has finished making its attacks, this model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).",
@@ -10185,12 +10065,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "high-king-of-fenris",
@@ -10533,12 +10407,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "war-howl",
@@ -10900,12 +10768,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "wind-walker-psychic",
           "name": "Wind Walker (Psychic)",
           "description": "While this model is leading a unit, ranged weapons equipped by models in that unit have the [ASSAULT] ability and each time that unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in this unit.",
@@ -11261,12 +11123,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "slayers-oath",
@@ -11660,12 +11516,6 @@
           }
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "legendary-tenacity",
           "name": "Legendary Tenacity",
           "description": "Each time an attack targets this model, if the Strength characteristic of that attack is greater than this model’s Toughness characteristic, subtract 1 from the Wound roll.",
@@ -11994,12 +11844,6 @@
         }
       ],
       "abilities": [
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
         {
           "id": "berserk-charge",
           "name": "Berserk Charge",
@@ -12393,12 +12237,6 @@
       ],
       "abilities": [
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "cunning-hunters",
           "name": "Cunning Hunters",
           "description": "While this unit is within range of an objective marker, melee attacks made by models in this unit have +1 to their Strength and Armour Penetration characteristics.",
@@ -12760,12 +12598,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "iron-priest",
@@ -13179,12 +13011,6 @@
           "id": "curse-of-the-wulfen",
           "name": "Curse of the Wulfen",
           "description": "While this unit is within 6\" of one or more friendly Space Wolves Character models (excluding Wulfen models) or within 12\" of one or more friendly Wolf Priest models, if it is not Battle-shocked, add 1 to the Objective Control characteristic of Infantry models in it and add 3 to the Objective Control characteristic of Vehicle models in it.",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -13871,12 +13697,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "anvil-of-endurance",
           "name": "Anvil of Endurance",
           "description": "While this model is leading a unit, each time a model in that unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6: on a 4+, do not remove the destroyed model from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.",
@@ -14261,12 +14081,6 @@
           "name": "Deep Strike",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "rugged-resilience",
@@ -14675,12 +14489,6 @@
       ],
       "abilities": [
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "thunderous-charge",
           "name": "Thunderous Charge",
           "description": "Each time a model in this unit makes a melee attack with its Wolf Guard weapon, if it made a Charge move this turn, add 1 to the Strength characteristic and add 1 to the Damage characteristic of that attack.",
@@ -14978,12 +14786,6 @@
         }
       ],
       "abilities": [
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
         {
           "id": "predatory-instinct",
           "name": "Predatory Instinct",
@@ -15330,12 +15132,6 @@
           "id": "mission-tactics",
           "name": "Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all units from your army with this ability. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FUROR TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MALLEUS TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PURGATUS TACTICS</p><p>While this Mission Tactic is active, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes an attack, if a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span> is scored, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -15763,12 +15559,6 @@
             },
             "target": "defender"
           }
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "black-rage",
@@ -16320,12 +16110,6 @@
           }
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
@@ -16714,12 +16498,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "grand-master-of-the-ravenwing",
           "name": "Grand Master of the Ravenwing",
           "description": "At the start of your Command phase, this unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase. This unit has MOBILE.",
@@ -17023,12 +16801,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "intractable-will",
@@ -17376,12 +17148,6 @@
           "name": "Fights First",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FIGHTS FIRST</div></div></div>Units with this ability that are eligible to fight do so in the <a href=\"/wh40k10ed/the-rules/core-rules/#1.-Fights-First\">Fights First</a> step, provided every model in the unit has this ability.</div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "primarch-of-the-first-legion",
@@ -17812,12 +17578,6 @@
           }
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "black-rage",
           "name": "Black Rage",
           "description": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6\" of one or more friendly Blood Angels Character models, or not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
@@ -18244,12 +18004,6 @@
         }
       ],
       "abilities": [
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
         {
           "id": "support",
           "name": "Support",
@@ -18808,12 +18562,6 @@
           "id": "mission-tactics",
           "name": "Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all units from your army with this ability. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FUROR TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MALLEUS TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PURGATUS TACTICS</p><p>While this Mission Tactic is active, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes an attack, if a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span> is scored, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -19468,12 +19216,6 @@
           "type": "Faction"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "fortis-doctrines",
           "name": "Fortis Doctrines",
           "description": "Each time a model in this unit makes an attack that targets a unit that is below its Starting Strength, add 1 to the Hit roll. If that attack targets a unit that is Below Half-strength, add 1 to the Hit roll and add 1 to the Wound roll instead.",
@@ -20001,12 +19743,6 @@
           "type": "Faction"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "indomitor-doctrines",
           "name": "Indomitor Doctrines",
           "description": "Each time a model in this unit makes a ranged attack that targets the closest eligible target, or makes a melee attack in a turn in which it made a Charge move, improve the Strength characteristic of that attack by 1.",
@@ -20509,12 +20245,6 @@
           "id": "mission-tactics",
           "name": "Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all units from your army with this ability. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FUROR TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MALLEUS TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PURGATUS TACTICS</p><p>While this Mission Tactic is active, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes an attack, if a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span> is scored, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -26468,12 +26198,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "fervour-of-the-ancients-aura",
           "name": "Fervour of the Ancients (Aura)",
           "description": "While a friendly Space Wolves unit is within 6\" of this model, add 1 to Advance and Charge rolls made for that unit.",
@@ -26786,12 +26510,6 @@
         }
       ],
       "abilities": [
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
         {
           "id": "braziers-of-judgement",
           "name": "Braziers of Judgement",
@@ -27192,12 +26910,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "rites-of-battle",
@@ -27662,12 +27374,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "forlorn-hero",
@@ -28189,12 +27895,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "lost-to-fury",
           "name": "Lost to Fury",
           "description": "While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
@@ -28638,12 +28338,6 @@
           "type": "Faction"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "strategic-knowledge",
           "name": "Strategic Acumen",
           "description": "At the start of your Command phase, select one friendly unit. That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase.",
@@ -29054,12 +28748,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "mission-tactics",
@@ -29529,12 +29217,6 @@
           "id": "mission-tactics",
           "name": "Mission Tactics",
           "description": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all units from your army with this ability. Each Mission Tactic can only be selected once per battle.<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">FUROR TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">MALLEUS TACTICS</p><p>While this Mission Tactic is active, weapons equipped by <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units from your army have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">PURGATUS TACTICS</p><p>While this Mission Tactic is active, each time an <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> unit from your army makes an attack, if a <span class=\"tooltip00017\" data-tooltip-content=\"#tooltip_content00017\"><span class=\"tt kwbu\">Critical</span> <span class=\"tt kwbu\">Hit</span></span> is scored, that attack has the <span class=\"kwb2 bluefont\"><span class=\"tooltip00009\" data-tooltip-content=\"#tooltip_content00009\"><span class=\"tt kwbu\">[PRECISION]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -30049,12 +29731,6 @@
           "type": "Faction"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "talonstrike-doctrines",
           "name": "Talonstrike Doctrines",
           "description": "Each time this unit is set up on the battlefield, until the end of the turn:<br><ul><li>Improve the Armour Penetration characteristic of weapons equipped by models in this unit by 1.</li><li>Melee weapons equipped by models in this unit have the [LANCE] ability.</li></ul>",
@@ -30401,12 +30077,6 @@
           "name": "Leader",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "healing-balms",
@@ -30878,12 +30548,6 @@
           "type": "Core"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "tempered-ferocity",
           "name": "Tempered Ferocity",
           "description": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability and, each time a model in that unit makes an attack that targets an enemy unit within 6\", re-roll a Hit roll of 1.",
@@ -31343,12 +31007,6 @@
       ],
       "abilities": [
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "let-loose-the-wolves",
           "name": "Let Loose the Wolves",
           "description": "At the start of the Declare Battle Formations step, you can choose to split this unit into two units, one containing all of its HEADTAKERS models and one containing all of its HUNTING WOLVES models, with new Starting Strengths based on the number of models in each.",
@@ -31756,12 +31414,6 @@
           "type": "Faction"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "hammer-blow",
           "name": "Hammer Blow",
           "description": "In the Fight phase, after this unit has fought, select one enemy <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit hit by one or more of those attacks. Until the end of the next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
@@ -32139,12 +31791,6 @@
           "id": "curse-of-the-wulfen",
           "name": "Curse of the Wulfen",
           "description": "While this unit is within 6\" of one or more friendly Space Wolves Character models (excluding Wulfen models) or within 12\" of one or more friendly Wolf Priest models, if it is not Battle-shocked, add 1 to the Objective Control characteristic of Infantry models in it and add 3 to the Objective Control characteristic of Vehicle models in it.",
-          "type": "Faction"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
           "type": "Faction"
         },
         {
@@ -34876,12 +34522,6 @@
           "type": "Faction"
         },
         {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
-        },
-        {
           "id": "death-to-the-alien",
           "name": "Death to the Alien",
           "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack does not have the <span class=\"kwb\">IMPERIUM</span> or <span class=\"kwb\">CHAOS</span> keywords, you can re-roll the Hit roll instead.",
@@ -35449,12 +35089,6 @@
           "name": "Scouts 7\"",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
-        },
-        {
-          "id": "oath-of-moment",
-          "name": "Oath of Moment",
-          "description": "If your Army Faction is <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span>, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:<br><ul><li>You can re-roll the Hit roll.</li><li>If you are using a <i>Codex: Space Marines</i> Detachment and your army does not include one or more units with the Blood Angels, Dark Angels, Deathwatch or Space Wolves keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</li></ul>",
-          "type": "Faction"
         },
         {
           "id": "deadly-stalkers",
