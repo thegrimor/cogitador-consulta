@@ -3,7 +3,7 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, detachmentPath } from '@/core/constants/routes'
 import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY, chapterLabel } from '@/core/constants/chapters'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
-import { DECK_COLORS, dispositionDeckSlug } from '@/core/constants/missionDeckColors'
+import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 
 export function FactionDetachmentsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -95,18 +95,19 @@ export function FactionDetachmentsPage() {
                         {det.dp} DP
                       </span>
                     )}
-                    {det.disposition && (() => {
-                      const colors = DECK_COLORS[dispositionDeckSlug(det.disposition)]
+                    {dispositionList(det.disposition).map(disp => {
+                      const colors = DECK_COLORS[dispositionDeckSlug(disp)]
                       return (
                         <span
+                          key={disp}
                           className={`text-[10px] font-mono uppercase tracking-widest px-1.5 py-px leading-none shrink-0 border ${
                             colors ? `${colors.text} ${colors.border}/60` : 'text-parchment-dim border-rim-bright'
                           }`}
                         >
-                          {det.disposition}
+                          {disp}
                         </span>
                       )
-                    })()}
+                    })}
                     {isSM && det.chapters.length > 0 && !det.chapters.includes('Space Marines') && (
                       <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
                         {det.chapters.join(' / ')}

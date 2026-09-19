@@ -10,7 +10,9 @@ export interface Detachment {
   factionId: string
   name: string
   type: string
-  disposition: string
+  /** A single Force Disposition, or two when the detachment offers a choice
+   * (e.g. "PRIORITY ASSETS" and "TAKE AND HOLD") — rendered as one badge per entry. */
+  disposition: string | string[]
   dp: number
   /** Space Marines chapter(s) (Black Templars, Blood Angels, etc.) this detachment is
    * available to. Empty for every faction except SM, where it's always non-empty. */

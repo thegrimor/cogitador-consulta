@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Detachment } from '@/types'
 import { DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, sumDetachmentPoints } from '@/core/utils/roster'
+import { dispositionList } from '@/core/constants/missionDeckColors'
 
 interface Props {
   detachments: Detachment[]
@@ -92,9 +93,13 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
                     <span className="text-[12px] font-display uppercase tracking-widest text-parchment block truncate">
                       {d.name}
                     </span>
-                    {d.disposition && (
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-parchment-dim">
-                        {d.disposition}
+                    {dispositionList(d.disposition).length > 0 && (
+                      <span className="flex gap-1 flex-wrap">
+                        {dispositionList(d.disposition).map(disp => (
+                          <span key={disp} className="text-[9px] font-mono uppercase tracking-widest text-parchment-dim">
+                            {disp}
+                          </span>
+                        ))}
                       </span>
                     )}
                   </span>

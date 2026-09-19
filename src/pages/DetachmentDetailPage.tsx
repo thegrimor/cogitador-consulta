@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
-import { DECK_COLORS, dispositionDeckSlug } from '@/core/constants/missionDeckColors'
+import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { RuleHtml } from '@/shared/components/RuleHtml'
 
@@ -59,20 +59,23 @@ export function DetachmentDetailPage() {
             </span>
           )}
         </div>
-        {det.disposition && (() => {
-          const colors = DECK_COLORS[dispositionDeckSlug(det.disposition)]
-          return (
-            <div className="mt-1.5 mb-1">
-              <span
-                className={`text-[10px] font-mono uppercase tracking-[2px] px-2 py-0.5 leading-none border ${
-                  colors ? `${colors.text} ${colors.borderSoft}` : 'text-parchment-dim border-rim-bright'
-                }`}
-              >
-                {det.disposition}
-              </span>
-            </div>
-          )
-        })()}
+        {dispositionList(det.disposition).length > 0 && (
+          <div className="mt-1.5 mb-1 flex gap-1.5">
+            {dispositionList(det.disposition).map(disp => {
+              const colors = DECK_COLORS[dispositionDeckSlug(disp)]
+              return (
+                <span
+                  key={disp}
+                  className={`text-[10px] font-mono uppercase tracking-[2px] px-2 py-0.5 leading-none border ${
+                    colors ? `${colors.text} ${colors.borderSoft}` : 'text-parchment-dim border-rim-bright'
+                  }`}
+                >
+                  {disp}
+                </span>
+              )
+            })}
+          </div>
+        )}
       </div>
 
       {/* ── Habilidades de destacamento ── */}
