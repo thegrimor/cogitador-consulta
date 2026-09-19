@@ -104,6 +104,23 @@ All game data is JSON, hand-maintained directly — there is no CSV, no scraper,
 
 To correct or add data (fix a rule, add a new codex release, patch an errata), edit the relevant `public/data/factions/<slug>.json` (or `public/data/catalog/*.json`) file directly — there's no regeneration step to run afterward.
 
+**For core game rules (not points — see the MFM rule below for those) this project's own JSON
+(`public/data/catalog/core-rules.json`, `public/data/catalog/phases.json`, the relevant
+`public/data/factions/<slug>.json`) is the source of truth to check first**, before memory or an
+external wiki/search — the whole point of this app is that it already holds this data. Only fall
+back to an external source (the official Warhammer Community core rules, Wahapedia as a secondary
+cross-check) when the specific rule genuinely isn't represented in the JSON, and when that happens,
+add the missing rule into the appropriate JSON file rather than only hardcoding it into application
+logic, so the next lookup doesn't have to leave the project again. **Known gap, not yet closed:**
+`maxCopiesAllowed` in `src/core/utils/roster.ts` (the battle-size duplicate-datasheet cap — how many
+copies of the same datasheet a roster may contain, doubled for Battleline/Dedicated Transports) was
+hardcoded from memory with the wrong numbers (every role capped identically, no Battleline doubling)
+and had to be corrected via a live web search, because neither `core-rules.json` nor `phases.json`
+documents this rule anywhere — it exists only as a hardcoded table in `roster.ts`, not as project
+data. Adding it to `core-rules.json` (or `phases.json`, alongside the other army-composition/battle-size
+content) is the right follow-up next time this area is touched, so this rule stops depending on
+memory or an external lookup entirely.
+
 **Points values (`pointsCosts`/`wargearCosts`) must always be sourced from the official Munitorum
 Field Manual at https://mfm.warhammer-community.com/en** (GW's own canonical, actively-maintained
 points reference — v1.4 as of this writing) — never from a third-party wiki (Wahapedia etc.) or
