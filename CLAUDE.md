@@ -253,11 +253,15 @@ shapes, all worth checking for again on any future faction edit:
   such parse against a faction already known clean (Adeptus Custodes matched all 9 exactly)
   before trusting a surprising result: Orks coming back as 14×1 DP looked like a parser bug and
   was not.
-- **`disposition` holding two values must be a real array**, e.g. `["TAKE AND HOLD",
-  "PURGE THE FOE"]`. `dispositionList` (`src/core/constants/missionDeckColors.ts`) only splits an
-  array — it never splits on commas — so the 4 entries still stored as a comma-joined string
-  (`"PRIORITY ASSETS,TAKE AND HOLD"` and friends, in factions other than Orks) render as a single
-  badge with the comma inside it. Known, not yet fixed.
+- **A `disposition` holding two values is a real array**, e.g. `["PRIORITY ASSETS", "TAKE AND
+  HOLD"]` — `dispositionList` (`src/core/constants/missionDeckColors.ts`) splits an array and
+  nothing else, so a comma-joined string would render as one badge with the comma inside it. The
+  dataset is already consistent here (5 two-disposition detachments — Space Marines' Gladius Task
+  Force and Blade of Ultramar, Blood Angels' Angelic Inheritors, Deathwatch's Black Spear Task
+  Force, Orks' War Horde — all arrays; 234 single strings; 0 comma-joined). Match the Space
+  Marines entries when adding another. Beware of auditing this with `set[det.disposition]` as an
+  object key: JS coerces an array to `"A,B"`, which makes correct array entries look like
+  comma-joined strings — that misreading briefly landed in this file as a fake bug report.
 
 Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances or Doctrina Imperatives) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
 

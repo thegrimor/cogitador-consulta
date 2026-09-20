@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Detachment } from '@/types'
 import { DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, sumDetachmentPoints } from '@/core/utils/roster'
-import { dispositionList } from '@/core/constants/missionDeckColors'
+import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 
 interface Props {
   detachments: Detachment[]
@@ -94,12 +94,22 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
                       {d.name}
                     </span>
                     {dispositionList(d.disposition).length > 0 && (
-                      <span className="flex gap-1 flex-wrap">
-                        {dispositionList(d.disposition).map(disp => (
-                          <span key={disp} className="text-[9px] font-mono uppercase tracking-widest text-parchment-dim">
-                            {disp}
-                          </span>
-                        ))}
+                      <span className="flex gap-1 flex-wrap mt-1">
+                        {/* Same per-deck colouring the catalog views use — a detachment can carry
+                            two dispositions, and flat grey text ran them together as one string. */}
+                        {dispositionList(d.disposition).map(disp => {
+                          const colors = DECK_COLORS[dispositionDeckSlug(disp)]
+                          return (
+                            <span
+                              key={disp}
+                              className={`text-[9px] font-mono uppercase tracking-widest px-1.5 py-px leading-none border ${
+                                colors ? `${colors.text} ${colors.borderSoft}` : 'text-parchment-dim border-rim-bright'
+                              }`}
+                            >
+                              {disp}
+                            </span>
+                          )
+                        })}
                       </span>
                     )}
                   </span>
