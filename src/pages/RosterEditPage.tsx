@@ -48,8 +48,12 @@ export function RosterEditPage() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  const [nameDraft, setNameDraft] = useState(roster?.name ?? '')
-  const [limitDraft, setLimitDraft] = useState(roster?.pointsLimit ? String(roster.pointsLimit) : '')
+  // null means "not being edited" — the input then renders the live roster value. Seeding these
+  // from `roster` at mount went stale whenever the rosters fetch landed after the first render
+  // (`RequireAuth` waits for the auth check, not for `hydrateRosters`), which on a slow
+  // connection left the name and limit inputs blank for the rest of the session.
+  const [nameDraft, setNameDraft] = useState<string | null>(null)
+  const [limitDraft, setLimitDraft] = useState<string | null>(null)
   const [detachmentModalOpen, setDetachmentModalOpen] = useState(false)
   const [qrModalOpen, setQrModalOpen] = useState(false)
   const [addUnitOpen, setAddUnitOpen] = useState(false)
@@ -92,18 +96,21 @@ export function RosterEditPage() {
   const remaining = roster.pointsLimit === null ? null : roster.pointsLimit - combinedTotal
   const usedPct = roster.pointsLimit ? Math.min(100, (combinedTotal / roster.pointsLimit) * 100) : 0
   const detachmentDp = sumDetachmentPoints(detachments, roster.detachmentIds)
+  const nameValue = nameDraft ?? roster.name
+  const limitValue = limitDraft ?? (roster.pointsLimit !== null ? String(roster.pointsLimit) : '')
 
   function commitName() {
-    const trimmed = nameDraft.trim()
+    const trimmed = (nameDraft ?? '').trim()
     if (trimmed && trimmed !== roster!.name) dispatch(renameRoster({ id: rosterId!, name: trimmed }))
-    else setNameDraft(roster!.name)
+    setNameDraft(null)
   }
 
   function commitLimit() {
+    if (limitDraft === null) return
     const parsed = parseInt(limitDraft, 10)
     const value = Number.isFinite(parsed) && parsed > 0 ? parsed : null
     dispatch(setPointsLimit({ id: rosterId!, pointsLimit: value }))
-    setLimitDraft(value ? String(value) : '')
+    setLimitDraft(null)
   }
 
   function handleAddUnit(datasheet: Datasheet, cost: PointsCost) {
@@ -134,7 +141,7 @@ export function RosterEditPage() {
         <div className="min-w-0 flex-1">
           <input
             type="text"
-            value={nameDraft}
+            value={nameValue}
             onChange={e => setNameDraft(e.target.value)}
             onBlur={commitName}
             aria-label="Nombre de la lista"
@@ -157,12 +164,14 @@ export function RosterEditPage() {
       </div>
 
       {/* Destacamento y límite */}
-      <div className="border border-rim-bright bg-surface-2 mb-4">
-        <div className="px-3 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim shrink-0">
+      {/* Etiqueta encima del control en ambos anchos: en línea, un nombre de destacamento largo
+          empujaba los chips por encima del bloque "Límite". */}
+      <div className="border border-rim-bright bg-surface-2 mb-4 flex flex-col sm:flex-row sm:items-stretch">
+        <div className="px-3 py-2.5 flex flex-col gap-1.5 flex-1 min-w-0">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
             Destacamento
           </span>
-          <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-1.5">
             {selectedDetachments.length === 0 ? (
               <span className="text-[11px] font-mono text-parchment-dim/70 uppercase tracking-widest">
                 Sin destacamento
@@ -171,10 +180,10 @@ export function RosterEditPage() {
               selectedDetachments.map(d => (
                 <span
                   key={d.id}
-                  className="text-[11px] font-mono uppercase tracking-widest px-2 py-0.5 border border-crimson-bright text-parchment bg-crimson/10 flex items-center gap-1.5"
+                  className="text-[11px] font-mono uppercase tracking-widest px-2 py-0.5 border border-crimson-bright text-parchment bg-crimson/10 inline-flex items-center gap-1.5 max-w-full"
                 >
-                  {d.name}
-                  {d.dp > 0 && <span className="text-crimson-bright font-bold">{d.dp} DP</span>}
+                  <span className="min-w-0 break-words">{d.name}</span>
+                  {d.dp > 0 && <span className="text-crimson-bright font-bold shrink-0">{d.dp} DP</span>}
                 </span>
               ))
             )}
@@ -185,24 +194,24 @@ export function RosterEditPage() {
             )}
             <button
               onClick={() => setDetachmentModalOpen(true)}
-              className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors"
+              className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors shrink-0"
             >
               {selectedDetachments.length === 0 ? 'Elegir' : 'Cambiar'}
             </button>
           </div>
-          <div className="flex items-center gap-1.5 shrink-0">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">Límite</span>
-            <input
-              type="number"
-              min={1}
-              placeholder="Sin límite"
-              value={limitDraft}
-              onChange={e => setLimitDraft(e.target.value)}
-              onBlur={commitLimit}
-              aria-label="Límite de puntos"
-              className="w-24 bg-surface-3 border border-rim-bright text-parchment text-[12px] font-mono px-2 py-1 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
-            />
-          </div>
+        </div>
+        <div className="px-3 py-2.5 flex flex-col gap-1.5 shrink-0 border-t border-rim-bright sm:border-t-0 sm:border-l sm:border-rim-bright">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">Límite</span>
+          <input
+            type="number"
+            min={1}
+            placeholder="Sin límite"
+            value={limitValue}
+            onChange={e => setLimitDraft(e.target.value)}
+            onBlur={commitLimit}
+            aria-label="Límite de puntos"
+            className="w-28 bg-surface-3 border border-rim-bright text-parchment text-[12px] font-mono px-2 py-1 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
+          />
         </div>
       </div>
 
@@ -238,7 +247,7 @@ export function RosterEditPage() {
             onClick={() => setAddUnitOpen(true)}
             className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-crimson-bright text-parchment bg-crimson/10 hover:bg-crimson/25 shrink-0 transition-colors"
           >
-            + <span className="hidden sm:inline">Añadir </span>Unidad
+            + Añadir<span className="hidden sm:inline"> Unidad</span>
           </button>
         </div>
         {roster.pointsLimit !== null && (

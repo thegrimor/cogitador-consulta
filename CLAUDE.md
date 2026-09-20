@@ -367,7 +367,14 @@ exists.
 
 `RequireAuth` (`src/shared/components/RequireAuth`) gates the `/roster/*` route subtree —
 unauthenticated visitors are redirected to `/login` (preserving `?next=`); a token still being
-validated by `bootstrapAuth()` shows `LoadingScreen` instead of bouncing. `AccountMenu`
+validated by `bootstrapAuth()` shows `LoadingScreen` instead of bouncing. **`RequireAuth` only
+waits for the auth check, not for `hydrateRosters`** — so a `/roster/:id` page can mount, and run
+its first render, before any roster is in the store. Never seed editable form state from `roster`
+in a `useState` initialiser there: the initial value is applied once, the guard's "Lista no
+encontrada" early return happens after the hooks have run, and when the roster finally arrives the
+draft is stuck at its empty starting value. `RosterEditPage`'s name/limit inputs keep their draft
+as `string | null` (null = not being edited, render the live roster value) for exactly this reason
+— they shipped blank on any connection slow enough to lose that race. `AccountMenu`
 (`src/shared/components/AccountMenu`) in the header is a login link when logged out, or a
 profile dropdown (avatar initial + username, click to reveal a "Cerrar Sesión" button) when
 logged in — same open/close-on-outside-click pattern as `ThemePicker`, which it sits next to
