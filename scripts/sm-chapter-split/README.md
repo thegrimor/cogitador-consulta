@@ -59,12 +59,14 @@ state, it's an outage.
 
 ## Known gaps left open
 
-- **`Assigned Agents` and `Kill Team` stayed with the parent.** No datasheet references either
-  one through a Faction-type ability, so the script had no evidence to assign them and its
-  no-owner default is "leave with the parent". `Kill Team` in particular reads like a Deathwatch
-  rule and probably belongs in `deathwatch.json`, but moving it on the strength of its name
-  would be exactly the kind of heuristic cross-reference the Orks/Space Marines codex migrations
-  already left as debt. Needs a look at the actual book.
+- **`Assigned Agents` and `Kill Team` were deleted from the parent after the split** (not by
+  this script — it leaves an army rule with the parent when no datasheet claims it, which is
+  what happened here). Both turned out to be stray copies of *Imperial Agents* rules: the
+  originals live in `imperial-agents.json` with 29 and 1 real bearers respectively, and
+  `Assigned Agents`' own text begins "If your Army Faction is AGENTS OF THE IMPERIUM". Nothing
+  in the Space Marines family referenced either one, by ability name or by id. Re-running this
+  script from a pre-split checkout will reproduce them in the parent, since they were in the
+  source file — delete them again.
 - **`combatEffects` stayed with the parent unsplit.** Its three entries are read by nothing in
   `src/` or `server/` (two of them are Space Wolves' Preytaker's Eye). Children get an empty
   array. Left alone rather than cleaned up as part of an unrelated change.
