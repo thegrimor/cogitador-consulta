@@ -33,7 +33,10 @@
     {
       "id": "war-horde",
       "name": "War Horde",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -54,7 +57,7 @@
       "id": "green-tide",
       "name": "Green Tide",
       "disposition": "TAKE AND HOLD",
-      "dp": 3,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -74,7 +77,7 @@
       "id": "bully-boyz",
       "name": "Bully Boyz",
       "disposition": "PURGE THE FOE",
-      "dp": 2,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -93,8 +96,8 @@
     {
       "id": "runt-swarm",
       "name": "Runt Swarm",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PRIORITY ASSETS",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -107,8 +110,8 @@
     {
       "id": "shoota-boyz",
       "name": "Shoota Boyz",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PURGE THE FOE",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -121,7 +124,7 @@
     {
       "id": "taktikal-brigade",
       "name": "Taktikal Brigade",
-      "disposition": "RECONNAISSANCE",
+      "disposition": "TAKE AND HOLD",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -135,8 +138,8 @@
     {
       "id": "wreckas",
       "name": "Wreckas",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PRIORITY ASSETS",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -156,7 +159,7 @@
       "id": "da-big-hunt",
       "name": "Da Big Hunt",
       "disposition": "PURGE THE FOE",
-      "dp": 2,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -191,8 +194,8 @@
     {
       "id": "madcap-meks",
       "name": "Madcap Meks",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "DISRUPTION",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -205,8 +208,8 @@
     {
       "id": "dread-mob",
       "name": "Dread Mob",
-      "disposition": "PRIORITY ASSETS",
-      "dp": 2,
+      "disposition": "PURGE THE FOE",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -219,8 +222,8 @@
     {
       "id": "blitz-brigade",
       "name": "Blitz Brigade",
-      "disposition": "RECONNAISSANCE",
-      "dp": 2,
+      "disposition": "TAKE AND HOLD",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -233,8 +236,8 @@
     {
       "id": "kult-of-speed",
       "name": "Kult of Speed",
-      "disposition": "DISRUPTION",
-      "dp": 2,
+      "disposition": "RECONNAISSANCE",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -247,8 +250,8 @@
     {
       "id": "flyboyz",
       "name": "Flyboyz",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "RECONNAISSANCE",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -268,8 +271,8 @@
     {
       "id": "brute-bosses",
       "name": "Brute Bosses",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "PURGE THE FOE",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -282,8 +285,8 @@
     {
       "id": "wurrband",
       "name": "Wurrband",
-      "disposition": "",
-      "dp": 0,
+      "disposition": "DISRUPTION",
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {

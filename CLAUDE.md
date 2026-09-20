@@ -77,6 +77,11 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   with that instead). See that folder's README for the full methodology and the gaps this run
   left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
   stratagem/enhancement/detachmentAbility cross-references).
+  **The detachment `dp`/`disposition` placeholders have since been closed against the MFM** and
+  that README is stale on this point: all 15 Ork detachments now carry real values. The
+  placeholders were badly wrong, not merely incomplete — 13 of 15 `dp` values and 12 of 15
+  dispositions changed, including 7 detachments stored at `dp: 0`. Orks turn out to be almost
+  entirely 1 DP (only War Horde is 3), which is why the guessed 2s and 3s looked plausible.
 - `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
   PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
   with the user) covers only the core/generic Adeptus Astartes content (army rules, 15
@@ -240,7 +245,23 @@ shapes, all worth checking for again on any future faction edit:
   not swept with the same rigor as datasheet `pointsCosts` — a dedicated pass here would need a
   parser that normalizes MFM's typographic apostrophes/special characters (Ø, ê, ë) against this
   app's plain-ASCII ones first, since a first attempt at this produced mostly false "not found"
-  hits from that encoding mismatch rather than real gaps.
+  hits from that encoding mismatch rather than real gaps. **Orks has since been swept** (see the
+  migration note above). Each MFM faction page ends with a `DETACHMENTS` section that carries
+  both the DP cost and the Force Disposition, one block per detachment, in the shape
+  `NAME` / `<n>DP` / one line per disposition / `ENHANCEMENTS` — so `dp` and `disposition` are
+  both checkable from the same render that the `pointsCosts` sweep already does. Validate any
+  such parse against a faction already known clean (Adeptus Custodes matched all 9 exactly)
+  before trusting a surprising result: Orks coming back as 14×1 DP looked like a parser bug and
+  was not.
+- **A `disposition` holding two values is a real array**, e.g. `["PRIORITY ASSETS", "TAKE AND
+  HOLD"]` — `dispositionList` (`src/core/constants/missionDeckColors.ts`) splits an array and
+  nothing else, so a comma-joined string would render as one badge with the comma inside it. The
+  dataset is already consistent here (5 two-disposition detachments — Space Marines' Gladius Task
+  Force and Blade of Ultramar, Blood Angels' Angelic Inheritors, Deathwatch's Black Spear Task
+  Force, Orks' War Horde — all arrays; 234 single strings; 0 comma-joined). Match the Space
+  Marines entries when adding another. Beware of auditing this with `set[det.disposition]` as an
+  object key: JS coerces an array to `"A,B"`, which makes correct array entries look like
+  comma-joined strings — that misreading briefly landed in this file as a fake bug report.
 
 Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances or Doctrina Imperatives) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
 
@@ -367,7 +388,14 @@ exists.
 
 `RequireAuth` (`src/shared/components/RequireAuth`) gates the `/roster/*` route subtree —
 unauthenticated visitors are redirected to `/login` (preserving `?next=`); a token still being
-validated by `bootstrapAuth()` shows `LoadingScreen` instead of bouncing. `AccountMenu`
+validated by `bootstrapAuth()` shows `LoadingScreen` instead of bouncing. **`RequireAuth` only
+waits for the auth check, not for `hydrateRosters`** — so a `/roster/:id` page can mount, and run
+its first render, before any roster is in the store. Never seed editable form state from `roster`
+in a `useState` initialiser there: the initial value is applied once, the guard's "Lista no
+encontrada" early return happens after the hooks have run, and when the roster finally arrives the
+draft is stuck at its empty starting value. `RosterEditPage`'s name/limit inputs keep their draft
+as `string | null` (null = not being edited, render the live roster value) for exactly this reason
+— they shipped blank on any connection slow enough to lose that race. `AccountMenu`
 (`src/shared/components/AccountMenu`) in the header is a login link when logged out, or a
 profile dropdown (avatar initial + username, click to reveal a "Cerrar Sesión" button) when
 logged in — same open/close-on-outside-click pattern as `ThemePicker`, which it sits next to
