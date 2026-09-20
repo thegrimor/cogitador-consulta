@@ -102,10 +102,6 @@ spurious extra. Two more traps, both hit on the first attempt here:
   `canBeLedBy` is the only place that knowledge lives, and the MFM tags are the only external
   cross-check. Orks could be confirmed two ways only because the *presence* of a Leader/Support
   ability is checkable locally.
-**This gap is not Orks-specific and is not yet swept:** a control run against Adeptus Custodes
-(clean on DP) found 10 missing links there — `sagittarum-custodians` and `custodian-guard-with-
-adrasite-and-pyrithite-spears` sit at `canBeLedBy: []` while their sibling `custodian-guard` has
-all 8 leaders. A full pass would need the other 21 factions rendered the same way.
 - `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
   PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
   with the user) covers only the core/generic Adeptus Astartes content (army rules, 15
@@ -273,10 +269,9 @@ shapes, all worth checking for again on any future faction edit:
   migration note above). Each MFM faction page ends with a `DETACHMENTS` section that carries
   both the DP cost and the Force Disposition, one block per detachment, in the shape
   `NAME` / `<n>DP` / one line per disposition / `ENHANCEMENTS` — so `dp` and `disposition` are
-  both checkable from the same render that the `pointsCosts` sweep already does. Validate any
-  such parse against a faction already known clean (Adeptus Custodes matched all 9 exactly)
-  before trusting a surprising result: Orks coming back as 14×1 DP looked like a parser bug and
-  was not.
+  both checkable from the same render that the `pointsCosts` sweep already does. Re-render before
+  trusting a surprising result rather than assuming a parser bug: Orks really does come back as
+  14×1 DP, and two renders agreed.
 - **A `disposition` holding two values is a real array**, e.g. `["PRIORITY ASSETS", "TAKE AND
   HOLD"]` — `dispositionList` (`src/core/constants/missionDeckColors.ts`) splits an array and
   nothing else, so a comma-joined string would render as one badge with the comma inside it. The
