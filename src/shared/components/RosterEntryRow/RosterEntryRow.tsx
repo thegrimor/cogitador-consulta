@@ -104,47 +104,67 @@ export function RosterEntryRow({
   }
 
   return (
-    <div className="bg-surface-2 border border-rim-bright px-3 py-2.5">
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <button onClick={() => setExpanded(v => !v)} className="min-w-0 text-left flex-1">
-          <p className="text-[13px] font-display uppercase tracking-widest text-parchment flex items-center gap-1.5">
-            <span>{expanded ? '▾' : '▸'}</span>
-            {datasheet.name}
-            <span className="text-[10px] font-mono normal-case tracking-normal text-parchment-dim">
-              ({entry.modelCount} {entry.modelCount === 1 ? 'miniatura' : 'miniaturas'})
+    <div className="bg-surface-2 border border-rim-bright">
+      <div className="flex items-center gap-2 px-3 py-2">
+        <button
+          onClick={() => setExpanded(v => !v)}
+          aria-expanded={expanded}
+          className="min-w-0 flex-1 text-left flex items-center gap-2"
+        >
+          <span className="text-[10px] text-crimson-bright w-2.5 shrink-0">{expanded ? '▾' : '▸'}</span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[13px] font-display uppercase tracking-widest text-parchment truncate">
+              {datasheet.name}
             </span>
+            <span className="block text-[10px] font-mono text-parchment-dim truncate mt-0.5">
+              {entry.modelCount} {entry.modelCount === 1 ? 'miniatura' : 'miniaturas'}
+              <span className="text-parchment-dim/60"> · {datasheet.role}</span>
+            </span>
+          </span>
+        </button>
+
+        <div className="shrink-0 text-right">
+          <p className="text-[14px] font-mono text-parchment leading-none">
+            {entryPoints}
+            <span className="text-[10px] text-parchment-dim">pts</span>
           </p>
-          <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mt-0.5">
-            {entryPoints}pts
-            {wargearSurcharge > 0 && (
-              <span className="text-gold ml-1">(+{wargearSurcharge} arm.)</span>
-            )}
-            {selectedEnhancement && (
-              <span className="text-gold ml-1">(+{selectedEnhancement.cost} mej.)</span>
-            )}
-          </p>
+          {(wargearSurcharge > 0 || selectedEnhancement) && (
+            <p className="text-[9px] font-mono text-gold mt-1 leading-none whitespace-nowrap">
+              {wargearSurcharge > 0 && `+${wargearSurcharge} arm.`}
+              {wargearSurcharge > 0 && selectedEnhancement && ' '}
+              {selectedEnhancement && `+${selectedEnhancement.cost} mej.`}
+            </p>
+          )}
+        </div>
+
+        <button
+          onClick={onRemove}
+          aria-label={`Quitar ${datasheet.name}`}
+          title="Quitar"
+          className="text-[13px] font-mono leading-none text-parchment-dim hover:text-crimson-bright shrink-0 px-1.5 py-1 transition-colors"
+        >
+          ✕
+        </button>
+      </div>
+
+      {(attachedTo || leadingEntries.length > 0) && (
+        <div className="pl-[1.875rem] pr-3 pb-2 flex flex-col gap-0.5">
           {attachedTo && (
-            <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">
+            <p className="text-[10px] font-mono text-parchment-dim italic">
               Adjuntado a: {attachedTo.datasheet.name}
               {attachedTo.viaEnhancement && ' (por mejora)'}
             </p>
           )}
           {leadingEntries.length > 0 && (
-            <p className="text-[10px] font-mono text-parchment-dim italic mt-0.5">
+            <p className="text-[10px] font-mono text-parchment-dim italic">
               Liderado por: {leadingEntries.map(l => l.datasheet.name).join(', ')}
             </p>
           )}
-        </button>
-        <button
-          onClick={onRemove}
-          className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0"
-        >
-          Quitar
-        </button>
-      </div>
+        </div>
+      )}
 
       {expanded && (
-        <div className="mt-2 space-y-2">
+        <div className="px-3 pb-3 pt-2.5 space-y-2 border-t border-rim-bright">
           {costs.length > 1 && (
             <CostVariantPicker costs={costs} selectedDescription={selectedDescription} onSelect={onChangeCost} />
           )}

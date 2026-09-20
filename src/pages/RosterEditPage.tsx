@@ -20,17 +20,14 @@ import {
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
-import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
+import { AddUnitModal } from '@/shared/components/AddUnitModal'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
 import { RosterQrExportModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
 import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
-import { THEMES } from '@/themes/themes'
+import { ALLY_FACTION_ID, canTakeImperialAgents } from '@/core/constants/allies'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
-
-/** Agents of the Imperium can be taken as allies by any other Imperium-aligned faction. */
-const ALLY_FACTION_ID = 'imperial-agents'
 
 export function RosterEditPage() {
   const { rosterId: rosterIdParam } = useParams<{ rosterId: string }>()
@@ -55,7 +52,7 @@ export function RosterEditPage() {
   const [limitDraft, setLimitDraft] = useState(roster?.pointsLimit ? String(roster.pointsLimit) : '')
   const [detachmentModalOpen, setDetachmentModalOpen] = useState(false)
   const [qrModalOpen, setQrModalOpen] = useState(false)
-  const [alliesOpen, setAlliesOpen] = useState(false)
+  const [addUnitOpen, setAddUnitOpen] = useState(false)
 
   if (!roster || !rosterIdParam) {
     return (
@@ -71,10 +68,10 @@ export function RosterEditPage() {
   const faction = factions.find(f => f.id === roster.factionId)
   const factionDetachments = forFaction(detachments, roster.factionId)
   const factionDatasheets = datasheetsForFaction(datasheets, roster.factionId).filter(d => !d.isVirtual)
-  const canTakeAllies =
-    roster.factionId !== ALLY_FACTION_ID &&
-    THEMES.find(t => t.faction === roster.factionId)?.group === 'imperium'
-  const allyDatasheets = datasheets.filter(d => d.factionId === ALLY_FACTION_ID && !d.isVirtual)
+  const canTakeAllies = canTakeImperialAgents(roster.factionId)
+  const allyDatasheets = canTakeAllies
+    ? datasheets.filter(d => d.factionId === ALLY_FACTION_ID && !d.isVirtual)
+    : []
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
@@ -92,6 +89,9 @@ export function RosterEditPage() {
 
   const combinedTotal = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
   const overLimit = roster.pointsLimit !== null && combinedTotal > roster.pointsLimit
+  const remaining = roster.pointsLimit === null ? null : roster.pointsLimit - combinedTotal
+  const usedPct = roster.pointsLimit ? Math.min(100, (combinedTotal / roster.pointsLimit) * 100) : 0
+  const detachmentDp = sumDetachmentPoints(detachments, roster.detachmentIds)
 
   function commitName() {
     const trimmed = nameDraft.trim()
@@ -120,117 +120,161 @@ export function RosterEditPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
-      <div className="mb-6">
-        <button
-          onClick={() => navigate(ROUTES.ROSTER)}
-          className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
-        >
-          ← Listas de Ejército
-        </button>
-        <div className="h-1 bg-crimson mb-2" />
-        <div className="flex items-center justify-between gap-4">
+      <button
+        onClick={() => navigate(ROUTES.ROSTER)}
+        className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
+      >
+        ← Listas de Ejército
+      </button>
+
+      <div className="h-1 bg-crimson mb-3" />
+
+      {/* Identidad de la lista */}
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="min-w-0 flex-1">
           <input
             type="text"
             value={nameDraft}
             onChange={e => setNameDraft(e.target.value)}
             onBlur={commitName}
-            className="text-[16px] font-display uppercase tracking-[3px] text-parchment bg-transparent focus:outline-none focus:border-b focus:border-crimson-bright flex-1 min-w-0"
+            aria-label="Nombre de la lista"
+            className="w-full text-[16px] font-display uppercase tracking-[3px] text-parchment bg-transparent focus:outline-none focus:border-b focus:border-crimson-bright"
           />
-          <button
-            onClick={() => setQrModalOpen(true)}
-            className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-crimson-bright shrink-0 transition-colors"
-          >
-            Exportar
-          </button>
+          <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
+            {faction?.name ?? roster.factionId}
+            <span className="text-parchment-dim/60">
+              {' · '}
+              {roster.entries.length} {roster.entries.length === 1 ? 'unidad' : 'unidades'}
+            </span>
+          </p>
         </div>
-        <p className="text-[11px] font-mono uppercase tracking-[2px] text-parchment-dim mt-0.5">
-          {faction?.name ?? roster.factionId}
-        </p>
+        <button
+          onClick={() => setQrModalOpen(true)}
+          className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment shrink-0 transition-colors"
+        >
+          Exportar
+        </button>
       </div>
 
-      {/* Destacamento */}
-      <div className="mb-4">
-        <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1.5">
-          Destacamento
-        </p>
-        <div className="flex flex-wrap items-center gap-1.5">
-          {selectedDetachments.length === 0 ? (
-            <span className="text-[11px] font-mono text-parchment-dim uppercase tracking-widest">
-              Sin destacamento
-            </span>
-          ) : (
-            selectedDetachments.map(d => (
-              <span
-                key={d.id}
-                className="text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border border-crimson-bright text-parchment bg-crimson/10 flex items-center gap-1.5"
-              >
-                {d.name}
-                {d.dp > 0 && <span className="text-crimson-bright font-bold">{d.dp} DP</span>}
+      {/* Destacamento y límite */}
+      <div className="border border-rim-bright bg-surface-2 mb-4">
+        <div className="px-3 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim shrink-0">
+            Destacamento
+          </span>
+          <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
+            {selectedDetachments.length === 0 ? (
+              <span className="text-[11px] font-mono text-parchment-dim/70 uppercase tracking-widest">
+                Sin destacamento
               </span>
-            ))
-          )}
-          {selectedDetachments.length > 1 && (
-            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-              Total: {sumDetachmentPoints(detachments, roster.detachmentIds)} DP
-            </span>
-          )}
-          <button
-            onClick={() => setDetachmentModalOpen(true)}
-            className="text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors"
-          >
-            {selectedDetachments.length === 0 ? 'Elegir destacamento' : 'Cambiar'}
-          </button>
+            ) : (
+              selectedDetachments.map(d => (
+                <span
+                  key={d.id}
+                  className="text-[11px] font-mono uppercase tracking-widest px-2 py-0.5 border border-crimson-bright text-parchment bg-crimson/10 flex items-center gap-1.5"
+                >
+                  {d.name}
+                  {d.dp > 0 && <span className="text-crimson-bright font-bold">{d.dp} DP</span>}
+                </span>
+              ))
+            )}
+            {selectedDetachments.length > 1 && (
+              <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+                Total {detachmentDp} DP
+              </span>
+            )}
+            <button
+              onClick={() => setDetachmentModalOpen(true)}
+              className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors"
+            >
+              {selectedDetachments.length === 0 ? 'Elegir' : 'Cambiar'}
+            </button>
+          </div>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">Límite</span>
+            <input
+              type="number"
+              min={1}
+              placeholder="Sin límite"
+              value={limitDraft}
+              onChange={e => setLimitDraft(e.target.value)}
+              onBlur={commitLimit}
+              aria-label="Límite de puntos"
+              className="w-24 bg-surface-3 border border-rim-bright text-parchment text-[12px] font-mono px-2 py-1 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
+            />
+          </div>
         </div>
       </div>
 
-      {detachmentModalOpen && (
-        <DetachmentSelectModal
-          detachments={factionDetachments}
-          selectedIds={roster.detachmentIds}
-          pointsLimit={roster.pointsLimit}
-          onClose={() => setDetachmentModalOpen(false)}
-          onConfirm={detachmentIds => {
-            dispatch(setDetachments({ rosterId, detachmentIds }))
-            setDetachmentModalOpen(false)
-          }}
-        />
-      )}
-
-      {/* Puntos */}
+      {/* Puntos + acción principal */}
       <div
-        className="sticky z-10 -mx-4 px-4 py-2 mb-6 bg-surface border-b border-rim-bright flex items-center gap-4"
+        className="sticky z-20 -mx-4 px-4 py-2 mb-5 bg-surface border-b border-rim-bright"
         style={{ top: 'var(--header-h, 2.5rem)' }}
       >
-        <p className={`text-[13px] font-mono uppercase tracking-widest ${overLimit ? 'text-crimson-bright' : 'text-parchment'}`}>
-          {combinedTotal}
-          {roster.pointsLimit !== null ? ` / ${roster.pointsLimit}` : ''} pts
-        </p>
-        <div className="flex items-center gap-1.5">
-          <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">Límite</span>
-          <input
-            type="number"
-            min={1}
-            placeholder="Sin límite"
-            value={limitDraft}
-            onChange={e => setLimitDraft(e.target.value)}
-            onBlur={commitLimit}
-            className="w-24 bg-surface-3 border border-rim-bright text-parchment text-[12px] font-mono px-2 py-1 placeholder-parchment-dim focus:outline-none focus:border-crimson-bright"
-          />
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <p
+              className={`text-[15px] font-mono uppercase tracking-widest leading-none ${
+                overLimit ? 'text-crimson-bright' : 'text-parchment'
+              }`}
+            >
+              {combinedTotal}
+              {roster.pointsLimit !== null && (
+                <span className="text-parchment-dim text-[12px]"> / {roster.pointsLimit}</span>
+              )}
+              <span className="text-parchment-dim text-[11px]"> pts</span>
+            </p>
+            {remaining !== null && (
+              <p
+                className={`text-[10px] font-mono uppercase tracking-widest mt-1 ${
+                  remaining < 0 ? 'text-crimson-bright' : 'text-gold'
+                }`}
+              >
+                {remaining < 0 ? `${Math.abs(remaining)} pts de exceso` : `Quedan ${remaining} pts`}
+              </p>
+            )}
+          </div>
+          <button
+            onClick={() => setAddUnitOpen(true)}
+            className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-crimson-bright text-parchment bg-crimson/10 hover:bg-crimson/25 shrink-0 transition-colors"
+          >
+            + <span className="hidden sm:inline">Añadir </span>Unidad
+          </button>
         </div>
+        {roster.pointsLimit !== null && (
+          <div className="h-0.5 bg-surface-3 mt-2">
+            <div
+              className={`h-full transition-all ${overLimit ? 'bg-crimson-bright' : 'bg-crimson'}`}
+              style={{ width: `${usedPct}%` }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Unidades */}
-      <div className="flex flex-col gap-2 mb-6">
+      <div className="flex flex-col gap-4 mb-6">
         {roster.entries.length === 0 ? (
-          <p className="text-[12px] font-mono text-parchment-dim text-center py-8 uppercase tracking-widest">
-            Sin unidades añadidas
-          </p>
+          <div className="border border-dashed border-rim-bright py-12 px-4 flex flex-col items-center gap-3">
+            <p className="text-[12px] font-mono text-parchment-dim uppercase tracking-widest text-center">
+              Sin unidades añadidas
+            </p>
+            <button
+              onClick={() => setAddUnitOpen(true)}
+              className="text-[11px] font-mono uppercase tracking-widest px-4 py-2 border border-crimson-bright text-parchment bg-crimson/10 hover:bg-crimson/25 transition-colors"
+            >
+              + Añadir Unidad
+            </button>
+          </div>
         ) : (
           entryGroups.map(group => (
-            <div key={group.label} className="flex flex-col gap-2">
-              <p className="text-[11px] font-display uppercase tracking-widest text-crimson-bright px-1">
-                {group.label}
-              </p>
+            <div key={group.label} className="flex flex-col gap-1.5">
+              <div className="flex items-baseline gap-2 px-0.5">
+                <p className="text-[11px] font-display uppercase tracking-widest text-crimson-bright">
+                  {group.label}
+                </p>
+                <span className="text-[10px] font-mono text-parchment-dim">{group.items.length}</span>
+                <span className="flex-1 h-px bg-rim-bright" />
+              </div>
               {group.items.map(({ entry, datasheet }) => {
                 // Surcharge tiers (2nd+/3rd+ copy of a datasheet) aren't a player choice -
                 // narrow to whichever tier this entry's position in the roster falls into,
@@ -306,41 +350,33 @@ export function RosterEditPage() {
         )}
       </div>
 
-      <AddUnitPanel
-        datasheets={factionDatasheets}
-        pointsCostMap={pointsCostMap}
-        entries={roster.entries}
-        pointsLimit={roster.pointsLimit}
-        rosterFactionId={roster.factionId}
-        onAdd={handleAddUnit}
-      />
+      {detachmentModalOpen && (
+        <DetachmentSelectModal
+          detachments={factionDetachments}
+          selectedIds={roster.detachmentIds}
+          pointsLimit={roster.pointsLimit}
+          onClose={() => setDetachmentModalOpen(false)}
+          onConfirm={detachmentIds => {
+            dispatch(setDetachments({ rosterId, detachmentIds }))
+            setDetachmentModalOpen(false)
+          }}
+        />
+      )}
 
-      {canTakeAllies && (
-        <div className="mt-4 bg-surface-2 border border-rim-bright">
-          <button
-            onClick={() => setAlliesOpen(open => !open)}
-            className="w-full flex items-center justify-between px-3 py-3 text-left"
-          >
-            <span className="text-[12px] font-display uppercase tracking-widest text-parchment">
-              Aliados · Agentes del Imperio
-            </span>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-              {alliesOpen ? '▲' : '▼'}
-            </span>
-          </button>
-          {alliesOpen && (
-            <div className="px-3 pb-3">
-              <AddUnitPanel
-                datasheets={allyDatasheets}
-                pointsCostMap={pointsCostMap}
-                entries={roster.entries}
-                pointsLimit={roster.pointsLimit}
-                rosterFactionId={roster.factionId}
-                onAdd={handleAddUnit}
-              />
-            </div>
-          )}
-        </div>
+      {addUnitOpen && (
+        <AddUnitModal
+          factionDatasheets={factionDatasheets}
+          factionLabel={faction?.name ?? roster.factionId}
+          allyDatasheets={allyDatasheets}
+          allyLabel="Agentes del Imperio"
+          pointsCostMap={pointsCostMap}
+          entries={roster.entries}
+          pointsLimit={roster.pointsLimit}
+          currentPoints={combinedTotal}
+          rosterFactionId={roster.factionId}
+          onAdd={handleAddUnit}
+          onClose={() => setAddUnitOpen(false)}
+        />
       )}
 
       {qrModalOpen && <RosterQrExportModal roster={roster} onClose={() => setQrModalOpen(false)} />}
