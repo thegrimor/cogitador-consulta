@@ -63,6 +63,12 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   it's unreliable for the numeric weapon/model stat tables specifically, which still need a
   visual check (or the TSV-based positional table reconstruction sketched in that README, not
   yet built). `render-and-ocr.mjs`'s poppler/tesseract install via `winget`.
+- `scripts/sm-chapter-split/` — the one-off that turned the five Space Marines chapters with
+  their own detachments (Black Templars, Blood Angels, Dark Angels, Deathwatch, Space Wolves)
+  into real factions, leaving `space-marines` as their parent. Re-runnable from a clean
+  checkout (`--dry` reports the split without writing) and it refuses to run twice. Also
+  generates `src/core/constants/smChapterDatasheets.ts`. Read its README before touching the
+  Space Marines data — **see "Faction inheritance" below for the model it produced.**
 - `scripts/orks-11th-ed-migration/` — one-off pipeline used to rebuild `orks.json` wholesale
   from the actual 11th-edition Codex PDF (not a Faction Pack dataslate) when that codex
   replaced the old Ork data generation entirely; kept as a worked reference for the next
@@ -77,10 +83,12 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   detachments, 85 datasheets), not the full previous roster. Per explicit user instruction,
   this migration **replaced only the "core" slice** of `space-marines.json` with what the PDF
   actually contains and **left untouched** everything chapter-locked to Dark Angels, Deathwatch,
-  Space Wolves, Black Templars or Blood Angels — `space-marines.json` is therefore now a mix of
-  this new codex's core roster plus five untouched, differently-sourced chapter rosters (check
-  a datasheet's/detachment's chapter scope — `factionKeywords`/`chapters` — before assuming
-  which codex printing its text came from). See that folder's README for the classification
+  Space Wolves, Black Templars or Blood Angels — so `space-marines.json` became a mix of this
+  new codex's core roster plus five untouched, differently-sourced chapter rosters. **Those
+  five have since moved out into their own faction files** (see `scripts/sm-chapter-split/`
+  and "Faction inheritance" below), so the mix now lives across six files rather than one, and
+  a chapter file's text still comes from that older, different source — check which file a
+  datasheet is in before assuming which codex printing its text came from. See that folder's README for the classification
   rule (`classification.json`), the same points-placeholder/heuristic-cross-reference caveats
   as Orks, and two real bugs this run found and fixed along the way (a `render-and-ocr.mjs`
   filename-padding bug, and a pre-existing `WeaponCard.tsx` invalid-HTML nested-button bug that
@@ -101,6 +109,43 @@ No test suite yet.
 ### Data layer
 
 All game data is JSON, hand-maintained directly — there is no CSV, no scraper, and no generator script (there used to be; the CSV source, the `modifiers.ts` combat-modifier catalog, and the build pipeline that folded one into the other were deleted once the JSON was verified correct and the app fully migrated onto it). The JSON *is* the source of truth: `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json` + `public/data/catalog/phases.json` + `public/data/missions.json`. `src/infrastructure/data/useGameData.ts` fetches all of the faction/catalog JSON in parallel, flattens them into the `GameData` shape the app has always used, and exposes it via `GameDataContext` (read through `useGameDataContext()`). `src/infrastructure/data/useMissionsData.ts` separately fetches `missions.json` for the Misiones pages. `phases.json` (`PhaseData[]`, types in `src/types/index.ts`) used to be a static array in `src/core/constants/phasesData.ts`; that file now only keeps the `PHASE_GROUPS` display-order constant — the phase content itself moved to JSON so the chat backend (`server/src/lib/gameDataIndex.js`) can read it too, same as every other domain JSON file.
+
+### Faction inheritance (Space Marines chapters)
+
+Most factions are self-contained, but the five Space Marines chapters with their own
+detachments are **child factions of `space-marines`**: `black-templars`, `blood-angels`,
+`dark-angels`, `deathwatch` and `space-wolves` each have a real entry in `catalog/factions.json`
+and a real `public/data/factions/<id>.json`, but **that file holds only what the chapter adds —
+never a copy of the parent's content.** What a chapter can field is "its own + the parent's",
+applied at read time by `src/core/constants/factionFamily.ts` (`forFaction`,
+`forFactionFromMap`, `datasheetsForFaction`, `belongsToFaction`, `isSameFactionFamily`). Use
+those helpers instead of comparing `factionId` with `===` anywhere content is scoped to a
+faction — a plain `===` silently drops everything a chapter inherits. `server/src/lib/
+gameDataIndex.js` keeps its own copy of the same rules so the chat answers agree with the app.
+
+Inheritance is one-way and has exactly one exception:
+
+- The parent `space-marines` is the plain Codex army (67 generic datasheets **plus** the 18
+  named characters of successor chapters that have no detachments of their own — Ultramarines,
+  Imperial Fists, Iron Hands, Raven Guard, Salamanders, White Scars, listed as
+  `SM_SUCCESSOR_CHAPTERS` in `chapters.ts`). It never sees a child's content.
+- Those 18 successor characters are the exception: they belong to the parent alone and are
+  **not** inherited, so a Dark Angels list can't field Marneus Calgar. This is why datasheets
+  get `datasheetsForFaction`/`datasheetBelongsToFaction` while detachments, stratagems and
+  enhancements use the blanket `forFaction`.
+- `resolveCostsForFactionContext` in `roster.ts` decides "is this an ally?" with
+  `isSameFactionFamily`, not `!==` — an inherited core datasheet inside a chapter roster is not
+  an allied Assigned Agent, and pricing it as one picks the wrong tier.
+
+**A `catalog/factions.json` entry without its `factions/<id>.json` file is an outage, not a
+degraded state**: both `useGameData.ts` and `gameDataIndex.js` load one file per catalog entry,
+and the backend does it with an uncaught `readFileSync` at module load — so the missing file
+takes down auth and rosters along with the chat.
+
+Rosters saved before the split all carry `space-marines`. `authThunks.ts` reassigns them on
+login (chapter-specific detachment first, then any unit only one chapter can field, reading the
+generated `smChapterDatasheets.ts` because rosters are fetched before `GameDataContext` holds
+any datasheets); a roster naming two chapters at once is left alone rather than forced into one.
 
 To correct or add data (fix a rule, add a new codex release, patch an errata), edit the relevant `public/data/factions/<slug>.json` (or `public/data/catalog/*.json`) file directly — there's no regeneration step to run afterward.
 
@@ -265,7 +310,8 @@ Primary Mission card, same lookup as `MissionMatcherPage`'s `missions.matrix.gri
 search/read `public/data/*.json` on demand — the ~15MB of game data is
 never sent as context, only the specific datasheet/stratagem/etc. the model asks for, via
 `server/src/lib/gameDataIndex.js` (loads and indexes all faction JSON into memory once at
-startup; searches are case/accent-insensitive substring matches). List-returning tools
+startup; searches are case/accent-insensitive substring matches, and faction-scoped lookups
+walk the parent/child family — see "Faction inheritance" above). List-returning tools
 (`get_stratagems`, `get_enhancements`, `get_detachments`, `list_phases`) cap their formatted
 output at ~12k chars, since chapter-heavy factions like Space Marines have 50+ detachments — the
 model is told to re-call with a narrower `detachmentId` instead of getting a silently truncated
@@ -304,7 +350,9 @@ users' lists — there is never a moment where `auth.user` points at one account
 `roster.rosters` still holds another's data. `rosterSlice`'s `hydrateRosters`/`resetRosters`
 reducers exist only for this — regular roster mutations never call them directly.
 
-One courtesy migration lives in `authThunks.ts`: if an account has zero rosters on the backend
+Two migrations live in `authThunks.ts`, both applied to rosters as they're fetched. The first
+reassigns pre-chapter-split Space Marines rosters to their chapter faction (see "Faction
+inheritance" above). The second is a courtesy import: if an account has zero rosters on the backend
 and the browser still has pre-login rosters under the legacy `cogitador-consulta-rosters` key,
 `login()`/`register()` adopt them into the account (via `PUT`) once, then delete the legacy key.
 
@@ -330,7 +378,7 @@ Implemented: create/edit/list rosters with points limits, detachment selection (
 
 ### Theme system
 
-24 faction themes defined in `src/themes/themes.ts`. Each theme is a set of CSS custom property values. `useTheme` (in `src/shared/hooks/useTheme.ts`) writes them to `data-theme` on `<html>`, which activates overrides defined in `src/index.css` under `[data-theme="<id>"]` blocks. Colors referenced in Tailwind classes (`bg-crimson`, `text-parchment-dim`, etc.) are CSS variables defined in `@theme` in `index.css` — they update automatically when the theme changes. Persisted to localStorage via `ThemePicker`.
+29 faction themes defined in `src/themes/themes.ts` (the 24 factions plus the five Space Marines chapter factions). Each theme is a set of CSS custom property values. `useTheme` (in `src/shared/hooks/useTheme.ts`) writes them to `data-theme` on `<html>`, which activates overrides defined in `src/index.css` under `[data-theme="<id>"]` blocks. Colors referenced in Tailwind classes (`bg-crimson`, `text-parchment-dim`, etc.) are CSS variables defined in `@theme` in `index.css` — they update automatically when the theme changes. Persisted to localStorage via `ThemePicker`.
 
 ### PWA (installable app)
 
@@ -403,6 +451,7 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
 
 - `RosterListPage` / `RosterNewPage` / `RosterEditPage` — list, create, and edit rosters.
 - `AddUnitPanel`, `WeaponSelector`, `WeaponOptionsEditor`, `CostVariantPicker`, `DetachmentSelectModal`, `RosterEntryRow`, `RosterCard` — the editing UI: adding units, picking wargear loadouts/options, resolving cost variants (e.g. per-model-count pricing), selecting detachments, and rendering each entry.
+- Both `AddUnitPanel` (the unit picker) and `RosterEditPage`'s own entry list group datasheets into the same 4 GW-app-style display buckets — Personajes / Battleline / Transporte Dedicado / Otros — via `groupByRoleCategory`/`roleCategoryLabel` in `src/core/utils/roster.ts`, which bucket every raw `Datasheet.role` string (there are many more of these across factions than 4 - Fire Support, Transport, Fortifications, "Other Datasheets", etc. - see `ROLE_PRIORITY`) onto `ROLE_CATEGORY_LABELS`'s 4 labels, same priority order as `compareByRolePriority`/`rolePriority`. `AddUnitPanel`'s filter tabs are these 4 categories (plus "Todos"), not one tab per raw role.
 - Points math (`resolveCostsForUnitIndex`, `sumDetachmentPoints`, model-count resolution, rule selection caps) lives in `src/core/utils/roster.ts`; weapon-option/loadout parsing is in `src/core/utils/weaponOptions.ts`. Points are never cached on a `RosterEntry`/`RosterList` (no `pointsCost`, `wargearSurcharge`, or `totalPoints` fields) — `RosterEntry` only stores the player's choices (`modelCount`, `wargearSelections`, `weaponOptionSelections`, `enhancementId`). Every points figure is resolved fresh from the current `pointsCostMap`/`wargearCostMap`/`enhancements` at read time via `resolveEntryBaseCost` / `resolveEntryWargearSurcharge` / `resolveEntryEnhancementCost` / `resolveEntryPoints` (base + wargear, what the roster editor shows per unit) / `resolveEntryTotalPoints` (+ enhancement, for export text) / `resolveRosterTotalPoints` (whole-roster grand total) — all in `src/core/utils/roster.ts`. This means a correction to a datasheet's points in the JSON data is reflected on every saved roster immediately, with nothing to re-save; it also shrinks what's persisted (backend `PUT /api/rosters/:id`, QR payload).
 - Imperial Agents datasheets (`public/data/factions/imperial-agents.json`) are the only ones that get taken as an ally into a foreign faction's roster (`RosterEditPage`'s "Aliados · Agentes del Imperio" panel, `ALLY_FACTION_ID = 'imperial-agents'` — this must match the faction JSON's own `id`, not GW's in-game "AoI" shorthand, which isn't a real `factionId` anywhere in the data), and *some* of them (not all — check the MFM per the rule above rather than assuming) are priced differently for that than for a native Agents of the Imperium army — GW's own "Assigned Agent" vs "AGENTS OF THE IMPERIUM Detachment" distinction, which isn't always a price *increase* (Exaction Squad's ally price is lower). This is encoded as a `"(Assigned Agent)"`/`"(...Detachment)"` annotation on the relevant `pointsCosts` entries — a separate trailing `(...)` group from the `"(2nd+ unit)"`/`"(1st to 3rd units)"` surcharge-tier suffix on the one datasheet needing both (Sisters of Battle Immolator: `"1 model (1st to 3rd units) (Assigned Agent)"`) — `parseTierRange` checks every parenthetical group in a description rather than assuming the tier is the only or last one, and `isAssignedAgentCost` matches the annotation anywhere in the string for the same reason. `resolveCostsForFactionContext` in `roster.ts` picks the right context by comparing the entry's datasheet `factionId` against the roster's own `factionId`, and every points-resolution call site (`resolveRosterTotalPoints`, `rosterExport.ts`'s export/import, `RosterEditPage`, `AddUnitPanel`) filters through it before `resolveCostsForUnitIndex`. Skipping this filter at a new call site doesn't error — it just silently grabs whichever tier happens to sort first, so a roster's total quietly comes out wrong by the price gap (seen for real: an imported list with allied Inquisitorial Agents undercounting by exactly the Detachment/Assigned-Agent gap).
 - Export to Wahapedia-style plain text (`sectionHeader`, `battleSizeLabel`, etc.) is in `src/core/utils/rosterExport.ts`. Text import (`RosterListPage`'s "Importar Lista" box) goes through `parseRosterText`, which dispatches by format: `parseMunitorumRosterText` (same file) handles the GW-app export plus its close cousins (Listhammer, BattleScribe, and their Spanish translations — all share one line grammar, distinguished by regex variants); `parseNewRecruitText` (`src/core/utils/parseNewRecruit.ts`, picked via `isNewRecruitText`) handles newrecruit.eu's export, a genuinely different line grammar (a "+"-bordered ALL-CAPS metadata banner, inline `: weapon, weapon` tails instead of separate weapon-bullet lines) kept in its own module for that reason. Both parsers funnel into the same `ParsedRosterText`/`ParsedUnit` shape, so `resolveImportedRoster` (datasheet/detachment/enhancement matching, wargear/weapon-option resolution, leader attachment) is format-agnostic and lives once in `rosterExport.ts`. Adding another source format means adding another `parseXText` producing that same shape, not touching `resolveImportedRoster`.

@@ -3,6 +3,7 @@ import type { GameData, Datasheet, Detachment, DetachmentAbility, Stratagem, Enh
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import type { PanelSelection } from '../types'
+import { forFaction, datasheetsForFaction, datasheetBelongsToFaction } from '@/core/constants/factionFamily'
 
 const EMPTY_SELECTION: PanelSelection = {
   factionId: null, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null,
@@ -40,17 +41,19 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
 
   const availableDetachments = useMemo(
     () => selection.factionId
-      ? gameData.detachments.filter(d => d.factionId === selection.factionId)
+      ? forFaction(gameData.detachments, selection.factionId)
       : [],
     [gameData.detachments, selection.factionId],
   )
 
   const allUnitsForFaction = useMemo(
-    () => selection.factionId
-      ? gameData.datasheets
-          .filter(ds => ds.factionId === selection.factionId && !ds.isVirtual)
-          .sort((a, b) => a.name.localeCompare(b.name))
-      : [],
+    () => {
+      const factionId = selection.factionId
+      if (!factionId) return []
+      return datasheetsForFaction(gameData.datasheets, factionId)
+        .filter(ds => !ds.isVirtual)
+        .sort((a, b) => a.name.localeCompare(b.name))
+    },
     [gameData.datasheets, selection.factionId],
   )
 
@@ -95,7 +98,7 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
       }
     }
     return [...new Set([...leaderIds, ...enhancementLeaderIds])]
-      .map(id => gameData.datasheets.find(ds => ds.id === id && ds.factionId === factionId))
+      .map(id => gameData.datasheets.find(ds => ds.id === id && datasheetBelongsToFaction(ds, factionId)))
       .filter((ds): ds is Datasheet => ds !== undefined)
       .filter(ds => rosterIds === null || rosterIds.includes(ds.id))
       .map(ds => ({ datasheet: ds, viaEnhancement: !leaderIds.has(ds.id) }))

@@ -1,6 +1,7 @@
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { ROUTES, factionDatasheetsPath, factionDetachmentsPath, factionArmyRulesPath } from '@/core/constants/routes'
+import { forFaction, forFactionFromMap, datasheetsForFaction } from '@/core/constants/factionFamily'
 
 function NavTile({ to, label, meta }: { to: string; label: string; meta: string }) {
   return (
@@ -27,9 +28,9 @@ export function FactionPage() {
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const sheetCount = datasheets.filter(d => d.factionId === factionId && !d.isVirtual).length
-  const detachmentCount = detachments.filter(d => d.factionId === factionId).length
-  const armyRuleCount = (armyRulesByFaction[factionId ?? ''] ?? []).length
+  const sheetCount = datasheetsForFaction(datasheets, factionId ?? '').filter(d => !d.isVirtual).length
+  const detachmentCount = forFaction(detachments, factionId ?? '').length
+  const armyRuleCount = forFactionFromMap(armyRulesByFaction, factionId ?? '').length
 
   if (!faction) {
     return (

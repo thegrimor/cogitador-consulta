@@ -21,7 +21,7 @@
   --color-parchment-dim: #a89880;
   /* Softer body-copy tone + lifted-black page background — derived from the two tokens
      above so every faction theme gets a lower-contrast reading pair automatically instead
-     of needing its own override (see the 24 :root[data-theme="…"] blocks below). Cuts the
+     of needing its own override (see the 29 :root[data-theme="…"] blocks below). Cuts the
      near-white-on-near-black glare on long paragraphs without touching accent colors. */
   --color-ink: color-mix(in srgb, var(--color-parchment) 78%, var(--color-surface) 22%);
   --color-page: color-mix(in srgb, var(--color-surface) 92%, var(--color-parchment) 8%);
@@ -52,7 +52,7 @@
 
   /* Colores fijos por facción (no varían con el tema activo) — cada facción/unidad/
      destacamento se colorea con SU PROPIO color en cualquier parte de la app, sin importar
-     qué tema de los 24 está puesto en pantalla en ese momento. Son el `crimsonBright` de cada
+     qué tema de los 29 está puesto en pantalla en ese momento. Son el `crimsonBright` de cada
      tema en src/themes/themes.ts, congelado acá — no una referencia al tema en sí (que cambia
      con data-theme). El mapeo id-de-facción -> token vive en
      src/core/constants/factionColors.ts, generado a mano por nombre contra themes.ts (los ids
@@ -64,10 +64,14 @@
   --color-faction-adeptus-titanicus: #9098a8;
   --color-faction-aeldari: #d8c878;
   --color-faction-astra-militarum: #7a9840;
+  --color-faction-black-templars: #9a9aa2;
+  --color-faction-blood-angels: #d63a46;
   --color-faction-chaos-daemons: #b447e4;
   --color-faction-chaos-knights: #907665;
   --color-faction-chaos-space-marines: #c09020;
+  --color-faction-dark-angels: #3f8a63;
   --color-faction-death-guard: #6a9830;
+  --color-faction-deathwatch: #c74040;
   --color-faction-drukhari: #18b0b0;
   --color-faction-emperors-children: #e02aa8;
   --color-faction-genestealer-cults: #995ce7;
@@ -78,6 +82,7 @@
   --color-faction-necrons: #00e5c8;
   --color-faction-orks: #50d820;
   --color-faction-space-marines: #547fe2;
+  --color-faction-space-wolves: #5f9cbc;
   --color-faction-tau-empire: #4da6ff;
   --color-faction-thousand-sons: #20a0b8;
   --color-faction-tyranids: #ba44de;
@@ -326,6 +331,111 @@
   --vignette-rgb:  26, 61, 143;
   --grid-h-rgb:    26, 61, 143;
   --grid-v-rgb:    184, 146, 42;
+}
+
+:root[data-theme="da"] {
+  --color-crimson:       #1d4a33;
+  --color-crimson-bright:#3f8a63;
+  --color-crimson-dim:   #102a1d;
+  --color-gold:          #b09a48;
+  --color-gold-bright:   #ddc468;
+  --color-neon:          #3fd18a;
+  --color-surface:       #050a07;
+  --color-surface-2:     #0a1410;
+  --color-surface-3:     #101c16;
+  --color-surface-4:     #16261e;
+  --color-parchment:     #dfe8e0;
+  --color-parchment-dim: #8ca596;
+  --color-rim:           #12301f;
+  --color-rim-bright:    #1d4a33;
+  --scanline-rgb:  29, 74, 51;
+  --vignette-rgb:  29, 74, 51;
+  --grid-h-rgb:    29, 74, 51;
+  --grid-v-rgb:    176, 154, 72;
+}
+
+:root[data-theme="ba"] {
+  --color-crimson:       #8c1220;
+  --color-crimson-bright:#d63a46;
+  --color-crimson-dim:   #4a0810;
+  --color-gold:          #c9a227;
+  --color-gold-bright:   #f0cb4;
+  --color-neon:          #ff4d5a;
+  --color-surface:       #0a0406;
+  --color-surface-2:     #160a0d;
+  --color-surface-3:     #1f0f13;
+  --color-surface-4:     #2a151a;
+  --color-parchment:     #f2dede;
+  --color-parchment-dim: #b08a90;
+  --color-rim:           #3a0c14;
+  --color-rim-bright:    #5e141f;
+  --scanline-rgb:  140, 18, 32;
+  --vignette-rgb:  140, 18, 32;
+  --grid-h-rgb:    140, 18, 32;
+  --grid-v-rgb:    201, 162, 39;
+}
+
+:root[data-theme="bt"] {
+  --color-crimson:       #3a3a3e;
+  --color-crimson-bright:#9a9aa2;
+  --color-crimson-dim:   #1c1c20;
+  --color-gold:          #b8b2a0;
+  --color-gold-bright:   #e6e0cc;
+  --color-neon:          #d8d8e0;
+  --color-surface:       #050505;
+  --color-surface-2:     #0e0e10;
+  --color-surface-3:     #16161a;
+  --color-surface-4:     #1f1f24;
+  --color-parchment:     #ece9e2;
+  --color-parchment-dim: #96948c;
+  --color-rim:           #26262a;
+  --color-rim-bright:    #3a3a40;
+  --scanline-rgb:  58, 58, 62;
+  --vignette-rgb:  58, 58, 62;
+  --grid-h-rgb:    58, 58, 62;
+  --grid-v-rgb:    184, 178, 160;
+}
+
+:root[data-theme="sw"] {
+  --color-crimson:       #2d5a72;
+  --color-crimson-bright:#5f9cbc;
+  --color-crimson-dim:   #18333f;
+  --color-gold:          #a8763c;
+  --color-gold-bright:   #d29a56;
+  --color-neon:          #7fd4f0;
+  --color-surface:       #050809;
+  --color-surface-2:     #0b1216;
+  --color-surface-3:     #111b21;
+  --color-surface-4:     #18252c;
+  --color-parchment:     #dde8ee;
+  --color-parchment-dim: #8ba2b0;
+  --color-rim:           #1a3846;
+  --color-rim-bright:    #2d5a72;
+  --scanline-rgb:  45, 90, 114;
+  --vignette-rgb:  45, 90, 114;
+  --grid-h-rgb:    45, 90, 114;
+  --grid-v-rgb:    168, 118, 60;
+}
+
+:root[data-theme="dw"] {
+  --color-crimson:       #8a1a1a;
+  --color-crimson-bright:#c74040;
+  --color-crimson-dim:   #4a0d0d;
+  --color-gold:          #9aa0a8;
+  --color-gold-bright:   #ccd2da;
+  --color-neon:          #e05050;
+  --color-surface:       #040506;
+  --color-surface-2:     #0c0e11;
+  --color-surface-3:     #141719;
+  --color-surface-4:     #1c2024;
+  --color-parchment:     #e4e8ec;
+  --color-parchment-dim: #8f969e;
+  --color-rim:           #24282c;
+  --color-rim-bright:    #3a4048;
+  --scanline-rgb:  138, 26, 26;
+  --vignette-rgb:  138, 26, 26;
+  --grid-h-rgb:    138, 26, 26;
+  --grid-v-rgb:    154, 160, 168;
 }
 
 :root[data-theme="am"] {

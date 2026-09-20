@@ -2,13 +2,8 @@ import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
-import { chapterOf, chapterLabel, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
-import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
-
-// The faction's actual id (public/data/factions/space-marines.json's top-level `id`) is
-// 'space-marines', not 'SM' -- this check used the wrong literal since it was introduced,
-// which meant the chapter filter row below never actually rendered for anyone.
-const IS_SPACE_MARINES = (factionId: string | undefined) => factionId === 'space-marines'
+import { chapterBadgeOf } from '@/core/constants/chapters'
+import { datasheetsForFaction } from '@/core/constants/factionFamily'
 
 export function FactionDatasheetsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -16,28 +11,17 @@ export function FactionDatasheetsPage() {
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const factionSheets = datasheets.filter(d => d.factionId === factionId && !d.isVirtual)
-  const isSM = IS_SPACE_MARINES(factionId)
+  const factionSheets = datasheetsForFaction(datasheets, factionId ?? '').filter(d => !d.isVirtual)
 
   const roles = ['Todos', ...Array.from(new Set(factionSheets.map(d => d.role))).sort()]
   const [activeRole, setActiveRole] = useState('Todos')
   const [search, setSearch] = useState('')
 
-  // 'Space Marines' (the generic/core bucket, shown as "Núcleo") pinned right after "Todos",
-  // then every real chapter alphabetically — otherwise it'd sort wherever "S" falls and read
-  // like just another chapter instead of the default/all-purpose bucket it actually is.
-  const chapters = isSM
-    ? ['Todos', 'Space Marines', ...Array.from(new Set(factionSheets.map(d => chapterOf(d.factionKeywords))))
-        .filter(c => c !== 'Space Marines').sort((a, b) => a.localeCompare(b, 'es'))]
-    : []
-  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
-
   const filtered = factionSheets
     .filter(d => {
       const matchRole = activeRole === 'Todos' || d.role === activeRole
-      const matchChapter = !isSM || activeChapter === 'Todos' || chapterOf(d.factionKeywords) === activeChapter
       const matchSearch = d.name.toLowerCase().includes(search.toLowerCase())
-      return matchRole && matchChapter && matchSearch
+      return matchRole && matchSearch
     })
     .sort((a, b) => a.name.localeCompare(b.name, 'es'))
 
@@ -87,25 +71,6 @@ export function FactionDatasheetsPage() {
         ))}
       </div>
 
-      {/* Filtro de capítulo (solo Space Marines) */}
-      {isSM && (
-        <div className="flex flex-wrap gap-1.5 mb-3">
-          {chapters.map(chapter => (
-            <button
-              key={chapter}
-              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
-              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
-                activeChapter === chapter
-                  ? 'border-gold text-parchment bg-gold/10'
-                  : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
-              }`}
-            >
-              {chapterLabel(chapter)}
-            </button>
-          ))}
-        </div>
-      )}
-
       {/* Búsqueda */}
       <div className="mb-4">
         <input
@@ -135,7 +100,7 @@ export function FactionDatasheetsPage() {
                   ...(hasInv ? [{ label: 'INV', value: primary.invSv }] : []),
                 ]
               : []
-            const chapter = isSM ? chapterOf(ds.factionKeywords) : 'Space Marines'
+            const chapter = chapterBadgeOf(ds.factionKeywords)
             return (
               <NavLink
                 key={ds.id}
@@ -146,7 +111,7 @@ export function FactionDatasheetsPage() {
                   <span className="text-[13px] font-display uppercase tracking-widest text-parchment group-hover:text-parchment">
                     {ds.name}
                   </span>
-                  {chapter !== 'Space Marines' && (
+                  {chapter && (
                     <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
                       {chapter}
                     </span>

@@ -2,6 +2,7 @@ import type {
   PointsCost, Datasheet, Detachment, Enhancement, RosterEntry, RosterList, WargearCost, WeaponOptionRule,
 } from '@/types'
 import { ruleEligibleCount } from '@/core/utils/weaponOptions'
+import { isSameFactionFamily } from '@/core/constants/factionFamily'
 
 export const DETACHMENT_POINTS_BUDGET = 3
 export const MULTI_DETACHMENT_THRESHOLD = 2000
@@ -125,7 +126,9 @@ export function resolveCostsForFactionContext(
   rosterFactionId: string,
 ): PointsCost[] {
   if (!costs.some(c => isAssignedAgentCost(c.description))) return costs
-  const isAlly = datasheetFactionId !== rosterFactionId
+  // Family, not string equality: a core Space Marines datasheet inside a Dark Angels roster is
+  // inherited content, not an ally, and pricing it as one would pick the wrong tier.
+  const isAlly = !isSameFactionFamily(datasheetFactionId, rosterFactionId)
   return costs.filter(c => isAssignedAgentCost(c.description) === isAlly)
 }
 
@@ -232,12 +235,33 @@ const ROLE_PRIORITY: Record<string, number> = {
   Other: 3,
 }
 
+/** Display buckets mirroring the official GW app's unit grouping (Characters / Battleline /
+ * Dedicated Transports, then every other role - Fire Support, Transport, Fortifications, "Other
+ * Datasheets", etc. - lumped into one "Otros" bucket) rather than one section per raw `role`
+ * string, since factions have many more distinct roles than that 4-way split. Index matches
+ * `rolePriority`'s output. */
+export const ROLE_CATEGORY_LABELS = ['Personajes', 'Battleline', 'Transporte Dedicado', 'Otros']
+
 function rolePriority(role: string): number {
   return ROLE_PRIORITY[role] ?? 3
 }
 
-export function compareByRolePriority(a: { role: string }, b: { role: string }): number {
-  return rolePriority(a.role) - rolePriority(b.role)
+export function compareByRolePriority(a: { role: string; name: string }, b: { role: string; name: string }): number {
+  return rolePriority(a.role) - rolePriority(b.role) || a.name.localeCompare(b.name, 'es')
+}
+
+export function roleCategoryLabel(role: string): string {
+  return ROLE_CATEGORY_LABELS[rolePriority(role)]
+}
+
+/** Groups items into the same Characters/Battleline/Dedicated Transports/Otros buckets used for
+ * sorting, in that display order, omitting empty buckets. */
+export function groupByRoleCategory<T>(items: T[], getRole: (item: T) => string): { label: string; items: T[] }[] {
+  const buckets: T[][] = ROLE_CATEGORY_LABELS.map(() => [])
+  for (const item of items) buckets[rolePriority(getRole(item))].push(item)
+  return ROLE_CATEGORY_LABELS
+    .map((label, i) => ({ label, items: buckets[i] }))
+    .filter(group => group.items.length > 0)
 }
 
 export function getRuleSelection(entry: RosterEntry, rule: WeaponOptionRule): number[] {

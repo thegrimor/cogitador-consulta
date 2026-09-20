@@ -2,6 +2,7 @@ import type { CoreRule, Datasheet, Faction } from '@/types'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
 import { factionColor } from '@/core/constants/factionColors'
 import { DECK_COLORS } from '@/core/constants/missionDeckColors'
+import { datasheetBelongsToFaction } from '@/core/constants/factionFamily'
 
 /**
  * Post-processes the raw `wh-html` description strings (stratagems, abilities, rules,
@@ -151,7 +152,7 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
   // Longest name first, same reasoning as linkifyFactionKeywords — e.g. "Custodian Guard"
   // tried before a shorter name that happens to be one of its words.
   const candidates = datasheets
-    .filter(d => d.factionId === factionId && d.name.trim())
+    .filter(d => datasheetBelongsToFaction(d, factionId) && d.name.trim())
     .sort((a, b) => b.name.length - a.name.length)
 
   if (candidates.length === 0) return html

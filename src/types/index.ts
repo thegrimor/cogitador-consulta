@@ -208,7 +208,6 @@ export interface GameData {
   datasheetStratagems: Record<string, string[]>
   armyRulesByFaction: Record<string, Ability[]>
   /** ability id -> chapter name(s) that use it (SM only; e.g. Templar Vows -> ['Black Templars']). */
-  armyRuleChaptersMap: Record<string, string[]>
   pointsCosts: PointsCost[]
   pointsCostMap: Record<string, PointsCost[]>
   wargearCostMap: Record<string, WargearCost[]>

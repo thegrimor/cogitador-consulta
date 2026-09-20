@@ -34,14 +34,52 @@ function factionName(factionId) {
   return factionsById.get(factionId)?.name ?? factionId
 }
 
+// ── Faction inheritance ──────────────────────────────────────────────────────
+// Mirrors src/core/constants/factionFamily.ts: the five Space Marines chapter factions hold
+// only what their chapter adds, and field that plus the parent's content. The parent's own
+// successor-chapter characters (Calgar and company) are the exception — they don't travel
+// down, so the chat gives the same answer as the app about what a chapter can take.
+
+const FACTION_PARENT = {
+  'black-templars': 'space-marines',
+  'blood-angels': 'space-marines',
+  'dark-angels': 'space-marines',
+  deathwatch: 'space-marines',
+  'space-wolves': 'space-marines',
+}
+
+const SM_SUCCESSOR_CHAPTERS = [
+  'Imperial Fists', 'Iron Hands', 'Raven Guard', 'Salamanders', 'Ultramarines', 'White Scars',
+]
+
+/** The faction ids whose content `factionId` can field: itself, then its parent if it has one. */
+function factionFamily(factionId) {
+  const parent = FACTION_PARENT[factionId]
+  return parent ? [factionId, parent] : [factionId]
+}
+
+function isInheritedSuccessorCharacter(ds, fid, factionId) {
+  return fid !== factionId &&
+    (ds.factionKeywords ?? []).some(k => SM_SUCCESSOR_CHAPTERS.includes(k))
+}
+
+/** Concatenates one faction-scoped array across the family, own entries first. */
+function acrossFamily(factionId, pick) {
+  if (!factionsById.has(factionId)) return null
+  return factionFamily(factionId).flatMap(fid => pick(factionsById.get(fid)) ?? [])
+}
+
 // ── Datasheets ───────────────────────────────────────────────────────────────
 
 function* allDatasheetEntries(factionId) {
-  const ids = factionId ? [factionId] : [...factionsById.keys()]
+  const ids = factionId ? factionFamily(factionId) : [...factionsById.keys()]
   for (const fid of ids) {
     const faction = factionsById.get(fid)
     if (!faction) continue
-    for (const ds of faction.datasheets) yield { factionId: fid, ds }
+    for (const ds of faction.datasheets) {
+      if (factionId && isInheritedSuccessorCharacter(ds, fid, factionId)) continue
+      yield { factionId: fid, ds }
+    }
   }
 }
 
@@ -70,9 +108,9 @@ export function getDatasheet(datasheetId) {
 // ── Detachments (and their abilities) ───────────────────────────────────────
 
 export function getDetachments(factionId) {
-  const faction = factionsById.get(factionId)
-  if (!faction) return null
-  return faction.detachments.map(d => ({
+  const detachments = acrossFamily(factionId, f => f.detachments)
+  if (!detachments) return null
+  return detachments.map(d => ({
     id: d.id,
     name: d.name,
     disposition: d.disposition,
@@ -85,25 +123,19 @@ export function getDetachments(factionId) {
 // ── Stratagems / Enhancements / Army rules — faction-scoped, optionally by detachment ──
 
 export function getStratagems(factionId, detachmentId) {
-  const faction = factionsById.get(factionId)
-  if (!faction) return null
-  return detachmentId
-    ? faction.stratagems.filter(s => s.detachmentId === detachmentId)
-    : faction.stratagems
+  const stratagems = acrossFamily(factionId, f => f.stratagems)
+  if (!stratagems) return null
+  return detachmentId ? stratagems.filter(s => s.detachmentId === detachmentId) : stratagems
 }
 
 export function getEnhancements(factionId, detachmentId) {
-  const faction = factionsById.get(factionId)
-  if (!faction) return null
-  return detachmentId
-    ? faction.enhancements.filter(e => e.detachmentId === detachmentId)
-    : faction.enhancements
+  const enhancements = acrossFamily(factionId, f => f.enhancements)
+  if (!enhancements) return null
+  return detachmentId ? enhancements.filter(e => e.detachmentId === detachmentId) : enhancements
 }
 
 export function getArmyRules(factionId) {
-  const faction = factionsById.get(factionId)
-  if (!faction) return null
-  return faction.armyRules
+  return acrossFamily(factionId, f => f.armyRules)
 }
 
 export function getCoreStratagems() {

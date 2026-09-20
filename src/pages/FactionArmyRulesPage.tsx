@@ -1,25 +1,17 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
-import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY, chapterLabel } from '@/core/constants/chapters'
-import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { RuleHtml } from '@/shared/components/RuleHtml'
+import { forFactionFromMap } from '@/core/constants/factionFamily'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
-  const { factions, armyRulesByFaction, armyRuleChaptersMap } = useGameDataContext()
+  const { factions, armyRulesByFaction } = useGameDataContext()
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  // Faction id is 'space-marines' (checked against the JSON's top-level `id`), not 'SM' -- see
-  // the same fix/note in FactionDatasheetsPage.tsx.
-  const isSM = factionId === 'space-marines'
-  const allArmyRules = armyRulesByFaction[factionId ?? ''] ?? []
-  const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
-  const armyRules = (isSM && activeChapter !== 'Todos'
-    ? allArmyRules.filter(r => (armyRuleChaptersMap[r.id] ?? []).includes(activeChapter))
-    : allArmyRules
-  ).slice().sort((a, b) => a.name.localeCompare(b.name, 'es'))
+  const armyRules = forFactionFromMap(armyRulesByFaction, factionId ?? '')
+    .slice().sort((a, b) => a.name.localeCompare(b.name, 'es'))
 
   if (!faction) {
     return (
@@ -49,24 +41,6 @@ export function FactionArmyRulesPage() {
           {faction.name}
         </p>
       </div>
-
-      {isSM && (
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {['Todos', ...SM_CHAPTER_FILTERS].map(chapter => (
-            <button
-              key={chapter}
-              onClick={() => setActiveChapter(c => (c === chapter ? 'Todos' : chapter))}
-              className={`text-[11px] font-mono uppercase tracking-widest px-2.5 py-1 border transition-colors ${
-                activeChapter === chapter
-                  ? 'border-gold text-parchment bg-gold/10'
-                  : 'border-rim-bright text-parchment-dim hover:border-gold hover:text-parchment'
-              }`}
-            >
-              {chapterLabel(chapter)}
-            </button>
-          ))}
-        </div>
-      )}
 
       {armyRules.length === 0 ? (
         <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
