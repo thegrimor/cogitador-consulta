@@ -127,7 +127,6 @@ export const SM_CHAPTER_CONTENT: Record<string, { datasheetIds: string[]; detach
     detachmentIds: [
       'champions-of-fenris',
       'saga-of-the-beastslayer',
-      'saga-of-the-great-wolf',
     ],
   },
 }
