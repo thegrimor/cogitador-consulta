@@ -4,6 +4,7 @@ import { authLoading, credentialsSet, credentialsCleared, authFailed } from './a
 import { hydrateRosters, resetRosters } from './rosterSlice'
 import type { AppDispatch, RootState } from './index'
 import type { RosterList } from '@/types'
+import { SM_CHAPTER_CONTENT } from '@/core/constants/smChapterDatasheets'
 
 const LEGACY_ROSTERS_KEY = 'cogitador-consulta-rosters'
 
@@ -14,6 +15,49 @@ function normalizeLegacyRoster(roster: RosterList): RosterList {
   const legacy = roster as unknown as RosterList & { detachmentId?: string | null }
   if (Array.isArray(roster.detachmentIds)) return roster
   return { ...roster, detachmentIds: legacy.detachmentId ? [legacy.detachmentId] : [] }
+}
+
+/** Rosters saved before the Space Marines chapter split all carry `space-marines`, including
+ * the ones that were really a chapter army — so their unit picker would now offer the
+ * parent's content instead of their chapter's. Reassign them, by the most certain signal
+ * available: a chapter-specific detachment first (a list with Inner Circle Task Force is Dark
+ * Angels whether or not it holds a single Dark Angels unit), then any unit only one chapter
+ * can field.
+ *
+ * A roster that names two different chapters is left alone rather than reassigned to one of
+ * them, which would hide the other's units from the picker. Only lists built before the split
+ * can be mixed like that, since nothing can build one now. Their entries still render either
+ * way — `RosterEditPage` resolves those from all datasheets, not the faction-scoped list — so
+ * the cost of leaving them is that the picker offers core content only. */
+function inferChapterFaction(roster: RosterList): RosterList {
+  if (roster.factionId !== 'space-marines') return roster
+
+  const byDetachment = new Set<string>()
+  const byUnit = new Set<string>()
+  for (const [factionId, content] of Object.entries(SM_CHAPTER_CONTENT)) {
+    if (roster.detachmentIds.some(id => content.detachmentIds.includes(id))) byDetachment.add(factionId)
+    if (roster.entries.some(e => content.datasheetIds.includes(e.datasheetId))) byUnit.add(factionId)
+  }
+
+  const matches = byDetachment.size > 0 ? byDetachment : byUnit
+  if (matches.size !== 1) return roster
+  return { ...roster, factionId: [...matches][0] }
+}
+
+/** Applies the reassignment above and writes back whichever rosters it changed, so it settles
+ * once instead of being recomputed on every login. A failed write is not worth failing the
+ * login over: the reassignment still holds in memory for this session and is retried next time. */
+async function migrateChapterFactions(token: string, rosters: RosterList[]): Promise<RosterList[]> {
+  const migrated = rosters.map(inferChapterFaction)
+  for (const [i, roster] of migrated.entries()) {
+    if (roster === rosters[i]) continue
+    try {
+      await api.putRoster(token, roster)
+    } catch {
+      // Keep the in-memory reassignment; next login retries the write.
+    }
+  }
+  return migrated
 }
 
 /** One-time courtesy: if this account has no rosters yet on the server and this browser
@@ -54,7 +98,8 @@ async function migrateLegacyRostersIfEmpty(
 
 async function fetchAndHydrateRosters(dispatch: AppDispatch, token: string) {
   const { rosters } = await api.listRosters(token)
-  const finalRosters = await migrateLegacyRostersIfEmpty(token, rosters)
+  const adopted = await migrateLegacyRostersIfEmpty(token, rosters)
+  const finalRosters = await migrateChapterFactions(token, adopted)
   dispatch(hydrateRosters(finalRosters))
 }
 
