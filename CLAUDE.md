@@ -77,6 +77,11 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   with that instead). See that folder's README for the full methodology and the gaps this run
   left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
   stratagem/enhancement/detachmentAbility cross-references).
+  **The detachment `dp`/`disposition` placeholders have since been closed against the MFM** and
+  that README is stale on this point: all 15 Ork detachments now carry real values. The
+  placeholders were badly wrong, not merely incomplete — 13 of 15 `dp` values and 12 of 15
+  dispositions changed, including 7 detachments stored at `dp: 0`. Orks turn out to be almost
+  entirely 1 DP (only War Horde is 3), which is why the guessed 2s and 3s looked plausible.
 - `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
   PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
   with the user) covers only the core/generic Adeptus Astartes content (army rules, 15
@@ -240,7 +245,19 @@ shapes, all worth checking for again on any future faction edit:
   not swept with the same rigor as datasheet `pointsCosts` — a dedicated pass here would need a
   parser that normalizes MFM's typographic apostrophes/special characters (Ø, ê, ë) against this
   app's plain-ASCII ones first, since a first attempt at this produced mostly false "not found"
-  hits from that encoding mismatch rather than real gaps.
+  hits from that encoding mismatch rather than real gaps. **Orks has since been swept** (see the
+  migration note above). Each MFM faction page ends with a `DETACHMENTS` section that carries
+  both the DP cost and the Force Disposition, one block per detachment, in the shape
+  `NAME` / `<n>DP` / one line per disposition / `ENHANCEMENTS` — so `dp` and `disposition` are
+  both checkable from the same render that the `pointsCosts` sweep already does. Validate any
+  such parse against a faction already known clean (Adeptus Custodes matched all 9 exactly)
+  before trusting a surprising result: Orks coming back as 14×1 DP looked like a parser bug and
+  was not.
+- **`disposition` holding two values must be a real array**, e.g. `["TAKE AND HOLD",
+  "PURGE THE FOE"]`. `dispositionList` (`src/core/constants/missionDeckColors.ts`) only splits an
+  array — it never splits on commas — so the 4 entries still stored as a comma-joined string
+  (`"PRIORITY ASSETS,TAKE AND HOLD"` and friends, in factions other than Orks) render as a single
+  badge with the comma inside it. Known, not yet fixed.
 
 Ability/Stratagem/Enhancement/DetachmentAbility entities carry an optional `effect?: CombatEffect` (or `options?: {name, effect}[]` for mutually-exclusive variants like Ka'tah stances or Doctrina Imperatives) — the mathhammer calculator derives its toggleable rule list directly from whichever of these are in scope for the current selection (see `src/features/mathhammer/utils/deriveRules.ts`) instead of matching against a separate flat catalog.
 
