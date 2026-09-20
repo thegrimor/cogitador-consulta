@@ -5,7 +5,6 @@ import type {
   ModelProfile, Weapon, DefaultWeaponQuantity, CoreCombatEffect, PhaseData,
 } from '@/types'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
-import { SM_CHAPTERS } from '@/core/constants/chapters'
 
 // ── Shapes written to public/data/factions/*.json, public/data/catalog/*.json ──────────
 
@@ -85,7 +84,6 @@ const EMPTY_STATE: GameData = {
   stratagems: [],
   datasheetStratagems: {},
   armyRulesByFaction: {},
-  armyRuleChaptersMap: {},
   pointsCosts: [],
   pointsCostMap: {},
   wargearCostMap: {},
@@ -130,7 +128,6 @@ export function useGameData(): GameData {
         const stratagems: Stratagem[] = [...catalog.coreStratagems]
         const enhancements: Enhancement[] = []
         const armyRulesByFaction: Record<string, Ability[]> = {}
-        const armyRuleChapters: Record<string, Set<string>> = {}
         const datasheetStratagems: Record<string, string[]> = {}
         const datasheetEnhancements: Record<string, string[]> = {}
         const datasheetOptions: Record<string, UnitOption[]> = {}
@@ -143,7 +140,6 @@ export function useGameData(): GameData {
 
         for (const fj of factionJsons) {
           armyRulesByFaction[fj.id] = fj.armyRules
-          const armyRuleIdByName = new Map(fj.armyRules.map(ar => [ar.name, ar.id]))
 
           for (const det of fj.detachments) {
             detachments.push({
@@ -209,23 +205,8 @@ export function useGameData(): GameData {
               wargearCostMap[dsj.id].push({ datasheetId: dsj.id, name: w.name, points: w.points })
             })
 
-            // Chapter tagging for the SM army-rules filter (e.g. Templar Vows -> Black Templars):
-            // any datasheet whose own Faction-type ability matches a known army rule gets that
-            // rule tagged with its chapter keyword, defaulting to 'Space Marines' if it's a
-            // plain Adeptus Astartes unit with no specific chapter keyword.
-            const chapterKeyword = dsj.factionKeywords.find(k => (SM_CHAPTERS as readonly string[]).includes(k))
-            for (const ab of dsj.abilities) {
-              if (ab.type !== 'Faction') continue
-              const arId = armyRuleIdByName.get(ab.name)
-              if (!arId) continue
-              if (!armyRuleChapters[arId]) armyRuleChapters[arId] = new Set()
-              armyRuleChapters[arId].add(chapterKeyword ?? 'Space Marines')
-            }
           }
         }
-
-        const armyRuleChaptersMap: Record<string, string[]> = {}
-        Object.entries(armyRuleChapters).forEach(([id, chapters]) => { armyRuleChaptersMap[id] = [...chapters] })
 
         const sources = catalog.sources
         const sourceMap: Record<string, Source> = {}
@@ -238,7 +219,7 @@ export function useGameData(): GameData {
         if (!cancelled) {
           setState({
             factions, datasheets, detachments, detachmentAbilities,
-            stratagems, datasheetStratagems, armyRulesByFaction, armyRuleChaptersMap,
+            stratagems, datasheetStratagems, armyRulesByFaction,
             pointsCosts, pointsCostMap, wargearCostMap,
             leaderMap, attachedMap,
             enhancements, datasheetEnhancements,

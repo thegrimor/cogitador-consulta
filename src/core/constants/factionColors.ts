@@ -1,4 +1,4 @@
-// Fixed per-faction color, independent of whichever of the 24 themes is active — see the
+// Fixed per-faction color, independent of whichever of the 29 themes is active — see the
 // --color-faction-* block near the top of index.css for the full rationale. Keyed by the
 // slug id from public/data/catalog/factions.json (also Datasheet.factionId/
 // Detachment.factionId), NOT src/themes/themes.ts's short ids ("ac", "ork"...) — the two
@@ -20,10 +20,14 @@ export const FACTION_COLORS: Record<string, FactionColor> = {
   'adeptus-titanicus': { hex: '#9098a8', text: 'text-faction-adeptus-titanicus' },
   aeldari: { hex: '#d8c878', text: 'text-faction-aeldari' },
   'astra-militarum': { hex: '#7a9840', text: 'text-faction-astra-militarum' },
+  'black-templars': { hex: '#9a9aa2', text: 'text-faction-black-templars' },
+  'blood-angels': { hex: '#d63a46', text: 'text-faction-blood-angels' },
   'chaos-daemons': { hex: '#b447e4', text: 'text-faction-chaos-daemons' },
   'chaos-knights': { hex: '#907665', text: 'text-faction-chaos-knights' },
   'chaos-space-marines': { hex: '#c09020', text: 'text-faction-chaos-space-marines' },
+  'dark-angels': { hex: '#3f8a63', text: 'text-faction-dark-angels' },
   'death-guard': { hex: '#6a9830', text: 'text-faction-death-guard' },
+  'deathwatch': { hex: '#c74040', text: 'text-faction-deathwatch' },
   drukhari: { hex: '#18b0b0', text: 'text-faction-drukhari' },
   'emperors-children': { hex: '#e02aa8', text: 'text-faction-emperors-children' },
   'genestealer-cults': { hex: '#995ce7', text: 'text-faction-genestealer-cults' },
@@ -34,6 +38,7 @@ export const FACTION_COLORS: Record<string, FactionColor> = {
   necrons: { hex: '#00e5c8', text: 'text-faction-necrons' },
   orks: { hex: '#50d820', text: 'text-faction-orks' },
   'space-marines': { hex: '#547fe2', text: 'text-faction-space-marines' },
+  'space-wolves': { hex: '#5f9cbc', text: 'text-faction-space-wolves' },
   'tau-empire': { hex: '#4da6ff', text: 'text-faction-tau-empire' },
   'thousand-sons': { hex: '#20a0b8', text: 'text-faction-thousand-sons' },
   tyranids: { hex: '#ba44de', text: 'text-faction-tyranids' },

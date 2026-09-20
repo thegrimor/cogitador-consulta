@@ -1,10 +1,8 @@
-/** Space Marines chapters that have their own MFM page / Faction Pack detachments.
- * A datasheet with none of these as a faction keyword is generic Codex: Space Marines
- * (including named successor-chapter characters like Ultramarines or Imperial Fists,
- * who play under the vanilla Codex rules rather than their own detachment list). */
+/** Space Marines chapters that have their own detachments. Each one is its own faction since
+ * the chapter split (`scripts/sm-chapter-split/README.md`), so these keywords no longer drive
+ * a filter — they survive as the tag that says which datasheets are a chapter's own rather
+ * than inherited from the `space-marines` parent. */
 export const SM_CHAPTERS = ['Black Templars', 'Blood Angels', 'Dark Angels', 'Deathwatch', 'Space Wolves'] as const
-
-export const SM_CHAPTER_FILTERS = ['Space Marines', ...SM_CHAPTERS] as const
 
 /** Chapters that tag named characters but have no detachments of their own, so they never
  * became factions of their own in the chapter split. Their 18 characters stay with the parent
@@ -22,14 +20,14 @@ export function chapterOf(factionKeywords: string[]): string {
   return factionKeywords.find(k => (SM_CHAPTERS as readonly string[]).includes(k)) ?? 'Space Marines'
 }
 
-/** Display label for a chapterOf()/detachment.chapters value. The generic bucket is stored as
- * the literal string 'Space Marines' (matches the faction name, for historical/data reasons —
- * see chapterOf above) but reads as "Núcleo" in the filter UI so it isn't confused with the
- * chapter-specific buttons next to it. */
-export function chapterLabel(chapter: string): string {
-  return chapter === 'Space Marines' ? 'Núcleo' : chapter
+/** The chapter to badge a datasheet with in a list, or null when there's nothing worth
+ * saying. On a chapter faction's page this marks its own units apart from the core ones it
+ * inherits; on the parent's page it marks the successor-chapter characters (Calgar and
+ * company), which is the one thing that page genuinely mixes. Returns null for datasheets
+ * outside the Space Marines family, whose keywords never match either list. */
+export function chapterBadgeOf(factionKeywords: string[]): string | null {
+  return factionKeywords.find(
+    k => (SM_CHAPTERS as readonly string[]).includes(k) ||
+      (SM_SUCCESSOR_CHAPTERS as readonly string[]).includes(k),
+  ) ?? null
 }
-
-/** Shared across Datasheets/Detachments/Army Rules so picking a chapter on one
- * page keeps it selected when navigating to the others, and across reloads. */
-export const SM_CHAPTER_FILTER_STORAGE_KEY = 'cogitador-sm-chapter-filter'
