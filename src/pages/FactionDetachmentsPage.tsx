@@ -4,6 +4,7 @@ import { factionPath, detachmentPath } from '@/core/constants/routes'
 import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY, chapterLabel } from '@/core/constants/chapters'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
+import { forFaction } from '@/core/constants/factionFamily'
 
 export function FactionDetachmentsPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -14,7 +15,7 @@ export function FactionDetachmentsPage() {
   // Faction id is 'space-marines' (checked against the JSON's top-level `id`), not 'SM' -- see
   // the same fix/note in FactionDatasheetsPage.tsx.
   const isSM = factionId === 'space-marines'
-  const allFactionDetachments = detachments.filter(d => d.factionId === factionId)
+  const allFactionDetachments = forFaction(detachments, factionId ?? '')
   const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
   const factionDetachments = (isSM && activeChapter !== 'Todos'
     ? allFactionDetachments.filter(d => d.chapters.includes(activeChapter))

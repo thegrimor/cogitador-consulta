@@ -4,6 +4,7 @@ import { factionPath } from '@/core/constants/routes'
 import { SM_CHAPTER_FILTERS, SM_CHAPTER_FILTER_STORAGE_KEY, chapterLabel } from '@/core/constants/chapters'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { RuleHtml } from '@/shared/components/RuleHtml'
+import { forFactionFromMap } from '@/core/constants/factionFamily'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -14,7 +15,7 @@ export function FactionArmyRulesPage() {
   // Faction id is 'space-marines' (checked against the JSON's top-level `id`), not 'SM' -- see
   // the same fix/note in FactionDatasheetsPage.tsx.
   const isSM = factionId === 'space-marines'
-  const allArmyRules = armyRulesByFaction[factionId ?? ''] ?? []
+  const allArmyRules = forFactionFromMap(armyRulesByFaction, factionId ?? '')
   const [activeChapter, setActiveChapter] = useLocalStorage(SM_CHAPTER_FILTER_STORAGE_KEY, 'Todos')
   const armyRules = (isSM && activeChapter !== 'Todos'
     ? allArmyRules.filter(r => (armyRuleChaptersMap[r.id] ?? []).includes(activeChapter))

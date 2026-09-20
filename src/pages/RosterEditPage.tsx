@@ -24,6 +24,7 @@ import { AddUnitPanel } from '@/shared/components/AddUnitPanel'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
 import { RosterQrExportModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
+import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { THEMES } from '@/themes/themes'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
@@ -68,8 +69,8 @@ export function RosterEditPage() {
 
   const rosterId = rosterIdParam
   const faction = factions.find(f => f.id === roster.factionId)
-  const factionDetachments = detachments.filter(d => d.factionId === roster.factionId)
-  const factionDatasheets = datasheets.filter(d => d.factionId === roster.factionId && !d.isVirtual)
+  const factionDetachments = forFaction(detachments, roster.factionId)
+  const factionDatasheets = datasheetsForFaction(datasheets, roster.factionId).filter(d => !d.isVirtual)
   const canTakeAllies =
     roster.factionId !== ALLY_FACTION_ID &&
     THEMES.find(t => t.faction === roster.factionId)?.group === 'imperium'

@@ -6,6 +6,7 @@ import {
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { isNewRecruitText, parseNewRecruitText } from '@/core/utils/parseNewRecruit'
+import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
 
@@ -518,7 +519,7 @@ export function resolveImportedRoster(
   // Some translated exports (e.g. Spanish) translate the detachment name itself, not just
   // the "and"/"+" joining it ("Martillazo de los Tharanatoi" for "Tharanatoi Hammerblow") —
   // scope the distinctive-word fallback to this faction's own detachments to keep it safe.
-  const factionDetachmentsForMatch = faction ? detachments.filter(d => d.factionId === factionId) : detachments
+  const factionDetachmentsForMatch = faction ? forFaction(detachments, factionId) : detachments
   for (const detName of parsed.detachmentNames) {
     const det = detachments.find(d => d.name.toLowerCase() === detName.toLowerCase())
     if (det) {
@@ -535,7 +536,7 @@ export function resolveImportedRoster(
     }
   }
 
-  const factionDatasheets = faction ? datasheets.filter(d => d.factionId === factionId) : datasheets
+  const factionDatasheets = faction ? datasheetsForFaction(datasheets, factionId) : datasheets
 
   // Build entryId → parsedUnit map during the map() so indices stay correct after filter
   const entryToParsedUnit = new Map<string, ParsedUnit>()

@@ -9,6 +9,7 @@ import { deriveModifierRules, isRuleApplicable } from '../../utils/deriveRules'
 import { parseBcpList } from '../../utils/parseBcpList'
 import type { GameData, Weapon, ModelProfile, CombatType, Datasheet } from '@/types'
 import type { PanelState } from '../../hooks/usePanelState'
+import { datasheetBelongsToFaction, belongsToFaction } from '@/core/constants/factionFamily'
 
 /** Weapon identity key. `line`+`name` alone isn't unique across datasheets — a unit and its
  * attached character can each have a weapon with the same name at the same table row (e.g.
@@ -69,13 +70,13 @@ export function UnitPanel({
     if (!faction) { setImportError(`Ejército no encontrado: "${parsed.factionName}"`); return }
 
     const detachment = gameData.detachments.find(
-      d => d.factionId === faction.id &&
+      d => belongsToFaction(d.factionId, faction.id) &&
            d.name.toLowerCase() === parsed.detachmentName.toLowerCase()
     )
 
     const matchedIds = parsed.unitNames
       .map(name => gameData.datasheets.find(
-        (ds: Datasheet) => ds.factionId === faction.id &&
+        (ds: Datasheet) => datasheetBelongsToFaction(ds, faction.id) &&
               ds.name.toLowerCase() === name.toLowerCase()
       ))
       .filter((ds): ds is Datasheet => ds !== undefined)

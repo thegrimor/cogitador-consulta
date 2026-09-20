@@ -4,6 +4,7 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
 import { chapterOf, chapterLabel, SM_CHAPTER_FILTER_STORAGE_KEY } from '@/core/constants/chapters'
 import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
+import { datasheetsForFaction } from '@/core/constants/factionFamily'
 
 // The faction's actual id (public/data/factions/space-marines.json's top-level `id`) is
 // 'space-marines', not 'SM' -- this check used the wrong literal since it was introduced,
@@ -16,7 +17,7 @@ export function FactionDatasheetsPage() {
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const factionSheets = datasheets.filter(d => d.factionId === factionId && !d.isVirtual)
+  const factionSheets = datasheetsForFaction(datasheets, factionId ?? '').filter(d => !d.isVirtual)
   const isSM = IS_SPACE_MARINES(factionId)
 
   const roles = ['Todos', ...Array.from(new Set(factionSheets.map(d => d.role))).sort()]

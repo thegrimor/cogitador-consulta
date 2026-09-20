@@ -1,6 +1,7 @@
 import type { GameData, CombatEffect, CombatType, Datasheet, DetachmentAbility, Stratagem } from '@/types'
 import type { ModifierRule } from '../types'
 import type { PanelSelection } from '../types'
+import { belongsToFaction, forFactionFromMap, datasheetsForFaction } from '@/core/constants/factionFamily'
 
 /** The slice of PanelState this derivation actually needs — kept narrow (rather than importing
  * the full PanelState type) so callers can pass a destructured object literal and list each
@@ -81,7 +82,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   const factionId = panel.selection.factionId
   if (!factionId) return rules
 
-  for (const ar of gameData.armyRulesByFaction[factionId] ?? []) {
+  for (const ar of forFactionFromMap(gameData.armyRulesByFaction, factionId)) {
     rules.push(...abilityRules(ar, {}))
   }
 
@@ -97,7 +98,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   // auto-toggle effect in MathhammerPage needs to find both the previous and next
   // enhancement's rules regardless of which is currently selected.
   for (const e of gameData.enhancements) {
-    if (e.factionId === factionId) rules.push(...abilityRules(e, { enhancementId: e.id }))
+    if (belongsToFaction(e.factionId, factionId)) rules.push(...abilityRules(e, { enhancementId: e.id }))
   }
 
   if (panel.selectedUnit) {
@@ -117,7 +118,7 @@ export function deriveModifierRules(gameData: GameData, panel: ModifierRuleScope
   // when no roster narrows things down).
   const auraSourceDatasheets = panel.rosterIds !== null
     ? gameData.datasheets.filter(d => panel.rosterIds!.includes(d.id))
-    : gameData.datasheets.filter(d => d.factionId === factionId)
+    : datasheetsForFaction(gameData.datasheets, factionId)
   for (const ds of auraSourceDatasheets) {
     for (const ab of ds.abilities) {
       if (ab.effect?.appliesToNearby) {

@@ -7,6 +7,7 @@ import { RuleHtml } from '@/shared/components/RuleHtml'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { factionColor } from '@/core/constants/factionColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
+import { forFaction } from '@/core/constants/factionFamily'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -300,7 +301,7 @@ export function DatasheetDetailPage() {
   const rangedWeapons = ds.weapons.filter(w => w.range.toLowerCase() !== 'melee')
   const meleeWeapons = ds.weapons.filter(w => w.range.toLowerCase() === 'melee')
 
-  const factionDetachments = detachments.filter(d => d.factionId === ds.factionId)
+  const factionDetachments = forFaction(detachments, ds.factionId)
   const activeDetachmentId = selectedDetachmentId ?? factionDetachments[0]?.id ?? null
   const visibleStrats = activeDetachmentId
     ? stratagems.filter(s => s.detachmentId === activeDetachmentId)

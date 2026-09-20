@@ -2,6 +2,7 @@ import type {
   PointsCost, Datasheet, Detachment, Enhancement, RosterEntry, RosterList, WargearCost, WeaponOptionRule,
 } from '@/types'
 import { ruleEligibleCount } from '@/core/utils/weaponOptions'
+import { isSameFactionFamily } from '@/core/constants/factionFamily'
 
 export const DETACHMENT_POINTS_BUDGET = 3
 export const MULTI_DETACHMENT_THRESHOLD = 2000
@@ -125,7 +126,9 @@ export function resolveCostsForFactionContext(
   rosterFactionId: string,
 ): PointsCost[] {
   if (!costs.some(c => isAssignedAgentCost(c.description))) return costs
-  const isAlly = datasheetFactionId !== rosterFactionId
+  // Family, not string equality: a core Space Marines datasheet inside a Dark Angels roster is
+  // inherited content, not an ally, and pricing it as one would pick the wrong tier.
+  const isAlly = !isSameFactionFamily(datasheetFactionId, rosterFactionId)
   return costs.filter(c => isAssignedAgentCost(c.description) === isAlly)
 }
 
