@@ -18,6 +18,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
+  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -96,6 +97,10 @@ export function RosterEditPage() {
   const remaining = roster.pointsLimit === null ? null : roster.pointsLimit - combinedTotal
   const usedPct = roster.pointsLimit ? Math.min(100, (combinedTotal / roster.pointsLimit) * 100) : 0
   const detachmentDp = sumDetachmentPoints(detachments, roster.detachmentIds)
+  // The DP budget only exists once multiple detachments are on the table; below that threshold
+  // there's a single detachment and its cost isn't something the player is spending against a cap.
+  const multiDetachmentMode = isMultiDetachmentAllowed(roster.pointsLimit)
+  const dpAtBudget = multiDetachmentMode && detachmentDp >= DETACHMENT_POINTS_BUDGET
   const nameValue = nameDraft ?? roster.name
   const limitValue = limitDraft ?? (roster.pointsLimit !== null ? String(roster.pointsLimit) : '')
 
@@ -187,11 +192,6 @@ export function RosterEditPage() {
                 </span>
               ))
             )}
-            {selectedDetachments.length > 1 && (
-              <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
-                Total {detachmentDp} DP
-              </span>
-            )}
             <button
               onClick={() => setDetachmentModalOpen(true)}
               className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment transition-colors shrink-0"
@@ -222,17 +222,31 @@ export function RosterEditPage() {
       >
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <p
-              className={`text-[15px] font-mono uppercase tracking-widest leading-none ${
-                overLimit ? 'text-crimson-bright' : 'text-parchment'
-              }`}
-            >
-              {combinedTotal}
-              {roster.pointsLimit !== null && (
-                <span className="text-parchment-dim text-[12px]"> / {roster.pointsLimit}</span>
+            <div className="flex items-center gap-2 flex-wrap">
+              <p
+                className={`text-[15px] font-mono uppercase tracking-widest leading-none ${
+                  overLimit ? 'text-crimson-bright' : 'text-parchment'
+                }`}
+              >
+                {combinedTotal}
+                {roster.pointsLimit !== null && (
+                  <span className="text-parchment-dim text-[12px]"> / {roster.pointsLimit}</span>
+                )}
+                <span className="text-parchment-dim text-[11px]"> pts</span>
+              </p>
+              {detachmentDp > 0 && (
+                <span
+                  className={`text-[10px] font-mono font-bold uppercase tracking-widest border px-1.5 py-0.5 leading-none shrink-0 ${
+                    dpAtBudget
+                      ? 'border-crimson-bright text-crimson-bright'
+                      : 'border-rim-bright text-parchment-dim'
+                  }`}
+                >
+                  {detachmentDp}
+                  {multiDetachmentMode && ` / ${DETACHMENT_POINTS_BUDGET}`} DP
+                </span>
               )}
-              <span className="text-parchment-dim text-[11px]"> pts</span>
-            </p>
+            </div>
             {remaining !== null && (
               <p
                 className={`text-[10px] font-mono uppercase tracking-widest mt-1 ${
