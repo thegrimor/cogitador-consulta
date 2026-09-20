@@ -6029,7 +6029,8 @@
         "weirdboy",
         "bigboss",
         "painboy",
-        "mek"
+        "mek",
+        "bannernob"
       ],
       "pointsCosts": [
         {
@@ -6273,7 +6274,6 @@
       ],
       "canBeLedBy": [
         "beastboss",
-        "beastboss-on-squigosaur",
         "weirdboy",
         "painboss"
       ],
@@ -6870,7 +6870,8 @@
         "big-mek",
         "bigboss",
         "painboy",
-        "mek"
+        "mek",
+        "bannernob"
       ],
       "pointsCosts": [
         {

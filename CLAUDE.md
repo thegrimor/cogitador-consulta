@@ -77,11 +77,35 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   with that instead). See that folder's README for the full methodology and the gaps this run
   left open (points/DP/disposition placeholders, empty `canBeLedBy`, heuristic
   stratagem/enhancement/detachmentAbility cross-references).
-  **The detachment `dp`/`disposition` placeholders have since been closed against the MFM** and
-  that README is stale on this point: all 15 Ork detachments now carry real values. The
+  **The detachment `dp`/`disposition` placeholders and the empty `canBeLedBy` have since been
+  closed against the MFM** and
+  that README is stale on those points: all 15 Ork detachments now carry real values. The
   placeholders were badly wrong, not merely incomplete — 13 of 15 `dp` values and 12 of 15
   dispositions changed, including 7 detachments stored at `dp: 0`. Orks turn out to be almost
   entirely 1 DP (only War Horde is 3), which is why the guessed 2s and 3s looked plausible.
+  `canBeLedBy` was nearly right and needed 3 fixes: `bannernob` added to `boyz`/`nobz`, and
+  `beastboss-on-squigosaur` removed from `beast-snagga-boyz` (that datasheet has neither a Leader
+  nor a Support ability, so it cannot lead anything). Orks now matches the MFM exactly, 41/41.
+
+**Auditing `canBeLedBy` against the MFM.** Each unit block on an MFM faction page may carry a
+`LEADER` *or* a `SUPPORT` tag, and the line right after it is the comma-separated list of units it
+attaches to. **Both feed `canBeLedBy`** — the Core rules text stored on a Support datasheet says
+so explicitly ("Both of these abilities allow such units to lead other friendly units"), and the
+Ork data already mixed them. Reading only the `LEADER` tag reports every Support character as a
+spurious extra. Two more traps, both hit on the first attempt here:
+- A unit with tiered pricing has several `YOUR ... COST` headers, and only the first is preceded
+  by the unit name; walking back from a later one yields a price line, which invents phantom units
+  and truncates the real block. Skip a candidate name that looks structural (`N models`, a
+  `(+N) N pts` price, another header).
+- The per-datasheet bodyguard list is **not** recoverable from our own JSON: the `Leader`/`Support`
+  ability `description` holds the generic Core rules boilerplate, not the unit's own list. So
+  `canBeLedBy` is the only place that knowledge lives, and the MFM tags are the only external
+  cross-check. Orks could be confirmed two ways only because the *presence* of a Leader/Support
+  ability is checkable locally.
+**This gap is not Orks-specific and is not yet swept:** a control run against Adeptus Custodes
+(clean on DP) found 10 missing links there — `sagittarum-custodians` and `custodian-guard-with-
+adrasite-and-pyrithite-spears` sit at `canBeLedBy: []` while their sibling `custodian-guard` has
+all 8 leaders. A full pass would need the other 21 factions rendered the same way.
 - `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
   PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
   with the user) covers only the core/generic Adeptus Astartes content (army rules, 15
