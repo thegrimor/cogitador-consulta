@@ -13005,15 +13005,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 6
+          "count": 3
         },
         {
           "name": "ceramite fists",
-          "count": 6
+          "count": 3
         },
         {
           "name": "melta rifle",
-          "count": 6
+          "count": 3
         }
       ],
       "options": [
