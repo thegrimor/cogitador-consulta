@@ -97,6 +97,19 @@ spurious extra. Two more traps, both hit on the first attempt here:
   by the unit name; walking back from a later one yields a price line, which invents phantom units
   and truncates the real block. Skip a candidate name that looks structural (`N models`, a
   `(+N) N pts` price, another header).
+- **Space Marines family swept too (2026-09-22)** — `space-marines.json` + the five chapter files,
+  against all six MFM pages (every leader's list agrees across the pages it appears on). The 11th-ed
+  PDF migration had emptied `canBeLedBy` on every core datasheet (Intercessors went from 32 leaders
+  to 0; the leaks commit did not cause it), so no core Captain/Lieutenant/etc. could lead anything.
+  38 bodyguard datasheets rewritten; cross-chapter leaders the MFM no longer lists (e.g. Azrael on
+  Crusader Squad) and 5 dead ids with no datasheet anywhere were dropped. Four characters the MFM
+  tags `SUPPORT` still carried the Core `Leader` ability — Cato Sicarius, Castellan, Crusade Ancient,
+  Sanguinary Priest — and were switched to `Support`. Deliberately **not** touched: Imperial Agents
+  Inquisitors in chapter `canBeLedBy` (not audited against the Agents page), and `captain-on-bike`
+  on Outriders (user-confirmed, but the MFM has no Captain on Bike entry at all). **Datasheets the
+  MFM lists that don't exist in our data**: Tactical Squad, Devastator Squad, Eradicator Squad,
+  Lieutenant in Reiver Armour, Pedro Kantor, Uriel Ventris, Marneus Calgar in Armour of
+  Antilochus — once one is added, give it the MFM's leader list too.
 - The per-datasheet bodyguard list is **not** recoverable from our own JSON: the `Leader`/`Support`
   ability `description` holds the generic Core rules boilerplate, not the unit's own list. So
   `canBeLedBy` is the only place that knowledge lives, and the MFM tags are the only external

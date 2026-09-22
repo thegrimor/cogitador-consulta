@@ -2263,16 +2263,16 @@
         "wrath-of-dorn"
       ],
       "canBeLedBy": [
-        "inquisitor-draxus",
-        "iron-priest",
-        "ragnar-blackmane",
-        "njal-stormcaller",
-        "ulrik-the-slayer",
-        "wolf-priest",
-        "wolf-guard-battle-leader",
-        "inquisitor-greyfax",
+        "inquisitor",
         "inquisitor-coteaz",
-        "inquisitor"
+        "inquisitor-draxus",
+        "inquisitor-greyfax",
+        "iron-priest",
+        "njal-stormcaller",
+        "ragnar-blackmane",
+        "ulrik-the-slayer",
+        "wolf-guard-battle-leader",
+        "wolf-priest"
       ]
     },
     {
@@ -2677,15 +2677,15 @@
         "in-the-lions-claws"
       ],
       "canBeLedBy": [
+        "inquisitor",
+        "inquisitor-coteaz",
         "inquisitor-draxus",
+        "inquisitor-greyfax",
         "iron-priest",
         "njal-stormcaller",
         "ulrik-the-slayer",
-        "wolf-priest",
         "wolf-guard-battle-leader",
-        "inquisitor-greyfax",
-        "inquisitor-coteaz",
-        "inquisitor"
+        "wolf-priest"
       ]
     },
     {
@@ -6863,11 +6863,11 @@
       ],
       "canBeLedBy": [
         "iron-priest",
-        "ragnar-blackmane",
         "njal-stormcaller",
+        "ragnar-blackmane",
         "ulrik-the-slayer",
-        "wolf-priest",
-        "wolf-guard-battle-leader"
+        "wolf-guard-battle-leader",
+        "wolf-priest"
       ]
     },
     {
