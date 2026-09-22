@@ -48,9 +48,9 @@
       ],
       "abilities": [
         {
-          "id": "fanatical-celerity",
-          "name": "Fanatical Celerity",
-          "description": "When a friendly <span class=\"kwb\">DEATH COMPANY</span> unit is selected to make an advance move, you can use this ability. If you do: that unit suffers D3+1 mortal wounds; and that move does not prevent that unit from being eligible to declare a charge.<br><br>This detachment has the <span class=\"kwb\">DOOMED</span> tag and cannot be taken with another <span class=\"kwb\">DOOMED</span> detachment.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLOOD ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
+          "id": "sanguinius-fury",
+          "name": "Sanguinius' Fury",
+          "description": "Friendly <span class=\"kwb\">DEATH COMPANY</span> units from your army are always treated as being affected by the Assault Doctrine, for the entire battle, but they can never be affected by the Tactical Doctrine or the Devastator Doctrine.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLOOD ANGELS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
         }
       ]
     }
@@ -198,7 +198,7 @@
     {
       "id": "angelic-executioner",
       "name": "Angelic Executioner",
-      "cost": 25,
+      "cost": 20,
       "detachmentId": "encarmine-speartip",
       "detachmentName": "Encarmine Speartip",
       "description": "<span class=\"kwb\">ADEPTUS ASTARTES JUMP PACK</span> model only. When this unit is selected to fight, this unit's melee attacks have [LETHAL HITS] or [SUSTAINED HITS 1] (your choice).",
@@ -226,7 +226,7 @@
     {
       "id": "shadow-of-abomination",
       "name": "Shadow of Abomination",
-      "cost": 25,
+      "cost": 15,
       "detachmentId": "encarmine-speartip",
       "detachmentName": "Encarmine Speartip",
       "description": "<span class=\"kwb\">ADEPTUS ASTARTES JUMP PACK</span> model only. Once per battle, per army, when this unit is selected to fight, you can use this ability. If you do, this model's melee attacks have +1 D.",
