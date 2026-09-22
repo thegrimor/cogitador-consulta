@@ -9561,15 +9561,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "bolt rifle",
-          "count": 10
+          "count": 1
         },
         {
           "name": "knives and fists",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -9795,11 +9795,11 @@
       "defaultWeaponNames": [
         {
           "name": "chainsword",
-          "count": 10
+          "count": 1
         },
         {
           "name": "heavy bolt pistol",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -10013,11 +10013,11 @@
       "defaultWeaponNames": [
         {
           "name": "chainsword",
-          "count": 10
+          "count": 1
         },
         {
           "name": "heavy bolt pistol",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -10194,15 +10194,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 10
+          "count": 1
         },
         {
           "name": "heavy bolt rifle",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -10396,15 +10396,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 10
+          "count": 1
         },
         {
           "name": "plasma incinerator",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -10598,19 +10598,19 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 5
+          "count": 1
         },
         {
           "name": "castellan launcher",
-          "count": 5
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 5
+          "count": 1
         },
         {
           "name": "superfrag rocket launcher",
-          "count": 5
+          "count": 1
         }
       ],
       "options": [
@@ -10761,15 +10761,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 10
+          "count": 1
         },
         {
           "name": "pyreblaster",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [],
@@ -10924,15 +10924,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 10
+          "count": 1
         },
         {
           "name": "marksman bolt carbine",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -11107,11 +11107,11 @@
       "defaultWeaponNames": [
         {
           "name": "heavy bolt pistol",
-          "count": 6
+          "count": 1
         },
         {
           "name": "master-crafted power sword",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [
@@ -11371,15 +11371,15 @@
       "defaultWeaponNames": [
         {
           "name": "artificer firearm",
-          "count": 10
+          "count": 1
         },
         {
           "name": "bolt pistol",
-          "count": 9
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 9
+          "count": 1
         },
         {
           "name": "chainsword",
@@ -11604,11 +11604,11 @@
       "defaultWeaponNames": [
         {
           "name": "heavy bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "master-crafted power weapon",
-          "count": 9
+          "count": 1
         },
         {
           "name": "relic blade",
@@ -11790,15 +11790,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "occulus bolt carbine",
-          "count": 10
+          "count": 1
         },
         {
           "name": "paired combat blades",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [],
@@ -11970,15 +11970,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt carbine",
-          "count": 10
+          "count": 1
         },
         {
           "name": "monomolecular combat knife",
-          "count": 10
+          "count": 1
         },
         {
           "name": "special-issue bolt pistol",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -12232,15 +12232,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 10
+          "count": 1
         },
         {
           "name": "boltgun",
-          "count": 10
+          "count": 1
         },
         {
           "name": "combat knife",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -12446,15 +12446,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 3
+          "count": 1
         },
         {
           "name": "bolt sniper rifle",
-          "count": 3
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 3
+          "count": 1
         }
       ],
       "options": [
@@ -12658,15 +12658,15 @@
       "defaultWeaponNames": [
         {
           "name": "chainsword",
-          "count": 6
+          "count": 1
         },
         {
           "name": "heavy bolt pistol",
-          "count": 6
+          "count": 1
         },
         {
           "name": "twin bolt rifle",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [
@@ -12807,15 +12807,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 6
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 6
+          "count": 1
         },
         {
           "name": "heavy bolter",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [],
@@ -13005,15 +13005,15 @@
       "defaultWeaponNames": [
         {
           "name": "bolt pistol",
-          "count": 6
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 6
+          "count": 1
         },
         {
           "name": "melta rifle",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [
@@ -13197,11 +13197,11 @@
       "defaultWeaponNames": [
         {
           "name": "flamestorm gauntlets",
-          "count": 6
+          "count": 1
         },
         {
           "name": "twin power fists",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [
@@ -13382,11 +13382,11 @@
       "defaultWeaponNames": [
         {
           "name": "assault bolters",
-          "count": 6
+          "count": 1
         },
         {
           "name": "ceramite fists",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [
@@ -13632,11 +13632,11 @@
       "defaultWeaponNames": [
         {
           "name": "power fist",
-          "count": 10
+          "count": 1
         },
         {
           "name": "storm bolter",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -13796,7 +13796,7 @@
       "defaultWeaponNames": [
         {
           "name": "twin lightning claws",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -13974,19 +13974,19 @@
       "defaultWeaponNames": [
         {
           "name": "armoured impact",
-          "count": 2
+          "count": 1
         },
         {
           "name": "bolt pistol",
-          "count": 2
+          "count": 1
         },
         {
           "name": "onslaught gatling cannon",
-          "count": 2
+          "count": 1
         },
         {
           "name": "twin bolt rifle",
-          "count": 2
+          "count": 1
         }
       ],
       "options": [
@@ -14654,11 +14654,11 @@
       "defaultWeaponNames": [
         {
           "name": "hovering bulk",
-          "count": 2
+          "count": 1
         },
         {
           "name": "twin firestrike las-talon",
-          "count": 2
+          "count": 1
         }
       ],
       "options": [
