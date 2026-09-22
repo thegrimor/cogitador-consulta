@@ -1077,9 +1077,9 @@
         "grim-resolve"
       ],
       "canBeLedBy": [
-        "lieutenant-in-phobos-armour",
         "captain-in-phobos-armour",
-        "librarian-in-phobos-armour"
+        "librarian-in-phobos-armour",
+        "lieutenant-in-phobos-armour"
       ]
     },
     {
@@ -1722,34 +1722,16 @@
         "red-thirst"
       ],
       "canBeLedBy": [
-        "chief-librarian-tigurius",
-        "azrael",
-        "asmodai",
-        "emperors-champion",
-        "lazarus",
-        "chaplain",
-        "captain",
-        "castellan",
-        "marshal",
-        "techmarine",
-        "apothecary",
         "ancient",
-        "blood-angels-captain",
-        "uriel-ventris",
-        "adrax-agatone",
+        "apothecary",
+        "captain",
+        "chaplain",
         "judiciar",
-        "chaplain-grimaldus",
-        "high-marshal-helbrecht",
-        "ezekiel",
-        "lieutenant",
-        "sanguinary-priest",
-        "watch-captain-artemis-space-marines",
-        "watch-master-space-marines",
-        "judiciar-xacharus",
-        "chaplain-kastiel",
-        "marneus-calgar-in-armour-of-antilochus",
         "librarian",
-        "captain-titus"
+        "lieutenant",
+        "techmarine",
+        "watch-captain-artemis-space-marines",
+        "watch-master-space-marines"
       ]
     },
     {
@@ -2222,11 +2204,8 @@
         "legendary-slayers"
       ],
       "canBeLedBy": [
-        "tor-garadon",
-        "captain-in-gravis-armour",
-        "iron-father-feirros",
         "apothecary-biologis",
-        "marneus-calgar-in-armour-of-antilochus"
+        "captain-in-gravis-armour"
       ]
     },
     {
@@ -2754,36 +2733,19 @@
         "shadow-masters"
       ],
       "canBeLedBy": [
-        "chief-librarian-tigurius",
-        "lieutenant",
-        "sanguinary-priest",
-        "azrael",
-        "lazarus",
-        "chaplain",
-        "adrax-agatone",
-        "captain",
-        "judiciar",
-        "castellan",
-        "marshal",
-        "watch-master-space-marines",
-        "watch-captain-artemis-space-marines",
-        "inquisitor-greyfax",
-        "inquisitor-coteaz",
-        "inquisitor",
         "ancient",
-        "blood-angels-captain",
-        "uriel-ventris",
-        "ezekiel",
-        "emperors-champion",
         "apothecary",
+        "captain",
+        "chaplain",
+        "inquisitor",
+        "inquisitor-coteaz",
         "inquisitor-draxus",
+        "inquisitor-greyfax",
+        "judiciar",
         "librarian",
-        "pedro-kantor",
-        "judiciar-xacharus",
-        "chaplain-kastiel",
-        "marneus-calgar-in-armour-of-antilochus",
-        "asmodai",
-        "captain-titus"
+        "lieutenant",
+        "watch-captain-artemis-space-marines",
+        "watch-master-space-marines"
       ]
     },
     {
@@ -4015,14 +3977,10 @@
         "red-thirst"
       ],
       "canBeLedBy": [
-        "belial",
-        "darnath-lysander",
         "ancient-in-terminator-armour",
-        "librarian-in-terminator-armour",
-        "chaplain-in-terminator-armour",
         "captain-in-terminator-armour",
-        "caanok-var",
-        "marneus-calgar-in-armour-of-antilochus"
+        "chaplain-in-terminator-armour",
+        "librarian-in-terminator-armour"
       ]
     },
     {
@@ -4525,8 +4483,6 @@
         "red-thirst"
       ],
       "canBeLedBy": [
-        "commander-dante",
-        "kayvaan-shrike",
         "captain-with-jump-pack",
         "chaplain-with-jump-pack"
       ]
@@ -5197,36 +5153,20 @@
         "close-range-eradication"
       ],
       "canBeLedBy": [
-        "adrax-agatone",
-        "inquisitor-draxus",
-        "azrael",
-        "asmodai",
-        "lazarus",
-        "chaplain",
-        "captain",
-        "judiciar",
-        "chaplain-grimaldus",
-        "high-marshal-helbrecht",
-        "emperors-champion",
-        "inquisitor-greyfax",
-        "inquisitor-coteaz",
-        "inquisitor",
-        "apothecary",
         "ancient",
-        "blood-angels-captain",
-        "lieutenant",
-        "ezekiel",
-        "castellan",
-        "chief-librarian-tigurius",
+        "apothecary",
+        "captain",
+        "chaplain",
+        "inquisitor",
+        "inquisitor-coteaz",
+        "inquisitor-draxus",
+        "inquisitor-greyfax",
+        "judiciar",
         "librarian",
-        "marshal",
-        "sanguinary-priest",
+        "lieutenant",
         "techmarine",
-        "judiciar-xacharus",
-        "chaplain-kastiel",
-        "marneus-calgar-in-armour-of-antilochus",
-        "uriel-ventris",
-        "captain-titus"
+        "watch-captain-artemis-space-marines",
+        "watch-master-space-marines"
       ]
     }
   ],

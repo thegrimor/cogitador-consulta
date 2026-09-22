@@ -2255,9 +2255,9 @@
       ],
       "abilities": [
         {
-          "id": "leader",
-          "name": "Leader",
-          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
+          "id": "support",
+          "name": "Support",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SUPPORT</div></div></div>Some units have the Leader or Support ability listed on their datasheet. Such units are known as leader units and support units respectively. Both of these abilities allow such units to lead other friendly units (known as bodyguard units) to form Attached units. An Attached unit is a single unit for all rules purposes. Leader and support units can only lead specific bodyguard units, as listed on their datasheet.<br><br>Before the battle, in the Muster Armies step, for each leader and support unit in your army, you can select one friendly bodyguard unit that unit can lead. Unless otherwise stated, each bodyguard unit can only have one leader unit and one support unit attached to it.</div>",
           "type": "Core"
         },
         {
@@ -2847,7 +2847,9 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-titus"
+      ]
     },
     {
       "id": "victrix-honour-guard",
@@ -3021,7 +3023,11 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain",
+        "captain-titus",
+        "cato-sicarius"
+      ]
     },
     {
       "id": "kaius-konorius",
@@ -9310,7 +9316,15 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "adrax-agatone",
+        "blood-angels-captain",
+        "captain",
+        "captain-titus",
+        "korsarro-khan",
+        "lieutenant",
+        "vulkan-hestan"
+      ]
     },
     {
       "id": "intercessor-squad",
@@ -9625,7 +9639,32 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "adrax-agatone",
+        "ancient",
+        "apothecary",
+        "asmodai",
+        "azrael",
+        "blood-angels-captain",
+        "captain",
+        "captain-titus",
+        "castellan",
+        "chaplain",
+        "chaplain-grimaldus",
+        "chief-librarian-tigurius",
+        "emperors-champion",
+        "ezekiel",
+        "high-marshal-helbrecht",
+        "judiciar",
+        "korsarro-khan",
+        "lazarus",
+        "librarian",
+        "lieutenant",
+        "marshal",
+        "sanguinary-priest",
+        "techmarine",
+        "wardens-of-ultramar"
+      ]
     },
     {
       "id": "assault-intercessor-squad",
@@ -9851,7 +9890,33 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "adrax-agatone",
+        "ancient",
+        "apothecary",
+        "asmodai",
+        "azrael",
+        "blood-angels-captain",
+        "captain",
+        "captain-titus",
+        "castellan",
+        "chaplain",
+        "chaplain-grimaldus",
+        "chief-librarian-tigurius",
+        "emperors-champion",
+        "ezekiel",
+        "high-marshal-helbrecht",
+        "judiciar",
+        "korsarro-khan",
+        "lazarus",
+        "librarian",
+        "lieutenant",
+        "marshal",
+        "sanguinary-priest",
+        "techmarine",
+        "vulkan-hestan",
+        "wardens-of-ultramar"
+      ]
     },
     {
       "id": "assault-intercessors-with-jump-packs",
@@ -10075,7 +10140,12 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-with-jump-pack",
+        "chaplain-with-jump-pack",
+        "commander-dante",
+        "kayvaan-shrike"
+      ]
     },
     {
       "id": "heavy-intercessor-squad",
@@ -10250,7 +10320,12 @@
         "walking-fortress",
         "indomitable-defence"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary-biologis",
+        "captain-in-gravis-armour",
+        "iron-father-feirros",
+        "tor-garadon"
+      ]
     },
     {
       "id": "hellblaster-squad",
@@ -10450,7 +10525,19 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient",
+        "apothecary",
+        "asmodai",
+        "azrael",
+        "captain",
+        "captain-titus",
+        "chaplain",
+        "ezekiel",
+        "librarian",
+        "lieutenant",
+        "sanguinary-priest"
+      ]
     },
     {
       "id": "desolation-squad",
@@ -10660,7 +10747,14 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient",
+        "apothecary",
+        "chief-librarian-tigurius",
+        "librarian",
+        "sanguinary-priest",
+        "techmarine"
+      ]
     },
     {
       "id": "infernus-squad",
@@ -10810,7 +10904,27 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "adrax-agatone",
+        "ancient",
+        "apothecary",
+        "asmodai",
+        "azrael",
+        "blood-angels-captain",
+        "captain",
+        "captain-titus",
+        "castellan",
+        "chaplain",
+        "chaplain-grimaldus",
+        "ezekiel",
+        "judiciar",
+        "lazarus",
+        "librarian",
+        "lieutenant",
+        "marshal",
+        "sanguinary-priest",
+        "vulkan-hestan"
+      ]
     },
     {
       "id": "infiltrator-squad",
@@ -10979,7 +11093,11 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "librarian-in-phobos-armour",
+        "lieutenant-in-phobos-armour"
+      ]
     },
     {
       "id": "bladeguard-veteran-squad",
@@ -11165,7 +11283,24 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "adrax-agatone",
+        "apothecary",
+        "asmodai",
+        "azrael",
+        "bladeguard-ancient",
+        "captain",
+        "captain-titus",
+        "chaplain",
+        "chief-librarian-tigurius",
+        "ezekiel",
+        "judiciar",
+        "korsarro-khan",
+        "lazarus",
+        "lieutenant",
+        "sanguinary-priest",
+        "wardens-of-ultramar"
+      ]
     },
     {
       "id": "sternguard-veteran-squad",
@@ -11433,7 +11568,29 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "adrax-agatone",
+        "ancient",
+        "apothecary",
+        "asmodai",
+        "azrael",
+        "blood-angels-captain",
+        "captain",
+        "captain-titus",
+        "castellan",
+        "chaplain",
+        "chief-librarian-tigurius",
+        "emperors-champion",
+        "ezekiel",
+        "judiciar",
+        "korsarro-khan",
+        "lazarus",
+        "librarian",
+        "lieutenant",
+        "marshal",
+        "sanguinary-priest",
+        "wardens-of-ultramar"
+      ]
     },
     {
       "id": "vanguard-veteran-squad-with-jump-packs",
@@ -11674,7 +11831,12 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-with-jump-pack",
+        "chaplain-with-jump-pack",
+        "commander-dante",
+        "kayvaan-shrike"
+      ]
     },
     {
       "id": "incursor-squad",
@@ -11840,7 +12002,11 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "librarian-in-phobos-armour",
+        "lieutenant-in-phobos-armour"
+      ]
     },
     {
       "id": "reiver-squad",
@@ -12029,7 +12195,11 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "librarian-in-phobos-armour",
+        "lieutenant-in-phobos-armour"
+      ]
     },
     {
       "id": "scout-squad",
@@ -12294,7 +12464,9 @@
       "detachmentAbilityIds": [
         "shadow-masters"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour"
+      ]
     },
     {
       "id": "eliminator-squad",
@@ -12501,7 +12673,10 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "librarian-in-phobos-armour"
+      ]
     },
     {
       "id": "outrider-squad",
@@ -12708,7 +12883,9 @@
       "canBeLedBy": [
         "captain-on-bike",
         "chaplain-on-bike",
-        "ravenwing-command-squad"
+        "ravenwing-command-squad",
+        "sammael",
+        "suboden-khan"
       ]
     },
     {
@@ -13251,7 +13428,12 @@
         "walking-fortress",
         "indomitable-defence"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary-biologis",
+        "captain-in-gravis-armour",
+        "iron-father-feirros",
+        "tor-garadon"
+      ]
     },
     {
       "id": "inceptor-squad",
@@ -13694,7 +13876,15 @@
       "detachmentAbilityIds": [
         "death-blow"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient-in-terminator-armour",
+        "belial",
+        "caanok-var",
+        "captain-in-terminator-armour",
+        "chaplain-in-terminator-armour",
+        "darnath-lysander",
+        "librarian-in-terminator-armour"
+      ]
     },
     {
       "id": "terminator-assault-squad",
@@ -13846,7 +14036,15 @@
       "detachmentAbilityIds": [
         "death-blow"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient-in-terminator-armour",
+        "belial",
+        "caanok-var",
+        "captain-in-terminator-armour",
+        "chaplain-in-terminator-armour",
+        "darnath-lysander",
+        "librarian-in-terminator-armour"
+      ]
     },
     {
       "id": "invader-atvs",

@@ -2096,14 +2096,11 @@
         "shield-of-the-imperium"
       ],
       "canBeLedBy": [
-        "darnath-lysander",
         "ancient-in-terminator-armour",
-        "librarian-in-terminator-armour",
-        "chaplain-in-terminator-armour",
-        "captain-in-terminator-armour",
         "belial",
-        "caanok-var",
-        "marneus-calgar-in-armour-of-antilochus"
+        "captain-in-terminator-armour",
+        "chaplain-in-terminator-armour",
+        "librarian-in-terminator-armour"
       ]
     },
     {
@@ -2499,14 +2496,11 @@
         "the-great-wolf-watches"
       ],
       "canBeLedBy": [
-        "belial",
-        "darnath-lysander",
         "ancient-in-terminator-armour",
-        "librarian-in-terminator-armour",
-        "chaplain-in-terminator-armour",
+        "belial",
         "captain-in-terminator-armour",
-        "caanok-var",
-        "marneus-calgar-in-armour-of-antilochus"
+        "chaplain-in-terminator-armour",
+        "librarian-in-terminator-armour"
       ]
     },
     {
@@ -3786,10 +3780,9 @@
         "legendary-slayers"
       ],
       "canBeLedBy": [
-        "sammael",
-        "ravenwing-command-squad",
         "chaplain-on-bike",
-        "suboden-khan"
+        "ravenwing-command-squad",
+        "sammael"
       ]
     },
     {
@@ -5937,30 +5930,17 @@
         "legendary-slayers"
       ],
       "canBeLedBy": [
-        "chief-librarian-tigurius",
-        "sanguinary-priest",
         "ancient",
-        "azrael",
-        "asmodai",
-        "ezekiel",
-        "marshal",
-        "lazarus",
-        "chaplain",
-        "adrax-agatone",
-        "pedro-kantor",
-        "emperors-champion",
-        "blood-angels-captain",
         "apothecary",
-        "uriel-ventris",
+        "asmodai",
+        "azrael",
         "captain",
-        "castellan",
-        "librarian",
-        "judiciar-xacharus",
-        "chaplain-kastiel",
-        "marneus-calgar-in-armour-of-antilochus",
-        "lieutenant",
+        "chaplain",
+        "ezekiel",
         "judiciar",
-        "captain-titus"
+        "lazarus",
+        "librarian",
+        "lieutenant"
       ]
     }
   ],
