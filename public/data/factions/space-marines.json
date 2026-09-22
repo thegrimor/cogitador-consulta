@@ -12705,7 +12705,9 @@
       "detachmentAbilityIds": [
         "lightning-fast-strike"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ravenwing-command-squad"
+      ]
     },
     {
       "id": "eradicator-squad-with-heavy-bolters",
