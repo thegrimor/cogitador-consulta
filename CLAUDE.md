@@ -153,6 +153,20 @@ no changes — already accurate from the prior pass.
   these detachments' stratagems/enhancements/abilities, so none of this new content is yet
   playable in Mathhammer — that's a separate future pass following the "CombatEffect authoring
   convention" below, best done only once the rules are confirmed non-provisional.
+- **Dark Angels points + two rule details from a leak (2026-09-22), not the MFM.** Per explicit
+  user instruction, `dark-angels.json` carries leaked 11th-ed prices that break the MFM-only rule
+  below: Azrael 150, Lazarus 80, Asmodai 80, Ezekiel 110, Belial 100, Sammael 120, Deathwing
+  Terminator Squad 190/380, Deathwing Knights 255 (1st unit), Ravenwing Black Knights 85 (3 models,
+  1st-2nd units), Ravenwing Command Squad 115 (1st-2nd), Land Speeder Vengeance 150 (1st-2nd), and
+  Inner Circle Companions set equal to `space-marines.json`'s Bladeguard Veteran Squad. The leak
+  gave only one number per unit; the user's rule for the tiered units was "raise the other tiers by
+  the same amount" (6-model tiers doubled), so every later-copy/6-model price is derived, not
+  leaked. The leak also said Azrael's Lion Helm lost its 4+ invulnerable save, but the user chose
+  to leave his rules untouched and change only his price. `outrider-squad`'s `canBeLedBy` was empty and is now
+  `captain-on-bike`, `chaplain-on-bike` and `ravenwing-command-squad` (user-confirmed; the Command
+  Squad is a Support unit for Outriders or Black Knights). The Deathwing
+  plasma cannon is 0 pts, which is what the data already had. Re-check all of this against the MFM
+  once it publishes.
 - One of the parallel agents editing `space-marines.json` observed `defaultWeaponNames[].count`
   values elsewhere in that same file (and, it turned out, in the untouched `orks.json`) getting
   silently reset to `1` mid-task. The cause wasn't pinned down — no PostToolUse hook is

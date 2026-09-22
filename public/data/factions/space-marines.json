@@ -12705,7 +12705,11 @@
       "detachmentAbilityIds": [
         "lightning-fast-strike"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-on-bike",
+        "chaplain-on-bike",
+        "ravenwing-command-squad"
+      ]
     },
     {
       "id": "eradicator-squad-with-heavy-bolters",
