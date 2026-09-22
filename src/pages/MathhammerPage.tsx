@@ -10,9 +10,18 @@ import { deriveModifierRules, isRuleApplicable } from '@/features/mathhammer/uti
 import { useAppSelector } from '@/store/hooks'
 import { selectRosterById } from '@/store/rosterSlice'
 import type { Weapon, ModelProfile, CombatType } from '@/types'
-import type { CombatModifiers } from '@/features/mathhammer/types'
+import type { CombatModifiers, ModifierRule } from '@/features/mathhammer/types'
 
 type MobileTab = 'attacker' | 'result' | 'defender'
+
+/** Ids of a datasheet's own (non-`isOption`) ability rules — these are the "habilidades
+ * propias" that should be active out of the box instead of requiring a manual toggle, unlike
+ * stratagems/enhancements/army rules or a mutually-exclusive option variant (e.g. a Ka'tah
+ * stance) that still needs the player to pick one. */
+function ownAbilityIds(rules: ModifierRule[], key: 'datasheetId' | 'leaderDatasheetId', id: string | null): string[] {
+  if (!id) return []
+  return rules.filter(r => r[key] === id && !r.isOption).map(r => r.id)
+}
 
 export function MathhammerPage() {
   const gameData = useGameDataContext()
@@ -164,7 +173,7 @@ export function MathhammerPage() {
         setWeaponQuantities(fillMissingQtys(saved.weaponQuantities ?? {}, restoredWeapons))
       } else {
         setSelectedWeapons([])
-        setAttackerIdsArr([])
+        setAttackerIdsArr(ownAbilityIds(leftRules, 'datasheetId', unit.id))
         setMeltaActiveKeys([])
         setRapidFireActiveKeys([])
         setOverwatchActive(false)
@@ -172,7 +181,7 @@ export function MathhammerPage() {
       }
     } catch {
       setSelectedWeapons([])
-      setAttackerIdsArr([])
+      setAttackerIdsArr(ownAbilityIds(leftRules, 'datasheetId', unit.id))
       setMeltaActiveKeys([])
       setRapidFireActiveKeys([])
       setOverwatchActive(false)
@@ -201,10 +210,10 @@ export function MathhammerPage() {
         const saved = JSON.parse(raw)
         setDefenderIdsArr(saved.activeModIds ?? [])
       } else {
-        setDefenderIdsArr([])
+        setDefenderIdsArr(ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId))
       }
     } catch {
-      setDefenderIdsArr([])
+      setDefenderIdsArr(ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId))
     }
   }
 
@@ -235,6 +244,35 @@ export function MathhammerPage() {
       return Array.from(new Set([...withoutOld, ...nextRuleIds]))
     })
   }, [rightPanel.selection.enhancementId, rightRules])
+
+  // Same auto-activation, but for an attached character's own abilities: the moment a
+  // character is attached (or swapped/detached), its own (non-option) ability rules turn on
+  // by default — "habilidades propias del personaje" shouldn't need a manual toggle click.
+  const prevAttackerCharacterId = useRef<string | null>(null)
+  useEffect(() => {
+    const characterId = leftPanel.selection.characterId
+    if (characterId === prevAttackerCharacterId.current) return
+    const prevRuleIds = ownAbilityIds(leftRules, 'leaderDatasheetId', prevAttackerCharacterId.current)
+    const nextRuleIds = ownAbilityIds(leftRules, 'leaderDatasheetId', characterId)
+    prevAttackerCharacterId.current = characterId
+    setAttackerIdsArr(prev => {
+      const withoutOld = prev.filter(id => !prevRuleIds.includes(id))
+      return Array.from(new Set([...withoutOld, ...nextRuleIds]))
+    })
+  }, [leftPanel.selection.characterId, leftRules])
+
+  const prevDefenderCharacterId = useRef<string | null>(null)
+  useEffect(() => {
+    const characterId = rightPanel.selection.characterId
+    if (characterId === prevDefenderCharacterId.current) return
+    const prevRuleIds = ownAbilityIds(rightRules, 'leaderDatasheetId', prevDefenderCharacterId.current)
+    const nextRuleIds = ownAbilityIds(rightRules, 'leaderDatasheetId', characterId)
+    prevDefenderCharacterId.current = characterId
+    setDefenderIdsArr(prev => {
+      const withoutOld = prev.filter(id => !prevRuleIds.includes(id))
+      return Array.from(new Set([...withoutOld, ...nextRuleIds]))
+    })
+  }, [rightPanel.selection.characterId, rightRules])
 
   function toggleAttackerModifier(id: string) {
     setAttackerIdsArr(prev => {
@@ -461,25 +499,27 @@ export function MathhammerPage() {
       {/* Desktop 3-column layout */}
       <div className="hidden md:grid md:grid-cols-[1fr_280px_1fr] min-h-[calc(100vh-2.5rem)]">
         <div className="border-r border-rim-bright overflow-y-auto">
-          <UnitPanel
-            gameData={gameData}
-            panel={leftPanel}
-            side="left"
-            onWeaponsChange={setSelectedWeapons}
-            selectedWeapons={selectedWeapons}
-            weaponQuantities={weaponQuantities}
-            onQuantityChange={handleQuantityChange}
-            onClearWeapons={handleClearWeapons}
-            combatType={combatType}
-            activeModifierIds={attackerActiveIds}
-            onModifierToggle={toggleAttackerModifier}
-            weaponAntiKeywords={selectedWeaponAntiKeywords}
-            defenderKeywords={defenderKeywords}
-            meltaActiveKeys={meltaActiveKeys}
-            onMeltaToggle={key => setMeltaActiveKeys(prev => toggleKey(prev, key))}
-            rapidFireActiveKeys={rapidFireActiveKeys}
-            onRapidFireToggle={key => setRapidFireActiveKeys(prev => toggleKey(prev, key))}
-          />
+          <div className="sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto">
+            <UnitPanel
+              gameData={gameData}
+              panel={leftPanel}
+              side="left"
+              onWeaponsChange={setSelectedWeapons}
+              selectedWeapons={selectedWeapons}
+              weaponQuantities={weaponQuantities}
+              onQuantityChange={handleQuantityChange}
+              onClearWeapons={handleClearWeapons}
+              combatType={combatType}
+              activeModifierIds={attackerActiveIds}
+              onModifierToggle={toggleAttackerModifier}
+              weaponAntiKeywords={selectedWeaponAntiKeywords}
+              defenderKeywords={defenderKeywords}
+              meltaActiveKeys={meltaActiveKeys}
+              onMeltaToggle={key => setMeltaActiveKeys(prev => toggleKey(prev, key))}
+              rapidFireActiveKeys={rapidFireActiveKeys}
+              onRapidFireToggle={key => setRapidFireActiveKeys(prev => toggleKey(prev, key))}
+            />
+          </div>
         </div>
         <div className="border-r border-rim-bright overflow-y-auto bg-surface-2">
           <div className="sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto">
@@ -508,15 +548,17 @@ export function MathhammerPage() {
           </div>
         </div>
         <div className="overflow-y-auto">
-          <UnitPanel
-            gameData={gameData}
-            panel={rightPanel}
-            side="right"
-            onModelChange={setDefenderModel}
-            combatType={combatType}
-            activeModifierIds={defenderActiveIds}
-            onModifierToggle={toggleDefenderModifier}
-          />
+          <div className="sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto">
+            <UnitPanel
+              gameData={gameData}
+              panel={rightPanel}
+              side="right"
+              onModelChange={setDefenderModel}
+              combatType={combatType}
+              activeModifierIds={defenderActiveIds}
+              onModifierToggle={toggleDefenderModifier}
+            />
+          </div>
         </div>
       </div>
     </div>
