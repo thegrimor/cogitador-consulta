@@ -21,7 +21,7 @@
         {
           "id": "the-great-wolf-watches",
           "name": "The Great Wolf Watches",
-          "description": "Friendly ADEPTUS ASTARTES CHARACTER units have the following ability — Countercharge (Once per battle round, per unit): You can target this unit with the Heroic Intervention Stratagem regardless of any other use of that Stratagem this phase; if you do, that use costs 1CP less (to a minimum of 0CP)."
+          "description": "Friendly ADEPTUS ASTARTES CHARACTER units have the following ability — Countercharge (Once per battle round, per unit): When you target this unit with the Heroic Intervention Stratagem, that use costs 1CP less (to a minimum of 0CP)."
         }
       ]
     },
@@ -80,7 +80,7 @@
       "type": "Saga of the Beastslayer – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Fight phase",
-      "description": "WHEN: End of your opponent's Fight phase. TARGET: One unengaged friendly BLOOD CLAWS, THUNDERWOLF CAVALRY or WULFEN unit wholly within 9\" of a battlefield edge. EFFECT: Remove that unit from the battlefield and place it into Strategic Reserves.",
+      "description": "WHEN: End of your opponent's Fight phase. TARGET: One unengaged friendly BLOOD CLAWS, THUNDERWOLF CAVALRY or WULFEN unit within 9\" of a battlefield edge. EFFECT: Remove that unit from the battlefield and place it into Strategic Reserves.",
       "detachmentId": "saga-of-the-beastslayer"
     },
     {
