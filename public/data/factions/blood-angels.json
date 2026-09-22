@@ -2054,7 +2054,7 @@
           "description": "lethal hits",
           "range": "Melee",
           "type": "Melee",
-          "A": 6,
+          "A": "6",
           "bsWs": "2",
           "S": 6,
           "AP": -2,
