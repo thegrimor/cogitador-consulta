@@ -161,9 +161,10 @@ no changes — already accurate from the prior pass.
   Inner Circle Companions set equal to `space-marines.json`'s Bladeguard Veteran Squad. The leak
   gave only one number per unit; the user's rule for the tiered units was "raise the other tiers by
   the same amount" (6-model tiers doubled), so every later-copy/6-model price is derived, not
-  leaked. Also from the leak: The Lion Helm lost its 4+ invulnerable save (only the Watcher in the
-  Dark clause is left, pending the real card text), and `outrider-squad`'s `canBeLedBy` gained
-  `ravenwing-command-squad` (it's a Support unit for Outriders or Black Knights). The Deathwing
+  leaked. The leak also said Azrael's Lion Helm lost its 4+ invulnerable save, but the user chose
+  to leave his rules untouched and change only his price. `outrider-squad`'s `canBeLedBy` was empty and is now
+  `captain-on-bike`, `chaplain-on-bike` and `ravenwing-command-squad` (user-confirmed; the Command
+  Squad is a Support unit for Outriders or Black Knights). The Deathwing
   plasma cannon is 0 pts, which is what the data already had. Re-check all of this against the MFM
   once it publishes.
 - One of the parallel agents editing `space-marines.json` observed `defaultWeaponNames[].count`

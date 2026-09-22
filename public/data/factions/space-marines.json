@@ -12706,6 +12706,8 @@
         "lightning-fast-strike"
       ],
       "canBeLedBy": [
+        "captain-on-bike",
+        "chaplain-on-bike",
         "ravenwing-command-squad"
       ]
     },
