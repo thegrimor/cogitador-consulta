@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
 import {
-  resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge,
+  resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, attachmentKind,
 } from '@/core/utils/roster'
 import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
@@ -13,6 +13,14 @@ import { WeaponOptionsEditor } from '@/shared/components/WeaponOptionsEditor'
 import { AbilityList } from '@/shared/components/AbilityList'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 
+export interface AttachableEntry {
+  entry: RosterEntry
+  datasheet: Datasheet
+  viaEnhancement: boolean
+  /** The target already has another unit of this entry's kind (leader/support) attached. */
+  slotTaken: boolean
+}
+
 interface Props {
   entry: RosterEntry
   datasheet: Datasheet
@@ -22,7 +30,7 @@ interface Props {
   detachmentAbilities: DetachmentAbility[]
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
-  attachableEntries: { entry: RosterEntry; datasheet: Datasheet; viaEnhancement: boolean }[]
+  attachableEntries: AttachableEntry[]
   leadingEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
   onChangeEnhancement: (enhancementId: string | null) => void
@@ -94,6 +102,7 @@ export function RosterEntryRow({
   const isCharacter = datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
+  const kindLabel = attachmentKind(datasheet) === 'support' ? 'apoyo' : 'líder'
   const weaponQuantities = resolveWeaponQuantities(datasheet, entry)
   const wargearSelections = entry.wargearSelections ?? {}
   const wargearSurcharge = resolveEntryWargearSurcharge(entry, wargearCosts)
@@ -157,7 +166,10 @@ export function RosterEntryRow({
           )}
           {leadingEntries.length > 0 && (
             <p className="text-[10px] font-mono text-parchment-dim italic">
-              Liderado por: {leadingEntries.map(l => l.datasheet.name).join(', ')}
+              Liderado por:{' '}
+              {leadingEntries
+                .map(l => `${l.datasheet.name} (${attachmentKind(l.datasheet) === 'support' ? 'apoyo' : 'líder'})`)
+                .join(', ')}
             </p>
           )}
         </div>
@@ -181,16 +193,23 @@ export function RosterEntryRow({
                   <button onClick={() => onChangeAttachment(null)} className={pillClass(!entry.attachedToEntryId)}>
                     Ninguno
                   </button>
-                  {attachableEntries.map(({ entry: target, datasheet: targetDs, viaEnhancement }) => (
-                    <button
-                      key={target.id}
-                      onClick={() => onChangeAttachment(target.id)}
-                      className={pillClass(entry.attachedToEntryId === target.id)}
-                    >
-                      {targetDs.name}
-                      {viaEnhancement && ' (por mejora)'}
-                    </button>
-                  ))}
+                  {attachableEntries.map(({ entry: target, datasheet: targetDs, viaEnhancement, slotTaken }) => {
+                    const selected = entry.attachedToEntryId === target.id
+                    const blocked = slotTaken && !selected
+                    return (
+                      <button
+                        key={target.id}
+                        onClick={() => onChangeAttachment(target.id)}
+                        disabled={blocked}
+                        title={blocked ? `Ya tiene un ${kindLabel} adjuntado` : undefined}
+                        className={`${pillClass(selected)} ${blocked ? 'opacity-40 cursor-not-allowed' : ''}`}
+                      >
+                        {targetDs.name}
+                        {viaEnhancement && ' (por mejora)'}
+                        {blocked && ` · ${kindLabel} ocupado`}
+                      </button>
+                    )
+                  })}
                 </div>
               )}
             </div>

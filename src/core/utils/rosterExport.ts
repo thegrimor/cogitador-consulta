@@ -2,6 +2,7 @@ import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhanceme
 import {
   weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, resolveCostsForFactionContext, sortCostVariants,
   sumDetachmentPoints, ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
+  attachmentKind, isAttachmentSlotTaken,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
@@ -742,7 +743,13 @@ export function resolveImportedRoster(
     if (eligibleTargetIds.size === 0) continue
 
     const parsedUnit = entryToParsedUnit.get(entry.id)
-    const candidates = entries.filter(other => other.id !== entry.id && eligibleTargetIds.has(other.datasheetId))
+    const ownDatasheet = datasheetById.get(entry.datasheetId)
+    const kind = ownDatasheet ? attachmentKind(ownDatasheet) : 'leader'
+    // A bodyguard unit takes at most one leader and one support — skip targets whose slot
+    // for this kind is already filled by an earlier entry.
+    const candidates = entries.filter(other =>
+      other.id !== entry.id && eligibleTargetIds.has(other.datasheetId) &&
+      !isAttachmentSlotTaken(entries, other.id, kind, entry.id, datasheetById))
 
     if (parsedUnit?.attachedToUnitName) {
       // Explicit attachment from import text — match by unit name

@@ -25,6 +25,33 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
+export type AttachmentKind = 'leader' | 'support'
+
+/** Whether a datasheet attaches to a bodyguard unit through the Core `Leader` or `Support`
+ * ability. A bodyguard unit may carry one of each at once (never two of the same kind).
+ * Characters that only attach via an Enhancement (ENHANCEMENT_ATTACHMENTS) carry neither
+ * ability and count as a leader. */
+export function attachmentKind(datasheet: Datasheet): AttachmentKind {
+  return datasheet.abilities.some(a => a.type === 'Core' && a.name.toLowerCase() === 'support')
+    ? 'support'
+    : 'leader'
+}
+
+/** True when `bodyguardId` already has a unit of `kind` attached, other than `excludeEntryId`. */
+export function isAttachmentSlotTaken(
+  entries: RosterEntry[],
+  bodyguardId: string,
+  kind: AttachmentKind,
+  excludeEntryId: string,
+  datasheetById: Map<string, Datasheet>,
+): boolean {
+  return entries.some(other => {
+    if (other.id === excludeEntryId || other.attachedToEntryId !== bodyguardId) return false
+    const ds = datasheetById.get(other.datasheetId)
+    return !!ds && attachmentKind(ds) === kind
+  })
+}
+
 function isBattlelineRole(role: string): boolean {
   return role === 'Battleline' || role === 'Dedicated Transports'
 }

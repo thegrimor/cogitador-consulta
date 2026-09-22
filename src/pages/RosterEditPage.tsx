@@ -18,7 +18,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
-  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed,
+  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, attachmentKind, isAttachmentSlotTaken,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -29,6 +29,7 @@ import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { ALLY_FACTION_ID, canTakeImperialAgents } from '@/core/constants/allies'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
+import type { AttachableEntry } from '@/shared/components/RosterEntryRow'
 
 export function RosterEditPage() {
   const { rosterId: rosterIdParam } = useParams<{ rosterId: string }>()
@@ -324,8 +325,13 @@ export function RosterEditPage() {
                     entry: other,
                     datasheet: datasheetById.get(other.datasheetId),
                     viaEnhancement: !eligibleTargetIds.has(other.datasheetId) && enhancementTargetIds.has(other.datasheetId),
+                    // One leader + one support per bodyguard unit: a target already carrying
+                    // another unit of this entry's kind is shown but not selectable.
+                    slotTaken: isAttachmentSlotTaken(
+                      roster.entries, other.id, attachmentKind(datasheet), entry.id, datasheetById,
+                    ),
                   }))
-                  .filter((x): x is { entry: RosterEntry; datasheet: Datasheet; viaEnhancement: boolean } => !!x.datasheet)
+                  .filter((x): x is AttachableEntry => !!x.datasheet)
                 const leadingEntries = roster.entries
                   .filter(other => other.attachedToEntryId === entry.id)
                   .map(other => ({ entry: other, datasheet: datasheetById.get(other.datasheetId) }))
