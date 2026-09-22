@@ -28,7 +28,9 @@ export function isEpicHero(datasheet: Datasheet): boolean {
 export type AttachmentKind = 'leader' | 'support'
 
 /** Whether a datasheet attaches to a bodyguard unit through the Core `Leader` or `Support`
- * ability. A bodyguard unit may carry one of each at once (never two of the same kind).
+ * ability. A bodyguard unit may carry one of each at once (never two of the same kind) — the
+ * rule text lives in `catalog/core-rules.json` (`UA012` Support, `000008346` Leader, `CO054`
+ * Attached Units).
  * Characters that only attach via an Enhancement (ENHANCEMENT_ATTACHMENTS) carry neither
  * ability and count as a leader. */
 export function attachmentKind(datasheet: Datasheet): AttachmentKind {
