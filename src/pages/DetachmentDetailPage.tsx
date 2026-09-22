@@ -1,6 +1,6 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { factionPath } from '@/core/constants/routes'
+import { factionDetachmentsPath, readCatalogBackState } from '@/core/constants/routes'
 import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { RuleHtml } from '@/shared/components/RuleHtml'
@@ -21,6 +21,7 @@ export function DetachmentDetailPage() {
   const { detachmentId } = useParams<{ detachmentId: string }>()
   const { detachments, detachmentAbilities, stratagems, factions, enhancements } = useGameDataContext()
   const navigate = useNavigate()
+  const backState = readCatalogBackState(useLocation().state)
 
   const det = detachments.find(d => d.id === detachmentId)
   if (!det) {
@@ -33,7 +34,14 @@ export function DetachmentDetailPage() {
     )
   }
 
-  const faction = factions.find(f => f.id === det.factionId)
+  // Back goes to the detachment list the player came from (a chapter list for an inherited core
+  // detachment), or the detachment's own faction list when opened from elsewhere.
+  const listFactionId = backState?.listFactionId ?? det.factionId
+  const listFaction = factions.find(f => f.id === listFactionId)
+  const goBack = () => {
+    if (backState?.fromList) navigate(-1)
+    else navigate(factionDetachmentsPath(listFactionId))
+  }
   const abilities = detachmentAbilities.filter(a => a.detachmentId === detachmentId)
   const strats = stratagems.filter(s => s.detachmentId === detachmentId)
   const detEnhancements = enhancements.filter(e => e.detachmentId === detachmentId)
@@ -43,10 +51,10 @@ export function DetachmentDetailPage() {
       {/* Header */}
       <div className="mb-6">
         <button
-          onClick={() => navigate(factionPath(det.factionId))}
+          onClick={goBack}
           className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
         >
-          ← {faction?.name ?? 'Ejército'}
+          ← {listFaction ? `${listFaction.name} · Destacamentos` : 'Destacamentos'}
         </button>
         <div className="h-1 bg-crimson mb-2" />
         <div className="flex items-start justify-between gap-4 flex-wrap">

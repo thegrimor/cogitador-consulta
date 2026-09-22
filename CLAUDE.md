@@ -562,6 +562,13 @@ Routes defined in `src/core/constants/routes.ts` with helper functions (`faction
 /login                                     → LoginPage (login + register, toggled in one form; ?next= to return after auth)
 ```
 
+**Back navigation in the catalog**: the datasheet/detachment lists link to detail pages with
+router `state` (`CatalogBackState` in `routes.ts`: the list's `listFactionId`, plus `fromList`).
+The detail page's back button ("← <Facción> · Datasheets/Destacamentos") pops history when it
+came straight from the list (so filters survive — `FactionDatasheetsPage` keeps its role/search
+filters in `?role=&q=` for this), otherwise pushes that faction's list; a chapter list opening
+an inherited Space Marines entry goes back to the chapter list, not the parent's.
+
 `RosterList`/`RosterEntry` types are in `src/types/index.ts`. Roster CRUD (`createRoster`, `deleteRoster`, `renameRoster`, `setPointsLimit`, `setDetachments`, `addEntry`, ...) lives in `rosterSlice.ts`; totals are recomputed on every entry mutation. The legacy single-`detachmentId` → `detachmentIds[]` shape migration now lives in `authThunks.ts`'s legacy-import path (see above) since that's the only place old shapes can still surface from.
 
 Everything else (catalog, core rules, missions, mathhammer) is local component state / derived from `GameDataContext` — there's no global store for it.
@@ -577,7 +584,9 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   from the empty-state CTA). It carries the live points budget in its own header — the page's
   sticky bar is behind the backdrop while it's open, so "quedan N pts" has to be repeated there or
   the player is picking blind. It stays open after each add (the per-datasheet `×N` badge is the
-  confirmation) since adding several units in a row is the normal case. Allies are a source
+  confirmation) since adding several units in a row is the normal case. Its open state is a
+  history entry (router `state.addUnit`), not a `useState`, so the browser/phone back gesture
+  closes it back to the roster instead of leaving the page. Allies are a source
   switcher inside it, not a separate component — see the Imperial Agents bullet below.
 - Both `AddUnitModal` (the unit picker) and `RosterEditPage`'s own entry list group datasheets into the same 4 GW-app-style display buckets — Personajes / Battleline / Transporte Dedicado / Otros — via `groupByRoleCategory`/`roleCategoryLabel` in `src/core/utils/roster.ts`, which bucket every raw `Datasheet.role` string (there are many more of these across factions than 4 - Fire Support, Transport, Fortifications, "Other Datasheets", etc. - see `ROLE_PRIORITY`) onto `ROLE_CATEGORY_LABELS`'s 4 labels, same priority order as `compareByRolePriority`/`rolePriority`. `AddUnitModal`'s filter tabs are these 4 categories (plus "Todos"), not one tab per raw role.
   **Known data gap:** `ROLE_PRIORITY` keys the transport bucket on the role string

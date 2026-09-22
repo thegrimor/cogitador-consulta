@@ -38,6 +38,25 @@ export function factionArmyRulesPath(id: string) {
   return `/catalog/factions/${id}/army-rules`
 }
 
+/**
+ * Router `state` carried from a faction's datasheet/detachment list into a detail page, so the
+ * detail page's back button returns to the list the player actually came from — a chapter list
+ * (e.g. Dark Angels) that opened an inherited Space Marines datasheet goes back to the chapter
+ * list, not the parent's. `fromList` means the previous history entry *is* that list, so going
+ * back pops it (keeping its filters/scroll) instead of pushing a fresh copy.
+ */
+export interface CatalogBackState {
+  listFactionId: string
+  fromList?: boolean
+}
+
+export function readCatalogBackState(state: unknown): CatalogBackState | undefined {
+  if (state && typeof state === 'object' && typeof (state as CatalogBackState).listFactionId === 'string') {
+    return state as CatalogBackState
+  }
+  return undefined
+}
+
 export function datasheetPath(id: string) {
   return `/catalog/datasheets/${id}`
 }

@@ -1,6 +1,6 @@
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { factionPath, detachmentPath } from '@/core/constants/routes'
+import { factionPath, detachmentPath, type CatalogBackState } from '@/core/constants/routes'
 import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 import { forFaction } from '@/core/constants/factionFamily'
 
@@ -56,6 +56,7 @@ export function FactionDetachmentsPage() {
               <NavLink
                 key={det.id}
                 to={detachmentPath(det.id)}
+                state={{ listFactionId: faction.id, fromList: true } satisfies CatalogBackState}
                 className="group bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-3 transition-colors flex items-start justify-between gap-3"
               >
                 <div className="min-w-0 flex-1">

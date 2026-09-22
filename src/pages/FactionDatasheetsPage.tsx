@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { useParams, NavLink, useNavigate } from 'react-router-dom'
+import { useParams, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { factionPath, datasheetPath } from '@/core/constants/routes'
+import { factionPath, datasheetPath, type CatalogBackState } from '@/core/constants/routes'
 import { chapterBadgeOf } from '@/core/constants/chapters'
 import { datasheetsForFaction } from '@/core/constants/factionFamily'
 
@@ -14,8 +13,19 @@ export function FactionDatasheetsPage() {
   const factionSheets = datasheetsForFaction(datasheets, factionId ?? '').filter(d => !d.isVirtual)
 
   const roles = ['Todos', ...Array.from(new Set(factionSheets.map(d => d.role))).sort()]
-  const [activeRole, setActiveRole] = useState('Todos')
-  const [search, setSearch] = useState('')
+  // Filters live in the URL (replace, not push) so coming back from a datasheet restores them.
+  const [searchParams, setSearchParams] = useSearchParams()
+  const activeRole = searchParams.get('role') ?? 'Todos'
+  const search = searchParams.get('q') ?? ''
+  const setParam = (key: string, value: string, empty: string) =>
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      if (value === empty) next.delete(key)
+      else next.set(key, value)
+      return next
+    }, { replace: true })
+  const setActiveRole = (role: string) => setParam('role', role, 'Todos')
+  const setSearch = (q: string) => setParam('q', q, '')
 
   const filtered = factionSheets
     .filter(d => {
@@ -105,6 +115,7 @@ export function FactionDatasheetsPage() {
               <NavLink
                 key={ds.id}
                 to={datasheetPath(ds.id)}
+                state={{ listFactionId: faction.id, fromList: true } satisfies CatalogBackState}
                 className="group flex items-start justify-between gap-3 bg-surface-2 border border-rim-bright hover:border-crimson-bright px-3 py-2.5 transition-colors"
               >
                 <div className="flex items-center gap-2 min-w-0 flex-1 flex-wrap">
