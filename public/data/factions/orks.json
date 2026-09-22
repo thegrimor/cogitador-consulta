@@ -5422,11 +5422,11 @@
       "defaultWeaponNames": [
         {
           "name": "scavenged shivs",
-          "count": 20
+          "count": 1
         },
         {
           "name": "grot blasta",
-          "count": 20
+          "count": 1
         }
       ],
       "options": [],
@@ -5957,15 +5957,15 @@
         },
         {
           "name": "choppa",
-          "count": 9
+          "count": 1
         },
         {
           "name": "shoota",
-          "count": 9
+          "count": 1
         },
         {
           "name": "slugga",
-          "count": 9
+          "count": 1
         }
       ],
       "options": [
@@ -6217,11 +6217,11 @@
         },
         {
           "name": "slugga",
-          "count": 10
+          "count": 1
         },
         {
           "name": "choppa",
-          "count": 9
+          "count": 1
         }
       ],
       "options": [
@@ -6499,11 +6499,11 @@
       "defaultWeaponNames": [
         {
           "name": "kustom shoota",
-          "count": 2
+          "count": 1
         },
         {
           "name": "power klaw",
-          "count": 2
+          "count": 1
         }
       ],
       "options": [
@@ -6810,11 +6810,11 @@
       "defaultWeaponNames": [
         {
           "name": "kustom krumpa",
-          "count": 5
+          "count": 1
         },
         {
           "name": "kustom shoota",
-          "count": 5
+          "count": 1
         }
       ],
       "options": [
@@ -7136,11 +7136,11 @@
       "defaultWeaponNames": [
         {
           "name": "choppa",
-          "count": 10
+          "count": 1
         },
         {
           "name": "slugga",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -7342,11 +7342,11 @@
       "defaultWeaponNames": [
         {
           "name": "choppa",
-          "count": 5
+          "count": 1
         },
         {
           "name": "snazzgun",
-          "count": 5
+          "count": 1
         }
       ],
       "options": [],
@@ -7556,11 +7556,11 @@
         },
         {
           "name": "choppa",
-          "count": 9
+          "count": 1
         },
         {
           "name": "slugga",
-          "count": 10
+          "count": 1
         }
       ],
       "options": [
@@ -7798,7 +7798,7 @@
         },
         {
           "name": "smash hammer",
-          "count": 6
+          "count": 1
         }
       ],
       "options": [
@@ -8297,11 +8297,11 @@
         },
         {
           "name": "busta rokkit launcha",
-          "count": 5
+          "count": 1
         },
         {
           "name": "gitstikka",
-          "count": 5
+          "count": 1
         }
       ],
       "options": [
@@ -8900,19 +8900,19 @@
       "defaultWeaponNames": [
         {
           "name": "choppa",
-          "count": 3
+          "count": 1
         },
         {
           "name": "rokkit launcha",
-          "count": 3
+          "count": 1
         },
         {
           "name": "slugga",
-          "count": 3
+          "count": 1
         },
         {
           "name": "spinnin' blades",
-          "count": 3
+          "count": 1
         }
       ],
       "options": [
@@ -9572,15 +9572,15 @@
         },
         {
           "name": "saddlegit's shiv",
-          "count": 3
+          "count": 1
         },
         {
           "name": "stikka",
-          "count": 3
+          "count": 1
         },
         {
           "name": "squig's jaws",
-          "count": 4
+          "count": 1
         }
       ],
       "options": [],
