@@ -132,8 +132,16 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
     const targetIds = [selection.characterId, selectedUnit?.id].filter((id): id is string => id != null)
     if (targetIds.length === 0) return []
     const validEnhancementIds = new Set(targetIds.flatMap(id => gameData.datasheetEnhancements[id] ?? []))
+    // Some enhancements have no rows in any datasheet's enhancementIds at all (a scrape gap,
+    // e.g. every Space Marines chapter enhancement added in the 2026-09-22 detachment pass) —
+    // without this fallback they'd never be selectable for any unit. Same rule RosterEditPage
+    // already applies; keep both in sync.
+    const mappedEnhancementIds = new Set(Object.values(gameData.datasheetEnhancements).flat())
     const detachmentIds = new Set(selection.detachmentIds)
-    return gameData.enhancements.filter(e => detachmentIds.has(e.detachmentId) && validEnhancementIds.has(e.id))
+    return gameData.enhancements.filter(e =>
+      detachmentIds.has(e.detachmentId) &&
+      (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
+    )
   }, [gameData.datasheetEnhancements, gameData.enhancements, selection.characterId, selection.detachmentIds, selectedUnit])
 
   const selectFaction = (factionId: string | null) => {
