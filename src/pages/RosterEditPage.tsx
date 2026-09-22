@@ -18,7 +18,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
-  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, attachmentKind, isAttachmentSlotTaken,
+  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -327,9 +327,7 @@ export function RosterEditPage() {
                     viaEnhancement: !eligibleTargetIds.has(other.datasheetId) && enhancementTargetIds.has(other.datasheetId),
                     // One leader + one support per bodyguard unit: a target already carrying
                     // another unit of this entry's kind is shown but not selectable.
-                    slotTaken: isAttachmentSlotTaken(
-                      roster.entries, other.id, attachmentKind(datasheet), entry.id, datasheetById,
-                    ),
+                    slotTaken: isAttachmentSlotTaken(roster.entries, other, datasheet, entry.id, datasheetById),
                   }))
                   .filter((x): x is AttachableEntry => !!x.datasheet)
                 const leadingEntries = roster.entries

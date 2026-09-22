@@ -39,19 +39,35 @@ export function attachmentKind(datasheet: Datasheet): AttachmentKind {
     : 'leader'
 }
 
-/** True when `bodyguardId` already has a unit of `kind` attached, other than `excludeEntryId`. */
+/** Bodyguard datasheets whose own rules raise the one-leader cap. T'au Kroot Carnivores'
+ * BODYGUARD ability: "If this unit has a Starting Strength of 20, you can attach up to two
+ * Leader units to it instead of one, provided those Leaders are not duplicates". The support
+ * cap stays at one. */
+const EXTRA_LEADER_SLOTS: Record<string, { minModels: number; leaders: number }> = {
+  'kroot-carnivores': { minModels: 20, leaders: 2 },
+}
+
+/** True when `bodyguard` can't take `candidate` because its slot for the candidate's kind is
+ * already full (ignoring `excludeEntryId`, the entry being attached). Where a bodyguard allows
+ * more than one leader (EXTRA_LEADER_SLOTS), a second copy of an already-attached datasheet is
+ * still refused. */
 export function isAttachmentSlotTaken(
   entries: RosterEntry[],
-  bodyguardId: string,
-  kind: AttachmentKind,
+  bodyguard: RosterEntry,
+  candidate: Datasheet,
   excludeEntryId: string,
   datasheetById: Map<string, Datasheet>,
 ): boolean {
-  return entries.some(other => {
-    if (other.id === excludeEntryId || other.attachedToEntryId !== bodyguardId) return false
+  const kind = attachmentKind(candidate)
+  const sameKind = entries.filter(other => {
+    if (other.id === excludeEntryId || other.attachedToEntryId !== bodyguard.id) return false
     const ds = datasheetById.get(other.datasheetId)
     return !!ds && attachmentKind(ds) === kind
   })
+  const extra = kind === 'leader' ? EXTRA_LEADER_SLOTS[bodyguard.datasheetId] : undefined
+  const capacity = extra && bodyguard.modelCount >= extra.minModels ? extra.leaders : 1
+  if (capacity > 1 && sameKind.some(other => other.datasheetId === candidate.id)) return true
+  return sameKind.length >= capacity
 }
 
 function isBattlelineRole(role: string): boolean {

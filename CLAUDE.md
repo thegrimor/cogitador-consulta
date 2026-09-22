@@ -593,7 +593,11 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   is the single check: `RosterEditPage` uses it to grey out a target whose slot for that kind is
   already filled ("líder/apoyo ocupado"), and `resolveImportedRoster` uses it so an imported list
   never stacks two leaders (or two supports) on the same unit. `setEntryAttachment` in the slice does
-  not re-validate. Mathhammer still models only one attached character (`?character=`).
+  not re-validate. The one "unless otherwise stated" exception in the data is T'au Kroot Carnivores
+  (two non-duplicate leaders at 20 models), kept in `EXTRA_LEADER_SLOTS` — add any future one there.
+  The GW app exports a support as `• Attached as: Support (Character)`; export writes the same
+  label and the parser reads it (plus Spanish `Apoyo`) as `attachmentRole: 'Support'`. Mathhammer
+  still models only one attached character (`?character=`).
 
 ### Mathhammer (`/mathhammer`)
 

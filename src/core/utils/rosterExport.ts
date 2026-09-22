@@ -159,7 +159,7 @@ export function exportRosterToText(
         lines.push(nameLine)
         const role = bodyguardIds.has(entry.id)
           ? (datasheet.role === 'Battleline' ? 'Bodyguard (Battleline)' : 'Bodyguard')
-          : 'Leader (Character)'
+          : attachmentKind(datasheet) === 'support' ? 'Support (Character)' : 'Leader (Character)'
         lines.push(`• Attached as: ${role}`)
         lines.push(...rest)
       }
@@ -216,7 +216,7 @@ export interface ParsedUnit {
   enhancementName?: string
   attachedToUnitName?: string
   attachmentGroupId?: number    // from "Attached unit N" block
-  attachmentRole?: 'Leader' | 'Bodyguard'  // from "• Attached as: Leader/Bodyguard"
+  attachmentRole?: 'Leader' | 'Support' | 'Bodyguard'  // from "• Attached as: Leader/Support/Bodyguard"
 }
 
 export interface ParsedRosterText {
@@ -248,7 +248,7 @@ const SKIP_RE = /^(Force Dispositions|Disposiciones de la fuerza|Total\s+Points|
 const ATTACHMENT_LINE_RE = /^(?:[•◦]\s*)?Attached\s+Units?(?:\s+\d+)?:\s*(.+)$/i
 // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)", or the
 // Spanish "• Adjunta como: Líder (Personaje)" / "• Adjunta como: Escolta (Línea de batalla)"
-const ATTACHED_AS_RE = /^[•◦]\s*(?:Attached as|Adjunta como):\s*(Leader|Bodyguard|L[ií]der|Escolta)/i
+const ATTACHED_AS_RE = /^[•◦]\s*(?:Attached as|Adjunta como):\s*(Leader|Support|Bodyguard|L[ií]der|Apoyo|Escolta)/i
 // "Attached unit 1" / "Attached unit 2" — listhammer group headers, or Spanish "Unidad adjunta 1"
 const ATTACH_GROUP_RE = /^(?:Attached\s+unit|Unidad\s+adjunta)\s+(\d+)$/i
 
@@ -362,12 +362,15 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
       continue
     }
 
-    // "• Attached as: Leader (Character)" / "• Attached as: Bodyguard (Battleline)", or the
-    // Spanish "• Adjunta como: Líder/Escolta"
+    // "• Attached as: Leader (Character)" / "• Attached as: Support (Character)" /
+    // "• Attached as: Bodyguard (Battleline)", or the Spanish "• Adjunta como: Líder/Apoyo/Escolta"
     const asMatch = line.match(ATTACHED_AS_RE)
     if (asMatch) {
-      const role = /^l[ií]der$/i.test(asMatch[1]) ? 'Leader' : /^escolta$/i.test(asMatch[1]) ? 'Bodyguard' : asMatch[1]
-      if (currentUnit) currentUnit.attachmentRole = role as 'Leader' | 'Bodyguard'
+      const raw = asMatch[1].toLowerCase()
+      const role = /^l[ií]der$|^leader$/.test(raw) ? 'Leader'
+        : raw === 'support' || raw === 'apoyo' ? 'Support'
+        : 'Bodyguard'
+      if (currentUnit) currentUnit.attachmentRole = role
       continue
     }
 
@@ -416,7 +419,8 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
     const u = units[i]
     if (u.attachmentGroupId === undefined || u.attachmentRole !== 'Bodyguard') continue
     const hasLeaderSibling = units.some(o =>
-      o !== u && o.attachmentGroupId === u.attachmentGroupId && o.attachmentRole === 'Leader')
+      o !== u && o.attachmentGroupId === u.attachmentGroupId &&
+      (o.attachmentRole === 'Leader' || o.attachmentRole === 'Support'))
     if (hasLeaderSibling) continue
     const isDuplicateElsewhere = units.some((o, idx) =>
       idx !== i && o.attachmentGroupId === undefined &&
@@ -744,12 +748,11 @@ export function resolveImportedRoster(
 
     const parsedUnit = entryToParsedUnit.get(entry.id)
     const ownDatasheet = datasheetById.get(entry.datasheetId)
-    const kind = ownDatasheet ? attachmentKind(ownDatasheet) : 'leader'
     // A bodyguard unit takes at most one leader and one support — skip targets whose slot
     // for this kind is already filled by an earlier entry.
     const candidates = entries.filter(other =>
       other.id !== entry.id && eligibleTargetIds.has(other.datasheetId) &&
-      !isAttachmentSlotTaken(entries, other.id, kind, entry.id, datasheetById))
+      !(ownDatasheet && isAttachmentSlotTaken(entries, other, ownDatasheet, entry.id, datasheetById)))
 
     if (parsedUnit?.attachedToUnitName) {
       // Explicit attachment from import text — match by unit name
