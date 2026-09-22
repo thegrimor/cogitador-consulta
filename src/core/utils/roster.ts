@@ -25,6 +25,51 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
+export type AttachmentKind = 'leader' | 'support'
+
+/** Whether a datasheet attaches to a bodyguard unit through the Core `Leader` or `Support`
+ * ability. A bodyguard unit may carry one of each at once (never two of the same kind) — the
+ * rule text lives in `catalog/core-rules.json` (`UA012` Support, `000008346` Leader, `CO054`
+ * Attached Units).
+ * Characters that only attach via an Enhancement (ENHANCEMENT_ATTACHMENTS) carry neither
+ * ability and count as a leader. */
+export function attachmentKind(datasheet: Datasheet): AttachmentKind {
+  return datasheet.abilities.some(a => a.type === 'Core' && a.name.toLowerCase() === 'support')
+    ? 'support'
+    : 'leader'
+}
+
+/** Bodyguard datasheets whose own rules raise the one-leader cap. T'au Kroot Carnivores'
+ * BODYGUARD ability: "If this unit has a Starting Strength of 20, you can attach up to two
+ * Leader units to it instead of one, provided those Leaders are not duplicates". The support
+ * cap stays at one. */
+const EXTRA_LEADER_SLOTS: Record<string, { minModels: number; leaders: number }> = {
+  'kroot-carnivores': { minModels: 20, leaders: 2 },
+}
+
+/** True when `bodyguard` can't take `candidate` because its slot for the candidate's kind is
+ * already full (ignoring `excludeEntryId`, the entry being attached). Where a bodyguard allows
+ * more than one leader (EXTRA_LEADER_SLOTS), a second copy of an already-attached datasheet is
+ * still refused. */
+export function isAttachmentSlotTaken(
+  entries: RosterEntry[],
+  bodyguard: RosterEntry,
+  candidate: Datasheet,
+  excludeEntryId: string,
+  datasheetById: Map<string, Datasheet>,
+): boolean {
+  const kind = attachmentKind(candidate)
+  const sameKind = entries.filter(other => {
+    if (other.id === excludeEntryId || other.attachedToEntryId !== bodyguard.id) return false
+    const ds = datasheetById.get(other.datasheetId)
+    return !!ds && attachmentKind(ds) === kind
+  })
+  const extra = kind === 'leader' ? EXTRA_LEADER_SLOTS[bodyguard.datasheetId] : undefined
+  const capacity = extra && bodyguard.modelCount >= extra.minModels ? extra.leaders : 1
+  if (capacity > 1 && sameKind.some(other => other.datasheetId === candidate.id)) return true
+  return sameKind.length >= capacity
+}
+
 function isBattlelineRole(role: string): boolean {
   return role === 'Battleline' || role === 'Dedicated Transports'
 }
