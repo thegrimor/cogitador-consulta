@@ -2847,7 +2847,9 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-titus"
+      ]
     },
     {
       "id": "victrix-honour-guard",
@@ -3021,7 +3023,11 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain",
+        "captain-titus",
+        "cato-sicarius"
+      ]
     },
     {
       "id": "kaius-konorius",
@@ -9310,7 +9316,15 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain",
+        "lieutenant",
+        "blood-angels-captain",
+        "adrax-agatone",
+        "vulkan-hestan",
+        "captain-titus",
+        "korsarro-khan"
+      ]
     },
     {
       "id": "intercessor-squad",
@@ -9625,7 +9639,32 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "castellan",
+        "chaplain-grimaldus",
+        "emperors-champion",
+        "high-marshal-helbrecht",
+        "marshal",
+        "ancient",
+        "apothecary",
+        "captain",
+        "chaplain",
+        "judiciar",
+        "lieutenant",
+        "techmarine",
+        "blood-angels-captain",
+        "sanguinary-priest",
+        "librarian",
+        "asmodai",
+        "azrael",
+        "ezekiel",
+        "lazarus",
+        "adrax-agatone",
+        "captain-titus",
+        "chief-librarian-tigurius",
+        "wardens-of-ultramar",
+        "korsarro-khan"
+      ]
     },
     {
       "id": "assault-intercessor-squad",
@@ -9851,7 +9890,33 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "castellan",
+        "chaplain-grimaldus",
+        "emperors-champion",
+        "high-marshal-helbrecht",
+        "marshal",
+        "ancient",
+        "apothecary",
+        "captain",
+        "chaplain",
+        "judiciar",
+        "lieutenant",
+        "techmarine",
+        "blood-angels-captain",
+        "sanguinary-priest",
+        "librarian",
+        "asmodai",
+        "azrael",
+        "ezekiel",
+        "lazarus",
+        "adrax-agatone",
+        "vulkan-hestan",
+        "captain-titus",
+        "chief-librarian-tigurius",
+        "wardens-of-ultramar",
+        "korsarro-khan"
+      ]
     },
     {
       "id": "assault-intercessors-with-jump-packs",
@@ -10075,7 +10140,12 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-with-jump-pack",
+        "chaplain-with-jump-pack",
+        "commander-dante",
+        "kayvaan-shrike"
+      ]
     },
     {
       "id": "heavy-intercessor-squad",
@@ -10250,7 +10320,12 @@
         "walking-fortress",
         "indomitable-defence"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary-biologis",
+        "captain-in-gravis-armour",
+        "tor-garadon",
+        "iron-father-feirros"
+      ]
     },
     {
       "id": "hellblaster-squad",
@@ -10450,7 +10525,19 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient",
+        "apothecary",
+        "captain",
+        "chaplain",
+        "lieutenant",
+        "sanguinary-priest",
+        "librarian",
+        "asmodai",
+        "azrael",
+        "ezekiel",
+        "captain-titus"
+      ]
     },
     {
       "id": "desolation-squad",
@@ -10660,7 +10747,14 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient",
+        "apothecary",
+        "techmarine",
+        "sanguinary-priest",
+        "librarian",
+        "chief-librarian-tigurius"
+      ]
     },
     {
       "id": "infernus-squad",
@@ -10810,7 +10904,27 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "castellan",
+        "chaplain-grimaldus",
+        "marshal",
+        "ancient",
+        "apothecary",
+        "captain",
+        "chaplain",
+        "judiciar",
+        "lieutenant",
+        "blood-angels-captain",
+        "sanguinary-priest",
+        "librarian",
+        "asmodai",
+        "azrael",
+        "ezekiel",
+        "lazarus",
+        "adrax-agatone",
+        "vulkan-hestan",
+        "captain-titus"
+      ]
     },
     {
       "id": "infiltrator-squad",
@@ -10979,7 +11093,11 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "lieutenant-in-phobos-armour",
+        "librarian-in-phobos-armour"
+      ]
     },
     {
       "id": "bladeguard-veteran-squad",
@@ -11165,7 +11283,24 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary",
+        "bladeguard-ancient",
+        "captain",
+        "chaplain",
+        "judiciar",
+        "lieutenant",
+        "sanguinary-priest",
+        "asmodai",
+        "azrael",
+        "ezekiel",
+        "lazarus",
+        "adrax-agatone",
+        "captain-titus",
+        "chief-librarian-tigurius",
+        "wardens-of-ultramar",
+        "korsarro-khan"
+      ]
     },
     {
       "id": "sternguard-veteran-squad",
@@ -11433,7 +11568,26 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "blood-angels-captain",
+        "sanguinary-priest",
+        "ancient",
+        "apothecary",
+        "captain",
+        "chaplain",
+        "judiciar",
+        "librarian",
+        "lieutenant",
+        "asmodai",
+        "azrael",
+        "ezekiel",
+        "lazarus",
+        "adrax-agatone",
+        "captain-titus",
+        "chief-librarian-tigurius",
+        "wardens-of-ultramar",
+        "korsarro-khan"
+      ]
     },
     {
       "id": "vanguard-veteran-squad-with-jump-packs",
@@ -11674,7 +11828,12 @@
         "wrath-of-the-chapter",
         "codex-fire-patterns"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-with-jump-pack",
+        "chaplain-with-jump-pack",
+        "commander-dante",
+        "kayvaan-shrike"
+      ]
     },
     {
       "id": "incursor-squad",
@@ -11840,7 +11999,11 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "lieutenant-in-phobos-armour",
+        "librarian-in-phobos-armour"
+      ]
     },
     {
       "id": "reiver-squad",
@@ -12029,7 +12192,11 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "lieutenant-in-phobos-armour",
+        "librarian-in-phobos-armour"
+      ]
     },
     {
       "id": "scout-squad",
@@ -12294,7 +12461,9 @@
       "detachmentAbilityIds": [
         "shadow-masters"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour"
+      ]
     },
     {
       "id": "eliminator-squad",
@@ -12501,7 +12670,10 @@
         "shadow-masters",
         "vanguard-ambushers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "captain-in-phobos-armour",
+        "librarian-in-phobos-armour"
+      ]
     },
     {
       "id": "outrider-squad",
@@ -12705,7 +12877,12 @@
       "detachmentAbilityIds": [
         "lightning-fast-strike"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "chaplain-on-bike",
+        "ravenwing-command-squad",
+        "sammael",
+        "suboden-khan"
+      ]
     },
     {
       "id": "eradicator-squad-with-heavy-bolters",
@@ -13247,7 +13424,12 @@
         "walking-fortress",
         "indomitable-defence"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary-biologis",
+        "captain-in-gravis-armour",
+        "tor-garadon",
+        "iron-father-feirros"
+      ]
     },
     {
       "id": "inceptor-squad",
@@ -13690,7 +13872,15 @@
       "detachmentAbilityIds": [
         "death-blow"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient-in-terminator-armour",
+        "captain-in-terminator-armour",
+        "chaplain-in-terminator-armour",
+        "librarian-in-terminator-armour",
+        "belial",
+        "darnath-lysander",
+        "caanok-var"
+      ]
     },
     {
       "id": "terminator-assault-squad",
@@ -13842,7 +14032,15 @@
       "detachmentAbilityIds": [
         "death-blow"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "ancient-in-terminator-armour",
+        "captain-in-terminator-armour",
+        "chaplain-in-terminator-armour",
+        "librarian-in-terminator-armour",
+        "belial",
+        "darnath-lysander",
+        "caanok-var"
+      ]
     },
     {
       "id": "invader-atvs",

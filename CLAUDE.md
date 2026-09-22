@@ -42,6 +42,13 @@ except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text
   each block from raw JSON by hand. `node scripts/audit-combat-effects.mjs [outDir]
   [--faction=<slug>,...]` (outDir defaults to `./audit-output`, gitignored scratch output — the
   tool only collects data for review, it never edits the faction JSON itself).
+- `mfm-leader-sweep.mjs` — audits every datasheet's `canBeLedBy` against the Munitorum Field
+  Manual's `LEADER`/`SUPPORT` tags. `node scripts/mfm-leader-sweep.mjs [--cache <dir>]
+  [--faction=<id>,...] [--detail] [--apply]`. Renders the MFM's SPA pages with headless Chromium
+  and caches them as text (`./mfm-cache`, gitignored) — delete a faction's `.txt` to force a
+  re-render, otherwise re-runs are offline and instant. `--apply` writes **only additions**; see
+  the sweep table under "Auditing `canBeLedBy`" below for why removals are reported but never
+  applied, and for the per-faction dates.
 - `scripts/pdf-codex-tools/` — **read `CODEX-MIGRATION-PROCESS.md` here before starting any
   future full-codex faction migration** — step-by-step checklist (full-replace-vs-patch
   decision, what to check in the PDF first, extraction, JSON authoring, and a data-quality trap
@@ -102,6 +109,68 @@ spurious extra. Two more traps, both hit on the first attempt here:
   `canBeLedBy` is the only place that knowledge lives, and the MFM tags are the only external
   cross-check. Orks could be confirmed two ways only because the *presence* of a Leader/Support
   ability is checkable locally.
+
+**Full `canBeLedBy` sweep — every faction, parsed from the MFM on the dates below.** 1,565 links
+now agree with the MFM and **0 are missing**; 552 were added by this pass. Re-parsing one faction
+updates only its own row, so keep the date column honest.
+
+| Faction | Parsed | Links | Left open |
+|---|---|---|---|
+| adepta-sororitas | 2026-09-22 | 58 | — |
+| adeptus-custodes | 2026-09-22 | 26 | — |
+| adeptus-mechanicus | 2026-09-22 | 38 | 3 unlisted |
+| adeptus-titanicus | 2026-09-22 | 0 | no leaders on the page (4 Titans only) |
+| aeldari | 2026-09-22 | 48 | 3 unlisted, 2 leaders unresolved |
+| astra-militarum | 2026-09-22 | 52 | — |
+| black-templars | 2026-09-22 | 156 | 14 unlisted, 13 unresolved |
+| blood-angels | 2026-09-22 | 166 | 2 unlisted, 18 unresolved |
+| chaos-daemons | 2026-09-22 | 20 | — |
+| chaos-knights | 2026-09-22 | 0 | no LEADER/SUPPORT units |
+| chaos-space-marines | 2026-09-22 | 58 | 1 unlisted |
+| dark-angels | 2026-09-22 | 181 | 7 unlisted, 19 unresolved |
+| death-guard | 2026-09-22 | 17 | — |
+| deathwatch | 2026-09-22 | 152 | 15 unlisted, 15 unresolved |
+| drukhari | 2026-09-22 | 10 | — |
+| emperors-children | 2026-09-22 | 8 | — |
+| genestealer-cults | 2026-09-22 | 36 | 12 unlisted |
+| grey-knights | 2026-09-22 | 16 | — |
+| imperial-agents | 2026-09-22 | 43 | 4 unlisted, 4 unresolved |
+| imperial-knights | 2026-09-22 | 0 | no LEADER/SUPPORT units |
+| leagues-of-votann | 2026-09-22 | 11 | — |
+| necrons | 2026-09-22 | 31 | — |
+| orks | 2026-09-22 | 41 | — |
+| space-marines | 2026-09-22 | 190 | 25 unresolved |
+| space-wolves | 2026-09-22 | 149 | 12 unresolved |
+| tau-empire | 2026-09-22 | 20 | — |
+| thousand-sons | 2026-09-22 | 13 | — |
+| tyranids | 2026-09-22 | 15 | — |
+| world-eaters | 2026-09-22 | 10 | — |
+
+MFM slugs match our faction ids one-for-one except `adeptus-titanicus` → `/en/titan-legions`.
+`/en/chaos-titan-legions` has no faction file here and was skipped.
+
+The two "left open" columns are deliberate, not a to-do list to blindly clear:
+- **"unlisted"** (61) means our data carries a link the MFM's printed list doesn't repeat. **Never
+  auto-remove these.** The MFM sometimes states a bodyguard list as a keyword expression — the
+  Inquisitors read `BATTLELINE IMPERIUM INFANTRY` — which our data has expanded into concrete
+  units per faction, so absence from the printed list does not prove the link is wrong. The sweep
+  reports removals and applies only additions, on purpose. Also note the Inquisitor leader ids
+  live in `imperial-agents.json`: resolve an Imperium faction against that file too, or 114
+  perfectly good ally links read as dangling references.
+- **"unresolved"** (108) means the MFM names a unit or leader we simply don't have. Most are
+  `TACTICAL SQUAD`, `DEVASTATOR SQUAD` and `ERADICATOR SQUAD` — absent from the partial-PDF
+  `space-marines.json` — plus a handful of leaders (`LIEUTENANT IN REIVER ARMOUR`, `URIEL
+  VENTRIS`, `PEDRO KANTOR`, `MARNEUS CALGAR IN ARMOUR OF ANTILOCHUS`, `CLANBLADE`, `STONESINGER`).
+  These are missing-datasheet gaps, not `canBeLedBy` bugs; a link can't be added to a unit that
+  isn't in the data.
+
+Within the Space Marines family every page prices only its own range, but a shared leader's
+bodyguard list names units from across the whole family (Ancient lists Crusader Squad, Deathwing
+Knights, the Deathwatch kill teams). So all six pages must resolve family-wide, and the edit lands
+in whichever file owns the *led* datasheet — which is why this sweep wrote 220 lines into
+`space-marines.json`: core squads picking up chapter characters as leaders. That is safe because a
+leader has to be in the roster to attach, and `datasheetsForFaction` keeps the parent from
+fielding a child's characters.
 - `scripts/space-marines-11th-ed-migration/` — same kind of rebuild, but for a **partial**
   PDF: `public/data/pdf/Space Marine Codex - 11th Edition.pdf` (72 pages, confirmed incomplete
   with the user) covers only the core/generic Adeptus Astartes content (army rules, 15

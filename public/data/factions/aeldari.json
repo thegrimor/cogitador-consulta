@@ -4561,7 +4561,9 @@
         "martial-grace",
         "yriels-own"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "farseer-skyrunner"
+      ]
     },
     {
       "id": "spiritseer",
@@ -4992,7 +4994,8 @@
         "eldrad-ulthran",
         "autarch",
         "farseer",
-        "warlock"
+        "warlock",
+        "warlock-conclave"
       ]
     },
     {
@@ -5229,7 +5232,8 @@
         "eldrad-ulthran",
         "autarch",
         "farseer",
-        "warlock"
+        "warlock",
+        "warlock-conclave"
       ]
     },
     {
@@ -5413,7 +5417,8 @@
         "strands-of-fate"
       ],
       "canBeLedBy": [
-        "farseer-skyrunner"
+        "farseer-skyrunner",
+        "warlock-skyrunners"
       ]
     },
     {

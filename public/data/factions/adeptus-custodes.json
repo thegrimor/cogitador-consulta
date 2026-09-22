@@ -4547,7 +4547,9 @@
         "martial-mastery",
         "against-all-odds"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "shield-captain-in-allarus-terminator-armour"
+      ]
     },
     {
       "id": "custodian-guard-with-adrasite-and-pyrithite-spears",
@@ -4750,7 +4752,12 @@
         "revered-companions",
         "against-all-odds"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "blade-champion",
+        "shield-captain",
+        "trajann-valoris",
+        "valerian"
+      ]
     },
     {
       "id": "agamatus-custodians",
@@ -4928,7 +4935,9 @@
         "martial-mastery",
         "revered-companions"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "shield-captain-on-dawneagle-jetbike"
+      ]
     },
     {
       "id": "venatari-custodians",
@@ -5420,7 +5429,12 @@
         "against-all-odds",
         "revered-companions"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "blade-champion",
+        "shield-captain",
+        "trajann-valoris",
+        "valerian"
+      ]
     },
     {
       "id": "orion-assault-dropship",
