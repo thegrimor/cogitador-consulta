@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { useParams, NavLink, useNavigate } from 'react-router-dom'
+import { useParams, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { datasheetPath, factionPath, mathhammerAttackerPath } from '@/core/constants/routes'
+import { datasheetPath, factionDatasheetsPath, mathhammerAttackerPath, readCatalogBackState, type CatalogBackState } from '@/core/constants/routes'
 import { RuleTooltip } from '@/shared/components/RuleTooltip'
 import { RuleHtml } from '@/shared/components/RuleHtml'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
@@ -18,11 +18,12 @@ const linkClass =
 // leader/led relationship can cross factions, e.g. Imperial Agents), same rule
 // linkifyUnitNames applies inside prose. Falls back to the generic crimson-bright treatment
 // only if that faction has no color defined (shouldn't happen for the 24 real factions).
-function LeaderLink({ target }: { target: { id: string; name: string; factionId: string } }) {
+function LeaderLink({ target, listFactionId }: { target: { id: string; name: string; factionId: string }; listFactionId: string }) {
   const colors = factionColor(target.factionId)
   return (
     <NavLink
       to={datasheetPath(target.id)}
+      state={{ listFactionId } satisfies CatalogBackState}
       className={`text-[12px] font-mono hover:text-parchment uppercase tracking-wide border-b transition-colors ${
         colors ? `${colors.text} border-current/40 hover:border-parchment` : 'text-crimson-bright border-crimson-bright/40 hover:border-parchment'
       }`}
@@ -277,6 +278,7 @@ export function DatasheetDetailPage() {
     sourceMap,
   } = useGameDataContext()
   const navigate = useNavigate()
+  const backState = readCatalogBackState(useLocation().state)
 
   const ds = datasheets.find(d => d.id === datasheetId)
   const [activeModel, setActiveModel] = useState(0)
@@ -298,6 +300,14 @@ export function DatasheetDetailPage() {
   }
 
   const faction = factions.find(f => f.id === ds.factionId)
+  // Back goes to the datasheet list the player came from (a chapter list for an inherited core
+  // datasheet), or the datasheet's own faction list when opened from elsewhere.
+  const listFactionId = backState?.listFactionId ?? ds.factionId
+  const listFaction = factions.find(f => f.id === listFactionId) ?? faction
+  const goBack = () => {
+    if (backState?.fromList) navigate(-1)
+    else navigate(factionDatasheetsPath(listFactionId))
+  }
   const rangedWeapons = ds.weapons.filter(w => w.range.toLowerCase() !== 'melee')
   const meleeWeapons = ds.weapons.filter(w => w.range.toLowerCase() === 'melee')
 
@@ -335,10 +345,10 @@ export function DatasheetDetailPage() {
     <div className="max-w-2xl mx-auto px-4 py-6">
       {/* Back */}
       <button
-        onClick={() => navigate(factionPath(ds.factionId))}
+        onClick={goBack}
         className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mb-3 flex items-center gap-1"
       >
-        ← {faction?.name ?? 'Volver'}
+        ← {listFaction ? `${listFaction.name} · Datasheets` : 'Datasheets'}
       </button>
 
       {/* Header */}
@@ -459,7 +469,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title="Puede Liderar" />
           <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
-            {leaderHead.map(led => led && <LeaderLink key={led.id} target={led} />)}
+            {leaderHead.map(led => led && <LeaderLink key={led.id} target={led} listFactionId={listFactionId} />)}
           </div>
         </div>
       )}
@@ -469,7 +479,7 @@ export function DatasheetDetailPage() {
         <div className="border border-rim-bright mb-3">
           <SectionHeader title="Puede Ser Liderado Por" />
           <div className="px-3 py-2 bg-surface-2 flex flex-wrap gap-2">
-            {leaderFooter.map(leader => leader && <LeaderLink key={leader.id} target={leader} />)}
+            {leaderFooter.map(leader => leader && <LeaderLink key={leader.id} target={leader} listFactionId={listFactionId} />)}
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
 import {
@@ -58,7 +58,16 @@ export function RosterEditPage() {
   const [limitDraft, setLimitDraft] = useState<string | null>(null)
   const [detachmentModalOpen, setDetachmentModalOpen] = useState(false)
   const [qrModalOpen, setQrModalOpen] = useState(false)
-  const [addUnitOpen, setAddUnitOpen] = useState(false)
+  // The add-unit modal is a history entry (router state), so the browser/phone back gesture
+  // closes it and returns to the list instead of leaving the roster.
+  const location = useLocation()
+  const addUnitOpen = (location.state as { addUnit?: boolean } | null)?.addUnit === true
+  const openAddUnit = () => navigate(location.pathname + location.search, { state: { addUnit: true } })
+  const closeAddUnit = () => {
+    // Opened in-app → pop our own entry; reached by reload/deep link → just clear the state.
+    if (location.key !== 'default' && window.history.length > 1) navigate(-1)
+    else navigate(location.pathname + location.search, { replace: true, state: null })
+  }
 
   if (!roster || !rosterIdParam) {
     return (
@@ -259,7 +268,7 @@ export function RosterEditPage() {
             )}
           </div>
           <button
-            onClick={() => setAddUnitOpen(true)}
+            onClick={openAddUnit}
             className="text-[11px] font-mono uppercase tracking-widest px-3 py-2 border border-crimson-bright text-parchment bg-crimson/10 hover:bg-crimson/25 shrink-0 transition-colors"
           >
             + Añadir<span className="hidden sm:inline"> Unidad</span>
@@ -283,7 +292,7 @@ export function RosterEditPage() {
               Sin unidades añadidas
             </p>
             <button
-              onClick={() => setAddUnitOpen(true)}
+              onClick={openAddUnit}
               className="text-[11px] font-mono uppercase tracking-widest px-4 py-2 border border-crimson-bright text-parchment bg-crimson/10 hover:bg-crimson/25 transition-colors"
             >
               + Añadir Unidad
@@ -402,7 +411,7 @@ export function RosterEditPage() {
           currentPoints={combinedTotal}
           rosterFactionId={roster.factionId}
           onAdd={handleAddUnit}
-          onClose={() => setAddUnitOpen(false)}
+          onClose={closeAddUnit}
         />
       )}
 
