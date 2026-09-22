@@ -46,7 +46,7 @@
     {
       "id": "assault-brethren",
       "name": "Assault Brethren",
-      "disposition": "TAKE AND HOLD",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -67,7 +67,7 @@
     {
       "id": "tactical-brethren",
       "name": "Tactical Brethren",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -88,7 +88,7 @@
     {
       "id": "devastator-brethren",
       "name": "Devastator Brethren",
-      "disposition": "PURGE THE FOE",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -109,7 +109,7 @@
     {
       "id": "terminator-storm-force",
       "name": "Terminator Storm Force",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -130,7 +130,7 @@
     {
       "id": "tacticus-attack-force",
       "name": "Tacticus Attack Force",
-      "disposition": "TAKE AND HOLD",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -151,7 +151,7 @@
     {
       "id": "tacticus-firestorm-force",
       "name": "Tacticus Firestorm Force",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -172,7 +172,7 @@
     {
       "id": "phobos-shadow-force",
       "name": "Phobos Shadow Force",
-      "disposition": "DISRUPTION",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -193,7 +193,7 @@
     {
       "id": "phobos-shock-force",
       "name": "Phobos Shock Force",
-      "disposition": "DISRUPTION",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -214,7 +214,7 @@
     {
       "id": "gravis-linebreaker-force",
       "name": "Gravis Linebreaker Force",
-      "disposition": "TAKE AND HOLD",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -235,7 +235,7 @@
     {
       "id": "gravis-siege-force",
       "name": "Gravis Siege Force",
-      "disposition": "TAKE AND HOLD",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -277,7 +277,7 @@
     {
       "id": "ironclad-champions",
       "name": "Ironclad Champions",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -298,7 +298,7 @@
     {
       "id": "gauntlet-task-force",
       "name": "Gauntlet Task Force",
-      "disposition": "RECONNAISSANCE",
+      "disposition": "",
       "dp": 1,
       "chapters": [
         "Space Marines",
@@ -1301,140 +1301,140 @@
     {
       "id": "imperiums-sword",
       "name": "Imperium's Sword",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "assault-brethren",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. This model has the following weapon:<table><tr><th>Imperium's Sword</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr><tr><td></td><td>Melee</td><td>6</td><td>2+</td><td>7</td><td>-3</td><td>3</td></tr></table>"
     },
     {
       "id": "furious-assault",
       "name": "Furious Assault",
-      "cost": 10,
+      "cost": 0,
       "detachmentId": "assault-brethren",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> unit only. This unit's melee attacks have [SUSTAINED HITS 1: non-MONSTER/VEHICLE]."
     },
     {
       "id": "laurels-of-vigilance",
       "name": "Laurels of Vigilance",
-      "cost": 10,
+      "cost": 0,
       "detachmentId": "tactical-brethren",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only. (Once per battle round, per army) When you use the Fire Overwatch/Heroic Intervention stratagem, if you target a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">BATTLELINE</span> unit within 12\" of this model with that stratagem, that use is -1 CP."
     },
     {
       "id": "tactical-insight",
       "name": "Tactical Insight",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "tactical-brethren",
       "description": "<span class=\"kwb\">CAPTAIN</span> model only. The tactical doctrine is active for this unit <u>in addition</u> to any other combat doctrine."
     },
     {
       "id": "master-forged-firearms",
       "name": "Master-forged Firearms",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "devastator-brethren",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span>/<span class=\"kwb\">MOUNTED</span> model only. This model's ranged attacks (excluding [PSYCHIC] attacks) have +1 A, S, AP and D."
     },
     {
       "id": "honour-of-vigilance",
       "name": "Honour of Vigilance",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "devastator-brethren",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> model only.<ul><li>This unit's ranged attacks have [LETHAL HITS].</li><li>If the devastator doctrine is active for this unit, this unit can re-roll advance rolls.</li></ul>"
     },
     {
       "id": "champion-of-the-first-company",
       "name": "Champion of the First Company",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "terminator-storm-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">TERMINATOR</span> model only. This unit's melee attacks have [LETHAL HITS]."
     },
     {
       "id": "corporeum-reliquary",
       "name": "Corporeum Reliquary",
-      "cost": 25,
+      "cost": 0,
       "detachmentId": "terminator-storm-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">TERMINATOR</span> model only. In your first Movement phase, this unit can make an ingress move."
     },
     {
       "id": "martial-paragon",
       "name": "Martial Paragon",
-      "cost": 10,
+      "cost": 0,
       "detachmentId": "tacticus-attack-force",
       "description": "<b>TACTICUS</b> model only. This unit's attacks can:<ul><li>Re-roll one hit roll.</li><li>Re-roll one wound roll.</li></ul>"
     },
     {
       "id": "spearpoint-war-leader",
       "name": "Spearpoint War Leader",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "tacticus-attack-force",
       "description": "<b>TACTICUS</b> model only. This unit has Scouts 6\"."
     },
     {
       "id": "cyber-familiar",
       "name": "Cyber-Familiar",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "tacticus-firestorm-force",
       "description": "<b>TACTICUS</b> model only. When both players have deployed their armies, you can redeploy up to three friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> units. When doing so, you can set those units up in strategic reserves, regardless of how many units are already in strategic reserves."
     },
     {
       "id": "tempered-in-battle",
       "name": "Tempered in Battle (Aura)",
-      "cost": 10,
+      "cost": 0,
       "detachmentId": "tacticus-firestorm-force",
       "description": "<b>TACTICUS</b> model only. Friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> units within 6\" of this model can re-roll leadership rolls."
     },
     {
       "id": "venator-omni-auspex-shadow",
       "name": "Venator Omni-Auspex",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "phobos-shadow-force",
       "description": "<b>PHOBOS</b> model only. This unit's attacks that target a hidden unit can:<ul><li>Re-roll wound rolls of 1.</li><li><u>Or:</u> If the assault doctrine is active for this unit, re-roll wound rolls of 1 and 2.</li></ul>"
     },
     {
       "id": "execute-and-redeploy",
       "name": "Execute and Redeploy",
-      "cost": 25,
+      "cost": 0,
       "detachmentId": "phobos-shadow-force",
       "description": "<b>PHOBOS</b> model only. In your Shooting phase, after this unit has shot, if this unit is unengaged, this unit can make a normal move of up to 6\". If it does, this unit is not eligible to declare a charge until the end of the turn."
     },
     {
       "id": "seal-of-shrouding",
       "name": "Seal of Shrouding",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "phobos-shock-force",
       "description": "<b>PHOBOS</b> model only. Enemy units cannot target this unit with snap shooting attacks."
     },
     {
       "id": "venator-omni-auspex-shock",
       "name": "Venator Omni-Auspex",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "phobos-shock-force",
       "description": "<b>PHOBOS</b> model only. This unit's attacks that target a hidden unit can:<ul><li>Re-roll wound rolls of 1.</li><li><u>Or:</u> If the assault doctrine is active for this unit, re-roll wound rolls of 1 and 2.</li></ul>"
     },
     {
       "id": "indefatigable-fortitude",
       "name": "Indefatigable Fortitude",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "gravis-linebreaker-force",
       "description": "<b>GRAVIS</b> model only. Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls."
     },
     {
       "id": "relentless-advance",
       "name": "Relentless Advance",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "gravis-linebreaker-force",
       "description": "<b>GRAVIS</b> model only. This unit has Scouts 5\"."
     },
     {
       "id": "immovable-conquerors",
       "name": "Immovable Conquerors",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "gravis-siege-force",
       "description": "<b>GRAVIS</b> unit only. This unit has +1 OC."
     },
     {
       "id": "narthecis-gauntlet",
       "name": "Narthecis Gauntlet",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "gravis-siege-force",
       "description": "<b>APOTHECARY BIOLOGIS</b> model only. In your Command phase, this unit heals D3+1 wounds."
     },
@@ -1455,28 +1455,28 @@
     {
       "id": "artificer-sarcophagus",
       "name": "Artificer Sarcophagus",
-      "cost": 40,
+      "cost": 0,
       "detachmentId": "ironclad-champions",
       "description": "<span class=\"kwb\">DREADNOUGHT</span> unit only. Attacks that target this unit have -1 D."
     },
     {
       "id": "venerable-champion",
       "name": "Venerable Champion (Aura)",
-      "cost": 30,
+      "cost": 0,
       "detachmentId": "ironclad-champions",
       "description": "<span class=\"kwb\">DREADNOUGHT</span> unit only. While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span>/<span class=\"kwb\">MOUNTED</span> unit is within 6\" of this unit, that unit's attacks can re-roll hit rolls of 1."
     },
     {
       "id": "linebreaker-onslaught",
       "name": "Linebreaker Onslaught",
-      "cost": 20,
+      "cost": 0,
       "detachmentId": "gauntlet-task-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> model only. If this unit disembarked this turn:<ul><li>This unit can re-roll charge rolls.</li><li>Enemy units cannot target this unit with snap shooting attacks.</li></ul>"
     },
     {
       "id": "damocles-class-uplink",
       "name": "Damocles-class Uplink",
-      "cost": 15,
+      "cost": 0,
       "detachmentId": "gauntlet-task-force",
       "description": "<span class=\"kwb\">CAPTAIN</span> model only. In your Movement phase, if this unit is embarked within a <span class=\"kwb\">TRANSPORT</span> unit, you can select one friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> unit within 6\" of that <span class=\"kwb\">TRANSPORT</span> unit and select one combat doctrine. That combat doctrine is active for that <span class=\"kwb\">INFANTRY</span> unit."
     },

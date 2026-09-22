@@ -119,51 +119,6 @@ spurious extra. Two more traps, both hit on the first attempt here:
   filename-padding bug, and a pre-existing `WeaponCard.tsx` invalid-HTML nested-button bug that
   no previously-existing datasheet happened to trigger).
 
-**2026-09-22 detachment update, sourced from a pre-release preview, not the final codex.** GW
-gave tabletopbattles.com a preview copy of the (at-time-of-writing still unpublished) full
-11th-edition Codex: Space Marines, and that site published a "Detachment Focus" tactics-article
-series (2026-09-19/20) covering every detachment across the core book and all five chapter
-books. Every detachment id already existed in our data from the prior PDF migration + chapter
-split above — this pass was a reconciliation against those articles, not a from-scratch import,
-run as six parallel agents (one per faction file: `space-marines.json` + the five chapter
-files). Real drift found and fixed: several `space-marines.json` core detachments (Assault/
-Tactical/Devastator Brethren, Terminator Storm Force, Tacticus Attack/Firestorm Force, Phobos
-Shadow/Shock Force, Gravis Linebreaker/Siege Force, Ironclad Champions, Gauntlet Task Force) had
-an empty `disposition` and `0`-cost enhancement placeholders, now filled in; Black Templars'
-Faith-Fuelled Resolve was modeling the wrong stat entirely (+1 OC instead of a conditional +1 A);
-Blood Angels' Wrath of the Doomed detachment ability was a stale prior-edition rule (Fanatical
-Celerity) replaced with the new codex's actual rule (Sanguinius' Fury), and two Encarmine
-Speartip enhancement costs were stale; Space Wolves' Champions of Fenris and Saga of the
-Beastslayer each had one outdated mechanic detail corrected. Dark Angels and Deathwatch needed
-no changes — already accurate from the prior pass.
-
-**Two caveats future edits should know about:**
-- **This is preview/provisional data, not the final published rules.** The source articles
-  themselves say points and rules are "subject to change until published on Warhammer Community
-  or the 40K App" — same caveat this file already carries for MFM points, but here it applies to
-  the rule text itself, not just costs. Re-verify every Space Marines-family detachment
-  (`space-marines.json` + `black-templars`/`blood-angels`/`dark-angels`/`deathwatch`/
-  `space-wolves`) against the official codex once it actually publishes, the same way the MFM
-  sweep already does for points.
-- **The source is tactics journalism, not a verbatim rules reprint** — stratagem/enhancement/
-  ability text was reconstructed from prose analysis (mechanic described in sentence form, mixed
-  with tactical commentary), not copied from a clean rules block, so wording may not exactly
-  match the eventual official card text even where the mechanic itself is right. This pass was
-  also **text/data only**: no `effect`/`options` (CombatEffect) fields were added for any of
-  these detachments' stratagems/enhancements/abilities, so none of this new content is yet
-  playable in Mathhammer — that's a separate future pass following the "CombatEffect authoring
-  convention" below, best done only once the rules are confirmed non-provisional.
-- One of the parallel agents editing `space-marines.json` observed `defaultWeaponNames[].count`
-  values elsewhere in that same file (and, it turned out, in the untouched `orks.json`) getting
-  silently reset to `1` mid-task. The cause wasn't pinned down — no PostToolUse hook is
-  configured in this project's or the global `.claude/settings.json`, so "a hook" was the
-  agent's guess, not a confirmed cause — but the corruption was real (confirmed via `git diff`)
-  and unrelated to this task's edits. `space-marines.json` was repaired in-place by the agent
-  that noticed it; `orks.json`'s corruption was caught and reverted separately while reviewing
-  this batch. If a future session sees unexplained `count: 1` resets on datasheet
-  weapons after using the Edit tool, this is a known unresolved flake worth investigating
-  properly rather than a one-off.
-
 No test suite yet.
 
 ## Architecture

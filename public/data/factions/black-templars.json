@@ -41,7 +41,7 @@
         {
           "id": "faith-fuelled-resolve",
           "name": "Faith-Fuelled Resolve",
-          "description": "In your Fight phase, friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> units that are within range of an objective marker have +1 A.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLACK TEMPLARS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
+          "description": "Friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> units have +1 OC.<br><br><span class=\"hi_custom\">RESTRICTIONS</span><br>Your army can include <span class=\"kwb\">BLACK TEMPLARS</span> units, but it cannot include any <span class=\"kwb\">ADEPTUS ASTARTES</span> units drawn from any other Chapter."
         }
       ]
     },
@@ -135,7 +135,7 @@
       "type": "Marshal's Household – Strategic Ploy Stratagem",
       "turn": "Opponent's turn",
       "phase": "Movement phase",
-      "description": "<b>WHEN:</b> Your opponent's Movement phase, when a unit is selected to make a Fall Back move, if that unit is engaged with a friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>EFFECT:</b> That enemy unit, and any other unit that also makes a Fall Back move this phase, must use the Desperate Escape mode, with -1 to those Hazardous tests if that unit is Battle-shocked."
+      "description": "<b>WHEN:</b> Your opponent's Movement phase, when a unit is selected to make a Fall Back move, if that unit is engaged with a friendly <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit.<br><br><b>EFFECT:</b> When an enemy unit engaged with your unit is selected to make a Fall Back move, that enemy unit must use the Desperate Escape mode, with -1 to those Hazardous tests if that enemy unit is Battle-shocked."
     },
     {
       "id": "devout-push-vow-sworn-crusaders",
@@ -145,7 +145,7 @@
       "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> The Fight phase, when a friendly <span class=\"kwb\">INFANTRY</span> unit Piles in or Consolidates.<br><br><b>TARGET:</b> That unit.<br><br><b>EFFECT:</b> That unit can move D3+3\" instead of up to 3\" for that Pile-in or Consolidation move."
+      "description": "WHEN: An INFANTRY unit from your army piles in or consolidates. EFFECT: That unit can move D3+3\" instead of up to 3\"."
     },
     {
       "id": "dread-crusaders-vow-sworn-crusaders",
@@ -155,7 +155,7 @@
       "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
       "turn": "Opponent's turn",
       "phase": "Opponent's Charge phase",
-      "description": "<b>WHEN:</b> Your opponent's Charge phase, when an enemy unit selects its charge targets and one of them is a friendly <span class=\"kwb\">INFANTRY</span> unit.<br><br><b>TARGET:</b> That enemy unit.<br><br><b>EFFECT:</b> That enemy unit must take a Battle-shock test, subtracting 1 from the result."
+      "description": "WHEN: Your opponent's Charge phase, when an enemy unit selects its charge targets and one of them is a friendly INFANTRY unit. EFFECT: That enemy unit must take a Battle-shock test with -1 to the result."
     },
     {
       "id": "for-the-emperors-honour-vow-sworn-crusaders",
@@ -165,7 +165,7 @@
       "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Your turn, any phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">INFANTRY</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, that unit's attacks have the [PRECISION] ability."
+      "description": "TARGET: One friendly INFANTRY unit. EFFECT: Until the end of the phase, that unit's attacks have the [PRECISION] ability."
     },
     {
       "id": "heresy-begets-retribution-vow-sworn-crusaders",
@@ -175,7 +175,7 @@
       "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
       "turn": "Opponent's turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Your opponent's turn, when an enemy unit ends a move within 8\" of a friendly <span class=\"kwb\">INFANTRY</span> unit.<br><br><b>TARGET:</b> That <span class=\"kwb\">INFANTRY</span> unit.<br><br><b>EFFECT:</b> That unit can make a Surge move of up to D6\"."
+      "description": "WHEN: An enemy unit ends a move within 8\" of a friendly INFANTRY unit. EFFECT: That friendly unit can make a Normal move of up to D6\"."
     },
     {
       "id": "pious-enmity-vow-sworn-crusaders",
@@ -185,7 +185,7 @@
       "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> The Fight phase, when a friendly <span class=\"kwb\">CHAPLAIN</span> or <span class=\"kwb\">JUDICIAR</span> unit is selected to fight.<br><br><b>TARGET:</b> That unit.<br><br><b>EFFECT:</b> That unit can re-roll Hit rolls of 1. If the target is a <span class=\"kwb\">MONSTER</span> or <span class=\"kwb\">VEHICLE</span> unit, that unit can also re-roll Wound rolls of 1."
+      "description": "WHEN: A friendly CHAPLAIN or JUDICIAR unit is selected to fight. EFFECT: That unit can re-roll Hit rolls of 1; if the target is a MONSTER or VEHICLE, that unit can also re-roll Wound rolls of 1."
     },
     {
       "id": "spoor-of-the-unholy-vow-sworn-crusaders",
@@ -195,7 +195,7 @@
       "type": "Vow-sworn Crusaders – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Shooting phase or Fight phase",
-      "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase.<br><br><b>TARGET:</b> One friendly unit.<br><br><b>EFFECT:</b> That unit's attacks can ignore any or all modifiers to Ballistic Skill, Weapon Skill and Hit rolls this phase."
+      "description": "TARGET: One friendly unit. EFFECT: That unit's attacks can ignore any or all modifiers to Ballistic Skill, Weapon Skill and Hit rolls this phase."
     },
     {
       "id": "angels-defiant",
@@ -205,7 +205,7 @@
       "type": "Fist of the God-Emperor – Battle Tactic Stratagem",
       "turn": "Opponent's turn",
       "phase": "Any phase",
-      "description": "<b>WHEN:</b> Your opponent's Shooting phase or the Fight phase, when an enemy unit targets a friendly <span class=\"kwb\">CRUSADER SQUAD</span> unit with an attack whose Strength characteristic is greater than that unit's Toughness characteristic.<br><br><b>TARGET:</b> That attack.<br><br><b>EFFECT:</b> Until the end of the phase, subtract 1 from the Wound roll for that attack."
+      "description": "WHEN: An enemy unit targets a friendly CRUSADER SQUAD unit with an attack whose Strength characteristic is greater than that unit's Toughness. EFFECT: Subtract 1 from the Wound roll for that attack until the end of the phase."
     },
     {
       "id": "avowed-destruction",
@@ -215,7 +215,7 @@
       "type": "Fist of the God-Emperor – Battle Tactic Stratagem",
       "turn": "Your turn",
       "phase": "Fight phase",
-      "description": "<b>WHEN:</b> Your Fight phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">CRUSADER SQUAD</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, that unit's melee attacks have the [LETHAL HITS] ability or the [SUSTAINED HITS 1] ability (your choice)."
+      "description": "TARGET: One friendly CRUSADER SQUAD unit. EFFECT: That unit's melee attacks gain the [LETHAL HITS] or [SUSTAINED HITS 1] ability (your choice) until the end of the phase."
     },
     {
       "id": "doctrinal-flexibility",
@@ -225,7 +225,7 @@
       "type": "Fist of the God-Emperor – Strategic Ploy Stratagem",
       "turn": "Your turn",
       "phase": "Command phase",
-      "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One friendly <span class=\"kwb\">CRUSADER SQUAD</span> unit.<br><br><b>EFFECT:</b> That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase."
+      "description": "TARGET: One friendly CRUSADER SQUAD unit. EFFECT: That unit gains the benefit of the Combat Doctrine of your choice until the start of your next Command phase."
     }
   ],
   "enhancements": [
