@@ -2976,7 +2976,12 @@
           "count": 1
         }
       ],
-      "options": [],
+      "options": [
+        {
+          "button": "•",
+          "description": "1 Victrix Honour Guard model can be equipped as a Chapter Ancient, carrying the Banner of Macragge."
+        }
+      ],
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
@@ -2995,7 +3000,12 @@
           "points": 280
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "chapter ancient (banner of macragge)",
+          "points": 20
+        }
+      ],
       "stratagemIds": [
         "responsive-tactics",
         "masterful-tactics",
