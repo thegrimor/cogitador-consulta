@@ -250,13 +250,16 @@ export function RosterEntryRow({
                 {wargearCosts.map(wc => {
                   const current = wargearSelections[wc.name] ?? 0
                   const label = wc.name.replace(/^per /i, '')
+                  const effectiveMax = wc.max !== undefined ? Math.min(wc.max, entry.modelCount) : entry.modelCount
                   return (
                     <div key={wc.name} className="flex items-center justify-between gap-3">
                       <span className="text-[11px] font-mono text-parchment-dim">
                         {label}
-                        <span className="text-gold ml-1">+{wc.points}pts/modelo</span>
+                        <span className="text-gold ml-1">
+                          +{wc.points}pts{effectiveMax > 1 ? '/modelo' : ''}
+                        </span>
                       </span>
-                      {entry.modelCount === 1 ? (
+                      {effectiveMax === 1 ? (
                         <button
                           onClick={() => handleWargearChange(wc.name, current === 1 ? 0 : 1)}
                           className={pillClass(current === 1)}
@@ -275,7 +278,7 @@ export function RosterEntryRow({
                             {current}
                           </span>
                           <button
-                            onClick={() => handleWargearChange(wc.name, Math.min(entry.modelCount, current + 1))}
+                            onClick={() => handleWargearChange(wc.name, Math.min(effectiveMax, current + 1))}
                             className="text-[11px] font-mono px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
                           >
                             +

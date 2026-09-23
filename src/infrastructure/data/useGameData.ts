@@ -34,7 +34,7 @@ interface DatasheetJson {
   defaultWeaponNames: DefaultWeaponQuantity[]
   options: { button: string; description: string }[]
   pointsCosts: { description: string; points: number }[]
-  wargearCosts: { name: string; points: number }[]
+  wargearCosts: { name: string; points: number; max?: number }[]
   stratagemIds: string[]; enhancementIds: string[]; detachmentAbilityIds: string[]
   canBeLedBy: string[]
 }
@@ -202,7 +202,7 @@ export function useGameData(): GameData {
             })
             dsj.wargearCosts.forEach(w => {
               if (!wargearCostMap[dsj.id]) wargearCostMap[dsj.id] = []
-              wargearCostMap[dsj.id].push({ datasheetId: dsj.id, name: w.name, points: w.points })
+              wargearCostMap[dsj.id].push({ datasheetId: dsj.id, name: w.name, points: w.points, max: w.max })
             })
 
           }

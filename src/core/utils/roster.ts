@@ -210,14 +210,18 @@ export function resolveEntryBaseCost(
 }
 
 /** Points surcharge from `entry`'s paid wargear selections, resolved fresh against the
- * current `wargearCosts` rather than a stored total. */
+ * current `wargearCosts` rather than a stored total. A selection above its item's `max` (or
+ * above `entry.modelCount`, for an unbounded item) is clamped rather than trusted verbatim, in
+ * case a `max` was added/lowered after the selection was saved, or the model count since shrank. */
 export function resolveEntryWargearSurcharge(entry: RosterEntry, wargearCosts: WargearCost[]): number {
   if (!entry.wargearSelections) return 0
-  const pointsByName = new Map(wargearCosts.map(w => [w.name, w.points]))
-  return Object.entries(entry.wargearSelections).reduce(
-    (sum, [name, count]) => sum + (pointsByName.get(name) ?? 0) * count,
-    0,
-  )
+  const byName = new Map(wargearCosts.map(w => [w.name, w]))
+  return Object.entries(entry.wargearSelections).reduce((sum, [name, count]) => {
+    const wc = byName.get(name)
+    if (!wc) return sum
+    const effectiveMax = wc.max !== undefined ? Math.min(wc.max, entry.modelCount) : entry.modelCount
+    return sum + wc.points * Math.min(count, effectiveMax)
+  }, 0)
 }
 
 /** Points cost of `entry`'s enhancement (0 if none selected), resolved fresh from `enhancements`. */

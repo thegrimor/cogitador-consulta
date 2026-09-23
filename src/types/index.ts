@@ -273,6 +273,10 @@ export interface WargearCost {
   datasheetId: string
   name: string
   points: number
+  /** Caps how many copies of this item can be selected, regardless of model count (e.g. a
+   * named single-model upgrade like a Chapter Ancient). Omitted means uncapped (up to
+   * `entry.modelCount`), the historical default for per-model surcharges. */
+  max?: number
 }
 
 export interface Enhancement {
