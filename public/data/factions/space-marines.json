@@ -3007,7 +3007,8 @@
       "wargearCosts": [
         {
           "name": "chapter ancient (banner of macragge)",
-          "points": 20
+          "points": 20,
+          "max": 1
         }
       ],
       "stratagemIds": [
