@@ -262,6 +262,34 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       }
     }
 
+    // ── "<subject> can be equipped as <Name>, replacing its/their <weapon[s]> with <...>" — a
+    // squad model becoming a named character (e.g. a Chapter Champion), not just a weapon swap.
+    // The captured <Name> becomes the rule's display label, used in place of the generic
+    // "<fromWeapons> → (N disponible)" text this component builds for a plain weapon-for-weapon
+    // option (see WeaponOptionsEditor's RuleEditor). ──
+    const namedRoleMatch = head.match(
+      /^(.+?) can be equipped as (?:the |an? )?(.+?), replacing (?:its|their) (.+?) with (.+)$/i,
+    )
+    if (namedRoleMatch) {
+      const [, subjectRaw, label, fromText, tail] = namedRoleMatch
+      const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
+      const fromWeapons = splitBundle(fromText.replace(/\beach\b/i, '').trim())
+      const choices = list ? list.items.map(splitBundle) : [splitBundle(firstSentence(tail))]
+      return makeRule({
+        raw,
+        scope,
+        roleName,
+        fixedCount,
+        kind: 'replace',
+        fromWeapons,
+        choices,
+        exclusive: true,
+        maxStack: 1,
+        allowRepeatChoice: false,
+        label,
+      })
+    }
+
     // ── "<subject> can (each) have/replace its/their <weapon[s]> (replaced) with <...>" ──
     const replaceClause = matchReplaceClause(head)
     if (replaceClause) {
