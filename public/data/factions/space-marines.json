@@ -2857,7 +2857,7 @@
       "role": "Battleline",
       "sourceId": "",
       "isVirtual": false,
-      "loadout": "The Chapter Ancient is equipped with: 1 Master-crafted Bolt Carbine; 1 Master-crafted Power Weapon.<br>The Chapter Champion is equipped with: 1 Blades of Honour.<br>Every Victrix Honour Guard is equipped with: 1 Master-crafted Bolt Carbine; 1 Master-crafted Power Weapon.",
+      "loadout": "The Chapter Ancient is equipped with: Banner of Macragge; 1 Master-crafted Bolt Carbine; 1 Master-crafted Power Weapon.<br>The Chapter Champion is equipped with: 1 Blades of Honour.<br>Every Victrix Honour Guard is equipped with: 1 Master-crafted Bolt Carbine; 1 Master-crafted Power Weapon.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -2976,12 +2976,7 @@
           "count": 1
         }
       ],
-      "options": [
-        {
-          "button": "•",
-          "description": "The Chapter Ancient can be equipped with 1 Banner of Macragge."
-        }
-      ],
+      "options": [],
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
@@ -3000,12 +2995,7 @@
           "points": 280
         }
       ],
-      "wargearCosts": [
-        {
-          "name": "banner of macragge",
-          "points": 20
-        }
-      ],
+      "wargearCosts": [],
       "stratagemIds": [
         "responsive-tactics",
         "masterful-tactics",
