@@ -40,9 +40,11 @@ function feelNoPainDefaultIds(applicableRules: ModifierRule[]): string[] {
 
 /** Whether `unit` carries an ability literally named `name` (case-insensitive) — used to check
  * for Stealth, since that ability is stored as a bare Core-rules stub with no `effect` of its
- * own (see `unit-stealth` in `core-rules.json`'s universal `coreRuleEffects` for the actual
- * toggleable rule) — so "does this unit have Stealth" can't be answered by looking at derived
- * `ModifierRule`s the way `ownAbilityIds` does. */
+ * own — Mathhammer has no dedicated Stealth rule to toggle (the earlier `unit-stealth` universal
+ * effect was removed entirely, per explicit instruction, over the same Benefit of Cover rule
+ * being represented twice and double-stacking with the plain "Cobertura" toggle — see git log on
+ * `public/data/catalog/core-rules.json`). A Stealth unit's benefit of cover is unconditional
+ * rather than terrain-dependent, so this defaults the "cover" rule on for it instead. */
 function hasAbilityNamed(unit: Datasheet | null, name: string): boolean {
   return unit?.abilities.some(a => a.name.trim().toLowerCase() === name.toLowerCase()) ?? false
 }
@@ -281,16 +283,17 @@ export function MathhammerPage() {
 
     // Default-active for a defender with no saved state: its own abilities, any currently
     // applicable Feel No Pain-granting rule regardless of source, and — since a unit having
-    // Stealth is a fixed property of the datasheet, not a battlefield situation like terrain
-    // Cover — the universal Stealth rule if the unit actually has that ability.
+    // Stealth is a fixed property of the datasheet, not a battlefield situation like actual
+    // terrain — the universal "Cobertura" (Cover) rule if the unit has the Stealth ability
+    // (Mathhammer has no separate Stealth toggle of its own; see `hasAbilityNamed` above).
     function defaultDefenderIds(): string[] {
-      const stealthIds = hasAbilityNamed(rightPanel.selectedUnit, 'Stealth')
-        ? applicableRightRules.filter(r => r.id === 'unit-stealth').map(r => r.id)
+      const coverIds = hasAbilityNamed(rightPanel.selectedUnit, 'Stealth')
+        ? applicableRightRules.filter(r => r.id === 'cover').map(r => r.id)
         : []
       return Array.from(new Set([
         ...ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId),
         ...feelNoPainDefaultIds(applicableRightRules),
-        ...stealthIds,
+        ...coverIds,
       ]))
     }
 
