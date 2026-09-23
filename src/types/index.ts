@@ -273,6 +273,10 @@ export interface WargearCost {
   datasheetId: string
   name: string
   points: number
+  /** Caps how many copies of this item can be selected, regardless of model count (e.g. a
+   * named single-model upgrade like a Chapter Ancient). Omitted means uncapped (up to
+   * `entry.modelCount`), the historical default for per-model surcharges. */
+  max?: number
 }
 
 export interface Enhancement {
@@ -317,6 +321,11 @@ export interface WeaponOptionRule {
   fromWeapons: string[]
   /** Each entry is a bundle of weapon names granted together by picking that choice. */
   choices: string[][]
+  /** For a role/character upgrade phrased as "...equipped as <Name>, replacing <X> with <Y>"
+   * (e.g. a squad model becoming a named character like a Chapter Champion): the captured
+   * <Name>, shown in the UI instead of the auto-generated "<fromWeapons> → (N disponible)"
+   * label so the option reads as "become this character" rather than a plain weapon swap. */
+  label?: string
   /** true: at most one choice total per eligible model (mutually exclusive). false: up to maxStack picks per eligible model. */
   exclusive: boolean
   maxStack: number
