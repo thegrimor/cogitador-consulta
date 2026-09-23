@@ -9,7 +9,7 @@ import { resolveModifiers, mergeMods, combineAttackerMods, DEFAULT_MODS, getInna
 import { deriveModifierRules, isRuleApplicable } from '@/features/mathhammer/utils/deriveRules'
 import { useAppSelector } from '@/store/hooks'
 import { selectRosterById } from '@/store/rosterSlice'
-import type { Weapon, ModelProfile, CombatType } from '@/types'
+import type { Datasheet, Weapon, ModelProfile, CombatType } from '@/types'
 import type { CombatModifiers, ModifierRule } from '@/features/mathhammer/types'
 
 type MobileTab = 'attacker' | 'result' | 'defender'
@@ -21,6 +21,32 @@ type MobileTab = 'attacker' | 'result' | 'defender'
 function ownAbilityIds(rules: ModifierRule[], key: 'datasheetId' | 'leaderDatasheetId', id: string | null): string[] {
   if (!id) return []
   return rules.filter(r => r[key] === id && !r.isOption).map(r => r.id)
+}
+
+/** Ids of any Feel No Pain-granting rule that's currently applicable to the defender —
+ * regardless of source (datasheet ability, detachment ability, army rule, aura), unlike
+ * `ownAbilityIds` above which only covers datasheet/leader-owned ones. Stratagems and
+ * mutually-exclusive `options[]` variants are excluded since those still need an explicit
+ * player choice (a CP cost, or a pick between alternatives) rather than defaulting on. This
+ * doesn't catch a FNP rule that only becomes applicable after picking a detachment *later*
+ * than the unit — in practice the detachment is chosen first (see `UnitSelector`'s field
+ * order), so `rules` (already filtered through `isRuleApplicable`) already includes it by the
+ * time a unit resolves. */
+function feelNoPainDefaultIds(applicableRules: ModifierRule[]): string[] {
+  return applicableRules
+    .filter(r => r.effects.feelNoPainThreshold != null && !r.isStratagem && !r.isOption)
+    .map(r => r.id)
+}
+
+/** Whether `unit` carries an ability literally named `name` (case-insensitive) — used to check
+ * for Stealth, since that ability is stored as a bare Core-rules stub with no `effect` of its
+ * own — Mathhammer has no dedicated Stealth rule to toggle (the earlier `unit-stealth` universal
+ * effect was removed entirely, per explicit instruction, over the same Benefit of Cover rule
+ * being represented twice and double-stacking with the plain "Cobertura" toggle — see git log on
+ * `public/data/catalog/core-rules.json`). A Stealth unit's benefit of cover is unconditional
+ * rather than terrain-dependent, so this defaults the "cover" rule on for it instead. */
+function hasAbilityNamed(unit: Datasheet | null, name: string): boolean {
+  return unit?.abilities.some(a => a.name.trim().toLowerCase() === name.toLowerCase()) ?? false
 }
 
 export function MathhammerPage() {
@@ -104,6 +130,56 @@ export function MathhammerPage() {
 
   const attackerActiveIds = useMemo(() => new Set(attackerIdsArr), [attackerIdsArr])
   const defenderActiveIds = useMemo(() => new Set(defenderIdsArr), [defenderIdsArr])
+
+  // Rule-visibility context — mirrors UnitPanel's own `visibleRules` filter (see
+  // isRuleApplicable in deriveRules.ts). A modifier the player toggled on can fall out of
+  // scope later without them un-toggling it (e.g. switching the selected weapon from melee to
+  // ranged after activating a melee-only Ka'tah stance, or deselecting the weapon that made an
+  // ANTI-keyword rule available) — resolveModifiers must only honor ids whose rule is still
+  // applicable here, or a rule no longer shown in the panel keeps silently affecting combat
+  // types/targets it was never meant for. Computed up here (rather than just before the render)
+  // so the restore-on-select logic below can also use `applicableRightRules` to seed FNP/Stealth
+  // defaults for whichever rules are actually in scope for the selected defender.
+  const defenderKeywords: string[] = rightPanel.selectedUnit
+    ? [...rightPanel.selectedUnit.keywords, ...rightPanel.selectedUnit.factionKeywords]
+    : []
+  const attackerKeywords: string[] = leftPanel.selectedUnit
+    ? [...leftPanel.selectedUnit.keywords, ...leftPanel.selectedUnit.factionKeywords]
+    : []
+  const selectedWeaponAntiKeywords: string[] = selectedWeapons.flatMap(w =>
+    w.antiEntries.map(e => e.keyword)
+  )
+  const leftRuleCtx = {
+    isAttacker: true,
+    enhancementId: leftPanel.selection.enhancementId,
+    combatType,
+    anySelectedHeavy: selectedWeapons.some(w => w.isHeavy),
+    anySelectedLance: selectedWeapons.some(w => w.isLance),
+    anySelectedTorrent: selectedWeapons.some(w => w.isTorrent),
+    anySelectedIndirect: selectedWeapons.some(w => w.isIndirectFire),
+    anySelectedPsychic: selectedWeapons.some(w => w.isPsychic),
+    weaponAntiKeywords: selectedWeaponAntiKeywords,
+    defenderKeywords,
+    attackerKeywords,
+  }
+  // The defender panel doesn't track a weapon selection of its own (see the right-side
+  // UnitPanel instantiation below, which passes none) — so the weapon-conditional and
+  // ANTI-keyword fields UnitPanel would default to empty/false stay that way here too.
+  const rightRuleCtx = {
+    isAttacker: false,
+    enhancementId: rightPanel.selection.enhancementId,
+    combatType,
+    anySelectedHeavy: false,
+    anySelectedLance: false,
+    anySelectedTorrent: false,
+    anySelectedIndirect: false,
+    anySelectedPsychic: false,
+    weaponAntiKeywords: [] as string[],
+    defenderKeywords: [] as string[],
+    attackerKeywords: defenderKeywords,
+  }
+  const applicableLeftRules = leftRules.filter(r => isRuleApplicable(r, leftRuleCtx))
+  const applicableRightRules = rightRules.filter(r => isRuleApplicable(r, rightRuleCtx))
 
   // Derive combatType from first selected weapon
   const firstWeaponRange = selectedWeapons[0]?.range ?? null
@@ -204,16 +280,33 @@ export function MathhammerPage() {
   const [restoredDefenderId, setRestoredDefenderId] = useState<string | null>(null)
   if (rightPanel.selectedUnit && rightPanel.selection.datasheetId && rightPanel.selection.datasheetId !== restoredDefenderId) {
     setRestoredDefenderId(rightPanel.selection.datasheetId)
+
+    // Default-active for a defender with no saved state: its own abilities, any currently
+    // applicable Feel No Pain-granting rule regardless of source, and — since a unit having
+    // Stealth is a fixed property of the datasheet, not a battlefield situation like actual
+    // terrain — the universal "Cobertura" (Cover) rule if the unit has the Stealth ability
+    // (Mathhammer has no separate Stealth toggle of its own; see `hasAbilityNamed` above).
+    function defaultDefenderIds(): string[] {
+      const coverIds = hasAbilityNamed(rightPanel.selectedUnit, 'Stealth')
+        ? applicableRightRules.filter(r => r.id === 'cover').map(r => r.id)
+        : []
+      return Array.from(new Set([
+        ...ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId),
+        ...feelNoPainDefaultIds(applicableRightRules),
+        ...coverIds,
+      ]))
+    }
+
     try {
       const raw = localStorage.getItem(`mathhammer-defender-${rightPanel.selection.datasheetId}`)
       if (raw) {
         const saved = JSON.parse(raw)
         setDefenderIdsArr(saved.activeModIds ?? [])
       } else {
-        setDefenderIdsArr(ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId))
+        setDefenderIdsArr(defaultDefenderIds())
       }
     } catch {
-      setDefenderIdsArr(ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId))
+      setDefenderIdsArr(defaultDefenderIds())
     }
   }
 
@@ -307,54 +400,6 @@ export function MathhammerPage() {
     rightPanel.setRosterIds(prevLeftRosterIds)
     setDefenderModel(null)
   }
-
-  // Rule-visibility context — mirrors UnitPanel's own `visibleRules` filter (see
-  // isRuleApplicable in deriveRules.ts). A modifier the player toggled on can fall out of
-  // scope later without them un-toggling it (e.g. switching the selected weapon from melee to
-  // ranged after activating a melee-only Ka'tah stance, or deselecting the weapon that made an
-  // ANTI-keyword rule available) — resolveModifiers must only honor ids whose rule is still
-  // applicable here, or a rule no longer shown in the panel keeps silently affecting combat
-  // types/targets it was never meant for.
-  const defenderKeywords: string[] = rightPanel.selectedUnit
-    ? [...rightPanel.selectedUnit.keywords, ...rightPanel.selectedUnit.factionKeywords]
-    : []
-  const attackerKeywords: string[] = leftPanel.selectedUnit
-    ? [...leftPanel.selectedUnit.keywords, ...leftPanel.selectedUnit.factionKeywords]
-    : []
-  const selectedWeaponAntiKeywords: string[] = selectedWeapons.flatMap(w =>
-    w.antiEntries.map(e => e.keyword)
-  )
-  const leftRuleCtx = {
-    isAttacker: true,
-    enhancementId: leftPanel.selection.enhancementId,
-    combatType,
-    anySelectedHeavy: selectedWeapons.some(w => w.isHeavy),
-    anySelectedLance: selectedWeapons.some(w => w.isLance),
-    anySelectedTorrent: selectedWeapons.some(w => w.isTorrent),
-    anySelectedIndirect: selectedWeapons.some(w => w.isIndirectFire),
-    anySelectedPsychic: selectedWeapons.some(w => w.isPsychic),
-    weaponAntiKeywords: selectedWeaponAntiKeywords,
-    defenderKeywords,
-    attackerKeywords,
-  }
-  // The defender panel doesn't track a weapon selection of its own (see the right-side
-  // UnitPanel instantiation below, which passes none) — so the weapon-conditional and
-  // ANTI-keyword fields UnitPanel would default to empty/false stay that way here too.
-  const rightRuleCtx = {
-    isAttacker: false,
-    enhancementId: rightPanel.selection.enhancementId,
-    combatType,
-    anySelectedHeavy: false,
-    anySelectedLance: false,
-    anySelectedTorrent: false,
-    anySelectedIndirect: false,
-    anySelectedPsychic: false,
-    weaponAntiKeywords: [] as string[],
-    defenderKeywords: [] as string[],
-    attackerKeywords: defenderKeywords,
-  }
-  const applicableLeftRules = leftRules.filter(r => isRuleApplicable(r, leftRuleCtx))
-  const applicableRightRules = rightRules.filter(r => isRuleApplicable(r, rightRuleCtx))
 
   // Split attacker rules into "applies to any selected weapon" vs "bearer-only" (e.g.
   // enhancements phrased as "this model's melee attacks have +1 A") so a character's own
