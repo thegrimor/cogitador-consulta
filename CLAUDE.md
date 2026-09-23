@@ -630,6 +630,22 @@ Standalone feature folder at `src/features/mathhammer/`. Computes expected-value
 - `utils/mathhammer.ts` — the core probability math.
 - `components/`: `UnitSelector` (pick attacker/defender), `UnitPanel`, `ModifierPanel` (toggle applicable rules/stratagems), `DamageCalculator` + `GaussianChart` (results + distribution chart), plus `StatsBar`/`WeaponCard`/`AbilityList`/`StratList` variants local to this feature.
 - `hooks/usePanelState.ts` — panel selection state, synced to the `?faction=&datasheet=&detachments=&character=&roster=` query params via `mathhammerAttackerPath`.
+- **Default-active own abilities + sticky panels** (`MathhammerPage.tsx`): a selected unit's or
+  attached character's own (non-`isOption`) ability rules — `ModifierRule.datasheetId`/
+  `leaderDatasheetId` scoped, i.e. what `deriveModifierRules` derives from `selectedUnit.abilities`/
+  `selectedCharacter.abilities` — turn on automatically instead of requiring a manual toggle click,
+  the same way an equipped Enhancement's rules already auto-toggle. `ownAbilityIds()` computes this
+  set; it seeds `attackerIdsArr`/`defenderIdsArr` when a unit first resolves with no saved
+  per-unit localStorage state, and a pair of `useEffect`s mirror the existing enhancement
+  auto-toggle pattern to add/remove a character's own ids the moment it's attached/swapped/detached.
+  Stratagems, army rules, detachment abilities, aura-sourced abilities and mutually-exclusive
+  `options[]` variants (e.g. Ka'tah stances) are deliberately excluded — those still need an
+  explicit player choice. The attacker/results/defender columns (desktop 3-column layout) are each
+  wrapped in `sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto` (previously only the
+  middle results column had this) so all three stay simultaneously in view, each scrolling
+  independently; `UnitPanel`'s own header (`sticky top-0 z-10`) additionally stays pinned within
+  that scroll so which side/unit you're on is never scrolled out of view by a long weapons/
+  abilities list.
 
 **`CombatEffect` authoring convention** — read this in full before adding/editing an `effect` on
 an Ability, Stratagem, Enhancement or DetachmentAbility in `public/data/factions/*.json` (this
