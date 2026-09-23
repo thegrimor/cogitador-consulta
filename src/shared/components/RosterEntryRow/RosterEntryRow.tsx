@@ -104,13 +104,8 @@ export function RosterEntryRow({
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
   const kindLabel = attachmentKind(datasheet) === 'support' ? 'apoyo' : 'líder'
   const weaponQuantities = resolveWeaponQuantities(datasheet, entry)
-  const wargearSelections = entry.wargearSelections ?? {}
   const wargearSurcharge = resolveEntryWargearSurcharge(entry, wargearCosts)
   const entryPoints = resolveEntryPoints(entry, datasheet, costs, wargearCosts)
-
-  function handleWargearChange(weaponName: string, count: number) {
-    onChangeWargearSelections({ ...wargearSelections, [weaponName]: count })
-  }
 
   return (
     <div className="bg-surface-2 border border-rim-bright">
@@ -241,64 +236,6 @@ export function RosterEntryRow({
             </div>
           )}
 
-          {wargearCosts.length > 0 && (
-            <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1.5">
-                Armamento con sobrecoste
-              </p>
-              <div className="flex flex-col gap-1.5">
-                {wargearCosts.map(wc => {
-                  const current = wargearSelections[wc.name] ?? 0
-                  const label = wc.name.replace(/^per /i, '')
-                  const effectiveMax = wc.max !== undefined ? Math.min(wc.max, entry.modelCount) : entry.modelCount
-                  return (
-                    <div key={wc.name} className="flex items-center justify-between gap-3">
-                      <span className="text-[11px] font-mono text-parchment-dim">
-                        {label}
-                        {wc.points > 0 && (
-                          <span className="text-gold ml-1">
-                            +{wc.points}pts{effectiveMax > 1 ? '/modelo' : ''}
-                          </span>
-                        )}
-                      </span>
-                      {effectiveMax === 1 ? (
-                        <button
-                          onClick={() => handleWargearChange(wc.name, current === 1 ? 0 : 1)}
-                          className={pillClass(current === 1)}
-                        >
-                          {current === 1 ? (wc.points > 0 ? `+${wc.points}pts` : 'Equipado') : 'Equipar'}
-                        </button>
-                      ) : (
-                        <div className="flex items-center gap-1">
-                          <button
-                            onClick={() => handleWargearChange(wc.name, Math.max(0, current - 1))}
-                            className="text-[11px] font-mono px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
-                          >
-                            −
-                          </button>
-                          <span className="text-[11px] font-mono text-parchment w-5 text-center">
-                            {current}
-                          </span>
-                          <button
-                            onClick={() => handleWargearChange(wc.name, Math.min(effectiveMax, current + 1))}
-                            className="text-[11px] font-mono px-2 py-0.5 border border-rim-bright text-parchment-dim hover:border-crimson hover:text-parchment"
-                          >
-                            +
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-                {wargearSurcharge > 0 && (
-                  <p className="text-[10px] font-mono text-gold mt-0.5">
-                    Total armamento: +{wargearSurcharge}pts
-                  </p>
-                )}
-              </div>
-            </div>
-          )}
-
           {(datasheet.unitComposition.length > 0 || datasheet.loadout) && (
             <div className="border border-rim-bright">
               <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim px-2 py-1 bg-surface-3">
@@ -328,7 +265,13 @@ export function RosterEntryRow({
 
           <WeaponSelector weapons={datasheet.weapons} quantities={weaponQuantities} />
 
-          <WeaponOptionsEditor datasheet={datasheet} entry={entry} onChangeSelection={onChangeWeaponSelection} />
+          <WeaponOptionsEditor
+            datasheet={datasheet}
+            entry={entry}
+            wargearCosts={wargearCosts}
+            onChangeSelection={onChangeWeaponSelection}
+            onChangeWargearSelections={onChangeWargearSelections}
+          />
 
           <AbilityList abilities={datasheet.abilities} detachmentAbilities={detachmentAbilities} />
 
