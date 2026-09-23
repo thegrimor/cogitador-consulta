@@ -2980,6 +2980,10 @@
         {
           "button": "•",
           "description": "1 Victrix Honour Guard model can be equipped as a Chapter Ancient, carrying the Banner of Macragge."
+        },
+        {
+          "button": "•",
+          "description": "1 Victrix Honour Guard model can be equipped as a Chapter Champion, carrying the Blades of Honour."
         }
       ],
       "pointsCosts": [
