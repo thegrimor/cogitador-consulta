@@ -255,16 +255,18 @@ export function RosterEntryRow({
                     <div key={wc.name} className="flex items-center justify-between gap-3">
                       <span className="text-[11px] font-mono text-parchment-dim">
                         {label}
-                        <span className="text-gold ml-1">
-                          +{wc.points}pts{effectiveMax > 1 ? '/modelo' : ''}
-                        </span>
+                        {wc.points > 0 && (
+                          <span className="text-gold ml-1">
+                            +{wc.points}pts{effectiveMax > 1 ? '/modelo' : ''}
+                          </span>
+                        )}
                       </span>
                       {effectiveMax === 1 ? (
                         <button
                           onClick={() => handleWargearChange(wc.name, current === 1 ? 0 : 1)}
                           className={pillClass(current === 1)}
                         >
-                          {current === 1 ? `+${wc.points}pts` : 'Equipar'}
+                          {current === 1 ? (wc.points > 0 ? `+${wc.points}pts` : 'Equipado') : 'Equipar'}
                         </button>
                       ) : (
                         <div className="flex items-center gap-1">

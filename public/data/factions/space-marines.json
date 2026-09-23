@@ -3009,6 +3009,11 @@
           "name": "chapter ancient (banner of macragge)",
           "points": 20,
           "max": 1
+        },
+        {
+          "name": "chapter champion (blades of honour)",
+          "points": 0,
+          "max": 1
         }
       ],
       "stratagemIds": [
