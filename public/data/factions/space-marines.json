@@ -2983,7 +2983,7 @@
         },
         {
           "button": "•",
-          "description": "1 Victrix Honour Guard model can be equipped as a Chapter Champion, carrying the Blades of Honour."
+          "description": "1 Victrix Honour Guard model can have its Master-crafted Bolt Carbine and Master-crafted Power Weapon replaced with 1 Blades of Honour."
         }
       ],
       "pointsCosts": [
@@ -3008,11 +3008,6 @@
         {
           "name": "chapter ancient (banner of macragge)",
           "points": 20,
-          "max": 1
-        },
-        {
-          "name": "chapter champion (blades of honour)",
-          "points": 0,
           "max": 1
         }
       ],
