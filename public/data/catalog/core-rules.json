@@ -1000,11 +1000,11 @@
   "coreRuleEffects": [
     {
       "id": "cover",
-      "name": "Cobertura (-1 a impactar)",
-      "description": "El defensor tiene el Beneficio de Cobertura (13.08): -1 al impactar contra ataques a distancia. Sujeto al cap neto ±1 de los modificadores al dado — no se acumula con otras fuentes del mismo Beneficio de Cobertura (p. ej. Stealth).",
+      "name": "Cobertura (empeora BS atacante +1)",
+      "description": "El defensor tiene el Beneficio de Cobertura (13.08): empeora la característica BS del atacante en 1. Independiente del cap ±1 de los modificadores al dado.",
       "effect": {
         "effects": {
-          "hitMod": -1
+          "bsMod": 1
         },
         "combatType": "ranged",
         "target": "defender"
@@ -1035,10 +1035,10 @@
     {
       "id": "unit-stealth",
       "name": "Stealth — cobertura vs todos los ataques a distancia",
-      "description": "Stealth: if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. -1 al impactar (13.08), sujeto al cap neto ±1 — no se acumula con Cobertura por terreno, ya que ambas conceden el mismo Beneficio de Cobertura.",
+      "description": "Stealth: if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.",
       "effect": {
         "effects": {
-          "hitMod": -1
+          "bsMod": 1
         },
         "combatType": "ranged",
         "target": "defender"
