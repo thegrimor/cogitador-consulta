@@ -1033,18 +1033,6 @@
       }
     },
     {
-      "id": "unit-stealth",
-      "name": "Stealth — cobertura vs todos los ataques a distancia",
-      "description": "Stealth: if every model in a unit has Stealth, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack. Empeora BS del atacante +1.",
-      "effect": {
-        "effects": {
-          "bsMod": 1
-        },
-        "combatType": "ranged",
-        "target": "defender"
-      }
-    },
-    {
       "id": "core-plunging-fire",
       "name": "Plunging Fire — +1 BS (atacante en terreno alto)",
       "description": "Plunging Fire: improve attacker's BS by 1 if on terrain 3\"+ high, or TOWERING within 12\". Equivale a bsMod: -1 en el atacante.",
