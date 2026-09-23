@@ -187,9 +187,8 @@ export function UnitPanel({
 
   return (
     <div className="flex flex-col">
-      {/* Panel header — sticky so which side/unit you're looking at stays visible while
-          scrolling a long weapons/abilities list further down in this same panel. */}
-      <div className={`sticky top-0 z-10 px-3 py-2 border-b-2 ${isAttacker ? 'border-crimson' : 'border-gold'} bg-surface-2`}>
+      {/* Panel header */}
+      <div className={`px-3 py-2 border-b-2 ${isAttacker ? 'border-crimson' : 'border-gold'} bg-surface-2`}>
         <span className={`text-[10px] font-display uppercase tracking-[4px] ${isAttacker ? 'text-crimson' : 'text-gold'}`}>
           {isAttacker ? 'Atacante' : 'Defensor'}
         </span>

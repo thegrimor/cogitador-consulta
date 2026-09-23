@@ -420,7 +420,10 @@ export function MathhammerPage() {
   return (
     <div className="relative">
       {/* Mobile tab bar */}
-      <div className="md:hidden flex border-b border-rim-bright bg-surface-2">
+      <div
+        className="md:hidden flex sticky z-20 border-b border-rim-bright bg-surface-2"
+        style={{ top: 'var(--header-h, 2.5rem)' }}
+      >
         {mobileTabs.map(tab => (
           <button
             key={tab.id}
@@ -499,27 +502,25 @@ export function MathhammerPage() {
       {/* Desktop 3-column layout */}
       <div className="hidden md:grid md:grid-cols-[1fr_280px_1fr] min-h-[calc(100vh-2.5rem)]">
         <div className="border-r border-rim-bright overflow-y-auto">
-          <div className="sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto">
-            <UnitPanel
-              gameData={gameData}
-              panel={leftPanel}
-              side="left"
-              onWeaponsChange={setSelectedWeapons}
-              selectedWeapons={selectedWeapons}
-              weaponQuantities={weaponQuantities}
-              onQuantityChange={handleQuantityChange}
-              onClearWeapons={handleClearWeapons}
-              combatType={combatType}
-              activeModifierIds={attackerActiveIds}
-              onModifierToggle={toggleAttackerModifier}
-              weaponAntiKeywords={selectedWeaponAntiKeywords}
-              defenderKeywords={defenderKeywords}
-              meltaActiveKeys={meltaActiveKeys}
-              onMeltaToggle={key => setMeltaActiveKeys(prev => toggleKey(prev, key))}
-              rapidFireActiveKeys={rapidFireActiveKeys}
-              onRapidFireToggle={key => setRapidFireActiveKeys(prev => toggleKey(prev, key))}
-            />
-          </div>
+          <UnitPanel
+            gameData={gameData}
+            panel={leftPanel}
+            side="left"
+            onWeaponsChange={setSelectedWeapons}
+            selectedWeapons={selectedWeapons}
+            weaponQuantities={weaponQuantities}
+            onQuantityChange={handleQuantityChange}
+            onClearWeapons={handleClearWeapons}
+            combatType={combatType}
+            activeModifierIds={attackerActiveIds}
+            onModifierToggle={toggleAttackerModifier}
+            weaponAntiKeywords={selectedWeaponAntiKeywords}
+            defenderKeywords={defenderKeywords}
+            meltaActiveKeys={meltaActiveKeys}
+            onMeltaToggle={key => setMeltaActiveKeys(prev => toggleKey(prev, key))}
+            rapidFireActiveKeys={rapidFireActiveKeys}
+            onRapidFireToggle={key => setRapidFireActiveKeys(prev => toggleKey(prev, key))}
+          />
         </div>
         <div className="border-r border-rim-bright overflow-y-auto bg-surface-2">
           <div className="sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto">
@@ -548,17 +549,15 @@ export function MathhammerPage() {
           </div>
         </div>
         <div className="overflow-y-auto">
-          <div className="sticky top-10 max-h-[calc(100vh-2.5rem)] overflow-y-auto">
-            <UnitPanel
-              gameData={gameData}
-              panel={rightPanel}
-              side="right"
-              onModelChange={setDefenderModel}
-              combatType={combatType}
-              activeModifierIds={defenderActiveIds}
-              onModifierToggle={toggleDefenderModifier}
-            />
-          </div>
+          <UnitPanel
+            gameData={gameData}
+            panel={rightPanel}
+            side="right"
+            onModelChange={setDefenderModel}
+            combatType={combatType}
+            activeModifierIds={defenderActiveIds}
+            onModifierToggle={toggleDefenderModifier}
+          />
         </div>
       </div>
     </div>
