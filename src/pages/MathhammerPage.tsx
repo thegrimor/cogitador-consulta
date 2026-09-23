@@ -23,21 +23,6 @@ function ownAbilityIds(rules: ModifierRule[], key: 'datasheetId' | 'leaderDatash
   return rules.filter(r => r[key] === id && !r.isOption).map(r => r.id)
 }
 
-/** Ids of any Feel No Pain-granting rule that's currently applicable to the defender —
- * regardless of source (datasheet ability, detachment ability, army rule, aura), unlike
- * `ownAbilityIds` above which only covers datasheet/leader-owned ones. Stratagems and
- * mutually-exclusive `options[]` variants are excluded since those still need an explicit
- * player choice (a CP cost, or a pick between alternatives) rather than defaulting on. This
- * doesn't catch a FNP rule that only becomes applicable after picking a detachment *later*
- * than the unit — in practice the detachment is chosen first (see `UnitSelector`'s field
- * order), so `rules` (already filtered through `isRuleApplicable`) already includes it by the
- * time a unit resolves. */
-function feelNoPainDefaultIds(applicableRules: ModifierRule[]): string[] {
-  return applicableRules
-    .filter(r => r.effects.feelNoPainThreshold != null && !r.isStratagem && !r.isOption)
-    .map(r => r.id)
-}
-
 /** Whether `unit` carries an ability literally named `name` (case-insensitive) — used to check
  * for Stealth, since that ability is stored as a bare Core-rules stub with no `effect` of its
  * own — Mathhammer has no dedicated Stealth rule to toggle (the earlier `unit-stealth` universal
@@ -281,18 +266,19 @@ export function MathhammerPage() {
   if (rightPanel.selectedUnit && rightPanel.selection.datasheetId && rightPanel.selection.datasheetId !== restoredDefenderId) {
     setRestoredDefenderId(rightPanel.selection.datasheetId)
 
-    // Default-active for a defender with no saved state: its own abilities, any currently
-    // applicable Feel No Pain-granting rule regardless of source, and — since a unit having
-    // Stealth is a fixed property of the datasheet, not a battlefield situation like actual
-    // terrain — the universal "Cobertura" (Cover) rule if the unit has the Stealth ability
-    // (Mathhammer has no separate Stealth toggle of its own; see `hasAbilityNamed` above).
+    // Default-active for a defender with no saved state: its own abilities (this already
+    // covers the unit's own Feel No Pain if that's how the datasheet models it, e.g. "Feel No
+    // Pain 5+" or "Living Fortress" — a FNP grant from a Detachment Ability or Army Rule stays
+    // a manual toggle, deliberately not defaulted here), and — since a unit having Stealth is a
+    // fixed property of the datasheet, not a battlefield situation like actual terrain — the
+    // universal "Cobertura" (Cover) rule if the unit has the Stealth ability (Mathhammer has no
+    // separate Stealth toggle of its own; see `hasAbilityNamed` above).
     function defaultDefenderIds(): string[] {
       const coverIds = hasAbilityNamed(rightPanel.selectedUnit, 'Stealth')
         ? applicableRightRules.filter(r => r.id === 'cover').map(r => r.id)
         : []
       return Array.from(new Set([
         ...ownAbilityIds(rightRules, 'datasheetId', rightPanel.selection.datasheetId),
-        ...feelNoPainDefaultIds(applicableRightRules),
         ...coverIds,
       ]))
     }

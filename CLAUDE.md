@@ -641,35 +641,33 @@ Standalone feature folder at `src/features/mathhammer/`. Computes expected-value
   Stratagems and mutually-exclusive `options[]` variants (e.g. Ka'tah stances) are deliberately
   excluded — those still need an explicit player choice (a CP cost, or a pick between
   alternatives).
-- **Default-active Feel No Pain + Cover-for-Stealth, regardless of source**: two more
-  defender-only defaults, seeded at the same point as the own-ability one above (only when
-  there's no saved per-unit state). `feelNoPainDefaultIds()` turns on *any* currently-applicable
-  rule (already filtered through `isRuleApplicable`, so a `requiresTargetKeyword`-gated one only
-  counts when the selected unit actually qualifies) whose effect sets `feelNoPainThreshold` —
-  unlike the own-ability default above, this isn't restricted to `datasheetId`/
-  `leaderDatasheetId`-scoped rules, since a persistent FNP grant just as often comes from a
-  Detachment Ability or Army Rule (e.g. Imperial Knights' Freeblade Company detachment ability
-  "Knights of Legend": flat FNP 6+, or Adeptus Mechanicus' Lords of the Forge detachment ability
-  "War-Form Mantles": FNP 4+ gated on `requiresTargetKeyword: 'tech-priest'`) as from a plain
-  datasheet ability — still excludes `isStratagem`/`isOption` rules, same reasoning as above.
-  Separately, `hasAbilityNamed(unit, 'Stealth')` checks whether the selected defender's own
-  datasheet carries a literal "Stealth" ability, and if so defaults on the universal `cover`
-  core rule (`gameData.coreCombatEffects`, "Cobertura", `bsMod: 1`/`target: 'defender'`) for it —
-  **not** a dedicated Stealth rule, because there isn't one: Mathhammer had a separate
-  `unit-stealth` universal effect at one point, but it modeled the exact same 13.08 Benefit of
-  Cover rule as "Cobertura" and the two double-stacked when both were toggled on (Benefit of
-  Cover doesn't stack with itself no matter how many sources grant it), so `unit-stealth` was
-  removed from `core-rules.json` entirely rather than re-modeled (see git log on that file) —
-  per-datasheet "Stealth" is a bare `{id, name, description, type: 'Core'}` stub with **no**
-  `effect` of its own in every faction that has it, so this ability-name check plus a Stealth
-  unit's benefit of cover being unconditional (unlike the terrain-dependent "Cobertura" toggle
-  for everyone else) is what defaults it on for exactly the units that should have it, without
-  reviving the double-count bug. The `leftRuleCtx`/`rightRuleCtx`/`applicableLeftRules`/
-  `applicableRightRules` computation (used both by the final `resolveModifiers` calls and by
-  this default-seeding logic) now sits right after the `attackerActiveIds`/`defenderActiveIds`
-  memos — earlier than it actually needs to be for the render itself — specifically so the
-  restore-on-select logic further down can read `applicableRightRules` too; don't move it back
-  below the restore blocks without re-threading that dependency.
+- **Default-active Cover-for-Stealth**: one more defender-only default, seeded at the same point
+  as the own-ability one above (only when there's no saved per-unit state). A unit's *own* FNP
+  (e.g. "Feel No Pain 5+", or a bespoke ability like Adeptus Custodes' "Living Fortress") is
+  already covered by `ownAbilityIds` above, since it's just another `datasheetId`-scoped ability
+  effect — **deliberately not** broadened to FNP from other sources (a Detachment Ability, an
+  Army Rule) even though those are otherwise real, applicable rules: an earlier version of this
+  default did include those via a `feelNoPainDefaultIds()` helper, but per explicit instruction
+  that over-defaulted things the player hadn't actually chosen — a Detachment/Army-Rule FNP grant
+  stays a manual toggle like any other Reglas de Ejército entry. `hasAbilityNamed(unit,
+  'Stealth')` checks whether the selected defender's own datasheet carries a literal "Stealth"
+  ability, and if so defaults on the universal `cover` core rule (`gameData.coreCombatEffects`,
+  "Cobertura", `bsMod: 1`/`target: 'defender'`) for it — **not** a dedicated Stealth rule, because
+  there isn't one: Mathhammer had a separate `unit-stealth` universal effect at one point, but it
+  modeled the exact same 13.08 Benefit of Cover rule as "Cobertura" and the two double-stacked
+  when both were toggled on (Benefit of Cover doesn't stack with itself no matter how many
+  sources grant it), so `unit-stealth` was removed from `core-rules.json` entirely rather than
+  re-modeled (see git log on that file) — per-datasheet "Stealth" is a bare `{id, name,
+  description, type: 'Core'}` stub with **no** `effect` of its own in every faction that has it,
+  so this ability-name check plus a Stealth unit's benefit of cover being unconditional (unlike
+  the terrain-dependent "Cobertura" toggle for everyone else) is what defaults it on for exactly
+  the units that should have it, without reviving the double-count bug. The `leftRuleCtx`/
+  `rightRuleCtx`/`applicableLeftRules`/`applicableRightRules` computation (used both by the final
+  `resolveModifiers` calls and by this default-seeding logic) sits right after the
+  `attackerActiveIds`/`defenderActiveIds` memos — earlier than it actually needs to be for the
+  render itself — specifically so the restore-on-select logic further down can read
+  `applicableRightRules` for the Cover-for-Stealth check; don't move it back below the restore
+  blocks without re-threading that dependency.
 - **Sticky mobile tab bar**: on the `md:hidden` mobile layout, the Atacante/Resultado/Defensor tab
   switcher is `sticky` (`style={{ top: 'var(--header-h, 2.5rem)' }}`, same convention
   `RosterEditPage`'s sticky points bar already uses) so it stays reachable below the app header
