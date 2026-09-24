@@ -92,7 +92,7 @@ export function AppShell() {
         </div>
       </header>
 
-      <main>
+      <main className="pb-20">
         <Outlet />
       </main>
 

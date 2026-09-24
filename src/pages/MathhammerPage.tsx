@@ -532,7 +532,7 @@ export function MathhammerPage() {
 
       {/* Desktop 3-column layout */}
       <div className="hidden md:grid md:grid-cols-[1fr_280px_1fr] min-h-[calc(100vh-2.5rem)]">
-        <div className="border-r border-rim-bright overflow-y-auto">
+        <div className="border-r border-rim-bright overflow-y-auto pb-16">
           <UnitPanel
             gameData={gameData}
             panel={leftPanel}
@@ -579,7 +579,7 @@ export function MathhammerPage() {
             />
           </div>
         </div>
-        <div className="overflow-y-auto">
+        <div className="overflow-y-auto pb-16">
           <UnitPanel
             gameData={gameData}
             panel={rightPanel}
