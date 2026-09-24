@@ -58,9 +58,9 @@ function RuleEditor({
       : `Equipar (${eligible} disponible${eligible === 1 ? '' : 's'})`
 
   const label = rule.label
-    ? `${rule.label} (${eligible} disponible${eligible === 1 ? '' : 's'})`
+    ? `${rule.label} (${cap} disponible${cap === 1 ? '' : 's'})`
     : rule.kind === 'replace'
-      ? `${rule.fromWeapons.join(' / ')} → (${eligible} disponible${eligible === 1 ? '' : 's'})`
+      ? `${rule.fromWeapons.join(' / ')} → (${cap} disponible${cap === 1 ? '' : 's'})`
       : addLabel
 
   const baseRemaining = replaceWeaponRemaining(rule, allRules, entry, modelCount)
