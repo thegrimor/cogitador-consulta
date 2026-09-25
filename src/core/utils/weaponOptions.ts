@@ -97,6 +97,23 @@ export function matchRole(text: string, slots: UnitSlot[]): string | undefined {
   const noS = singularize(norm)
   const byStem = slots.find(s => singularize(s.role.toLowerCase()) === noS)
   if (byStem) return byStem.role
+  // A role's plural "s" can land on an earlier word than the last ("Sisters Repentia", not
+  // "Repentias") - singularizing word-by-word catches that shape the whole-string singularize
+  // above can't.
+  const singularizeEachWord = (s: string) => s.split(' ').map(singularize).join(' ')
+  const byWordStem = slots.find(s => singularizeEachWord(s.role.toLowerCase()) === singularizeEachWord(norm))
+  if (byWordStem) return byWordStem.role
+  // A unit-composition role name often carries a trailing "model(s)" the loadout's own subject
+  // text may lack (or vice versa) - e.g. "Sternguard Veteran Sergeant model" vs "Sternguard
+  // Veteran models". Comparing with that suffix stripped from both sides disambiguates a leader
+  // role whose name would otherwise substring-match the plain troop role below (both contain
+  // "Sternguard Veteran"), which the generic substring fallback can't tell apart.
+  const stripModelSuffix = (s: string) => s.replace(/\s+models?$/i, '')
+  const normNoModel = singularizeEachWord(stripModelSuffix(norm))
+  const byModelStrippedStem = slots.find(
+    s => singularizeEachWord(stripModelSuffix(s.role.toLowerCase())) === normNoModel,
+  )
+  if (byModelStrippedStem) return byModelStrippedStem.role
   const candidates = slots.filter(
     s => norm.includes(s.role.toLowerCase()) || s.role.toLowerCase().includes(norm),
   )
@@ -424,28 +441,62 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
   })
 }
 
-const LOADOUT_PARAGRAPH_SPLIT = /<br\s*\/?>\s*<br\s*\/?>/i
+const LOADOUT_LINE_SPLIT = /<br\s*\/?>/i
 
 /** Reads a datasheet's free-text `loadout` field (e.g. "The Knight Master is equipped with:
  * great weapon of the Unforgiven.<br><br>Every Deathwing Knight is equipped with: mace of
- * absolution.") to find which unit role each named default weapon belongs to, for units whose
- * models don't all carry the same base wargear. Maps a weapon's lowercased name to a role from
- * `slots`; a weapon left unmapped (uniform loadout, or a subject this can't confidently resolve,
- * e.g. "every model"/"this unit") should fall back to the unit's total model count, exactly as
- * a uniform-loadout unit already does. */
-export function parseLoadoutWeaponRoles(loadoutHtml: string, slots: UnitSlot[]): Map<string, string> {
-  const map = new Map<string, string>()
+ * absolution.") to find how many models actually carry each named default weapon, for units
+ * whose models don't all carry the same base wargear. Splits on every `<br>` line break - some
+ * datasheets separate these clauses with one `<br>`, others with two - and matches each
+ * resulting line against "<subject> is/are equipped with: <list>", where list items are
+ * semicolon-separated (never split on ","/"and": a single fused weapon's own name can contain
+ * "and", e.g. Orks' Stompa "Deffkannon and Supa-rokkits").
+ *
+ * The subject resolves to a model count two ways:
+ * - A literal leading number ("1 Tanith Ghost is equipped with...", "1 other Cadian Veteran
+ *   Guardsman is equipped with...") names one specific model within a larger role, appearing
+ *   once per model when several models of the same role each carry unique gear - so that literal
+ *   count is used directly, and contributions across such lines are *summed* per weapon (three
+ *   different "1 other Veteran Guardsman" lines each carrying "lasgun" means 3 lasguns total,
+ *   not 1).
+ * - Otherwise the subject must resolve to a whole `slots` role (via `matchRole`), and every model
+ *   of that role is assumed to carry the listed weapons ("Every Deathwing Knight...").
+ *
+ * A weapon left unmapped (a uniform "every model"/"this unit" loadout, or a subject this can't
+ * confidently resolve) should fall back to the unit's total model count, exactly as a
+ * uniform-loadout unit already does - the caller is expected to treat a missing map entry that
+ * way rather than treating it as zero. */
+export function parseLoadoutWeaponCounts(
+  loadoutHtml: string,
+  slots: UnitSlot[],
+  roleCounts: Record<string, number>,
+): Map<string, number> {
+  const map = new Map<string, number>()
   if (!loadoutHtml || slots.length < 2) return map
-  for (const para of loadoutHtml.split(LOADOUT_PARAGRAPH_SPLIT)) {
-    const clean = stripHtml(para)
+  for (const line of loadoutHtml.split(LOADOUT_LINE_SPLIT)) {
+    const clean = stripHtml(line)
+    if (!clean) continue
     const m = clean.match(/^(.+?) (?:is|are) equipped with:?\s*(.+?)\.?$/i)
     if (!m) continue
     const [, subjectRaw, weaponListRaw] = m
-    const role = matchRole(subjectRaw, slots)
-    if (!role) continue
+    const subject = subjectRaw.trim()
+
+    let multiplier: number | undefined
+    const literal = subject.match(/^(\d+)\s+(?:other\s+)?(.+)$/i)
+    if (literal) {
+      multiplier = parseInt(literal[1], 10)
+    } else {
+      const subjectNorm = subject.replace(/^(the|this|every|all( of the)?|each)\s+/i, '').trim().toLowerCase()
+      if (/^models?$/.test(subjectNorm)) continue // "every model"/"all models" - whole-unit loadout, leave unmapped
+      const role = matchRole(subject.replace(/\s+models?$/i, ''), slots)
+      if (role) multiplier = roleCounts[role]
+    }
+    if (multiplier === undefined) continue
+
     for (const part of weaponListRaw.split(';')) {
-      const name = part.replace(/^\d+\s+/, '').trim().toLowerCase()
-      if (name) map.set(name, role)
+      const name = part.trim().replace(/^\d+\s+/, '').toLowerCase()
+      if (!name) continue
+      map.set(name, (map.get(name) ?? 0) + multiplier)
     }
   }
   return map

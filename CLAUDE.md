@@ -601,22 +601,52 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   weapon, 4 Deathwing Knights with a mace) used to have every `defaultWeaponNames` entry
   multiplied by the unit's whole `modelCount`, so the weapon table showed the full squad size
   (x5) for *every* weapon regardless of who actually carries it — confirmed wrong against the
-  official app, which shows 1/4. Fixed via `parseLoadoutWeaponRoles` (`weaponOptions.ts`), which
+  official app, which shows 1/4. Fixed via `parseLoadoutWeaponCounts` (`weaponOptions.ts`), which
   reads the datasheet's free-text `loadout` field (e.g. "The Knight Master is equipped with:
-  X.<br><br>Every Deathwing Knight is equipped with: Y.") to map each named weapon to the
-  `unitComposition` role that actually carries it, splitting on `<br><br>` paragraph breaks and
-  a semicolon-separated weapon list within each — deliberately *not* splitting on "and"/comma,
-  since a single fused weapon's own name can contain "and" (e.g. Orks' Stompa: "Deffkannon and
-  Supa-rokkits" is one weapon, not two) and the dataset's multi-weapon lists use semicolons for
-  this reason. `resolveWeaponQuantities` multiplies by that role's resolved count instead of the
-  whole unit's; a weapon the parser can't confidently tie to one role (a uniform loadout's
-  "every model"/"this unit" phrasing, or a subject `matchRole` can't match) falls back to the old
-  whole-unit multiplier, which is correct for that case. Only checked against three data points
-  (Deathwing Knights, Intercessor Squad, Stompa) — a pattern-based scan found ~124 datasheets
-  faction-wide with more than one "is equipped with"/"are equipped with" clause in their
-  `loadout`, i.e. candidates for this same bug shape; this fix should self-correct any of them
-  whose phrasing matches the templates above, but the full set hasn't been individually verified
-  against the official app the way Deathwing Knights was.
+  X.<br><br>Every Deathwing Knight is equipped with: Y.") and resolves how many models actually
+  carry each named weapon:
+  - Splits on every `<br>` line break (some datasheets use one, others two - splitting on a
+    single `<br>` handles both).
+  - Each line matches "`<subject> is/are equipped with: <list>`"; `<list>` is semicolon-separated
+    only - deliberately never split on ","/"and", since a single fused weapon's own name can
+    contain "and" (Orks' Stompa: "Deffkannon and Supa-rokkits" is one weapon, not two).
+  - A literal leading number in the subject ("1 Tanith Ghost is equipped with...", "1 other
+    Cadian Veteran Guardsman is equipped with...") names one specific model within a larger role
+    (several named characters sharing one role, each with unique gear) - that count is used
+    directly and *summed* across every such line per weapon, rather than each line overwriting
+    the last (Astra Militarum's Cadian Command Squad: three different "1 other Veteran Guardsman"
+    lines each carrying "lasgun" correctly total 3, not 1).
+  - Otherwise the subject must resolve to a whole `unitComposition` role via `matchRole` (now
+    also stripping a trailing "model(s)" from both sides and comparing word-by-word singularized
+    forms before falling back to a plain substring match - needed because a leader role's name
+    can substring-contain the troop role's, e.g. "Sternguard Veteran Sergeant model" vs
+    "Sternguard Veteran models", which the old plain-substring check couldn't disambiguate; and
+    because a role's plural "s" can land on a non-final word, e.g. "Sisters Repentia" vs "Sister
+    Repentia", which whole-string singularizing couldn't catch either).
+  - "Every model"/"all models" (a uniform, whole-unit loadout line) is deliberately left
+    unmapped rather than matched to a role.
+
+  `resolveWeaponQuantities` multiplies by the resolved count instead of the whole unit's model
+  count; a weapon the parser can't confidently tie to a count falls back to the old whole-unit
+  multiplier, correct for the common uniform-loadout case. A pattern-based scan found 124
+  datasheets faction-wide with more than one "is equipped with"/"are equipped with" clause in
+  their `loadout` (i.e. candidates for this bug shape); of those, 116 actually had a wrong count
+  under the old code, and this fix fully resolves 92 of them (confirmed by re-deriving each
+  one's correct per-weapon count from its `unitComposition`/`loadout` and diffing against both
+  the old and new computed values - not just checked for "some weapon changed"). The other 24
+  still have at least one weapon whose subject line this parser can't confidently resolve (yet)
+  and which therefore still falls back to the old whole-unit multiplier for that weapon only -
+  no worse than before, just not yet improved. Known remaining cases, worth another pass before
+  assuming they're fixed: Adepta Sororitas' Saint Celestine; Adeptus Mechanicus' Hastarii
+  Fusiliers; Aeldari/Drukhari's Corsair Voidscarred; Astra Militarum's Krieg Command Squad and
+  Catachan Command Squad (and their Genestealer Cults ally copies); Chaos Daemons/Chaos Knights/
+  Chaos Space Marines' Fellgor Beastmen and Traitor Guardsmen Squad; Dark Angels' Ravenwing
+  Command Squad; Deathwatch's Fortis Kill Team and Decimus Kill Team; Imperial Agents'
+  Voidsmen-at-arms, Imperial Navy Breachers and Aquila Kill Team; Leagues of Votann's Brôkhyr
+  Iron-master; Orks' Squighog Boyz; Space Wolves' Wolf Guard Headtakers; World Eaters' Jakhals.
+  End-to-end verified against the real app for Deathwing Knights only (screenshot-confirmed 1/4
+  matching the official app); the rest of the 92 were verified by the diffing method above, not
+  individually screenshotted.
   Points are never cached on a `RosterEntry`/`RosterList` (no `pointsCost`, `wargearSurcharge`, or `totalPoints` fields) — `RosterEntry` only stores the player's choices (`modelCount`, `wargearSelections`, `weaponOptionSelections`, `enhancementId`). Every points figure is resolved fresh from the current `pointsCostMap`/`wargearCostMap`/`enhancements` at read time via `resolveEntryBaseCost` / `resolveEntryWargearSurcharge` / `resolveEntryEnhancementCost` / `resolveEntryPoints` (base + wargear, what the roster editor shows per unit) / `resolveEntryTotalPoints` (+ enhancement, for export text) / `resolveRosterTotalPoints` (whole-roster grand total) — all in `src/core/utils/roster.ts`. This means a correction to a datasheet's points in the JSON data is reflected on every saved roster immediately, with nothing to re-save; it also shrinks what's persisted (backend `PUT /api/rosters/:id`, QR payload).
 - Imperial Agents datasheets (`public/data/factions/imperial-agents.json`) are the only ones that get taken as an ally into a foreign faction's roster (the "Agentes del Imperio" source tab inside `AddUnitModal`; `ALLY_FACTION_ID` and `canTakeImperialAgents` both live in `src/core/constants/allies.ts` — the id must match the faction JSON's own `id`, not GW's in-game "AoI" shorthand, which isn't a real `factionId` anywhere in the data), and *some* of them (not all — check the MFM per the rule above rather than assuming) are priced differently for that than for a native Agents of the Imperium army — GW's own "Assigned Agent" vs "AGENTS OF THE IMPERIUM Detachment" distinction, which isn't always a price *increase* (Exaction Squad's ally price is lower). This is encoded as a `"(Assigned Agent)"`/`"(...Detachment)"` annotation on the relevant `pointsCosts` entries — a separate trailing `(...)` group from the `"(2nd+ unit)"`/`"(1st to 3rd units)"` surcharge-tier suffix on the one datasheet needing both (Sisters of Battle Immolator: `"1 model (1st to 3rd units) (Assigned Agent)"`) — `parseTierRange` checks every parenthetical group in a description rather than assuming the tier is the only or last one, and `isAssignedAgentCost` matches the annotation anywhere in the string for the same reason. `resolveCostsForFactionContext` in `roster.ts` picks the right context by comparing the entry's datasheet `factionId` against the roster's own `factionId`, and every points-resolution call site (`resolveRosterTotalPoints`, `rosterExport.ts`'s export/import, `RosterEditPage`, `AddUnitModal`) filters through it before `resolveCostsForUnitIndex`. Skipping this filter at a new call site doesn't error — it just silently grabs whichever tier happens to sort first, so a roster's total quietly comes out wrong by the price gap (seen for real: an imported list with allied Inquisitorial Agents undercounting by exactly the Detachment/Assigned-Agent gap).
   **Which factions may take them** is `canTakeImperialAgents` in `src/core/constants/allies.ts`, a

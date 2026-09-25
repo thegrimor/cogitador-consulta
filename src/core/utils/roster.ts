@@ -1,7 +1,7 @@
 import type {
   PointsCost, Datasheet, Detachment, Enhancement, RosterEntry, RosterList, WargearCost, WeaponOptionRule,
 } from '@/types'
-import { ruleEligibleCount, parseUnitSlots, resolveRoleCounts, parseLoadoutWeaponRoles } from '@/core/utils/weaponOptions'
+import { ruleEligibleCount, parseUnitSlots, resolveRoleCounts, parseLoadoutWeaponCounts } from '@/core/utils/weaponOptions'
 import { isSameFactionFamily } from '@/core/constants/factionFamily'
 
 export const DETACHMENT_POINTS_BUDGET = 3
@@ -403,11 +403,10 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
   // loadout (the common case) or when the role can't be confidently resolved from the text.
   const slots = parseUnitSlots(datasheet.unitComposition)
   const roleCounts = resolveRoleCounts(slots, entry.modelCount)
-  const loadoutRoles = parseLoadoutWeaponRoles(datasheet.loadout, slots)
+  const loadoutModels = parseLoadoutWeaponCounts(datasheet.loadout, slots, roleCounts)
 
   datasheet.defaultWeaponNames.forEach(({ name, count }) => {
-    const role = loadoutRoles.get(name.toLowerCase())
-    const models = role !== undefined ? roleCounts[role] ?? entry.modelCount : entry.modelCount
+    const models = loadoutModels.get(name.toLowerCase()) ?? entry.modelCount
     counts.set(canonicalKey(name), count * models)
   })
 
