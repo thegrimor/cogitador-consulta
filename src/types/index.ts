@@ -171,6 +171,20 @@ export interface DefaultWeaponQuantity {
   count: number
 }
 
+/** One hand-authored group of models within a mixed-role unit sharing the same base loadout
+ * (e.g. Deathwing Knights: 1 Knight Master group + 1 Deathwing Knights group; Cadian Command
+ * Squad: the Commander plus three separately-geared individual Veteran Guardsmen). Exactly one
+ * of `role`/`fixedCount` is set: `role` names a `unitComposition` role, whose resolved size scales
+ * with the roster entry's `modelCount` for a variable-size unit (via `resolveRoleCounts`);
+ * `fixedCount` is an absolute number of models, for named individuals that don't correspond to a
+ * role's full count (a squad member with unique gear, always fixed-size regardless of the
+ * datasheet's own min/max). */
+export interface DefaultWeaponGroup {
+  role?: string
+  fixedCount?: number
+  weapons: DefaultWeaponQuantity[]
+}
+
 export interface Datasheet {
   id: string
   name: string
@@ -195,6 +209,11 @@ export interface Datasheet {
    * of each a single model carries by default (e.g. a Knight Castellan's "2 shieldbreaker
    * missile launchers") — not just 1-per-model, which only holds for squads. */
   defaultWeaponNames: DefaultWeaponQuantity[]
+  /** Present only for a mixed-role unit whose models don't all carry the same base wargear
+   * (see `DefaultWeaponGroup`) - hand-authored directly from the datasheet's own `loadout` text,
+   * not derived at runtime. `resolveWeaponQuantities` (roster.ts) uses this instead of
+   * `defaultWeaponNames × modelCount` whenever it's non-empty. */
+  defaultWeaponGroups: DefaultWeaponGroup[]
   unitSlots: UnitSlot[]
   weaponOptionRules: WeaponOptionRule[]
 }

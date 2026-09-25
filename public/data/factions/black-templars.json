@@ -3081,7 +3081,31 @@
         "wrath-of-dorn",
         "armoured-wrath"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Chaplain Grimaldus – EPIC HERO",
+          "weapons": [
+            {
+              "name": "plasma pistol",
+              "count": 1
+            },
+            {
+              "name": "artificer crozius",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Cenobyte Servitors*",
+          "weapons": [
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "castellan",
@@ -5710,6 +5734,51 @@
         "lieutenant",
         "marshal",
         "techmarine"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Sword Brother",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Initiates",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "bolt rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Neophytes",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "astartes chainsword",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

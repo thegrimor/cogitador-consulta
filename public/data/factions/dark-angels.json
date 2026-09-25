@@ -2101,6 +2101,34 @@
         "captain-in-terminator-armour",
         "chaplain-in-terminator-armour",
         "librarian-in-terminator-armour"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Deathwing Sergeant",
+          "weapons": [
+            {
+              "name": "storm bolter",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Deathwing Terminators",
+          "weapons": [
+            {
+              "name": "storm bolter",
+              "count": 1
+            },
+            {
+              "name": "power fist",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -2501,6 +2529,26 @@
         "captain-in-terminator-armour",
         "chaplain-in-terminator-armour",
         "librarian-in-terminator-armour"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Knight Master",
+          "weapons": [
+            {
+              "name": "great weapon of the unforgiven",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Deathwing Knights",
+          "weapons": [
+            {
+              "name": "mace of absolution",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -5585,7 +5633,43 @@
         "chant-of-deathless-devotion",
         "in-the-lions-claws"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ravenwing Champion",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "plasma talon",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 2,
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "plasma talon",
+              "count": 1
+            },
+            {
+              "name": "black knight combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "inner-circle-companions",

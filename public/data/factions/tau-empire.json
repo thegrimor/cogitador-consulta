@@ -2690,6 +2690,38 @@
         "kroot-trail-shaper",
         "kroot-war-shaper",
         "kroot-flesh-shaper"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Long-quill",
+          "weapons": [
+            {
+              "name": "kroot pistol",
+              "count": 1
+            },
+            {
+              "name": "kroot rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kroot Carnivores",
+          "weapons": [
+            {
+              "name": "kroot rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -8296,6 +8328,51 @@
         "kroot-trail-shaper",
         "kroot-war-shaper",
         "kroot-flesh-shaper"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kroot Kill-broker",
+          "weapons": [
+            {
+              "name": "farstalker firearm",
+              "count": 1
+            },
+            {
+              "name": "kroot pistol",
+              "count": 1
+            },
+            {
+              "name": "ritual blade",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kroot Farstalkers",
+          "weapons": [
+            {
+              "name": "farstalker firearm",
+              "count": 1
+            },
+            {
+              "name": "kroot pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kroot Hounds",
+          "weapons": [
+            {
+              "name": "ripping fangs",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -10104,7 +10181,51 @@
         "bonded-heroes",
         "patient-hunter"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ri’Lantar – EPIC HERO",
+          "weapons": [
+            {
+              "name": "fusion eliminator",
+              "count": 1
+            },
+            {
+              "name": "xv pulse pistol",
+              "count": 1
+            },
+            {
+              "name": "shardstorm burst system",
+              "count": 1
+            },
+            {
+              "name": "mv15 gun drone",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Ri’Locai – EPIC HERO",
+          "weapons": [
+            {
+              "name": "ion scattercannon",
+              "count": 1
+            },
+            {
+              "name": "xv pulse pistol",
+              "count": 1
+            },
+            {
+              "name": "shardstorm burst system",
+              "count": 1
+            },
+            {
+              "name": "mv15 gun drone",
+              "count": 1
+            }
+          ]
+        }
+      ]
     }
   ],
   "combatEffects": [

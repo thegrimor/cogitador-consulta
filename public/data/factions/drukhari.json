@@ -5006,7 +5006,35 @@
         "callous-competition",
         "murderous-agenda"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Solarite",
+          "weapons": [
+            {
+              "name": "shardcarbine",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Scourges",
+          "weapons": [
+            {
+              "name": "splinter cannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "talos",
@@ -8802,6 +8830,89 @@
       "canBeLedBy": [
         "kharseth-drukhari",
         "prince-yriel-drukhari"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Corsair Voidscarred",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Voidscarred Felarch",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Shade Runner",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "paired hekatarii blades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Soul Weaver",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            },
+            {
+              "name": "channeller stones",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Way Seeker",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "executioner",
+              "count": 1
+            },
+            {
+              "name": "witch staff",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

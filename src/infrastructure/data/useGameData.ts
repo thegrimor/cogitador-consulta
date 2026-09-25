@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import type {
   GameData, Faction, Detachment, DetachmentAbility, Stratagem, Datasheet,
   Enhancement, Source, CoreRule, UnitOption, PointsCost, WargearCost, Ability,
-  ModelProfile, Weapon, DefaultWeaponQuantity, CoreCombatEffect, PhaseData,
+  ModelProfile, Weapon, DefaultWeaponQuantity, DefaultWeaponGroup, CoreCombatEffect, PhaseData,
 } from '@/types'
 import { parseUnitSlots, parseWeaponOptionRules } from '@/core/utils/weaponOptions'
 
@@ -32,6 +32,7 @@ interface DatasheetJson {
   keywords: string[]; factionKeywords: string[]; unitComposition: string[]
   modelCountMin: number; modelCountMax: number
   defaultWeaponNames: DefaultWeaponQuantity[]
+  defaultWeaponGroups?: DefaultWeaponGroup[]
   options: { button: string; description: string }[]
   pointsCosts: { description: string; points: number }[]
   wargearCosts: { name: string; points: number; max?: number }[]
@@ -179,6 +180,7 @@ export function useGameData(): GameData {
               modelCountMin: dsj.modelCountMin,
               modelCountMax: dsj.modelCountMax,
               defaultWeaponNames: dsj.defaultWeaponNames,
+              defaultWeaponGroups: dsj.defaultWeaponGroups ?? [],
               unitSlots,
               weaponOptionRules,
             })

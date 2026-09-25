@@ -6050,7 +6050,39 @@
           "points": 190
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Nobz",
+          "weapons": [
+            {
+              "name": "kustom choppa",
+              "count": 1
+            },
+            {
+              "name": "kombi-skorcha",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Boyz",
+          "weapons": [
+            {
+              "name": "choppa",
+              "count": 1
+            },
+            {
+              "name": "shoota",
+              "count": 1
+            },
+            {
+              "name": "slugga",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "beast-snagga-boyz",
@@ -6295,7 +6327,35 @@
           "points": 180
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Nobz",
+          "weapons": [
+            {
+              "name": "power snappa",
+              "count": 1
+            },
+            {
+              "name": "slugga",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Beast Snagga Boyz",
+          "weapons": [
+            {
+              "name": "choppa",
+              "count": 1
+            },
+            {
+              "name": "slugga",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "meganobz",
@@ -7616,7 +7676,35 @@
           "points": 140
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Nob",
+          "weapons": [
+            {
+              "name": "kustom choppa",
+              "count": 1
+            },
+            {
+              "name": "slugga",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Stormboyz",
+          "weapons": [
+            {
+              "name": "choppa",
+              "count": 1
+            },
+            {
+              "name": "slugga",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "breaka-boyz",
@@ -7865,7 +7953,35 @@
           "points": 145
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Nob",
+          "weapons": [
+            {
+              "name": "choppa",
+              "count": 1
+            },
+            {
+              "name": "rokkit pistol",
+              "count": 1
+            },
+            {
+              "name": "smash hammer",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Breaka Boyz",
+          "weapons": [
+            {
+              "name": "smash hammer",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "mek-gunz",
@@ -8358,7 +8474,35 @@
           "points": 155
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Nob",
+          "weapons": [
+            {
+              "name": "choppa",
+              "count": 1
+            },
+            {
+              "name": "rokkit pistol",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "role": "Tankbustas",
+          "weapons": [
+            {
+              "name": "busta rokkit launcha",
+              "count": 1
+            },
+            {
+              "name": "gitstikka",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "warbikers",
@@ -8567,7 +8711,35 @@
           "points": 140
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Biker Nob",
+          "weapons": [
+            {
+              "name": "kustom choppa",
+              "count": 1
+            },
+            {
+              "name": "dual kombi-rokkit",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Warbikers",
+          "weapons": [
+            {
+              "name": "choppa",
+              "count": 1
+            },
+            {
+              "name": "dual dakkagun",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wartrakks",
@@ -9630,7 +9802,43 @@
           "points": 300
         }
       ],
-      "wargearCosts": []
+      "wargearCosts": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Nobz on Smasha Squig",
+          "weapons": [
+            {
+              "name": "big choppa",
+              "count": 1
+            },
+            {
+              "name": "slugga",
+              "count": 1
+            },
+            {
+              "name": "squig's jaws",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Squighog Boyz",
+          "weapons": [
+            {
+              "name": "saddlegit's shiv",
+              "count": 1
+            },
+            {
+              "name": "squig's jaws",
+              "count": 1
+            },
+            {
+              "name": "stikka",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "trukk",

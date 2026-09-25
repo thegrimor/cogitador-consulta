@@ -6045,7 +6045,61 @@
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Cult Demagogue",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "commune stave",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Mindwitch",
+          "weapons": [
+            {
+              "name": "warp curse",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Iconarch",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "chaos icon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Blessed Blades",
+          "weapons": [
+            {
+              "name": "commune blade",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "traitor-enforcer-chaos-knights",
@@ -6197,7 +6251,31 @@
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Traitor Enforcer",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "power fist",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Traitor Ogryn",
+          "weapons": [
+            {
+              "name": "ogryn weapons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "cultist-mob-chaos-knights",
@@ -6475,6 +6553,26 @@
       "canBeLedBy": [
         "cultist-firebrand-chaos-knights",
         "dark-commune-chaos-knights"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Torments",
+          "weapons": [
+            {
+              "name": "hideous mutations",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Mutants",
+          "weapons": [
+            {
+              "name": "blasphemous appendages",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -6704,7 +6802,35 @@
       ],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Fellgor Champion",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Fellgor Beastmen",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "traitor-guardsmen-squad-chaos-knights",
@@ -6990,6 +7116,34 @@
       "detachmentAbilityIds": [],
       "canBeLedBy": [
         "traitor-enforcer-chaos-knights"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Traitor Sergeant",
+          "weapons": [
+            {
+              "name": "corrupted pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Traitor Guardsmen",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

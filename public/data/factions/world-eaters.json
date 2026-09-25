@@ -2546,7 +2546,44 @@
         "rush-to-the-fray",
         "blood-tithe"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Jakhal Pack Leader",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "chainblades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Jakhals",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "chainblades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Dishonoured",
+          "weapons": [
+            {
+              "name": "paired manglers",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "chaos-terminators-world-eaters",
@@ -6485,7 +6522,39 @@
       "detachmentAbilityIds": [
         "blood-tithe"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Gore Hound",
+          "weapons": [
+            {
+              "name": "burning roar",
+              "count": 1
+            },
+            {
+              "name": "gore-drenched fangs",
+              "count": 1
+            },
+            {
+              "name": "collar of khorne",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Flesh Hounds",
+          "weapons": [
+            {
+              "name": "gore-drenched fangs",
+              "count": 1
+            },
+            {
+              "name": "collar of khorne",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "defiler-world-eaters",

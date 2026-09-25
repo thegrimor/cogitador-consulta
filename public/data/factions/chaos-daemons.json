@@ -1907,6 +1907,38 @@
       ],
       "canBeLedBy": [
         "karanak"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Gore Hound",
+          "weapons": [
+            {
+              "name": "burning roar",
+              "count": 1
+            },
+            {
+              "name": "gore-drenched fangs",
+              "count": 1
+            },
+            {
+              "name": "collar of khorne",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Flesh Hounds",
+          "weapons": [
+            {
+              "name": "gore-drenched fangs",
+              "count": 1
+            },
+            {
+              "name": "collar of khorne",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -12028,7 +12060,61 @@
         "first-prince-of-chaos",
         "thralls-of-the-first-prince"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Cult Demagogue",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "commune stave",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Mindwitch",
+          "weapons": [
+            {
+              "name": "warp curse",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Iconarch",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "chaos icon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Blessed Blades",
+          "weapons": [
+            {
+              "name": "commune blade",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "traitor-enforcer",
@@ -12234,7 +12320,31 @@
         "first-prince-of-chaos",
         "thralls-of-the-first-prince"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Traitor Enforcer",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "power fist",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Traitor Ogryn",
+          "weapons": [
+            {
+              "name": "ogryn weapons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "cultist-mob",
@@ -12590,6 +12700,26 @@
         "cultist-firebrand",
         "dark-commune",
         "dark-apostle"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Torments",
+          "weapons": [
+            {
+              "name": "hideous mutations",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Mutants",
+          "weapons": [
+            {
+              "name": "blasphemous appendages",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -12856,7 +12986,35 @@
         "first-prince-of-chaos",
         "thralls-of-the-first-prince"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Fellgor Champion",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Fellgor Beastmen",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "traitor-guardsmen-squad",
@@ -13179,6 +13337,34 @@
       ],
       "canBeLedBy": [
         "traitor-enforcer"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Traitor Sergeant",
+          "weapons": [
+            {
+              "name": "corrupted pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Traitor Guardsmen",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -13378,7 +13564,31 @@
         "thralls-of-the-first-prince",
         "first-prince-of-chaos"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Dark Apostle",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "accursed crozius",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Dark Disciples",
+          "weapons": [
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "havocs",
@@ -13747,7 +13957,48 @@
         "first-prince-of-chaos",
         "thralls-of-the-first-prince"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Havoc Champion",
+          "weapons": [
+            {
+              "name": "flamer",
+              "count": 1
+            },
+            {
+              "name": "astartes chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 2,
+          "weapons": [
+            {
+              "name": "havoc autocannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 2,
+          "weapons": [
+            {
+              "name": "havoc lascannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "legionaries",

@@ -1570,7 +1570,31 @@
         "righteous-purpose",
         "sacred-rites"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "the ardent blade",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Geminae Superia",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "canoness",
@@ -3272,7 +3296,31 @@
         "desperate-for-redemption",
         "fervent-purgation"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Repentia Superior",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "neural whips",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Sisters Repentia",
+          "weapons": [
+            {
+              "name": "penitent eviscerator",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "retributor-squad",
@@ -3654,6 +3702,42 @@
         "imagifier",
         "junith-eruita",
         "canoness"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Retributor Superior",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Retributors",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "heavy bolter",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -6300,7 +6384,35 @@
         "sacred-rites",
         "fervent-purgation"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Aestred Thurga – EPIC HERO",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "blade of vigil",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Agathae Dolan – EPIC HERO",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "scribe’s staff",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "celestian-sacresants",
@@ -7571,6 +7683,42 @@
         "canoness",
         "hospitaller",
         "dialogus"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Novitiate Superior",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Sisters Novitiate",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "autogun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -7767,7 +7915,31 @@
         "the-blood-of-martyrs",
         "righteous-purpose"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ephrael Stern – EPIC HERO",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "sanctity",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kyganil of the Bloody Tears – EPIC HERO",
+          "weapons": [
+            {
+              "name": "the outcast’s weapons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "canoness-with-jump-pack",
@@ -8323,6 +8495,82 @@
       ],
       "canBeLedBy": [
         "ministorum-priest"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Miraculist",
+          "weapons": [
+            {
+              "name": "holy fire",
+              "count": 1
+            },
+            {
+              "name": "burning hands",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Salvationist",
+          "weapons": [
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "salvationist medikit",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Death Cult Assassin",
+          "weapons": [
+            {
+              "name": "death cult blades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "plasma gun",
+              "count": 1
+            },
+            {
+              "name": "sanctifier melee weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "ministorum flamer",
+              "count": 1
+            },
+            {
+              "name": "sanctifier melee weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Sanctifiers",
+          "weapons": [
+            {
+              "name": "ministorum hand flamer",
+              "count": 1
+            },
+            {
+              "name": "sanctifier melee weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

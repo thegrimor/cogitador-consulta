@@ -2591,6 +2591,68 @@
       "canBeLedBy": [
         "rogue-trader-entourage",
         "navigator"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Voidmaster",
+          "weapons": [
+            {
+              "name": "artificer shotgun",
+              "count": 1
+            },
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "voidsman rotor cannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 3,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Canid",
+          "weapons": [
+            {
+              "name": "vicious bite",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -2970,6 +3032,64 @@
         "inquisitor",
         "ministorum-priest-imperial-agents",
         "inquisitor-coteaz"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Navis Sergeant-at-Arms",
+          "weapons": [
+            {
+              "name": "navis shotgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "navis las-volley",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "navis heavy shotgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "endurant shield",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 7,
+          "weapons": [
+            {
+              "name": "navis shotgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -3239,6 +3359,51 @@
         "inquisitor",
         "ministorum-priest-imperial-agents",
         "inquisitor"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Proctor-Vigilant",
+          "weapons": [
+            {
+              "name": "arbites combat shotgun",
+              "count": 1
+            },
+            {
+              "name": "arbites shotpistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Vigilants",
+          "weapons": [
+            {
+              "name": "arbites combat shotgun",
+              "count": 1
+            },
+            {
+              "name": "arbites shotpistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Cyber-mastiff",
+          "weapons": [
+            {
+              "name": "mechanical bite",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -3402,6 +3567,43 @@
         "inquisitor-coteaz",
         "inquisitor",
         "ministorum-priest-imperial-agents"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Proctor-Subductor",
+          "weapons": [
+            {
+              "name": "arbites shotpistol",
+              "count": 1
+            },
+            {
+              "name": "shock maul",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Subductors",
+          "weapons": [
+            {
+              "name": "arbites shotpistol",
+              "count": 1
+            },
+            {
+              "name": "shock maul",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Cyber-mastiff",
+          "weapons": [
+            {
+              "name": "mechanical bite",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -3710,6 +3912,51 @@
         "inquisitor-coteaz",
         "inquisitor",
         "ministorum-priest-imperial-agents"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Proctor-Exactant",
+          "weapons": [
+            {
+              "name": "arbites combat shotgun",
+              "count": 1
+            },
+            {
+              "name": "arbites shotpistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Exaction Vigilants",
+          "weapons": [
+            {
+              "name": "arbites combat shotgun",
+              "count": 1
+            },
+            {
+              "name": "arbites shotpistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Cyber-mastiff",
+          "weapons": [
+            {
+              "name": "mechanical bite",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -3981,7 +4228,65 @@
       "detachmentAbilityIds": [
         "at-all-costs"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Rogue Trader",
+          "weapons": [
+            {
+              "name": "household pistol",
+              "count": 1
+            },
+            {
+              "name": "monomolecular cane-rapier",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Death Cult Assassin",
+          "weapons": [
+            {
+              "name": "dartmask",
+              "count": 1
+            },
+            {
+              "name": "death cult power blade",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Lectro-Maester",
+          "weapons": [
+            {
+              "name": "voltaic pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Rejuvenat Adept",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "healing serum",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "navigator",
@@ -4450,6 +4755,34 @@
         "inquisitor",
         "ministorum-priest-imperial-agents",
         "inquisitor-draxus"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Inquisitorial Agents",
+          "weapons": [
+            {
+              "name": "agent firearm",
+              "count": 1
+            },
+            {
+              "name": "agent melee weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Gun Servitors*",
+          "weapons": [
+            {
+              "name": "heavy bolter",
+              "count": 1
+            },
+            {
+              "name": "agent melee weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -7141,6 +7474,82 @@
         "inquisitor-greyfax",
         "inquisitor",
         "ministorum-priest-imperial-agents"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Miraculist",
+          "weapons": [
+            {
+              "name": "holy fire",
+              "count": 1
+            },
+            {
+              "name": "burning hands",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Salvationist",
+          "weapons": [
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "salvationist medikit",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Death Cult Assassin",
+          "weapons": [
+            {
+              "name": "death cult blades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "plasma gun",
+              "count": 1
+            },
+            {
+              "name": "sanctifier melee weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "ministorum flamer",
+              "count": 1
+            },
+            {
+              "name": "sanctifier melee weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Sanctifiers",
+          "weapons": [
+            {
+              "name": "ministorum hand flamer",
+              "count": 1
+            },
+            {
+              "name": "sanctifier melee weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

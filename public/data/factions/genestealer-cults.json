@@ -2722,6 +2722,34 @@
         "locus",
         "nexos",
         "biophagus"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Metamorph Leader",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "leader’s bio-weapons",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Hybrid Metamorphs",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "metamorph mutations",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -5227,6 +5255,38 @@
       ],
       "canBeLedBy": [
         "jackal-alphus"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Atalan Jackals",
+          "weapons": [
+            {
+              "name": "atalan small arms",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Atalan Wolfquads*",
+          "weapons": [
+            {
+              "name": "atalan small arms",
+              "count": 1
+            },
+            {
+              "name": "heavy stubber",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -8136,7 +8196,86 @@
       "detachmentAbilityIds": [
         "integrated-tactics"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Cadian Commander",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "las pistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "master vox",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "medi-pack",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "regimental standard",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "catachan-command-squad-genestealer-cults",
@@ -8622,7 +8761,39 @@
       "detachmentAbilityIds": [
         "integrated-tactics"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Catachan Commander",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Veteran Guardsmen",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "krieg-command-squad-genestealer-cults",
@@ -9098,7 +9269,103 @@
       "detachmentAbilityIds": [
         "integrated-tactics"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Lord Commissar",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "alchemyk counteragents",
+              "count": 1
+            },
+            {
+              "name": "servo-scribes",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "master vox",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "regimental standard",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "leman-russ-commander-genestealer-cults",
@@ -10327,6 +10594,34 @@
         "inquisitor-greyfax",
         "inquisitor-coteaz",
         "inquisitor"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Shock Trooper Sergeant",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Shock Troopers",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -10512,6 +10807,34 @@
         "inquisitor-greyfax",
         "inquisitor-coteaz",
         "inquisitor"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Jungle Fighter Sergeant",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Jungle Fighters",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -10942,6 +11265,34 @@
         "inquisitor-greyfax",
         "inquisitor-coteaz",
         "inquisitor"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Death Korps Watchmaster",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Death Korps Troopers",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -15472,6 +15823,34 @@
       "canBeLedBy": [
         "cadian-castellan-genestealer-cults",
         "primaris-psyker-genestealer-cults"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kasrkin Sergeant",
+          "weapons": [
+            {
+              "name": "hot-shot laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kasrkin Troopers",
+          "weapons": [
+            {
+              "name": "hot-shot lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -15973,7 +16352,39 @@
       "detachmentAbilityIds": [
         "integrated-tactics"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Heavy Weapons Gunners",
+          "weapons": [
+            {
+              "name": "lascannon",
+              "count": 1
+            },
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Fire Coordinator",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "leman-russ-battle-tank-genestealer-cults",
@@ -19834,7 +20245,40 @@
       "detachmentAbilityIds": [
         "psionic-parasitism"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ravener Prime",
+          "weapons": [
+            {
+              "name": "prime claws and talons",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 3,
+          "weapons": [
+            {
+              "name": "ravener heavy claws and talons",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "venom bolt",
+              "count": 1
+            },
+            {
+              "name": "ravener heavy claws and talons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "centaur-rsv-genestealer-cults",

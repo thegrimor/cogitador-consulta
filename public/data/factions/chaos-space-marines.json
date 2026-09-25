@@ -3501,7 +3501,35 @@
         "terror-made-manifest",
         "raiders-and-reavers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Fabius Bile – EPIC HERO",
+          "weapons": [
+            {
+              "name": "xyclos needler",
+              "count": 1
+            },
+            {
+              "name": "chirurgeon",
+              "count": 1
+            },
+            {
+              "name": "rod of torment",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Surgeon Acolyte",
+          "weapons": [
+            {
+              "name": "surgeon acolyte’s tools",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "chaos-lord-chaos-space-marines",
@@ -4445,7 +4473,31 @@
         "terror-descends-aura",
         "terror-made-manifest"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Dark Apostle",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "accursed crozius",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Dark Disciples",
+          "weapons": [
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "heretic-astartes-daemon-prince",
@@ -10065,6 +10117,47 @@
       ],
       "canBeLedBy": [
         "warpsmith"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Havoc Champion",
+          "weapons": [
+            {
+              "name": "flamer",
+              "count": 1
+            },
+            {
+              "name": "astartes chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 2,
+          "weapons": [
+            {
+              "name": "havoc autocannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 2,
+          "weapons": [
+            {
+              "name": "havoc lascannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -12870,7 +12963,35 @@
         "marks-of-chaos",
         "terror-descends-aura"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Fellgor Champion",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Fellgor Beastmen",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "dark-commune-chaos-space-marines",
@@ -13200,7 +13321,61 @@
         "masters-of-misdirection",
         "desperate-devotion"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Cult Demagogue",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "commune stave",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Mindwitch",
+          "weapons": [
+            {
+              "name": "warp curse",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Iconarch",
+          "weapons": [
+            {
+              "name": "autopistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "chaos icon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Blessed Blades",
+          "weapons": [
+            {
+              "name": "commune blade",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "legionaries-chaos-space-marines",
@@ -13933,6 +14108,26 @@
         "fabius-bile",
         "dark-apostle-chaos-space-marines",
         "cultist-firebrand-chaos-space-marines"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Torments",
+          "weapons": [
+            {
+              "name": "hideous mutations",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Mutants",
+          "weapons": [
+            {
+              "name": "blasphemous appendages",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -14476,7 +14671,31 @@
         "empyric-wellspring",
         "masters-of-misdirection"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Traitor Enforcer",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "power fist",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Traitor Ogryn",
+          "weapons": [
+            {
+              "name": "ogryn weapons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "traitor-guardsmen-squad-chaos-space-marines",
@@ -14832,6 +15051,34 @@
       ],
       "canBeLedBy": [
         "traitor-enforcer-chaos-space-marines"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Traitor Sergeant",
+          "weapons": [
+            {
+              "name": "corrupted pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Traitor Guardsmen",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -15955,7 +16202,39 @@
         "marks-of-chaos",
         "vendetta"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Aspiring Sorcerer",
+          "weapons": [
+            {
+              "name": "inferno bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "malefic curse",
+              "count": 1
+            },
+            {
+              "name": "force weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Rubric Marines",
+          "weapons": [
+            {
+              "name": "inferno boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "plague-marines",
@@ -17431,6 +17710,38 @@
         "sorcerer-chaos-space-marines",
         "red-corsairs-reave-captain",
         "warpsmith"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Visionary",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "nostraman chainblade",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Legionaries",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -18066,6 +18377,73 @@
       ],
       "canBeLedBy": [
         "huron-blackheart"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Garreon the Corpsemaster – EPIC HERO",
+          "weapons": [
+            {
+              "name": "absolvor bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "reductor array",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Garlon Souleater – EPIC HERO",
+          "weapons": [
+            {
+              "name": "mind wrench",
+              "count": 1
+            },
+            {
+              "name": "force stave",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Katar Garrix – EPIC HERO",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "axe of ending",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Captain Sargotta – EPIC HERO",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "power sabre",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "The Enforcer – EPIC HERO",
+          "weapons": [
+            {
+              "name": "londaxi maimer",
+              "count": 1
+            },
+            {
+              "name": "bionic gauntlet",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

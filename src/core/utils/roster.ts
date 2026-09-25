@@ -1,7 +1,7 @@
 import type {
   PointsCost, Datasheet, Detachment, Enhancement, RosterEntry, RosterList, WargearCost, WeaponOptionRule,
 } from '@/types'
-import { ruleEligibleCount, parseUnitSlots, resolveRoleCounts, parseLoadoutWeaponCounts } from '@/core/utils/weaponOptions'
+import { ruleEligibleCount, parseUnitSlots, resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { isSameFactionFamily } from '@/core/constants/factionFamily'
 
 export const DETACHMENT_POINTS_BUDGET = 3
@@ -395,20 +395,27 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
     return profileBases.has(singular) ? singular : base
   }
 
-  // A unit whose sub-roles carry different base wargear (e.g. Deathwing Knights: 1 Knight
-  // Master with a great weapon, 4 Deathwing Knights with a mace) must multiply each weapon's
-  // count by however many models of its *own* role there are, not by the unit's total model
-  // count - otherwise every default weapon comes out equal to the full squad size regardless
-  // of who actually carries it. Falls back to the old whole-unit multiplier for a uniform
-  // loadout (the common case) or when the role can't be confidently resolved from the text.
-  const slots = parseUnitSlots(datasheet.unitComposition)
-  const roleCounts = resolveRoleCounts(slots, entry.modelCount)
-  const loadoutModels = parseLoadoutWeaponCounts(datasheet.loadout, slots, roleCounts)
-
-  datasheet.defaultWeaponNames.forEach(({ name, count }) => {
-    const models = loadoutModels.get(name.toLowerCase()) ?? entry.modelCount
-    counts.set(canonicalKey(name), count * models)
-  })
+  // A mixed-role unit (e.g. Deathwing Knights: 1 Knight Master with a great weapon, 4 Deathwing
+  // Knights with a mace) can't have every default weapon multiplied by the unit's whole
+  // modelCount - that gives every weapon the full squad size regardless of who actually carries
+  // it. `defaultWeaponGroups` is the hand-authored per-role/per-individual breakdown for exactly
+  // these units (see its doc comment in types/index.ts); a uniform-loadout unit (the common case)
+  // has no groups and keeps the flat modelCount multiplier.
+  if (datasheet.defaultWeaponGroups.length > 0) {
+    const slots = parseUnitSlots(datasheet.unitComposition)
+    const roleCounts = resolveRoleCounts(slots, entry.modelCount)
+    for (const group of datasheet.defaultWeaponGroups) {
+      const models = group.role !== undefined ? roleCounts[group.role] ?? 0 : group.fixedCount ?? 0
+      for (const { name, count } of group.weapons) {
+        const key = canonicalKey(name)
+        counts.set(key, (counts.get(key) ?? 0) + count * models)
+      }
+    }
+  } else {
+    datasheet.defaultWeaponNames.forEach(({ name, count }) =>
+      counts.set(canonicalKey(name), count * entry.modelCount),
+    )
+  }
 
   for (const rule of datasheet.weaponOptionRules) {
     if (rule.scope === 'unparsed' || rule.choices.length === 0) continue

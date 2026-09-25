@@ -2225,7 +2225,35 @@
         "martial-leverage",
         "methodical-annihilation"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Grimnyr",
+          "weapons": [
+            {
+              "name": "ancestral wrath",
+              "count": 1
+            },
+            {
+              "name": "ancestral ward stave",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "CORVs*",
+          "weapons": [
+            {
+              "name": "autoch-pattern bolter",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "brokhyr-iron-master",
@@ -2539,7 +2567,66 @@
         "assailed-from-every-angle",
         "methodical-annihilation"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Brôkhyr Iron-master",
+          "weapons": [
+            {
+              "name": "graviton rifle",
+              "count": 1
+            },
+            {
+              "name": "graviton hammer",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Ironkin Assistant",
+          "weapons": [
+            {
+              "name": "las-beam cutter",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "autoch-pattern bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "plasma torch",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "manipulator arms",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "hearthkyn-warriors",
@@ -2896,6 +2983,46 @@
         "uthar-the-destined",
         "kahl",
         "grimnyr"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Theyn",
+          "weapons": [
+            {
+              "name": "autoch-pattern bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "autoch-pattern bolter",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "weavefield crest",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Hearthkyn Warriors",
+          "weapons": [
+            {
+              "name": "autoch-pattern bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "autoch-pattern bolter",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -5359,6 +5486,38 @@
       ],
       "canBeLedBy": [
         "memnyr-strategist"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Steeljack Theyn",
+          "weapons": [
+            {
+              "name": "heavy volkanite disintegrator",
+              "count": 1
+            },
+            {
+              "name": "plasma knife",
+              "count": 1
+            },
+            {
+              "name": "preymark crest",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Ironkin Steeljacks",
+          "weapons": [
+            {
+              "name": "heavy volkanite disintegrator",
+              "count": 1
+            },
+            {
+              "name": "plasma knife",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -5544,6 +5703,38 @@
       ],
       "canBeLedBy": [
         "memnyr-strategist"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Steeljack Theyn",
+          "weapons": [
+            {
+              "name": "autoch-pattern bolter",
+              "count": 1
+            },
+            {
+              "name": "plasma sword",
+              "count": 1
+            },
+            {
+              "name": "preymark crest",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Ironkin Steeljacks",
+          "weapons": [
+            {
+              "name": "autoch-pattern bolter",
+              "count": 1
+            },
+            {
+              "name": "plasma sword",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

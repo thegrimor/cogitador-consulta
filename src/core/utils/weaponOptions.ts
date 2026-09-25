@@ -52,7 +52,10 @@ export function parseUnitSlots(compositionLines: string[]): UnitSlot[] {
     // Lines like "1 Grenadier Sergeant and 9 Grenadiers" or "1 X, 7 Y and 1 Z" declare several roles at once.
     for (const part of clean.split(/,\s*|\s+and\s+/i)) {
       const segment = part.trim().replace(/\.+$/, '')
-      const rangeMatch = segment.match(/^(\d+)\s*-\s*(\d+)\s+(.+)$/)
+      // A range's dash is sometimes a non-ASCII hyphen/dash (U+2011 non-breaking hyphen, en/em
+      // dash) rather than a plain "-" (e.g. Deathwatch's "0‑4 Kill Team Intercessors with..."),
+      // which would otherwise silently fail to match and drop the role's slot entirely.
+      const rangeMatch = segment.match(/^(\d+)\s*[-‑–—]\s*(\d+)\s+(.+)$/)
       const singleMatch = segment.match(/^(\d+)\s+(.+)$/)
       if (rangeMatch) {
         const role = rangeMatch[3].trim()
@@ -88,8 +91,8 @@ export function resolveRoleCounts(slots: UnitSlot[], totalModelCount: number): R
   return Object.fromEntries(slots.map((s, i) => [s.role, counts[i]]))
 }
 
-export function matchRole(text: string, slots: UnitSlot[]): string | undefined {
-  let norm = text.trim().replace(/^(the|this|every|all( of the)?|any number(?:s)? of|each|up to \d+|one)\s+/i, '').trim()
+function matchRole(text: string, slots: UnitSlot[]): string | undefined {
+  let norm = text.trim().replace(/^(the|this|any number(?:s)? of|each|up to \d+|one)\s+/i, '').trim()
   norm = norm.replace(/[’']s$/i, '').trim().toLowerCase()
   const exact = slots.find(s => s.role.toLowerCase() === norm)
   if (exact) return exact.role
@@ -97,23 +100,6 @@ export function matchRole(text: string, slots: UnitSlot[]): string | undefined {
   const noS = singularize(norm)
   const byStem = slots.find(s => singularize(s.role.toLowerCase()) === noS)
   if (byStem) return byStem.role
-  // A role's plural "s" can land on an earlier word than the last ("Sisters Repentia", not
-  // "Repentias") - singularizing word-by-word catches that shape the whole-string singularize
-  // above can't.
-  const singularizeEachWord = (s: string) => s.split(' ').map(singularize).join(' ')
-  const byWordStem = slots.find(s => singularizeEachWord(s.role.toLowerCase()) === singularizeEachWord(norm))
-  if (byWordStem) return byWordStem.role
-  // A unit-composition role name often carries a trailing "model(s)" the loadout's own subject
-  // text may lack (or vice versa) - e.g. "Sternguard Veteran Sergeant model" vs "Sternguard
-  // Veteran models". Comparing with that suffix stripped from both sides disambiguates a leader
-  // role whose name would otherwise substring-match the plain troop role below (both contain
-  // "Sternguard Veteran"), which the generic substring fallback can't tell apart.
-  const stripModelSuffix = (s: string) => s.replace(/\s+models?$/i, '')
-  const normNoModel = singularizeEachWord(stripModelSuffix(norm))
-  const byModelStrippedStem = slots.find(
-    s => singularizeEachWord(stripModelSuffix(s.role.toLowerCase())) === normNoModel,
-  )
-  if (byModelStrippedStem) return byModelStrippedStem.role
   const candidates = slots.filter(
     s => norm.includes(s.role.toLowerCase()) || s.role.toLowerCase().includes(norm),
   )
@@ -439,67 +425,6 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       allowRepeatChoice: false,
     })
   })
-}
-
-const LOADOUT_LINE_SPLIT = /<br\s*\/?>/i
-
-/** Reads a datasheet's free-text `loadout` field (e.g. "The Knight Master is equipped with:
- * great weapon of the Unforgiven.<br><br>Every Deathwing Knight is equipped with: mace of
- * absolution.") to find how many models actually carry each named default weapon, for units
- * whose models don't all carry the same base wargear. Splits on every `<br>` line break - some
- * datasheets separate these clauses with one `<br>`, others with two - and matches each
- * resulting line against "<subject> is/are equipped with: <list>", where list items are
- * semicolon-separated (never split on ","/"and": a single fused weapon's own name can contain
- * "and", e.g. Orks' Stompa "Deffkannon and Supa-rokkits").
- *
- * The subject resolves to a model count two ways:
- * - A literal leading number ("1 Tanith Ghost is equipped with...", "1 other Cadian Veteran
- *   Guardsman is equipped with...") names one specific model within a larger role, appearing
- *   once per model when several models of the same role each carry unique gear - so that literal
- *   count is used directly, and contributions across such lines are *summed* per weapon (three
- *   different "1 other Veteran Guardsman" lines each carrying "lasgun" means 3 lasguns total,
- *   not 1).
- * - Otherwise the subject must resolve to a whole `slots` role (via `matchRole`), and every model
- *   of that role is assumed to carry the listed weapons ("Every Deathwing Knight...").
- *
- * A weapon left unmapped (a uniform "every model"/"this unit" loadout, or a subject this can't
- * confidently resolve) should fall back to the unit's total model count, exactly as a
- * uniform-loadout unit already does - the caller is expected to treat a missing map entry that
- * way rather than treating it as zero. */
-export function parseLoadoutWeaponCounts(
-  loadoutHtml: string,
-  slots: UnitSlot[],
-  roleCounts: Record<string, number>,
-): Map<string, number> {
-  const map = new Map<string, number>()
-  if (!loadoutHtml || slots.length < 2) return map
-  for (const line of loadoutHtml.split(LOADOUT_LINE_SPLIT)) {
-    const clean = stripHtml(line)
-    if (!clean) continue
-    const m = clean.match(/^(.+?) (?:is|are) equipped with:?\s*(.+?)\.?$/i)
-    if (!m) continue
-    const [, subjectRaw, weaponListRaw] = m
-    const subject = subjectRaw.trim()
-
-    let multiplier: number | undefined
-    const literal = subject.match(/^(\d+)\s+(?:other\s+)?(.+)$/i)
-    if (literal) {
-      multiplier = parseInt(literal[1], 10)
-    } else {
-      const subjectNorm = subject.replace(/^(the|this|every|all( of the)?|each)\s+/i, '').trim().toLowerCase()
-      if (/^models?$/.test(subjectNorm)) continue // "every model"/"all models" - whole-unit loadout, leave unmapped
-      const role = matchRole(subject.replace(/\s+models?$/i, ''), slots)
-      if (role) multiplier = roleCounts[role]
-    }
-    if (multiplier === undefined) continue
-
-    for (const part of weaponListRaw.split(';')) {
-      const name = part.trim().replace(/^\d+\s+/, '').toLowerCase()
-      if (!name) continue
-      map.set(name, (map.get(name) ?? 0) + multiplier)
-    }
-  }
-  return map
 }
 
 export function ruleEligibleCount(
