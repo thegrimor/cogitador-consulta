@@ -88,8 +88,8 @@ export function resolveRoleCounts(slots: UnitSlot[], totalModelCount: number): R
   return Object.fromEntries(slots.map((s, i) => [s.role, counts[i]]))
 }
 
-function matchRole(text: string, slots: UnitSlot[]): string | undefined {
-  let norm = text.trim().replace(/^(the|this|any number(?:s)? of|each|up to \d+|one)\s+/i, '').trim()
+export function matchRole(text: string, slots: UnitSlot[]): string | undefined {
+  let norm = text.trim().replace(/^(the|this|every|all( of the)?|any number(?:s)? of|each|up to \d+|one)\s+/i, '').trim()
   norm = norm.replace(/[’']s$/i, '').trim().toLowerCase()
   const exact = slots.find(s => s.role.toLowerCase() === norm)
   if (exact) return exact.role
@@ -422,6 +422,33 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
       allowRepeatChoice: false,
     })
   })
+}
+
+const LOADOUT_PARAGRAPH_SPLIT = /<br\s*\/?>\s*<br\s*\/?>/i
+
+/** Reads a datasheet's free-text `loadout` field (e.g. "The Knight Master is equipped with:
+ * great weapon of the Unforgiven.<br><br>Every Deathwing Knight is equipped with: mace of
+ * absolution.") to find which unit role each named default weapon belongs to, for units whose
+ * models don't all carry the same base wargear. Maps a weapon's lowercased name to a role from
+ * `slots`; a weapon left unmapped (uniform loadout, or a subject this can't confidently resolve,
+ * e.g. "every model"/"this unit") should fall back to the unit's total model count, exactly as
+ * a uniform-loadout unit already does. */
+export function parseLoadoutWeaponRoles(loadoutHtml: string, slots: UnitSlot[]): Map<string, string> {
+  const map = new Map<string, string>()
+  if (!loadoutHtml || slots.length < 2) return map
+  for (const para of loadoutHtml.split(LOADOUT_PARAGRAPH_SPLIT)) {
+    const clean = stripHtml(para)
+    const m = clean.match(/^(.+?) (?:is|are) equipped with:?\s*(.+?)\.?$/i)
+    if (!m) continue
+    const [, subjectRaw, weaponListRaw] = m
+    const role = matchRole(subjectRaw, slots)
+    if (!role) continue
+    for (const part of weaponListRaw.split(';')) {
+      const name = part.replace(/^\d+\s+/, '').trim().toLowerCase()
+      if (name) map.set(name, role)
+    }
+  }
+  return map
 }
 
 export function ruleEligibleCount(

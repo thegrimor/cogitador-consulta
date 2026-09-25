@@ -1,7 +1,7 @@
 import type {
   PointsCost, Datasheet, Detachment, Enhancement, RosterEntry, RosterList, WargearCost, WeaponOptionRule,
 } from '@/types'
-import { ruleEligibleCount } from '@/core/utils/weaponOptions'
+import { ruleEligibleCount, parseUnitSlots, resolveRoleCounts, parseLoadoutWeaponRoles } from '@/core/utils/weaponOptions'
 import { isSameFactionFamily } from '@/core/constants/factionFamily'
 
 export const DETACHMENT_POINTS_BUDGET = 3
@@ -395,9 +395,21 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
     return profileBases.has(singular) ? singular : base
   }
 
-  datasheet.defaultWeaponNames.forEach(({ name, count }) =>
-    counts.set(canonicalKey(name), count * entry.modelCount),
-  )
+  // A unit whose sub-roles carry different base wargear (e.g. Deathwing Knights: 1 Knight
+  // Master with a great weapon, 4 Deathwing Knights with a mace) must multiply each weapon's
+  // count by however many models of its *own* role there are, not by the unit's total model
+  // count - otherwise every default weapon comes out equal to the full squad size regardless
+  // of who actually carries it. Falls back to the old whole-unit multiplier for a uniform
+  // loadout (the common case) or when the role can't be confidently resolved from the text.
+  const slots = parseUnitSlots(datasheet.unitComposition)
+  const roleCounts = resolveRoleCounts(slots, entry.modelCount)
+  const loadoutRoles = parseLoadoutWeaponRoles(datasheet.loadout, slots)
+
+  datasheet.defaultWeaponNames.forEach(({ name, count }) => {
+    const role = loadoutRoles.get(name.toLowerCase())
+    const models = role !== undefined ? roleCounts[role] ?? entry.modelCount : entry.modelCount
+    counts.set(canonicalKey(name), count * models)
+  })
 
   for (const rule of datasheet.weaponOptionRules) {
     if (rule.scope === 'unparsed' || rule.choices.length === 0) continue
