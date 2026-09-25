@@ -5722,7 +5722,47 @@
         "murderous-imperative",
         "noospheric-transference"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Serberys Sulphurhound Alpha",
+          "weapons": [
+            {
+              "name": "mechanicus pistol",
+              "count": 1
+            },
+            {
+              "name": "sulphur breath",
+              "count": 1
+            },
+            {
+              "name": "cavalry arc maul",
+              "count": 1
+            },
+            {
+              "name": "clawed limbs",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Serberys Sulphurhounds",
+          "weapons": [
+            {
+              "name": "phosphor pistols",
+              "count": 2
+            },
+            {
+              "name": "sulphur breath",
+              "count": 1
+            },
+            {
+              "name": "clawed limbs",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "serberys-raiders",
@@ -5893,7 +5933,39 @@
         "noospheric-transference",
         "murderous-imperative"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Serberys Raider Alpha",
+          "weapons": [
+            {
+              "name": "mechanicus pistol",
+              "count": 1
+            },
+            {
+              "name": "galvanic carbine",
+              "count": 1
+            },
+            {
+              "name": "cavalry sabre and clawed limbs",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Serberys Raiders",
+          "weapons": [
+            {
+              "name": "galvanic carbine",
+              "count": 1
+            },
+            {
+              "name": "cavalry sabre and clawed limbs",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "pteraxii-sterylizors",
@@ -6109,7 +6181,39 @@
         "murderous-imperative",
         "stealth-optimisation"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Pteraxii Sterylizor Alpha",
+          "weapons": [
+            {
+              "name": "flechette blaster",
+              "count": 1
+            },
+            {
+              "name": "pteraxii talons",
+              "count": 1
+            },
+            {
+              "name": "taser goad",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Pteraxii Sterylizors",
+          "weapons": [
+            {
+              "name": "phosphor torch",
+              "count": 1
+            },
+            {
+              "name": "pteraxii talons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "pteraxii-skystalkers",
@@ -6303,7 +6407,35 @@
         "noospheric-transference",
         "murderous-imperative"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Pteraxii Skystalker Alpha",
+          "weapons": [
+            {
+              "name": "flechette blaster",
+              "count": 1
+            },
+            {
+              "name": "taser goad",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Pteraxii Skystalkers",
+          "weapons": [
+            {
+              "name": "flechette carbine",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "archaeopter-transvector",
@@ -7907,6 +8039,60 @@
         "tech-priest-dominus",
         "tech-priest-enginseer",
         "technoarcheologist"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Servitor Underseer",
+          "weapons": [
+            {
+              "name": "mechanicus pistol",
+              "count": 1
+            },
+            {
+              "name": "dataspikes",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "heavy arc rifle",
+              "count": 1
+            },
+            {
+              "name": "servo-claw",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "heavy bolter",
+              "count": 1
+            },
+            {
+              "name": "servo-claw",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Combat Servitors",
+          "weapons": [
+            {
+              "name": "phosphor blaster",
+              "count": 1
+            },
+            {
+              "name": "servo-claw",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -8329,6 +8515,42 @@
         "tech-priest-enginseer",
         "technoarcheologist",
         "skitarii-marshal"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Hastarii Exterminator Alpha",
+          "weapons": [
+            {
+              "name": "hastarii arc blaster",
+              "count": 1
+            },
+            {
+              "name": "eradication caster",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Hastarii Exterminators",
+          "weapons": [
+            {
+              "name": "hastarii arc blaster",
+              "count": 1
+            },
+            {
+              "name": "eradication caster",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -8514,6 +8736,42 @@
         "tech-priest-enginseer",
         "technoarcheologist",
         "skitarii-marshal"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Hastarii Fusilier Alpha",
+          "weapons": [
+            {
+              "name": "neutron fusil",
+              "count": 1
+            },
+            {
+              "name": "hastarii phosphor blaster",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Hastarii Fusiliers",
+          "weapons": [
+            {
+              "name": "neutron fusil",
+              "count": 1
+            },
+            {
+              "name": "hastarii phosphor blaster",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     }
   ],

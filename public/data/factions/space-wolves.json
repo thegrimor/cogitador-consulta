@@ -4538,6 +4538,34 @@
       "canBeLedBy": [
         "arjac-rockfist",
         "logan-grimnar"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Wolf Guard Terminator Pack Leader",
+          "weapons": [
+            {
+              "name": "storm bolter",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Wolf Guard Terminators",
+          "weapons": [
+            {
+              "name": "storm bolter",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -6868,6 +6896,34 @@
         "ulrik-the-slayer",
         "wolf-guard-battle-leader",
         "wolf-priest"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Wolf Guard Headtakers",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            },
+            {
+              "name": "storm shield",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Hunting Wolves",
+          "weapons": [
+            {
+              "name": "teeth and claws",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -8082,7 +8138,44 @@
         "grim-resolve",
         "shock-and-awe"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Wolf Scout Pack Leader",
+          "weapons": [
+            {
+              "name": "plasma pistol",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Wolf Scouts",
+          "weapons": [
+            {
+              "name": "plasma pistol",
+              "count": 1
+            },
+            {
+              "name": "combat blade",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Hunting Wolf",
+          "weapons": [
+            {
+              "name": "teeth and claws",
+              "count": 1
+            }
+          ]
+        }
+      ]
     }
   ],
   "combatEffects": []

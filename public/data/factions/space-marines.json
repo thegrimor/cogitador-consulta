@@ -2849,6 +2849,86 @@
       ],
       "canBeLedBy": [
         "captain-titus"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Aemelia Minervas model",
+          "weapons": [
+            {
+              "name": "archeotech laspistol",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Ancient Gadriel model",
+          "weapons": [
+            {
+              "name": "bolt rifle",
+              "count": 1
+            },
+            {
+              "name": "ceramite fists",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Dainal Kornelius model",
+          "weapons": [
+            {
+              "name": "astropathic blast",
+              "count": 1
+            },
+            {
+              "name": "force stave",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Gaius Silva model",
+          "weapons": [
+            {
+              "name": "archeotech laspistol",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Lucia Vestha model",
+          "weapons": [
+            {
+              "name": "archeotech laspistol",
+              "count": 1
+            },
+            {
+              "name": "ultramarian combat weapons",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Veteran Sergeant Metaurus model",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -3042,6 +3122,47 @@
         "captain",
         "captain-titus",
         "cato-sicarius"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Chapter Ancient model",
+          "weapons": [
+            {
+              "name": "banner of macragge",
+              "count": 1
+            },
+            {
+              "name": "master-crafted bolt carbine",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Chapter Champion model",
+          "weapons": [
+            {
+              "name": "blades of honour",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Victrix Honour Guard models",
+          "weapons": [
+            {
+              "name": "master-crafted bolt carbine",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -9339,6 +9460,72 @@
         "korsarro-khan",
         "lieutenant",
         "vulkan-hestan"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ancient model",
+          "weapons": [
+            {
+              "name": "combat knife",
+              "count": 1
+            },
+            {
+              "name": "master-crafted bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted bolt rifle",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Company Champion model",
+          "weapons": [
+            {
+              "name": "master-crafted bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Company Veteran with Bolt Rifle model",
+          "weapons": [
+            {
+              "name": "combat knife",
+              "count": 1
+            },
+            {
+              "name": "master-crafted bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted bolt rifle",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Company Veteran with Heavy Bolter model",
+          "weapons": [
+            {
+              "name": "combat knife",
+              "count": 1
+            },
+            {
+              "name": "master-crafted bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted heavy bolter",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -11605,6 +11792,42 @@
         "marshal",
         "sanguinary-priest",
         "wardens-of-ultramar"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Sternguard Veteran Sergeant model",
+          "weapons": [
+            {
+              "name": "artificer firearm",
+              "count": 1
+            },
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Sternguard Veteran models",
+          "weapons": [
+            {
+              "name": "artificer firearm",
+              "count": 1
+            },
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "ceramite fists",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -11851,6 +12074,34 @@
         "chaplain-with-jump-pack",
         "commander-dante",
         "kayvaan-shrike"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Vanguard Veteran Sergeant with Jump Pack model",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "relic blade",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Vanguard Veteran with Jump Pack models",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "master-crafted power weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

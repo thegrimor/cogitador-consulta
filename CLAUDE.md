@@ -33,6 +33,12 @@ frontend can be deployed separately and point at the backend via `VITE_API_BASE_
 One-off data scripts (run manually with `node scripts/<file>.mjs`, not wired to package.json,
 except `extract-pdf`/`extract-pdf:install` above which delegate to `extract-text.py`):
 - `scrape-mission-actions.mjs` — fills the back-of-card `action` text into `public/data/missions.json`
+- `fix-mixed-role-default-weapons.mjs` — one-off migration that authored `defaultWeaponGroups` (see
+  "Mixed-role units and `defaultWeaponGroups`" under Army builder below) for every mixed-role
+  datasheet it could confidently resolve from its own `loadout` text; re-runnable and idempotent
+  (only ever adds/overwrites a datasheet's `defaultWeaponGroups` on a fully-resolved match, never
+  touches one it can't fully account for) — `node scripts/fix-mixed-role-default-weapons.mjs
+  [--dry]` prints a report of any datasheet it can't confidently resolve, for manual authoring.
 - `audit-combat-effects.mjs` — triage tool for the Mathhammer combat-effect data audit (see
   "CombatEffect authoring convention" under Mathhammer below): walks every
   `public/data/factions/<slug>.json`, finds every Ability/DetachmentAbility/Stratagem/Enhancement
@@ -595,7 +601,55 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   to the default and lands them in "Otros", so "Transporte Dedicado" never renders for Space
   Marines. Not fixed here because `maxCopiesAllowed` doubles the duplicate-datasheet cap for
   Battleline/Dedicated Transports — renaming the role changes roster legality, not just grouping.
-- Points math (`resolveCostsForUnitIndex`, `sumDetachmentPoints`, model-count resolution, rule selection caps) lives in `src/core/utils/roster.ts`; weapon-option/loadout parsing is in `src/core/utils/weaponOptions.ts`. Points are never cached on a `RosterEntry`/`RosterList` (no `pointsCost`, `wargearSurcharge`, or `totalPoints` fields) — `RosterEntry` only stores the player's choices (`modelCount`, `wargearSelections`, `weaponOptionSelections`, `enhancementId`). Every points figure is resolved fresh from the current `pointsCostMap`/`wargearCostMap`/`enhancements` at read time via `resolveEntryBaseCost` / `resolveEntryWargearSurcharge` / `resolveEntryEnhancementCost` / `resolveEntryPoints` (base + wargear, what the roster editor shows per unit) / `resolveEntryTotalPoints` (+ enhancement, for export text) / `resolveRosterTotalPoints` (whole-roster grand total) — all in `src/core/utils/roster.ts`. This means a correction to a datasheet's points in the JSON data is reflected on every saved roster immediately, with nothing to re-save; it also shrinks what's persisted (backend `PUT /api/rosters/:id`, QR payload).
+- Points math (`resolveCostsForUnitIndex`, `sumDetachmentPoints`, model-count resolution, rule selection caps) lives in `src/core/utils/roster.ts`; weapon-option/loadout parsing is in `src/core/utils/weaponOptions.ts`.
+  **Mixed-role units and `defaultWeaponGroups`:** a unit whose sub-roles carry different base
+  wargear (e.g. Dark Angels' Deathwing Knights: 1 Knight Master with a great weapon, 4 Deathwing
+  Knights with a mace) can't have every `defaultWeaponNames` entry multiplied by the unit's whole
+  `modelCount` — that gives every weapon the full squad size (x5) regardless of who actually
+  carries it, confirmed wrong against the official app (1/4, not 5/5). The fix is **not** a
+  runtime parser of the datasheet's free-text `loadout` field — an early version of this fix did
+  read `loadout` prose live in `resolveWeaponQuantities` on every render (regex-matching "is
+  equipped with", guessing at pluralization, etc.), and it was exactly as fragile as that sounds:
+  a single-`<br>` vs double-`<br>` separator alone silently broke it for several factions. That
+  approach was reverted. Instead, `Datasheet.defaultWeaponGroups` (`DefaultWeaponGroup[]`, in
+  `types/index.ts`) is a **hand-authored, static** field — a flat list of `{ role?, fixedCount?,
+  weapons }` groups (one per distinct loadout clause: a `role` scales with the roster entry's
+  `modelCount` for a variable-size unit via `resolveRoleCounts`, `fixedCount` is an absolute
+  number for named individuals within a fixed-size unit) — and `resolveWeaponQuantities`
+  (`roster.ts`) just sums `weapon.count × group's resolved model count` across whichever groups
+  exist, with **no text parsing at request time at all**. A uniform-loadout datasheet (every
+  model carries the same gear — the overwhelming majority) has an empty `defaultWeaponGroups` and
+  keeps the original flat `defaultWeaponNames × modelCount` multiplier.
+  `scripts/fix-mixed-role-default-weapons.mjs` is the one-off migration that *authored* this data:
+  it still reads each datasheet's `loadout` text, but only once, offline, to populate the JSON —
+  never as a live runtime dependency — and it refuses to write a partial result (if it can't
+  confidently account for every `defaultWeaponNames` entry, it leaves the datasheet untouched and
+  lists it for manual review, since a partial write would silently drop an unresolved weapon from
+  the roster's weapon table entirely, worse than the old whole-unit-multiplier fallback). Of the
+  124 faction-wide datasheets with more than one "is equipped with"/"are equipped with" clause in
+  their `loadout` (the candidate population for this bug shape), the script auto-resolved 112 and
+  6 more were hand-authored directly (`Saint Celestine`, `Hastarii Fusiliers`, `Ravenwing Command
+  Squad`, `Voidsmen-at-arms`, `Imperial Navy Breachers`, `Squighog Boyz` — each too irregular for
+  the script's rules: a typo'd role name, an "every other model" whole-unit-relative subject, an
+  Ork "z"-plural, etc.). **Two remain a known, documented gap**: Deathwatch's `Decimus Kill Team`
+  and Imperial Agents' `Aquila Kill Team` (identical content) use a genuine "for every 5 models in
+  the unit, 1 Deathwatch Veteran is equipped with..." *scaling* clause that neither `role` nor
+  `fixedCount` can represent — extending the schema with a third, scaling group kind is the right
+  follow-up if this ever actually matters at the table. Along the way this also fixed two
+  unrelated latent bugs in `parseUnitSlots`/`matchRole` (`weaponOptions.ts`) that the script's
+  development surfaced: a range like `"0‑4 Kill Team Intercessors..."` using a non-breaking hyphen
+  (U+2011) instead of a plain `-` silently produced no slot at all (fixed in the shared production
+  parser too, not just the script — it affected `WeaponOptionsEditor`'s role-based option counts
+  for four Deathwatch Kill Team datasheets independently of this issue); and irregular English
+  plurals in role names (`"Guardsman"`/`"Guardsmen"`, `"Wolf"`/`"Wolves"`, `"Nob"`/`"Nobz"`)
+  weren't recognized by the existing singular/plural matching (kept as a script-only improvement,
+  since it was purely in service of one-time data authoring, not a runtime need).
+  End-to-end verified against the real app for Deathwing Knights only (screenshot-confirmed 1/4);
+  the rest were verified by re-deriving each datasheet's correct per-weapon count independently
+  and diffing against both the old and new computed values, plus spot-checking a handful of the
+  generated JSON directly (Tankbustas, Company Heroes, Cadian Command Squad, Boyz) — not
+  individually screenshotted in the app.
+  Points are never cached on a `RosterEntry`/`RosterList` (no `pointsCost`, `wargearSurcharge`, or `totalPoints` fields) — `RosterEntry` only stores the player's choices (`modelCount`, `wargearSelections`, `weaponOptionSelections`, `enhancementId`). Every points figure is resolved fresh from the current `pointsCostMap`/`wargearCostMap`/`enhancements` at read time via `resolveEntryBaseCost` / `resolveEntryWargearSurcharge` / `resolveEntryEnhancementCost` / `resolveEntryPoints` (base + wargear, what the roster editor shows per unit) / `resolveEntryTotalPoints` (+ enhancement, for export text) / `resolveRosterTotalPoints` (whole-roster grand total) — all in `src/core/utils/roster.ts`. This means a correction to a datasheet's points in the JSON data is reflected on every saved roster immediately, with nothing to re-save; it also shrinks what's persisted (backend `PUT /api/rosters/:id`, QR payload).
 - Imperial Agents datasheets (`public/data/factions/imperial-agents.json`) are the only ones that get taken as an ally into a foreign faction's roster (the "Agentes del Imperio" source tab inside `AddUnitModal`; `ALLY_FACTION_ID` and `canTakeImperialAgents` both live in `src/core/constants/allies.ts` — the id must match the faction JSON's own `id`, not GW's in-game "AoI" shorthand, which isn't a real `factionId` anywhere in the data), and *some* of them (not all — check the MFM per the rule above rather than assuming) are priced differently for that than for a native Agents of the Imperium army — GW's own "Assigned Agent" vs "AGENTS OF THE IMPERIUM Detachment" distinction, which isn't always a price *increase* (Exaction Squad's ally price is lower). This is encoded as a `"(Assigned Agent)"`/`"(...Detachment)"` annotation on the relevant `pointsCosts` entries — a separate trailing `(...)` group from the `"(2nd+ unit)"`/`"(1st to 3rd units)"` surcharge-tier suffix on the one datasheet needing both (Sisters of Battle Immolator: `"1 model (1st to 3rd units) (Assigned Agent)"`) — `parseTierRange` checks every parenthetical group in a description rather than assuming the tier is the only or last one, and `isAssignedAgentCost` matches the annotation anywhere in the string for the same reason. `resolveCostsForFactionContext` in `roster.ts` picks the right context by comparing the entry's datasheet `factionId` against the roster's own `factionId`, and every points-resolution call site (`resolveRosterTotalPoints`, `rosterExport.ts`'s export/import, `RosterEditPage`, `AddUnitModal`) filters through it before `resolveCostsForUnitIndex`. Skipping this filter at a new call site doesn't error — it just silently grabs whichever tier happens to sort first, so a roster's total quietly comes out wrong by the price gap (seen for real: an imported list with allied Inquisitorial Agents undercounting by exactly the Detachment/Assigned-Agent gap).
   **Which factions may take them** is `canTakeImperialAgents` in `src/core/constants/allies.ts`, a
   hand-keyed set of the 13 Imperium faction slugs. It must stay keyed on the slug ids from

@@ -9324,11 +9324,23 @@
           "options": [
             {
               "name": "Marcar unidad enemiga",
-              "effect": { "effects": { "rerollAllHits": true, "rerollAllWounds": true }, "bearerOnly": true }
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "bearerOnly": true
+              }
             },
             {
               "name": "Marcar objetivo (OC)",
-              "effect": { "effects": { "feelNoPainThreshold": 5 }, "target": "defender", "bearerOnly": true }
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 5
+                },
+                "target": "defender",
+                "bearerOnly": true
+              }
             }
           ]
         },
@@ -9512,11 +9524,23 @@
           "options": [
             {
               "name": "Marcar unidad enemiga",
-              "effect": { "effects": { "rerollAllHits": true, "rerollAllWounds": true }, "bearerOnly": true }
+              "effect": {
+                "effects": {
+                  "rerollAllHits": true,
+                  "rerollAllWounds": true
+                },
+                "bearerOnly": true
+              }
             },
             {
               "name": "Marcar objetivo (OC)",
-              "effect": { "effects": { "feelNoPainThreshold": 5 }, "target": "defender", "bearerOnly": true }
+              "effect": {
+                "effects": {
+                  "feelNoPainThreshold": 5
+                },
+                "target": "defender",
+                "bearerOnly": true
+              }
             }
           ]
         },
@@ -10037,7 +10061,40 @@
         "synaptic-imperatives",
         "hyper-adaptations"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ravener Prime",
+          "weapons": [
+            {
+              "name": "prime claws and talons",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 3,
+          "weapons": [
+            {
+              "name": "ravener heavy claws and talons",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "venom bolt",
+              "count": 1
+            },
+            {
+              "name": "ravener heavy claws and talons",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "tyranid-prime-with-lash-whip",

@@ -4993,6 +4993,34 @@
         "autarch",
         "farseer",
         "warlock"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Guardian Defenders",
+          "weapons": [
+            {
+              "name": "shuriken catapult",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Heavy Weapon Platform",
+          "weapons": [
+            {
+              "name": "shuriken cannon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -5230,6 +5258,34 @@
         "autarch",
         "farseer",
         "warlock"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Storm Guardians",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Serpent’s Scale Platform",
+          "weapons": [
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "serpent shield",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -6336,6 +6392,38 @@
       ],
       "canBeLedBy": [
         "autarch"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Striking Scorpion Exarch",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "scorpion chainsword",
+              "count": 1
+            },
+            {
+              "name": "scorpion’s claw",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Striking Scorpions",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "scorpion chainsword",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -6608,6 +6696,34 @@
       "canBeLedBy": [
         "fuegan",
         "autarch"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Fire Dragon Exarch",
+          "weapons": [
+            {
+              "name": "exarch’s dragon fusion gun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Fire Dragons",
+          "weapons": [
+            {
+              "name": "dragon fusion gun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -7415,6 +7531,34 @@
       "canBeLedBy": [
         "baharroth",
         "autarch-wayleaper"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Swooping Hawk Exarch",
+          "weapons": [
+            {
+              "name": "hawk’s talon",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Swooping Hawks",
+          "weapons": [
+            {
+              "name": "lasblaster",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -7681,6 +7825,34 @@
       "canBeLedBy": [
         "autarch-wayleaper",
         "lhykhis"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Warp Spider Exarch",
+          "weapons": [
+            {
+              "name": "exarch’s death spinner",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Warp Spiders",
+          "weapons": [
+            {
+              "name": "death spinner",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -11287,6 +11459,89 @@
         "the-visarch",
         "kharseth",
         "prince-yriel"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Corsair Voidscarred",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Voidscarred Felarch",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Shade Runner",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "paired hekatarii blades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Soul Weaver",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            },
+            {
+              "name": "channeller stones",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Way Seeker",
+          "weapons": [
+            {
+              "name": "shuriken pistol",
+              "count": 1
+            },
+            {
+              "name": "executioner",
+              "count": 1
+            },
+            {
+              "name": "witch staff",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

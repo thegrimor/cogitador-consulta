@@ -9642,7 +9642,39 @@
         "hyperphasing",
         "worthy-foes"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Szarekh – EPIC HERO",
+          "weapons": [
+            {
+              "name": "sceptre of eternal glory",
+              "count": 1
+            },
+            {
+              "name": "staff of stars",
+              "count": 1
+            },
+            {
+              "name": "weapons of the final triarch",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Triarchal Menhirs",
+          "weapons": [
+            {
+              "name": "annihilator beam",
+              "count": 1
+            },
+            {
+              "name": "armoured bulk",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "convergence-of-dominion",

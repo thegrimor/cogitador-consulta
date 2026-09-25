@@ -1080,6 +1080,72 @@
         "captain-in-phobos-armour",
         "librarian-in-phobos-armour",
         "lieutenant-in-phobos-armour"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kill Team Infiltrators",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "deathwatch marksman bolt carbine",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Infiltrators with bolt sniper rifles",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "bolt sniper rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Infiltrators with Deathwatch occulus bolt carbines",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "deathwatch occulus bolt carbine",
+              "count": 1
+            },
+            {
+              "name": "paired combat blades",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Infiltrators with combat knives",
+          "weapons": [
+            {
+              "name": "special-issue bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "combat knife",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -1732,6 +1798,110 @@
         "techmarine",
         "watch-captain-artemis-space-marines",
         "watch-master-space-marines"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kill Team Sergeant",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "deathwatch bolt rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Intercessors",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "deathwatch bolt rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Intercessors with plasma incinerators",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "plasma incinerator",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Intercessors with heavy bolt pistols",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "astartes chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Intercessors with pyreblasters",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "pyreblaster",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Intercessors with superfrag rocket launchers",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "castellan launcher",
+              "count": 1
+            },
+            {
+              "name": "superfrag rocket launcher",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -2206,6 +2376,55 @@
       "canBeLedBy": [
         "apothecary-biologis",
         "captain-in-gravis-armour"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kill Team Heavy Intercessors",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "deathwatch heavy bolt rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Heavy Intercessors with power fists",
+          "weapons": [
+            {
+              "name": "flamestorm gauntlets",
+              "count": 1
+            },
+            {
+              "name": "twin power fists",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Heavy Intercessors with melta rifles",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "melta rifle",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -4485,6 +4704,47 @@
       "canBeLedBy": [
         "captain-with-jump-pack",
         "chaplain-with-jump-pack"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kill Team Sergeant with Jump Pack",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "astartes chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Intercessors with Jump Packs",
+          "weapons": [
+            {
+              "name": "heavy bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "astartes chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kill Team Heavy Intercessors with Jump Packs",
+          "weapons": [
+            {
+              "name": "assault bolters",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

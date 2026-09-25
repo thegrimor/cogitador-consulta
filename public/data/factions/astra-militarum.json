@@ -7481,7 +7481,35 @@
         "only-the-best",
         "ruthless-discipline"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Tempestor Prime",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "tempestus dagger",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Tempestus Scions",
+          "weapons": [
+            {
+              "name": "hot-shot lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "taurox-prime",
@@ -10187,7 +10215,87 @@
         "artillery-support",
         "squadron-command"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Ibram Gaunt",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "gaunt’s chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "corbec’s hot-shot lascarbine",
+              "count": 1
+            },
+            {
+              "name": "straight silver knife",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "rawne’s lascarbine",
+              "count": 1
+            },
+            {
+              "name": "straight silver knife",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "larkin’s long-las",
+              "count": 1
+            },
+            {
+              "name": "straight silver knife",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "bragg’s autocannon",
+              "count": 1
+            },
+            {
+              "name": "straight silver knife",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lascarbine",
+              "count": 1
+            },
+            {
+              "name": "mkoll’s straight silver knife",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "lord-solar-leontus",
@@ -11255,7 +11363,86 @@
         "ruthless-discipline",
         "only-the-best"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Cadian Commander",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "las pistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "master vox",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "medi-pack",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "regimental standard",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "cadian-shock-troops",
@@ -11596,6 +11783,34 @@
         "commissar",
         "commissar-graves-on-foot",
         "commissar-yarrick"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Shock Trooper Sergeant",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Shock Troopers",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -12020,6 +12235,34 @@
         "commissar",
         "commissar-graves-on-foot",
         "commissar-yarrick"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Death Korps Watchmaster",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Death Korps Troopers",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -12238,6 +12481,34 @@
         "inquisitor-greyfax",
         "commissar-yarrick",
         "commissar-graves-on-foot"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Jungle Fighter Sergeant",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Jungle Fighters",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -12635,6 +12906,34 @@
         "commissar",
         "commissar-yarrick",
         "commissar-graves-on-foot"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Kasrkin Sergeant",
+          "weapons": [
+            {
+              "name": "hot-shot laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Kasrkin Troopers",
+          "weapons": [
+            {
+              "name": "hot-shot lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -15229,6 +15528,34 @@
         "militarum-tempestus-command-squad",
         "commissar-yarrick",
         "commissar-graves-on-foot"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Tempestor",
+          "weapons": [
+            {
+              "name": "hot-shot laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Tempestus Scions",
+          "weapons": [
+            {
+              "name": "hot-shot lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -15589,7 +15916,39 @@
         "armoured-fist",
         "ruthless-discipline"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Tempestor Aquilon",
+          "weapons": [
+            {
+              "name": "hot-shot lascarbine",
+              "count": 1
+            },
+            {
+              "name": "sentry flamer",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Tempestus Aquilons",
+          "weapons": [
+            {
+              "name": "hot-shot lascarbine",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "krieg-command-squad",
@@ -16085,7 +16444,103 @@
         "squadron-command",
         "ruthless-discipline"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Lord Commissar",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "power weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "chainsword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "alchemyk counteragents",
+              "count": 1
+            },
+            {
+              "name": "servo-scribes",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "master vox",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            },
+            {
+              "name": "regimental standard",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "fixedCount": 1,
+          "weapons": [
+            {
+              "name": "boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "lord-marshal-dreir",
@@ -16768,7 +17223,39 @@
         "armoured-fist",
         "artillery-support"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Catachan Commander",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Veteran Guardsmen",
+          "weapons": [
+            {
+              "name": "lasgun",
+              "count": 1
+            },
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "rogal-dorn-commander",
@@ -16953,11 +17440,21 @@
           "options": [
             {
               "name": "Hit roll",
-              "effect": { "effects": { "rerollOneHit": true }, "combatType": "ranged" }
+              "effect": {
+                "effects": {
+                  "rerollOneHit": true
+                },
+                "combatType": "ranged"
+              }
             },
             {
               "name": "Wound roll",
-              "effect": { "effects": { "rerollOneWound": true }, "combatType": "ranged" }
+              "effect": {
+                "effects": {
+                  "rerollOneWound": true
+                },
+                "combatType": "ranged"
+              }
             }
           ]
         },
@@ -17863,7 +18360,39 @@
         "masters-of-camouflage",
         "born-soldiers"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [],
+      "defaultWeaponGroups": [
+        {
+          "role": "Heavy Weapons Gunners",
+          "weapons": [
+            {
+              "name": "lascannon",
+              "count": 1
+            },
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Fire Coordinator",
+          "weapons": [
+            {
+              "name": "laspistol",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "artillery-team",

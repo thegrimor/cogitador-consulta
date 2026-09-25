@@ -1897,6 +1897,38 @@
         "exalted-sorcerer",
         "infernal-master",
         "exalted-sorcerer-on-disc-of-tzeentch"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Aspiring Sorcerer",
+          "weapons": [
+            {
+              "name": "inferno bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "malefic curse",
+              "count": 1
+            },
+            {
+              "name": "force weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Rubric Marines",
+          "weapons": [
+            {
+              "name": "inferno boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -4965,6 +4997,38 @@
       ],
       "canBeLedBy": [
         "sorcerer-in-terminator-armour-thousand-sons"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Scarab Occult Sorcerer",
+          "weapons": [
+            {
+              "name": "inferno combi-bolter",
+              "count": 1
+            },
+            {
+              "name": "malefic curse",
+              "count": 1
+            },
+            {
+              "name": "force weapon",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Scarab Occult Terminators",
+          "weapons": [
+            {
+              "name": "inferno combi-bolter",
+              "count": 1
+            },
+            {
+              "name": "prosperine khopesh",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

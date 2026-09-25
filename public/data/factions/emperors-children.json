@@ -2172,6 +2172,34 @@
       "canBeLedBy": [
         "lord-exultant",
         "sorcerer-emperors-children"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Obsessionist",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Tormentors",
+          "weapons": [
+            {
+              "name": "boltgun",
+              "count": 1
+            },
+            {
+              "name": "close combat weapon",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {
@@ -2436,6 +2464,34 @@
       "canBeLedBy": [
         "lord-exultant",
         "sorcerer-emperors-children"
+      ],
+      "defaultWeaponGroups": [
+        {
+          "role": "Obsessionist",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "power sword",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "role": "Infractors",
+          "weapons": [
+            {
+              "name": "bolt pistol",
+              "count": 1
+            },
+            {
+              "name": "duelling sabre",
+              "count": 1
+            }
+          ]
+        }
       ]
     },
     {

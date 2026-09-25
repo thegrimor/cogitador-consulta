@@ -52,7 +52,10 @@ export function parseUnitSlots(compositionLines: string[]): UnitSlot[] {
     // Lines like "1 Grenadier Sergeant and 9 Grenadiers" or "1 X, 7 Y and 1 Z" declare several roles at once.
     for (const part of clean.split(/,\s*|\s+and\s+/i)) {
       const segment = part.trim().replace(/\.+$/, '')
-      const rangeMatch = segment.match(/^(\d+)\s*-\s*(\d+)\s+(.+)$/)
+      // A range's dash is sometimes a non-ASCII hyphen/dash (U+2011 non-breaking hyphen, en/em
+      // dash) rather than a plain "-" (e.g. Deathwatch's "0‑4 Kill Team Intercessors with..."),
+      // which would otherwise silently fail to match and drop the role's slot entirely.
+      const rangeMatch = segment.match(/^(\d+)\s*[-‑–—]\s*(\d+)\s+(.+)$/)
       const singleMatch = segment.match(/^(\d+)\s+(.+)$/)
       if (rangeMatch) {
         const role = rangeMatch[3].trim()
