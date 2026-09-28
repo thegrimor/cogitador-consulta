@@ -241,6 +241,36 @@ No test suite yet.
 
 All game data is JSON, hand-maintained directly — there is no CSV, no scraper, and no generator script (there used to be; the CSV source, the `modifiers.ts` combat-modifier catalog, and the build pipeline that folded one into the other were deleted once the JSON was verified correct and the app fully migrated onto it). The JSON *is* the source of truth: `public/data/factions/<slug>.json` (one per faction) + `public/data/catalog/factions.json` + `public/data/catalog/core-rules.json` + `public/data/catalog/phases.json` + `public/data/missions.json`. `src/infrastructure/data/useGameData.ts` fetches all of the faction/catalog JSON in parallel, flattens them into the `GameData` shape the app has always used, and exposes it via `GameDataContext` (read through `useGameDataContext()`). `src/infrastructure/data/useMissionsData.ts` separately fetches `missions.json` for the Misiones pages. `phases.json` (`PhaseData[]`, types in `src/types/index.ts`) used to be a static array in `src/core/constants/phasesData.ts`; that file now only keeps the `PHASE_GROUPS` display-order constant — the phase content itself moved to JSON so the chat backend (`server/src/lib/gameDataIndex.js`) can read it too, same as every other domain JSON file.
 
+**Datasheet `id`s must be unique across every faction file, not just within one.** `useGameData.ts`
+builds several lookup structures — `datasheetById`-style `Map`/`Record` keyed by plain `id`
+(`pointsCostMap`, `wargearCostMap`, `leaderMap`, `attachedMap`, `datasheetOptions`,
+`datasheetStratagems`, `datasheetEnhancements`, `datasheetDetachmentAbilities`, and every
+`datasheets.find(d => d.id === x)`/`new Map(datasheets.map(d => [d.id, d]))` call site across
+`RosterEditPage.tsx`, `roster.ts`, `rosterExport.ts`, `DatasheetDetailPage.tsx`,
+`usePanelState.ts`) — by flattening `datasheets` across *all* faction JSON files into one array
+and indexing by that bare `id`. Two different, real, differently-priced/statted units in two
+different faction files sharing the same `id` silently collide: a `Map` keeps whichever faction
+was processed last (`factionsIndex` order in `catalog/factions.json`), a plain `.find()`/`.filter()`
+keeps whichever was processed first — inconsistently, depending on which call site you're looking
+at — so the "loser" faction's copy becomes wholly unreachable in some views and the "winner"'s
+data leaks into the other's pages in others (found for real: Grey Knights' own Land Raider/Land
+Raider Crusader/Land Raider Redeemer/Rhino datasheets shared plain ids `land-raider`/
+`land-raider-crusader`/`land-raider-redeemer`/`rhino` with Space Marines' unrelated, differently-
+priced copies — a Grey Knights datasheet page showed both factions' price tiers concatenated into
+one list, and depending on lookup site, a Grey Knights roster entry for one of these could
+silently render Space Marines' stats/price instead of its own). Fixed by suffixing the Grey
+Knights copies' ids to `land-raider-grey-knights` etc. (2026-09-28), the same disambiguation
+convention already used for the Genestealer Cults/Chaos Knights/Imperial Knights cross-faction
+ally copies mentioned below. **When adding a new faction or a new datasheet, grep every other
+faction file for the same `id` first** (or run a script like the one used to find this: parse
+every `factions/<slug>.json`'s `datasheets[].id`, group by id, flag any group spanning more than
+one file) — a same-named unit (Land Raider, Rhino, and any other generic Imperium/Chaos vehicle
+multiple factions field natively rather than as a scoped ally copy) is exactly the shape that
+collides. **Caveat:** this rename does nothing for any roster already saved server-side before
+the fix with a Grey Knights entry referencing the old bare id — such an entry would have been
+silently mis-resolving to the Space Marines datasheet already (a pre-existing bug, not something
+this fix introduces), and will need the unit removed and re-added after the fix ships.
+
 ### Faction inheritance (Space Marines chapters)
 
 Most factions are self-contained, but the five Space Marines chapters with their own

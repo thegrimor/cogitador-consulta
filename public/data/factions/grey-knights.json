@@ -3932,7 +3932,7 @@
       "canBeLedBy": []
     },
     {
-      "id": "land-raider",
+      "id": "land-raider-grey-knights",
       "name": "Land Raider",
       "role": "Other",
       "sourceId": "000000013",
@@ -4141,7 +4141,7 @@
       "canBeLedBy": []
     },
     {
-      "id": "land-raider-crusader",
+      "id": "land-raider-crusader-grey-knights",
       "name": "Land Raider Crusader",
       "role": "Other",
       "sourceId": "000000013",
@@ -4355,7 +4355,7 @@
       "canBeLedBy": []
     },
     {
-      "id": "land-raider-redeemer",
+      "id": "land-raider-redeemer-grey-knights",
       "name": "Land Raider Redeemer",
       "role": "Other",
       "sourceId": "000000013",
@@ -4767,7 +4767,7 @@
       "canBeLedBy": []
     },
     {
-      "id": "rhino",
+      "id": "rhino-grey-knights",
       "name": "Rhino",
       "role": "Dedicated Transports",
       "sourceId": "000000013",
