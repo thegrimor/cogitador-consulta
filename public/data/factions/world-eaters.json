@@ -527,7 +527,7 @@
       "description": "<b>WHEN:</b> Your Movement phase.<br><br><b>TARGET:</b> One World Eaters Vehicle model from your army that has not been selected to move this phase.<br><br><b>EFFECT:</b> Until the end of the phase, each time your unit makes a Normal or Advance move, it can move horizontally through terrain features."
     },
     {
-      "id": "aggressive-disembarkation",
+      "id": "aggressive-disembarkation-world-eaters",
       "name": "AGGRESSIVE DISEMBARKATION",
       "detachmentId": "goretrack-onslaught",
       "cpCost": 1,
@@ -4797,7 +4797,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "blood-offering",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-world-eaters",
         "skulls-for-the-skull-throne",
         "full-throttle-assault",
         "unrelenting-advance",
