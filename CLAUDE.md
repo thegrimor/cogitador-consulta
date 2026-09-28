@@ -186,6 +186,34 @@ no changes — already accurate from the prior pass.
   Squad is a Support unit for Outriders or Black Knights). The Deathwing
   plasma cannon is 0 pts, which is what the data already had. Re-check all of this against the MFM
   once it publishes.
+- **`space-marines.json` points batch sourced from a community "Art of War" review table, not
+  the MFM (2026-09-28).** Per explicit user instruction, two screenshots of a fan/community
+  points-review table for a still-unpublished "Codex Space Marines V11" were applied directly to
+  `space-marines.json`, overriding the MFM-only sourcing rule above for this specific batch (same
+  kind of explicit, user-directed exception as the Dark Angels leak above). Covers: the Victrix
+  Honour Guard Chapter Ancient's Banner of Macragge wargear cost (20→15), Brutalis Dreadnought and
+  Invictor Tactical Warsuit (both restructured from a single flat price into a 1st-2nd-units/
+  3rd+-unit tier pair), Rhino and Impulsor (restructured into a 1st-3rd-units/4th+-unit tier pair;
+  Impulsor also gained an "orbital comms array" wargear cost), Storm Speeder Thunderstrike (tiered
+  1st-2nd/3rd+), Eradicator Squad (both the Melta and the Heavy Bolter loadout variants gained a
+  3rd+-unit tier on top of their existing 3/6-model tiers), Inceptor Squad (same 3rd+-unit tier
+  added on top of its 3/6-model tiers), Terminator Squad (gained a 3rd+-unit tier on top of its
+  existing 5/10-model tiers — the 10-model 3rd+ price was derived by doubling the 5-model 3rd+
+  price, matching how the pre-existing 5/10 tiers related, since the source table only pictured
+  the 5-model row), Invader ATV's 2-model price (120→130), Desolation Marines (gained a "per
+  Vengor Launcher" wargear cost), and a swap of Kayvaan Shrike's and Aethon Shaan's prices (95/105
+  had been stored backwards relative to the source table's "Kayvaan Shrike"/"'Caven' (Raven
+  Guard)" rows — Aethon Shaan is the only other Raven-Guard-flavoured named character in the file,
+  so "Caven" was read as referring to him). Every other named character, generic character,
+  Infantry/Gravis/Terminator squad, and Land Raider/Speeder/Gladiator price the table listed was
+  already correct and left untouched. **Not applied**: Repulsor Executioner (the table's "+10
+  Laser Destroyer" wargear option doesn't match this datasheet's actual data shape — Heavy Laser
+  Destroyer is already its fixed default weapon, not a paid swap-on, and the table's 260 base
+  doesn't match the stored 255/275 per-copy tier either — left as-is rather than guessed); "Kais
+  (nuevo personaje Ultramarine)" (a brand-new character the table names but that has no datasheet
+  in the JSON at all — needs full stat-line authoring, not just a price, so it's still missing).
+  This is preview/provisional, unofficial data, same caveat as the Dark Angels leak — re-verify
+  the whole batch against the real MFM once the actual codex publishes.
 - One of the parallel agents editing `space-marines.json` observed `defaultWeaponNames[].count`
   values elsewhere in that same file (and, it turned out, in the untouched `orks.json`) getting
   silently reset to `1` mid-task. The cause wasn't pinned down — no PostToolUse hook is
