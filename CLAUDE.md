@@ -271,6 +271,49 @@ the fix with a Grey Knights entry referencing the old bare id — such an entry 
 silently mis-resolving to the Space Marines datasheet already (a pre-existing bug, not something
 this fix introduces), and will need the unit removed and re-added after the fix ships.
 
+**The same bare-`id`-collision shape exists for `stratagems[].id` and `enhancements[].id` too**
+(checked the same day, across every entity type built from `factions/<slug>.json`): `gameData.
+stratagems`/`gameData.enhancements` are likewise flattened across every faction into one global
+array, and a `Datasheet`'s `stratagemIds`/`enhancementIds` are just id strings resolved against
+that global array — same collision shape as the datasheet one above. Found 4 stratagem collisions
+(`unstoppable-advance`: Adeptus Custodes/Space Marines; `tactical-withdrawal`: Astra Militarum/
+Space Marines; `kraken-rounds`: Deathwatch/Imperial Agents; `aggressive-disembarkation`: Space
+Marines/World Eaters) and 1 enhancement collision (`hunters-eye`: Imperial Knights/Space Marines)
+— all genuinely different, independently-authored rules that happened to slugify to the same id,
+not ally copies of each other. All 5 fixed the same way, suffixed with their own faction
+(`unstoppable-advance-adeptus-custodes`/`unstoppable-advance-space-marines`, etc.) — unlike the
+Grey Knights vehicles above, *both* colliding sides got suffixed here, since neither is the
+"original" the other copied. Every `stratagemIds`/`enhancementIds` reference to the old id, in
+every datasheet in the same faction file, was renamed in the same pass (a literal find-and-replace
+of the exact quoted id string is safe and sufficient here, since no other id is a substring of
+another). **Practical impact differed by entity type**: every stratagem lookup in the frontend
+(`UnitPanel`, `DatasheetDetailPage`, `usePanelState.ts`) already filters by `detachmentId` (itself
+collision-free) *in addition to* matching the stratagem's own id, so the 4 stratagem collisions
+were latent, not live, bugs — fixed for robustness, not because anyone had seen wrong stratagem
+text yet. The enhancement collision was live: `resolveEntryEnhancementCost` (`roster.ts`, and the
+identical pattern in `rosterExport.ts`) resolves `entry.enhancementId` against the full global
+`enhancements` array with a plain `.find(e => e.id === ...)`, no detachment/faction filter at
+all — a Space Marines roster with "Hunter's Eye" equipped was silently pulling whichever faction's
+copy sorted first in `factionsIndex` order (Imperial Knights, in this case; only invisible because
+both factions' copies happened to cost the same 25 points — a future colliding enhancement with
+different costs on each side would have shown a visibly wrong roster total). **Checked and
+confirmed clean**: `detachments[].id` (0 collisions) and `detachmentAbilities` (ability `id`s
+nested inside `detachments[].abilities[]`, 0 collisions). **Checked and deliberately left alone**:
+`armyRules[].id` (`Ability` objects) — 8 cross-faction collisions found (e.g. `synapse`/
+`shadow-in-the-warp` between Genestealer Cults/Tyranids, `battle-focus` between Aeldari/Drukhari),
+but these are never resolved through a global id-keyed lookup anywhere in the app — `Ability`
+objects are embedded in full on each datasheet (not referenced by id string the way stratagems/
+enhancements are), and `armyRulesByFaction` is written once per faction and never read back by a
+cross-faction id search — so an id repeating across two related factions here is the same
+intentional "same rule, shared id" denormalization the "CombatEffect authoring convention"
+section already documents *within* one faction, just extended across a lore-related pair (a
+Genestealer Cults unit sharing a Tyranid rule, an Aeldari/Drukhari split rule) rather than a bug.
+Confirmed by grepping `src/` for any `.abilities.find(`/cross-datasheet ability flatMap — none
+exist. **`server/src/lib/gameDataIndex.js` (the chat backend) does not share this bug class**: its
+lookups take a `factionId` up front and scope through `factionFamily(factionId)` before searching,
+rather than flattening every faction into one array first the way `useGameData.ts` does — a
+structurally safer design that happened to avoid this whole shape of bug from the start.
+
 ### Faction inheritance (Space Marines chapters)
 
 Most factions are self-contained, but the five Space Marines chapters with their own

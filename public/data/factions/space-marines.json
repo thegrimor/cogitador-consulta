@@ -699,7 +699,7 @@
       "description": "<b>WHEN:</b> End of your Movement phase.<br><br><b>TARGET:</b> One friendly unengaged <b>PHOBOS</b>/<b>SCOUT SQUAD</b> unit.<br><br><b>EFFECT:</b> If your unit is controlling an objective, that objective is snared. While an objective is snared, when an enemy unit ends a move within range of that objective, roll one D6:<ul><li>On a 2+, that enemy unit suffers D6 mortal wounds.</li><li>That objective is no longer snared.</li></ul>"
     },
     {
-      "id": "tactical-withdrawal",
+      "id": "tactical-withdrawal-space-marines",
       "name": "TACTICAL WITHDRAWAL",
       "detachmentId": "phobos-shadow-force",
       "cpCost": 1,
@@ -849,7 +849,7 @@
       "description": "<b>WHEN:</b> Your Shooting phase or the Fight phase, when a friendly <span class=\"kwb\">DREADNOUGHT</span> unit is selected to attack.<br><br><b>TARGET:</b> That <span class=\"kwb\">DREADNOUGHT</span> unit.<br><br><b>EFFECT:</b> Your unit's attacks have:<ul><li>[LETHAL HITS].</li><li><u>Or:</u> [SUSTAINED HITS 1].</li></ul>"
     },
     {
-      "id": "unstoppable-advance",
+      "id": "unstoppable-advance-space-marines",
       "name": "UNSTOPPABLE ADVANCE",
       "detachmentId": "ironclad-champions",
       "cpCost": 1,
@@ -859,7 +859,7 @@
       "description": "<b>WHEN:</b> Your Movement/Charge phase, when a friendly <span class=\"kwb\">DREADNOUGHT</span> unit is selected to move or declares a charge.<br><br><b>TARGET:</b> That <span class=\"kwb\">DREADNOUGHT</span> unit.<br><br><b>EFFECT:</b> Your unit has MOBILE."
     },
     {
-      "id": "aggressive-disembarkation",
+      "id": "aggressive-disembarkation-space-marines",
       "name": "AGGRESSIVE DISEMBARKATION",
       "detachmentId": "gauntlet-task-force",
       "cpCost": 1,
@@ -1642,7 +1642,7 @@
       "description": "Upgrade enhancement. Each time the bearer's unit makes an Ingress move, treat the current Battle Round number as 1 higher than it actually is for the purposes of that move."
     },
     {
-      "id": "hunters-eye",
+      "id": "hunters-eye-space-marines",
       "name": "Hunter's Eye",
       "cost": 25,
       "detachmentId": "spearpoint-task-force",
@@ -3922,7 +3922,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -5676,7 +5676,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -6778,7 +6778,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -6958,7 +6958,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -8109,7 +8109,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -11278,7 +11278,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -12251,7 +12251,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -12444,7 +12444,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -12721,7 +12721,7 @@
         "responsive-tactics",
         "masterful-tactics",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "duty-is-never-done"
       ],
       "enhancementIds": [
@@ -12922,7 +12922,7 @@
         "masterful-tactics",
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
@@ -14684,7 +14684,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -14950,7 +14950,7 @@
       ],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -15056,7 +15056,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -15421,7 +15421,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -15651,7 +15651,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -15867,7 +15867,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -16086,7 +16086,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -16305,7 +16305,7 @@
       "wargearCosts": [],
       "stratagemIds": [
         "purgation-push",
-        "aggressive-disembarkation",
+        "aggressive-disembarkation-space-marines",
         "duty-is-never-done",
         "storm-and-secure",
         "layered-ceramite",
@@ -16574,7 +16574,7 @@
       "stratagemIds": [
         "adamantine-terror",
         "mercy-is-weakness",
-        "unstoppable-advance",
+        "unstoppable-advance-space-marines",
         "layered-ceramite",
         "might-of-the-machine-spirit",
         "headhunter-doctrine"
@@ -16748,7 +16748,7 @@
       "stratagemIds": [
         "adamantine-terror",
         "mercy-is-weakness",
-        "unstoppable-advance",
+        "unstoppable-advance-space-marines",
         "layered-ceramite",
         "might-of-the-machine-spirit",
         "headhunter-doctrine"
@@ -16969,7 +16969,7 @@
       "stratagemIds": [
         "adamantine-terror",
         "mercy-is-weakness",
-        "unstoppable-advance",
+        "unstoppable-advance-space-marines",
         "layered-ceramite",
         "might-of-the-machine-spirit",
         "headhunter-doctrine"
@@ -17183,7 +17183,7 @@
       "stratagemIds": [
         "strike-from-the-shadows-phobos-shadow-force",
         "mortis-snares",
-        "tactical-withdrawal",
+        "tactical-withdrawal-space-marines",
         "strike-from-the-shadows-phobos-shock-force",
         "transhuman-reactions",
         "umbral-evasion",
