@@ -3074,7 +3074,8 @@
         "immolator-space-marines",
         "fire-discipline-space-marines",
         "champion-of-the-feast",
-        "forged-in-battle-space-marines"
+        "forged-in-battle-space-marines",
+        "preyslayer"
       ],
       "detachmentAbilityIds": [
         "rapid-drop-deployment",
@@ -5961,7 +5962,8 @@
         "zealous-vanguard",
         "stormseers-wisdom",
         "oathbound-exemplar",
-        "scroll-of-proclamation"
+        "scroll-of-proclamation",
+        "preyslayer"
       ],
       "detachmentAbilityIds": [
         "shield-of-the-imperium",
@@ -6447,7 +6449,8 @@
         "umbral-raptor",
         "scroll-of-proclamation",
         "laurels-of-thunder",
-        "eye-of-the-hunter"
+        "eye-of-the-hunter",
+        "preyslayer"
       ],
       "detachmentAbilityIds": [
         "dutiful-tenacity",

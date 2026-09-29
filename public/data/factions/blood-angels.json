@@ -1970,7 +1970,9 @@
         "a-giant-amongst-giants",
         "stoic-defender",
         "liberatum",
-        "defensive-mastery"
+        "defensive-mastery",
+        "prescient-flash-angelic-inheritors",
+        "unto-death"
       ],
       "detachmentAbilityIds": [
         "adaptive-defence",
@@ -5424,7 +5426,9 @@
         "orbital-uplink-reliquary",
         "adept-of-the-codex",
         "veteran-of-the-vanguard",
-        "beacon-angelis-space-marines"
+        "beacon-angelis-space-marines",
+        "prescient-flash-angelic-inheritors",
+        "unto-death"
       ],
       "detachmentAbilityIds": [
         "wrath-of-dorn",
@@ -5905,7 +5909,11 @@
         "liberatum",
         "stalwart-champion",
         "stoic-defender",
-        "artificer-armour"
+        "artificer-armour",
+        "instinctive-interception",
+        "on-the-archtraitors-bridge",
+        "prescient-flash-angelic-inheritors",
+        "unto-death"
       ],
       "detachmentAbilityIds": [
         "legendary-slayers",
@@ -6435,7 +6443,13 @@
         "blood-shard",
         "stoic-defender",
         "calibanite-armaments",
-        "battle-psalm-precentor"
+        "battle-psalm-precentor",
+        "angelic-executioner",
+        "shadow-of-abomination",
+        "instinctive-interception",
+        "on-the-archtraitors-bridge",
+        "prescient-flash-angelic-inheritors",
+        "unto-death"
       ],
       "detachmentAbilityIds": [
         "lightning-assault",

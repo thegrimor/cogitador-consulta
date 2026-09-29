@@ -3324,7 +3324,12 @@
         "veteran-of-the-vanguard",
         "artificer-armour",
         "prescient-flash",
-        "hunters-instincts-space-marines"
+        "hunters-instincts-space-marines",
+        "beacon-angelis-deathwatch-support",
+        "beacon-angelis-black-spear-task-force",
+        "osseous-key-black-spear-task-force",
+        "the-thief-of-secrets",
+        "the-tome-of-ectoclades-black-spear-task-force"
       ],
       "detachmentAbilityIds": [
         "storm-swift-onslaught",
