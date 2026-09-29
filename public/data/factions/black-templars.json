@@ -3532,7 +3532,11 @@
         "blades-of-valour",
         "stormseers-wisdom",
         "orb-of-the-emperors-aegis",
-        "gift-of-foresight-space-marines"
+        "gift-of-foresight-space-marines",
+        "augury-servo-host-vow-sworn-crusaders",
+        "consecrating-aura-vow-sworn-crusaders",
+        "zealous-vanguard-vow-sworn-crusaders",
+        "oathbound-exemplar-fist-of-the-god-emperor"
       ],
       "detachmentAbilityIds": [
         "close-range-eradication",
@@ -4296,7 +4300,11 @@
         "feral-rage",
         "a-giant-amongst-giants",
         "veteran-of-the-vanguard",
-        "guiding-omens"
+        "guiding-omens",
+        "augury-servo-host-vow-sworn-crusaders",
+        "consecrating-aura-vow-sworn-crusaders",
+        "zealous-vanguard-vow-sworn-crusaders",
+        "oathbound-exemplar-fist-of-the-god-emperor"
       ],
       "detachmentAbilityIds": [
         "rapid-deployment",
@@ -4752,7 +4760,11 @@
         "icon-of-the-angel",
         "hunters-eye-space-marines",
         "seals-of-reconquest",
-        "zealous-vanguard"
+        "zealous-vanguard",
+        "augury-servo-host-vow-sworn-crusaders",
+        "consecrating-aura-vow-sworn-crusaders",
+        "zealous-vanguard-vow-sworn-crusaders",
+        "oathbound-exemplar-fist-of-the-god-emperor"
       ],
       "detachmentAbilityIds": [
         "rapid-deployment",
@@ -6189,7 +6201,12 @@
         "the-imperiums-sword",
         "thief-of-secrets",
         "architect-of-war",
-        "adaptable-executioner"
+        "adaptable-executioner",
+        "augury-servo-host-vow-sworn-crusaders",
+        "consecrating-aura-vow-sworn-crusaders",
+        "incendiary-animus-vow-sworn-crusaders",
+        "zealous-vanguard-vow-sworn-crusaders",
+        "oathbound-exemplar-fist-of-the-god-emperor"
       ],
       "detachmentAbilityIds": [
         "in-the-lions-claws",
@@ -6594,7 +6611,11 @@
         "thunderwolfs-fortitude",
         "feral-rage",
         "architect-of-war",
-        "master-of-machine-war"
+        "master-of-machine-war",
+        "augury-servo-host-vow-sworn-crusaders",
+        "consecrating-aura-vow-sworn-crusaders",
+        "zealous-vanguard-vow-sworn-crusaders",
+        "oathbound-exemplar-fist-of-the-god-emperor"
       ],
       "detachmentAbilityIds": [
         "masters-of-shadow",

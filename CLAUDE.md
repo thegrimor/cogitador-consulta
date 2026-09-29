@@ -214,6 +214,19 @@ no changes — already accurate from the prior pass.
   in the JSON at all — needs full stat-line authoring, not just a price, so it's still missing).
   This is preview/provisional, unofficial data, same caveat as the Dark Angels leak — re-verify
   the whole batch against the real MFM once the actual codex publishes.
+- **Core Space Marines characters had no enhancement mappings for most detachments (fixed 2026-09-29).**
+  `RosterEditPage`/`usePanelState` offer an enhancement to a datasheet only if it is in that
+  datasheet's `enhancementIds` — *or* if **no** datasheet carries it at all (the "unmapped ⇒
+  unrestricted" fallback). The PDF migration's core Captain/Lieutenant/Apothecary Biologis/etc.
+  carried none of the later-added detachments' enhancements, while a few chapter-derived
+  characters still did (which made those enhancements "mapped" and switched the fallback off), so
+  e.g. Spearpoint Task Force was unusable on any generic character. Every non-Upgrade SM-family
+  enhancement was re-mapped from its own "X model only" clause (non-Epic Characters of the
+  chapter file + inherited core; a datasheet's name counts as a keyword, since Techmarine has no
+  such keyword). Left alone: `Upgrade enhancement`/"unit only" ones (non-character units), and
+  three Deathwing-only Dark Angels enhancements (every Deathwing character is an Epic Hero).
+  Same shape may exist in other factions' zero-carrier keyword-restricted enhancements (they
+  currently work only via the permissive fallback, offered to every unit).
 - One of the parallel agents editing `space-marines.json` observed `defaultWeaponNames[].count`
   values elsewhere in that same file (and, it turned out, in the untouched `orks.json`) getting
   silently reset to `1` mid-task. The cause wasn't pinned down — no PostToolUse hook is
