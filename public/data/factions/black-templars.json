@@ -7318,15 +7318,28 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 160
+          "description": "5 models (1st-2nd units)",
+          "points": 190
         },
         {
-          "description": "10 models",
-          "points": 320
+          "description": "10 models (1st-2nd units)",
+          "points": 380
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 230
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 460
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Cyclone Missile Launcher",
+          "points": 10
+        }
+      ],
       "stratagemIds": [
         "not-one-backwards-step",
         "mercy-is-weakness",
