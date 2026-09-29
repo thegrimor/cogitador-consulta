@@ -1877,12 +1877,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
+          "description": "5 models (1st-2nd units)",
           "points": 190
         },
         {
-          "description": "10 models",
+          "description": "10 models (1st-2nd units)",
           "points": 380
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 230
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 460
         }
       ],
       "wargearCosts": [],
