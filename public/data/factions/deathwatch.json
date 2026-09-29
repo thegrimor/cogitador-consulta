@@ -3997,6 +3997,10 @@
         {
           "name": "per Thunder Hammer",
           "points": 5
+        },
+        {
+          "name": "per Cyclone Missile Launcher",
+          "points": 10
         }
       ],
       "stratagemIds": [

@@ -1893,7 +1893,12 @@
           "points": 460
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Cyclone Missile Launcher",
+          "points": 10
+        }
+      ],
       "stratagemIds": [
         "disciplined-extermination",
         "unyielding-might",
