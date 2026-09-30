@@ -902,7 +902,7 @@
     {
       "id": "ferocious-show-off",
       "name": "Ferocious Show-Off",
-      "cost": 10,
+      "cost": 15,
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
       "description": "<span class=\"kwb\">ORKS INFANTRY</span> model only. This model's melee attacks have +1 A, or: if this unit has 11+ models, +2 A.",

@@ -1004,7 +1004,7 @@
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 110
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -1349,7 +1349,7 @@
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 100
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -1928,7 +1928,7 @@
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 75
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -2156,7 +2156,7 @@
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 55
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -2350,7 +2350,7 @@
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 75
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -2567,7 +2567,7 @@
         },
         {
           "description": "6 models (Assigned Agent)",
-          "points": 50
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -3537,7 +3537,7 @@
         },
         {
           "description": "11 models (Assigned Agent)",
-          "points": 85
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -3882,7 +3882,7 @@
         },
         {
           "description": "11 models (Assigned Agent)",
-          "points": 90
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -4199,7 +4199,7 @@
         },
         {
           "description": "4 models (Assigned Agent)",
-          "points": 75
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -4403,7 +4403,7 @@
         },
         {
           "description": "1 model (Assigned Agent)",
-          "points": 60
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -4718,11 +4718,11 @@
         },
         {
           "description": "6 models (Assigned Agent)",
-          "points": 50
+          "points": 60
         },
         {
           "description": "12 models (Assigned Agent)",
-          "points": 100
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -5163,7 +5163,7 @@
         },
         {
           "description": "5 models (Assigned Agent)",
-          "points": 175
+          "points": 190
         }
       ],
       "wargearCosts": [
@@ -6476,7 +6476,7 @@
         },
         {
           "description": "10 models (Assigned Agent)",
-          "points": 100
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -6702,11 +6702,11 @@
         },
         {
           "description": "1 model (1st to 3rd units) (Assigned Agent)",
-          "points": 90
+          "points": 105
         },
         {
           "description": "1 model (4th + unit) (Assigned Agent)",
-          "points": 100
+          "points": 115
         }
       ],
       "wargearCosts": [

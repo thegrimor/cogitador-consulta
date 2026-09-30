@@ -10,13 +10,17 @@
         {
           "name": "Hit roll",
           "effect": {
-            "effects": { "rerollOneHit": true }
+            "effects": {
+              "rerollOneHit": true
+            }
           }
         },
         {
           "name": "Wound roll",
           "effect": {
-            "effects": { "rerollOneWound": true }
+            "effects": {
+              "rerollOneWound": true
+            }
           }
         }
       ]
@@ -145,7 +149,10 @@
     {
       "id": "questoris-companions",
       "name": "Questoris Companions",
-      "disposition": ["TAKE AND HOLD", "RECONNAISSANCE"],
+      "disposition": [
+        "TAKE AND HOLD",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -178,7 +185,10 @@
     {
       "id": "freeblade-company",
       "name": "Freeblade Company",
-      "disposition": ["PRIORITY ASSETS", "PURGE THE FOE"],
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
