@@ -139,7 +139,7 @@
       "id": "cohort-cybernetica",
       "name": "Cohort Cybernetica",
       "disposition": "TAKE AND HOLD",
-      "dp": 2,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -2326,11 +2326,11 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 150
+          "points": 140
         },
         {
           "description": "6 models",
-          "points": 310
+          "points": 290
         }
       ],
       "wargearCosts": [],
@@ -2689,11 +2689,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 70
+          "points": 65
         },
         {
           "description": "10 models",
-          "points": 140
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -2840,11 +2840,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 65
+          "points": 60
         },
         {
           "description": "10 models",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -3081,19 +3081,19 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models (1st unit)",
+          "description": "2 models (1st-2nd units)",
           "points": 150
         },
         {
-          "description": "4 models (1st unit)",
+          "description": "4 models (1st-2nd units)",
           "points": 300
         },
         {
-          "description": "2 models (2nd+ unit)",
+          "description": "2 models (3rd+ unit)",
           "points": 180
         },
         {
-          "description": "4 models (2nd+ unit)",
+          "description": "4 models (3rd+ unit)",
           "points": 330
         }
       ],
@@ -3254,7 +3254,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 25
+          "points": 20
         }
       ],
       "wargearCosts": [],
@@ -4885,7 +4885,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 155
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -5690,7 +5690,7 @@
         },
         {
           "description": "6 models",
-          "points": 100
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -5901,7 +5901,7 @@
         },
         {
           "description": "6 models",
-          "points": 110
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -7475,11 +7475,11 @@
         },
         {
           "description": "2 models",
-          "points": 100
+          "points": 95
         },
         {
           "description": "3 models",
-          "points": 150
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -7703,7 +7703,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 50
+          "points": 45
         }
       ],
       "wargearCosts": [],
@@ -7993,11 +7993,11 @@
       "pointsCosts": [
         {
           "description": "9 models (1st to 2nd units)",
-          "points": 65
+          "points": 75
         },
         {
           "description": "9 models (3rd+ unit)",
-          "points": 75
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -8037,7 +8037,6 @@
       "canBeLedBy": [
         "tech-priest-manipulus",
         "tech-priest-dominus",
-        "tech-priest-enginseer",
         "technoarcheologist"
       ],
       "defaultWeaponGroups": [
@@ -8469,11 +8468,11 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 105
+          "points": 100
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 120
+          "points": 115
         }
       ],
       "wargearCosts": [],
@@ -8512,7 +8511,6 @@
       "canBeLedBy": [
         "tech-priest-manipulus",
         "tech-priest-dominus",
-        "tech-priest-enginseer",
         "technoarcheologist",
         "skitarii-marshal"
       ],
@@ -8690,11 +8688,11 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 115
+          "points": 105
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -8733,7 +8731,6 @@
       "canBeLedBy": [
         "tech-priest-manipulus",
         "tech-priest-dominus",
-        "tech-priest-enginseer",
         "technoarcheologist",
         "skitarii-marshal"
       ],
