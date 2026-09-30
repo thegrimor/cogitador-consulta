@@ -145,7 +145,7 @@
     {
       "id": "questoris-companions",
       "name": "Questoris Companions",
-      "disposition": "TAKE AND HOLD",
+      "disposition": ["TAKE AND HOLD", "RECONNAISSANCE"],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -178,7 +178,7 @@
     {
       "id": "freeblade-company",
       "name": "Freeblade Company",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": ["PRIORITY ASSETS", "PURGE THE FOE"],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -2036,11 +2036,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 375
+          "points": 365
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 390
+          "points": 380
         }
       ],
       "wargearCosts": [],
@@ -3516,11 +3516,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 405
+          "points": 420
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 425
+          "points": 440
         }
       ],
       "wargearCosts": [],
@@ -6067,11 +6067,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 400
+          "points": 390
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 415
+          "points": 405
         }
       ],
       "wargearCosts": [],
@@ -7982,11 +7982,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 400
+          "points": 385
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 420
+          "points": 405
         }
       ],
       "wargearCosts": [],
