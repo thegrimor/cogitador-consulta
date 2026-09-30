@@ -19,6 +19,10 @@ npm run server           # backend (Express) with reload, http://localhost:8787
 
 npm run extract-pdf:install                              # one-time: pip install pymupdf
 npm run extract-pdf -- "path/to/book.pdf" <first> <last> [outFile]  # cheap PDF text-layer dump
+
+npm run mfm-sync -- --dumps=<dir> [--faction=slug1,slug2] [--dry]   # sync points/DP/disposition/
+                                                                     # canBeLedBy from rendered
+                                                                     # MFM dumps, see scripts/mfm-sync/README.md
 ```
 
 The frontend needs the backend running to do anything with the `Ejército` area (login, and
@@ -385,7 +389,8 @@ memory or an external lookup entirely.
 
 **Points values (`pointsCosts`/`wargearCosts`) must always be sourced from the official Munitorum
 Field Manual at https://mfm.warhammer-community.com/en** (GW's own canonical, actively-maintained
-points reference — v1.4 as of this writing) — never from a third-party wiki (Wahapedia etc.) or
+points reference — v1.5 as of this writing, bumped from v1.4 on 2026-09-30) — never from a
+third-party wiki (Wahapedia etc.) or
 from memory, and never trust one of those against the MFM without rechecking: doing exactly that
 during the Imperial Agents fix below (sourcing the "Assigned Agent" prices from Wahapedia instead
 of the MFM) produced several outright wrong values that had to be corrected a second time once
@@ -408,6 +413,18 @@ THE IMPERIUM KEYWORD`) is the "Assigned Agent" (ally) price — diff the two pas
 than assuming a unit that only appears to differ actually does (most units repeat the identical
 number in both passes; only some genuinely differ, and one — Exaction Squad — is actually
 *cheaper* as an Assigned Agent, so don't assume the ally price is always the higher one).
+
+**Applying a new MFM version no longer needs a scraper written from scratch or an LLM agent per
+faction — use `npm run mfm-sync` (see `scripts/mfm-sync/README.md`).** It's a deterministic
+parser+matcher: render every faction's page to a `.txt` dump (same Chromium approach as above,
+still a manual/one-off step since it needs a real browser), then `npm run mfm-sync --
+--dumps=<dir>` applies every points/wargear/enhancement-cost/detachment-dp+disposition/
+same-file-`canBeLedBy` fix it can match with certainty, and writes a report of anything it
+couldn't safely resolve on its own (tier splits added/removed, name mismatches, cross-file
+Space Marines leader relationships) for a manual or targeted-LLM follow-up. The v1.4→v1.5 sync
+(2026-09-30) is what this tool was built for — 413 values corrected across all 29 factions in
+one run, versus dispatching ~30 separate LLM audits (the first attempt at that sync, before this
+tool existed, burned a large amount of tokens and hit rate limits well before finishing).
 
 **A full `pointsCosts` audit against the MFM (every non-Legends faction page, all 23 factions in
 `catalog/factions.json`) was run once, catching real bugs beyond the two above.** The recurring

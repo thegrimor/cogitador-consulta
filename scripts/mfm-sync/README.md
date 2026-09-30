@@ -153,6 +153,33 @@ Disposition(s) — some detachments genuinely have two (see below).
 
 ## Step 4: Apply and verify
 
-Edit the JSON directly, preserving existing formatting/indentation. Validate with
-`node -e "JSON.parse(require('fs').readFileSync('public/data/factions/<slug>.json','utf8')); console.log('OK')"`
-after every file. No regeneration step — the JSON is the source of truth (see CLAUDE.md).
+**Use `npm run mfm-sync -- --dumps=<dir>` instead of hand-editing or dispatching LLM agents
+per faction.** `sync.mjs` (+ its parser, `parse.mjs`) deterministically parses every dump in
+`<dir>` (one `<slug>.txt` per faction, from Step 1) and applies points/wargear/enhancement-cost
+fixes, detachment `dp`/`disposition` fixes, and same-file `canBeLedBy` fixes directly to
+`public/data/factions/<slug>.json` — no LLM involved, and it's idempotent (safe to re-run).
+
+```bash
+npm run mfm-sync -- --dumps=/path/to/dumps            # applies fixes to all factions
+npm run mfm-sync -- --dumps=/path/to/dumps --dry       # report only, writes nothing
+npm run mfm-sync -- --dumps=/path/to/dumps --faction=orks,tau-empire   # just these factions
+```
+
+It writes a Markdown report to `scripts/mfm-sync/reports/` (gitignored) listing every value it
+changed, plus a "needs manual review" section per faction for anything it couldn't safely match
+on its own — mainly:
+
+- **A tier split added or removed since the last sync** (the JSON has one flat price where the
+  MFM now shows two "YOUR ... COST" blocks, or vice versa) — the script only updates a price
+  it can already find an equivalent entry for; it never adds or removes `pointsCosts` entries,
+  since restructuring the array is a judgment call, not a straight value swap.
+- **A name that doesn't match anything on the dump** — usually a genuine plural/apostrophe/dash
+  mismatch (see the bug-shape list above) or a datasheet this faction's own MFM page simply
+  doesn't list (a cross-faction ally copy, priced on its home faction's page instead).
+- **Cross-file `canBeLedBy`** (a core Space Marines unit led by a chapter-specific character, or
+  any leader/bodyguard pair split across two faction files) — the script only resolves leader
+  relationships within a single file; the Space Marines-family cross-file case from the "Known
+  recurring bug shapes" section above still needs a manual pass.
+
+Handle everything the report lists under "manual review" by hand (or a targeted LLM pass for
+just those items) — don't assume a clean report means the sync is complete.
