@@ -7,7 +7,7 @@ const STRUCTURAL = new Set([
   'Show Legends', 'Muster Armies',
 ]);
 
-const PRICE_RE = /^([▲▼])?\s*(\(([+-]\d+)\)\s*)?([\d,]+)\s*pts$/;
+const PRICE_RE = /^([▲▼])?\s*(\(([+-]\d+)\)\s*)?([\d,]+)\s*pts$/; // NB: [\d,]+ is fine — thousands commas never appear alongside a decimal in "pts" values
 const HEADER_COST_RE = /^YOUR .+ COSTS?$/i;
 const DP_RE = /^(\d+)DP(?:\s*[▲▼])?$/;
 const ARROW_ONLY_RE = /^[▲▼]+$/;

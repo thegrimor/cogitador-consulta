@@ -44,6 +44,8 @@ function norm(s) {
     .toUpperCase()
     .replace(/[’‘]/g, "'")
     .replace(/[–—]/g, '-')
+    .replace(/,/g, '') // MFM sometimes writes a detachment name with a comma our JSON doesn't (e.g. "ORDO XENOS, ALIEN HUNTERS")
+    .replace(/-/g, ' ') // and sometimes a hyphen where our JSON has a space, or vice versa (e.g. "Priority Drop Beacon" vs "Priority-drop Beacon")
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -149,15 +151,75 @@ for (const slug of targetSlugs) {
   for (const ds of data.datasheets ?? []) {
     const unit = findUnitAcrossDumps(ds.name);
     if (!unit) { unmatched.points.push(`${ds.id}: no MFM unit named "${ds.name}"`); unmatchedDatasheetIds.add(ds.id); continue; }
+
+    // Imperial Agents: every unit's block appears TWICE in the dump — first pass is the native
+    // "AGENTS OF THE IMPERIUM Detachment" price, second pass (further down) is the "Assigned
+    // Agent" (ally) price, and the two can genuinely differ (see scripts/mfm-sync/README.md).
+    // This app encodes that as a "(Detachment)"/"(Assigned Agent)" suffix on the description —
+    // match each suffixed entry against the correct dump occurrence instead of the generic
+    // single-occurrence path below.
+    const hasAgentAnnotation = slug === 'imperial-agents' && (ds.pointsCosts ?? []).some(p => /assigned agent|\(detachment\)/i.test(p.description));
+    if (hasAgentAnnotation) {
+      const occurrences = allUnits.filter(u => norm(u.name) === norm(ds.name));
+      const detachmentEntries = allDumpPriceEntries(occurrences[0]);
+      const assignedAgentEntries = allDumpPriceEntries(occurrences[1] ?? occurrences[0]);
+      for (const p of ds.pointsCosts ?? []) {
+        const isAssignedAgent = /assigned agent/i.test(p.description);
+        const pool = isAssignedAgent ? assignedAgentEntries : detachmentEntries;
+        const tier = tierFromJsonDescription(p.description);
+        const modelCount = modelCountFromLabel(p.description);
+        const match = pool.find(e => e.modelCount === modelCount && e.tier === tier) ?? (pool.length === 1 ? pool[0] : null);
+        if (!match) { unmatched.points.push(`${ds.id}: no MFM ${isAssignedAgent ? 'Assigned Agent' : 'Detachment'} price matching "${p.description}"`); continue; }
+        if (match.points !== p.points) {
+          changes.points.push(`${ds.id} "${p.description}": ${p.points} -> ${match.points}`);
+          p.points = match.points;
+        }
+      }
+      for (const w of ds.wargearCosts ?? []) {
+        const dw = unit.wargear.find(x => norm(x.name) === norm(w.name));
+        if (!dw) { unmatched.points.push(`${ds.id}: no MFM wargear entry named "${w.name}"`); continue; }
+        if (dw.points !== w.points) {
+          changes.wargear.push(`${ds.id} "${w.name}": ${w.points} -> ${dw.points}`);
+          w.points = dw.points;
+        }
+      }
+      continue; // fully handled — skip the generic single-occurrence path below
+    }
+
     const dumpEntries = allDumpPriceEntries(unit);
 
     // Does the JSON's tier structure line up with the dump's, count-for-count? If not (a split
-    // was added/removed), only space-marines.json gets a structural rebuild — see pass 3.
+    // was added/removed), rebuild it below when it's safe to (see allSimple).
     const jsonTierCounts = (ds.pointsCosts ?? []).map(p => ({ tier: tierFromJsonDescription(p.description), modelCount: modelCountFromLabel(p.description) }));
     const structureMatches = jsonTierCounts.length === dumpEntries.length
       && jsonTierCounts.every(jt => dumpEntries.some(de => de.tier === jt.tier && de.modelCount === jt.modelCount));
 
-    if (!structureMatches && slug !== 'space-marines') {
+    // A "simple" description is just a model count + optional ordinal-tier phrase — safe to
+    // fully rebuild from the dump when the tier structure itself changed. Anything else (a
+    // named unit-count label like "10 Gretchin", a multi-role composition like "1 Sword
+    // Brother, 5 Initiates and 4 Neophytes", or an Imperial Agents "(Detachment)"/"(Assigned
+    // Agent)" annotation — a real price distinction, not a tier, and tierFromJsonDescription
+    // correctly returns null for it, which would make two genuinely different-priced entries
+    // look like duplicate tier=null/count=N entries and get silently collapsed into one) is
+    // left for manual review rather than risk destroying real data.
+    const SIMPLE_DESC_RE = /^\d+\s+models?(\s*\([^)]*\))?$/i;
+    const allSimple = (ds.pointsCosts ?? []).every(p => {
+      if (!SIMPLE_DESC_RE.test(p.description)) return false;
+      if (/assigned agent|\(detachment\)/i.test(p.description)) return false;
+      const hasParen = /\([^)]*\)/.test(p.description);
+      return !hasParen || tierFromJsonDescription(p.description) !== null;
+    });
+
+    if (!structureMatches) {
+      if (allSimple && dumpEntries.length > 0) {
+        const oldStructure = JSON.stringify(ds.pointsCosts);
+        ds.pointsCosts = dumpEntries.map(e => ({
+          description: `${e.modelCount} model${e.modelCount === 1 ? '' : 's'}${tierToDescriptionSuffix(e.tier)}`,
+          points: e.points,
+        }));
+        changes.structural.push(`${ds.id}: rebuilt pointsCosts to match MFM's current tier structure — ${oldStructure} -> ${JSON.stringify(ds.pointsCosts)}`);
+        continue; // already fully rebuilt with current values, skip the value-patch loop below
+      }
       unmatched.points.push(`${ds.id}: tier structure differs from MFM (JSON has ${jsonTierCounts.length} entr${jsonTierCounts.length === 1 ? 'y' : 'ies'}, MFM has ${dumpEntries.length}) — needs manual restructuring, not just a value patch`);
     }
 
@@ -202,7 +264,7 @@ for (const slug of targetSlugs) {
     }
 
     const detEnhancements = (data.enhancements ?? []).filter(e => e.detachmentId === det.id);
-    const stripParen = s => norm(s).replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').trim();
+    const stripParen = s => norm(s).replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').replace(/[-\s]+/g, ' ').trim();
     for (const e of detEnhancements) {
       const de = dumpDet.enhancements.find(x => norm(x.name) === norm(e.name) || stripParen(x.name) === stripParen(e.name));
       if (!de) { unmatched.enhancementDetachments.push(`${det.id}/${e.id}: no MFM enhancement named "${e.name}"`); continue; }
@@ -275,39 +337,10 @@ for (const slug of targetSlugs) {
       ds.pointsCosts = JSON.parse(JSON.stringify(home.pointsCosts ?? []));
     }
     ds.wargearCosts = JSON.parse(JSON.stringify(home.wargearCosts ?? []));
-    if (JSON.stringify(ds.pointsCosts) !== beforePoints || JSON.stringify(ds.wargearCosts) !== beforeWargear) {
-      r.changes.points.push(`${ds.id}: copied pointsCosts/wargearCosts from ${candidates[0].slug}'s "${home.name}" (cross-faction ally copy)`);
-      r.unmatchedDatasheetIds.delete(ds.id);
-      r.unmatched.points = r.unmatched.points.filter(m => !m.startsWith(`${ds.id}:`));
-    }
-  }
-}
-
-// ---------- pass 3: space-marines.json structural rebuild (always trust the MFM's tier shape) ----------
-
-if (targetSlugs.includes('space-marines')) {
-  const data = factionData.get('space-marines');
-  const dumps = factionDumps.get('space-marines') ?? [];
-  const r = results.get('space-marines');
-  if (data && dumps.length && r) {
-    const allUnits = dumps.flatMap(d => d.units);
-    for (const ds of data.datasheets ?? []) {
-      const unit = allUnits.find(u => norm(u.name) === norm(ds.name));
-      if (!unit) continue;
-      const dumpEntries = allDumpPriceEntries(unit);
-      const jsonTierCounts = (ds.pointsCosts ?? []).map(p => ({ tier: tierFromJsonDescription(p.description), modelCount: modelCountFromLabel(p.description) }));
-      const structureMatches = jsonTierCounts.length === dumpEntries.length
-        && jsonTierCounts.every(jt => dumpEntries.some(de => de.tier === jt.tier && de.modelCount === jt.modelCount));
-      if (structureMatches) continue;
-
-      const oldStructure = JSON.stringify(ds.pointsCosts);
-      ds.pointsCosts = dumpEntries.map(e => ({
-        description: `${e.modelCount} model${e.modelCount === 1 ? '' : 's'}${tierToDescriptionSuffix(e.tier)}`,
-        points: e.points,
-      }));
-      r.changes.structural.push(`${ds.id}: rebuilt pointsCosts to match MFM's current tier structure — ${oldStructure} -> ${JSON.stringify(ds.pointsCosts)}`);
-      r.unmatched.points = r.unmatched.points.filter(m => !m.startsWith(`${ds.id}:`));
-    }
+    const changed = JSON.stringify(ds.pointsCosts) !== beforePoints || JSON.stringify(ds.wargearCosts) !== beforeWargear;
+    r.changes.points.push(`${ds.id}: ${changed ? 'copied' : 'confirmed already matching'} pointsCosts/wargearCosts from ${candidates[0].slug}'s "${home.name}" (cross-faction ally copy)`);
+    r.unmatchedDatasheetIds.delete(ds.id);
+    r.unmatched.points = r.unmatched.points.filter(m => !m.startsWith(`${ds.id}:`));
   }
 }
 
