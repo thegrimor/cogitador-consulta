@@ -12,7 +12,7 @@
     {
       "id": "daemonic-incursion",
       "name": "Daemonic Incursion",
-      "disposition": "TAKE AND HOLD",
+      "disposition": ["TAKE AND HOLD", "DISRUPTION"],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1403,7 +1403,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 315
+          "points": 330
         }
       ],
       "wargearCosts": [],
@@ -1870,7 +1870,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 75
+          "points": 80
         },
         {
           "description": "10 models",
@@ -2215,7 +2215,7 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 200
+          "points": 210
         },
         {
           "description": "3 models (3rd+ unit)",
@@ -2223,7 +2223,7 @@
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 240
+          "points": 250
         }
       ],
       "wargearCosts": [],
@@ -5593,11 +5593,11 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 105
+          "points": 115
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 205
+          "points": 215
         }
       ],
       "wargearCosts": [],
