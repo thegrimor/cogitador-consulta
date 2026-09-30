@@ -50,7 +50,10 @@
     {
       "id": "pactbound-zealots",
       "name": "Pactbound Zealots",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "DISRUPTION",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -148,7 +151,10 @@
     {
       "id": "renegade-raiders",
       "name": "Renegade Raiders",
-      "disposition": "RECONNAISSANCE",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -257,7 +263,10 @@
     {
       "id": "creations-of-bile",
       "name": "Creations of Bile",
-      "disposition": "PURGE THE FOE",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -392,7 +401,10 @@
     {
       "id": "hurons-marauders",
       "name": "Huron’s Marauders",
-      "disposition": "PURGE THE FOE",
+      "disposition": [
+        "DISRUPTION",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
