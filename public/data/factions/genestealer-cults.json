@@ -42,7 +42,7 @@
     {
       "id": "host-of-ascension",
       "name": "Host of Ascension",
-      "disposition": "TAKE AND HOLD",
+      "disposition": ["TAKE AND HOLD", "RECONNAISSANCE"],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1720,7 +1720,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -2102,11 +2102,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 70
+          "points": 65
         },
         {
           "description": "10 models",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -3390,11 +3390,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 120
+          "points": 110
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -4202,7 +4202,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -4501,7 +4501,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 50
         }
       ],
       "wargearCosts": [],
