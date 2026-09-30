@@ -32,7 +32,7 @@
       "id": "warhost",
       "name": "Warhost",
       "disposition": "RECONNAISSANCE",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -174,7 +174,10 @@
     {
       "id": "aspect-host",
       "name": "Aspect Host",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -3201,7 +3204,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -3568,7 +3571,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -4054,7 +4057,7 @@
         },
         {
           "description": "4 models",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -4561,7 +4564,9 @@
         "martial-grace",
         "yriels-own"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "farseer-skyrunner"
+      ]
     },
     {
       "id": "spiritseer",
@@ -4992,7 +4997,8 @@
         "eldrad-ulthran",
         "autarch",
         "farseer",
-        "warlock"
+        "warlock",
+        "warlock-conclave"
       ],
       "defaultWeaponGroups": [
         {
@@ -5257,7 +5263,8 @@
         "eldrad-ulthran",
         "autarch",
         "farseer",
-        "warlock"
+        "warlock",
+        "warlock-conclave"
       ],
       "defaultWeaponGroups": [
         {
@@ -5469,7 +5476,8 @@
         "strands-of-fate"
       ],
       "canBeLedBy": [
-        "farseer-skyrunner"
+        "farseer-skyrunner",
+        "warlock-skyrunners"
       ]
     },
     {
@@ -6648,7 +6656,7 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 120
+          "points": 110
         },
         {
           "description": "10 models (1st-2nd units)",
@@ -6656,7 +6664,7 @@
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 130
+          "points": 120
         },
         {
           "description": "10 models (3rd+ unit)",
@@ -11695,7 +11703,7 @@
         },
         {
           "description": "6 models",
-          "points": 175
+          "points": 165
         }
       ],
       "wargearCosts": [],
@@ -12596,7 +12604,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -12761,7 +12769,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 115
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -12960,11 +12968,11 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 95
+          "points": 90
         },
         {
           "description": "4 models",
-          "points": 190
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -13486,7 +13494,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -13831,7 +13839,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 245
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -16971,7 +16979,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 85
+          "points": 80
         }
       ],
       "wargearCosts": [],

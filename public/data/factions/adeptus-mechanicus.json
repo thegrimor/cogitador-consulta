@@ -152,7 +152,10 @@
     {
       "id": "haloscreed-battle-clade",
       "name": "Haloscreed Battle Clade",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -167,7 +170,7 @@
       "id": "eradication-cohort",
       "name": "Eradication Cohort",
       "disposition": "PURGE THE FOE",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -215,7 +218,7 @@
       "id": "lords-of-the-forge",
       "name": "Lords of the Forge",
       "disposition": "PRIORITY ASSETS",
-      "dp": 1,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {

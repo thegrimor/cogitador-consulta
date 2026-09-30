@@ -175,7 +175,10 @@
     {
       "id": "grizzled-company",
       "name": "Grizzled Company",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -3338,11 +3341,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 125
+          "points": 115
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 135
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -10437,7 +10440,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -16702,7 +16705,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -19173,7 +19176,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],

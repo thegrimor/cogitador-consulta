@@ -55,7 +55,10 @@
     {
       "id": "hexwarp-thrallband",
       "name": "Hexwarp Thrallband",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -89,7 +92,10 @@
     {
       "id": "grand-coven",
       "name": "Grand Coven",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "DISRUPTION",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -172,7 +178,10 @@
     {
       "id": "rubricae-phalanx",
       "name": "Rubricae Phalanx",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1279,11 +1288,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 95
+          "points": 100
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 105
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -1519,11 +1528,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 100
+          "points": 110
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 110
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -1842,19 +1851,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st to 3rd units)",
-          "points": 100
+          "points": 115
         },
         {
           "description": "10 models (1st to 3rd units)",
-          "points": 190
+          "points": 210
         },
         {
           "description": "5 models (4th + unit)",
-          "points": 110
+          "points": 125
         },
         {
           "description": "10 models (4th + unit)",
-          "points": 200
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -4313,7 +4322,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -4504,7 +4513,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -4948,19 +4957,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 180
+          "points": 200
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 385
+          "points": 425
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 195
+          "points": 240
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 400
+          "points": 465
         }
       ],
       "wargearCosts": [],
@@ -5904,7 +5913,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -6356,7 +6365,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 95
         }
       ],
       "wargearCosts": [],

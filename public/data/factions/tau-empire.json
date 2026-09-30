@@ -38,7 +38,10 @@
     {
       "id": "montka",
       "name": "Mont’ka",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -58,7 +61,10 @@
     {
       "id": "retaliation-cadre",
       "name": "Retaliation Cadre",
-      "disposition": "PURGE THE FOE",
+      "disposition": [
+        "PURGE THE FOE",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -10150,7 +10156,7 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 230
+          "points": 240
         }
       ],
       "wargearCosts": [],
