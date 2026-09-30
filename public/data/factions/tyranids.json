@@ -23,7 +23,10 @@
     {
       "id": "invasion-fleet",
       "name": "Invasion Fleet",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -186,7 +189,10 @@
     {
       "id": "subterranean-assault",
       "name": "Subterranean Assault",
-      "disposition": "DISRUPTION",
+      "disposition": [
+        "DISRUPTION",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -2023,7 +2029,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 140
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -2387,7 +2393,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 160
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -2786,7 +2792,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 60
+          "points": 55
         },
         {
           "description": "20 models",
@@ -4754,11 +4760,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 80
+          "points": 75
         },
         {
           "description": "20 models",
-          "points": 155
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -6119,7 +6125,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 140
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -6272,7 +6278,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 135
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -7692,7 +7698,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -7849,11 +7855,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 55
+          "points": 50
         },
         {
           "description": "10 models",
-          "points": 110
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -8136,7 +8142,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -10442,7 +10448,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
