@@ -8,6 +8,14 @@
 //
 // <dir> must contain one <slug>.txt per faction, rendered per README.md Step 1
 // (adeptus-titanicus is special: it reads chaos-titan-legions.txt + titan-legions.txt instead).
+//
+// Two passes: (1) sync every datasheet/detachment against its OWN faction's MFM page; (2) for
+// any datasheet whose own page doesn't list it (a cross-faction ally copy — e.g. Genestealer
+// Cults' Astra Militarum vehicles), find the same-named datasheet in another faction file
+// (already corrected by pass 1) and copy its pointsCosts/wargearCosts over. space-marines.json
+// additionally gets its pointsCosts *rebuilt* from the dump when the tier structure itself
+// changed (a split added/removed) rather than just having a value patched, per explicit
+// instruction to always trust the MFM's current structure for that file.
 
 import fs from 'fs';
 import path from 'path';
@@ -42,13 +50,11 @@ function norm(s) {
 
 // ---------- tier parsing ----------
 
-// Canonicalizes a tier phrase (from either the JSON description's "(...)" suffix or the
-// dump's "YOUR ... COST(S)" header) to a comparable key, e.g. "1-2", "3+", "1", "2+", null.
 function tierFromJsonDescription(desc) {
   const m = /\(([^)]+)\)/.exec(desc);
   if (!m) return null;
   const t = m[1].toLowerCase();
-  if (/assigned agent/.test(t)) return tierFromJsonDescription(desc.replace(m[0], '')); // strip and recheck for a second paren group
+  if (/assigned agent/.test(t)) return tierFromJsonDescription(desc.replace(m[0], ''));
   const range = /(\d)(?:st|nd|rd|th)\s*(?:to|-)\s*(\d)(?:st|nd|rd|th)/.exec(t);
   if (range) return `${range[1]}-${range[2]}`;
   const plus = /(\d)(?:st|nd|rd|th)\s*\+/.exec(t);
@@ -66,7 +72,7 @@ function tierFromDumpHeader(header) {
   if (plus) return `${plus[1]}+`;
   const single = /(\d)(?:ST|ND|RD|TH)/.exec(h);
   if (single) return single[1];
-  return null; // "YOUR UNIT COSTS"
+  return null;
 }
 
 function modelCountFromLabel(label) {
@@ -74,16 +80,21 @@ function modelCountFromLabel(label) {
   return m ? parseInt(m[1], 10) : null;
 }
 
-function isAssignedAgent(desc) {
-  return /assigned agent/i.test(desc);
+function tierToDescriptionSuffix(tier) {
+  if (tier === null) return '';
+  if (/^\d-\d$/.test(tier)) {
+    const [a, b] = tier.split('-');
+    return ` (${ordinal(a)}-${ordinal(b)} units)`;
+  }
+  if (/^\d\+$/.test(tier)) return ` (${ordinal(tier[0])}+ unit)`;
+  return ` (${ordinal(tier)} unit)`;
+}
+function ordinal(n) {
+  n = String(n);
+  return n === '1' ? '1st' : n === '2' ? '2nd' : n === '3' ? '3rd' : `${n}th`;
 }
 
 // ---------- dump lookup helpers ----------
-
-function findUnit(dump, name) {
-  const target = norm(name);
-  return dump.units.find(u => norm(u.name) === target);
-}
 
 function allDumpPriceEntries(unit) {
   const out = [];
@@ -96,31 +107,59 @@ function allDumpPriceEntries(unit) {
   return out;
 }
 
-// ---------- per-faction sync ----------
+// ---------- load all faction files up front (needed for the cross-faction-copy pass) ----------
 
-function syncFaction(slug, dumps) {
-  const filePath = path.join(FACTIONS_DIR, `${slug}.json`);
-  if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, 'utf8');
-  const data = JSON.parse(raw);
+const FACTION_DUMP_MAP = {
+  'adeptus-titanicus': ['chaos-titan-legions', 'titan-legions'],
+};
 
-  const changes = { points: [], wargear: [], detachments: [], enhancements: [], leaders: [] };
+const allSlugs = fs.readdirSync(FACTIONS_DIR).filter(f => f.endsWith('.json')).map(f => f.replace('.json', ''));
+const factionData = new Map(); // slug -> parsed JSON (mutated in place)
+const factionDumps = new Map(); // slug -> [{units, detachments}]
+for (const slug of allSlugs) {
+  factionData.set(slug, JSON.parse(fs.readFileSync(path.join(FACTIONS_DIR, `${slug}.json`), 'utf8')));
+  const dumpSlugs = FACTION_DUMP_MAP[slug] ?? [slug];
+  const dumps = [];
+  for (const ds of dumpSlugs) {
+    const p = path.join(DUMPS_DIR, `${ds}.txt`);
+    if (fs.existsSync(p)) dumps.push(parseDump(fs.readFileSync(p, 'utf8')));
+  }
+  factionDumps.set(slug, dumps);
+}
+
+const targetSlugs = onlyFactions ?? allSlugs;
+
+// ---------- pass 1: sync each faction against its own MFM page(s) ----------
+
+const results = new Map(); // slug -> { changes, unmatched, unmatchedDatasheetIds: Set }
+
+for (const slug of targetSlugs) {
+  const data = factionData.get(slug);
+  const dumps = factionDumps.get(slug) ?? [];
+  if (!data || dumps.length === 0) { console.error(`skip ${slug}: no dump available`); continue; }
+
+  const changes = { points: [], wargear: [], detachments: [], enhancements: [], leaders: [], structural: [] };
   const unmatched = { points: [], detachments: [], enhancementDetachments: [] };
+  const unmatchedDatasheetIds = new Set();
 
-  // Union of all units/detachments across the (1 or 2) dumps for this faction.
   const allUnits = dumps.flatMap(d => d.units);
   const allDetachments = dumps.flatMap(d => d.detachments);
+  const findUnitAcrossDumps = name => allUnits.find(u => norm(u.name) === norm(name));
 
-  function findUnitAcrossDumps(name) {
-    const target = norm(name);
-    return allUnits.find(u => norm(u.name) === target);
-  }
-
-  // ----- points -----
   for (const ds of data.datasheets ?? []) {
     const unit = findUnitAcrossDumps(ds.name);
-    if (!unit) { unmatched.points.push(`${ds.id}: no MFM unit named "${ds.name}"`); continue; }
+    if (!unit) { unmatched.points.push(`${ds.id}: no MFM unit named "${ds.name}"`); unmatchedDatasheetIds.add(ds.id); continue; }
     const dumpEntries = allDumpPriceEntries(unit);
+
+    // Does the JSON's tier structure line up with the dump's, count-for-count? If not (a split
+    // was added/removed), only space-marines.json gets a structural rebuild — see pass 3.
+    const jsonTierCounts = (ds.pointsCosts ?? []).map(p => ({ tier: tierFromJsonDescription(p.description), modelCount: modelCountFromLabel(p.description) }));
+    const structureMatches = jsonTierCounts.length === dumpEntries.length
+      && jsonTierCounts.every(jt => dumpEntries.some(de => de.tier === jt.tier && de.modelCount === jt.modelCount));
+
+    if (!structureMatches && slug !== 'space-marines') {
+      unmatched.points.push(`${ds.id}: tier structure differs from MFM (JSON has ${jsonTierCounts.length} entr${jsonTierCounts.length === 1 ? 'y' : 'ies'}, MFM has ${dumpEntries.length}) — needs manual restructuring, not just a value patch`);
+    }
 
     for (const p of ds.pointsCosts ?? []) {
       const tier = tierFromJsonDescription(p.description);
@@ -128,11 +167,8 @@ function syncFaction(slug, dumps) {
       if (modelCount === null) { unmatched.points.push(`${ds.id}: can't parse model count from "${p.description}"`); continue; }
       const candidates = dumpEntries.filter(e => e.modelCount === modelCount && e.tier === tier);
       let match = candidates[0];
-      if (!match && dumpEntries.length === 1 && ds.pointsCosts.length === 1) match = dumpEntries[0]; // trivial 1:1 fallback
-      if (!match) {
-        unmatched.points.push(`${ds.id}: no MFM price entry matching "${p.description}" (tier=${tier ?? 'none'}, count=${modelCount}) among [${dumpEntries.map(e => `${e.label}${e.tier ? ` tier=${e.tier}` : ''}=${e.points}`).join('; ')}]`);
-        continue;
-      }
+      if (!match && dumpEntries.length === 1 && ds.pointsCosts.length === 1) match = dumpEntries[0];
+      if (!match) continue; // already reported as a structural mismatch above (or truly unmatched — rare)
       if (match.points !== p.points) {
         changes.points.push(`${ds.id} "${p.description}": ${p.points} -> ${match.points}`);
         p.points = match.points;
@@ -140,8 +176,7 @@ function syncFaction(slug, dumps) {
     }
 
     for (const w of ds.wargearCosts ?? []) {
-      const wTarget = norm(w.name);
-      const dw = unit.wargear.find(x => norm(x.name) === wTarget);
+      const dw = unit.wargear.find(x => norm(x.name) === norm(w.name));
       if (!dw) { unmatched.points.push(`${ds.id}: no MFM wargear entry named "${w.name}"`); continue; }
       if (dw.points !== w.points) {
         changes.wargear.push(`${ds.id} "${w.name}": ${w.points} -> ${dw.points}`);
@@ -150,10 +185,8 @@ function syncFaction(slug, dumps) {
     }
   }
 
-  // ----- detachments (dp + disposition) -----
   for (const det of data.detachments ?? []) {
-    const target = norm(det.name);
-    const dumpDet = allDetachments.find(d => norm(d.name) === target);
+    const dumpDet = allDetachments.find(d => norm(d.name) === norm(det.name));
     if (!dumpDet) { unmatched.detachments.push(`${det.id}: no MFM detachment named "${det.name}"`); continue; }
 
     if (det.dp !== dumpDet.dp) {
@@ -161,20 +194,17 @@ function syncFaction(slug, dumps) {
       det.dp = dumpDet.dp;
     }
     const currentDisp = Array.isArray(det.disposition) ? det.disposition : [det.disposition];
-    const dumpDisp = dumpDet.disposition;
-    const same = currentDisp.length === dumpDisp.length && currentDisp.every((v, idx) => v === dumpDisp[idx]);
+    const same = currentDisp.length === dumpDet.disposition.length && currentDisp.every((v, idx) => v === dumpDet.disposition[idx]);
     if (!same) {
-      const newVal = dumpDisp.length > 1 ? dumpDisp : dumpDisp[0];
+      const newVal = dumpDet.disposition.length > 1 ? dumpDet.disposition : dumpDet.disposition[0];
       changes.detachments.push(`${det.id} disposition: ${JSON.stringify(det.disposition)} -> ${JSON.stringify(newVal)}`);
       det.disposition = newVal;
     }
 
-    // enhancement costs for this detachment
     const detEnhancements = (data.enhancements ?? []).filter(e => e.detachmentId === det.id);
+    const stripParen = s => norm(s).replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').trim();
     for (const e of detEnhancements) {
-      const eTarget = norm(e.name);
-      const stripParen = s => norm(s).replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').trim();
-      const de = dumpDet.enhancements.find(x => norm(x.name) === eTarget || stripParen(x.name) === stripParen(e.name));
+      const de = dumpDet.enhancements.find(x => norm(x.name) === norm(e.name) || stripParen(x.name) === stripParen(e.name));
       if (!de) { unmatched.enhancementDetachments.push(`${det.id}/${e.id}: no MFM enhancement named "${e.name}"`); continue; }
       if (de.cost !== e.cost) {
         changes.enhancements.push(`${e.id} (${det.name}) "${e.name}": ${e.cost} -> ${de.cost}`);
@@ -183,15 +213,14 @@ function syncFaction(slug, dumps) {
     }
   }
 
-  // ----- canBeLedBy (same-file only — cross-faction chapter leadership is a separate manual pass) -----
   const byName = new Map((data.datasheets ?? []).map(ds => [norm(ds.name), ds]));
   for (const unit of allUnits) {
     if (!unit.tag || unit.bodyguards.length === 0) continue;
     const leaderDs = byName.get(norm(unit.name));
-    if (!leaderDs) continue; // leader itself not in this file (cross-faction case), skip
+    if (!leaderDs) continue;
     for (const bgName of unit.bodyguards) {
       const bgDs = byName.get(norm(bgName));
-      if (!bgDs) continue; // bodyguard not in this file, skip (cross-file case)
+      if (!bgDs) continue;
       bgDs.canBeLedBy = bgDs.canBeLedBy ?? [];
       if (!bgDs.canBeLedBy.includes(leaderDs.id)) {
         changes.leaders.push(`${bgDs.id}.canBeLedBy += "${leaderDs.id}"`);
@@ -200,36 +229,99 @@ function syncFaction(slug, dumps) {
     }
   }
 
-  const anyChange = Object.values(changes).some(a => a.length > 0);
-  if (anyChange && !dryRun) {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n', 'utf8');
-  }
-
-  return { slug, changes, unmatched };
+  results.set(slug, { changes, unmatched, unmatchedDatasheetIds });
 }
 
-// ---------- main ----------
+// ---------- pass 2: cross-faction ally copies (name match against every OTHER faction's data) ----------
 
-const FACTION_DUMP_MAP = {
-  'adeptus-titanicus': ['chaos-titan-legions', 'titan-legions'],
-};
-
-const factionSlugs = onlyFactions ?? fs.readdirSync(FACTIONS_DIR)
-  .filter(f => f.endsWith('.json'))
-  .map(f => f.replace('.json', ''));
-
-const results = [];
-for (const slug of factionSlugs) {
-  const dumpSlugs = FACTION_DUMP_MAP[slug] ?? [slug];
-  const dumps = [];
-  for (const ds of dumpSlugs) {
-    const p = path.join(DUMPS_DIR, `${ds}.txt`);
-    if (!fs.existsSync(p)) { console.error(`skip ${slug}: missing dump ${p}`); continue; }
-    dumps.push(parseDump(fs.readFileSync(p, 'utf8')));
+// Global index: normalized datasheet name -> [{slug, ds}] across every faction file.
+const globalNameIndex = new Map();
+for (const [slug, data] of factionData) {
+  for (const ds of data.datasheets ?? []) {
+    const key = norm(ds.name);
+    if (!globalNameIndex.has(key)) globalNameIndex.set(key, []);
+    globalNameIndex.get(key).push({ slug, ds });
   }
-  if (dumps.length === 0) continue;
-  const r = syncFaction(slug, dumps);
-  if (r) results.push(r);
+}
+
+for (const slug of targetSlugs) {
+  const r = results.get(slug);
+  if (!r || r.unmatchedDatasheetIds.size === 0) continue;
+  const data = factionData.get(slug);
+
+  for (const ds of data.datasheets ?? []) {
+    if (!r.unmatchedDatasheetIds.has(ds.id)) continue;
+    let candidates = (globalNameIndex.get(norm(ds.name)) ?? []).filter(c => c.slug !== slug);
+    // Generic Chaos Space Marines units/characters are reused verbatim by several other Chaos
+    // books (Chaos Daemons/Chaos Knights via "Thralls of the First Prince", legion books that
+    // still field the plain non-legion-specific version) — when ambiguous, the generic CSM book
+    // is always the real source, never another borrower.
+    if (candidates.length > 1 && candidates.some(c => c.slug === 'chaos-space-marines')) {
+      candidates = candidates.filter(c => c.slug === 'chaos-space-marines');
+    }
+    if (candidates.length !== 1) {
+      if (candidates.length > 1) r.unmatched.points.push(`${ds.id}: ambiguous cross-faction match for "${ds.name}" in [${candidates.map(c => c.slug).join(', ')}], skipped`);
+      continue;
+    }
+    const home = candidates[0].ds;
+    // Only copy if the home copy actually differs — and only replace pointsCosts/wargearCosts
+    // wholesale (structure + values), since a cross-faction copy should mirror its source exactly.
+    const beforePoints = JSON.stringify(ds.pointsCosts);
+    const beforeWargear = JSON.stringify(ds.wargearCosts);
+    // Preserve this copy's own "(Assigned Agent)"-style annotations if present and the home
+    // doesn't have them (Imperial Agents' own distinction) — otherwise take the home verbatim.
+    const hasAssignedAgentAnnotation = (ds.pointsCosts ?? []).some(p => /assigned agent/i.test(p.description));
+    if (!hasAssignedAgentAnnotation) {
+      ds.pointsCosts = JSON.parse(JSON.stringify(home.pointsCosts ?? []));
+    }
+    ds.wargearCosts = JSON.parse(JSON.stringify(home.wargearCosts ?? []));
+    if (JSON.stringify(ds.pointsCosts) !== beforePoints || JSON.stringify(ds.wargearCosts) !== beforeWargear) {
+      r.changes.points.push(`${ds.id}: copied pointsCosts/wargearCosts from ${candidates[0].slug}'s "${home.name}" (cross-faction ally copy)`);
+      r.unmatchedDatasheetIds.delete(ds.id);
+      r.unmatched.points = r.unmatched.points.filter(m => !m.startsWith(`${ds.id}:`));
+    }
+  }
+}
+
+// ---------- pass 3: space-marines.json structural rebuild (always trust the MFM's tier shape) ----------
+
+if (targetSlugs.includes('space-marines')) {
+  const data = factionData.get('space-marines');
+  const dumps = factionDumps.get('space-marines') ?? [];
+  const r = results.get('space-marines');
+  if (data && dumps.length && r) {
+    const allUnits = dumps.flatMap(d => d.units);
+    for (const ds of data.datasheets ?? []) {
+      const unit = allUnits.find(u => norm(u.name) === norm(ds.name));
+      if (!unit) continue;
+      const dumpEntries = allDumpPriceEntries(unit);
+      const jsonTierCounts = (ds.pointsCosts ?? []).map(p => ({ tier: tierFromJsonDescription(p.description), modelCount: modelCountFromLabel(p.description) }));
+      const structureMatches = jsonTierCounts.length === dumpEntries.length
+        && jsonTierCounts.every(jt => dumpEntries.some(de => de.tier === jt.tier && de.modelCount === jt.modelCount));
+      if (structureMatches) continue;
+
+      const oldStructure = JSON.stringify(ds.pointsCosts);
+      ds.pointsCosts = dumpEntries.map(e => ({
+        description: `${e.modelCount} model${e.modelCount === 1 ? '' : 's'}${tierToDescriptionSuffix(e.tier)}`,
+        points: e.points,
+      }));
+      r.changes.structural.push(`${ds.id}: rebuilt pointsCosts to match MFM's current tier structure — ${oldStructure} -> ${JSON.stringify(ds.pointsCosts)}`);
+      r.unmatched.points = r.unmatched.points.filter(m => !m.startsWith(`${ds.id}:`));
+    }
+  }
+}
+
+// ---------- write files ----------
+
+if (!dryRun) {
+  for (const slug of targetSlugs) {
+    const r = results.get(slug);
+    if (!r) continue;
+    const changeCount = Object.values(r.changes).reduce((a, c) => a + c.length, 0);
+    if (changeCount === 0) continue;
+    const filePath = path.join(FACTIONS_DIR, `${slug}.json`);
+    fs.writeFileSync(filePath, JSON.stringify(factionData.get(slug), null, 2) + '\n', 'utf8');
+  }
 }
 
 // ---------- report ----------
@@ -237,7 +329,10 @@ for (const slug of factionSlugs) {
 let report = `# MFM sync report\n\nGenerated ${new Date().toISOString()}${dryRun ? ' (DRY RUN — nothing written)' : ''}\n\n`;
 let totalChanges = 0;
 let totalUnmatched = 0;
-for (const { slug, changes, unmatched } of results) {
+for (const slug of targetSlugs) {
+  const r = results.get(slug);
+  if (!r) continue;
+  const { changes, unmatched } = r;
   const changeCount = Object.values(changes).reduce((a, c) => a + c.length, 0);
   const unmatchedCount = Object.values(unmatched).reduce((a, c) => a + c.length, 0);
   totalChanges += changeCount;

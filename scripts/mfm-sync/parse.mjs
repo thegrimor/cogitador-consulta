@@ -10,7 +10,7 @@ const STRUCTURAL = new Set([
 const PRICE_RE = /^([▲▼])?\s*(\(([+-]\d+)\)\s*)?([\d,]+)\s*pts$/;
 const HEADER_COST_RE = /^YOUR .+ COSTS?$/i;
 const DP_RE = /^(\d+)DP(?:\s*[▲▼])?$/;
-const ARROW_ONLY_RE = /^[▲▼]$/;
+const ARROW_ONLY_RE = /^[▲▼]+$/;
 const UNIQUE_RE = /^UNIQUE:/;
 const PER_RE = /^per\s+.+/i;
 
