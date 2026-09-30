@@ -31,7 +31,7 @@
     {
       "id": "hearthband",
       "name": "Hearthband",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": ["PRIORITY ASSETS", "RECONNAISSANCE"],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1519,7 +1519,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -3451,11 +3451,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 95
+          "points": 90
         },
         {
           "description": "10 models",
-          "points": 190
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -3718,19 +3718,19 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 80
+          "points": 85
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 160
+          "points": 170
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 90
+          "points": 95
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 170
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -4467,7 +4467,7 @@
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 265
+          "points": 270
         }
       ],
       "wargearCosts": [],
@@ -6079,19 +6079,19 @@
       "pointsCosts": [
         {
           "description": "1 model (1st to 2nd units)",
-          "points": 70
+          "points": 75
         },
         {
           "description": "2 models (1st to 2nd units)",
-          "points": 140
+          "points": 150
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 80
+          "points": 95
         },
         {
           "description": "2 models (3rd+ unit)",
-          "points": 150
+          "points": 170
         }
       ],
       "wargearCosts": [],
