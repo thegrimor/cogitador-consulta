@@ -17,6 +17,11 @@ export interface Detachment {
   /** Space Marines chapter(s) (Black Templars, Blood Angels, etc.) this detachment is
    * available to. Empty for every faction except SM, where it's always non-empty. */
   chapters: string[]
+  /** A detachment-exclusivity keyword printed on the card (e.g. Adeptus Custodes' "UNIQUE SHIELD
+   * HOST" header) — an army cannot field two detachments sharing the same tag. Undefined for a
+   * detachment with no such restriction. The roster builder enforces this by deselecting any
+   * other currently-picked detachment with the same tag the moment one is selected. */
+  exclusivityTag?: string
 }
 
 export interface DetachmentAbility {
@@ -26,6 +31,11 @@ export interface DetachmentAbility {
   description: string
   effect?: CombatEffect
   options?: { name: string; effect?: CombatEffect }[]
+  /** Id of a faction-level `armyRules` entry this ability references but doesn't repeat in full
+   * (e.g. a "Favoured Ka'tah" granting access to a specific Ka'tah stance already fully written
+   * out elsewhere) — lets the UI offer the referenced rule's own text on demand instead of making
+   * the reader go find and remember it by name. */
+  relatedArmyRuleId?: string
 }
 
 export interface ModelProfile {
@@ -147,6 +157,10 @@ export interface Ability {
   model?: string
   effect?: CombatEffect
   options?: { name: string; effect?: CombatEffect }[]
+  /** Groups related army rules under one section heading on FactionArmyRulesPage (e.g. every
+   * Ka'tah stance under "Ka'tah") instead of each rendering as its own standalone card mixed in
+   * alphabetically with unrelated rules. Rules without a `group` render exactly as before. */
+  group?: string
 }
 
 export interface Stratagem {

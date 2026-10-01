@@ -43,6 +43,7 @@ interface DatasheetJson {
 interface DetachmentJson {
   id: string; name: string; disposition: string | string[]; dp: number; chapters: string[]
   abilities: DetachmentAbility[]
+  exclusivityTag?: string
 }
 
 interface FactionJson {
@@ -146,6 +147,7 @@ export function useGameData(): GameData {
             detachments.push({
               id: det.id, factionId: fj.id, name: det.name, type: '',
               disposition: det.disposition, dp: det.dp, chapters: det.chapters,
+              exclusivityTag: det.exclusivityTag,
             })
             for (const da of det.abilities) detachmentAbilities.push({ ...da, detachmentId: det.id })
           }

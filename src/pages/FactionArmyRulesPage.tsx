@@ -10,7 +10,15 @@ export function FactionArmyRulesPage() {
   const navigate = useNavigate()
 
   const faction = factions.find(f => f.id === factionId)
-  const armyRules = forFactionFromMap(armyRulesByFaction, factionId ?? '')
+  const allRules = forFactionFromMap(armyRulesByFaction, factionId ?? '')
+
+  const groupNames = Array.from(new Set(allRules.filter(r => r.group).map(r => r.group!)))
+    .sort((a, b) => a.localeCompare(b, 'es'))
+  const groups = groupNames.map(group => ({
+    group,
+    rules: allRules.filter(r => r.group === group),
+  }))
+  const armyRules = allRules.filter(r => !r.group)
     .slice().sort((a, b) => a.name.localeCompare(b.name, 'es'))
 
   if (!faction) {
@@ -42,23 +50,49 @@ export function FactionArmyRulesPage() {
         </p>
       </div>
 
-      {armyRules.length === 0 ? (
+      {armyRules.length === 0 && groups.length === 0 ? (
         <p className="text-[12px] font-mono text-parchment-dim text-center py-10 uppercase tracking-widest">
           Sin reglas de ejército
         </p>
       ) : (
-        <div className="flex flex-col gap-3">
-          {armyRules.map(rule => (
-            <div
-              key={rule.id}
-              className="bg-surface-2 border border-rim-bright border-l-2 border-l-crimson px-4 py-4"
-            >
-              <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
-                {rule.name}
+        <div className="flex flex-col gap-6">
+          {groups.map(({ group, rules }) => (
+            <div key={group}>
+              <div className="h-px bg-rim-bright mb-2" />
+              <p className="text-[12px] font-mono uppercase tracking-[2px] text-crimson mb-2">
+                {group}
               </p>
-              {rule.description && <RuleHtml html={rule.description} className="prose-copy" factionId={factionId} />}
+              <div className="flex flex-col gap-3">
+                {rules.map(rule => (
+                  <div
+                    key={rule.id}
+                    className="bg-surface-2 border border-rim-bright border-l-2 border-l-crimson px-4 py-4"
+                  >
+                    <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
+                      {rule.name}
+                    </p>
+                    {rule.description && <RuleHtml html={rule.description} className="prose-copy" factionId={factionId} />}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
+
+          {armyRules.length > 0 && (
+            <div className="flex flex-col gap-3">
+              {armyRules.map(rule => (
+                <div
+                  key={rule.id}
+                  className="bg-surface-2 border border-rim-bright border-l-2 border-l-crimson px-4 py-4"
+                >
+                  <p className="text-[14px] font-display uppercase tracking-widest text-parchment mb-1.5">
+                    {rule.name}
+                  </p>
+                  {rule.description && <RuleHtml html={rule.description} className="prose-copy" factionId={factionId} />}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

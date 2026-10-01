@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionDetachmentsPath, readCatalogBackState } from '@/core/constants/routes'
 import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { RuleHtml } from '@/shared/components/RuleHtml'
+import { forFactionFromMap } from '@/core/constants/factionFamily'
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -19,9 +21,10 @@ const CP_LABELS: Record<number, string> = { 1: '1CP', 2: '2CP', 3: '3CP' }
 
 export function DetachmentDetailPage() {
   const { detachmentId } = useParams<{ detachmentId: string }>()
-  const { detachments, detachmentAbilities, stratagems, factions, enhancements } = useGameDataContext()
+  const { detachments, detachmentAbilities, stratagems, factions, enhancements, armyRulesByFaction } = useGameDataContext()
   const navigate = useNavigate()
   const backState = readCatalogBackState(useLocation().state)
+  const [expandedRuleId, setExpandedRuleId] = useState<string | null>(null)
 
   const det = detachments.find(d => d.id === detachmentId)
   if (!det) {
@@ -45,6 +48,7 @@ export function DetachmentDetailPage() {
   const abilities = detachmentAbilities.filter(a => a.detachmentId === detachmentId)
   const strats = stratagems.filter(s => s.detachmentId === detachmentId)
   const detEnhancements = enhancements.filter(e => e.detachmentId === detachmentId)
+  const armyRules = forFactionFromMap(armyRulesByFaction, det.factionId)
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
@@ -67,6 +71,11 @@ export function DetachmentDetailPage() {
             </span>
           )}
         </div>
+        {det.exclusivityTag && (
+          <p className="mt-1 text-[10px] font-mono uppercase tracking-[2px] text-gold border border-gold/60 inline-block px-1.5 py-0.5 leading-none">
+            {det.exclusivityTag}
+          </p>
+        )}
         {dispositionList(det.disposition).length > 0 && (
           <div className="mt-1.5 mb-1 flex gap-1.5">
             {dispositionList(det.disposition).map(disp => {
@@ -92,14 +101,33 @@ export function DetachmentDetailPage() {
           <div className="border border-rim-bright">
             <SectionHeader title={`Habilidades (${abilities.length})`} />
             <div className="divide-y divide-rim-bright">
-              {abilities.map(ab => (
-                <div key={ab.id} className="px-3 py-3 bg-surface-2">
-                  <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
-                    {ab.name}
-                  </p>
-                  {ab.description && <RuleHtml html={ab.description} className="prose-copy" factionId={det.factionId} />}
-                </div>
-              ))}
+              {abilities.map(ab => {
+                const relatedRule = ab.relatedArmyRuleId ? armyRules.find(r => r.id === ab.relatedArmyRuleId) : undefined
+                const isExpanded = expandedRuleId === ab.id
+                return (
+                  <div key={ab.id} className="px-3 py-3 bg-surface-2">
+                    <p className="text-[12px] font-display uppercase tracking-widest text-parchment mb-0.5">
+                      {ab.name}
+                    </p>
+                    {ab.description && <RuleHtml html={ab.description} className="prose-copy" factionId={det.factionId} />}
+                    {relatedRule && (
+                      <div className="mt-2">
+                        <button
+                          onClick={() => setExpandedRuleId(isExpanded ? null : ab.id)}
+                          className="text-[10px] font-mono uppercase tracking-widest text-crimson-bright hover:text-parchment border border-crimson/50 px-2 py-1"
+                        >
+                          {isExpanded ? '▲ Ocultar efecto' : `▼ Ver efecto de ${relatedRule.name}`}
+                        </button>
+                        {isExpanded && (
+                          <div className="mt-2 border-l-2 border-l-crimson bg-surface-3 px-3 py-2">
+                            <RuleHtml html={relatedRule.description} className="prose-copy" factionId={det.factionId} />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
