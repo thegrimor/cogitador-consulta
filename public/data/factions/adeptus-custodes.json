@@ -165,7 +165,12 @@
         {
           "id": "talon-sortie",
           "name": "Talon Sortie",
-          "description": "When a friendly ADEPTUS CUSTODES unit makes a fall-back move, that fall-back move does not prevent that unit from being eligible to charge.<br><br><b>Favoured Ka’tah: Calistus.</b> Additional Effect: Your unit has +2\" M."
+          "description": "When a friendly ADEPTUS CUSTODES unit makes a fall-back move, that fall-back move does not prevent that unit from being eligible to charge."
+        },
+        {
+          "id": "favoured-katah-calistus",
+          "name": "Favoured Ka’tah: Calistus",
+          "description": "<b>WHEN:</b> Your Movement phase, when a friendly readied unit is selected to move.<br><b>TARGET:</b> That readied unit.<br><b>EFFECT:</b> When your unit makes a normal/advance/fall-back move, your unit can move through all types of model.<br><br><b>Additional Effect:</b> Your unit has +2\" M."
         }
       ]
     },
@@ -179,10 +184,22 @@
         {
           "id": "wardens-of-the-dark-cells",
           "name": "Wardens of the Dark Cells",
-          "description": "While a friendly ADEPTUS CUSTODES unit (excluding MONSTER/VEHICLE units) is within range of an objective, melee attacks that target that unit with a Strength greater than that unit’s Toughness have -1 to Wound rolls.<br><br><b>Favoured Ka’tah: Kaptaris.</b> Additional Effect: You can select one enemy unit engaged with your unit; that enemy unit makes a Battle-shock test, with -1 to that Battle-shock roll.",
+          "description": "While a friendly ADEPTUS CUSTODES unit (excluding MONSTER/VEHICLE units) is within range of an objective, melee attacks that target that unit with a Strength greater than that unit’s Toughness have -1 to Wound rolls.",
           "effect": {
             "effects": {},
             "target": "defender"
+          }
+        },
+        {
+          "id": "favoured-katah-kaptaris",
+          "name": "Favoured Ka’tah: Kaptaris",
+          "description": "<b>WHEN:</b> Start of the Fight phase.<br><b>TARGET:</b> One friendly readied unit.<br><b>EFFECT:</b> Melee attacks that target your unit have -1 to Hit rolls.<br><br><b>Additional Effect:</b> You can select one enemy unit engaged with your unit; that enemy unit makes a Battle-shock test, with -1 to that Battle-shock roll. You cannot select the same enemy unit for this effect more than once per phase.",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender",
+            "combatType": "melee"
           }
         }
       ]
@@ -197,13 +214,40 @@
         {
           "id": "magna-imperator",
           "name": "Magna Imperator",
-          "description": "When a friendly ADEPTUS CUSTODES unit is selected to attack, that unit’s attacks can re-roll one Hit roll and re-roll one Wound roll.<br><br><b>Favoured Ka’tah: Rendax.</b> Additional Effect: You can select one enemy MONSTER/VEHICLE unit engaged with your unit and roll one D6: on a 1-2, that enemy unit suffers 1 mortal wound; on a 3-5, D3 mortal wounds; on a 6, 3 mortal wounds.",
+          "description": "When a friendly ADEPTUS CUSTODES unit is selected to attack, that unit’s attacks can re-roll one Hit roll and re-roll one Wound roll.",
           "effect": {
             "effects": {
               "rerollOneHit": true,
               "rerollOneWound": true
             }
           }
+        },
+        {
+          "id": "favoured-katah-rendax",
+          "name": "Favoured Ka’tah: Rendax",
+          "description": "<b>WHEN:</b> Fight phase, when a friendly readied unit is selected to fight.<br><b>TARGET:</b> One friendly readied unit.<br><b>EFFECT:</b> Your unit’s melee attacks have [LETHAL HITS: MONSTER/VEHICLE].<br><br><b>Additional Effect:</b> You can select one enemy MONSTER/VEHICLE unit engaged with your unit and roll one D6: on a 1-2, that enemy unit suffers 1 mortal wound; on a 3-5, D3 mortal wounds; on a 6, 3 mortal wounds.",
+          "options": [
+            {
+              "name": "vs Monster",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "vs Vehicle",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
         }
       ]
     },
@@ -217,7 +261,12 @@
         {
           "id": "heralds-of-the-throne",
           "name": "Heralds of the Throne",
-          "description": "Friendly ADEPTUS CUSTODES units have [FIGHTS FIRST].<br><br><b>Favoured Ka’tah: Conservai.</b> Additional Effect: Until the end of the turn, being selected to make an advance/fall-back move does not prevent your unit from being eligible to start an action, and starting an action does not prevent your unit from being eligible to shoot."
+          "description": "Friendly ADEPTUS CUSTODES units have [FIGHTS FIRST]."
+        },
+        {
+          "id": "favoured-katah-conservai",
+          "name": "Favoured Ka’tah: Conservai",
+          "description": "<b>WHEN:</b> Your Command phase.<br><b>TARGET:</b> One friendly readied unit.<br><b>EFFECT:</b> Until the end of the turn: being engaged/battle-shocked does not prevent your unit from being eligible to start an action; starting an action does not prevent your unit from being eligible to shoot.<br><br><b>Additional Effect:</b> Until the end of the turn, being selected to make an advance/fall-back move does not prevent your unit from being eligible to start an action."
         }
       ]
     },
@@ -231,7 +280,18 @@
         {
           "id": "instruments-of-the-emperors-wrath",
           "name": "Instruments of the Emperor’s Wrath",
-          "description": "Friendly ADEPTUS CUSTODES units can re-roll Charge rolls.<br><br><b>Favoured Ka’tah: Dacatarai.</b> Additional Effect: When an enemy unit engaged with your unit makes a pile-in/consolidation move, -2\" from that pile-in/consolidation move."
+          "description": "Friendly ADEPTUS CUSTODES units can re-roll Charge rolls."
+        },
+        {
+          "id": "favoured-katah-dacatarai",
+          "name": "Favoured Ka’tah: Dacatarai",
+          "description": "<b>WHEN:</b> Start of the Fight phase.<br><b>TARGET:</b> One friendly readied unit.<br><b>EFFECT:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><br><b>Additional Effect:</b> When an enemy unit engaged with your unit makes a pile-in/consolidation move, -2\" from that pile-in/consolidation move.",
+          "effect": {
+            "effects": {
+              "rerollHitsOf1": true
+            },
+            "combatType": "melee"
+          }
         }
       ]
     },
@@ -245,10 +305,22 @@
         {
           "id": "gilded-guardians",
           "name": "Gilded Guardians",
-          "description": "While a friendly ADEPTUS CUSTODES unit (excluding MONSTER/VEHICLE units) is within range of an objective, ranged attacks that target that unit with a Strength greater than that unit’s Toughness have -1 to Wound rolls.<br><br><b>Favoured Ka’tah: Salvus.</b> Additional Effect: Your unit’s ranged attacks have +6\" R.",
+          "description": "While a friendly ADEPTUS CUSTODES unit (excluding MONSTER/VEHICLE units) is within range of an objective, ranged attacks that target that unit with a Strength greater than that unit’s Toughness have -1 to Wound rolls.",
           "effect": {
             "effects": {},
             "target": "defender"
+          }
+        },
+        {
+          "id": "favoured-katah-salvus",
+          "name": "Favoured Ka’tah: Salvus",
+          "description": "<b>WHEN:</b> Your Shooting phase, when a friendly readied unit is selected to shoot.<br><b>TARGET:</b> That readied unit.<br><b>EFFECT:</b> Your unit can ignore modifiers to your unit’s BS, Hit rolls and Wound rolls.<br><br><b>Additional Effect:</b> Your unit’s ranged attacks have +6\" R.",
+          "effect": {
+            "effects": {
+              "hitMod": 1,
+              "woundMod": 1
+            },
+            "combatType": "ranged"
           }
         }
       ]
@@ -4792,7 +4864,38 @@
         {
           "id": "martial-katah",
           "name": "Martial Ka’tah",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one of the Ka’tah Stances below. Until that unit has finished making its attacks, the selected Stance is active for it and it gains the relevant ability:<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Dacatarai Stance</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Rendax Stance</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
+          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
+          "options": [
+            {
+              "name": "Ka’tah Dacatarai",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "combatType": "melee"
+              }
+            },
+            {
+              "name": "Ka’tah Rendax (vs Monster)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "Ka’tah Rendax (vs Vehicle)",
+              "effect": {
+                "effects": {
+                  "lethalHitsBonus": true
+                },
+                "combatType": "melee",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ],
           "type": "Faction"
         },
         {
@@ -4813,6 +4916,18 @@
           "name": "Hero of Lion’s Gate",
           "description": "Once per battle, after making a Hit roll, Wound roll or saving throw for this model, you can change the result of that roll to an unmodified 6.",
           "type": "Datasheet"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have the Feel No Pain 5+ ability against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -4962,9 +5077,9 @@
           "type": "Datasheet"
         },
         {
-          "id": "daughter-of-the-abyss",
-          "name": "Daughter of the Abyss",
-          "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "id": "daughters-of-the-abyss",
+          "name": "Daughters of the Abyss",
+          "description": "Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks. Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks.",
           "type": "Datasheet"
         },
         {
@@ -4972,6 +5087,18 @@
           "name": "Corner the Quarry",
           "description": "Each time an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that is within Engagement Range of this model’s unit Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.",
           "type": "Datasheet"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have the Feel No Pain 5+ ability against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -5072,7 +5199,7 @@
         {
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
-          "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "description": "Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks. Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks.",
           "type": "Datasheet"
         },
         {
@@ -5080,6 +5207,18 @@
           "name": "Purity of Execution",
           "description": "Each time a model in this unit makes a ranged attack that targets a <span class=\"kwb\">PSYKER</span> unit, that attack has the [PRECISION] and [DEVASTATING WOUNDS] abilities.",
           "type": "Datasheet"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have the Feel No Pain 5+ ability against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
@@ -5184,7 +5323,7 @@
         {
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
-          "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "description": "Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks. Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks.",
           "type": "Datasheet"
         },
         {
@@ -5197,6 +5336,18 @@
               "hitMod": -1
             },
             "combatType": "melee",
+            "target": "defender"
+          }
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have the Feel No Pain 5+ ability against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
             "target": "defender"
           }
         }
@@ -5313,7 +5464,7 @@
         {
           "id": "daughters-of-the-abyss",
           "name": "Daughters of the Abyss",
-          "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "description": "Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks. Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks.",
           "type": "Datasheet"
         },
         {
@@ -5321,6 +5472,18 @@
           "name": "Sanctified Flames",
           "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test.",
           "type": "Datasheet"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have the Feel No Pain 5+ ability against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
         }
       ],
       "keywords": [
