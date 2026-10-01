@@ -70,6 +70,11 @@ export function FactionDetachmentsPage() {
                         {det.dp} DP
                       </span>
                     )}
+                    {det.exclusivityTag && (
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none shrink-0">
+                        {det.exclusivityTag}
+                      </span>
+                    )}
                     {dispositionList(det.disposition).map(disp => {
                       const colors = DECK_COLORS[dispositionDeckSlug(disp)]
                       return (

@@ -23,6 +23,14 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
     d => draftIds.includes(d.id) || unconstrained || !multiMode || totalDp + d.dp <= DETACHMENT_POINTS_BUDGET,
   )
 
+  // A detachment's exclusivityTag (e.g. Adeptus Custodes' "UNIQUE SHIELD HOST") means an army
+  // can field at most one detachment carrying that tag — selecting one drops any other
+  // currently-picked detachment sharing it, rather than letting the player end up with two.
+  function withoutSameTag(ids: string[], tag: string | undefined) {
+    if (!tag) return ids
+    return ids.filter(id => detachments.find(d => d.id === id)?.exclusivityTag !== tag)
+  }
+
   function toggle(detachment: Detachment) {
     if (!multiMode) {
       setDraftIds([detachment.id])
@@ -34,7 +42,7 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
       return
     }
     if (!unconstrained && totalDp + detachment.dp > DETACHMENT_POINTS_BUDGET) return
-    setDraftIds([...draftIds, detachment.id])
+    setDraftIds([...withoutSameTag(draftIds, detachment.exclusivityTag), detachment.id])
   }
 
   return (
@@ -93,6 +101,11 @@ export function DetachmentSelectModal({ detachments, selectedIds, pointsLimit, o
                     <span className="text-[12px] font-display uppercase tracking-widest text-parchment block truncate">
                       {d.name}
                     </span>
+                    {d.exclusivityTag && (
+                      <span className="inline-block mt-1 mr-1 text-[9px] font-mono uppercase tracking-widest text-gold border border-gold/60 px-1.5 py-px leading-none">
+                        {d.exclusivityTag}
+                      </span>
+                    )}
                     {dispositionList(d.disposition).length > 0 && (
                       <span className="flex gap-1 flex-wrap mt-1">
                         {/* Same per-deck colouring the catalog views use — a detachment can carry
