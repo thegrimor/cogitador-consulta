@@ -1482,7 +1482,7 @@
     {
       "id": "trajann-valoris",
       "name": "Trajann Valoris",
-      "role": "Other",
+      "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
       "loadout": "<b>This model is equipped with:</b> 1 Eagle’s Scream; 1 Watcher’s Axe.",
@@ -1689,7 +1689,7 @@
     {
       "id": "shield-captain",
       "name": "Shield-Captain",
-      "role": "Other",
+      "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
       "loadout": "<b>This model is equipped with:</b> 1 Praesidium Shield; 1 Pyrithite Spear.",
@@ -1952,7 +1952,7 @@
     {
       "id": "shield-captain-in-allarus-terminator-armour",
       "name": "Shield-Captain in Allarus Terminator Armour",
-      "role": "Other",
+      "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
       "loadout": "<b>This model is equipped with:</b> 1 Balistus Grenade Launcher; 1 Guardian Spear.",
@@ -2171,7 +2171,7 @@
     {
       "id": "shield-captain-on-dawneagle-jetbike",
       "name": "Shield-Captain on Dawneagle Jetbike",
-      "role": "Other",
+      "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
       "loadout": "<b>This model is equipped with:</b> 1 Interceptor Lance; 1 Salvo Launcher.",
@@ -3595,7 +3595,7 @@
     {
       "id": "blade-champion",
       "name": "Blade Champion",
-      "role": "Other",
+      "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
       "loadout": "<b>This model is equipped with:</b> 1 Vaultswords.",
@@ -4847,190 +4847,6 @@
       "canBeLedBy": []
     },
     {
-      "id": "valerian",
-      "name": "Valerian",
-      "role": "Characters",
-      "sourceId": "000000024",
-      "isVirtual": false,
-      "loadout": "<b>This model is equipped with:</b> Gnosis.",
-      "damagedW": 0,
-      "damagedDescription": "",
-      "models": [
-        {
-          "line": 1,
-          "name": "Valerian",
-          "M": "6\"",
-          "T": 6,
-          "Sv": "2+",
-          "invSv": "4",
-          "W": 6,
-          "Ld": "6+",
-          "OC": 2,
-          "baseSize": "40mm"
-        }
-      ],
-      "weapons": [
-        {
-          "line": 1,
-          "name": "Gnosis",
-          "description": "assault",
-          "range": "24",
-          "type": "Ranged",
-          "A": "3",
-          "bsWs": "2",
-          "S": 4,
-          "AP": -1,
-          "D": "2",
-          "rules": {
-            "isAssault": true
-          }
-        },
-        {
-          "line": 2,
-          "name": "Gnosis",
-          "description": "",
-          "range": "Melee",
-          "type": "Melee",
-          "A": "7",
-          "bsWs": "2",
-          "S": 8,
-          "AP": -3,
-          "D": "2",
-          "rules": {}
-        }
-      ],
-      "abilities": [
-        {
-          "id": "deep-strike",
-          "name": "Deep Strike",
-          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
-          "type": "Core"
-        },
-        {
-          "id": "feel-no-pain-6",
-          "name": "Feel No Pain 6+",
-          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
-          "type": "Core",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 6
-            },
-            "target": "defender"
-          }
-        },
-        {
-          "id": "leader",
-          "name": "Leader",
-          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
-          "type": "Core"
-        },
-        {
-          "id": "martial-katah",
-          "name": "Martial Ka’tah",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ],
-          "type": "Faction"
-        },
-        {
-          "id": "golden-laurels",
-          "name": "Golden Laurels",
-          "description": "While this model is leading a unit, each time a melee attack targets that unit, worsen the Armour Penetration characteristic of that attack by 1.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "apMod": -1
-            },
-            "combatType": "melee",
-            "target": "defender"
-          }
-        },
-        {
-          "id": "hero-of-lions-gate",
-          "name": "Hero of Lion’s Gate",
-          "description": "Once per battle, after making a Hit roll, Wound roll or saving throw for this model, you can change the result of that roll to an unmodified 6.",
-          "type": "Datasheet"
-        },
-        {
-          "id": "aegis-of-the-emperor",
-          "name": "Aegis of the Emperor",
-          "type": "Faction",
-          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
-        }
-      ],
-      "keywords": [
-        "Shield-Captain",
-        "Imperium",
-        "Epic Hero",
-        "Character",
-        "Infantry",
-        "Valerian"
-      ],
-      "factionKeywords": [
-        "Adeptus Custodes"
-      ],
-      "unitComposition": [
-        "1 Valerian – <span class=\"kwb\">EPIC</span> <span class=\"kwb\">HERO</span>"
-      ],
-      "modelCountMin": 1,
-      "modelCountMax": 1,
-      "defaultWeaponNames": [
-        {
-          "name": "gnosis",
-          "count": 1
-        }
-      ],
-      "options": [],
-      "pointsCosts": [
-        {
-          "description": "1 model",
-          "points": 120
-        }
-      ],
-      "wargearCosts": [],
-      "stratagemIds": [],
-      "enhancementIds": [],
-      "detachmentAbilityIds": [
-        "assemblage-of-might"
-      ],
-      "canBeLedBy": []
-    },
-    {
       "id": "knight-centura",
       "name": "Knight-Centura",
       "role": "Characters",
@@ -5600,6 +5416,156 @@
       "canBeLedBy": [
         "knight-centura"
       ]
+    },
+    {
+      "id": "anathema-psykana-rhino",
+      "name": "Anathema Psykana Rhino",
+      "role": "Dedicated Transports",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Anathema Psykana Rhino",
+          "M": "12\"",
+          "T": 9,
+          "Sv": "3+",
+          "invSv": "-",
+          "W": 10,
+          "Ld": "6+",
+          "OC": 2,
+          "baseSize": "Use model"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Hunter-killer missile",
+          "description": "one shot",
+          "range": "48",
+          "type": "Ranged",
+          "A": "1",
+          "bsWs": "2",
+          "S": 14,
+          "AP": -3,
+          "D": "D6",
+          "rules": {
+            "isOneShot": true
+          }
+        },
+        {
+          "line": 2,
+          "name": "Storm bolter",
+          "description": "rapid fire 2",
+          "range": "24",
+          "type": "Ranged",
+          "A": "2",
+          "bsWs": "3",
+          "S": 4,
+          "AP": 0,
+          "D": "1",
+          "rules": {
+            "rapidFireValue": "2"
+          }
+        },
+        {
+          "line": 3,
+          "name": "Armoured tracks",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "3",
+          "bsWs": "4",
+          "S": 6,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "deadly-demise-d3",
+          "name": "Deadly Demise D3",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEADLY DEMISE</div></div></div>Some models have ‘Deadly Demise x’ listed in their abilities. When such a model is <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, roll one D6 before removing it from play (if such a model is a <a href=\"/wh40k10ed/the-rules/core-rules/#Transports\"><span class=\"kwb\">TRANSPORT</span></a>, roll before any embarked models <span class=\"tooltip00029\" data-tooltip-content=\"#tooltip_content00029\"><span class=\"tt kwbu\">disembark</span></span>). On a 6, each unit within 6\" of that model suffers a number of <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span> denoted by ‘x’ (if this is a random number, roll separately for each unit within 6\").<br><br><div class=\"redExample\"><b>Example:</b> A <span class=\"kwb\">TRANSPORT</span> model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Deadly Demise x:</b> When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers ‘x’ mortal wounds.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "firing-deck-2",
+          "name": "Firing Deck 2",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FIRING DECK</div></div></div>Some <span class=\"kwb\">TRANSPORT</span> models have ‘Firing Deck x’ listed in their abilities. Each time such a model is selected to shoot in the <a href=\"/wh40k10ed/the-rules/core-rules/#SHOOTING-PHASE\">Shooting phase</a>, you can select up to ‘x’ models <span class=\"tooltip00025\" data-tooltip-content=\"#tooltip_content00025\"><span class=\"tt kwbu\">embarked</span></span> within it whose units have not already shot this phase. Then, for each of those embarked models, you can select one ranged weapon that embarked model is equipped with (excluding weapons with the <span class=\"kwb2 bluefont\">[ONE SHOT]</span> ability). Until that <span class=\"kwb\">TRANSPORT</span> model has resolved all of its attacks, it counts as being equipped with all of the weapons you selected in this way, in addition to its other weapons. Until the end of the phase, those selected models’ units are not eligible to shoot.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Firing Deck ‘x’:</b> Each time this <span class=\"kwb\">TRANSPORT</span> shoots, select one weapon (excluding weapons with the <span class=\"kwb2 bluefont\">[ONE SHOT]</span> ability) from up to ‘x’ models embarked within it whose units have not shot this phase; this <span class=\"kwb\">TRANSPORT</span> counts as being equipped with those weapons as well. Until the end of the phase, those selected models’ units are not eligible to shoot.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "daughters-of-the-abyss",
+          "name": "Daughters of the Abyss",
+          "description": "Bearers of the Pariah gene, Null Maidens are inured to psychic powers. Their Warp-smothering aura also provides limited protection for the Custodians at whose side they fight.<br><br>Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks.<br><br>Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "self-repair",
+          "name": "Self Repair",
+          "description": "At the start of your Command phase, this model regains 1 lost wound.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "one-shot",
+          "name": "One Shot",
+          "description": "The bearer can only shoot with this weapon once per battle.",
+          "type": "Datasheet"
+        }
+      ],
+      "keywords": [
+        "Anathema Psykana",
+        "Dedicated Transport",
+        "Imperium",
+        "Smoke",
+        "Transport",
+        "Rhino",
+        "Vehicle",
+        "Frame"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Anathema Psykana Rhino"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "storm bolter",
+          "count": 1
+        },
+        {
+          "name": "armoured tracks",
+          "count": 1
+        }
+      ],
+      "options": [
+        {
+          "button": "•",
+          "description": "This model can be equipped with 1 hunter-killer missile."
+        }
+      ],
+      "pointsCosts": [
+        {
+          "description": "1 model (1st to 3rd units)",
+          "points": 65
+        },
+        {
+          "description": "1 model (4th + unit)",
+          "points": 75
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": []
     }
   ]
 }
