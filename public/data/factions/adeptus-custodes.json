@@ -6243,7 +6243,7 @@
           "id": "transport",
           "name": "Transport",
           "type": "Datasheet",
-          "description": "This model has a transport capacity of 8 <span class=\"kwb\">ADEPTUS CUSTODES INFANTRY</span> models. It cannot transport <span class=\"kwb\">JUMP PACK</span> models."
+          "description": "This model has a transport capacity of 9 <span class=\"kwb\">ADEPTUS CUSTODES INFANTRY</span> models. It cannot transport <span class=\"kwb\">JUMP PACK</span> models."
         }
       ],
       "keywords": [
