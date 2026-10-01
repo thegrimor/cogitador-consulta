@@ -242,6 +242,52 @@ no changes — already accurate from the prior pass.
   weapons after using the Edit tool, this is a known unresolved flake worth investigating
   properly rather than a one-off.
 
+**Adeptus Custodes full-file replace (2026-10-01), from a 24-page phone-photo excerpt (pages
+92-115) of the new Codex: Adeptus Custodes, not the full book.** Unlike the Space Marines PDF
+migration (which left the rest of the old file in place), the user explicitly asked to **strip
+out everything this pass didn't itself add or rewrite** — so `adeptus-custodes.json` now
+contains *only* what these 24 pages cover: 13 detachments (the generic `guardians-of-the-throne`
+plus 8 new Unique Shield Hosts — Solar Watch, Shadowkeepers, Emperor's Chosen, Emissaries
+Imperatus, Dread Host, Aquilan Shield, Honoured Companions, Grav-Assault Force — and 4 more whose
+abilities were authored fresh: `auric-champions`, `null-maiden-vigil`, `might-of-the-moritoi`,
+`lions-of-the-emperor`), 41 stratagems, 29 enhancements, and 18 datasheets (`custodian-guard`
+kept its pre-existing id despite the new codex renaming it "Custodian Guard Sodality";
+`custodian-wardens`, `allarus-custodians`, `vertus-praetors`, `contemptor-galatus-dreadnought`,
+`contemptor-achillus-dreadnought`, `telemon-heavy-dreadnought`, `blade-champion`,
+`shield-captain`, `shield-captain-in-allarus-terminator-armour`,
+`shield-captain-on-dawneagle-jetbike`, `trajann-valoris`, plus brand-new
+`sentinel-guard-sodality`/`gyrfalcon-jetbike-sodality` and the old combined Venatari/Aquilon
+Terminators split into pairs per the new book:
+`venatari-with-kinetic-destroyers`/`venatari-with-verutum-lances`,
+`aquilon-terminators-solarite-power-gauntlets`/`aquilon-terminators-solarite-power-talons`).
+**Every other previously-existing Custodes detachment, datasheet, stratagem and enhancement
+(Shield Host, Talons of the Emperor, Solar Spearhead, Silent Hunters, Tharanatoi Hammerblow,
+Venerable Contemptor/Land Raider, Caladius, Coronus, Agamatus/Sagittarum/Pallas, Orion/Ares,
+Aleya, Valerian, Knight-Centura, Prosecutors, Vigilators, Witchseekers, and all of their
+stratagems/enhancements) was deleted outright, not merely left alone — this faction's
+previous-edition content no longer exists anywhere in this file, recoverable only from git
+history.** `armyRules` was fully rewritten too: the faction-wide **Martial Ka'tah** ability and a
+new **Aegis of the Emperor** (Feel No Pain 5+ vs mortal wounds) were corrected/added from GW's
+own official "New army rules from Codex: Adeptus Custodes" Warhammer Community preview article
+(a confirmed primary source, not the photographed pages). **Known consequence of the full
+delete, not yet followed up:** this file is now a partial-roster faction (18 of what was
+previously ~35+ datasheets) until the rest of the new codex gets transcribed the same way — any
+feature that assumes a faction's datasheet list is complete (roster legality checks, Mathhammer
+unit pickers, the chat assistant) will undercount Adeptus Custodes until the remaining
+detachments/datasheets from the full book are migrated in a follow-up pass.
+
+**Known placeholders, deliberately visible rather than guessed:** every new/replaced detachment
+has `dp: 0` and `disposition: "SIN DATOS MFM"` (neither value appears anywhere in the source
+pages — DP/disposition are only printed on the MFM's own per-faction page, not in the codex
+book), and every new/replaced datasheet's `pointsCosts` uses the existing placeholder string
+convention (`"Sin puntos oficiales para esta edición del codex todavía"`, 0 pts) plus `cost: 0`
+on every new enhancement — all of this needs a real `npm run mfm-sync` pass (or manual MFM
+lookup) once this faction's page reflects the new codex. `canBeLedBy`/`detachmentAbilityIds`
+eligibility for the new stratagems/enhancements was inferred from each one's own keyword
+restriction text (e.g. "ADEPTUS CUSTODES INFANTRY model only") checked against each touched
+datasheet's own keywords — not cross-checked against the untouched datasheets, which may also
+qualify for some of these and don't yet reference them.
+
 No test suite yet.
 
 ## Architecture
