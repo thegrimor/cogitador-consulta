@@ -43,11 +43,35 @@ function norm(s) {
   return s
     .toUpperCase()
     .replace(/[’‘]/g, "'")
-    .replace(/[–—]/g, '-')
+    .replace(/[–—‑]/g, '-') // em/en-dash and U+2011 non-breaking hyphen all treated as a plain hyphen
     .replace(/,/g, '') // MFM sometimes writes a detachment name with a comma our JSON doesn't (e.g. "ORDO XENOS, ALIEN HUNTERS")
     .replace(/-/g, ' ') // and sometimes a hyphen where our JSON has a space, or vice versa (e.g. "Priority Drop Beacon" vs "Priority-drop Beacon")
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// Strips a leading article ("The"/"A"/"One") and a trailing plural 's' — the MFM frequently
+// shortens an enhancement's stored name this way (e.g. "The Ephemeral Tome" -> "Ephemeral
+// Tome", "A Foot in the Future" -> "One Foot in the Future", "Panoply of the Cursed Knight" ->
+// "...Knights"). Used only as a fallback when an exact norm() match fails, and only within the
+// enhancement list of a single already name-matched detachment, so the false-positive risk of
+// such a loose comparison is low — the candidate pool is already narrowed to a handful of names.
+function looseName(s) {
+  return norm(s)
+    .replace(/^(THE|A|ONE)\s+/, '')
+    .replace(/S$/, '');
+}
+
+// Strips a trailing 's' off every word, not just the last — catches a mid-name pluralization
+// drift like "Brood Brother Auxilia" vs the MFM's "Brood Brothers Auxilia".
+function looseWordsName(s) {
+  return norm(s).split(' ').map(w => w.replace(/S$/, '')).join(' ');
+}
+
+// Strips a leading "per " (this app's own wargear-cost naming convention — see
+// RosterEntryRow's `wc.name.replace(/^per /i, '')` — a few stored wargear names omit it).
+function looseWargearName(s) {
+  return norm(s).replace(/^PER\s+/, '');
 }
 
 // ---------- tier parsing ----------
@@ -146,7 +170,8 @@ for (const slug of targetSlugs) {
 
   const allUnits = dumps.flatMap(d => d.units);
   const allDetachments = dumps.flatMap(d => d.detachments);
-  const findUnitAcrossDumps = name => allUnits.find(u => norm(u.name) === norm(name));
+  const findUnitAcrossDumps = name => allUnits.find(u => norm(u.name) === norm(name))
+    ?? allUnits.find(u => looseWordsName(u.name) === looseWordsName(name));
 
   for (const ds of data.datasheets ?? []) {
     const unit = findUnitAcrossDumps(ds.name);
@@ -176,7 +201,7 @@ for (const slug of targetSlugs) {
         }
       }
       for (const w of ds.wargearCosts ?? []) {
-        const dw = unit.wargear.find(x => norm(x.name) === norm(w.name));
+        const dw = unit.wargear.find(x => norm(x.name) === norm(w.name) || looseWargearName(x.name) === looseWargearName(w.name));
         if (!dw) { unmatched.points.push(`${ds.id}: no MFM wargear entry named "${w.name}"`); continue; }
         if (dw.points !== w.points) {
           changes.wargear.push(`${ds.id} "${w.name}": ${w.points} -> ${dw.points}`);
@@ -238,7 +263,7 @@ for (const slug of targetSlugs) {
     }
 
     for (const w of ds.wargearCosts ?? []) {
-      const dw = unit.wargear.find(x => norm(x.name) === norm(w.name));
+      const dw = unit.wargear.find(x => norm(x.name) === norm(w.name) || looseWargearName(x.name) === looseWargearName(w.name));
       if (!dw) { unmatched.points.push(`${ds.id}: no MFM wargear entry named "${w.name}"`); continue; }
       if (dw.points !== w.points) {
         changes.wargear.push(`${ds.id} "${w.name}": ${w.points} -> ${dw.points}`);
@@ -248,7 +273,8 @@ for (const slug of targetSlugs) {
   }
 
   for (const det of data.detachments ?? []) {
-    const dumpDet = allDetachments.find(d => norm(d.name) === norm(det.name));
+    const dumpDet = allDetachments.find(d => norm(d.name) === norm(det.name))
+      ?? allDetachments.find(d => looseWordsName(d.name) === looseWordsName(det.name));
     if (!dumpDet) { unmatched.detachments.push(`${det.id}: no MFM detachment named "${det.name}"`); continue; }
 
     if (det.dp !== dumpDet.dp) {
@@ -266,7 +292,7 @@ for (const slug of targetSlugs) {
     const detEnhancements = (data.enhancements ?? []).filter(e => e.detachmentId === det.id);
     const stripParen = s => norm(s).replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').replace(/[-\s]+/g, ' ').trim();
     for (const e of detEnhancements) {
-      const de = dumpDet.enhancements.find(x => norm(x.name) === norm(e.name) || stripParen(x.name) === stripParen(e.name));
+      const de = dumpDet.enhancements.find(x => norm(x.name) === norm(e.name) || stripParen(x.name) === stripParen(e.name) || looseName(stripParen(x.name)) === looseName(stripParen(e.name)));
       if (!de) { unmatched.enhancementDetachments.push(`${det.id}/${e.id}: no MFM enhancement named "${e.name}"`); continue; }
       if (de.cost !== e.cost) {
         changes.enhancements.push(`${e.id} (${det.name}) "${e.name}": ${e.cost} -> ${de.cost}`);
