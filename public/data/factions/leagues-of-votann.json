@@ -31,7 +31,10 @@
     {
       "id": "hearthband",
       "name": "Hearthband",
-      "disposition": ["PRIORITY ASSETS", "RECONNAISSANCE"],
+      "disposition": [
+        "PRIORITY ASSETS",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1092,7 +1095,7 @@
     },
     {
       "id": "delvwerke-navigator",
-      "name": "Dêlvwerke Navigator",
+      "name": "Dêlvewerke Navigator",
       "cost": 25,
       "detachmentId": "delve-assault-shift",
       "detachmentName": "Dêlve Assault Shift",

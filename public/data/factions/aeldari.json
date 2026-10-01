@@ -1514,14 +1514,6 @@
       "description": "Anhrathe unit only. Models in this unit have the Deep Strike ability. In addition, once per battle, at the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, it can use this ability. If it does, remove this unit from the battlefield and place it into Strategic Reserves."
     },
     {
-      "id": "harmonisation-matrix",
-      "name": "Harmonisation Matrix",
-      "cost": 30,
-      "detachmentId": "armoured-warhost",
-      "detachmentName": "Armoured Warhost",
-      "description": "<span class=\"kwb\">AELDARI</span> model only. In your Command phase, if the bearer (or any Transport it is embarked within) is within range of an objective marker you control, roll one D6: on a 3+, you gain 1CP."
-    },
-    {
       "id": "timeless-strategist",
       "name": "Timeless Strategist",
       "cost": 15,
@@ -1914,14 +1906,6 @@
       "detachmentId": "ghosts-of-the-webway",
       "detachmentName": "Ghosts of the Webway",
       "description": "Shadowseer model only. While the bearer is leading a unit, models in that unit have the Infiltrators ability."
-    },
-    {
-      "id": "guileful-strategist",
-      "name": "Guileful Strategist",
-      "cost": 15,
-      "detachmentId": "armoured-warhost",
-      "detachmentName": "Armoured Warhost",
-      "description": "<span class=\"kwb\">AELDARI</span> model only. If your army includes the bearer, after both players have deployed their armies, select up to three Aeldari Vehicle units from your army and redeploy them. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves."
     },
     {
       "id": "torc-of-morai-heg",
@@ -3229,13 +3213,11 @@
       "enhancementIds": [
         "breath-of-vaul",
         "aspect-of-murder",
-        "harmonisation-matrix",
         "craftworlds-champion",
         "strategic-savant",
         "phoenix-gem",
         "shimmerstone",
         "gift-of-foresight",
-        "guileful-strategist",
         "timeless-strategist",
         "ethereal-pathway",
         "protector-of-the-paths",
@@ -3598,9 +3580,7 @@
         "ishas-fury"
       ],
       "enhancementIds": [
-        "harmonisation-matrix",
         "psychic-destroyer",
-        "guileful-strategist",
         "phoenix-gem",
         "runes-of-warding",
         "timeless-strategist",
@@ -3848,7 +3828,6 @@
         "gaze-of-ynnead",
         "runes-of-warding",
         "ethereal-pathway",
-        "harmonisation-matrix",
         "stone-of-eldritch-fury",
         "timeless-strategist",
         "protector-of-the-paths",
@@ -3861,7 +3840,6 @@
         "seersight-strike",
         "echoes-of-ulthanesh",
         "psychic-destroyer",
-        "guileful-strategist",
         "lucid-eye"
       ],
       "detachmentAbilityIds": [
@@ -4313,9 +4291,7 @@
         "guiding-presence",
         "craftworlds-champion",
         "stone-of-eldritch-fury",
-        "harmonisation-matrix",
         "timeless-strategist",
-        "guileful-strategist",
         "torc-of-morai-heg",
         "spirit-stone-of-raelyth",
         "protector-of-the-paths",
@@ -4734,10 +4710,8 @@
         "light-of-clarity",
         "psychic-destroyer",
         "runes-of-warding",
-        "harmonisation-matrix",
         "guiding-presence",
         "higher-duty",
-        "guileful-strategist",
         "ethereal-pathway"
       ],
       "detachmentAbilityIds": [
@@ -11959,8 +11933,6 @@
         "cloak-and-shadow"
       ],
       "enhancementIds": [
-        "guileful-strategist",
-        "harmonisation-matrix",
         "mask-of-secrets",
         "weavers-wail",
         "key-of-ghosts",
@@ -12165,14 +12137,12 @@
         "seers-eye"
       ],
       "enhancementIds": [
-        "harmonisation-matrix",
         "shedskin-raiment",
         "guiding-presence",
         "spirit-stone-of-raelyth",
         "key-of-ghosts",
         "mistweave",
-        "mask-of-secrets",
-        "guileful-strategist"
+        "mask-of-secrets"
       ],
       "detachmentAbilityIds": [
         "acrobatic-onslaught",
@@ -12627,9 +12597,7 @@
         "key-of-ghosts",
         "mask-of-secrets",
         "murders-jest",
-        "guileful-strategist",
-        "fanged-leer",
-        "harmonisation-matrix"
+        "fanged-leer"
       ],
       "detachmentAbilityIds": [
         "strength-from-death",
@@ -14131,11 +14099,9 @@
         "craftworlds-champion",
         "phoenix-gem",
         "ethereal-pathway",
-        "guileful-strategist",
         "strategic-savant",
         "aspect-of-murder",
         "breath-of-vaul",
-        "harmonisation-matrix",
         "mantle-of-wisdom",
         "protector-of-the-paths",
         "gift-of-foresight"
@@ -15222,9 +15188,7 @@
         "macabre-resilience"
       ],
       "enhancementIds": [
-        "guileful-strategist",
-        "borrowed-vigour",
-        "harmonisation-matrix"
+        "borrowed-vigour"
       ],
       "detachmentAbilityIds": [
         "martial-grace",
@@ -15402,8 +15366,6 @@
         "skyborne-sanctuary-aeldari"
       ],
       "enhancementIds": [
-        "guileful-strategist",
-        "harmonisation-matrix",
         "morbid-might"
       ],
       "detachmentAbilityIds": [

@@ -77,7 +77,11 @@ export function parseDump(text) {
         while (i < lines.length) {
           const label = lines[i];
           if (HEADER_COST_RE.test(label) || label === 'WARGEAR OPTIONS' || label === 'LEADER'
-            || label === 'SUPPORT' || label === 'DETACHMENTS') break;
+            || label === 'SUPPORT' || label === 'DETACHMENTS' || label.startsWith('+')) break;
+          // A "+ N <item>" line (e.g. "+ 1 Tidewall Defence Platform") is a wargear-style
+          // add-on tacked onto the unit's base cost block with no "WARGEAR OPTIONS" header of
+          // its own — not a normal model-count tier. Stop the cost-block scan here; it's
+          // picked up as an addon by whatever consumes the raw block text if needed.
           const priceLine = lines[i + 1];
           const price = priceLine ? parsePrice(priceLine) : null;
           if (!price) break; // next line isn't a price — end of this cost block, not an error

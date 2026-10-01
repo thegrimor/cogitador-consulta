@@ -1185,14 +1185,6 @@
       "description": "Astra Militarum Infantry model only. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, select one enemy unit within 8\" of the bearer’s unit (excluding <span class=\"kwb\">MONSTER</span> and <span class=\"kwb\">VEHICLE</span> units); that unit must take a Battle-shock test."
     },
     {
-      "id": "shroud-projector",
-      "name": "Shroud Projector",
-      "cost": 15,
-      "detachmentId": "bridgehead-strike",
-      "detachmentName": "Bridgehead Strike",
-      "description": "Militarum Tempestus Officer model only. Enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer’s unit."
-    },
-    {
       "id": "omnissian-unguents-aura",
       "name": "Omnissian Unguents  (Aura)",
       "cost": 35,
@@ -1313,14 +1305,6 @@
       "description": "Infantry Officer model only. The bearer’s unit can disembark from a Transport after it has Advanced. If it does, it counts as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally in the remainder of the turn."
     },
     {
-      "id": "advance-augury",
-      "name": "Advance Augury",
-      "cost": 15,
-      "detachmentId": "bridgehead-strike",
-      "detachmentName": "Bridgehead Strike",
-      "description": "Infantry Officer model only. After both players have deployed their armies, select up to three Regiment units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
-    },
-    {
       "id": "grand-strategist-astra-militarum",
       "name": "Grand Strategist",
       "cost": 25,
@@ -1368,7 +1352,7 @@
     },
     {
       "id": "sharp-eyes-light-fingers",
-      "name": "Sharp Eyes, Light Fingers",
+      "name": "Sharp Eyes (Upgrade)",
       "cost": 10,
       "detachmentId": "abhuman-auxiliaries",
       "detachmentName": "Abhuman Auxiliaries",
@@ -7018,7 +7002,6 @@
         "reactive-command",
         "guerrilla-honours",
         "grand-strategist-astra-militarum",
-        "advance-augury",
         "scare-gas-grenades",
         "abhuman-detail",
         "death-mask-of-ollanius",
@@ -7455,9 +7438,7 @@
         "grand-strategist-astra-militarum",
         "master-manoeuvrist",
         "exemplary-officer",
-        "advance-augury",
         "grand-strategist",
-        "shroud-projector",
         "tripwires",
         "priority-drop-beacon",
         "aquilan-eye",
@@ -10897,7 +10878,6 @@
         "stalwarts-honours",
         "grand-strategist",
         "death-mask-of-ollanius",
-        "advance-augury",
         "reactive-command",
         "legacy-sidearm",
         "bold-leadership",
@@ -11355,7 +11335,6 @@
         "laud-hailer",
         "tripwires",
         "master-manoeuvrist",
-        "advance-augury",
         "spec-ops-veteran",
         "exemplary-officer"
       ],
@@ -16420,7 +16399,6 @@
         "eager-advance",
         "legacy-sidearm",
         "guerrilla-honours",
-        "advance-augury",
         "reactive-command",
         "death-mask-of-ollanius",
         "grand-strategist",
@@ -17205,7 +17183,6 @@
         "death-mask-of-ollanius",
         "scare-gas-grenades",
         "grand-strategist-astra-militarum",
-        "advance-augury",
         "aquilan-eye",
         "flash-grenades",
         "guerrilla-honours",

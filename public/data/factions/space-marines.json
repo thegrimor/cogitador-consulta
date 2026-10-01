@@ -1461,7 +1461,7 @@
     },
     {
       "id": "venerable-champion",
-      "name": "Venerable Champion (Aura)",
+      "name": "Venerable Champion (Aura) (Upgrade)",
       "cost": 30,
       "detachmentId": "ironclad-champions",
       "description": "<span class=\"kwb\">DREADNOUGHT</span> unit only. While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span>/<span class=\"kwb\">MOUNTED</span> unit is within 6\" of this unit, that unit's attacks can re-roll hit rolls of 1."
@@ -1657,7 +1657,7 @@
     },
     {
       "id": "stormseers-wisdom",
-      "name": "Stormseer's Wisdom",
+      "name": "Stormseers' Wisdom",
       "cost": 15,
       "detachmentId": "spearpoint-task-force",
       "description": "The bearer's unit can re-roll Advance rolls."
@@ -3086,7 +3086,7 @@
       ],
       "wargearCosts": [
         {
-          "name": "chapter ancient (banner of macragge)",
+          "name": "per Banner of Macragge",
           "points": 15,
           "max": 1
         }
@@ -15294,7 +15294,7 @@
       ],
       "wargearCosts": [
         {
-          "name": "per Storm Shield and Thunder Hammer",
+          "name": "per Storm Shield",
           "points": 5
         }
       ],
@@ -15932,7 +15932,7 @@
       ],
       "wargearCosts": [
         {
-          "name": "orbital comms array",
+          "name": "per Orbital Comms Array",
           "points": 10,
           "max": 1
         }

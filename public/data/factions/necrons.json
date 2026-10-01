@@ -1558,7 +1558,7 @@
     },
     {
       "id": "mortality-shroud-upgrade",
-      "name": "Mortality Shroud Upgrade",
+      "name": "Mortality Shroud (Aura) (Upgrade)",
       "cost": 10,
       "detachmentId": "the-phaerons-armoury",
       "detachmentName": "The Phaeron’s Armoury",

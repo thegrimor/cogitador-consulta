@@ -2915,12 +2915,7 @@
           "points": 300
         }
       ],
-      "wargearCosts": [
-        {
-          "name": "per Psycannon",
-          "points": 5
-        }
-      ],
+      "wargearCosts": [],
       "stratagemIds": [
         "sanctified-kill-zone",
         "fires-of-covenant",

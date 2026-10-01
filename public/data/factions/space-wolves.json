@@ -4320,12 +4320,7 @@
           "points": 405
         }
       ],
-      "wargearCosts": [
-        {
-          "name": "per Storm Shield",
-          "points": 5
-        }
-      ],
+      "wargearCosts": [],
       "stratagemIds": [
         "ruthless-butchery",
         "litanies-of-purgation",
@@ -4759,12 +4754,7 @@
           "points": 260
         }
       ],
-      "wargearCosts": [
-        {
-          "name": "per Storm Shield",
-          "points": 5
-        }
-      ],
+      "wargearCosts": [],
       "stratagemIds": [
         "armour-of-contempt-space-marines-6",
         "marching-ever-on",

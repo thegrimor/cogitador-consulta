@@ -2045,14 +2045,6 @@
       }
     },
     {
-      "id": "eyes-of-zdesh",
-      "name": "Eyes of Z’desh",
-      "cost": 25,
-      "detachmentId": "cabal-of-chaos",
-      "detachmentName": "Cabal of Chaos",
-      "description": "<span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> model only. Models in the bearer’s unit have the Scouts 6\" ability."
-    },
-    {
       "id": "falsehood",
       "name": "Falsehood",
       "cost": 10,
@@ -2270,20 +2262,6 @@
       }
     },
     {
-      "id": "mind-blade",
-      "name": "Mind Blade",
-      "cost": 25,
-      "detachmentId": "cabal-of-chaos",
-      "detachmentName": "Cabal of Chaos",
-      "description": "Psyker model only. Melee weapons equipped by models in the bearer’s unit have the [LANCE] ability.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
-        },
-        "combatType": "melee"
-      }
-    },
-    {
       "id": "helm-of-all-seeing",
       "name": "Helm of All-seeing",
       "cost": 25,
@@ -2441,7 +2419,7 @@
     },
     {
       "id": "infernal-avatar",
-      "name": "Infernal Avatar",
+      "name": "Conduit of Chaos",
       "cost": 20,
       "detachmentId": "cabal-of-chaos",
       "detachmentName": "Cabal of Chaos",
@@ -3818,7 +3796,6 @@
         "terrorglut-parasite",
         "warmasters-gift",
         "wyredjinn",
-        "eyes-of-zdesh",
         "ironbound-enmity",
         "raid-leader",
         "eager-for-bloodshed",
@@ -4151,7 +4128,6 @@
         "willbreaker",
         "soul-harvester",
         "cybinfernal-font",
-        "eyes-of-zdesh",
         "tempting-addendum",
         "eater-of-dread",
         "eager-for-bloodshed",
@@ -4458,7 +4434,6 @@
         "eye-of-the-warp",
         "tyrants-lash",
         "terrorglut-parasite",
-        "eyes-of-zdesh",
         "helm-of-all-seeing",
         "prime-test-subject",
         "soul-harvester",
@@ -4777,8 +4752,7 @@
         "willbreaker",
         "forges-blessing",
         "voice-of-the-tyrant",
-        "touched-by-the-warp",
-        "eyes-of-zdesh"
+        "touched-by-the-warp"
       ],
       "detachmentAbilityIds": [
         "marks-of-chaos",
@@ -5044,8 +5018,6 @@
         "eye-of-abaddon",
         "tyrants-lash",
         "eye-of-the-warp",
-        "eyes-of-zdesh",
-        "mind-blade",
         "raid-leader",
         "mark-of-the-soul-forges",
         "mark-of-legend",
@@ -5365,7 +5337,6 @@
         "willbreaker",
         "despots-claim",
         "helm-of-all-seeing",
-        "eyes-of-zdesh",
         "prime-test-subject",
         "terrorglut-parasite",
         "cursed-fang",
@@ -5380,7 +5351,6 @@
         "ironbound-enmity",
         "eyes-of-the-hunter",
         "soul-link",
-        "mind-blade",
         "infernal-fulgurite",
         "mark-of-legend",
         "akshurs-binding-runes",
@@ -5694,7 +5664,6 @@
         "cybinfernal-font",
         "mark-of-the-soul-forges",
         "mark-of-the-hound",
-        "eyes-of-zdesh",
         "eager-for-vengeance",
         "touched-by-the-warp",
         "soul-link",
@@ -11712,7 +11681,6 @@
       "enhancementIds": [
         "wyredjinn",
         "soul-link",
-        "eyes-of-zdesh",
         "soul-harvester",
         "forges-blessing",
         "infernal-fulgurite",
@@ -11735,7 +11703,6 @@
         "eye-of-abaddon",
         "despots-claim",
         "warp-tracer",
-        "mind-blade",
         "mark-of-legend",
         "cursed-fang",
         "dread-reputation",
@@ -12059,7 +12026,6 @@
         "eye-of-the-warp",
         "mark-of-the-hound",
         "eater-of-dread",
-        "eyes-of-zdesh",
         "tempting-addendum",
         "terrorglut-parasite",
         "raid-leader",
@@ -12288,7 +12254,6 @@
         "eager-for-bloodshed",
         "eater-of-dread",
         "shroud-of-obfuscation",
-        "eyes-of-zdesh",
         "dread-reputation",
         "mark-of-legend",
         "mark-of-the-soul-forges",
@@ -13305,7 +13270,6 @@
         "tzagulla",
         "soul-link",
         "eyes-of-the-hunter",
-        "mind-blade",
         "forges-blessing",
         "ironbound-enmity",
         "touched-by-the-warp",
@@ -13313,7 +13277,6 @@
         "shroud-of-obfuscation",
         "soul-harvester",
         "empyric-symbiote",
-        "eyes-of-zdesh",
         "cursed-fang",
         "willbreaker",
         "warped-foresight",
@@ -14673,7 +14636,6 @@
         "dread-reaver",
         "incendiary-goad",
         "warp-tracer",
-        "eyes-of-zdesh",
         "ironbound-enmity",
         "touched-by-the-warp",
         "tempting-addendum",
@@ -15581,7 +15543,6 @@
         "soul-harvester",
         "eyes-of-the-hunter",
         "infernal-fulgurite",
-        "eyes-of-zdesh",
         "terrorglut-parasite",
         "tempting-addendum",
         "ironbound-enmity",
@@ -16994,7 +16955,6 @@
         "forges-blessing",
         "mark-of-the-hound",
         "cybinfernal-font",
-        "eyes-of-zdesh",
         "willbreaker",
         "eager-for-vengeance",
         "mark-of-legend",
@@ -17196,7 +17156,6 @@
       ],
       "enhancementIds": [
         "incendiary-goad",
-        "eyes-of-zdesh",
         "willbreaker",
         "akshurs-binding-runes",
         "cursed-fang",
@@ -19039,7 +18998,6 @@
         "eager-for-vengeance",
         "helm-of-all-seeing",
         "ironbound-enmity",
-        "eyes-of-zdesh",
         "despots-claim",
         "mark-of-the-hound",
         "infernal-fulgurite",

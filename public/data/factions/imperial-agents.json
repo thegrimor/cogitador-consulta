@@ -713,8 +713,8 @@
     },
     {
       "id": "intraneural-biotech",
-      "name": "Intraneural Biotech",
-      "cost": 35,
+      "name": "Introneural Biotech",
+      "cost": 15,
       "detachmentId": "veiled-blade-elimination-force",
       "detachmentName": "Veiled Blade Elimination Force",
       "description": "Eversor Assassin models only. Once per battle round, you can target this model with the Heroic Intervention or Counter-offensive Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
