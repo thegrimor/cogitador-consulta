@@ -288,6 +288,15 @@ restriction text (e.g. "ADEPTUS CUSTODES INFANTRY model only") checked against e
 datasheet's own keywords — not cross-checked against the untouched datasheets, which may also
 qualify for some of these and don't yet reference them.
 
+**Custodes follow-up from a second photo batch (2026-10-01).** Added `caladius-grav-tank`,
+`caladius-annihilator-grav-tank`, `pallas-grav-attack` and `coronus-grav-carrier` (the Grav-Assault
+vehicles; the Annihilator is brand new) with the 0-pt placeholder `pointsCosts`. The Coronus transport
+capacity ("8") is a guess — the photo is smudged there. Knight-Centura, Prosecutors and Vigilators were
+re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis of the Emperor, faction keyword
+`Anathema Psykana`; Knight-Centura is now Support, not Leader). Vertus Praetors, Gyrfalcon, Wardens, Blade
+Champion, Shield-Captain and Trajann already matched the photos.
+Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
+
 No test suite yet.
 
 ## Architecture
