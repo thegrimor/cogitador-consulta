@@ -64,7 +64,10 @@
     {
       "id": "infernal-lance",
       "name": "Infernal Lance",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -3046,7 +3049,7 @@
         },
         {
           "name": "per Despoiler battle cannon",
-          "points": 15
+          "points": 10
         }
       ],
       "stratagemIds": [
@@ -3366,11 +3369,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 400
+          "points": 390
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 420
+          "points": 410
         }
       ],
       "wargearCosts": [],
@@ -3620,7 +3623,7 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 355
+          "points": 350
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -3863,7 +3866,7 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 355
+          "points": 350
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -5637,7 +5640,7 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 355
+          "points": 350
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -5805,7 +5808,7 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 45
         },
         {
@@ -6030,7 +6033,7 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "5 models (1st to 2nd units)",
+          "description": "5 models (1st-2nd units)",
           "points": 90
         },
         {
@@ -6527,12 +6530,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "8 models (1st to 2nd units)",
+          "description": "8 models (1st-2nd units)",
           "points": 90
         },
         {
-          "description": "16 models (1st to 2nd units)",
-          "points": 195
+          "description": "16 models (1st-2nd units)",
+          "points": 185
         },
         {
           "description": "8 models (3rd+ unit)",
@@ -6540,7 +6543,7 @@
         },
         {
           "description": "16 models (3rd+ unit)",
-          "points": 215
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -7104,7 +7107,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 70
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -7314,11 +7317,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 340
+          "points": 325
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 355
+          "points": 345
         }
       ],
       "wargearCosts": [],

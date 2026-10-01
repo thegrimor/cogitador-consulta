@@ -42,7 +42,10 @@
     {
       "id": "host-of-ascension",
       "name": "Host of Ascension",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1104,7 +1107,7 @@
     },
     {
       "id": "firepoint-commander",
-      "name": "Firepoint Commander",
+      "name": "Fire-point Commander",
       "cost": 10,
       "detachmentId": "brood-brother-auxilia",
       "detachmentName": "Brood Brother Auxilia",
@@ -1720,7 +1723,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -2102,11 +2105,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 70
+          "points": 65
         },
         {
           "description": "10 models",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -3390,11 +3393,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 120
+          "points": 110
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -4202,7 +4205,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -4501,7 +4504,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 50
         }
       ],
       "wargearCosts": [],
@@ -6163,7 +6166,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -6607,11 +6610,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 80
+          "points": 75
         },
         {
           "description": "20 models",
-          "points": 155
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -7005,7 +7008,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 135
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -7155,7 +7158,7 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 80
         },
         {
@@ -7260,7 +7263,7 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "5 models (1st to 2nd units)",
+          "description": "5 models (1st-2nd units)",
           "points": 125
         },
         {
@@ -7400,7 +7403,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 140
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -9810,7 +9813,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 195
         },
         {
@@ -9818,7 +9821,12 @@
           "points": 210
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Demolisher battle cannon",
+          "points": 15
+        }
+      ],
       "stratagemIds": [
         "symbiotic-destruction",
         "in-the-shadow-of-iron",
@@ -12701,11 +12709,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st to 2nd units)",
+          "description": "5 models (1st-2nd units)",
           "points": 60
         },
         {
-          "description": "10 models (1st to 2nd units)",
+          "description": "10 models (1st-2nd units)",
           "points": 120
         },
         {
@@ -13511,12 +13519,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 115
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 135
+          "description": "1 model (3rd+ unit)",
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -14338,12 +14346,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 125
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 135
+          "description": "1 model (3rd+ unit)",
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -14729,7 +14737,12 @@
           "points": 90
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Bombast field gun",
+          "points": 10
+        }
+      ],
       "stratagemIds": [
         "acceptable-losses",
         "a-dark-network",
@@ -15208,12 +15221,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
-          "points": 125
+          "description": "1 model (1st-2nd units)",
+          "points": 115
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 135
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -15800,7 +15813,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "10 models (1st to 2nd units)",
+          "description": "10 models (1st-2nd units)",
           "points": 105
         },
         {
@@ -16137,11 +16150,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st to 2nd units)",
+          "description": "5 models (1st-2nd units)",
           "points": 65
         },
         {
-          "description": "10 models (1st to 2nd units)",
+          "description": "10 models (1st-2nd units)",
           "points": 95
         },
         {
@@ -16340,7 +16353,12 @@
           "points": 70
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Krieg heavy flamer",
+          "points": 5
+        }
+      ],
       "stratagemIds": [
         "regimental-reinforcements",
         "a-dark-network",
@@ -16663,7 +16681,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 160
         },
         {
@@ -16949,7 +16967,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 160
         },
         {
@@ -17237,7 +17255,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 145
         },
         {
@@ -17539,7 +17557,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 145
         },
         {
@@ -17828,7 +17846,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 160
         },
         {
@@ -18112,7 +18130,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 130
         },
         {
@@ -18414,7 +18432,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 130
         },
         {
@@ -18604,12 +18622,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 150
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 170
+          "description": "1 model (3rd+ unit)",
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -19912,12 +19930,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 95
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 115
+          "description": "1 model (3rd+ unit)",
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -20020,7 +20038,7 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model (1st to 2nd units)",
+          "description": "1 model (1st-2nd units)",
           "points": 40
         },
         {
@@ -20224,7 +20242,7 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "5 models (1st to 2nd units)",
+          "description": "5 models (1st-2nd units)",
           "points": 165
         },
         {
@@ -20773,7 +20791,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],

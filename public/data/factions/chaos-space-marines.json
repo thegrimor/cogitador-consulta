@@ -50,7 +50,10 @@
     {
       "id": "pactbound-zealots",
       "name": "Pactbound Zealots",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "DISRUPTION",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -148,7 +151,10 @@
     {
       "id": "renegade-raiders",
       "name": "Renegade Raiders",
-      "disposition": "RECONNAISSANCE",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -257,7 +263,10 @@
     {
       "id": "creations-of-bile",
       "name": "Creations of Bile",
-      "disposition": "PURGE THE FOE",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -392,7 +401,10 @@
     {
       "id": "hurons-marauders",
       "name": "Huron’s Marauders",
-      "disposition": "PURGE THE FOE",
+      "disposition": [
+        "DISRUPTION",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -2033,14 +2045,6 @@
       }
     },
     {
-      "id": "eyes-of-zdesh",
-      "name": "Eyes of Z’desh",
-      "cost": 25,
-      "detachmentId": "cabal-of-chaos",
-      "detachmentName": "Cabal of Chaos",
-      "description": "<span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> model only. Models in the bearer’s unit have the Scouts 6\" ability."
-    },
-    {
       "id": "falsehood",
       "name": "Falsehood",
       "cost": 10,
@@ -2258,20 +2262,6 @@
       }
     },
     {
-      "id": "mind-blade",
-      "name": "Mind Blade",
-      "cost": 25,
-      "detachmentId": "cabal-of-chaos",
-      "detachmentName": "Cabal of Chaos",
-      "description": "Psyker model only. Melee weapons equipped by models in the bearer’s unit have the [LANCE] ability.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
-        },
-        "combatType": "melee"
-      }
-    },
-    {
       "id": "helm-of-all-seeing",
       "name": "Helm of All-seeing",
       "cost": 25,
@@ -2429,7 +2419,7 @@
     },
     {
       "id": "infernal-avatar",
-      "name": "Infernal Avatar",
+      "name": "Conduit of Chaos",
       "cost": 20,
       "detachmentId": "cabal-of-chaos",
       "detachmentName": "Cabal of Chaos",
@@ -2677,7 +2667,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 295
+          "points": 300
         }
       ],
       "wargearCosts": [],
@@ -2900,7 +2890,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -3135,7 +3125,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -3413,7 +3403,7 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 100
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -3715,7 +3705,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -3806,7 +3796,6 @@
         "terrorglut-parasite",
         "warmasters-gift",
         "wyredjinn",
-        "eyes-of-zdesh",
         "ironbound-enmity",
         "raid-leader",
         "eager-for-bloodshed",
@@ -4050,7 +4039,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 85
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -4139,7 +4128,6 @@
         "willbreaker",
         "soul-harvester",
         "cybinfernal-font",
-        "eyes-of-zdesh",
         "tempting-addendum",
         "eater-of-dread",
         "eager-for-bloodshed",
@@ -4340,7 +4328,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 65
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -4446,7 +4434,6 @@
         "eye-of-the-warp",
         "tyrants-lash",
         "terrorglut-parasite",
-        "eyes-of-zdesh",
         "helm-of-all-seeing",
         "prime-test-subject",
         "soul-harvester",
@@ -4684,7 +4671,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 165
+          "points": 155
         }
       ],
       "wargearCosts": [],
@@ -4765,8 +4752,7 @@
         "willbreaker",
         "forges-blessing",
         "voice-of-the-tyrant",
-        "touched-by-the-warp",
-        "eyes-of-zdesh"
+        "touched-by-the-warp"
       ],
       "detachmentAbilityIds": [
         "marks-of-chaos",
@@ -4936,7 +4922,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -5032,8 +5018,6 @@
         "eye-of-abaddon",
         "tyrants-lash",
         "eye-of-the-warp",
-        "eyes-of-zdesh",
-        "mind-blade",
         "raid-leader",
         "mark-of-the-soul-forges",
         "mark-of-legend",
@@ -5266,7 +5250,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -5353,7 +5337,6 @@
         "willbreaker",
         "despots-claim",
         "helm-of-all-seeing",
-        "eyes-of-zdesh",
         "prime-test-subject",
         "terrorglut-parasite",
         "cursed-fang",
@@ -5368,7 +5351,6 @@
         "ironbound-enmity",
         "eyes-of-the-hunter",
         "soul-link",
-        "mind-blade",
         "infernal-fulgurite",
         "mark-of-legend",
         "akshurs-binding-runes",
@@ -5584,7 +5566,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -5682,7 +5664,6 @@
         "cybinfernal-font",
         "mark-of-the-soul-forges",
         "mark-of-the-hound",
-        "eyes-of-zdesh",
         "eager-for-vengeance",
         "touched-by-the-warp",
         "soul-link",
@@ -6151,12 +6132,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 175
+          "description": "5 models (1st-2nd units)",
+          "points": 185
         },
         {
-          "description": "10 models",
-          "points": 350
+          "description": "10 models (1st-2nd units)",
+          "points": 370
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 215
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 400
         }
       ],
       "wargearCosts": [],
@@ -6474,20 +6463,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st unit)",
-          "points": 135
+          "description": "5 models (1st-2nd units)",
+          "points": 140
         },
         {
-          "description": "10 models (1st unit)",
-          "points": 270
-        },
-        {
-          "description": "5 models (2nd+ unit)",
-          "points": 145
-        },
-        {
-          "description": "10 models (2nd+ unit)",
+          "description": "10 models (1st-2nd units)",
           "points": 280
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 150
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 290
         }
       ],
       "wargearCosts": [],
@@ -6680,19 +6669,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 120
-        },
-        {
-          "description": "10 models (1st-2nd units)",
-          "points": 250
-        },
-        {
-          "description": "5 models (3rd+ unit)",
           "points": 130
         },
         {
-          "description": "10 models (3rd+ unit)",
+          "description": "10 models (1st-2nd units)",
           "points": 260
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 150
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -7073,7 +7062,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -7669,11 +7658,11 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 70
+          "points": 80
         },
         {
           "description": "6 models",
-          "points": 130
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -8029,19 +8018,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 110
+          "points": 115
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 210
+          "points": 225
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 120
+          "points": 125
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 220
+          "points": 235
         }
       ],
       "wargearCosts": [],
@@ -8221,19 +8210,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 125
+          "points": 130
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 280
+          "points": 290
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 135
+          "points": 140
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 290
+          "points": 300
         }
       ],
       "wargearCosts": [],
@@ -9143,11 +9132,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 150
+          "points": 145
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 160
+          "points": 155
         }
       ],
       "wargearCosts": [],
@@ -9384,11 +9373,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 185
+          "points": 180
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 195
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -10025,11 +10014,11 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 125
+          "points": 135
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 135
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -10303,11 +10292,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 160
+          "points": 155
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 170
+          "points": 165
         }
       ],
       "wargearCosts": [
@@ -10506,7 +10495,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -11348,7 +11337,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -11613,7 +11602,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -11692,7 +11681,6 @@
       "enhancementIds": [
         "wyredjinn",
         "soul-link",
-        "eyes-of-zdesh",
         "soul-harvester",
         "forges-blessing",
         "infernal-fulgurite",
@@ -11715,7 +11703,6 @@
         "eye-of-abaddon",
         "despots-claim",
         "warp-tracer",
-        "mind-blade",
         "mark-of-legend",
         "cursed-fang",
         "dread-reputation",
@@ -11960,7 +11947,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 160
+          "points": 155
         }
       ],
       "wargearCosts": [],
@@ -12039,7 +12026,6 @@
         "eye-of-the-warp",
         "mark-of-the-hound",
         "eater-of-dread",
-        "eyes-of-zdesh",
         "tempting-addendum",
         "terrorglut-parasite",
         "raid-leader",
@@ -12189,7 +12175,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -12268,7 +12254,6 @@
         "eager-for-bloodshed",
         "eater-of-dread",
         "shroud-of-obfuscation",
-        "eyes-of-zdesh",
         "dread-reputation",
         "mark-of-legend",
         "mark-of-the-soul-forges",
@@ -13206,11 +13191,11 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "5 models (1st unit)",
+          "description": "5 models (1st-2nd units)",
           "points": 90
         },
         {
-          "description": "5 models (2nd+ unit)",
+          "description": "5 models (3rd+ unit)",
           "points": 100
         }
       ],
@@ -13285,7 +13270,6 @@
         "tzagulla",
         "soul-link",
         "eyes-of-the-hunter",
-        "mind-blade",
         "forges-blessing",
         "ironbound-enmity",
         "touched-by-the-warp",
@@ -13293,7 +13277,6 @@
         "shroud-of-obfuscation",
         "soul-harvester",
         "empyric-symbiote",
-        "eyes-of-zdesh",
         "cursed-fang",
         "willbreaker",
         "warped-foresight",
@@ -13788,11 +13771,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 90
+          "points": 95
         },
         {
           "description": "10 models",
-          "points": 170
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -14015,20 +13998,20 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "8 models (1st unit)",
+          "description": "8 models (1st-2nd units)",
           "points": 90
         },
         {
-          "description": "16 models (1st unit)",
-          "points": 195
+          "description": "16 models (1st-2nd units)",
+          "points": 185
         },
         {
-          "description": "8 models (2nd+ unit)",
+          "description": "8 models (3rd+ unit)",
           "points": 110
         },
         {
-          "description": "16 models (2nd+ unit)",
-          "points": 215
+          "description": "16 models (3rd+ unit)",
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -14347,11 +14330,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 145
+          "points": 140
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 155
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -14653,7 +14636,6 @@
         "dread-reaver",
         "incendiary-goad",
         "warp-tracer",
-        "eyes-of-zdesh",
         "ironbound-enmity",
         "touched-by-the-warp",
         "tempting-addendum",
@@ -14974,7 +14956,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 70
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -15483,7 +15465,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 180
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -15561,7 +15543,6 @@
         "soul-harvester",
         "eyes-of-the-hunter",
         "infernal-fulgurite",
-        "eyes-of-zdesh",
         "terrorglut-parasite",
         "tempting-addendum",
         "ironbound-enmity",
@@ -15748,11 +15729,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 160
+          "points": 170
         },
         {
           "description": "20 models",
-          "points": 320
+          "points": 330
         }
       ],
       "wargearCosts": [],
@@ -16104,19 +16085,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st to 3rd units)",
-          "points": 100
+          "points": 115
         },
         {
           "description": "10 models (1st to 3rd units)",
-          "points": 190
+          "points": 210
         },
         {
           "description": "5 models (4th + unit)",
-          "points": 110
+          "points": 125
         },
         {
           "description": "10 models (4th + unit)",
-          "points": 200
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -16583,7 +16564,7 @@
         },
         {
           "description": "10 models",
-          "points": 180
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -16858,7 +16839,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -16974,7 +16955,6 @@
         "forges-blessing",
         "mark-of-the-hound",
         "cybinfernal-font",
-        "eyes-of-zdesh",
         "willbreaker",
         "eager-for-vengeance",
         "mark-of-legend",
@@ -17176,7 +17156,6 @@
       ],
       "enhancementIds": [
         "incendiary-goad",
-        "eyes-of-zdesh",
         "willbreaker",
         "akshurs-binding-runes",
         "cursed-fang",
@@ -17610,11 +17589,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 100
+          "points": 105
         },
         {
           "description": "10 models",
-          "points": 180
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -17908,12 +17887,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "6 models (1st to 2nd units)",
-          "points": 145
+          "description": "6 models (1st-2nd units)",
+          "points": 160
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 160
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -18287,7 +18266,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 145
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -18626,19 +18605,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 110
-        },
-        {
-          "description": "10 models (1st-2nd units)",
-          "points": 210
-        },
-        {
-          "description": "5 models (3rd+ unit)",
           "points": 120
         },
         {
-          "description": "10 models (3rd+ unit)",
+          "description": "10 models (1st-2nd units)",
           "points": 220
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 130
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -18913,7 +18892,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -19019,7 +18998,6 @@
         "eager-for-vengeance",
         "helm-of-all-seeing",
         "ironbound-enmity",
-        "eyes-of-zdesh",
         "despots-claim",
         "mark-of-the-hound",
         "infernal-fulgurite",
@@ -19218,7 +19196,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 120
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -19424,7 +19402,7 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 175
+          "points": 185
         }
       ],
       "wargearCosts": [],

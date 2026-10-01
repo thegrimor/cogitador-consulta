@@ -48,7 +48,7 @@
       "id": "berzerker-warband",
       "name": "Berzerker Warband",
       "disposition": "PURGE THE FOE",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -2321,11 +2321,11 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 160
+          "points": 170
         },
         {
           "description": "20 models",
-          "points": 320
+          "points": 330
         }
       ],
       "wargearCosts": [],
@@ -2521,7 +2521,7 @@
         },
         {
           "description": "20 models",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -2819,19 +2819,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 165
-        },
-        {
-          "description": "10 models (1st-2nd units)",
-          "points": 330
-        },
-        {
-          "description": "5 models (3rd+ unit)",
           "points": 175
         },
         {
+          "description": "10 models (1st-2nd units)",
+          "points": 350
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 185
+        },
+        {
           "description": "10 models (3rd+ unit)",
-          "points": 340
+          "points": 360
         }
       ],
       "wargearCosts": [],
@@ -2954,7 +2954,7 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 255
+          "points": 250
         },
         {
           "description": "3 models (3rd+ unit)",
@@ -2962,7 +2962,7 @@
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 270
+          "points": 265
         }
       ],
       "wargearCosts": [],
@@ -3118,7 +3118,7 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 265
+          "points": 260
         },
         {
           "description": "3 models (3rd+ unit)",
@@ -3126,7 +3126,7 @@
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 280
+          "points": 275
         }
       ],
       "wargearCosts": [],
@@ -3785,11 +3785,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 220
+          "points": 200
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 240
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -5535,7 +5535,7 @@
       "pointsCosts": [
         {
           "description": "8 models",
-          "points": 75
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -5671,7 +5671,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 90
         }
       ],
       "wargearCosts": [],

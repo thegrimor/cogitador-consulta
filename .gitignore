@@ -32,3 +32,6 @@ public/data/pdf/
 
 # scratch output of scripts/audit-combat-effects.mjs
 /audit-output/
+
+# scratch output of scripts/mfm-sync/sync.mjs
+/scripts/mfm-sync/reports/

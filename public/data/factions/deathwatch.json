@@ -27,55 +27,9 @@
           "description": "Friendly KILL TEAM units gain a bonus based on the active Combat Doctrine: Devastator Doctrine grants the [SUSTAINED HITS 1] ability (Furor Tactics); Tactical Doctrine grants the [LETHAL HITS] ability (Malleus Tactics); Assault Doctrine grants the [PRECISION] ability against units within 9\" (Purgatus Tactics)."
         }
       ]
-    },
-    {
-      "id": "deathwatch-support",
-      "name": "Deathwatch Support",
-      "disposition": "DISRUPTION",
-      "dp": 1,
-      "chapters": [
-        "Deathwatch"
-      ],
-      "abilities": [
-        {
-          "id": "mission-tactics-and-deathwatch-allies",
-          "name": "Mission Tactics and Deathwatch Allies",
-          "description": "Friendly KILL TEAM units gain a bonus based on the active Combat Doctrine: Devastator Doctrine grants [SUSTAINED HITS 1] (Furor Tactics); Tactical Doctrine grants [LETHAL HITS] (Malleus Tactics); Assault Doctrine grants [PRECISION] against units within 9\" (Purgatus Tactics). Deathwatch Allies: your army can include up to 500 points of DEATHWATCH units in addition to your other Chapter's units (normally armies cannot mix units from different Chapters); a DEATHWATCH unit cannot be your Warlord, and KILL TEAM units can only be given Enhancements from this Detachment. Characters attached to a Kill Team count towards that 500-point limit; transports (other than the Corvus Blackstar) do not."
-        }
-      ]
     }
   ],
   "stratagems": [
-    {
-      "id": "blackstar-extraction",
-      "name": "BLACKSTAR EXTRACTION",
-      "detachmentId": "deathwatch-support",
-      "cpCost": 1,
-      "type": "Deathwatch Support – Strategic Ploy Stratagem",
-      "turn": "Your turn",
-      "phase": "Fight phase",
-      "description": "WHEN: End of your opponent's Fight phase. TARGET: One unengaged friendly KILL TEAM unit. EFFECT: Remove that unit from the battlefield and place it into Strategic Reserves."
-    },
-    {
-      "id": "dragonfire-rounds-deathwatch-support",
-      "name": "DRAGONFIRE ROUNDS",
-      "detachmentId": "deathwatch-support",
-      "cpCost": 1,
-      "type": "Deathwatch Support – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Shooting phase",
-      "description": "TARGET: One friendly KILL TEAM unit. EFFECT: That unit's ranged attacks can re-roll Wound rolls of 1 and have the [IGNORES COVER] ability until the end of the phase."
-    },
-    {
-      "id": "hellfire-rounds-deathwatch-support",
-      "name": "HELLFIRE ROUNDS",
-      "detachmentId": "deathwatch-support",
-      "cpCost": 1,
-      "type": "Deathwatch Support – Battle Tactic Stratagem",
-      "turn": "Your turn",
-      "phase": "Shooting phase",
-      "description": "TARGET: One friendly KILL TEAM unit. EFFECT: That unit's ranged attacks (other than attacks made with weapons that have the [DEVASTATING WOUNDS] ability) have the [ANTI-NON-VEHICLE 4+] ability until the end of the phase."
-    },
     {
       "id": "adaptive-strategy-black-spear-task-force",
       "name": "ADAPTIVE STRATEGY",
@@ -139,13 +93,6 @@
   ],
   "enhancements": [
     {
-      "id": "beacon-angelis-deathwatch-support",
-      "name": "Beacon Angelis",
-      "cost": 25,
-      "detachmentId": "deathwatch-support",
-      "description": "The bearer's unit has the Deep Strike ability, and can use the Rapid Ingress Stratagem for 1CP less (to a minimum of 0CP)."
-    },
-    {
       "id": "beacon-angelis-black-spear-task-force",
       "name": "Beacon Angelis",
       "cost": 25,
@@ -154,7 +101,7 @@
     },
     {
       "id": "osseous-key-black-spear-task-force",
-      "name": "Osseous Key",
+      "name": "Osseus Key (Aura)",
       "cost": 20,
       "description": "TECHMARINE or WATCH MASTER model only. While an enemy VEHICLE unit is within 6\" of the bearer, subtract 1 from the Attacks characteristic of that unit's weapons.",
       "detachmentId": "black-spear-task-force"
@@ -879,11 +826,11 @@
       "pointsCosts": [
         {
           "description": "10 models (1st-2nd units)",
-          "points": 170
+          "points": 185
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 180
+          "points": 195
         }
       ],
       "wargearCosts": [],
@@ -1590,11 +1537,11 @@
       "pointsCosts": [
         {
           "description": "10 models (1st-2nd units)",
-          "points": 195
+          "points": 210
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 210
+          "points": 225
         }
       ],
       "wargearCosts": [],
@@ -2176,11 +2123,11 @@
       "pointsCosts": [
         {
           "description": "10 models (1st-2nd units)",
-          "points": 275
+          "points": 280
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 290
+          "points": 300
         }
       ],
       "wargearCosts": [],
@@ -2752,11 +2699,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 100
+          "points": 115
         },
         {
           "description": "10 models",
-          "points": 190
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -3075,7 +3022,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -3325,7 +3272,6 @@
         "artificer-armour",
         "prescient-flash",
         "hunters-instincts-space-marines",
-        "beacon-angelis-deathwatch-support",
         "beacon-angelis-black-spear-task-force",
         "osseous-key-black-spear-task-force",
         "the-thief-of-secrets",
@@ -3504,7 +3450,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -3995,12 +3941,12 @@
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 460
+          "points": 420
         }
       ],
       "wargearCosts": [
         {
-          "name": "per Thunder Hammer",
+          "name": "per Storm Shield",
           "points": 5
         },
         {
@@ -4515,11 +4461,11 @@
       "pointsCosts": [
         {
           "description": "10 models (1st-2nd units)",
-          "points": 265
+          "points": 280
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 280
+          "points": 300
         }
       ],
       "wargearCosts": [],
@@ -5230,11 +5176,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 100
+          "points": 110
         },
         {
           "description": "10 models",
-          "points": 190
+          "points": 210
         }
       ],
       "wargearCosts": [],

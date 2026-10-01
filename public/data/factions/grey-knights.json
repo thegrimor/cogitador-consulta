@@ -12,7 +12,10 @@
     {
       "id": "warpbane-task-force",
       "name": "Warpbane Task Force",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1263,7 +1266,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 125
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -1486,7 +1489,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -1732,7 +1735,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -1925,7 +1928,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -2147,7 +2150,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -2368,11 +2371,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 115
+          "points": 125
         },
         {
           "description": "10 models",
-          "points": 230
+          "points": 250
         }
       ],
       "wargearCosts": [],
@@ -2611,19 +2614,19 @@
       "pointsCosts": [
         {
           "description": "4 models",
-          "points": 140
+          "points": 150
         },
         {
           "description": "5 models",
-          "points": 175
+          "points": 185
         },
         {
           "description": "8 models",
-          "points": 300
+          "points": 315
         },
         {
           "description": "10 models",
-          "points": 360
+          "points": 380
         }
       ],
       "wargearCosts": [
@@ -2897,27 +2900,22 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 130
+          "points": 145
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 260
+          "points": 290
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 140
+          "points": 155
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 270
+          "points": 300
         }
       ],
-      "wargearCosts": [
-        {
-          "name": "per Psycannon",
-          "points": 5
-        }
-      ],
+      "wargearCosts": [],
       "stratagemIds": [
         "sanctified-kill-zone",
         "fires-of-covenant",
@@ -3149,35 +3147,35 @@
       "pointsCosts": [
         {
           "description": "4 models (1st-2nd units)",
-          "points": 170
+          "points": 185
         },
         {
           "description": "5 models (1st-2nd units)",
-          "points": 215
+          "points": 230
         },
         {
           "description": "8 models (1st-2nd units)",
-          "points": 360
+          "points": 385
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 460
+          "points": 490
         },
         {
           "description": "4 models (3rd+ unit)",
-          "points": 210
+          "points": 225
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 255
+          "points": 270
         },
         {
           "description": "8 models (3rd+ unit)",
-          "points": 400
+          "points": 425
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 500
+          "points": 530
         }
       ],
       "wargearCosts": [
@@ -3404,19 +3402,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 125
-        },
-        {
-          "description": "10 models (1st-2nd units)",
-          "points": 250
-        },
-        {
-          "description": "5 models (3rd+ unit)",
           "points": 135
         },
         {
+          "description": "10 models (1st-2nd units)",
+          "points": 270
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 145
+        },
+        {
           "description": "10 models (3rd+ unit)",
-          "points": 260
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -3631,19 +3629,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 105
-        },
-        {
-          "description": "10 models (1st-2nd units)",
-          "points": 210
-        },
-        {
-          "description": "5 models (3rd+ unit)",
           "points": 115
         },
         {
+          "description": "10 models (1st-2nd units)",
+          "points": 230
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 125
+        },
+        {
           "description": "10 models (3rd+ unit)",
-          "points": 220
+          "points": 240
         }
       ],
       "wargearCosts": [
@@ -3886,11 +3884,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 195
+          "points": 205
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 210
+          "points": 220
         }
       ],
       "wargearCosts": [
@@ -5204,7 +5202,12 @@
           "points": 300
         }
       ],
-      "wargearCosts": [],
+      "wargearCosts": [
+        {
+          "name": "per Hurricane Bolter",
+          "points": 10
+        }
+      ],
       "stratagemIds": [
         "shining-veil",
         "argent-wrath",
@@ -5396,7 +5399,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 75
         }
       ],
       "wargearCosts": [],
@@ -6249,11 +6252,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 200
+          "points": 210
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 215
+          "points": 225
         }
       ],
       "wargearCosts": [
@@ -6483,11 +6486,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st unit)",
-          "points": 90
+          "points": 95
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 100
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -6671,7 +6674,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 70
         }
       ],
       "wargearCosts": [],

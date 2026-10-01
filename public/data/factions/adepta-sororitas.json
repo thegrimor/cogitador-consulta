@@ -12,7 +12,10 @@
     {
       "id": "hallowed-martyrs",
       "name": "Hallowed Martyrs",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1537,7 +1540,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 150
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -4711,11 +4714,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 180
         },
         {
-          "description": "1 model (2nd+ unit)",
+          "description": "1 model (3rd+ unit)",
           "points": 220
         }
       ],
@@ -6170,7 +6173,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 200
+          "points": 215
         }
       ],
       "wargearCosts": [],
@@ -6624,19 +6627,19 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st unit)",
+          "description": "5 models (1st-2nd units)",
           "points": 75
         },
         {
-          "description": "10 models (1st unit)",
+          "description": "10 models (1st-2nd units)",
           "points": 150
         },
         {
-          "description": "5 models (2nd+ unit)",
+          "description": "5 models (3rd+ unit)",
           "points": 85
         },
         {
-          "description": "10 models (2nd+ unit)",
+          "description": "10 models (3rd+ unit)",
           "points": 160
         }
       ],
@@ -7070,11 +7073,11 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 180
+          "points": 165
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 190
+          "points": 175
         }
       ],
       "wargearCosts": [
@@ -7314,7 +7317,7 @@
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 175
+          "points": 185
         }
       ],
       "wargearCosts": [],
@@ -8815,7 +8818,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 120
+          "points": 115
         }
       ],
       "wargearCosts": [],

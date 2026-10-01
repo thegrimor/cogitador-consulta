@@ -23,8 +23,8 @@
       "id": "gladius-task-force",
       "name": "Gladius Task Force",
       "disposition": [
-        "PRIORITY ASSETS",
-        "TAKE AND HOLD"
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
       ],
       "dp": 3,
       "chapters": [
@@ -357,8 +357,8 @@
       "id": "blade-of-ultramar",
       "name": "Blade of Ultramar",
       "disposition": [
-        "PRIORITY ASSETS",
-        "TAKE AND HOLD"
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
       ],
       "dp": 3,
       "chapters": [
@@ -1441,14 +1441,14 @@
     {
       "id": "supercharged-engines",
       "name": "Supercharged Engines",
-      "cost": 0,
+      "cost": 10,
       "detachmentId": "stormlance-task-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">MOUNTED</span> unit only. This unit can re-roll advance rolls."
     },
     {
       "id": "auspex-triangulation-shrines",
       "name": "Auspex Triangulation Shrines",
-      "cost": 0,
+      "cost": 10,
       "detachmentId": "stormlance-task-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <b>SPEEDER</b> unit only. At the start of your Shooting phase, select one visible enemy unit within 12\" of this unit. That enemy unit is spotted:<ul><li>While a unit is spotted, that unit has +3\" detection range.</li></ul>"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "id": "venerable-champion",
-      "name": "Venerable Champion (Aura)",
+      "name": "Venerable Champion (Aura) (Upgrade)",
       "cost": 30,
       "detachmentId": "ironclad-champions",
       "description": "<span class=\"kwb\">DREADNOUGHT</span> unit only. While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span>/<span class=\"kwb\">MOUNTED</span> unit is within 6\" of this unit, that unit's attacks can re-roll hit rolls of 1."
@@ -1609,28 +1609,28 @@
     {
       "id": "castellum-omnivox",
       "name": "Castellum Omnivox",
-      "cost": 15,
+      "cost": 10,
       "detachmentId": "ceramite-sentinels",
       "description": "The bearer's unit can perform Actions in a phase in which it Advanced or Fell Back."
     },
     {
       "id": "defensive-mastery",
       "name": "Defensive Mastery",
-      "cost": 25,
+      "cost": 10,
       "detachmentId": "ceramite-sentinels",
       "description": "Once per battle, in your Movement phase, you can redeploy up to 3 friendly ADEPTUS ASTARTES INFANTRY units, including into Strategic Reserves."
     },
     {
       "id": "honour-indefatigable",
       "name": "Honour Indefatigable",
-      "cost": 25,
+      "cost": 10,
       "detachmentId": "ceramite-sentinels",
       "description": "GRAVIS model only. If the bearer is destroyed, roll one D6 at the end of that phase: on a 2+, return the bearer to its unit with 3 wounds remaining."
     },
     {
       "id": "spy-skull-data-link",
       "name": "Spy-skull Data Link",
-      "cost": 20,
+      "cost": 10,
       "detachmentId": "ceramite-sentinels",
       "description": "The bearer's unit's ranged weapons have the [IGNORES COVER] ability."
     },
@@ -1657,7 +1657,7 @@
     },
     {
       "id": "stormseers-wisdom",
-      "name": "Stormseer's Wisdom",
+      "name": "Stormseers' Wisdom",
       "cost": 15,
       "detachmentId": "spearpoint-task-force",
       "description": "The bearer's unit can re-roll Advance rolls."
@@ -3086,7 +3086,7 @@
       ],
       "wargearCosts": [
         {
-          "name": "chapter ancient (banner of macragge)",
+          "name": "per Banner of Macragge",
           "points": 15,
           "max": 1
         }
@@ -3121,7 +3121,9 @@
       "canBeLedBy": [
         "captain",
         "captain-titus",
-        "cato-sicarius"
+        "cato-sicarius",
+        "kaius-konorius",
+        "marneus-calgar"
       ],
       "defaultWeaponGroups": [
         {
@@ -3744,7 +3746,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -3913,7 +3915,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 105
+          "points": 95
         }
       ],
       "wargearCosts": [],
@@ -6018,7 +6020,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 90
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -7280,7 +7282,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 85
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -7461,7 +7463,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -7650,7 +7652,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -7855,7 +7857,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -8050,7 +8052,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -8950,7 +8952,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 80
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -9137,7 +9139,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 40
+          "points": 45
         }
       ],
       "wargearCosts": [],
@@ -9316,7 +9318,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -9702,7 +9704,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 55
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -10303,11 +10305,11 @@
       "pointsCosts": [
         {
           "description": "4 models (1st-2nd units)",
-          "points": 125
+          "points": 135
         },
         {
           "description": "4 models (3rd+ unit)",
-          "points": 145
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -10345,7 +10347,9 @@
         "captain-titus",
         "korsarro-khan",
         "lieutenant",
-        "vulkan-hestan"
+        "vulkan-hestan",
+        "apothecary",
+        "marneus-calgar"
       ],
       "defaultWeaponGroups": [
         {
@@ -10691,11 +10695,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 85
+          "points": 95
         },
         {
           "description": "10 models",
-          "points": 170
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -10751,7 +10755,8 @@
         "marshal",
         "sanguinary-priest",
         "techmarine",
-        "wardens-of-ultramar"
+        "wardens-of-ultramar",
+        "marneus-calgar"
       ]
     },
     {
@@ -10942,11 +10947,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 85
+          "points": 90
         },
         {
           "description": "10 models",
-          "points": 170
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -11003,7 +11008,9 @@
         "sanguinary-priest",
         "techmarine",
         "vulkan-hestan",
-        "wardens-of-ultramar"
+        "wardens-of-ultramar",
+        "kaius-konorius",
+        "marneus-calgar"
       ]
     },
     {
@@ -11189,12 +11196,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 95
+          "description": "5 models (1st-2nd units)",
+          "points": 100
         },
         {
-          "description": "10 models",
+          "description": "10 models (1st-2nd units)",
           "points": 190
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 110
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -11412,7 +11427,8 @@
         "apothecary-biologis",
         "captain-in-gravis-armour",
         "iron-father-feirros",
-        "tor-garadon"
+        "tor-garadon",
+        "marneus-calgar"
       ]
     },
     {
@@ -11578,12 +11594,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 115
+          "description": "5 models (1st-2nd units)",
+          "points": 110
         },
         {
-          "description": "10 models",
-          "points": 230
+          "description": "10 models (1st-2nd units)",
+          "points": 220
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 125
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 235
         }
       ],
       "wargearCosts": [],
@@ -11804,8 +11828,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 140
+          "description": "5 models (1st-2nd units)",
+          "points": 135
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 145
         }
       ],
       "wargearCosts": [
@@ -11846,7 +11874,9 @@
         "chief-librarian-tigurius",
         "librarian",
         "sanguinary-priest",
-        "techmarine"
+        "techmarine",
+        "captain",
+        "lieutenant"
       ]
     },
     {
@@ -11962,12 +11992,20 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 95
+          "description": "5 models (1st-2nd units)",
+          "points": 100
         },
         {
-          "description": "10 models",
-          "points": 190
+          "description": "10 models (1st-2nd units)",
+          "points": 200
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 110
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 210
         }
       ],
       "wargearCosts": [],
@@ -12016,7 +12054,9 @@
         "lieutenant",
         "marshal",
         "sanguinary-priest",
-        "vulkan-hestan"
+        "vulkan-hestan",
+        "chief-librarian-tigurius",
+        "marneus-calgar"
       ]
     },
     {
@@ -12151,7 +12191,7 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 85
+          "points": 80
         },
         {
           "description": "10 models",
@@ -12334,19 +12374,19 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 90
+          "points": 85
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 180
+          "points": 170
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 110
+          "points": 95
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 200
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -12392,7 +12432,10 @@
         "lazarus",
         "lieutenant",
         "sanguinary-priest",
-        "wardens-of-ultramar"
+        "wardens-of-ultramar",
+        "vulkan-hestan",
+        "kaius-konorius",
+        "marneus-calgar"
       ]
     },
     {
@@ -12626,12 +12669,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
+          "description": "5 models (1st-2nd units)",
           "points": 105
         },
         {
-          "description": "10 models",
+          "description": "10 models (1st-2nd units)",
           "points": 210
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 115
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -12682,7 +12733,9 @@
         "lieutenant",
         "marshal",
         "sanguinary-priest",
-        "wardens-of-ultramar"
+        "wardens-of-ultramar",
+        "kaius-konorius",
+        "marneus-calgar"
       ],
       "defaultWeaponGroups": [
         {
@@ -12921,12 +12974,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 110
+          "description": "5 models (1st-2nd units)",
+          "points": 120
         },
         {
-          "description": "10 models",
-          "points": 220
+          "description": "10 models (1st-2nd units)",
+          "points": 240
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 130
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 250
         }
       ],
       "wargearCosts": [],
@@ -13123,11 +13184,19 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 90
+          "description": "5 models (1st-2nd units)",
+          "points": 95
         },
         {
-          "description": "10 models",
+          "description": "10 models (1st-2nd units)",
+          "points": 160
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 105
+        },
+        {
+          "description": "10 models (3rd+ unit)",
           "points": 170
         }
       ],
@@ -13622,7 +13691,8 @@
         "shadow-masters"
       ],
       "canBeLedBy": [
-        "captain-in-phobos-armour"
+        "captain-in-phobos-armour",
+        "librarian-in-phobos-armour"
       ]
     },
     {
@@ -13832,7 +13902,8 @@
       ],
       "canBeLedBy": [
         "captain-in-phobos-armour",
-        "librarian-in-phobos-armour"
+        "librarian-in-phobos-armour",
+        "lieutenant-in-phobos-armour"
       ]
     },
     {
@@ -14014,7 +14085,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 80
+          "points": 85
         },
         {
           "description": "6 models",
@@ -14160,19 +14231,19 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 100
+          "points": 95
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 215
+          "points": 200
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 130
+          "points": 110
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 245
+          "points": 215
         }
       ],
       "wargearCosts": [],
@@ -14202,7 +14273,13 @@
         "walking-fortress",
         "indomitable-defence"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary-biologis",
+        "captain-in-gravis-armour",
+        "tor-garadon",
+        "iron-father-feirros",
+        "marneus-calgar"
+      ]
     },
     {
       "id": "eradicator-squad-with-melta-rifles",
@@ -14371,19 +14448,19 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 100
+          "points": 90
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 200
+          "points": 190
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 120
+          "points": 105
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 220
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -14413,7 +14490,14 @@
         "walking-fortress",
         "indomitable-defence"
       ],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "apothecary-biologis",
+        "captain-in-gravis-armour",
+        "tor-garadon",
+        "iron-father-feirros",
+        "vulkan-hestan",
+        "marneus-calgar"
+      ]
     },
     {
       "id": "aggressor-squad",
@@ -14605,7 +14689,8 @@
         "apothecary-biologis",
         "captain-in-gravis-armour",
         "iron-father-feirros",
-        "tor-garadon"
+        "tor-garadon",
+        "marneus-calgar"
       ]
     },
     {
@@ -14757,19 +14842,19 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 130
+          "points": 125
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 260
+          "points": 250
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 150
+          "points": 140
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 280
+          "points": 265
         }
       ],
       "wargearCosts": [],
@@ -15023,19 +15108,19 @@
       "pointsCosts": [
         {
           "description": "5 models (1st-2nd units)",
-          "points": 190
+          "points": 195
         },
         {
           "description": "10 models (1st-2nd units)",
-          "points": 380
+          "points": 390
         },
         {
           "description": "5 models (3rd+ unit)",
-          "points": 230
+          "points": 235
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 460
+          "points": 430
         }
       ],
       "wargearCosts": [
@@ -15072,7 +15157,8 @@
         "captain-in-terminator-armour",
         "chaplain-in-terminator-armour",
         "darnath-lysander",
-        "librarian-in-terminator-armour"
+        "librarian-in-terminator-armour",
+        "marneus-calgar"
       ]
     },
     {
@@ -15190,17 +15276,25 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models",
-          "points": 170
+          "description": "5 models (1st-2nd units)",
+          "points": 175
         },
         {
-          "description": "10 models",
-          "points": 340
+          "description": "10 models (1st-2nd units)",
+          "points": 350
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 215
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 390
         }
       ],
       "wargearCosts": [
         {
-          "name": "per Storm Shield and Thunder Hammer",
+          "name": "per Storm Shield",
           "points": 5
         }
       ],
@@ -15232,7 +15326,8 @@
         "captain-in-terminator-armour",
         "chaplain-in-terminator-armour",
         "darnath-lysander",
-        "librarian-in-terminator-armour"
+        "librarian-in-terminator-armour",
+        "marneus-calgar"
       ]
     },
     {
@@ -15388,12 +15483,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 65
         },
         {
-          "description": "2 models",
+          "description": "2 models (1st-2nd units)",
           "points": 130
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 75
+        },
+        {
+          "description": "2 models (3rd+ unit)",
+          "points": 140
         }
       ],
       "wargearCosts": [
@@ -15829,7 +15932,7 @@
       ],
       "wargearCosts": [
         {
-          "name": "orbital comms array",
+          "name": "per Orbital Comms Array",
           "points": 10,
           "max": 1
         }
@@ -15935,8 +16038,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-3rd units)",
           "points": 60
+        },
+        {
+          "description": "1 model (4th+ unit)",
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -16300,8 +16407,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 190
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 210
         }
       ],
       "wargearCosts": [],
@@ -16527,11 +16638,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st to 2nd units)",
-          "points": 255
+          "points": 275
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 275
+          "points": 295
         }
       ],
       "wargearCosts": [],
@@ -16746,8 +16857,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 245
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 265
         }
       ],
       "wargearCosts": [],
@@ -16965,8 +17080,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 230
+          "description": "1 model (1st-2nd units)",
+          "points": 245
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 265
         }
       ],
       "wargearCosts": [],
@@ -17184,8 +17303,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 245
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 265
         }
       ],
       "wargearCosts": [],
@@ -17447,8 +17570,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 170
+          "description": "1 model (1st-2nd units)",
+          "points": 180
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 195
         }
       ],
       "wargearCosts": [
@@ -17626,8 +17753,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 150
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 160
         }
       ],
       "wargearCosts": [],
@@ -17848,7 +17979,7 @@
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 180
+          "points": 170
         }
       ],
       "wargearCosts": [],
@@ -18057,12 +18188,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st-2nd units)",
-          "points": 135
-        },
-        {
-          "description": "1 model (3rd+ unit)",
-          "points": 165
+          "description": "1 model",
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -18240,8 +18367,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 110
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -18405,8 +18536,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 140
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -18581,11 +18716,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 140
+          "points": 155
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 150
+          "points": 165
         }
       ],
       "wargearCosts": [],
@@ -18767,7 +18902,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 105
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -18908,8 +19043,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 160
+          "description": "1 model (1st-2nd units)",
+          "points": 165
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -19048,8 +19187,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 165
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -19206,8 +19349,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 165
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 175
         }
       ],
       "wargearCosts": [],

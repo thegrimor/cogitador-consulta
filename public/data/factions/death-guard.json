@@ -68,7 +68,7 @@
     {
       "id": "virulent-vectorium",
       "name": "Virulent Vectorium",
-      "disposition": "TAKE AND HOLD",
+      "disposition": ["TAKE AND HOLD", "PURGE THE FOE"],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1377,7 +1377,7 @@
         },
         {
           "description": "10 models",
-          "points": 180
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -1731,7 +1731,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 110
+          "points": 105
         }
       ],
       "wargearCosts": [],
@@ -2521,11 +2521,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 135
+          "points": 130
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 145
+          "points": 140
         }
       ],
       "wargearCosts": [],
@@ -2692,7 +2692,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 195
+          "points": 185
         }
       ],
       "wargearCosts": [],
@@ -2857,7 +2857,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -3021,7 +3021,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -4652,7 +4652,7 @@
       "pointsCosts": [
         {
           "description": "3 models (1st-2nd units)",
-          "points": 160
+          "points": 150
         },
         {
           "description": "6 models (1st-2nd units)",
@@ -4660,7 +4660,7 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 170
+          "points": 160
         },
         {
           "description": "6 models (3rd+ unit)",
@@ -4950,16 +4950,28 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
           "points": 115
         },
         {
-          "description": "5 models",
-          "points": 180
+          "description": "5 models (1st-2nd units)",
+          "points": 185
         },
         {
-          "description": "10 models",
-          "points": 360
+          "description": "10 models (1st-2nd units)",
+          "points": 370
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 145
+        },
+        {
+          "description": "5 models (3rd+ unit)",
+          "points": 215
+        },
+        {
+          "description": "10 models (3rd+ unit)",
+          "points": 400
         }
       ],
       "wargearCosts": [],
@@ -5414,11 +5426,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 170
         },
         {
-          "description": "1 model (2nd+ unit)",
+          "description": "1 model (3rd+ unit)",
           "points": 200
         }
       ],
@@ -5815,7 +5827,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 100
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -6080,11 +6092,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 145
+          "points": 140
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 155
+          "points": 150
         }
       ],
       "wargearCosts": [],
@@ -6385,7 +6397,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 170
+          "points": 160
         }
       ],
       "wargearCosts": [],

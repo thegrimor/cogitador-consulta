@@ -175,7 +175,10 @@
     {
       "id": "grizzled-company",
       "name": "Grizzled Company",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1182,14 +1185,6 @@
       "description": "Astra Militarum Infantry model only. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, select one enemy unit within 8\" of the bearer’s unit (excluding <span class=\"kwb\">MONSTER</span> and <span class=\"kwb\">VEHICLE</span> units); that unit must take a Battle-shock test."
     },
     {
-      "id": "shroud-projector",
-      "name": "Shroud Projector",
-      "cost": 15,
-      "detachmentId": "bridgehead-strike",
-      "detachmentName": "Bridgehead Strike",
-      "description": "Militarum Tempestus Officer model only. Enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer’s unit."
-    },
-    {
       "id": "omnissian-unguents-aura",
       "name": "Omnissian Unguents  (Aura)",
       "cost": 35,
@@ -1310,14 +1305,6 @@
       "description": "Infantry Officer model only. The bearer’s unit can disembark from a Transport after it has Advanced. If it does, it counts as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally in the remainder of the turn."
     },
     {
-      "id": "advance-augury",
-      "name": "Advance Augury",
-      "cost": 15,
-      "detachmentId": "bridgehead-strike",
-      "detachmentName": "Bridgehead Strike",
-      "description": "Infantry Officer model only. After both players have deployed their armies, select up to three Regiment units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
-    },
-    {
       "id": "grand-strategist-astra-militarum",
       "name": "Grand Strategist",
       "cost": 25,
@@ -1365,7 +1352,7 @@
     },
     {
       "id": "sharp-eyes-light-fingers",
-      "name": "Sharp Eyes, Light Fingers",
+      "name": "Sharp Eyes (Upgrade)",
       "cost": 10,
       "detachmentId": "abhuman-auxiliaries",
       "detachmentName": "Abhuman Auxiliaries",
@@ -3338,11 +3325,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 125
+          "points": 115
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 135
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -3543,12 +3530,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 115
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 135
+          "description": "1 model (3rd+ unit)",
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -3959,12 +3946,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 95
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 115
+          "description": "1 model (3rd+ unit)",
+          "points": 125
         }
       ],
       "wargearCosts": [],
@@ -4168,12 +4155,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 150
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 170
+          "description": "1 model (3rd+ unit)",
+          "points": 180
         }
       ],
       "wargearCosts": [],
@@ -4377,12 +4364,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (1st unit)",
+          "description": "1 model (1st-2nd units)",
           "points": 125
         },
         {
-          "description": "1 model (2nd+ unit)",
-          "points": 135
+          "description": "1 model (3rd+ unit)",
+          "points": 145
         }
       ],
       "wargearCosts": [],
@@ -7015,7 +7002,6 @@
         "reactive-command",
         "guerrilla-honours",
         "grand-strategist-astra-militarum",
-        "advance-augury",
         "scare-gas-grenades",
         "abhuman-detail",
         "death-mask-of-ollanius",
@@ -7407,11 +7393,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st unit)",
+          "description": "5 models (1st-2nd units)",
           "points": 85
         },
         {
-          "description": "5 models (2nd+ unit)",
+          "description": "5 models (3rd+ unit)",
           "points": 95
         }
       ],
@@ -7452,9 +7438,7 @@
         "grand-strategist-astra-militarum",
         "master-manoeuvrist",
         "exemplary-officer",
-        "advance-augury",
         "grand-strategist",
-        "shroud-projector",
         "tripwires",
         "priority-drop-beacon",
         "aquilan-eye",
@@ -8064,20 +8048,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models (1st unit)",
+          "description": "3 models (1st-2nd units)",
           "points": 90
         },
         {
-          "description": "6 models (1st unit)",
+          "description": "6 models (1st-2nd units)",
           "points": 200
         },
         {
-          "description": "3 models (2nd+ unit)",
-          "points": 105
+          "description": "3 models (3rd+ unit)",
+          "points": 120
         },
         {
-          "description": "6 models (2nd+ unit)",
-          "points": 215
+          "description": "6 models (3rd+ unit)",
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -10437,7 +10421,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 130
+          "points": 120
         }
       ],
       "wargearCosts": [],
@@ -10894,7 +10878,6 @@
         "stalwarts-honours",
         "grand-strategist",
         "death-mask-of-ollanius",
-        "advance-augury",
         "reactive-command",
         "legacy-sidearm",
         "bold-leadership",
@@ -11352,7 +11335,6 @@
         "laud-hailer",
         "tripwires",
         "master-manoeuvrist",
-        "advance-augury",
         "spec-ops-veteran",
         "exemplary-officer"
       ],
@@ -16417,7 +16399,6 @@
         "eager-advance",
         "legacy-sidearm",
         "guerrilla-honours",
-        "advance-augury",
         "reactive-command",
         "death-mask-of-ollanius",
         "grand-strategist",
@@ -16702,7 +16683,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 75
+          "points": 70
         }
       ],
       "wargearCosts": [],
@@ -17202,7 +17183,6 @@
         "death-mask-of-ollanius",
         "scare-gas-grenades",
         "grand-strategist-astra-militarum",
-        "advance-augury",
         "aquilan-eye",
         "flash-grenades",
         "guerrilla-honours",
@@ -19173,7 +19153,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 120
+          "points": 110
         }
       ],
       "wargearCosts": [],

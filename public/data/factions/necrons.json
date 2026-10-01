@@ -12,7 +12,10 @@
     {
       "id": "awakened-dynasty",
       "name": "Awakened Dynasty",
-      "disposition": "TAKE AND HOLD",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -53,7 +56,7 @@
       "id": "canoptek-court",
       "name": "Canoptek Court",
       "disposition": "TAKE AND HOLD",
-      "dp": 3,
+      "dp": 2,
       "chapters": [],
       "abilities": [
         {
@@ -161,7 +164,10 @@
     {
       "id": "starshatter-arsenal",
       "name": "Starshatter Arsenal",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -1552,7 +1558,7 @@
     },
     {
       "id": "mortality-shroud-upgrade",
-      "name": "Mortality Shroud Upgrade",
+      "name": "Mortality Shroud (Aura) (Upgrade)",
       "cost": 10,
       "detachmentId": "the-phaerons-armoury",
       "detachmentName": "The Phaeron’s Armoury",
@@ -2194,7 +2200,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 65
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -2764,11 +2770,11 @@
       "pointsCosts": [
         {
           "description": "5 models",
-          "points": 70
+          "points": 65
         },
         {
           "description": "10 models",
-          "points": 140
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -5330,7 +5336,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 95
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -5485,7 +5491,7 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 210
+          "points": 200
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -5861,7 +5867,7 @@
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 485
+          "points": 505
         }
       ],
       "wargearCosts": [],
@@ -7508,7 +7514,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 140
+          "points": 130
         }
       ],
       "wargearCosts": [],
@@ -8388,7 +8394,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 55
+          "points": 65
         }
       ],
       "wargearCosts": [],
@@ -9335,7 +9341,7 @@
         },
         {
           "description": "6 models (1st-2nd units)",
-          "points": 175
+          "points": 190
         },
         {
           "description": "1 model (3rd+ unit)",
@@ -9351,7 +9357,7 @@
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 205
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -10308,7 +10314,7 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 50
+          "points": 60
         }
       ],
       "wargearCosts": [],
@@ -10708,7 +10714,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 185
+          "points": 195
         }
       ],
       "wargearCosts": [],

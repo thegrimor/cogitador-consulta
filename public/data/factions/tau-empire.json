@@ -38,7 +38,10 @@
     {
       "id": "montka",
       "name": "Mont’ka",
-      "disposition": "PRIORITY ASSETS",
+      "disposition": [
+        "TAKE AND HOLD",
+        "PRIORITY ASSETS"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -58,7 +61,10 @@
     {
       "id": "retaliation-cadre",
       "name": "Retaliation Cadre",
-      "disposition": "PURGE THE FOE",
+      "disposition": [
+        "PURGE THE FOE",
+        "RECONNAISSANCE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -779,20 +785,6 @@
       }
     },
     {
-      "id": "fanatical-convert",
-      "name": "Fanatical Convert",
-      "cost": 10,
-      "detachmentId": "auxiliary-cadre",
-      "detachmentName": "Auxiliary Cadre",
-      "description": "Kroot model only. The bearer’s unit has the For the Greater Good ability.",
-      "effect": {
-        "effects": {
-          "bsMod": -1
-        },
-        "combatType": "ranged"
-      }
-    },
-    {
       "id": "nomadic-hunter",
       "name": "Nomadic Hunter",
       "cost": 20,
@@ -855,22 +847,6 @@
       "description": "<span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> model only. In the Resolve Pre-battle Abilities step, you can select up to two friendly <span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> units within 6\" of this model that do not have the Scouts ability. Until the end of the battle, all models in the selected units have the Scouts 6\" ability."
     },
     {
-      "id": "fusion-blades",
-      "name": "Fusion Blades",
-      "cost": 25,
-      "detachmentId": "experimental-prototype-cadre",
-      "detachmentName": "Experimental Prototype Cadre",
-      "description": "<span class=\"kwb\">T’AU</span> <span class=\"kwb\">EMPIRE</span> model only. Select one fusion blaster equipped by the bearer. Improve the Attacks characteristic of that weapon by 1, improve the Strength characteristic of that weapon by 3, and that weapon has the [MELTA 4] ability.",
-      "effect": {
-        "effects": {
-          "attacksMod": 1,
-          "strengthMod": 3
-        },
-        "combatType": "ranged",
-        "bearerOnly": true
-      }
-    },
-    {
       "id": "root-carved-weapons",
       "name": "Root-carved Weapons",
       "cost": 10,
@@ -883,14 +859,6 @@
         },
         "bearerOnly": true
       }
-    },
-    {
-      "id": "transponder-lock-module",
-      "name": "Transponder Lock Module",
-      "cost": 25,
-      "detachmentId": "auxiliary-cadre",
-      "detachmentName": "Auxiliary Cadre",
-      "description": "T’au Empire Walker model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. During your first Movement phase, when you set up the bearer’s unit, it must be set up within 12\" of one or more friendly Kroot or Vespid Stingwings units and not within 8\" horizontally of one or more enemy units."
     },
     {
       "id": "negation-emitters-upgrade",
@@ -1208,7 +1176,6 @@
         "exemplar-of-the-kauyon",
         "plasma-accelerator-rifle",
         "puretide-engram-neurochip",
-        "fusion-blades",
         "thermoneutronic-projector",
         "prototype-weapon-system",
         "starflare-ignition-system",
@@ -1217,7 +1184,6 @@
         "admired-leader",
         "coordinated-exploitation",
         "supernova-launcher",
-        "transponder-lock-module",
         "strategic-conqueror",
         "through-unity-devastation",
         "strike-swiftly",
@@ -1361,7 +1327,6 @@
       ],
       "enhancementIds": [
         "strike-swiftly",
-        "fusion-blades",
         "coordinated-exploitation",
         "solid-image-projection-unit",
         "precision-of-the-patient-hunter",
@@ -1522,7 +1487,6 @@
       ],
       "enhancementIds": [
         "strike-swiftly",
-        "fusion-blades",
         "supernova-launcher",
         "admired-leader",
         "strategic-conqueror",
@@ -2454,7 +2418,7 @@
       "pointsCosts": [
         {
           "description": "10 models",
-          "points": 90
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -5242,8 +5206,7 @@
         "through-unity-devastation",
         "strategic-conqueror",
         "coordinated-exploitation",
-        "supernova-launcher",
-        "fusion-blades"
+        "supernova-launcher"
       ],
       "detachmentAbilityIds": [
         "superior-craftsmanship-tau-empire",
@@ -6508,13 +6471,14 @@
         {
           "description": "1 model",
           "points": 85
-        },
+        }
+      ],
+      "wargearCosts": [
         {
-          "description": "+ 1 Tidewall Defence Platform",
+          "name": "+ 1 Tidewall Defence Platform",
           "points": 20
         }
       ],
-      "wargearCosts": [],
       "stratagemIds": [
         "guided-by-unity",
         "a-tempting-trap",
@@ -8024,11 +7988,9 @@
         "strike-swiftly",
         "strategic-conqueror",
         "coordinated-exploitation",
-        "fusion-blades",
         "through-unity-devastation",
         "precision-of-the-patient-hunter",
         "internal-grenade-racks",
-        "transponder-lock-module",
         "exemplar-of-the-kauyon",
         "solid-image-projection-unit",
         "prototype-weapon-system",
@@ -9085,11 +9047,9 @@
         "supernova-launcher",
         "thermoneutronic-projector",
         "kroothawk-flock",
-        "fusion-blades",
         "student-of-kauyon",
         "strategic-conqueror",
         "strike-swiftly",
-        "fanatical-convert",
         "precision-of-the-patient-hunter"
       ],
       "detachmentAbilityIds": [
@@ -9292,8 +9252,6 @@
       "enhancementIds": [
         "supernova-launcher",
         "root-carved-weapons",
-        "fusion-blades",
-        "fanatical-convert",
         "kroothawk-flock",
         "student-of-kauyon",
         "thermoneutronic-projector",
@@ -9487,12 +9445,10 @@
         "solid-image-projection-unit",
         "student-of-kauyon",
         "borthrod-gland",
-        "fanatical-convert",
         "supernova-launcher",
         "kroothawk-flock",
         "thermoneutronic-projector",
         "plasma-accelerator-rifle",
-        "fusion-blades",
         "strike-swiftly",
         "strategic-conqueror"
       ],
@@ -9713,8 +9669,6 @@
         "supernova-launcher",
         "solid-image-projection-unit",
         "strategic-conqueror",
-        "fusion-blades",
-        "fanatical-convert",
         "coordinated-exploitation"
       ],
       "detachmentAbilityIds": [
@@ -10150,7 +10104,7 @@
       "pointsCosts": [
         {
           "description": "2 models",
-          "points": 230
+          "points": 240
         }
       ],
       "wargearCosts": [],

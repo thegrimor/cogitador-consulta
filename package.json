@@ -12,7 +12,8 @@
     "server:install": "npm install --prefix server",
     "server:start": "npm start --prefix server",
     "extract-pdf:install": "pip install -r scripts/pdf-codex-tools/requirements.txt",
-    "extract-pdf": "python3 scripts/pdf-codex-tools/extract-text.py"
+    "extract-pdf": "python3 scripts/pdf-codex-tools/extract-text.py",
+    "mfm-sync": "node scripts/mfm-sync/sync.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",

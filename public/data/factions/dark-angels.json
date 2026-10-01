@@ -1890,7 +1890,7 @@
         },
         {
           "description": "10 models (3rd+ unit)",
-          "points": 460
+          "points": 420
         }
       ],
       "wargearCosts": [
@@ -2318,11 +2318,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "5 models (1st unit)",
+          "description": "5 models (1st-2nd units)",
           "points": 255
         },
         {
-          "description": "5 models (2nd+ unit)",
+          "description": "5 models (3rd+ unit)",
           "points": 275
         }
       ],
@@ -2692,7 +2692,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 70
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -3027,7 +3027,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 180
+          "points": 200
         }
       ],
       "wargearCosts": [],
@@ -3314,7 +3314,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 200
+          "points": 190
         }
       ],
       "wargearCosts": [],
@@ -3841,6 +3841,7 @@
         "legendary-slayers"
       ],
       "canBeLedBy": [
+        "captain-on-bike",
         "chaplain-on-bike",
         "ravenwing-command-squad",
         "sammael"
@@ -5376,7 +5377,7 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 125
+          "points": 135
         }
       ],
       "wargearCosts": [],
@@ -5824,11 +5825,11 @@
         },
         {
           "description": "3 models (3rd+ unit)",
-          "points": 110
+          "points": 105
         },
         {
           "description": "6 models (3rd+ unit)",
-          "points": 200
+          "points": 195
         }
       ],
       "wargearCosts": [],
