@@ -1947,8 +1947,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (ESTIMADO, +73% s/MFM anterior)",
-          "points": 190
+          "description": "1 model (ESTIMADO, +50% s/MFM anterior)",
+          "points": 165
         }
       ],
       "wargearCosts": [],
@@ -2163,8 +2163,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (ESTIMADO, +73% s/MFM anterior)",
-          "points": 225
+          "description": "1 model (ESTIMADO, +50% s/MFM anterior)",
+          "points": 195
         }
       ],
       "wargearCosts": [],
@@ -2347,8 +2347,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (ESTIMADO, +73% s/MFM anterior)",
-          "points": 260
+          "description": "1 model (ESTIMADO, +50% s/MFM anterior)",
+          "points": 225
         }
       ],
       "wargearCosts": [],
@@ -2960,12 +2960,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models (ESTIMADO, +73% s/MFM anterior)",
-          "points": 270
+          "description": "2 models (ESTIMADO, +50% s/MFM anterior)",
+          "points": 235
         },
         {
-          "description": "3 models (ESTIMADO, +73% s/MFM anterior)",
-          "points": 400
+          "description": "3 models (ESTIMADO, +50% s/MFM anterior)",
+          "points": 345
         }
       ],
       "wargearCosts": [],
@@ -3782,8 +3782,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model (ESTIMADO, +73% s/MFM anterior)",
-          "points": 190
+          "description": "1 model (ESTIMADO, +50% s/MFM anterior)",
+          "points": 165
         }
       ],
       "wargearCosts": [],
@@ -3992,7 +3992,7 @@
       "pointsCosts": [
         {
           "description": "2 models (ESTIMADO, por analogía con Vertus Praetors)",
-          "points": 270
+          "points": 235
         }
       ],
       "wargearCosts": [],
@@ -4165,8 +4165,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "3 models (ESTIMADO, +73% s/MFM anterior)",
-          "points": 260
+          "description": "3 models (ESTIMADO, +50% s/MFM anterior)",
+          "points": 225
         }
       ],
       "wargearCosts": [],
@@ -4327,8 +4327,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "3 models (ESTIMADO, +73% s/MFM anterior)",
-          "points": 285
+          "description": "3 models (ESTIMADO, +50% s/MFM anterior)",
+          "points": 245
         }
       ],
       "wargearCosts": [],
@@ -4483,8 +4483,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "3 models (ESTIMADO, +73% s/MFM anterior)",
-          "points": 340
+          "description": "3 models (ESTIMADO, +50% s/MFM anterior)",
+          "points": 295
         }
       ],
       "wargearCosts": [],
@@ -4665,8 +4665,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models (ESTIMADO, +73% s/MFM anterior)",
-          "points": 340
+          "description": "3 models (ESTIMADO, +50% s/MFM anterior)",
+          "points": 295
         }
       ],
       "wargearCosts": [],
@@ -4876,14 +4876,14 @@
       "role": "Characters",
       "sourceId": "000000024",
       "isVirtual": false,
-      "loadout": "<b>This model is equipped with:</b> executioner greatblade.",
+      "loadout": "<b>This model is equipped with:</b> 1 Executioner Greatblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
         {
           "line": 1,
           "name": "Knight-Centura",
-          "M": "6\"",
+          "M": "7\"",
           "T": 3,
           "Sv": "3+",
           "invSv": "5",
@@ -4896,38 +4896,74 @@
       "weapons": [
         {
           "line": 1,
-          "name": "Master-crafted boltgun",
-          "description": "rapid fire 1",
+          "name": "Master-crafted Boltgun",
+          "description": "anti-psyker 4+, assault, rapid fire 1",
           "range": "24",
           "type": "Ranged",
-          "A": "1",
+          "A": "2",
           "bsWs": "2",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "2",
           "rules": {
-            "rapidFireValue": "1"
+            "isAssault": true,
+            "rapidFireValue": "1",
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 4
+              }
+            ]
           }
         },
         {
           "line": 2,
-          "name": "Witchseeker flamer",
-          "description": "ignores cover, torrent",
+          "name": "Master-crafted Flamer",
+          "description": "anti-psyker 4+, assault, blast 2, torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
-          "bsWs": "N/A",
+          "A": "4",
+          "bsWs": "-",
           "S": 4,
-          "AP": 0,
+          "AP": -1,
           "D": "1",
           "rules": {
+            "isAssault": true,
+            "isBlast": true,
             "isTorrent": true,
-            "isIgnoresCover": true
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 4
+              }
+            ]
           }
         },
         {
           "line": 3,
-          "name": "Close combat weapon",
+          "name": "Executioner Greatblade",
+          "description": "anti-psyker 5+, cleave 1, devastating wounds: psyker",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "4",
+          "bsWs": "2",
+          "S": 5,
+          "AP": -2,
+          "D": "2",
+          "rules": {
+            "cleaveValue": 1,
+            "isDevastatingWounds": true,
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 5
+              }
+            ]
+          }
+        },
+        {
+          "line": 4,
+          "name": "Gun Stock",
           "description": "",
           "range": "Melee",
           "type": "Melee",
@@ -4937,47 +4973,20 @@
           "AP": 0,
           "D": "1",
           "rules": {}
-        },
-        {
-          "line": 4,
-          "name": "Executioner greatblade",
-          "description": "anti-psyker 5+, devastating wounds",
-          "range": "Melee",
-          "type": "Melee",
-          "A": "3",
-          "bsWs": "2",
-          "S": 5,
-          "AP": -2,
-          "D": "2",
-          "rules": {
-            "isDevastatingWounds": true,
-            "antiEntries": [
-              {
-                "keyword": "psyker",
-                "threshold": 5
-              }
-            ]
-          }
         }
       ],
       "abilities": [
         {
-          "id": "leader",
-          "name": "Leader",
-          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
-          "type": "Core"
-        },
-        {
-          "id": "scouts-6",
-          "name": "Scouts 6\"",
+          "id": "scouts-7",
+          "name": "Scouts 7\"",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
         {
-          "id": "seekers-instincts",
-          "name": "Seeker’s Instincts",
-          "description": "While this model is leading a unit, add 2\" to the Move characteristic of models in that unit and add 2 to Advance and Charge rolls made for that unit.",
-          "type": "Datasheet"
+          "id": "support",
+          "name": "Support",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SUPPORT</div></div></div>Some units have the Leader or Support ability listed on their datasheet. Such units are known as leader units and support units respectively. Both of these abilities allow such units to lead other friendly units (known as bodyguard units) to form Attached units. An Attached unit is a single unit for all rules purposes. Leader and support units can only lead specific bodyguard units, as listed on their datasheet.<br><br>Before the battle, in the Muster Armies step, for each leader and support unit in your army, you can select one friendly bodyguard unit that unit can lead. Unless otherwise stated, each bodyguard unit can only have one leader unit and one support unit attached to it.</div>",
+          "type": "Core"
         },
         {
           "id": "daughters-of-the-abyss",
@@ -4986,36 +4995,29 @@
           "type": "Datasheet"
         },
         {
-          "id": "corner-the-quarry",
-          "name": "Corner the Quarry",
-          "description": "Each time an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that is within Engagement Range of this model’s unit Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.",
-          "type": "Datasheet"
+          "id": "seekers-instincts",
+          "name": "Seeker’s Instincts",
+          "type": "Datasheet",
+          "description": "This unit has +2\" M.<br>This unit can re-roll Advance rolls and Charge rolls."
         },
         {
-          "id": "aegis-of-the-emperor",
-          "name": "Aegis of the Emperor",
-          "type": "Faction",
-          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "id": "corner-the-quarry",
+          "name": "Corner the Quarry",
+          "type": "Datasheet",
+          "description": "When an enemy unit (excluding <span class=\"kwb\">MONSTER</span>/<span class=\"kwb\">VEHICLE</span> units) engaged with this unit makes a Fall Back move, that enemy unit must use the Desperate Escape mode. If that enemy unit is Battle-shocked, -1 from those Hazard rolls."
         }
       ],
       "keywords": [
-        "Imperium",
-        "Knight-Centura",
-        "Anathema Psykana",
         "Infantry",
-        "Character"
+        "Anathema Psykana",
+        "Character",
+        "Imperium"
       ],
       "factionKeywords": [
-        "Adeptus Custodes"
+        "Anathema Psykana"
       ],
       "unitComposition": [
-        "1 Knight-Centura"
+        "1 Knight-Centura model"
       ],
       "modelCountMin": 1,
       "modelCountMax": 1,
@@ -5028,7 +5030,7 @@
       "options": [
         {
           "button": "•",
-          "description": "This model’s executioner greatblade can be replaced with one of the following:<ul style=\"list-style-type:circle\"><li>1 master-crafted boltgun and 1 close combat weapon</li><li>1 Witchseeker flamer and 1 close combat weapon</li></ul>"
+          "description": "This model’s Executioner Greatblade can be replaced with one of the following:<ul style=\"list-style-type:circle\"><li>1 Master-crafted Boltgun and 1 Gun Stock</li><li>1 Master-crafted Flamer and 1 Gun Stock</li></ul>"
         }
       ],
       "pointsCosts": [
@@ -5051,14 +5053,14 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
-      "loadout": "<b>Every model is equipped with:</b> boltgun; close combat weapon.",
+      "loadout": "<b>Every model is equipped with:</b> 1 Boltgun; 1 Gun Stock.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
         {
           "line": 1,
-          "name": "Prosecutors",
-          "M": "6\"",
+          "name": "Prosecutor",
+          "M": "7\"",
           "T": 3,
           "Sv": "3+",
           "invSv": "-",
@@ -5072,21 +5074,28 @@
         {
           "line": 1,
           "name": "Boltgun",
-          "description": "rapid fire 1",
+          "description": "anti-psyker 4+, assault, rapid fire 1",
           "range": "24",
           "type": "Ranged",
           "A": "1",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
-            "rapidFireValue": "1"
+            "isAssault": true,
+            "rapidFireValue": "1",
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 4
+              }
+            ]
           }
         },
         {
           "line": 2,
-          "name": "Close combat weapon",
+          "name": "Gun Stock",
           "description": "",
           "range": "Melee",
           "type": "Melee",
@@ -5108,34 +5117,20 @@
         {
           "id": "purity-of-execution",
           "name": "Purity of Execution",
-          "description": "Each time a model in this unit makes a ranged attack that targets a <span class=\"kwb\">PSYKER</span> unit, that attack has the [PRECISION] and [DEVASTATING WOUNDS] abilities.",
-          "type": "Datasheet"
-        },
-        {
-          "id": "aegis-of-the-emperor",
-          "name": "Aegis of the Emperor",
-          "type": "Faction",
-          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "type": "Datasheet",
+          "description": "In your Shooting phase, you can select one visible enemy unit within 18\" of this unit. That unit is detected.<ul><li>While a unit is detected, that unit has +3\" detection range.</li></ul>"
         }
       ],
       "keywords": [
-        "Imperium",
         "Infantry",
-        "Prosecutors",
-        "Anathema Psykana"
+        "Anathema Psykana",
+        "Imperium"
       ],
       "factionKeywords": [
-        "Adeptus Custodes"
+        "Anathema Psykana"
       ],
       "unitComposition": [
-        "1 Prosecutor Sister Superior",
-        "3-9 Prosecutors"
+        "4-10 Prosecutor models"
       ],
       "modelCountMin": 4,
       "modelCountMax": 10,
@@ -5145,7 +5140,7 @@
           "count": 1
         },
         {
-          "name": "close combat weapon",
+          "name": "gun stock",
           "count": 1
         }
       ],
@@ -5182,14 +5177,14 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
-      "loadout": "<b>Every model is equipped with:</b> executioner greatblade.",
+      "loadout": "<b>Every model is equipped with:</b> 1 Executioner Greatblade.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
         {
           "line": 1,
-          "name": "Vigilators",
-          "M": "6\"",
+          "name": "Vigilator",
+          "M": "7\"",
           "T": 3,
           "Sv": "3+",
           "invSv": "-",
@@ -5202,11 +5197,11 @@
       "weapons": [
         {
           "line": 1,
-          "name": "Executioner greatblade",
-          "description": "anti-psyker 5+, devastating wounds",
+          "name": "Executioner Greatblade",
+          "description": "anti-psyker 5+, devastating wounds: psyker",
           "range": "Melee",
           "type": "Melee",
-          "A": "2",
+          "A": "3",
           "bsWs": "3",
           "S": 5,
           "AP": -2,
@@ -5232,8 +5227,8 @@
         {
           "id": "deft-parry",
           "name": "Deft Parry",
-          "description": "Each time a melee attack targets this unit, subtract 1 from the Hit roll.",
           "type": "Datasheet",
+          "description": "Melee attacks that target this unit have -1 to Hit rolls.",
           "effect": {
             "effects": {
               "hitMod": -1
@@ -5241,32 +5236,18 @@
             "combatType": "melee",
             "target": "defender"
           }
-        },
-        {
-          "id": "aegis-of-the-emperor",
-          "name": "Aegis of the Emperor",
-          "type": "Faction",
-          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
         }
       ],
       "keywords": [
-        "Imperium",
         "Infantry",
         "Anathema Psykana",
-        "Vigilators"
+        "Imperium"
       ],
       "factionKeywords": [
-        "Adeptus Custodes"
+        "Anathema Psykana"
       ],
       "unitComposition": [
-        "1 Vigilator Sister Superior",
-        "3-9 Vigilators"
+        "4-10 Vigilator models"
       ],
       "modelCountMin": 4,
       "modelCountMax": 10,
@@ -5583,6 +5564,728 @@
         {
           "description": "1 model (4th + unit)",
           "points": 75
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": []
+    },
+    {
+      "id": "caladius-grav-tank",
+      "name": "Caladius Grav-tank",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Armoured Hull; 1 Iliastus Accelerator Cannon; 1 Twin Lastrum Bolt Cannon.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Caladius Grav-tank",
+          "M": "10\"",
+          "T": 11,
+          "Sv": "2+",
+          "invSv": "5",
+          "W": 14,
+          "Ld": "5+",
+          "OC": 4,
+          "baseSize": "170 x 109mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Iliastus Accelerator Cannon",
+          "description": "rapid fire 4, sustained hits 1: non-monster/vehicle",
+          "range": "48",
+          "type": "Ranged",
+          "A": "4",
+          "bsWs": "2",
+          "S": 10,
+          "AP": -1,
+          "D": "3",
+          "rules": {
+            "rapidFireValue": "4",
+            "sustainedHitsValue": 1
+          }
+        },
+        {
+          "line": 2,
+          "name": "Twin Lastrum Bolt Cannon",
+          "description": "sustained hits 1, twin-linked",
+          "range": "36",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "2",
+          "S": 6,
+          "AP": -2,
+          "D": "2",
+          "rules": {
+            "sustainedHitsValue": 1,
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 3,
+          "name": "Twin Neutronium Cascade Projectors",
+          "description": "blast 1, torrent, twin-linked",
+          "range": "12",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "-",
+          "S": 7,
+          "AP": -2,
+          "D": "1",
+          "rules": {
+            "isBlast": true,
+            "isTorrent": true,
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 4,
+          "name": "Armoured Hull",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "4",
+          "bsWs": "4",
+          "S": 6,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "damaged-5",
+          "name": "Damaged",
+          "description": "While this model has 5 or fewer wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. In addition, each time a Hit roll of 6 is made for this model, after all other modifiers, that attack scores a Critical Hit, regardless of its unmodified Hit roll.",
+          "type": "Core"
+        },
+        {
+          "id": "deadly-demise-d3",
+          "name": "Deadly Demise D3",
+          "description": "When this model is destroyed, roll one D6: on a 6, each unit within 6\" suffers D3 mortal wounds.",
+          "type": "Core"
+        },
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "type": "Core",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "id": "destructor-optics",
+          "name": "Destructor Optics",
+          "type": "Datasheet",
+          "description": "This unit’s ranged attacks that target a unit (excluding MONSTER/VEHICLE units) have +1 AP.",
+          "effect": {
+            "effects": {
+              "apMod": 1
+            },
+            "combatType": "ranged",
+            "requiresTargetKeyword": "infantry"
+          }
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Caladius",
+        "Fly",
+        "Frame",
+        "Grav-Assault",
+        "Imperium"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Caladius Grav-tank model"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "iliastus accelerator cannon",
+          "count": 1
+        },
+        {
+          "name": "twin lastrum bolt cannon",
+          "count": 1
+        },
+        {
+          "name": "armoured hull",
+          "count": 1
+        }
+      ],
+      "options": [
+        {
+          "button": "•",
+          "description": "This model’s Twin Lastrum Bolt Cannon can be replaced with 1 Twin Neutronium Cascade Projectors."
+        }
+      ],
+      "pointsCosts": [
+        {
+          "description": "Sin puntos oficiales para esta edición del codex todavía",
+          "points": 0
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": []
+    },
+    {
+      "id": "caladius-annihilator-grav-tank",
+      "name": "Caladius Annihilator Grav-tank",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Arachnus Blaze Carronade; 1 Armoured Hull; 1 Twin Lastrum Bolt Cannon.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Caladius Annihilator Grav-tank",
+          "M": "10\"",
+          "T": 11,
+          "Sv": "2+",
+          "invSv": "5",
+          "W": 14,
+          "Ld": "5+",
+          "OC": 4,
+          "baseSize": "170 x 109mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Arachnus Blaze Carronade",
+          "description": "lethal hits: monster/vehicle",
+          "range": "48",
+          "type": "Ranged",
+          "A": "4",
+          "bsWs": "2",
+          "S": 12,
+          "AP": -3,
+          "D": "D6+2",
+          "rules": {
+            "isLethalHits": true
+          }
+        },
+        {
+          "line": 2,
+          "name": "Twin Lastrum Bolt Cannon",
+          "description": "sustained hits 1, twin-linked",
+          "range": "36",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "2",
+          "S": 6,
+          "AP": -2,
+          "D": "2",
+          "rules": {
+            "sustainedHitsValue": 1,
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 3,
+          "name": "Twin Neutronium Cascade Projectors",
+          "description": "blast 1, torrent, twin-linked",
+          "range": "12",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "-",
+          "S": 7,
+          "AP": -2,
+          "D": "1",
+          "rules": {
+            "isBlast": true,
+            "isTorrent": true,
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 4,
+          "name": "Armoured Hull",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "4",
+          "bsWs": "4",
+          "S": 6,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "damaged-5",
+          "name": "Damaged",
+          "description": "While this model has 5 or fewer wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. In addition, each time a Hit roll of 6 is made for this model, after all other modifiers, that attack scores a Critical Hit, regardless of its unmodified Hit roll.",
+          "type": "Core"
+        },
+        {
+          "id": "deadly-demise-d3",
+          "name": "Deadly Demise D3",
+          "description": "When this model is destroyed, roll one D6: on a 6, each unit within 6\" suffers D3 mortal wounds.",
+          "type": "Core"
+        },
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "type": "Core",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "id": "advanced-firepower",
+          "name": "Advanced Firepower",
+          "type": "Datasheet",
+          "description": "This unit’s ranged attacks that target a MONSTER/VEHICLE unit can:<ul><li>Re-roll one Hit roll.</li><li>Re-roll one Wound roll.</li><li>Re-roll one Damage roll.</li></ul>",
+          "options": [
+            {
+              "name": "Re-roll one Hit roll (vs Monster)",
+              "effect": {
+                "effects": {
+                  "rerollOneHit": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "Re-roll one Hit roll (vs Vehicle)",
+              "effect": {
+                "effects": {
+                  "rerollOneHit": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            },
+            {
+              "name": "Re-roll one Wound roll (vs Monster)",
+              "effect": {
+                "effects": {
+                  "rerollOneWound": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "Re-roll one Wound roll (vs Vehicle)",
+              "effect": {
+                "effects": {
+                  "rerollOneWound": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Caladius",
+        "Fly",
+        "Frame",
+        "Grav-Assault",
+        "Imperium"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Caladius Annihilator Grav-tank model"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "arachnus blaze carronade",
+          "count": 1
+        },
+        {
+          "name": "twin lastrum bolt cannon",
+          "count": 1
+        },
+        {
+          "name": "armoured hull",
+          "count": 1
+        }
+      ],
+      "options": [
+        {
+          "button": "•",
+          "description": "This model’s Twin Lastrum Bolt Cannon can be replaced with 1 Twin Neutronium Cascade Projectors."
+        }
+      ],
+      "pointsCosts": [
+        {
+          "description": "Sin puntos oficiales para esta edición del codex todavía",
+          "points": 0
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": []
+    },
+    {
+      "id": "pallas-grav-attack",
+      "name": "Pallas Grav-attack",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Armoured Hull; 1 Twin Arachnus Blaze Cannon.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Pallas Grav-attack",
+          "M": "12\"",
+          "T": 9,
+          "Sv": "2+",
+          "invSv": "5",
+          "W": 10,
+          "Ld": "5+",
+          "OC": 2,
+          "baseSize": "105 x 70mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Twin Arachnus Blaze Cannon",
+          "description": "twin-linked",
+          "range": "24",
+          "type": "Ranged",
+          "A": "2",
+          "bsWs": "2",
+          "S": 10,
+          "AP": -3,
+          "D": "D3+2",
+          "rules": {
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 2,
+          "name": "Twin Iliastus Accelerator Fusil",
+          "description": "rapid fire 2, twin-linked",
+          "range": "48",
+          "type": "Ranged",
+          "A": "2",
+          "bsWs": "2",
+          "S": 10,
+          "AP": -1,
+          "D": "3",
+          "rules": {
+            "rapidFireValue": "2",
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 3,
+          "name": "Armoured Hull",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "3",
+          "bsWs": "4",
+          "S": 6,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "deadly-demise-1",
+          "name": "Deadly Demise 1",
+          "type": "Core",
+          "description": "When this model is destroyed, roll one D6: on a 6, each unit within 6\" suffers 1 mortal wound."
+        },
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "type": "Core",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "id": "mobile-hunter",
+          "name": "Mobile Hunter",
+          "type": "Datasheet",
+          "description": "In your Shooting phase, when this unit has shot, you can use this ability. If you do:<ul><li>This unit can make a Normal move of up to D6\".</li><li>This unit is not eligible to declare a charge until the end of the turn.</li></ul>"
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Fly",
+        "Frame",
+        "Grav-Assault",
+        "Imperium"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Pallas Grav-attack model"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "twin arachnus blaze cannon",
+          "count": 1
+        },
+        {
+          "name": "armoured hull",
+          "count": 1
+        }
+      ],
+      "options": [
+        {
+          "button": "•",
+          "description": "This model’s Twin Arachnus Blaze Cannon can be replaced with 1 Twin Iliastus Accelerator Fusil."
+        }
+      ],
+      "pointsCosts": [
+        {
+          "description": "Sin puntos oficiales para esta edición del codex todavía",
+          "points": 0
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": []
+    },
+    {
+      "id": "coronus-grav-carrier",
+      "name": "Coronus Grav-carrier",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> 1 Armoured Hull; 1 Twin Arachnus Blaze Cannon; 1 Twin Lastrum Bolt Cannon.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Coronus Grav-carrier",
+          "M": "12\"",
+          "T": 12,
+          "Sv": "2+",
+          "invSv": "5",
+          "W": 16,
+          "Ld": "5+",
+          "OC": 5,
+          "baseSize": "Use model"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Twin Arachnus Blaze Cannon",
+          "description": "twin-linked",
+          "range": "24",
+          "type": "Ranged",
+          "A": "2",
+          "bsWs": "2",
+          "S": 10,
+          "AP": -3,
+          "D": "D3+2",
+          "rules": {
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 2,
+          "name": "Twin Lastrum Bolt Cannon",
+          "description": "sustained hits 1, twin-linked",
+          "range": "36",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "2",
+          "S": 6,
+          "AP": -2,
+          "D": "2",
+          "rules": {
+            "sustainedHitsValue": 1,
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 3,
+          "name": "Twin Neutronium Cascade Projectors",
+          "description": "blast 1, torrent, twin-linked",
+          "range": "12",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "-",
+          "S": 7,
+          "AP": -2,
+          "D": "1",
+          "rules": {
+            "isBlast": true,
+            "isTorrent": true,
+            "isTwinLinked": true
+          }
+        },
+        {
+          "line": 4,
+          "name": "Armoured Hull",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "6",
+          "bsWs": "4",
+          "S": 8,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "damaged-6",
+          "name": "Damaged",
+          "description": "While this model has 6 or fewer wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. In addition, each time a Hit roll of 6 is made for this model, after all other modifiers, that attack scores a Critical Hit, regardless of its unmodified Hit roll.",
+          "type": "Core"
+        },
+        {
+          "id": "deadly-demise-d6",
+          "name": "Deadly Demise D6",
+          "type": "Core",
+          "description": "When this model is destroyed, roll one D6: on a 6, each unit within 6\" suffers D6 mortal wounds."
+        },
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "type": "Core",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>"
+        },
+        {
+          "id": "aegis-of-the-emperor",
+          "name": "Aegis of the Emperor",
+          "type": "Faction",
+          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 5
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "id": "repulsor-suspensor-technology",
+          "name": "Repulsor Suspensor Technology (Once per phase, per unit)",
+          "type": "Datasheet",
+          "description": "In your opponent’s Shooting phase, when an enemy unit has shot, if this unit lost a wound as a result of those attacks and is unengaged, this unit can make a Normal move of up to D6\"."
+        },
+        {
+          "id": "assault-vehicle",
+          "name": "Assault Vehicle",
+          "type": "Datasheet",
+          "description": "In your Movement phase, when this unit ends an Advance move, units embarked within this unit can make a Shock Disembark move."
+        },
+        {
+          "id": "transport",
+          "name": "Transport",
+          "type": "Datasheet",
+          "description": "This model has a transport capacity of 9 <span class=\"kwb\">ADEPTUS CUSTODES INFANTRY</span> models. It cannot transport <span class=\"kwb\">JUMP PACK</span> models."
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Fly",
+        "Frame",
+        "Grav-Assault",
+        "Imperium",
+        "Transport"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Coronus Grav-carrier model"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "twin arachnus blaze cannon",
+          "count": 1
+        },
+        {
+          "name": "twin lastrum bolt cannon",
+          "count": 1
+        },
+        {
+          "name": "armoured hull",
+          "count": 1
+        }
+      ],
+      "options": [
+        {
+          "button": "•",
+          "description": "This model’s Twin Lastrum Bolt Cannon can be replaced with 1 Twin Neutronium Cascade Projectors."
+        }
+      ],
+      "pointsCosts": [
+        {
+          "description": "Sin puntos oficiales para esta edición del codex todavía",
+          "points": 0
         }
       ],
       "wargearCosts": [],
