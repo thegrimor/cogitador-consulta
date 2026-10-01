@@ -1477,7 +1477,15 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "inquisitor-draxus",
+        "blade-champion",
+        "inquisitor-greyfax",
+        "inquisitor-coteaz",
+        "inquisitor",
+        "trajann-valoris",
+        "shield-captain"
+      ]
     },
     {
       "id": "trajann-valoris",
@@ -1934,7 +1942,7 @@
         },
         {
           "button": "•",
-          "description": "This model’s Pyrithite Spear and Praesidium Shield can be replaced with one of the following: 1 Castellan Axe; 1 Guardian Spear."
+          "description": "This model’s Pyrithite Spear and Praesidium Shield can be replaced with one of the following:<ul><li>1 Castellan Axe</li><li>1 Guardian Spear</li></ul>"
         }
       ],
       "pointsCosts": [
@@ -2552,7 +2560,11 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "blade-champion",
+        "trajann-valoris",
+        "shield-captain"
+      ]
     },
     {
       "id": "allarus-custodians",
@@ -2774,7 +2786,9 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "shield-captain-in-allarus-terminator-armour"
+      ]
     },
     {
       "id": "vertus-praetors",
@@ -2958,7 +2972,9 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "shield-captain-on-dawneagle-jetbike"
+      ]
     },
     {
       "id": "contemptor-achillus-dreadnought",
@@ -3160,7 +3176,7 @@
       "options": [
         {
           "button": "•",
-          "description": "This model’s 2 Lastrum Storm Bolter can be replaced with one of the following: 2 Adrathic Combi-destructor; 2 Twin Infernus Incinerator."
+          "description": "This model’s 2 Lastrum Storm Bolter can be replaced with one of the following:<ul><li>2 Adrathic Combi-destructor</li><li>2 Twin Infernus Incinerator</li></ul>"
         }
       ],
       "pointsCosts": [
@@ -3411,7 +3427,7 @@
       "options": [
         {
           "button": "•",
-          "description": "This model’s Dual Caestus Fists and 2 Twin Neutronium Cascade Projectors can be replaced with one of the following: 1 Adrathic Desolator, 1 Caestus Fist and 1 Twin Neutronium Cascade Projectors; 1 Arachnus Storm Cannon, 1 Caestus Fist and 1 Twin Neutronium Cascade Projectors; 1 Caestus Fist, 1 Iliastus Accelerator Culverin and 1 Twin Neutronium Cascade Projectors."
+          "description": "This model’s Dual Caestus Fists and 2 Twin Neutronium Cascade Projectors can be replaced with one of the following:<ul><li>1 Adrathic Desolator, 1 Caestus Fist and 1 Twin Neutronium Cascade Projectors</li><li>1 Arachnus Storm Cannon, 1 Caestus Fist and 1 Twin Neutronium Cascade Projectors</li><li>1 Caestus Fist, 1 Iliastus Accelerator Culverin and 1 Twin Neutronium Cascade Projectors</li></ul>"
         }
       ],
       "pointsCosts": [
@@ -3970,7 +3986,7 @@
       "options": [
         {
           "button": "•",
-          "description": "All models in this unit can each have their Lastrum Bolt Cannon replaced with one of the following: 1 Adrathic Devastator; 1 Arachnus Volley Cannon; 1 Twin Corvae Las-pulser."
+          "description": "All models in this unit can each have their Lastrum Bolt Cannon replaced with one of the following:<ul><li>1 Adrathic Devastator</li><li>1 Arachnus Volley Cannon</li><li>1 Twin Corvae Las-pulser</li></ul>"
         }
       ],
       "pointsCosts": [
@@ -4844,7 +4860,15 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "inquisitor-draxus",
+        "blade-champion",
+        "inquisitor-greyfax",
+        "inquisitor-coteaz",
+        "inquisitor",
+        "trajann-valoris",
+        "shield-captain"
+      ]
     },
     {
       "id": "knight-centura",
