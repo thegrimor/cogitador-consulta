@@ -4710,6 +4710,670 @@
       "enhancementIds": [],
       "detachmentAbilityIds": [],
       "canBeLedBy": []
+    },
+    {
+      "id": "valerian",
+      "name": "Valerian",
+      "role": "Characters",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> Gnosis.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Valerian",
+          "M": "6\"",
+          "T": 6,
+          "Sv": "2+",
+          "invSv": "4",
+          "W": 6,
+          "Ld": "6+",
+          "OC": 2,
+          "baseSize": "40mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Gnosis",
+          "description": "assault",
+          "range": "24",
+          "type": "Ranged",
+          "A": "3",
+          "bsWs": "2",
+          "S": 4,
+          "AP": -1,
+          "D": "2",
+          "rules": {
+            "isAssault": true
+          }
+        },
+        {
+          "line": 2,
+          "name": "Gnosis",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "7",
+          "bsWs": "2",
+          "S": 8,
+          "AP": -3,
+          "D": "2",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "deep-strike",
+          "name": "Deep Strike",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">DEEP STRIKE</div></div></div>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability. <br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Unit can be set up in Reserves instead of on the battlefield.</li><li>Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "feel-no-pain-6",
+          "name": "Feel No Pain 6+",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">FEEL NO PAIN</div></div></div>Some models have ‘Feel No Pain x+’ listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to <span class=\"tooltip00028\" data-tooltip-content=\"#tooltip_content00028\"><span class=\"tt kwbu\">mortal</span> <span class=\"tt kwbu\">wounds</span></span>), roll one D6: if the result is greater than or equal to the number denoted by ‘x’, that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.<br><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Feel No Pain x+:</b> Each time this model would lose a wound, roll one D6: if the result equals or exceeds ‘x’, that wound is not lost.</li></ul></div></div>",
+          "type": "Core",
+          "effect": {
+            "effects": {
+              "feelNoPainThreshold": 6
+            },
+            "target": "defender"
+          }
+        },
+        {
+          "id": "leader",
+          "name": "Leader",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "martial-katah",
+          "name": "Martial Ka’tah",
+          "description": "Each time a unit from your army with this ability is selected to fight, select one of the Ka’tah Stances below. Until that unit has finished making its attacks, the selected Stance is active for it and it gains the relevant ability:<div style=\"height:8px\"></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Dacatarai Stance</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00034\" data-tooltip-content=\"#tooltip_content00034\"><span class=\"tt kwbu\">[SUSTAINED</span> <span class=\"tt kwbu\">HITS</span> <span class=\"tt kwbu\">1]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div><div class=\"BreakInsideAvoid\"><table max-width=\"480px\" border=\"0\" cellpadding=\"3\" style=\"border-width:0px\"><tbody><tbody><tr><td class=\"td_w\"><p style=\"display:block\" class=\"impact18\">Rendax Stance</p><p>Melee weapons equipped by models in this unit have the <span class=\"kwb2 bluefont\"><span class=\"tooltip00035\" data-tooltip-content=\"#tooltip_content00035\"><span class=\"tt kwbu\">[LETHAL</span> <span class=\"tt kwbu\">HITS]</span></span></span> ability.</p></td></tr></tbody></tbody></table></div>",
+          "type": "Faction"
+        },
+        {
+          "id": "golden-laurels",
+          "name": "Golden Laurels",
+          "description": "While this model is leading a unit, each time a melee attack targets that unit, worsen the Armour Penetration characteristic of that attack by 1.",
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "apMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
+        },
+        {
+          "id": "hero-of-lions-gate",
+          "name": "Hero of Lion’s Gate",
+          "description": "Once per battle, after making a Hit roll, Wound roll or saving throw for this model, you can change the result of that roll to an unmodified 6.",
+          "type": "Datasheet"
+        }
+      ],
+      "keywords": [
+        "Shield-Captain",
+        "Imperium",
+        "Epic Hero",
+        "Character",
+        "Infantry",
+        "Valerian"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Valerian – <span class=\"kwb\">EPIC</span> <span class=\"kwb\">HERO</span>"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "gnosis",
+          "count": 1
+        }
+      ],
+      "options": [],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 120
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [
+        "assemblage-of-might"
+      ],
+      "canBeLedBy": []
+    },
+    {
+      "id": "knight-centura",
+      "name": "Knight-Centura",
+      "role": "Characters",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>This model is equipped with:</b> executioner greatblade.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Knight-Centura",
+          "M": "6\"",
+          "T": 3,
+          "Sv": "3+",
+          "invSv": "5",
+          "W": 4,
+          "Ld": "6+",
+          "OC": 1,
+          "baseSize": "32mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Master-crafted boltgun",
+          "description": "rapid fire 1",
+          "range": "24",
+          "type": "Ranged",
+          "A": "1",
+          "bsWs": "2",
+          "S": 4,
+          "AP": 0,
+          "D": "2",
+          "rules": {
+            "rapidFireValue": "1"
+          }
+        },
+        {
+          "line": 2,
+          "name": "Witchseeker flamer",
+          "description": "ignores cover, torrent",
+          "range": "12",
+          "type": "Ranged",
+          "A": "D6",
+          "bsWs": "N/A",
+          "S": 4,
+          "AP": 0,
+          "D": "1",
+          "rules": {
+            "isTorrent": true,
+            "isIgnoresCover": true
+          }
+        },
+        {
+          "line": 3,
+          "name": "Close combat weapon",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "3",
+          "bsWs": "2",
+          "S": 3,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        },
+        {
+          "line": 4,
+          "name": "Executioner greatblade",
+          "description": "anti-psyker 5+, devastating wounds",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "3",
+          "bsWs": "2",
+          "S": 5,
+          "AP": -2,
+          "D": "2",
+          "rules": {
+            "isDevastatingWounds": true,
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 5
+              }
+            ]
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "leader",
+          "name": "Leader",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">LEADER</div></div></div>Some <span class=\"kwb\">CHARACTER</span> units have ‘Leader’ listed on their datasheets. Such <span class=\"kwb\">CHARACTER</span> units are known as Leaders, and the units they can lead – known as their Bodyguard units – are listed on their datasheet.<br><br>During the Declare Battle Formations step, for each Leader in your army, if your army also includes one or more of that Leader’s Bodyguard units, you can select one of those Bodyguard units. That Leader will then attach to that Bodyguard unit for the duration of the battle and is said to be leading that unit. Each Bodyguard unit can only have one Leader attached to it.<br><br>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are <span class=\"tooltip00006\" data-tooltip-content=\"#tooltip_content00006\"><span class=\"tt kwbu\">destroyed</span></span>, it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a <span class=\"kwb\">CHARACTER</span> model in that unit, even if that <span class=\"kwb\">CHARACTER</span> model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to <span class=\"kwb\">CHARACTER</span> models in that unit.<br><br>Each time the last model in a Bodyguard unit is destroyed, each <span class=\"kwb\">CHARACTER</span> unit that is part of that Attached unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks.<br><br>Each time the last model in a <span class=\"kwb\">CHARACTER</span> unit that is attached to a Bodyguard unit is destroyed and there is not another <span class=\"kwb\">CHARACTER</span> unit attached, that Attached unit’s Bodyguard unit is no longer part of an Attached unit. It becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. <br><br>Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.<br><br><div class=\"redExample\"><b>Example:</b> <i>If you only destroy the Bodyguard unit that is part of an Attached unit, you have not destroyed a <span class=\"kwb\">CHARACTER</span> unit. If you only destroy the <span class=\"kwb\">CHARACTER</span> unit that is part of an Attached unit, or if you destroy the whole Attached unit, you have destroyed one <span class=\"kwb\">CHARACTER</span> unit.</i></div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li>Before the battle, <span class=\"kwb\">CHARACTER</span> units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.</li><li>Attached units can only contain one Leader.</li><li>Attacks cannot be allocated to <span class=\"kwb\">CHARACTER</span> models in Attached units.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "scouts-6",
+          "name": "Scouts 6\"",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "seekers-instincts",
+          "name": "Seeker’s Instincts",
+          "description": "While this model is leading a unit, add 2\" to the Move characteristic of models in that unit and add 2 to Advance and Charge rolls made for that unit.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "daughter-of-the-abyss",
+          "name": "Daughter of the Abyss",
+          "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "corner-the-quarry",
+          "name": "Corner the Quarry",
+          "description": "Each time an enemy unit (excluding <span class=\"kwb\">MONSTERS</span> and <span class=\"kwb\">VEHICLES</span>) that is within Engagement Range of this model’s unit Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.",
+          "type": "Datasheet"
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Knight-Centura",
+        "Anathema Psykana",
+        "Infantry",
+        "Character"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Knight-Centura"
+      ],
+      "modelCountMin": 1,
+      "modelCountMax": 1,
+      "defaultWeaponNames": [
+        {
+          "name": "executioner greatblade",
+          "count": 1
+        }
+      ],
+      "options": [
+        {
+          "button": "•",
+          "description": "This model’s executioner greatblade can be replaced with one of the following:<ul style=\"list-style-type:circle\"><li>1 master-crafted boltgun and 1 close combat weapon</li><li>1 Witchseeker flamer and 1 close combat weapon</li></ul>"
+        }
+      ],
+      "pointsCosts": [
+        {
+          "description": "1 model",
+          "points": 55
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [
+        "assemblage-of-might"
+      ],
+      "canBeLedBy": []
+    },
+    {
+      "id": "prosecutors",
+      "name": "Prosecutors",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> boltgun; close combat weapon.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Prosecutors",
+          "M": "6\"",
+          "T": 3,
+          "Sv": "3+",
+          "invSv": "-",
+          "W": 1,
+          "Ld": "6+",
+          "OC": 2,
+          "baseSize": "32mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Boltgun",
+          "description": "rapid fire 1",
+          "range": "24",
+          "type": "Ranged",
+          "A": "1",
+          "bsWs": "3",
+          "S": 4,
+          "AP": 0,
+          "D": "1",
+          "rules": {
+            "rapidFireValue": "1"
+          }
+        },
+        {
+          "line": 2,
+          "name": "Close combat weapon",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "2",
+          "bsWs": "3",
+          "S": 3,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "daughters-of-the-abyss",
+          "name": "Daughters of the Abyss",
+          "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "purity-of-execution",
+          "name": "Purity of Execution",
+          "description": "Each time a model in this unit makes a ranged attack that targets a <span class=\"kwb\">PSYKER</span> unit, that attack has the [PRECISION] and [DEVASTATING WOUNDS] abilities.",
+          "type": "Datasheet"
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Infantry",
+        "Prosecutors",
+        "Anathema Psykana"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Prosecutor Sister Superior",
+        "3-9 Prosecutors"
+      ],
+      "modelCountMin": 4,
+      "modelCountMax": 10,
+      "defaultWeaponNames": [
+        {
+          "name": "boltgun",
+          "count": 1
+        },
+        {
+          "name": "close combat weapon",
+          "count": 1
+        }
+      ],
+      "options": [],
+      "pointsCosts": [
+        {
+          "description": "4 models",
+          "points": 50
+        },
+        {
+          "description": "5 models",
+          "points": 55
+        },
+        {
+          "description": "9 models",
+          "points": 80
+        },
+        {
+          "description": "10 models",
+          "points": 90
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": [
+        "knight-centura"
+      ]
+    },
+    {
+      "id": "vigilators",
+      "name": "Vigilators",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> executioner greatblade.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Vigilators",
+          "M": "6\"",
+          "T": 3,
+          "Sv": "3+",
+          "invSv": "-",
+          "W": 1,
+          "Ld": "6+",
+          "OC": 1,
+          "baseSize": "32mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Executioner greatblade",
+          "description": "anti-psyker 5+, devastating wounds",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "2",
+          "bsWs": "3",
+          "S": 5,
+          "AP": -2,
+          "D": "2",
+          "rules": {
+            "isDevastatingWounds": true,
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 5
+              }
+            ]
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "daughters-of-the-abyss",
+          "name": "Daughters of the Abyss",
+          "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "deft-parry",
+          "name": "Deft Parry",
+          "description": "Each time a melee attack targets this unit, subtract 1 from the Hit roll.",
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "combatType": "melee",
+            "target": "defender"
+          }
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Infantry",
+        "Anathema Psykana",
+        "Vigilators"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Vigilator Sister Superior",
+        "3-9 Vigilators"
+      ],
+      "modelCountMin": 4,
+      "modelCountMax": 10,
+      "defaultWeaponNames": [
+        {
+          "name": "executioner greatblade",
+          "count": 1
+        }
+      ],
+      "options": [],
+      "pointsCosts": [
+        {
+          "description": "4 models",
+          "points": 50
+        },
+        {
+          "description": "5 models",
+          "points": 55
+        },
+        {
+          "description": "9 models",
+          "points": 90
+        },
+        {
+          "description": "10 models",
+          "points": 100
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": [
+        "knight-centura"
+      ]
+    },
+    {
+      "id": "witchseekers",
+      "name": "Witchseekers",
+      "role": "Other",
+      "sourceId": "000000024",
+      "isVirtual": false,
+      "loadout": "<b>Every model is equipped with:</b> Witchseeker flamer; close combat weapon.",
+      "damagedW": 0,
+      "damagedDescription": "",
+      "models": [
+        {
+          "line": 1,
+          "name": "Witchseekers",
+          "M": "6\"",
+          "T": 3,
+          "Sv": "3+",
+          "invSv": "-",
+          "W": 1,
+          "Ld": "6+",
+          "OC": 1,
+          "baseSize": "32mm"
+        }
+      ],
+      "weapons": [
+        {
+          "line": 1,
+          "name": "Witchseeker flamer",
+          "description": "ignores cover, torrent",
+          "range": "12",
+          "type": "Ranged",
+          "A": "D6",
+          "bsWs": "N/A",
+          "S": 4,
+          "AP": 0,
+          "D": "1",
+          "rules": {
+            "isTorrent": true,
+            "isIgnoresCover": true
+          }
+        },
+        {
+          "line": 2,
+          "name": "Close combat weapon",
+          "description": "",
+          "range": "Melee",
+          "type": "Melee",
+          "A": "2",
+          "bsWs": "3",
+          "S": 3,
+          "AP": 0,
+          "D": "1",
+          "rules": {}
+        }
+      ],
+      "abilities": [
+        {
+          "id": "scouts-6",
+          "name": "Scouts 6\"",
+          "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
+          "type": "Core"
+        },
+        {
+          "id": "daughters-of-the-abyss",
+          "name": "Daughters of the Abyss",
+          "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds.",
+          "type": "Datasheet"
+        },
+        {
+          "id": "sanctified-flames",
+          "name": "Sanctified Flames",
+          "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test.",
+          "type": "Datasheet"
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Witchseekers",
+        "Anathema Psykana",
+        "Infantry"
+      ],
+      "factionKeywords": [
+        "Adeptus Custodes"
+      ],
+      "unitComposition": [
+        "1 Witchseeker Sister Superior",
+        "3-9 Witchseekers"
+      ],
+      "modelCountMin": 4,
+      "modelCountMax": 10,
+      "defaultWeaponNames": [
+        {
+          "name": "witchseeker flamer",
+          "count": 1
+        },
+        {
+          "name": "close combat weapon",
+          "count": 1
+        }
+      ],
+      "options": [],
+      "pointsCosts": [
+        {
+          "description": "4 models",
+          "points": 50
+        },
+        {
+          "description": "5 models",
+          "points": 55
+        },
+        {
+          "description": "9 models",
+          "points": 90
+        },
+        {
+          "description": "10 models",
+          "points": 100
+        }
+      ],
+      "wargearCosts": [],
+      "stratagemIds": [],
+      "enhancementIds": [],
+      "detachmentAbilityIds": [],
+      "canBeLedBy": [
+        "knight-centura"
+      ]
     }
   ]
 }
