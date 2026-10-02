@@ -4474,9 +4474,9 @@
         "Adeptus Custodes"
       ],
       "unitComposition": [
-        "3 Aquilon Terminator models"
+        "2-3 Aquilon Terminator models"
       ],
-      "modelCountMin": 3,
+      "modelCountMin": 2,
       "modelCountMax": 3,
       "defaultWeaponNames": [
         {
@@ -4491,8 +4491,12 @@
       "options": [],
       "pointsCosts": [
         {
+          "description": "2 models",
+          "points": 185
+        },
+        {
           "description": "3 models",
-          "points": 285
+          "points": 275
         }
       ],
       "wargearCosts": [],
@@ -4651,9 +4655,9 @@
         "Adeptus Custodes"
       ],
       "unitComposition": [
-        "3 Aquilon Terminator models"
+        "2-3 Aquilon Terminator models"
       ],
-      "modelCountMin": 3,
+      "modelCountMin": 2,
       "modelCountMax": 3,
       "defaultWeaponNames": [
         {
@@ -4672,6 +4676,10 @@
         }
       ],
       "pointsCosts": [
+        {
+          "description": "2 models",
+          "points": 185
+        },
         {
           "description": "3 models",
           "points": 275
