@@ -22,10 +22,11 @@ import {
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
+import { RulesReference } from '@/shared/components/RulesReference'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
 import { RosterQrExportModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
-import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily'
+import { forFaction, forFactionFromMap, datasheetsForFaction } from '@/core/constants/factionFamily'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { ALLY_FACTION_ID, canTakeImperialAgents } from '@/core/constants/allies'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
@@ -38,6 +39,8 @@ export function RosterEditPage() {
     datasheets,
     detachments,
     detachmentAbilities,
+    stratagems,
+    armyRulesByFaction,
     enhancements,
     datasheetEnhancements,
     pointsCostMap,
@@ -353,7 +356,6 @@ export function RosterEditPage() {
                     rosterId={rosterId}
                     costs={costs}
                     wargearCosts={wargearCostMap[datasheet.id] ?? []}
-                    detachmentAbilities={activeDetachmentAbilities}
                     selectedDetachments={selectedDetachments}
                     availableEnhancements={availableEnhancements}
                     attachableEntries={attachableEntries}
@@ -387,6 +389,14 @@ export function RosterEditPage() {
           ))
         )}
       </div>
+
+      <RulesReference
+        factionId={roster.factionId}
+        detachments={selectedDetachments}
+        detachmentAbilities={activeDetachmentAbilities}
+        armyRules={forFactionFromMap(armyRulesByFaction, roster.factionId)}
+        stratagems={stratagems}
+      />
 
       {detachmentModalOpen && (
         <DetachmentSelectModal

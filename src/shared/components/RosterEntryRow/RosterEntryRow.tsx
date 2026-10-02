@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, DetachmentAbility, Detachment, WargearCost } from '@/types'
+import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, Detachment, WargearCost } from '@/types'
 import {
   resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, attachmentKind,
 } from '@/core/utils/roster'
-import { datasheetPath, detachmentPath, factionArmyRulesPath, mathhammerAttackerPath } from '@/core/constants/routes'
+import { datasheetPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
 import { StatsBar } from '@/shared/components/StatsBar'
@@ -27,7 +27,6 @@ interface Props {
   rosterId: string
   costs: PointsCost[]
   wargearCosts: WargearCost[]
-  detachmentAbilities: DetachmentAbility[]
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
   attachableEntries: AttachableEntry[]
@@ -82,7 +81,6 @@ export function RosterEntryRow({
   rosterId,
   costs,
   wargearCosts,
-  detachmentAbilities,
   selectedDetachments,
   availableEnhancements,
   attachableEntries,
@@ -273,19 +271,11 @@ export function RosterEntryRow({
             onChangeWargearSelections={onChangeWargearSelections}
           />
 
-          <AbilityList abilities={datasheet.abilities} detachmentAbilities={detachmentAbilities} />
+          <AbilityList abilities={datasheet.abilities} />
 
           <div className="flex flex-wrap gap-2 pt-1">
             <NavLink to={datasheetPath(datasheet.id)} className={linkClass}>
               Ficha
-            </NavLink>
-            {selectedDetachments.map(d => (
-              <NavLink key={d.id} to={detachmentPath(d.id)} className={linkClass}>
-                {d.name}
-              </NavLink>
-            ))}
-            <NavLink to={factionArmyRulesPath(datasheet.factionId)} className={linkClass}>
-              Reglas de Ejército
             </NavLink>
             <NavLink
               to={mathhammerAttackerPath(datasheet.id, datasheet.factionId, {

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
-import type { Ability, DetachmentAbility } from '@/types'
+import type { Ability } from '@/types'
 
 interface Props {
   abilities: Ability[]
-  detachmentAbilities: DetachmentAbility[]
 }
 
 function stripHtml(html: string): string {
@@ -36,17 +35,16 @@ function AbilityItem({ ability }: { ability: Ability }) {
   )
 }
 
-export function AbilityList({ abilities, detachmentAbilities }: Props) {
+export function AbilityList({ abilities }: Props) {
   const [genericOpen, setGenericOpen] = useState(false)
 
   const datasheetAbilities = abilities.filter(a => a.type === 'Datasheet')
-  const factionAbilities = abilities.filter(a => a.type === 'Faction')
   // Core abilities (Feel No Pain, Sigilo, Despliegue Profundo, etc.) surface as their own badge
   // row above the stats block (see RosterEntryRow's CoreAbilityBadges) instead of here, so they're
   // excluded to avoid listing them twice. This still catches the data's other rule-ish types
   // (Wargear, Primarch, Fortification, etc.) so every non-Core ability still renders somewhere.
   const commonAbilities = abilities.filter(a => a.type !== 'Datasheet' && a.type !== 'Faction' && a.type !== 'Core')
-  const genericCount = detachmentAbilities.length + factionAbilities.length + commonAbilities.length
+  const genericCount = commonAbilities.length
 
   if (datasheetAbilities.length + genericCount === 0) return null
 
@@ -73,39 +71,12 @@ export function AbilityList({ abilities, detachmentAbilities }: Props) {
               datasheetAbilities.length > 0 ? 'border-t border-rim-bright' : ''
             }`}
           >
-            <span>Genéricas / Destacamento ({genericCount})</span>
+            <span>Habilidades Comunes ({genericCount})</span>
             <span>{genericOpen ? '▴' : '▾'}</span>
           </button>
 
           {genericOpen && (
             <div className="px-3 pb-3 space-y-3">
-              {detachmentAbilities.length > 0 && (
-                <AbilityGroup label="Habilidades de Destacamento">
-                  <div className="space-y-2">
-                    {detachmentAbilities.map(da => (
-                      <div key={da.id} className="border border-gold/30 bg-gold/5 p-2">
-                        <p className="text-[12px] font-display uppercase tracking-widest text-gold mb-1">
-                          ◆ {da.name}
-                        </p>
-                        <p className="prose-copy">
-                          {stripHtml(da.description)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </AbilityGroup>
-              )}
-
-              {factionAbilities.length > 0 && (
-                <AbilityGroup label="Habilidades de Ejército">
-                  <div className="space-y-2">
-                    {factionAbilities.map((ab, i) => (
-                      <AbilityItem key={i} ability={ab} />
-                    ))}
-                  </div>
-                </AbilityGroup>
-              )}
-
               {commonAbilities.length > 0 && (
                 <AbilityGroup label="Habilidades Comunes">
                   <div className="space-y-2">
