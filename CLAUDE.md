@@ -311,6 +311,10 @@ wargear variant, no matching data shape), Agamatus (no datasheet), and Caladius 
 Shield-Captain, Blade Champion, Gyrfalcon, Sentinel Guard (not in the leak, still estimates/placeholders).
 Re-verify everything against the MFM once published.
 
+**Custodes units no longer sit at 0 pts (2026-10-02, per user).** Only units were filled: Caladius Annihilator
+got 250 (same as Caladius; it has no previous price). Enhancements (`cost: 0`) and detachments (`dp: 0`,
+`SIN DATOS MFM`) were deliberately left as placeholders — the user does not want guessed values there.
+
 No test suite yet.
 
 ## Architecture
