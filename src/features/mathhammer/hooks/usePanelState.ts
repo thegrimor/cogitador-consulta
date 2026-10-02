@@ -4,6 +4,7 @@ import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import type { PanelSelection } from '../types'
 import { forFaction, datasheetsForFaction, datasheetBelongsToFaction } from '@/core/constants/factionFamily'
+import { isEpicHero } from '@/core/utils/roster'
 
 const EMPTY_SELECTION: PanelSelection = {
   factionId: null, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null,
@@ -129,7 +130,13 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
     // itself (some Enhancements are "UNIT only" and don't require a character at all), so
     // the eligible list is the union of both — attaching a character must not hide
     // Enhancements the base unit already qualified for.
-    const targetIds = [selection.characterId, selectedUnit?.id].filter((id): id is string => id != null)
+    // Epic Heroes can never bear an Enhancement, so they are dropped as bearers.
+    const targetIds = [selection.characterId, selectedUnit?.id]
+      .filter((id): id is string => id != null)
+      .filter(id => {
+        const ds = gameData.datasheets.find(d => d.id === id)
+        return !(ds && isEpicHero(ds))
+      })
     if (targetIds.length === 0) return []
     const validEnhancementIds = new Set(targetIds.flatMap(id => gameData.datasheetEnhancements[id] ?? []))
     // Some enhancements have no rows in any datasheet's enhancementIds at all (a scrape gap,
@@ -142,7 +149,7 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
       detachmentIds.has(e.detachmentId) &&
       (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
     )
-  }, [gameData.datasheetEnhancements, gameData.enhancements, selection.characterId, selection.detachmentIds, selectedUnit])
+  }, [gameData.datasheets, gameData.datasheetEnhancements, gameData.enhancements, selection.characterId, selection.detachmentIds, selectedUnit])
 
   const selectFaction = (factionId: string | null) => {
     setSelection({ factionId, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null })
