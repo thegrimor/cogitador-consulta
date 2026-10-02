@@ -55,18 +55,21 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
     <section className="mt-8">
       <Accordion title="Consulta de reglas" level={1}>
         {abilitiesByDetachment.length > 0 && (
-          <Accordion title="Reglas de Destacamento" count={abilitiesByDetachment.length} level={2}>
+          // Always expanded: the detachment rules are short and worth reading at a glance.
+          <div className="px-3 py-3 space-y-3">
+            <p className="text-[12px] font-display uppercase tracking-widest text-gold">Reglas de Destacamento</p>
             {abilitiesByDetachment.map(({ detachment, abilities }) => (
-              <Accordion key={detachment.id} title={detachment.name} count={abilities.length} level={2}>
+              <div key={detachment.id} className="space-y-2">
+                <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">{detachment.name}</p>
                 {abilities.map(a => (
                   <div key={a.id} className="border border-gold/30 bg-gold/5 p-2">
                     <p className="text-[12px] font-display uppercase tracking-widest text-gold mb-1">◆ {a.name}</p>
                     <RuleHtml html={a.description} className="prose-copy" factionId={factionId} />
                   </div>
                 ))}
-              </Accordion>
+              </div>
             ))}
-          </Accordion>
+          </div>
         )}
 
         {armyRules.length > 0 && (

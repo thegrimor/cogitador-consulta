@@ -868,8 +868,9 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
 - Enhancement-to-unit attachment rules are in `src/core/constants/enhancementAttachments.ts`.
 - **Detachment rules, army rules and stratagems live in one "Consulta de reglas" block at the bottom of
   `RosterEditPage`, not on each unit card.** `RulesReference` (`src/shared/components/RulesReference`) is an outer
-  accordion holding three nested ones — Reglas de Destacamento, Reglas de Ejército, Estratagemas — grouped by the
-  roster's selected detachments (army rules via `forFactionFromMap`). `RosterEntryRow`/`AbilityList` no longer take
+  accordion holding Reglas de Destacamento (always expanded, listed under each selected detachment's name, no
+  nested accordions) plus two collapsible sections, Reglas de Ejército and Estratagemas (army rules via
+  `forFactionFromMap`; stratagems grouped per selected detachment). `RosterEntryRow`/`AbilityList` no longer take
   `detachmentAbilities`, drop `Faction`-type abilities, and no longer link to the detachment/army-rule pages; a unit
   card keeps only its own and "Habilidades Comunes" abilities.
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
