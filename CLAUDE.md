@@ -311,13 +311,9 @@ wargear variant, no matching data shape), Agamatus (no datasheet), and Caladius 
 Shield-Captain, Blade Champion, Gyrfalcon, Sentinel Guard (not in the leak, still estimates/placeholders).
 Re-verify everything against the MFM once published.
 
-**No more 0-pt placeholders in Custodes (2026-10-02, per user).** Pulled from the pre-replace file
-(commit `c476e97`, MFM v1.5): 8 enhancements matched by name (Oblivion Knight 25, Huntress' Eye 15, Augury
-Uplink 35, Inspirational Exemplar 10, Superior Creation 25, Radiant Mantle 30, From the Hall of Armouries 20,
-Castellan's Mark 20); null-maiden-vigil/auric-champions/lions-of-the-emperor/might-of-the-moritoi got their old
-`dp` and dispositions back. Everything with no previous equivalent is a **guess**: 21 new enhancements at 20 pts,
-the 9 new detachments at `dp` 2 (Guardians of the Throne copies Shield Host's 2; its disposition stays
-`SIN DATOS MFM`), and Caladius Annihilator at 250 (same as Caladius).
+**Custodes units no longer sit at 0 pts (2026-10-02, per user).** Only units were filled: Caladius Annihilator
+got 250 (same as Caladius; it has no previous price). Enhancements (`cost: 0`) and detachments (`dp: 0`,
+`SIN DATOS MFM`) were deliberately left as placeholders — the user does not want guessed values there.
 
 No test suite yet.
 
