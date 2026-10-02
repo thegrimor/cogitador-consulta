@@ -297,6 +297,18 @@ re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis o
 Champion, Shield-Captain and Trajann already matched the photos.
 Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
 
+**Custodes leaked points (2026-10-02), not the MFM.** Per explicit user instruction, a forwarded
+rumor table ("Rumored Points") was applied to `adeptus-custodes.json`, overriding the MFM-only rule
+and replacing the old `ESTIMADO` placeholders: Custodian Guard 250, Wardens 200/290 (2/3 models),
+Allarus 180/270, Vertus Praetors 220/330, Shield-Captain 185, Allarus Shield-Captain 195, Aquilon
+Gauntlets 285 / Talons 275 (the leak's "285 / 275" with a Talons note, read in that order), both
+Venatari 270, Pallas 125, Caladius Grav-tank 250, Coronus 225, Galatus 220, Achillus 230, Telemon 280.
+The "Other Sisters units +5" line was applied as +5 to Witchseekers (matches the leak's 55 for 4
+models), Vigilators and Knight-Centura. **Not applied**: "Shield-Captain w/ Shield & Sword 190" (a
+wargear variant, no matching data shape), Agamatus (no datasheet), and Caladius Annihilator, Dawneagle
+Shield-Captain, Blade Champion, Gyrfalcon, Sentinel Guard (not in the leak, still estimates/placeholders).
+Re-verify everything against the MFM once published.
+
 No test suite yet.
 
 ## Architecture
