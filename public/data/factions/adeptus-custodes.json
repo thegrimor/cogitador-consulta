@@ -50,15 +50,13 @@
           "feelNoPainThreshold": 5
         },
         "target": "defender"
-      },
-      "group": "Aegis of the Emperor"
+      }
     },
     {
       "id": "daughters-of-the-abyss",
       "name": "Daughters of the Abyss",
       "type": "Faction",
-      "description": "Bearers of the Pariah gene, Null Maidens are inured to psychic powers. Their Warp-smothering aura also provides limited protection for the Custodians at whose side they fight.<br><br>Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks.<br><br>Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks.",
-      "group": "Daughters of the Abyss"
+      "description": "Bearers of the Pariah gene, Null Maidens are inured to psychic powers. Their Warp-smothering aura also provides limited protection for the Custodians at whose side they fight.<br><br>Friendly ANATHEMA PSYKANA units with this ability have Feel No Pain 3+ against psychic attacks.<br><br>Friendly ANATHEMA PSYKANA units with this ability have the following ability:<br><b>Psychic Null (Aura):</b> Friendly ADEPTUS CUSTODES units within 6\" of this unit have Feel No Pain 5+ against psychic attacks."
     },
     {
       "id": "katah-rendax",
