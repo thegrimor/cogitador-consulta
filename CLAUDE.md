@@ -291,29 +291,27 @@ qualify for some of these and don't yet reference them.
 **Custodes follow-up from a second photo batch (2026-10-01).** Added `caladius-grav-tank`,
 `caladius-annihilator-grav-tank`, `pallas-grav-attack` and `coronus-grav-carrier` (the Grav-Assault
 vehicles; the Annihilator is brand new) with the 0-pt placeholder `pointsCosts`. The Coronus transport
-capacity is 9 (user-confirmed; the photo is smudged there). Knight-Centura, Prosecutors and Vigilators were
+capacity was 9 from the photo (smudged), later set to 8 by the points list below. Knight-Centura, Prosecutors and Vigilators were
 re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis of the Emperor, faction keyword
 `Anathema Psykana`; Knight-Centura is now Support, not Leader). Vertus Praetors, Gyrfalcon, Wardens, Blade
 Champion, Shield-Captain and Trajann already matched the photos.
 Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
 
-**Custodes leaked points (2026-10-02), not the MFM.** Per explicit user instruction, a forwarded
-rumor table ("Rumored Points") was applied to `adeptus-custodes.json`, overriding the MFM-only rule
-and replacing the old `ESTIMADO` placeholders: Custodian Guard 250, Wardens 200/290 (2/3 models),
-Allarus 180/270, Vertus Praetors 220/330, Shield-Captain 185, Allarus Shield-Captain 195, Aquilon
-Terminators (both variants) 185/275 for 2/3 models (the leak's "285 / 275" is decreasing, so per user
-it is read as a typo for 185/275, matching the other 2/3-model units; their datasheets were widened
-from a fixed 3 models to 2-3), both
-Venatari 270, Pallas 125, Caladius Grav-tank 250, Coronus 225, Galatus 220, Achillus 230, Telemon 280.
-The "Other Sisters units +5" line was applied as +5 to Witchseekers (matches the leak's 55 for 4
-models), Vigilators and Knight-Centura. **Not applied**: "Shield-Captain w/ Shield & Sword 190" (a
-wargear variant, no matching data shape), Agamatus (no datasheet), and Caladius Annihilator, Dawneagle
-Shield-Captain, Blade Champion, Gyrfalcon, Sentinel Guard (not in the leak, still estimates/placeholders).
-Re-verify everything against the MFM once published.
-
-**Custodes units no longer sit at 0 pts (2026-10-02, per user).** Only units were filled: Caladius Annihilator
-got 250 (same as Caladius; it has no previous price). Enhancements (`cost: 0`) and detachments (`dp: 0`,
-`SIN DATOS MFM`) were deliberately left as placeholders — the user does not want guessed values there.
+**Custodes points, second user-supplied list (2026-10-03), not the MFM.** Per explicit user instruction, a
+"PUNTOS Y TAMAÑOS CUSTODES 11ª EDICIÓN" list replaced the earlier leaked table (2026-10-02) and overrides the
+MFM-only rule: Trajann 265, Shield-Captain 205 / Allarus 205 / Dawneagle 225, Custodian Guard 240, Sentinel Guard
+240, Wardens 200/295 (2/3 models), Allarus 180 (2 models; the 3-model 270 was not in the list and is unchanged),
+Aquilon Terminators back to a **fixed 3 models** (Talons 275, Gauntlets 285 — the list is explicit, so the earlier
+185/275 "typo" reading and the 2-3 model widening were reverted), Venatari Lances 270 / Kinetic Destroyers 255,
+Gyrfalcon 260 (fixed 2), Vertus Praetors 220 (2 models; 3-model 330 unchanged), Galatus 220, Achillus 230, Telemon
+280, Pallas 135, Caladius 230, Caladius Annihilator 250 (now sourced, no longer a guess), Coronus 225, Prosecutors 4
+models 45, Witchseekers 4 models 55, Vigilators 10 models 100, Anathema Psykana Rhino 75. **Derived, not in the
+list** (same "shift the other tiers by the same amount" rule used for the Dark Angels leak): Prosecutors 5/9/10
+models = 50/75/85 (−5), Vigilators 4/5/9 models = 50/55/90 (the earlier +5 was undone), Rhino 4th+ unit = 85 (+10
+gap kept). Still estimates: Blade Champion (165, `ESTIMADO`) and Knight-Centura (60). Coronus transport
+capacity is 8 per the list (the user said "lo que diga la lista"; it had been 9 from the earlier photo). Re-verify everything
+against the MFM once published. (Enhancements `cost: 0` and detachments `dp: 0` / `SIN DATOS MFM` remain
+deliberate placeholders — the user does not want guessed values there.)
 
 No test suite yet.
 
