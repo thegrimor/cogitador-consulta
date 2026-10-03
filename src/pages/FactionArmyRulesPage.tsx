@@ -3,6 +3,7 @@ import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { factionPath } from '@/core/constants/routes'
 import { RuleHtml } from '@/shared/components/RuleHtml'
 import { forFactionFromMap } from '@/core/constants/factionFamily'
+import { groupArmyRules } from '@/core/utils/armyRules'
 
 export function FactionArmyRulesPage() {
   const { factionId } = useParams<{ factionId: string }>()
@@ -12,14 +13,7 @@ export function FactionArmyRulesPage() {
   const faction = factions.find(f => f.id === factionId)
   const allRules = forFactionFromMap(armyRulesByFaction, factionId ?? '')
 
-  const groupNames = Array.from(new Set(allRules.filter(r => r.group).map(r => r.group!)))
-    .sort((a, b) => a.localeCompare(b, 'es'))
-  const groups = groupNames.map(group => ({
-    group,
-    rules: allRules.filter(r => r.group === group),
-  }))
-  const armyRules = allRules.filter(r => !r.group)
-    .slice().sort((a, b) => a.name.localeCompare(b.name, 'es'))
+  const { groups, ungrouped: armyRules } = groupArmyRules(allRules)
 
   if (!faction) {
     return (
