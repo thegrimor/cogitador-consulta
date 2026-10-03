@@ -1237,6 +1237,7 @@
       "id": "frenzied-ferocity-upgrade",
       "name": "Frenzied Ferocity Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "elegant-brutes",
       "detachmentName": "Elegant Brutes",
       "description": "<span class=\"kwb\">EMPEROR'S CHILDREN TERMINATOR SQUAD</span> unit only. This unit's attacks have [SUSTAINED HITS 1].",
@@ -1279,6 +1280,7 @@
       "id": "eager-patrons-upgrade",
       "name": "Eager Patrons Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "spectacle-of-slaughter",
       "detachmentName": "Spectacle of Slaughter",
       "description": "<span class=\"kwb\">FLAWLESS BLADES</span> unit only. This unit has +2\" M."
@@ -1287,6 +1289,7 @@
       "id": "beguiling-grotesquerie-upgrade",
       "name": "Beguiling Grotesquerie Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "spectacle-of-slaughter",
       "detachmentName": "Spectacle of Slaughter",
       "description": "<span class=\"kwb\">FLAWLESS BLADES</span> unit only. Enemy units cannot target this unit with snap shooting attacks."

@@ -1101,6 +1101,7 @@
       "id": "talons-of-butchery-upgrade",
       "name": "Talons of Butchery Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "brazen-engines",
       "detachmentName": "Brazen Engines",
       "description": "<span class=\"kwb\">MAULERFIEND</span> unit only. This unit's Maulerfiend Fists have [CLEAVE 2].",
@@ -1116,6 +1117,7 @@
       "id": "murder-forged-entity-upgrade",
       "name": "Murder-Forged Entity Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "brazen-engines",
       "detachmentName": "Brazen Engines",
       "description": "<span class=\"kwb\">WORLD EATERS VEHICLE</span> unit only. This unit has DAEMON."
@@ -1124,6 +1126,7 @@
       "id": "sanctified-in-slaughter-upgrade",
       "name": "Sanctified in Slaughter Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "butchers-of-khorne",
       "detachmentName": "Butchers of Khorne",
       "description": "<span class=\"kwb\">TERMINATOR SQUAD</span> unit only. This unit has +1 OC."
@@ -1132,6 +1135,7 @@
       "id": "gore-stained-veterans-upgrade",
       "name": "Gore-Stained Veterans Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "butchers-of-khorne",
       "detachmentName": "Butchers of Khorne",
       "description": "<span class=\"kwb\">TERMINATOR SQUAD</span> unit only. This unit's melee attacks have +1 WS.",

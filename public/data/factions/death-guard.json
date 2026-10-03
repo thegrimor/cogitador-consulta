@@ -986,6 +986,7 @@
       "id": "plagueveil-upgrade",
       "name": "Plagueveil Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "flyblown-host",
       "detachmentName": "Flyblown Host",
       "description": "<span class=\"kwb\">PLAGUE MARINES</span> unit only. This unit has -3\" detection range."
@@ -994,6 +995,7 @@
       "id": "parasitic-woe-reaper-upgrade",
       "name": "Parasitic Woe-Reaper Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "contagion-engines",
       "detachmentName": "Contagion Engines",
       "description": "<span class=\"kwb\">CONTAGION ENGINE</span> unit only. When this unit has fought, one model in this unit heals D3 wounds."
@@ -1002,6 +1004,7 @@
       "id": "lancet-of-the-worldsore-upgrade",
       "name": "Lancet of the Worldsore Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "contagion-engines",
       "detachmentName": "Contagion Engines",
       "description": "Friendly <span class=\"kwb\">HELBRUTE</span>/<span class=\"kwb\">MYPHITIC BLIGHT-HAULER</span> unit only. This unit has MOBILE."

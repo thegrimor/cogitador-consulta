@@ -895,6 +895,15 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   they print a redundant heading. `RosterEntryRow`/`AbilityList` no longer take `detachmentAbilities`, drop
   `Faction`-type abilities, and no longer link to the detachment/army-rule pages; a unit card keeps only its own
   and "Habilidades Comunes" abilities.
+- **Enhancements vs. Upgrades: `Enhancement.upgrade`.** GW's "Upgrade" enhancements go on non-character
+  units; every other enhancement is for characters. The data carries that as `upgrade: true` on the enhancement
+  (44 entries, set from the data's own markers — an id ending `-upgrade` or a description starting "Upgrade
+  enhancement"; set it on any new upgrade you author). `canBearUnmappedEnhancement` (`roster.ts`) is the single rule, used by `RosterEditPage` and
+  Mathhammer's `usePanelState`: an enhancement in a datasheet's `enhancementIds` is always offered; otherwise,
+  if no datasheet maps it, a non-upgrade goes to CHARACTERs only, and an upgrade goes to whichever unit its "X
+  model/unit only" clause names (`A/B` = either, `(excluding Y units)` honoured, every word covered by its keywords/name; "unit only" never goes to a character), or to any non-character if it names none. `RosterEntryRow` shows the "Mejora" picker when the
+  unit is a character or has any available. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
+  Augury Uplink/Memento Moritoi.
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
   return no enhancements for a datasheet with the `Epic Hero` keyword (`isEpicHero` in `roster.ts`). It has to
   be explicit: the "unmapped enhancement => unrestricted" fallback would otherwise offer every unmapped

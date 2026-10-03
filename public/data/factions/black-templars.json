@@ -233,6 +233,7 @@
       "id": "fervent-exemplars-upgrade",
       "name": "Fervent Exemplars Upgrade",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "marshals-household",
       "detachmentName": "Marshal's Household",
       "description": "<span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit only. This unit has +1 to charge rolls."
@@ -241,6 +242,7 @@
       "id": "inheritors-of-sigismund-upgrade",
       "name": "Inheritors of Sigismund Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "marshals-household",
       "detachmentName": "Marshal's Household",
       "description": "<span class=\"kwb\">SWORD BRETHREN SQUAD</span> unit only. This unit has the Fights First ability."
@@ -284,6 +286,7 @@
       "id": "righteous-fervour",
       "name": "Righteous Fervour",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "fist-of-the-god-emperor",
       "description": "Upgrade enhancement. CRUSADER SQUAD unit only. That unit can re-roll Advance rolls."
     }

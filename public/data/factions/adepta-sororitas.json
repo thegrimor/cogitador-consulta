@@ -961,6 +961,7 @@
       "id": "symphonic-payload-upgrade",
       "name": "Symphonic Payload Upgrade",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "chorus-of-condemnation",
       "detachmentName": "Chorus of Condemnation",
       "description": "<span class=\"kwb\">EXORCIST</span> unit only. This unit can re-roll rolls to determine the A of a weapon."
@@ -969,6 +970,7 @@
       "id": "writ-of-compunction-upgrade",
       "name": "Writ of Compunction Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "sacred-champions",
       "detachmentName": "Sacred Champions",
       "description": "<span class=\"kwb\">CELESTIAN SACRESANTS</span> unit only. This unit has +1 OC."
@@ -985,6 +987,7 @@
       "id": "hagiomnifex-upgrade",
       "name": "Hagiomnifex Upgrade",
       "cost": 25,
+      "upgrade": true,
       "detachmentId": "sanctified-orators",
       "detachmentName": "Sanctified Orators",
       "description": "<span class=\"kwb\">ADEPTA SORORITAS CHARACTER</span> model only (excluding <span class=\"kwb\">PENITENT</span> units). (Once per turn, per unit) At the start of a phase, you can use this ability. If you do, select one of the abilities below:<br><ul><li>Rite of Revelation: While this unit is shooting, enemy units have +6\" detection range.</li><li>Sermon of Intolerance: This unit's battle-shock rolls automatically succeed.</li><li>Catechism of Raging Fervour: This unit has +1\" M.</li><li>Psalm of Righteous Smiting: This unit's attacks have +1 S.</li><li>Chorus of Repudiation: Attacks that target this unit with a S greater than this unit's T have -1 to wound rolls.</li></ul>",

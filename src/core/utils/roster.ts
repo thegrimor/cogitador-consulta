@@ -25,6 +25,39 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
+/** Whether a datasheet is a CHARACTER (enhancements go to characters, upgrades to everything else). */
+export function isCharacterDatasheet(datasheet: Datasheet): boolean {
+  return datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
+}
+
+/** Whether every word of `phrase` is covered by keywords/names the datasheet owns ("GRAV-ASSAULT TRANSPORT"
+ *  needs both; "ADEPTUS CUSTODES DREADNOUGHT" is a faction keyword plus a keyword). */
+function phraseCoveredBy(phrase: string, owned: string[]): boolean {
+  let rest = phrase
+  for (const k of [...owned].sort((x, y) => y.length - x.length)) rest = rest.split(k).join(' ')
+  return rest.trim() === ''
+}
+
+/** Whether `datasheet` may bear `enhancement` when no datasheet mapping decides it.
+ *  `Enhancement.upgrade` (set in the data) splits the two kinds: a regular enhancement is for CHARACTERs
+ *  (unmapped ones stay unrestricted); an upgrade is for whichever unit its "X model/unit only" clause names
+ *  ("A/B" = either, "(excluding Y units)" honoured), or for any non-character unit if it names none. */
+export function canBearUnmappedEnhancement(
+  enhancement: { upgrade?: boolean; description: string },
+  datasheet: Datasheet,
+): boolean {
+  const isCharacter = isCharacterDatasheet(datasheet)
+  if (!enhancement.upgrade) return isCharacter
+  const text = enhancement.description.replace(/<[^>]*>/g, '')
+  const clause = text.match(/([A-Z][A-Z' /-]+?)\s+(model|unit) only(?:\s*\(excluding ([A-Z][A-Z' /-]+?) units?\))?/)
+  if (!clause) return !isCharacter
+  const owned = [...datasheet.keywords, ...datasheet.factionKeywords, datasheet.name].map(k => k.toUpperCase())
+  // "unit only" upgrades are for the unit itself, never a character that leads it.
+  if (clause[2] === 'unit' && isCharacter) return false
+  if (clause[3] && clause[3].split('/').some(x => phraseCoveredBy(x.trim(), owned))) return false
+  return clause[1].split('/').some(alt => phraseCoveredBy(alt.trim(), owned))
+}
+
 export type AttachmentKind = 'leader' | 'support'
 
 /** Whether a datasheet attaches to a bodyguard unit through the Core `Leader` or `Support`

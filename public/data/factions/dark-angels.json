@@ -221,6 +221,7 @@
       "id": "nightforged-battery",
       "name": "Nightforged Battery",
       "cost": 10,
+      "upgrade": true,
       "description": "Upgrade enhancement. LAND SPEEDER VENGEANCE unit only. That unit can re-roll its Plasma Storm Battery's Attacks characteristic roll and Hazardous tests.",
       "detachmentId": "darkflight-pursuit"
     },
@@ -228,6 +229,7 @@
       "id": "thundercowl-turbines",
       "name": "Thundercowl Turbines",
       "cost": 15,
+      "upgrade": true,
       "description": "Upgrade enhancement. RAVENWING FLY or RAVENWING MOUNTED unit only. In your first Movement phase, the bearer's unit can make an Ingress move.",
       "detachmentId": "darkflight-pursuit"
     }

@@ -18,7 +18,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
-  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero,
+  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero, canBearUnmappedEnhancement,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -325,7 +325,8 @@ export function RosterEditPage() {
                 // fallback below would otherwise offer them every unmapped one).
                 const availableEnhancements = isEpicHero(datasheet) ? [] : enhancements.filter(
                   e => selectedDetachmentIds.has(e.detachmentId) &&
-                    (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
+                    (validEnhancementIds.has(e.id) ||
+                      (!mappedEnhancementIds.has(e.id) && canBearUnmappedEnhancement(e, datasheet))),
                 )
                 const eligibleTargetIds = new Set(leaderMap[datasheet.id] ?? [])
                 const enhancementTargetIds = new Set(

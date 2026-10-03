@@ -1638,6 +1638,7 @@
       "id": "chogorian-huntmaster",
       "name": "Chogorian Huntmaster",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "spearpoint-task-force",
       "description": "Upgrade enhancement. Each time the bearer's unit makes an Ingress move, treat the current Battle Round number as 1 higher than it actually is for the purposes of that move."
     },

@@ -1426,6 +1426,7 @@
       "id": "stealth-screened-cybercanids-upgrade",
       "name": "Stealth-Screened Cybercanids Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "cohort-acquisitus",
       "detachmentName": "Cohort Acquisitus",
       "description": "<span class=\"kwb\">SERBERYS RAIDERS</span> unit only. This unit has Lone Operative 15\"."

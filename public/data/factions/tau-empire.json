@@ -864,6 +864,7 @@
       "id": "negation-emitters-upgrade",
       "name": "Negation Emitters Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "advanced-acquisition-cadre",
       "detachmentName": "Advanced Acquisition Cadre",
       "description": "<span class=\"kwb\">STEALTH BATTLESUITS</span> unit only. This unit has -3\" detection range."
@@ -872,6 +873,7 @@
       "id": "unmasking-suite-upgrade",
       "name": "Unmasking Suite Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "advanced-acquisition-cadre",
       "detachmentName": "Advanced Acquisition Cadre",
       "description": "<span class=\"kwb\">GHOSTKEEL BATTLESUIT</span>/<span class=\"kwb\">PATHFINDER TEAM</span>/<span class=\"kwb\">STEALTH BATTLESUITS</span> unit only. When this unit is selected to shoot, you can select one enemy unit within 24\" of this unit. That enemy unit has +9\" detection range until this unit has shot."

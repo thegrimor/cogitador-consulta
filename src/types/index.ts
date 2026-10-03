@@ -320,6 +320,8 @@ export interface Enhancement {
   detachmentId: string
   detachmentName: string
   description: string
+  /** GW's "Upgrade" enhancements go on non-character units; every other enhancement is for characters. */
+  upgrade?: boolean
   effect?: CombatEffect
   /** Mutually-exclusive variants (e.g. a different invulnerable save against ranged vs. melee
    * attacks) — same shape as Ability's `options`, for enhancements whose single `effect` can't

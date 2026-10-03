@@ -1058,6 +1058,7 @@
       "id": "gyro-optimised-actuators-upgrade",
       "name": "Gyro-optimised Actuators Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "throne-bonded-outriders",
       "detachmentName": "Throne-bonded Outriders",
       "description": "<span class=\"kwb\">ARMIGER</span> unit only. This unit has <span class=\"kwb\">MOBILE</span>."
@@ -1066,6 +1067,7 @@
       "id": "ancestral-overbleed-upgrade",
       "name": "Ancestral Overbleed Upgrade",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "throne-bonded-outriders",
       "detachmentName": "Throne-bonded Outriders",
       "description": "<span class=\"kwb\">ARMIGER</span> unit only. When you target this unit with the Fire Overwatch/Heroic Intervention stratagem, that use is -1 CP."
