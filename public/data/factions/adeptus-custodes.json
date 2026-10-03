@@ -147,7 +147,7 @@
     {
       "id": "null-maiden-vigil",
       "name": "Null Maiden Vigil",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "DISRUPTION",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -161,7 +161,7 @@
     {
       "id": "auric-champions",
       "name": "Auric Champions",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "PURGE THE FOE",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -181,7 +181,7 @@
     {
       "id": "lions-of-the-emperor",
       "name": "Lions of the Emperor",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "DISRUPTION",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -195,7 +195,7 @@
     {
       "id": "might-of-the-moritoi",
       "name": "Might of the Moritoi",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "TAKE AND HOLD",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -215,7 +215,10 @@
     {
       "id": "guardians-of-the-throne",
       "name": "Guardians of the Throne",
-      "disposition": "SIN DATOS MFM",
+      "disposition": [
+        "PRIORITY ASSETS",
+        "PURGE THE FOE"
+      ],
       "dp": 3,
       "chapters": [],
       "abilities": [
@@ -249,7 +252,7 @@
     {
       "id": "solar-watch",
       "name": "Solar Watch",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "RECONNAISSANCE",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -270,7 +273,7 @@
     {
       "id": "shadowkeepers",
       "name": "Shadowkeepers",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "PURGE THE FOE",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -295,7 +298,7 @@
     {
       "id": "emperors-chosen",
       "name": "Emperor’s Chosen",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "PRIORITY ASSETS",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -322,7 +325,7 @@
     {
       "id": "emissaries-imperatus",
       "name": "Emissaries Imperatus",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "PRIORITY ASSETS",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -343,7 +346,7 @@
     {
       "id": "dread-host",
       "name": "Dread Host",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "PURGE THE FOE",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -364,7 +367,7 @@
     {
       "id": "aquilan-shield",
       "name": "Aquilan Shield",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "TAKE AND HOLD",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -389,7 +392,7 @@
     {
       "id": "honoured-companions",
       "name": "Honoured Companions",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "TAKE AND HOLD",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -409,7 +412,7 @@
     {
       "id": "grav-assault-force",
       "name": "Grav-Assault Force",
-      "disposition": "SIN DATOS MFM",
+      "disposition": "RECONNAISSANCE",
       "dp": 1,
       "chapters": [],
       "abilities": [
@@ -1945,8 +1948,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st unit)",
           "points": 205
+        },
+        {
+          "description": "1 model (2nd+ unit)",
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -2162,7 +2169,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 205
+          "points": 185
         }
       ],
       "wargearCosts": [],
@@ -2346,7 +2353,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 225
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -2554,8 +2561,12 @@
           "points": 200
         },
         {
-          "description": "3 models",
+          "description": "3 models (1st unit)",
           "points": 295
+        },
+        {
+          "description": "3 models (2nd+ unit)",
+          "points": 325
         }
       ],
       "wargearCosts": [],
@@ -3188,7 +3199,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 230
+          "points": 220
         }
       ],
       "wargearCosts": [],
@@ -3438,8 +3449,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st unit)",
           "points": 280
+        },
+        {
+          "description": "1 model (2nd+ unit)",
+          "points": 310
         }
       ],
       "wargearCosts": [],
@@ -3788,8 +3803,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model (ESTIMADO, +50% s/MFM anterior)",
-          "points": 165
+          "description": "1 model",
+          "points": 175
         }
       ],
       "wargearCosts": [],
@@ -4672,7 +4687,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 275
+          "points": 270
         }
       ],
       "wargearCosts": [],

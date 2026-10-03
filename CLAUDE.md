@@ -297,22 +297,26 @@ re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis o
 Champion, Shield-Captain and Trajann already matched the photos.
 Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
 
-**Custodes points, second user-supplied list (2026-10-03), not the MFM.** Per explicit user instruction, a
-"PUNTOS Y TAMAÑOS CUSTODES 11ª EDICIÓN" list replaced the earlier leaked table (2026-10-02) and overrides the
-MFM-only rule: Trajann 265, Shield-Captain 205 / Allarus 205 / Dawneagle 225, Custodian Guard 240, Sentinel Guard
-240, Wardens 200/295 (2/3 models), Allarus 180 (2 models; the 3-model 270 was not in the list and is unchanged),
-Aquilon Terminators back to a **fixed 3 models** (Talons 275, Gauntlets 285 — the list is explicit, so the earlier
-185/275 "typo" reading and the 2-3 model widening were reverted), Venatari Lances 270 / Kinetic Destroyers 255,
-Gyrfalcon 260 (fixed 2), Vertus Praetors 220 (2 models; 3-model 330 unchanged), Galatus 220, Achillus 230, Telemon
-280, Pallas 135, Caladius 230, Caladius Annihilator 250 (now sourced, no longer a guess), Coronus 225, Prosecutors 4
-models 45, Witchseekers 4 models 55, Vigilators 10 models 100, Anathema Psykana Rhino 75. **Derived, not in the
-list** (same "shift the other tiers by the same amount" rule used for the Dark Angels leak): Prosecutors 5/9/10
-models = 50/75/85 (−5), Vigilators 4/5/9 models = 50/55/90 (the earlier +5 was undone), Rhino 4th+ unit = 85 (+10
-gap kept). Still estimates: Blade Champion (165, `ESTIMADO`) and Knight-Centura (60). Coronus transport
-capacity is 8 per the list (the user said "lo que diga la lista"; it had been 9 from the earlier photo). Re-verify everything
-against the MFM once published. Detachment `dp` (user, 2026-10-03): every detachment is 1 DP except
-`guardians-of-the-throne`, the one with 6 stratagems, which is 3 DP. Their `disposition` is still the
-`SIN DATOS MFM` placeholder, and enhancements are still `cost: 0` (the user does not want guessed values there).
+**Custodes points, user-supplied lists (2026-10-03), not the MFM.** Per explicit user instruction, a
+"PUNTOS Y TAMAÑOS CUSTODES 11ª EDICIÓN" list (first) and then an "Art of War" list (second, which the user
+told us to apply over the first) override the MFM-only rule. Current values: Trajann 265; Shield-Captain 205
+(1st unit) / 230 (2nd+ unit); Allarus Shield-Captain 185; Dawneagle Shield-Captain 205; Blade Champion 175;
+Custodian Guard 240; Sentinel Guard 240; Wardens 2 models 200, 3 models 295 (1st unit) / 325 (2nd+ unit);
+Allarus 180/270; Vertus Praetors 220 (2 models); Aquilon Terminators fixed 3 models (Gauntlets 285, Talons 270 —
+the Art of War list calls them "Power Fist"); Venatari Lances 270 / Kinetic 255; Gyrfalcon 260 (fixed 2);
+Galatus 220; Achillus 220; Telemon 280 (1st) / 310 (2nd+); Pallas 135; Caladius 230; Caladius Annihilator 250;
+Coronus 225 (transport capacity 8); Prosecutors 45/4 50/5; Vigilators 50/4 55/5; Witchseekers 55/4 60/5;
+Anathema Psykana Rhino 75. **Derived, not in either list** (same "shift the other tiers by the same amount"
+rule used for the Dark Angels leak): Prosecutors 9/10 models 75/85, Vigilators 9/10 models 90/100, Rhino 4th+
+unit 85, Allarus/Vertus Praetors 3 models 270/330 (270 confirmed by Art of War; 330 from the earlier leak), Knight-Centura 60.
+**Not modeled**: Telemon's "5+ FNP" upgrade at +40 pts (`wargearCosts` entries are per-weapon surcharges, there is
+no weapon to hang a non-weapon upgrade on), and the 2nd-copy price of the 2-model Wardens (not given).
+Detachments: every `dp` is 1 except `guardians-of-the-throne`, the one with 6 stratagems, which is 3; `disposition`
+(user): Aquilan Shield and Honoured Companions TAKE AND HOLD, Solar Watch and Grav-Assault Force RECONNAISSANCE,
+Shadowkeepers/Auric Champions/Dread Host PURGE THE FOE, Lions of the Emperor and Null-Maiden Vigil DISRUPTION,
+Emperor's Chosen and Emissaries Imperatus PRIORITY ASSETS, Might of the Moritoi TAKE AND HOLD, Guardians of the
+Throne `["PRIORITY ASSETS","PURGE THE FOE"]`. Enhancements are still `cost: 0` placeholders (the user does not
+want guessed values there). Re-verify everything against the MFM once published.
 
 No test suite yet.
 
