@@ -309,13 +309,14 @@ Coronus 225 (transport capacity 8); Prosecutors 45/4 50/5; Vigilators 50/4 55/5;
 Anathema Psykana Rhino 75. **Derived, not in either list** (same "shift the other tiers by the same amount"
 rule used for the Dark Angels leak): Prosecutors 9/10 models 75/85, Vigilators 9/10 models 90/100, Rhino 4th+
 unit 85, Allarus/Vertus Praetors 3 models 270/330 (270 confirmed by Art of War; 330 from the earlier leak), Knight-Centura 60.
-**Not modeled**: Telemon's "5+ FNP" upgrade at +40 pts (`wargearCosts` entries are per-weapon surcharges, there is
-no weapon to hang a non-weapon upgrade on), and the 2nd-copy price of the 2-model Wardens (not given).
+Telemon's "5+ FNP" +40 pts is not a wargear surcharge but the Might of the Moritoi
+enhancement **Augury Uplink** (Dreadnought-only, Feel No Pain 5+), so it is stored as that enhancement's `cost: 40`.
+**Not modeled**: the 2nd-copy price of the 2-model Wardens (not given).
 Detachments: every `dp` is 1 except `guardians-of-the-throne`, the one with 6 stratagems, which is 3; `disposition`
 (user): Aquilan Shield and Honoured Companions TAKE AND HOLD, Solar Watch and Grav-Assault Force RECONNAISSANCE,
 Shadowkeepers/Auric Champions/Dread Host PURGE THE FOE, Lions of the Emperor and Null-Maiden Vigil DISRUPTION,
 Emperor's Chosen and Emissaries Imperatus PRIORITY ASSETS, Might of the Moritoi TAKE AND HOLD, Guardians of the
-Throne `["PRIORITY ASSETS","PURGE THE FOE"]`. Enhancements are still `cost: 0` placeholders (the user does not
+Throne `["PRIORITY ASSETS","PURGE THE FOE"]`. Every other enhancement is still a `cost: 0` placeholder (the user does not
 want guessed values there). Re-verify everything against the MFM once published.
 
 No test suite yet.

@@ -1054,7 +1054,7 @@
     {
       "id": "augury-uplink-upgrade",
       "name": "Augury Uplink",
-      "cost": 0,
+      "cost": 40,
       "detachmentId": "might-of-the-moritoi",
       "detachmentName": "Might of the Moritoi",
       "description": "ADEPTUS CUSTODES DREADNOUGHT model only (one per army). This model has Feel No Pain 5+.",
