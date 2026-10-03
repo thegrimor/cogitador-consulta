@@ -984,7 +984,7 @@
     {
       "id": "oblivion-knight-adeptus-custodes",
       "name": "Oblivion Knight",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "null-maiden-vigil",
       "detachmentName": "Null Maiden Vigil",
       "description": "ANATHEMA PSYKANA model only. This unit’s attacks have +1 to Hit rolls, or +1 to Hit rolls and +1 to Wound rolls if this unit targets a PSYKER/battle-shocked unit.",
@@ -1013,7 +1013,7 @@
     {
       "id": "huntress-eye-adeptus-custodes",
       "name": "Huntress’ Eye",
-      "cost": 0,
+      "cost": 10,
       "detachmentId": "null-maiden-vigil",
       "detachmentName": "Null Maiden Vigil",
       "description": "ANATHEMA PSYKANA model only. In your Movement phase, you can select one visible enemy unit within 12\" of this unit; that unit makes a Battle-shock test, with -1 to that Battle-shock roll."
@@ -1021,7 +1021,7 @@
     {
       "id": "combat-deployment-upgrade",
       "name": "Combat Deployment",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "grav-assault-force",
       "detachmentName": "Grav-Assault Force",
       "description": "GRAV-ASSAULT TRANSPORT model only. When a friendly ADEPTUS CUSTODES unit is selected to make a disembark move from this model, until the end of the turn, that unit can re-roll Charge rolls and enemy units cannot target that unit with snap shooting attacks."
@@ -1029,7 +1029,7 @@
     {
       "id": "anti-gravitic-mobility-upgrade",
       "name": "Anti-Gravitic Mobility",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "grav-assault-force",
       "detachmentName": "Grav-Assault Force",
       "description": "GRAV-ASSAULT unit only. When this unit makes a fall-back move, that fall-back move does not prevent this unit from being eligible to shoot."
@@ -1037,7 +1037,7 @@
     {
       "id": "memento-moritoi-upgrade",
       "name": "Memento Moritoi",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "might-of-the-moritoi",
       "detachmentName": "Might of the Moritoi",
       "description": "ADEPTUS CUSTODES DREADNOUGHT model only (one per army). This model’s melee attacks have +1 A, +1 S and +1 D.",
@@ -1054,7 +1054,7 @@
     {
       "id": "augury-uplink-upgrade",
       "name": "Augury Uplink",
-      "cost": 40,
+      "cost": 30,
       "detachmentId": "might-of-the-moritoi",
       "detachmentName": "Might of the Moritoi",
       "description": "ADEPTUS CUSTODES DREADNOUGHT model only (one per army). This model has Feel No Pain 5+.",
@@ -1069,7 +1069,7 @@
     {
       "id": "lightning-descent",
       "name": "Lightning Descent",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "lions-of-the-emperor",
       "detachmentName": "Lions of the Emperor",
       "description": "SHIELD-CAPTAIN IN ALLARUS TERMINATOR ARMOUR model only. In your first Movement phase, this unit can make an ingress move."
@@ -1077,7 +1077,7 @@
     {
       "id": "leonine-ferocity",
       "name": "Leonine Ferocity",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "lions-of-the-emperor",
       "detachmentName": "Lions of the Emperor",
       "description": "SHIELD-CAPTAIN IN ALLARUS TERMINATOR ARMOUR model only. (Once per phase, per army) You can target this unit with the Rapid Ingress stratagem, regardless of any other uses of that stratagem this phase. If you do, that use is -1 CP, and that use does not prevent any uses of that stratagem on other units this phase."
@@ -1085,7 +1085,7 @@
     {
       "id": "arae-shrike",
       "name": "Arae-Shrike",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "honoured-companions",
       "detachmentName": "Honoured Companions",
       "description": "ADEPTUS CUSTODES INFANTRY model only. Enemy units that are selected to make an ingress move cannot be set up within 12\" of this model."
@@ -1093,7 +1093,7 @@
     {
       "id": "celeritous-sentries-upgrade",
       "name": "Celeritous Sentries",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "honoured-companions",
       "detachmentName": "Honoured Companions",
       "description": "TRUSTED SENTINEL unit only. (Once per phase, per unit) You can target this unit with the Heroic Intervention stratagem, regardless of any other uses of that stratagem this phase. If you do, that use is -1 CP, and that use does not prevent any uses of that stratagem on other units this phase."
@@ -1101,7 +1101,7 @@
     {
       "id": "shroud-of-the-hidden-blade",
       "name": "Shroud of the Hidden Blade",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "auric-champions",
       "detachmentName": "Auric Champions",
       "description": "ADEPTUS CUSTODES model only. This model has Stealth and Lone Operative."
@@ -1109,7 +1109,7 @@
     {
       "id": "inspirational-exemplar-adeptus-custodes-2026",
       "name": "Inspirational Exemplar",
-      "cost": 0,
+      "cost": 10,
       "detachmentId": "auric-champions",
       "detachmentName": "Auric Champions",
       "description": "ADEPTUS CUSTODES INFANTRY model only. (Once per battle round, per army) At the start of any phase, you can select one friendly battle-shocked ADEPTUS CUSTODES unit within 9\" of this model; that unit is no longer battle-shocked."
@@ -1117,7 +1117,7 @@
     {
       "id": "superior-creation-adeptus-custodes-2",
       "name": "Superior Creation",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "auric-champions",
       "detachmentName": "Auric Champions",
       "description": "ADEPTUS CUSTODES INFANTRY model only. At the end of a phase in which this model is destroyed, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining."
@@ -1125,7 +1125,7 @@
     {
       "id": "sally-forth",
       "name": "Sally Forth",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "solar-watch",
       "detachmentName": "Solar Watch",
       "description": "ADEPTUS CUSTODES SHIELD-CAPTAIN model only. At the start of your Charge phase, select one friendly ADEPTUS CUSTODES INFANTRY unit within 6\" of this model. If that unit made an advance move this turn, that advance move does not prevent that unit from being eligible to declare a charge."
@@ -1133,7 +1133,7 @@
     {
       "id": "auric-eagle-upgrade",
       "name": "Auric Eagle",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "solar-watch",
       "detachmentName": "Solar Watch",
       "description": "ADEPTUS CUSTODES INFANTRY/MOUNTED unit only (excluding TERMINATOR units). This unit has +1 to Advance rolls and Charge rolls."
@@ -1141,7 +1141,7 @@
     {
       "id": "genalchemic-warding",
       "name": "Genalchemic Warding",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "shadowkeepers",
       "detachmentName": "Shadowkeepers",
       "description": "ADEPTUS CUSTODES model only. This model has Feel No Pain 5+.",
@@ -1156,7 +1156,7 @@
     {
       "id": "unstoppable-destroyer",
       "name": "Unstoppable Destroyer",
-      "cost": 0,
+      "cost": 25,
       "detachmentId": "shadowkeepers",
       "detachmentName": "Shadowkeepers",
       "description": "ADEPTUS CUSTODES INFANTRY model only. When this unit is selected to make a pile-in/consolidation move, this unit can move up to 4\", and you can select any consolidation mode for that consolidation move, regardless of that consolidation move’s Before Moving restrictions."
@@ -1164,7 +1164,7 @@
     {
       "id": "radiant-mantle-adeptus-custodes-2026",
       "name": "Radiant Mantle",
-      "cost": 0,
+      "cost": 40,
       "detachmentId": "emperors-chosen",
       "detachmentName": "Emperor’s Chosen",
       "description": "ADEPTUS CUSTODES INFANTRY model only. Attacks that target this unit have -1 to Hit rolls.",
@@ -1179,7 +1179,7 @@
     {
       "id": "from-the-hall-of-armouries-adeptus-custodes-2026",
       "name": "From the Hall of Armouries",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "emperors-chosen",
       "detachmentName": "Emperor’s Chosen",
       "description": "ADEPTUS CUSTODES model only. This model’s melee attacks have [DEVASTATING WOUNDS].",
@@ -1194,7 +1194,7 @@
     {
       "id": "auriferous-orb",
       "name": "Auriferous Orb",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "emissaries-imperatus",
       "detachmentName": "Emissaries Imperatus",
       "description": "ADEPTUS CUSTODES model only. This model has the following weapon: Auriferous Orb [ANTI-INFANTRY/MONSTER/VEHICLE 2+, BLINDING LIGHT, DEVASTATING WOUNDS] 12\" A3 BS2+ S1 AP0 D1. In your Shooting phase, when this unit has shot, select one enemy unit hit by this unit’s Auriferous Orb weapon; that enemy unit’s attacks have -1 to Hit rolls until the start of your next turn."
@@ -1202,7 +1202,7 @@
     {
       "id": "edge-of-the-blade",
       "name": "Edge of the Blade",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "emissaries-imperatus",
       "detachmentName": "Emissaries Imperatus",
       "description": "ADEPTUS CUSTODES model only. If this model made a charge move this turn, this model’s attacks can re-roll Hit rolls of 1 and re-roll Wound rolls of 1.",
@@ -1217,7 +1217,7 @@
     {
       "id": "auric-exemplar",
       "name": "Auric Exemplar",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "dread-host",
       "detachmentName": "Dread Host",
       "description": "ADEPTUS CUSTODES model only. This model’s melee attacks have [CLEAVE 1].",
@@ -1232,7 +1232,7 @@
     {
       "id": "flawless-bladework-adeptus-custodes-2",
       "name": "Flawless Bladework",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "dread-host",
       "detachmentName": "Dread Host",
       "description": "ADEPTUS CUSTODES model only. This model’s melee attacks have [SUSTAINED HITS 1].",
@@ -1247,7 +1247,7 @@
     {
       "id": "pareldors-caducatrix",
       "name": "Pareldor’s Caducatrix",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "aquilan-shield",
       "detachmentName": "Aquilan Shield",
       "description": "ADEPTUS CUSTODES model only. (Once per battle, per army) At the start of any phase, this model heals D3+3 wounds."
@@ -1255,7 +1255,7 @@
     {
       "id": "not-a-shell-wasted",
       "name": "Not a Shell Wasted",
-      "cost": 0,
+      "cost": 10,
       "detachmentId": "aquilan-shield",
       "detachmentName": "Aquilan Shield",
       "description": "ADEPTUS CUSTODES INFANTRY model only. This unit’s ranged attacks have +1 A.",
@@ -1270,7 +1270,7 @@
     {
       "id": "bane-of-abominations",
       "name": "Bane of Abominations",
-      "cost": 0,
+      "cost": 20,
       "detachmentId": "guardians-of-the-throne",
       "detachmentName": "Guardians of the Throne",
       "description": "ADEPTUS CUSTODES model only. This model’s attacks that target an enemy CHARACTER/MONSTER/VEHICLE unit have +1 to Wound rolls.",
@@ -1284,7 +1284,7 @@
     {
       "id": "emperors-light",
       "name": "Emperor’s Light",
-      "cost": 0,
+      "cost": 15,
       "detachmentId": "guardians-of-the-throne",
       "detachmentName": "Guardians of the Throne",
       "description": "ADEPTUS CUSTODES model only. This model has the following weapon: Emperor’s Light [EXTRA ATTACKS] Melee A3 WS2+ S5 AP-2 D2."
@@ -1292,7 +1292,7 @@
     {
       "id": "castellans-mark-adeptus-custodes-2",
       "name": "Castellan’s Mark",
-      "cost": 0,
+      "cost": 25,
       "detachmentId": "guardians-of-the-throne",
       "detachmentName": "Guardians of the Throne",
       "description": "ADEPTUS CUSTODES model only. When both players have deployed their armies, you can redeploy up to three friendly ADEPTUS CUSTODES units. When doing so, you can set those units up in strategic reserves, regardless of how many units are already in strategic reserves."
@@ -1300,7 +1300,7 @@
     {
       "id": "eagles-eye-adeptus-custodes",
       "name": "Eagle’s Eye",
-      "cost": 0,
+      "cost": 30,
       "detachmentId": "guardians-of-the-throne",
       "detachmentName": "Guardians of the Throne",
       "description": "ADEPTUS CUSTODES model only. This model has +1 W. (Once per battle, per army) When attacks are allocated to this model, you can use this ability. If you do, this model has 3+ InSv."
@@ -1470,8 +1470,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
           "points": 240
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 270
         }
       ],
       "wargearCosts": [],
@@ -1953,7 +1957,7 @@
         },
         {
           "description": "1 model (2nd+ unit)",
-          "points": 230
+          "points": 225
         }
       ],
       "wargearCosts": [],
@@ -2168,8 +2172,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st unit)",
           "points": 185
+        },
+        {
+          "description": "1 model (2nd+ unit)",
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -2352,8 +2360,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st unit)",
           "points": 205
+        },
+        {
+          "description": "1 model (2nd+ unit)",
+          "points": 225
         }
       ],
       "wargearCosts": [],
@@ -2557,8 +2569,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models",
+          "description": "2 models (1st unit)",
           "points": 200
+        },
+        {
+          "description": "2 models (2nd+ unit)",
+          "points": 230
         },
         {
           "description": "3 models (1st unit)",
@@ -2791,12 +2807,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models",
+          "description": "2 models (1st-2nd units)",
           "points": 180
         },
         {
-          "description": "3 models",
+          "description": "2 models (3rd+ unit)",
+          "points": 210
+        },
+        {
+          "description": "3 models (1st-2nd units)",
           "points": 270
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 300
         }
       ],
       "wargearCosts": [],
@@ -2977,12 +3001,20 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models",
+          "description": "2 models (1st unit)",
           "points": 220
         },
         {
-          "description": "3 models",
+          "description": "2 models (2nd+ unit)",
+          "points": 240
+        },
+        {
+          "description": "3 models (1st unit)",
           "points": 330
+        },
+        {
+          "description": "3 models (2nd+ unit)",
+          "points": 350
         }
       ],
       "wargearCosts": [],
@@ -3198,8 +3230,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
-          "points": 220
+          "description": "1 model (1st-2nd units)",
+          "points": 230
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 260
         }
       ],
       "wargearCosts": [],
@@ -3619,8 +3655,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 220
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 250
         }
       ],
       "wargearCosts": [],
@@ -3803,8 +3843,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 175
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 195
         }
       ],
       "wargearCosts": [],
@@ -4012,8 +4056,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models",
+          "description": "2 models (1st unit)",
           "points": 260
+        },
+        {
+          "description": "2 models (2nd+ unit)",
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -4186,8 +4234,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
           "points": 255
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -4348,8 +4400,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
           "points": 270
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 300
         }
       ],
       "wargearCosts": [],
@@ -4504,8 +4560,12 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
           "points": 285
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 315
         }
       ],
       "wargearCosts": [],
@@ -4686,8 +4746,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models",
-          "points": 270
+          "description": "3 models (1st-2nd units)",
+          "points": 275
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 305
         }
       ],
       "wargearCosts": [],
@@ -4873,8 +4937,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models",
+          "description": "3 models (1st-2nd units)",
           "points": 240
+        },
+        {
+          "description": "3 models (3rd+ unit)",
+          "points": 270
         }
       ],
       "wargearCosts": [],
@@ -5057,7 +5125,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 60
+          "points": 55
         }
       ],
       "wargearCosts": [],
@@ -5177,11 +5245,11 @@
         },
         {
           "description": "9 models",
-          "points": 75
+          "points": 80
         },
         {
           "description": "10 models",
-          "points": 85
+          "points": 90
         }
       ],
       "wargearCosts": [],
@@ -5428,11 +5496,11 @@
         },
         {
           "description": "9 models",
-          "points": 95
+          "points": 100
         },
         {
           "description": "10 models",
-          "points": 105
+          "points": 110
         }
       ],
       "wargearCosts": [],
@@ -5580,11 +5648,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st to 3rd units)",
-          "points": 75
+          "points": 70
         },
         {
           "description": "1 model (4th + unit)",
-          "points": 85
+          "points": 80
         }
       ],
       "wargearCosts": [],
@@ -5763,8 +5831,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 230
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 260
         }
       ],
       "wargearCosts": [],
@@ -5977,8 +6049,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 250
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 280
         }
       ],
       "wargearCosts": [],
@@ -6305,8 +6381,12 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model",
+          "description": "1 model (1st-2nd units)",
           "points": 225
+        },
+        {
+          "description": "1 model (3rd+ unit)",
+          "points": 245
         }
       ],
       "wargearCosts": [],
