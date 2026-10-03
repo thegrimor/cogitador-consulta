@@ -1309,6 +1309,7 @@
       "id": "furious-assault",
       "name": "Furious Assault",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "assault-brethren",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span> unit only. This unit's melee attacks have [SUSTAINED HITS 1: non-MONSTER/VEHICLE]."
     },
@@ -1428,6 +1429,7 @@
       "id": "immovable-conquerors",
       "name": "Immovable Conquerors",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "gravis-siege-force",
       "description": "<b>GRAVIS</b> unit only. This unit has +1 OC."
     },
@@ -1442,6 +1444,7 @@
       "id": "supercharged-engines",
       "name": "Supercharged Engines",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "stormlance-task-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">MOUNTED</span> unit only. This unit can re-roll advance rolls."
     },
@@ -1449,6 +1452,7 @@
       "id": "auspex-triangulation-shrines",
       "name": "Auspex Triangulation Shrines",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "stormlance-task-force",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <b>SPEEDER</b> unit only. At the start of your Shooting phase, select one visible enemy unit within 12\" of this unit. That enemy unit is spotted:<ul><li>While a unit is spotted, that unit has +3\" detection range.</li></ul>"
     },
@@ -1456,6 +1460,7 @@
       "id": "artificer-sarcophagus",
       "name": "Artificer Sarcophagus",
       "cost": 40,
+      "upgrade": true,
       "detachmentId": "ironclad-champions",
       "description": "<span class=\"kwb\">DREADNOUGHT</span> unit only. Attacks that target this unit have -1 D."
     },
@@ -1463,6 +1468,7 @@
       "id": "venerable-champion",
       "name": "Venerable Champion (Aura) (Upgrade)",
       "cost": 30,
+      "upgrade": true,
       "detachmentId": "ironclad-champions",
       "description": "<span class=\"kwb\">DREADNOUGHT</span> unit only. While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">INFANTRY</span>/<span class=\"kwb\">MOUNTED</span> unit is within 6\" of this unit, that unit's attacks can re-roll hit rolls of 1."
     },
@@ -1484,6 +1490,7 @@
       "id": "redoubtable-machine-spirit",
       "name": "Redoubtable Machine Spirit",
       "cost": 25,
+      "upgrade": true,
       "detachmentId": "ironstorm-spearhead",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">VEHICLE</span> unit only (excluding <span class=\"kwb\">DEDICATED TRANSPORT</span>/<span class=\"kwb\">FLY</span>/<span class=\"kwb\">WALKER</span> units). This unit:<ul><li>Has 5+ InSv.</li><li>At the end of your Command phase, heals 1 wound.</li></ul>"
     },
@@ -1491,6 +1498,7 @@
       "id": "gunnery-honours",
       "name": "Gunnery Honours",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "ironstorm-spearhead",
       "description": "<span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">ASTARTES</span> <span class=\"kwb\">VEHICLE</span> unit only (excluding <span class=\"kwb\">DEDICATED TRANSPORT</span>/<span class=\"kwb\">FLY</span>/<span class=\"kwb\">WALKER</span> units). This unit's ranged attacks have [HEAVY]."
     },
