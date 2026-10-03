@@ -4,7 +4,7 @@ import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import type { PanelSelection } from '../types'
 import { forFaction, datasheetsForFaction, datasheetBelongsToFaction } from '@/core/constants/factionFamily'
-import { isEpicHero } from '@/core/utils/roster'
+import { isEpicHero, isUpgradeFor } from '@/core/utils/roster'
 
 const EMPTY_SELECTION: PanelSelection = {
   factionId: null, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null,
@@ -145,9 +145,16 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
     // already applies; keep both in sync.
     const mappedEnhancementIds = new Set(Object.values(gameData.datasheetEnhancements).flat())
     const detachmentIds = new Set(selection.detachmentIds)
+    // Same rule as RosterEditPage: only a CHARACTER gets the unrestricted fallback; any other
+    // bearer needs an explicit mapping or a matching `*-upgrade` "X model only" clause.
+    const bearers = targetIds
+      .map(id => gameData.datasheets.find(d => d.id === id))
+      .filter((d): d is NonNullable<typeof d> => d != null)
+    const anyCharacter = bearers.some(d => d.keywords.some(k => k.toUpperCase() === 'CHARACTER'))
     return gameData.enhancements.filter(e =>
       detachmentIds.has(e.detachmentId) &&
-      (validEnhancementIds.has(e.id) || !mappedEnhancementIds.has(e.id)),
+      (validEnhancementIds.has(e.id) ||
+        (anyCharacter ? !mappedEnhancementIds.has(e.id) : bearers.some(d => isUpgradeFor(e, d)))),
     )
   }, [gameData.datasheets, gameData.datasheetEnhancements, gameData.enhancements, selection.characterId, selection.detachmentIds, selectedUnit])
 
