@@ -31,17 +31,17 @@ export function isCharacterDatasheet(datasheet: Datasheet): boolean {
 }
 
 /** Whether `datasheet` may bear `enhancement` when no datasheet mapping decides it.
- *  `Enhancement.upgrade` splits the two kinds: a CHARACTER takes only regular enhancements (unmapped
- *  ones stay unrestricted), any other unit takes only upgrades, narrowed by the "X model/unit only"
- *  clause when the text names a keyword the datasheet carries. */
+ *  `Enhancement.upgrade` (set in the data) splits the two kinds: a regular enhancement is for CHARACTERs
+ *  (unmapped ones stay unrestricted); an upgrade is for whichever unit its "X model/unit only" clause names
+ *  (matched against the datasheet's keywords/name), or for any non-character unit if it names none. */
 export function canBearUnmappedEnhancement(
   enhancement: { upgrade?: boolean; description: string },
   datasheet: Datasheet,
 ): boolean {
-  if (isCharacterDatasheet(datasheet)) return !enhancement.upgrade
-  if (!enhancement.upgrade) return false
+  const isCharacter = isCharacterDatasheet(datasheet)
+  if (!enhancement.upgrade) return isCharacter
   const clause = enhancement.description.replace(/<[^>]*>/g, '').match(/([A-Z][A-Z' -]+?)\s+(?:model|unit) only/)
-  if (!clause) return true
+  if (!clause) return !isCharacter
   const own = [...datasheet.keywords, ...datasheet.factionKeywords, datasheet.name].map(k => k.toUpperCase())
   return own.some(k => clause[1].endsWith(k))
 }

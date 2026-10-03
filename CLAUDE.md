@@ -897,12 +897,11 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   and "Habilidades Comunes" abilities.
 - **Enhancements vs. Upgrades: `Enhancement.upgrade`.** GW's "Upgrade" enhancements go on non-character
   units; every other enhancement is for characters. The data carries that as `upgrade: true` on the enhancement
-  (43 entries, set from the existing markers — an id ending `-upgrade` or a description starting "Upgrade
-  enhancement" — minus the one marked-but-CHARACTER-text Sororitas `hagiomnifex-upgrade`; set it on any new
-  upgrade you author). `canBearUnmappedEnhancement` (`roster.ts`) is the single rule, used by `RosterEditPage` and
+  (44 entries, set from the data's own markers — an id ending `-upgrade` or a description starting "Upgrade
+  enhancement"; set it on any new upgrade you author). `canBearUnmappedEnhancement` (`roster.ts`) is the single rule, used by `RosterEditPage` and
   Mathhammer's `usePanelState`: an enhancement in a datasheet's `enhancementIds` is always offered; otherwise,
-  if no datasheet maps it, a CHARACTER gets only non-upgrades and any other unit gets only upgrades whose "X
-  model/unit only" clause ends in one of its keywords/name. `RosterEntryRow` shows the "Mejora" picker when the
+  if no datasheet maps it, a non-upgrade goes to CHARACTERs only, and an upgrade goes to whichever unit its "X
+  model/unit only" clause names (ends in one of its keywords/name), or to any non-character if it names none. `RosterEntryRow` shows the "Mejora" picker when the
   unit is a character or has any available. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
   Augury Uplink/Memento Moritoi.
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
