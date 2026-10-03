@@ -208,7 +208,7 @@ export function RosterEntryRow({
             </div>
           )}
 
-          {isCharacter && (
+          {(isCharacter || availableEnhancements.length > 0) && (
             <div>
               <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">Mejora</p>
               <div className="flex flex-wrap gap-1">

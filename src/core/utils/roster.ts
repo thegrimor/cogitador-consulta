@@ -25,6 +25,17 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
+/** Non-character units can only bear "Upgrade" enhancements (id `*-upgrade`, e.g. Custodes'
+ *  Might of the Moritoi for Dreadnoughts) whose "X model only" clause names one of their own
+ *  keywords - never the permissive "unmapped => unrestricted" set meant for characters. */
+export function isUpgradeFor(enhancement: { id: string; description: string }, datasheet: Datasheet): boolean {
+  if (!enhancement.id.endsWith('-upgrade')) return false
+  const clause = enhancement.description.replace(/<[^>]*>/g, '').match(/^\s*([A-Z' ]+?)\s+model only/)
+  if (!clause) return false
+  const own = [...datasheet.keywords, ...datasheet.factionKeywords].map(k => k.toUpperCase())
+  return own.some(k => clause[1].endsWith(k))
+}
+
 export type AttachmentKind = 'leader' | 'support'
 
 /** Whether a datasheet attaches to a bodyguard unit through the Core `Leader` or `Support`
