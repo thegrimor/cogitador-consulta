@@ -291,7 +291,7 @@ qualify for some of these and don't yet reference them.
 **Custodes follow-up from a second photo batch (2026-10-01).** Added `caladius-grav-tank`,
 `caladius-annihilator-grav-tank`, `pallas-grav-attack` and `coronus-grav-carrier` (the Grav-Assault
 vehicles; the Annihilator is brand new) with the 0-pt placeholder `pointsCosts`. The Coronus transport
-capacity is 9 (user-confirmed; the photo is smudged there). Knight-Centura, Prosecutors and Vigilators were
+capacity was 9 from the photo (smudged), later set to 8 by the points list below. Knight-Centura, Prosecutors and Vigilators were
 re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis of the Emperor, faction keyword
 `Anathema Psykana`; Knight-Centura is now Support, not Leader). Vertus Praetors, Gyrfalcon, Wardens, Blade
 Champion, Shield-Captain and Trajann already matched the photos.
@@ -308,8 +308,8 @@ Gyrfalcon 260 (fixed 2), Vertus Praetors 220 (2 models; 3-model 330 unchanged), 
 models 45, Witchseekers 4 models 55, Vigilators 10 models 100, Anathema Psykana Rhino 75. **Derived, not in the
 list** (same "shift the other tiers by the same amount" rule used for the Dark Angels leak): Prosecutors 5/9/10
 models = 50/75/85 (−5), Vigilators 4/5/9 models = 50/55/90 (the earlier +5 was undone), Rhino 4th+ unit = 85 (+10
-gap kept). Still estimates: Blade Champion (165, `ESTIMADO`) and Knight-Centura (60). The list gives Coronus
-capacity 8, but the user earlier confirmed 9 from the photo — left at 9, worth re-checking. Re-verify everything
+gap kept). Still estimates: Blade Champion (165, `ESTIMADO`) and Knight-Centura (60). Coronus transport
+capacity is 8 per the list (the user said "lo que diga la lista"; it had been 9 from the earlier photo). Re-verify everything
 against the MFM once published. (Enhancements `cost: 0` and detachments `dp: 0` / `SIN DATOS MFM` remain
 deliberate placeholders — the user does not want guessed values there.)
 
