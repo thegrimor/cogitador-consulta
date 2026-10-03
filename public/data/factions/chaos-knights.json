@@ -1003,6 +1003,7 @@
       "id": "soul-spoor-auspicator",
       "name": "Soul-Spoor Auspicator",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "hunting-warpack",
       "detachmentName": "Hunting Warpack",
       "description": "<span class=\"kwb\">HUNTSMAN</span> unit only. This unit's ranged attacks have +6\" R."
@@ -1011,6 +1012,7 @@
       "id": "snarling-rivalry",
       "name": "Snarling Rivalry",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "hunting-warpack",
       "detachmentName": "Hunting Warpack",
       "description": "<span class=\"kwb\">EXECUTIONER</span> unit only. This unit's ranged attacks have [IGNORES COVER].",

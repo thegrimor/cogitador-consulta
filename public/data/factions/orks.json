@@ -1064,6 +1064,7 @@
       "id": "temperamental-shokka",
       "name": "Temperamental Shokka",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
       "description": "<span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. In your Shooting phase, when this unit is selected to shoot, you can roll one D6: on a 1, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[TORRENT]</span>, and when this unit has shot, this model is destroyed; on a 2-5, this model's Shokk Attack Gun weapon has +1 A; on a 6, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[SUSTAINED HITS 2]</span>. (Upgrade.)"
@@ -1072,6 +1073,7 @@
       "id": "enhanced-runt-maw",
       "name": "Enhanced Runt-Maw",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
       "description": "<span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. When this unit has shot, select one enemy unit hit by those attacks – that unit is infested with Snotlings until the start of your next turn. While an enemy unit is infested with Snotlings, that unit has -1 to leadership rolls. (Upgrade.)"
