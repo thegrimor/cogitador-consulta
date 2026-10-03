@@ -1468,7 +1468,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 250
+          "points": 240
         }
       ],
       "wargearCosts": [],
@@ -1683,7 +1683,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 235
+          "points": 265
         }
       ],
       "wargearCosts": [],
@@ -1946,7 +1946,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 185
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -2162,7 +2162,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 195
+          "points": 205
         }
       ],
       "wargearCosts": [],
@@ -2345,7 +2345,7 @@
       ],
       "pointsCosts": [
         {
-          "description": "1 model (ESTIMADO, +50% s/MFM anterior)",
+          "description": "1 model",
           "points": 225
         }
       ],
@@ -2555,7 +2555,7 @@
         },
         {
           "description": "3 models",
-          "points": 290
+          "points": 295
         }
       ],
       "wargearCosts": [],
@@ -3997,8 +3997,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "2 models (ESTIMADO, por analogía con Vertus Praetors)",
-          "points": 235
+          "description": "2 models",
+          "points": 260
         }
       ],
       "wargearCosts": [],
@@ -4172,7 +4172,7 @@
       "pointsCosts": [
         {
           "description": "3 models",
-          "points": 270
+          "points": 255
         }
       ],
       "wargearCosts": [],
@@ -4472,9 +4472,9 @@
         "Adeptus Custodes"
       ],
       "unitComposition": [
-        "2-3 Aquilon Terminator models"
+        "3 Aquilon Terminator models"
       ],
-      "modelCountMin": 2,
+      "modelCountMin": 3,
       "modelCountMax": 3,
       "defaultWeaponNames": [
         {
@@ -4489,12 +4489,8 @@
       "options": [],
       "pointsCosts": [
         {
-          "description": "2 models",
-          "points": 185
-        },
-        {
           "description": "3 models",
-          "points": 275
+          "points": 285
         }
       ],
       "wargearCosts": [],
@@ -4653,9 +4649,9 @@
         "Adeptus Custodes"
       ],
       "unitComposition": [
-        "2-3 Aquilon Terminator models"
+        "3 Aquilon Terminator models"
       ],
-      "modelCountMin": 2,
+      "modelCountMin": 3,
       "modelCountMax": 3,
       "defaultWeaponNames": [
         {
@@ -4674,10 +4670,6 @@
         }
       ],
       "pointsCosts": [
-        {
-          "description": "2 models",
-          "points": 185
-        },
         {
           "description": "3 models",
           "points": 275
@@ -4866,8 +4858,8 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models (ESTIMADO, por analogía con Custodian Guard Sodality)",
-          "points": 250
+          "description": "3 models",
+          "points": 240
         }
       ],
       "wargearCosts": [],
@@ -5162,19 +5154,19 @@
       "pointsCosts": [
         {
           "description": "4 models",
-          "points": 50
+          "points": 45
         },
         {
           "description": "5 models",
-          "points": 55
+          "points": 50
         },
         {
           "description": "9 models",
-          "points": 80
+          "points": 75
         },
         {
           "description": "10 models",
-          "points": 90
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -5275,19 +5267,19 @@
       "pointsCosts": [
         {
           "description": "4 models",
-          "points": 55
+          "points": 50
         },
         {
           "description": "5 models",
-          "points": 60
+          "points": 55
         },
         {
           "description": "9 models",
-          "points": 95
+          "points": 90
         },
         {
           "description": "10 models",
-          "points": 105
+          "points": 100
         }
       ],
       "wargearCosts": [],
@@ -5573,11 +5565,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st to 3rd units)",
-          "points": 65
+          "points": 75
         },
         {
           "description": "1 model (4th + unit)",
-          "points": 75
+          "points": 85
         }
       ],
       "wargearCosts": [],
@@ -5757,7 +5749,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 250
+          "points": 230
         }
       ],
       "wargearCosts": [],
@@ -6115,7 +6107,7 @@
       "pointsCosts": [
         {
           "description": "1 model",
-          "points": 125
+          "points": 135
         }
       ],
       "wargearCosts": [],
