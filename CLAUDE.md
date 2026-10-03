@@ -867,8 +867,9 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
 - QR import/export (`RosterQrExportModal`, `RosterQrScanModal`) round-trips a compact roster payload through `lz-string` compression + `qrcode.react` (render) / `qr-scanner` (scan) in `src/core/utils/rosterQrCode.ts`. There's also a BCP-list text importer (`src/features/mathhammer/utils/parseBcpList.ts`) that parses copy-pasted army lists.
 - Enhancement-to-unit attachment rules are in `src/core/constants/enhancementAttachments.ts`.
 - **Detachment rules, army rules and stratagems live in one "Consulta de reglas" block at the bottom of
-  `RosterEditPage`, not on each unit card.** `RulesReference` (`src/shared/components/RulesReference`) is a single
-  outer accordion; inside it everything is listed in full, no nested folds: detachment rules and stratagems under
+  `RosterEditPage`, not on each unit card.** `RulesReference` (`src/shared/components/RulesReference`) is an outer
+  accordion holding three collapsible sections (Reglas de Destacamento, Reglas de Ejército, Estratagemas); inside each
+  one everything is listed in full, no further folds: detachment rules and stratagems under
   each selected detachment's name, army rules (`forFactionFromMap`) sectioned by the data's own `Ability.group`
   through `groupArmyRules` (`src/core/utils/armyRules.ts`, also used by `FactionArmyRulesPage`). So grouping is a
   data decision, not a code exception: Custodes' Martial Ka'tah and its six stances share `group: "Ka'tah"`, while

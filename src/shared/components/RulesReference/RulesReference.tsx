@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import type { ReactNode } from 'react'
 import type { Ability, Detachment, DetachmentAbility, Stratagem } from '@/types'
 import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { groupArmyRules } from '@/core/utils/armyRules'
@@ -12,8 +13,25 @@ interface Props {
   stratagems: Stratagem[]
 }
 
-function SectionTitle({ children }: { children: string }) {
-  return <p className="text-[12px] font-display uppercase tracking-widest text-gold">{children}</p>
+// One collapsible section; everything inside it is listed in full (no further folds).
+function Section({ title, count, children }: { title: string; count: number; children: ReactNode }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="border border-rim-bright">
+      <button
+        onClick={() => setOpen(v => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between px-3 py-2 text-left text-[12px] font-display uppercase tracking-widest text-gold hover:text-gold-bright transition-colors"
+      >
+        <span>
+          {title}
+          <span className="font-mono text-parchment-dim ml-2">({count})</span>
+        </span>
+        <span>{open ? '▴' : '▾'}</span>
+      </button>
+      {open && <div className="border-t border-rim-bright px-3 py-3 space-y-3">{children}</div>}
+    </div>
+  )
 }
 
 function ArmyRuleCard({ rule, factionId }: { rule: Ability; factionId: string }) {
@@ -52,10 +70,9 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
       </button>
 
       {open && (
-        <div className="border-t border-rim-bright px-3 py-3 space-y-5">
+        <div className="border-t border-rim-bright px-3 py-3 space-y-3">
           {abilitiesByDetachment.length > 0 && (
-            <div className="space-y-3">
-              <SectionTitle>Reglas de Destacamento</SectionTitle>
+            <Section title="Reglas de Destacamento" count={abilitiesByDetachment.reduce((n, x) => n + x.abilities.length, 0)}>
               {abilitiesByDetachment.map(({ detachment, abilities }) => (
                 <div key={detachment.id} className="space-y-2">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">{detachment.name}</p>
@@ -67,12 +84,11 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
                   ))}
                 </div>
               ))}
-            </div>
+            </Section>
           )}
 
           {armyRules.length > 0 && (
-            <div className="space-y-3">
-              <SectionTitle>Reglas de Ejército</SectionTitle>
+            <Section title="Reglas de Ejército" count={armyRules.length}>
               {groups.map(({ group, rules }) => (
                 <div key={group} className="space-y-2">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-crimson-bright">{group}</p>
@@ -80,12 +96,11 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
                 </div>
               ))}
               {ungrouped.map(r => <ArmyRuleCard key={r.id} rule={r} factionId={factionId} />)}
-            </div>
+            </Section>
           )}
 
           {stratagemsByDetachment.length > 0 && (
-            <div className="space-y-3">
-              <SectionTitle>Estratagemas</SectionTitle>
+            <Section title="Estratagemas" count={stratagemsByDetachment.reduce((n, x) => n + x.stratagems.length, 0)}>
               {stratagemsByDetachment.map(({ detachment, stratagems: strats }) => (
                 <div key={detachment.id} className="space-y-2">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim">{detachment.name}</p>
@@ -110,7 +125,7 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
                   })}
                 </div>
               ))}
-            </div>
+            </Section>
           )}
         </div>
       )}
