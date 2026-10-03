@@ -6656,11 +6656,11 @@
       "pointsCosts": [
         {
           "description": "3 Wolf Guard Headtakers (1st-2nd units)",
-          "points": 115
+          "points": 85
         },
         {
           "description": "3 Wolf Guard Headtakers, 3 Hunting Wolves (1st-2nd units)",
-          "points": 115
+          "points": 85
         },
         {
           "description": "6 Wolf Guard Headtakers (1st-2nd units)",
@@ -6672,11 +6672,11 @@
         },
         {
           "description": "3 Wolf Guard Headtakers (3rd+ unit)",
-          "points": 125
+          "points": 95
         },
         {
           "description": "3 Wolf Guard Headtakers, 3 Hunting Wolves (3rd+ unit)",
-          "points": 125
+          "points": 95
         },
         {
           "description": "6 Wolf Guard Headtakers (3rd+ unit)",

@@ -218,6 +218,10 @@ no changes — already accurate from the prior pass.
   in the JSON at all — needs full stat-line authoring, not just a price, so it's still missing).
   This is preview/provisional, unofficial data, same caveat as the Dark Angels leak — re-verify
   the whole batch against the real MFM once the actual codex publishes.
+  **Superseded (2026-10-03):** the MFM v1.5 Space Marines-family sync was applied in full per explicit
+  user instruction ("el MFM de marines impera"), overwriting every value from this batch that the MFM
+  disagrees with (93 values across `space-marines`/`black-templars`/`space-wolves`; Land Raider/Crusader/
+  Redeemer became 1st/2nd+ tiers, Invictor 1st-2nd/3rd+). Dark Angels' leaked prices matched the MFM already.
 - **Core Space Marines characters had no enhancement mappings for most detachments (fixed 2026-09-29).**
   `RosterEditPage`/`usePanelState` offer an enhancement to a datasheet only if it is in that
   datasheet's `enhancementIds` — *or* if **no** datasheet carries it at all (the "unmapped ⇒
