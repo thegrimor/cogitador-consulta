@@ -297,21 +297,41 @@ re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis o
 Champion, Shield-Captain and Trajann already matched the photos.
 Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
 
-**Custodes points, second user-supplied list (2026-10-03), not the MFM.** Per explicit user instruction, a
-"PUNTOS Y TAMAÑOS CUSTODES 11ª EDICIÓN" list replaced the earlier leaked table (2026-10-02) and overrides the
-MFM-only rule: Trajann 265, Shield-Captain 205 / Allarus 205 / Dawneagle 225, Custodian Guard 240, Sentinel Guard
-240, Wardens 200/295 (2/3 models), Allarus 180 (2 models; the 3-model 270 was not in the list and is unchanged),
-Aquilon Terminators back to a **fixed 3 models** (Talons 275, Gauntlets 285 — the list is explicit, so the earlier
-185/275 "typo" reading and the 2-3 model widening were reverted), Venatari Lances 270 / Kinetic Destroyers 255,
-Gyrfalcon 260 (fixed 2), Vertus Praetors 220 (2 models; 3-model 330 unchanged), Galatus 220, Achillus 230, Telemon
-280, Pallas 135, Caladius 230, Caladius Annihilator 250 (now sourced, no longer a guess), Coronus 225, Prosecutors 4
-models 45, Witchseekers 4 models 55, Vigilators 10 models 100, Anathema Psykana Rhino 75. **Derived, not in the
-list** (same "shift the other tiers by the same amount" rule used for the Dark Angels leak): Prosecutors 5/9/10
-models = 50/75/85 (−5), Vigilators 4/5/9 models = 50/55/90 (the earlier +5 was undone), Rhino 4th+ unit = 85 (+10
-gap kept). Still estimates: Blade Champion (165, `ESTIMADO`) and Knight-Centura (60). Coronus transport
-capacity is 8 per the list (the user said "lo que diga la lista"; it had been 9 from the earlier photo). Re-verify everything
-against the MFM once published. (Enhancements `cost: 0` and detachments `dp: 0` / `SIN DATOS MFM` remain
-deliberate placeholders — the user does not want guessed values there.)
+**Custodes points and enhancement costs, user-supplied spreadsheet (2026-10-03), not the MFM.** Per explicit user
+instruction, a "Datasheet / First / Second / Third" spreadsheet (plus an Enhancement / Detachment / Points table)
+overrides the MFM-only rule and supersedes the two earlier user lists. Each datasheet's three columns became tiers:
+equal across the board = no tier; First=Second≠Third = `(1st-2nd units)` / `(3rd+ unit)`; Second=Third≠First =
+`(1st unit)` / `(2nd+ unit)` (`parseTierRange` reads these). Values (1st / 2nd / 3rd copy): Trajann 265;
+Shield-Captain 205/225/225 (the datasheet's default loadout includes the Praesidium Shield, so this is the
+spreadsheet's "+shield" row); Allarus Shield-Captain 185/205/205; Dawneagle 205/225/225; Blade Champion
+175/175/195; Sentinel Guard and Custodian Guard 240/240/270; Wardens 2 models 200/230/230, 3 models 295/325/325;
+Allarus 2 models 180/180/210, 3 models 270/270/300; Aquilon Gauntlets 285/285/315, Talons 275/275/305 (fixed 3
+models); Venatari Kinetic 255/255/280, Lances 270/270/300; Telemon 280/310/310; Galatus 220/220/250; Achillus
+230/230/260; Vertus Praetors 2 models 220/240/240, 3 models 330/350/350; Gyrfalcon 260/280/280 (fixed 2);
+Pallas 135 flat; Coronus 225/225/245; Caladius 230/230/260; Caladius Annihilator 250/250/280; Knight-Centura
+55; Prosecutors 45/50/80/90 (4/5/9/10 models); Vigilators 50/55/90/100; Witchseekers 55/60/100/110;
+Anathema Psykana Rhino 70 (1st-3rd) / 80 (4th+). Coronus transport capacity is 8.
+**Not modeled**: the spreadsheet's plain "Shield-Captain" row (180/200/200, i.e. 25 pts cheaper than the shield
+version — presumably a Castellan Axe/Guardian Spear loadout without the shield; `wargearCosts` can't express a
+negative or per-loadout price). Spreadsheet notes "Shields"/"Spears"/"Pistols" next to the Sentinel/Custodian
+Guard and Venatari rows are just loadout labels.
+Enhancement costs (same spreadsheet): Guardians of the Throne Bane of Abominations 20 / Eagle's Eye 30 /
+Castellan's Mark 25 / Emperor's Light 15; Aquilan Shield Not a Shell Wasted 10 / Pareldor's Caducatrix 30;
+Auric Champions Inspirational Exemplar 10 / Superior Creation 30 / Shroud of the Hidden Blade 20; Dread Host
+Auric Exemplar 15 / Flawless Bladework 15; Emissaries Imperatus Auriferous Orb 20 / Edge of the Blade 15;
+Emperor's Chosen From the Hall of Armouries 15 / Radiant Mantle 40; Grav-Assault Force Anti-Gravitic Mobility
+15 / Combat Deployment 20; Honoured Companions Arae-Shrike 20 / Celeritous Sentries 15; Lions of the Emperor
+Lightning Descent 20 and **Leonine Ferocity 20** (the spreadsheet says "Fierce Conqueror" 20; our data has
+Leonine Ferocity, so it was matched by elimination; the user chose to keep the name "Leonine Ferocity" and only apply the 20 pts — both Lions enhancements are 20 either way); Might of the
+Moritoi Augury Uplink 30 (this is Telemon's "5+ FNP" upgrade, a Dreadnought-only enhancement) / Memento Moritoi 30;
+Null-Maiden Vigil Huntress' Eye 10 / Oblivion Knight 15; Shadowkeepers Genalchemic Warding 30 / Unstoppable
+Destroyer 25; Solar Watch Auric Eagle 15 / Sally Forth 30. No Custodes enhancement is a `cost: 0` placeholder
+any more.
+Detachments (user): every `dp` is 1 except `guardians-of-the-throne`, the one with 6 stratagems, which is 3;
+`disposition`: Aquilan Shield and Honoured Companions TAKE AND HOLD, Solar Watch and Grav-Assault Force
+RECONNAISSANCE, Shadowkeepers/Auric Champions/Dread Host PURGE THE FOE, Lions of the Emperor and Null-Maiden Vigil
+DISRUPTION, Emperor's Chosen and Emissaries Imperatus PRIORITY ASSETS, Might of the Moritoi TAKE AND HOLD,
+Guardians of the Throne `["PRIORITY ASSETS","PURGE THE FOE"]`. Re-verify everything against the MFM once published.
 
 No test suite yet.
 
