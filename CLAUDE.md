@@ -322,7 +322,7 @@ Auric Exemplar 15 / Flawless Bladework 15; Emissaries Imperatus Auriferous Orb 2
 Emperor's Chosen From the Hall of Armouries 15 / Radiant Mantle 40; Grav-Assault Force Anti-Gravitic Mobility
 15 / Combat Deployment 20; Honoured Companions Arae-Shrike 20 / Celeritous Sentries 15; Lions of the Emperor
 Lightning Descent 20 and **Leonine Ferocity 20** (the spreadsheet says "Fierce Conqueror" 20; our data has
-Leonine Ferocity, so it was matched by elimination — both Lions enhancements are 20 either way); Might of the
+Leonine Ferocity, so it was matched by elimination; the user chose to keep the name "Leonine Ferocity" and only apply the 20 pts — both Lions enhancements are 20 either way); Might of the
 Moritoi Augury Uplink 30 (this is Telemon's "5+ FNP" upgrade, a Dreadnought-only enhancement) / Memento Moritoi 30;
 Null-Maiden Vigil Huntress' Eye 10 / Oblivion Knight 15; Shadowkeepers Genalchemic Warding 30 / Unstoppable
 Destroyer 25; Solar Watch Auric Eagle 15 / Sally Forth 30. No Custodes enhancement is a `cost: 0` placeholder
