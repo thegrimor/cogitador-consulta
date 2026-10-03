@@ -43,11 +43,10 @@ function ArmyRuleCard({ rule, factionId }: { rule: Ability; factionId: string })
   )
 }
 
-/** Bottom-of-roster reference: detachment rules, army rules and stratagems, all listed in full.
- * The only fold is the outer one — this content used to repeat on every unit card. Army rules
+/** Bottom-of-roster reference: detachment rules, army rules and stratagems, each a collapsible
+ * section listing everything in full inside. This content used to repeat on every unit card. Army rules
  * are sectioned by the data's own `group` field (see `groupArmyRules`). */
 export function RulesReference({ factionId, detachments, detachmentAbilities, armyRules, stratagems }: Props) {
-  const [open, setOpen] = useState(false)
   const abilitiesByDetachment = detachments
     .map(d => ({ detachment: d, abilities: detachmentAbilities.filter(a => a.detachmentId === d.id) }))
     .filter(x => x.abilities.length > 0)
@@ -59,18 +58,10 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
   if (abilitiesByDetachment.length + armyRules.length + stratagemsByDetachment.length === 0) return null
 
   return (
-    <section className="mt-8 border border-rim-bright bg-surface-2">
-      <button
-        onClick={() => setOpen(v => !v)}
-        aria-expanded={open}
-        className="w-full flex items-center justify-between px-3 py-3 text-left uppercase tracking-widest text-[13px] font-display text-parchment hover:text-gold-bright transition-colors"
-      >
-        <span>Consulta de reglas</span>
-        <span>{open ? '▴' : '▾'}</span>
-      </button>
-
-      {open && (
-        <div className="border-t border-rim-bright px-3 py-3 space-y-3">
+    <section className="mt-8 space-y-3">
+      <p className="text-[13px] font-display uppercase tracking-widest text-parchment">Consulta de reglas</p>
+      {/* Sections follow flat: only they fold, there is no outer accordion to open first. */}
+      <div className="space-y-3">
           {abilitiesByDetachment.length > 0 && (
             <Section title="Reglas de Destacamento" count={abilitiesByDetachment.reduce((n, x) => n + x.abilities.length, 0)}>
               {abilitiesByDetachment.map(({ detachment, abilities }) => (
@@ -127,8 +118,7 @@ export function RulesReference({ factionId, detachments, detachmentAbilities, ar
               ))}
             </Section>
           )}
-        </div>
-      )}
+      </div>
     </section>
   )
 }
