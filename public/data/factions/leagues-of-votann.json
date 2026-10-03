@@ -1350,6 +1350,7 @@
       "id": "saturation-rounds-upgrade",
       "name": "Saturation Rounds Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "armoured-trailblazers",
       "detachmentName": "Armoured Trailblazers",
       "description": "<span class=\"kwb\">SAGITAUR</span> unit only. This unit's ranged attacks have [IGNORES COVER].",
@@ -1364,6 +1365,7 @@
       "id": "optimised-attack-lines-upgrade",
       "name": "Optimised Attack Lines Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "armoured-trailblazers",
       "detachmentName": "Armoured Trailblazers",
       "description": "<span class=\"kwb\">SAGITAUR</span> unit only. This unit has MOBILE."
@@ -1372,6 +1374,7 @@
       "id": "pan-spectral-lockons-upgrade",
       "name": "Pan-Spectral Lockons Upgrade",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "farseekers",
       "detachmentName": "Farseekers",
       "description": "<span class=\"kwb\">PIONEERS</span> unit only. In your Shooting phase, you can select one visible enemy unit within 12\" of this unit. That enemy unit is spotted: While a unit is spotted, that unit has +3\" detection range."
@@ -1380,6 +1383,7 @@
       "id": "shroudwerke-talismans-upgrade",
       "name": "Shroudwërke Talismans Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "farseekers",
       "detachmentName": "Farseekers",
       "description": "<span class=\"kwb\">YAEGIRS</span> unit only. This unit has -3\" detection range."

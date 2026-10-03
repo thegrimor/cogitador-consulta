@@ -961,6 +961,7 @@
       "id": "symphonic-payload-upgrade",
       "name": "Symphonic Payload Upgrade",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "chorus-of-condemnation",
       "detachmentName": "Chorus of Condemnation",
       "description": "<span class=\"kwb\">EXORCIST</span> unit only. This unit can re-roll rolls to determine the A of a weapon."
@@ -969,6 +970,7 @@
       "id": "writ-of-compunction-upgrade",
       "name": "Writ of Compunction Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "sacred-champions",
       "detachmentName": "Sacred Champions",
       "description": "<span class=\"kwb\">CELESTIAN SACRESANTS</span> unit only. This unit has +1 OC."

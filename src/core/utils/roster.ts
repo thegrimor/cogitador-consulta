@@ -25,14 +25,24 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
-/** Non-character units can only bear "Upgrade" enhancements (id `*-upgrade`, e.g. Custodes'
- *  Might of the Moritoi for Dreadnoughts) whose "X model only" clause names one of their own
- *  keywords - never the permissive "unmapped => unrestricted" set meant for characters. */
-export function isUpgradeFor(enhancement: { id: string; description: string }, datasheet: Datasheet): boolean {
-  if (!enhancement.id.endsWith('-upgrade')) return false
-  const clause = enhancement.description.replace(/<[^>]*>/g, '').match(/^\s*([A-Z' ]+?)\s+model only/)
-  if (!clause) return false
-  const own = [...datasheet.keywords, ...datasheet.factionKeywords].map(k => k.toUpperCase())
+/** Whether a datasheet is a CHARACTER (enhancements go to characters, upgrades to everything else). */
+export function isCharacterDatasheet(datasheet: Datasheet): boolean {
+  return datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
+}
+
+/** Whether `datasheet` may bear `enhancement` when no datasheet mapping decides it.
+ *  `Enhancement.upgrade` splits the two kinds: a CHARACTER takes only regular enhancements (unmapped
+ *  ones stay unrestricted), any other unit takes only upgrades, narrowed by the "X model/unit only"
+ *  clause when the text names a keyword the datasheet carries. */
+export function canBearUnmappedEnhancement(
+  enhancement: { upgrade?: boolean; description: string },
+  datasheet: Datasheet,
+): boolean {
+  if (isCharacterDatasheet(datasheet)) return !enhancement.upgrade
+  if (!enhancement.upgrade) return false
+  const clause = enhancement.description.replace(/<[^>]*>/g, '').match(/([A-Z][A-Z' -]+?)\s+(?:model|unit) only/)
+  if (!clause) return true
+  const own = [...datasheet.keywords, ...datasheet.factionKeywords, datasheet.name].map(k => k.toUpperCase())
   return own.some(k => clause[1].endsWith(k))
 }
 

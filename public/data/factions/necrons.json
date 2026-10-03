@@ -1500,6 +1500,7 @@
       "id": "enlivened-sentinels-upgrade",
       "name": "Enlivened Sentinels Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "hand-of-the-dynasty",
       "detachmentName": "Hand of the Dynasty",
       "description": "<span class=\"kwb\">NECRON WARRIORS</span> unit only. This unit has Scouts 5\"."
@@ -1508,6 +1509,7 @@
       "id": "tools-of-dominion-upgrade",
       "name": "Tools of Dominion Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "hand-of-the-dynasty",
       "detachmentName": "Hand of the Dynasty",
       "description": "<span class=\"kwb\">IMMORTALS</span> unit only. This unit’s ranged attacks have [RAPID FIRE 1]."
@@ -1516,6 +1518,7 @@
       "id": "recursive-reanimation-upgrade",
       "name": "Recursive Reanimation Upgrade",
       "cost": 5,
+      "upgrade": true,
       "detachmentId": "skyshroud-spearhead",
       "detachmentName": "Skyshroud Spearhead",
       "description": "<span class=\"kwb\">TOMB BLADES</span> unit only. When this unit activates its Reanimation Protocols, +1 to the roll."
@@ -1524,6 +1527,7 @@
       "id": "deepening-madness-upgrade",
       "name": "Deepening Madness Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "skyshroud-spearhead",
       "detachmentName": "Skyshroud Spearhead",
       "description": "<span class=\"kwb\">DESTROYER CULT MOUNTED</span> unit only. This unit’s ranged attacks have [ASSAULT]."
@@ -1560,6 +1564,7 @@
       "id": "mortality-shroud-upgrade",
       "name": "Mortality Shroud (Aura) (Upgrade)",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "the-phaerons-armoury",
       "detachmentName": "The Phaeron’s Armoury",
       "description": "<span class=\"kwb\">OBELISK</span> unit only. In your opponent’s Battle-shock step, if an enemy unit within 8\" of this unit is below starting strength, that enemy unit makes a battle-shock roll."

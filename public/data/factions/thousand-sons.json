@@ -1119,6 +1119,7 @@
       "id": "thicket-of-bladed-bone-upgrade",
       "name": "Thicket of Bladed Bone Upgrade",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "servants-of-change",
       "detachmentName": "Servants of Change",
       "description": "<span class=\"kwb\">SPAWN</span> unit only. This unit's melee attacks have +1 AP and [CLEAVE 1].",

@@ -1453,6 +1453,7 @@
       "id": "encircling-horrors-upgrade",
       "name": "Encircling Horrors Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "ambush-predators",
       "detachmentName": "Ambush Predators",
       "description": "<span class=\"kwb\">NEUROLICTOR</span>/<span class=\"kwb\">LICTOR</span>/<span class=\"kwb\">VON RYAN'S LEAPERS</span> unit only. In your opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, this unit can make a Normal move of up to D3+3\"."
@@ -1461,6 +1462,7 @@
       "id": "cryptophotaic-camouflage-upgrade",
       "name": "Cryptophotaic Camouflage Upgrade",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "ambush-predators",
       "detachmentName": "Ambush Predators",
       "description": "<span class=\"kwb\">VON RYAN'S LEAPERS</span> unit only. This unit has -3\" detection range."
@@ -1469,6 +1471,7 @@
       "id": "destabilising-predation-upgrade",
       "name": "Destabilising Predation Upgrade",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "talons-of-the-norn-queen",
       "detachmentName": "Talons of the Norn Queen",
       "description": "<span class=\"kwb\">NORN</span> <span class=\"kwb\">EMISSARY</span> unit only. This unit's ranged attacks have [ANTI-CHARACTER 2+].",
@@ -1484,6 +1487,7 @@
       "id": "synaptoprescience-upgrade",
       "name": "Synaptoprescience Upgrade",
       "cost": 30,
+      "upgrade": true,
       "detachmentId": "talons-of-the-norn-queen",
       "detachmentName": "Talons of the Norn Queen",
       "description": "<span class=\"kwb\">NORN</span> <span class=\"kwb\">ASSIMILATOR</span> unit only. This unit has a 4+ invulnerable save.",

@@ -1022,6 +1022,7 @@
       "id": "combat-deployment-upgrade",
       "name": "Combat Deployment",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "grav-assault-force",
       "detachmentName": "Grav-Assault Force",
       "description": "GRAV-ASSAULT TRANSPORT model only. When a friendly ADEPTUS CUSTODES unit is selected to make a disembark move from this model, until the end of the turn, that unit can re-roll Charge rolls and enemy units cannot target that unit with snap shooting attacks."
@@ -1030,6 +1031,7 @@
       "id": "anti-gravitic-mobility-upgrade",
       "name": "Anti-Gravitic Mobility",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "grav-assault-force",
       "detachmentName": "Grav-Assault Force",
       "description": "GRAV-ASSAULT unit only. When this unit makes a fall-back move, that fall-back move does not prevent this unit from being eligible to shoot."
@@ -1038,6 +1040,7 @@
       "id": "memento-moritoi-upgrade",
       "name": "Memento Moritoi",
       "cost": 30,
+      "upgrade": true,
       "detachmentId": "might-of-the-moritoi",
       "detachmentName": "Might of the Moritoi",
       "description": "ADEPTUS CUSTODES DREADNOUGHT model only (one per army). This model’s melee attacks have +1 A, +1 S and +1 D.",
@@ -1055,6 +1058,7 @@
       "id": "augury-uplink-upgrade",
       "name": "Augury Uplink",
       "cost": 30,
+      "upgrade": true,
       "detachmentId": "might-of-the-moritoi",
       "detachmentName": "Might of the Moritoi",
       "description": "ADEPTUS CUSTODES DREADNOUGHT model only (one per army). This model has Feel No Pain 5+.",
@@ -1094,6 +1098,7 @@
       "id": "celeritous-sentries-upgrade",
       "name": "Celeritous Sentries",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "honoured-companions",
       "detachmentName": "Honoured Companions",
       "description": "TRUSTED SENTINEL unit only. (Once per phase, per unit) You can target this unit with the Heroic Intervention stratagem, regardless of any other uses of that stratagem this phase. If you do, that use is -1 CP, and that use does not prevent any uses of that stratagem on other units this phase."
@@ -1134,6 +1139,7 @@
       "id": "auric-eagle-upgrade",
       "name": "Auric Eagle",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "solar-watch",
       "detachmentName": "Solar Watch",
       "description": "ADEPTUS CUSTODES INFANTRY/MOUNTED unit only (excluding TERMINATOR units). This unit has +1 to Advance rolls and Charge rolls."

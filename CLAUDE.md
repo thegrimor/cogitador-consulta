@@ -895,12 +895,16 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   they print a redundant heading. `RosterEntryRow`/`AbilityList` no longer take `detachmentAbilities`, drop
   `Faction`-type abilities, and no longer link to the detachment/army-rule pages; a unit card keeps only its own
   and "Habilidades Comunes" abilities.
-- **Non-character units only get `*-upgrade` enhancements.** `RosterEntryRow` used to show the "Mejora" picker
-  for CHARACTER datasheets only, so Custodes Dreadnoughts (Telemon, Contemptors) could never take Might of the
-  Moritoi's Augury Uplink/Memento Moritoi. `RosterEditPage` now offers a non-character an enhancement only if it is
-  in its `enhancementIds` or `isUpgradeFor` (`roster.ts`: id ends `-upgrade` and its "X model only" clause ends in
-  one of the datasheet's keywords); the picker renders whenever that list is non-empty. Mathhammer's `usePanelState` applies the same rule. Characters keep the
-  "unmapped => unrestricted" fallback.
+- **Enhancements vs. Upgrades: `Enhancement.upgrade`.** GW's "Upgrade" enhancements go on non-character
+  units; every other enhancement is for characters. The data carries that as `upgrade: true` on the enhancement
+  (43 entries, set from the existing markers — an id ending `-upgrade` or a description starting "Upgrade
+  enhancement" — minus the one marked-but-CHARACTER-text Sororitas `hagiomnifex-upgrade`; set it on any new
+  upgrade you author). `canBearUnmappedEnhancement` (`roster.ts`) is the single rule, used by `RosterEditPage` and
+  Mathhammer's `usePanelState`: an enhancement in a datasheet's `enhancementIds` is always offered; otherwise,
+  if no datasheet maps it, a CHARACTER gets only non-upgrades and any other unit gets only upgrades whose "X
+  model/unit only" clause ends in one of its keywords/name. `RosterEntryRow` shows the "Mejora" picker when the
+  unit is a character or has any available. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
+  Augury Uplink/Memento Moritoi.
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
   return no enhancements for a datasheet with the `Epic Hero` keyword (`isEpicHero` in `roster.ts`). It has to
   be explicit: the "unmapped enhancement => unrestricted" fallback would otherwise offer every unmapped
