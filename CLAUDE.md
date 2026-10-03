@@ -310,8 +310,9 @@ list** (same "shift the other tiers by the same amount" rule used for the Dark A
 models = 50/75/85 (−5), Vigilators 4/5/9 models = 50/55/90 (the earlier +5 was undone), Rhino 4th+ unit = 85 (+10
 gap kept). Still estimates: Blade Champion (165, `ESTIMADO`) and Knight-Centura (60). Coronus transport
 capacity is 8 per the list (the user said "lo que diga la lista"; it had been 9 from the earlier photo). Re-verify everything
-against the MFM once published. (Enhancements `cost: 0` and detachments `dp: 0` / `SIN DATOS MFM` remain
-deliberate placeholders — the user does not want guessed values there.)
+against the MFM once published. Detachment `dp` (user, 2026-10-03): every detachment is 1 DP except
+`guardians-of-the-throne`, the one with 6 stratagems, which is 3 DP. Their `disposition` is still the
+`SIN DATOS MFM` placeholder, and enhancements are still `cost: 0` (the user does not want guessed values there).
 
 No test suite yet.
 

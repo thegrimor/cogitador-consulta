@@ -148,7 +148,7 @@
       "id": "null-maiden-vigil",
       "name": "Null Maiden Vigil",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -162,7 +162,7 @@
       "id": "auric-champions",
       "name": "Auric Champions",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -182,7 +182,7 @@
       "id": "lions-of-the-emperor",
       "name": "Lions of the Emperor",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -196,7 +196,7 @@
       "id": "might-of-the-moritoi",
       "name": "Might of the Moritoi",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -216,7 +216,7 @@
       "id": "guardians-of-the-throne",
       "name": "Guardians of the Throne",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 3,
       "chapters": [],
       "abilities": [
         {
@@ -250,7 +250,7 @@
       "id": "solar-watch",
       "name": "Solar Watch",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -271,7 +271,7 @@
       "id": "shadowkeepers",
       "name": "Shadowkeepers",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -296,7 +296,7 @@
       "id": "emperors-chosen",
       "name": "Emperor’s Chosen",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -323,7 +323,7 @@
       "id": "emissaries-imperatus",
       "name": "Emissaries Imperatus",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -344,7 +344,7 @@
       "id": "dread-host",
       "name": "Dread Host",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -365,7 +365,7 @@
       "id": "aquilan-shield",
       "name": "Aquilan Shield",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -390,7 +390,7 @@
       "id": "honoured-companions",
       "name": "Honoured Companions",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
@@ -410,7 +410,7 @@
       "id": "grav-assault-force",
       "name": "Grav-Assault Force",
       "disposition": "SIN DATOS MFM",
-      "dp": 0,
+      "dp": 1,
       "chapters": [],
       "abilities": [
         {
