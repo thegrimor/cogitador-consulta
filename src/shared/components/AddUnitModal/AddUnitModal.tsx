@@ -1,11 +1,25 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import type { Datasheet, PointsCost, RosterEntry } from '@/types'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
+import { StatsBar } from '@/shared/components/StatsBar'
+import { WeaponSelector } from '@/shared/components/WeaponSelector'
+import { AbilityList } from '@/shared/components/AbilityList'
+import { datasheetPath } from '@/core/constants/routes'
 import {
   compareByRolePriority, resolveCostsForUnitIndex, resolveCostsForFactionContext,
   unitIndexInRoster, maxCopiesAllowed, roleCategoryLabel, groupByRoleCategory,
-  ROLE_CATEGORY_LABELS,
+  ROLE_CATEGORY_LABELS, resolveWeaponQuantities,
 } from '@/core/utils/roster'
+
+const linkClass =
+  'text-[12px] font-mono text-crimson-bright hover:text-parchment uppercase tracking-wide border-b border-crimson-bright/40 hover:border-parchment transition-colors'
+
+// Default loadout at the datasheet's minimum size, so the weapon table shows who carries what
+// the same way a roster entry would right after adding it.
+function defaultQuantities(ds: Datasheet) {
+  return resolveWeaponQuantities(ds, { id: '', datasheetId: ds.id, modelCount: ds.modelCountMin })
+}
 
 function modelCountLabel(ds: Datasheet): string {
   if (ds.modelCountMin <= 0) return ''
@@ -47,6 +61,11 @@ export function AddUnitModal({
   const [activeCategory, setActiveCategory] = useState('Todos')
   const [search, setSearch] = useState('')
   const searchRef = useRef<HTMLInputElement>(null)
+  // One open datasheet at a time keeps the long picker list from jumping around.
+  const [expandedId, setExpandedId] = useState<string | null>(null)
+  function toggleExpanded(id: string) {
+    setExpandedId(current => (current === id ? null : id))
+  }
   // Entries grow as the player adds without closing, so the starting count is the only
   // stable reference for "how many did I add in this sitting".
   const [entryCountOnOpen] = useState(entries.length)
@@ -211,6 +230,7 @@ export function AddUnitModal({
                     const inRoster = entries.filter(e => e.datasheetId === ds.id).length
                     const cheapest = costs.length > 0 ? Math.min(...costs.map(c => c.points)) : 0
                     const overBudget = remaining !== null && cheapest > remaining
+                    const isExpanded = expandedId === ds.id
 
                     return (
                       <div
@@ -221,21 +241,32 @@ export function AddUnitModal({
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0 flex-1">
-                            <p className="text-[12px] font-display uppercase tracking-widest text-parchment flex items-center gap-1.5 flex-wrap">
-                              <span className="min-w-0">{ds.name}</span>
-                              {inRoster > 0 && (
-                                <span className="text-[9px] font-mono border border-crimson-bright text-crimson-bright px-1 py-px leading-none shrink-0">
-                                  ×{inRoster}
+                            <button
+                              onClick={() => toggleExpanded(ds.id)}
+                              aria-expanded={isExpanded}
+                              className="w-full text-left flex items-start gap-2"
+                            >
+                              <span className="text-[10px] text-crimson-bright w-2.5 shrink-0 mt-0.5">
+                                {isExpanded ? '▾' : '▸'}
+                              </span>
+                              <span className="min-w-0 flex-1">
+                                <span className="text-[12px] font-display uppercase tracking-widest text-parchment flex items-center gap-1.5 flex-wrap">
+                                  <span className="min-w-0">{ds.name}</span>
+                                  {inRoster > 0 && (
+                                    <span className="text-[9px] font-mono border border-crimson-bright text-crimson-bright px-1 py-px leading-none shrink-0">
+                                      ×{inRoster}
+                                    </span>
+                                  )}
                                 </span>
-                              )}
-                            </p>
-                            <p className="text-[10px] font-mono text-parchment-dim mt-0.5 truncate">
-                              {ds.role}
-                              {modelCountLabel(ds) && ` · ${modelCountLabel(ds)}`}
-                              {overBudget && !atCap && (
-                                <span className="text-gold"> · no cabe</span>
-                              )}
-                            </p>
+                                <span className="block text-[10px] font-mono text-parchment-dim mt-0.5 truncate">
+                                  {ds.role}
+                                  {modelCountLabel(ds) && ` · ${modelCountLabel(ds)}`}
+                                  {overBudget && !atCap && (
+                                    <span className="text-gold"> · no cabe</span>
+                                  )}
+                                </span>
+                              </span>
+                            </button>
                           </div>
 
                           <div className="shrink-0 flex justify-end">
@@ -264,6 +295,50 @@ export function AddUnitModal({
                         {!atCap && costs.length > 1 && (
                           <div className="mt-1.5">
                             <CostVariantPicker costs={costs} selectedDescription="" onSelect={cost => onAdd(ds, cost)} />
+                          </div>
+                        )}
+
+                        {isExpanded && (
+                          <div className="mt-2 pt-2.5 space-y-2 border-t border-rim-bright">
+                            {(ds.unitComposition.length > 0 || ds.loadout) && (
+                              <div className="border border-rim-bright">
+                                <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim px-2 py-1 bg-surface-3">
+                                  Composición y Equipo
+                                </p>
+                                <div className="px-2 py-1.5 space-y-1">
+                                  {ds.unitComposition.map((line, i) => (
+                                    <p
+                                      key={i}
+                                      className="wh-html text-[11px] font-mono text-parchment-dim"
+                                      dangerouslySetInnerHTML={{ __html: line }}
+                                    />
+                                  ))}
+                                  {ds.loadout && (
+                                    <p
+                                      className="text-[11px] font-mono text-parchment-dim mt-1 pt-1 border-t border-rim-bright"
+                                      dangerouslySetInnerHTML={{ __html: ds.loadout }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                            )}
+
+                            <StatsBar models={ds.models} />
+                            <WeaponSelector weapons={ds.weapons} quantities={defaultQuantities(ds)} />
+                            <AbilityList abilities={ds.abilities} />
+
+                            <div className="flex flex-wrap gap-2 pt-1">
+                              <NavLink to={datasheetPath(ds.id)} className={linkClass}>
+                                Ficha
+                              </NavLink>
+                            </div>
+
+                            <button
+                              onClick={() => toggleExpanded(ds.id)}
+                              className="w-full text-center text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment border-t border-rim-bright pt-2"
+                            >
+                              ▴ Cerrar
+                            </button>
                           </div>
                         )}
                       </div>

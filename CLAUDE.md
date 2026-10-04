@@ -814,7 +814,9 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   the player is picking blind. It stays open after each add (the per-datasheet `×N` badge is the
   confirmation) since adding several units in a row is the normal case. Its open state is a
   history entry (router `state.addUnit`), not a `useState`, so the browser/phone back gesture
-  closes it back to the roster instead of leaving the page. Allies are a source
+  closes it back to the roster instead of leaving the page. Each datasheet row has the same ▸/▾
+  dropdown as `RosterEntryRow` (one open at a time, read-only: composition/loadout, stats, weapons at the
+  minimum model count, abilities, link to the Ficha). Allies are a source
   switcher inside it, not a separate component — see the Imperial Agents bullet below.
 - Both `AddUnitModal` (the unit picker) and `RosterEditPage`'s own entry list group datasheets into the same 4 GW-app-style display buckets — Personajes / Battleline / Transporte Dedicado / Otros — via `groupByRoleCategory`/`roleCategoryLabel` in `src/core/utils/roster.ts`, which bucket every raw `Datasheet.role` string (there are many more of these across factions than 4 - Fire Support, Transport, Fortifications, "Other Datasheets", etc. - see `ROLE_PRIORITY`) onto `ROLE_CATEGORY_LABELS`'s 4 labels, same priority order as `compareByRolePriority`/`rolePriority`. `AddUnitModal`'s filter tabs are these 4 categories (plus "Todos"), not one tab per raw role.
   **Known data gap:** `ROLE_PRIORITY` keys the transport bucket on the role string
