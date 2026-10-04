@@ -1183,6 +1183,7 @@
       "id": "elixir-of-the-corpse-courts",
       "name": "Elixir of the Corpse Courts",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "tools-of-torment",
       "detachmentName": "Tools of Torment",
       "description": "<span class=\"kwb\">CRONOS</span>/<span class=\"kwb\">TALOS</span> unit only. This unit has 5+ InSv.",

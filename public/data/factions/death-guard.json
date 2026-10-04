@@ -794,6 +794,7 @@
       "id": "insectile-murmuration",
       "name": "Insectile Murmuration",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "flyblown-host",
       "detachmentName": "Flyblown Host",
       "description": "<span class=\"kwb\">PLAGUE MARINES</span> unit only. When this unit’s attacks target a unit within Contagion Range of a friendly unit, those attacks can re-roll wound rolls of 1.",

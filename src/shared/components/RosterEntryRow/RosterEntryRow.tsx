@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, Detachment, WargearCost } from '@/types'
 import {
-  resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, attachmentKind,
+  resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, attachmentKind, isCharacterDatasheet,
 } from '@/core/utils/roster'
 import { datasheetPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
@@ -97,7 +97,7 @@ export function RosterEntryRow({
   const selectedDescription =
     costs.find(c => resolveModelCount(c, datasheet) === entry.modelCount)?.description ?? ''
 
-  const isCharacter = datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
+  const isCharacter = isCharacterDatasheet(datasheet)
   const selectedEnhancement = availableEnhancements.find(e => e.id === entry.enhancementId)
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
   const kindLabel = attachmentKind(datasheet) === 'support' ? 'apoyo' : 'líder'

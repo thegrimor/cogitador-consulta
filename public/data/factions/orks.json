@@ -933,6 +933,7 @@
       "id": "ardboyz",
       "name": "'Ardboyz",
       "cost": 25,
+      "upgrade": true,
       "detachmentId": "green-tide",
       "detachmentName": "Green Tide",
       "description": "<span class=\"kwb\">BOYZ</span> unit only. This unit has 4+ Sv. (Upgrade – can be taken more than once per army.)"
@@ -941,6 +942,7 @@
       "id": "wimp-kickaz",
       "name": "Wimp-Kickaz",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "bully-boyz",
       "detachmentName": "Bully Boyz",
       "description": "<span class=\"kwb\">NOBZ</span> unit only. When an enemy unit engaged with this unit is selected to make a fall-back move: that enemy unit must select the desperate escape mode; if this unit is riled up, that enemy unit has -1 to the hazard rolls made for that desperate escape. (Upgrade.)"
@@ -957,6 +959,7 @@
       "id": "extra-sneaky",
       "name": "Extra Sneaky",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "runt-swarm",
       "detachmentName": "Runt Swarm",
       "description": "<span class=\"kwb\">GRETCHIN</span> unit only. This unit has -3\" detection range. (Upgrade.)"
@@ -965,6 +968,7 @@
       "id": "minefield-detail",
       "name": "Minefield Detail",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "runt-swarm",
       "detachmentName": "Runt Swarm",
       "description": "<span class=\"kwb\">GRETCHIN</span> unit only. While this unit is not embarked, this unit has Scouts 6\". (Upgrade.)"
@@ -1004,6 +1008,7 @@
       "id": "throat-slittas",
       "name": "Throat-Slittas",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "taktikal-brigade",
       "detachmentName": "Taktikal Brigade",
       "description": "<span class=\"kwb\">KOMMANDOS/STORMBOYZ</span> unit only. This unit's melee attacks have <span class=\"kwb\">[LETHAL HITS: non-MONSTER/VEHICLE]</span>. (Upgrade.)",
@@ -1026,6 +1031,7 @@
       "id": "supa-snazz-dakka",
       "name": "Supa-Snazz Dakka",
       "cost": 25,
+      "upgrade": true,
       "detachmentId": "wreckas",
       "detachmentName": "Wreckas",
       "description": "<span class=\"kwb\">FLASH GITZ</span> unit only. This unit's Snazzgun weapons have <span class=\"kwb\">[RAPID FIRE 1]</span>. (Upgrade.)"
@@ -1058,6 +1064,7 @@
       "id": "temperamental-shokka",
       "name": "Temperamental Shokka",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
       "description": "<span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. In your Shooting phase, when this unit is selected to shoot, you can roll one D6: on a 1, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[TORRENT]</span>, and when this unit has shot, this model is destroyed; on a 2-5, this model's Shokk Attack Gun weapon has +1 A; on a 6, this model's Shokk Attack Gun weapon has <span class=\"kwb\">[SUSTAINED HITS 2]</span>. (Upgrade.)"
@@ -1066,6 +1073,7 @@
       "id": "enhanced-runt-maw",
       "name": "Enhanced Runt-Maw",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "madcap-meks",
       "detachmentName": "Madcap Meks",
       "description": "<span class=\"kwb\">BIG MEK WITH SHOKK ATTACK GUN</span> model only. When this unit has shot, select one enemy unit hit by those attacks – that unit is infested with Snotlings until the start of your next turn. While an enemy unit is infested with Snotlings, that unit has -1 to leadership rolls. (Upgrade.)"
@@ -1090,6 +1098,7 @@
       "id": "targetin-gizmos",
       "name": "Targetin' Gizmos",
       "cost": 25,
+      "upgrade": true,
       "detachmentId": "blitz-brigade",
       "detachmentName": "Blitz Brigade",
       "description": "<span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">BIG MEK</span> model is embarked within this unit: this unit's ranged attacks have <span class=\"kwb\">[IGNORES COVER]</span>; if this unit is riled up, this unit's ranged attacks have <span class=\"kwb\">[SUSTAINED HITS 1]</span>. (Upgrade.)"
@@ -1098,6 +1107,7 @@
       "id": "boss-boomer",
       "name": "Boss Boomer",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "blitz-brigade",
       "detachmentName": "Blitz Brigade",
       "description": "<span class=\"kwb\">WAGON</span> unit only. While a <span class=\"kwb\">WARBOSS</span> model is embarked within this unit, this unit has that <span class=\"kwb\">WARBOSS</span> model's Intimidating Motivation/Keep Huntin' ability. (Upgrade.)"
@@ -1106,6 +1116,7 @@
       "id": "smoky-gubbinz",
       "name": "Smoky Gubbinz",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "kult-of-speed",
       "detachmentName": "Kult of Speed",
       "description": "<span class=\"kwb\">SPEED FREEKS</span> unit only (excluding <span class=\"kwb\">AIRCRAFT</span> units). When an attack targets a unit that is not fully visible to the attacking model because of a model in this unit, the target has the benefit of cover against that attack. (Upgrade.)"
@@ -1122,6 +1133,7 @@
       "id": "flyboss",
       "name": "Flyboss",
       "cost": 20,
+      "upgrade": true,
       "detachmentId": "flyboyz",
       "detachmentName": "Flyboyz",
       "description": "<span class=\"kwb\">ORKS AIRCRAFT</span> unit only. This unit has CHARACTER. When this unit ends an ingress move, each friendly <span class=\"kwb\">ORKS AIRCRAFT/DEFFKOPTAS</span> unit within 6\" of this unit is riled up until the start of your next turn. (Upgrade.)"
@@ -1130,6 +1142,7 @@
       "id": "impulsive-recon",
       "name": "Impulsive Recon",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "flyboyz",
       "detachmentName": "Flyboyz",
       "description": "<span class=\"kwb\">ORKS AIRCRAFT</span> unit only. In your first Movement phase, this unit can make an ingress move. (Upgrade.)"

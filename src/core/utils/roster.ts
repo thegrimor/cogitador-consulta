@@ -25,9 +25,11 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
-/** Whether a datasheet is a CHARACTER (enhancements go to characters, upgrades to everything else). */
+/** Whether a datasheet is a character (enhancements go to characters, upgrades to everything else).
+ *  Some datasheets (the Space Marines PDF migration) lack the CHARACTER keyword but sit in the
+ *  `Characters` role, so either one counts. */
 export function isCharacterDatasheet(datasheet: Datasheet): boolean {
-  return datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
+  return datasheet.role === 'Characters' || datasheet.keywords.some(k => k.toUpperCase() === 'CHARACTER')
 }
 
 /** Whether every word of `phrase` is covered by keywords/names the datasheet owns ("GRAV-ASSAULT TRANSPORT"
@@ -49,13 +51,13 @@ export function canBearUnmappedEnhancement(
   const isCharacter = isCharacterDatasheet(datasheet)
   if (!enhancement.upgrade) return isCharacter
   const text = enhancement.description.replace(/<[^>]*>/g, '')
-  const clause = text.match(/([A-Z][A-Z' /-]+?)\s+(model|unit) only(?:\s*\(excluding ([A-Z][A-Z' /-]+?) units?\))?/)
+  const clause = text.match(/([A-Z][A-Z' /-]+?(?: or [A-Z][A-Z' /-]+?)*)\s+(model|unit) only(?:\s*\(excluding ([A-Z][A-Z' /-]+?) units?\))?/)
   if (!clause) return !isCharacter
   const owned = [...datasheet.keywords, ...datasheet.factionKeywords, datasheet.name].map(k => k.toUpperCase())
   // "unit only" upgrades are for the unit itself, never a character that leads it.
   if (clause[2] === 'unit' && isCharacter) return false
   if (clause[3] && clause[3].split('/').some(x => phraseCoveredBy(x.trim(), owned))) return false
-  return clause[1].split('/').some(alt => phraseCoveredBy(alt.trim(), owned))
+  return clause[1].split(/\/| or /).some(alt => phraseCoveredBy(alt.trim(), owned))
 }
 
 export type AttachmentKind = 'leader' | 'support'

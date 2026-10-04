@@ -897,12 +897,18 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   and "Habilidades Comunes" abilities.
 - **Enhancements vs. Upgrades: `Enhancement.upgrade`.** GW's "Upgrade" enhancements go on non-character
   units; every other enhancement is for characters. The data carries that as `upgrade: true` on the enhancement
-  (44 entries, set from the data's own markers — an id ending `-upgrade` or a description starting "Upgrade
-  enhancement"; set it on any new upgrade you author). `canBearUnmappedEnhancement` (`roster.ts`) is the single rule, used by `RosterEditPage` and
+  (76 entries). **Source of truth: the MFM tags upgrades with `(Upgrade)` next to the enhancement's
+  name** on each faction page's `DETACHMENTS` section (Custodes' new-codex detachments aren't on the MFM yet, so
+  those 6 are the user-confirmed ones). The flag was first inferred from the id suffix / "Upgrade enhancement" /
+  "X unit only" text and then swept against all 28 MFM pages (2026-10-03): the inference was exact for Space
+  Marines (9/9) and the Orks missed 2, and 13 more were added across Grey Knights, Aeldari, Drukhari, Death
+  Guard and Chaos Knights. Beware: an MFM name can repeat across editions/detachments (its Augury Uplink is an
+  old Solar Spearhead enhancement, not the Might of the Moritoi one) and the MFM has typos ("Upgarde"). Set it
+  on any new upgrade you author. `canBearUnmappedEnhancement` (`roster.ts`) is the single rule, used by `RosterEditPage` and
   Mathhammer's `usePanelState`: an enhancement in a datasheet's `enhancementIds` is always offered; otherwise,
   if no datasheet maps it, a non-upgrade goes to CHARACTERs only, and an upgrade goes to whichever unit its "X
-  model/unit only" clause names (`A/B` = either, `(excluding Y units)` honoured, every word covered by its keywords/name; "unit only" never goes to a character), or to any non-character if it names none. `RosterEntryRow` shows the "Mejora" picker when the
-  unit is a character or has any available. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
+  model/unit only" clause names (`A/B`/`A or B` = either, `(excluding Y units)` honoured, every word covered by its keywords/name; "unit only" never goes to a character), or to any non-character if it names none. `RosterEntryRow` shows the "Mejora" picker when the
+  unit is a character or has any available. "Character" (`isCharacterDatasheet`) is the CHARACTER keyword *or* role `Characters`, because the Space Marines PDF-migration characters (Kayvaan Shrike, Librarian in Terminator Armour…) lack the keyword. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
   Augury Uplink/Memento Moritoi.
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
   return no enhancements for a datasheet with the `Epic Hero` keyword (`isEpicHero` in `roster.ts`). It has to

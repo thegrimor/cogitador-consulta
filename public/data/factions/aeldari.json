@@ -1935,6 +1935,7 @@
       "id": "camouflaged-snipers",
       "name": "Camouflaged Snipers",
       "cost": 10,
+      "upgrade": true,
       "detachmentId": "path-of-the-outcast",
       "detachmentName": "Path of the Outcast",
       "description": "<span class=\"kwb\">RANGERS</span> unit only. This unit's ranged attacks do not prevent this unit from being hidden."
@@ -1943,6 +1944,7 @@
       "id": "assassins-eye",
       "name": "Assassins' Eye",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "path-of-the-outcast",
       "detachmentName": "Path of the Outcast",
       "description": "<span class=\"kwb\">RANGERS</span>/<span class=\"kwb\">SHROUD RUNNERS</span> unit only. This unit's ranged attacks that target a <span class=\"kwb\">CHARACTER</span> unit have +1 AP.",
@@ -1958,6 +1960,7 @@
       "id": "shadowfall-masks",
       "name": "Shadowfall Masks",
       "cost": 15,
+      "upgrade": true,
       "detachmentId": "twilight-flickers",
       "detachmentName": "Twilight Flickers",
       "description": "<span class=\"kwb\">TROUPE</span> unit only. This unit has Fights First."
