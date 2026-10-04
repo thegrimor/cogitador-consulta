@@ -2834,7 +2834,8 @@
       "enhancementIds": [],
       "detachmentAbilityIds": [],
       "canBeLedBy": [
-        "shield-captain-in-allarus-terminator-armour"
+        "shield-captain-in-allarus-terminator-armour",
+        "trajann-valoris"
       ]
     },
     {
@@ -4578,7 +4579,9 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "trajann-valoris"
+      ]
     },
     {
       "id": "aquilon-terminators-solarite-power-talons",
@@ -4764,7 +4767,9 @@
       "stratagemIds": [],
       "enhancementIds": [],
       "detachmentAbilityIds": [],
-      "canBeLedBy": []
+      "canBeLedBy": [
+        "trajann-valoris"
+      ]
     },
     {
       "id": "sentinel-guard-sodality",
