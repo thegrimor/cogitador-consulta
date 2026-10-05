@@ -1476,11 +1476,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models (1st-2nd units)",
+          "description": "3 models (1st-3rd units)",
           "points": 240
         },
         {
-          "description": "3 models (3rd+ unit)",
+          "description": "3 models (4th+ unit)",
           "points": 270
         }
       ],
@@ -4948,11 +4948,11 @@
       ],
       "pointsCosts": [
         {
-          "description": "3 models (1st-2nd units)",
+          "description": "3 models (1st-3rd units)",
           "points": 240
         },
         {
-          "description": "3 models (3rd+ unit)",
+          "description": "3 models (4th+ unit)",
           "points": 270
         }
       ],

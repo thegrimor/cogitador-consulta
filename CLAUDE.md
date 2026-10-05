@@ -312,7 +312,7 @@ equal across the board = no tier; First=Second≠Third = `(1st-2nd units)` / `(3
 `(1st unit)` / `(2nd+ unit)` (`parseTierRange` reads these). Values (1st / 2nd / 3rd copy): Trajann 265;
 Shield-Captain 205/225/225 (the datasheet's default loadout includes the Praesidium Shield, so this is the
 spreadsheet's "+shield" row); Allarus Shield-Captain 185/205/205; Dawneagle 205/225/225; Blade Champion
-175/175/195; Sentinel Guard and Custodian Guard 240/240/270; Wardens 2 models 200/230/230, 3 models 295/325/325;
+175/175/195; Sentinel Guard and Custodian Guard 240 (1st-3rd units) / 270 (4th+ unit) — the spreadsheet's 240/240/270 would read as 3rd+, but the +30 was confirmed to start at the **fourth** unit by Xandre Ramos (2026-10-05); Wardens 2 models 200/230/230, 3 models 295/325/325;
 Allarus 2 models 180/180/210, 3 models 270/270/300; Aquilon Gauntlets 285/285/315, Talons 275/275/305 (fixed 3
 models); Venatari Kinetic 255/255/280, Lances 270/270/300; Telemon 280/310/310; Galatus 220/220/250; Achillus
 230/230/260; Vertus Praetors 2 models 220/240/240, 3 models 330/350/350; Gyrfalcon 260/280/280 (fixed 2);
