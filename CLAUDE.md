@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Update this file as part of the task, not after.** When a task adds a route, a data file, a store slice, or changes an architectural pattern described below, update the relevant section in the same change. Stale docs here have previously caused wrong assumptions about what's implemented — don't let this file drift from the code again.
 
+## Branch naming
+
+**Use descriptive branch names** that say what the change does, in kebab-case with a type prefix —
+`feat/password-recovery`, `fix/roster-points-tiers`, `data/custodes-points`, `docs/claude-md-branches` —
+never an opaque or auto-generated id. If the session or harness designates a specific branch to
+work on (e.g. a `ccr-...` name), push there as instructed rather than creating another one — but
+whenever the branch name is yours to choose, follow this rule.
+
 ## Commands
 
 ```bash
@@ -610,6 +618,12 @@ server: process died without the handler, survived and kept serving `/api/health
 - `GET /api/health` → `{ status: 'ok' }`, backed by a real `SELECT 1` against Postgres (not
   just "the process is up") — set as the Railway service's Healthcheck Path.
 - `POST /api/auth/register`, `POST /api/auth/login` → `{ token, user }`
+- `POST /api/auth/reset-password` `{ username, password }` → `{ token, user }` — **password
+  recovery by username alone, no email/token, on purpose**: the app is invite-only, so anyone
+  who knows a username may reset it (any account takeover is possible if registration is ever
+  opened). Frontend: `/forgot-password` (`ForgotPasswordPage`, linked from the login form).
+  `ALLOW_PASSWORD_RESET=false` in `server/.env` disables it. Switch to an email-token flow
+  before opening registration publicly.
 - `GET /api/auth/me` (bearer token) → `{ user }`
 - `GET /api/rosters` / `PUT /api/rosters/:id` / `DELETE /api/rosters/:id` (bearer token, all
   scoped to the authenticated user; `PUT` upserts a full `RosterList` by id) —
@@ -788,6 +802,7 @@ Routes defined in `src/core/constants/routes.ts` with helper functions (`faction
 /mathhammer                                → MathhammerPage (?faction=&datasheet=&detachments=&character=&roster=)
 
 /login                                     → LoginPage (login + register, toggled in one form; ?next= to return after auth)
+/forgot-password                           → ForgotPasswordPage (reset password by username, logs in on success)
 ```
 
 **Back navigation in the catalog**: the datasheet/detachment lists link to detail pages with

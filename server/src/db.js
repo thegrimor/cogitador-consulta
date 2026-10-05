@@ -99,6 +99,14 @@ export const store = {
     return user
   },
 
+  async updateUserPassword(id, passwordHash) {
+    const { rowCount } = await pool.query('UPDATE users SET password_hash = $2 WHERE id = $1', [
+      id,
+      passwordHash,
+    ])
+    return rowCount > 0
+  },
+
   async listRostersByUser(userId) {
     const { rows } = await pool.query(
       'SELECT user_id, data FROM rosters WHERE user_id = $1 ORDER BY updated_at DESC',

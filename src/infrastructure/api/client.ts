@@ -70,6 +70,12 @@ export const api = {
       body: JSON.stringify({ username, password }),
     }),
 
+  resetPassword: (username: string, password: string) =>
+    request<AuthResponse>('/auth/reset-password', {
+      method: 'POST',
+      body: JSON.stringify({ username, password }),
+    }),
+
   me: (token: string) => request<{ user: AuthUser }>('/auth/me', { token }),
 
   listRosters: (token: string) => request<{ rosters: RosterList[] }>('/rosters', { token }),
