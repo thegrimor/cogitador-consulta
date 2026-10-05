@@ -55,6 +55,29 @@ authRouter.post(
   }),
 )
 
+// Password recovery by username alone — no email, no token. Deliberate: the app is
+// invite-only, so anyone who knows a username is trusted to reset it. Revisit (email-based
+// reset) before opening registration to the public. ALLOW_PASSWORD_RESET=false disables it.
+authRouter.post(
+  '/reset-password',
+  asyncHandler(async (req, res) => {
+    if (process.env.ALLOW_PASSWORD_RESET === 'false') {
+      return res.status(403).json({ error: 'La recuperación de contraseña está desactivada.' })
+    }
+    const { username, password } = req.body ?? {}
+    if (typeof password !== 'string' || password.length < 6) {
+      return res.status(400).json({ error: 'La contraseña debe tener al menos 6 caracteres.' })
+    }
+    const user = typeof username === 'string' ? await store.findUserByUsername(username) : undefined
+    if (!user) {
+      return res.status(404).json({ error: 'No existe ese usuario.' })
+    }
+    await store.updateUserPassword(user.id, hashPassword(password))
+    const token = signToken({ sub: user.id })
+    res.json({ token, user: publicUser(user) })
+  }),
+)
+
 authRouter.get('/me', requireAuth, (req, res) => {
   res.json({ user: publicUser(req.user) })
 })

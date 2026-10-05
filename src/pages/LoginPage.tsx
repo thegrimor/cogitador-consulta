@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { login, register } from '@/store/authThunks'
 import { selectAuthStatus, selectAuthError } from '@/store/authSlice'
@@ -78,9 +78,18 @@ export function LoginPage() {
         </button>
       </form>
 
+      {mode === 'login' && (
+        <Link
+          to={ROUTES.FORGOT_PASSWORD}
+          className="block text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mt-4"
+        >
+          ¿Olvidaste tu contraseña?
+        </Link>
+      )}
+
       <button
         onClick={() => setMode(m => (m === 'login' ? 'register' : 'login'))}
-        className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mt-4"
+        className="text-[11px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment mt-4 block"
       >
         {mode === 'login' ? '¿No tienes cuenta? Crear una' : '¿Ya tienes cuenta? Iniciar sesión'}
       </button>

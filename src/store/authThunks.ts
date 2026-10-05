@@ -168,6 +168,24 @@ export const register = createAsyncThunk<
   }
 })
 
+export const resetPassword = createAsyncThunk<
+  boolean,
+  { username: string; password: string },
+  { dispatch: AppDispatch }
+>('auth/resetPassword', async ({ username, password }, { dispatch }) => {
+  dispatch(authLoading())
+  try {
+    const { token, user } = await api.resetPassword(username, password)
+    dispatch(resetRosters())
+    dispatch(credentialsSet({ user, token }))
+    await fetchAndHydrateRosters(dispatch, token)
+    return true
+  } catch (err) {
+    dispatch(authFailed(authErrorMessage(err, 'No se pudo restablecer la contraseña.')))
+    return false
+  }
+})
+
 /** Also used internally whenever we switch accounts, so no roster mutation from the
  * previous session can land on the new one mid-flight. */
 export const logout = createAsyncThunk<void, void, { dispatch: AppDispatch }>(
