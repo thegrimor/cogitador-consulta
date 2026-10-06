@@ -179,6 +179,10 @@ export function isRuleApplicable(rule: ModifierRule, ctx: RuleVisibilityContext)
     const defKwLower = ctx.defenderKeywords.map(k => k.toLowerCase())
     if (rule.excludesTargetKeywords.some(k => defKwLower.includes(k.toLowerCase()))) return false
   }
-  if (rule.requiresAttackerKeyword && !ctx.attackerKeywords.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
+  if (rule.requiresAttackerKeyword) {
+    // MathhammerPage passes the keywords in their original case, UnitPanel already lowercased.
+    const attKwLower = ctx.attackerKeywords.map(k => k.toLowerCase())
+    if (!attKwLower.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
+  }
   return true
 }
