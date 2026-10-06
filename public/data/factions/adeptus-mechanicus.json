@@ -18,14 +18,13 @@
           }
         },
         {
-          "name": "Protector Imperative — −1 impactar recibido en CaC",
+          "name": "Protector Imperative — −1 impactar recibido en CaC (si Battleline o a 6\" de Battleline)",
           "effect": {
             "effects": {
               "hitMod": -1
             },
             "combatType": "melee",
-            "target": "defender",
-            "requiresTargetKeyword": "battleline"
+            "target": "defender"
           }
         },
         {
@@ -38,12 +37,11 @@
           }
         },
         {
-          "name": "Conqueror Imperative — +1 PA",
+          "name": "Conqueror Imperative — +1 PA (si Battleline o a 6\" de Battleline)",
           "effect": {
             "effects": {
               "apMod": 1
-            },
-            "requiresAttackerKeyword": "battleline"
+            }
           }
         }
       ]
@@ -1624,15 +1622,7 @@
           "id": "shroudpsalm-aura",
           "name": "Shroudpsalm (Aura)",
           "description": "While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit is within 6\" of this model, that unit has the Stealth ability.",
-          "type": "Datasheet",
-          "effect": {
-            "effects": {
-              "hitMod": -1
-            },
-            "target": "defender",
-            "appliesToNearby": true,
-            "requiresAttackerKeyword": "adeptus mechanicus"
-          }
+          "type": "Datasheet"
         }
       ],
       "keywords": [
