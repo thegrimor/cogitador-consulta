@@ -32,6 +32,7 @@ function effectToRule(
     cpCost: effect.cpCost,
     requiresAntiKeyword: effect.requiresAntiKeyword,
     requiresTargetKeyword: effect.requiresTargetKeyword,
+    excludesTargetKeywords: effect.excludesTargetKeywords,
     requiresAttackerKeyword: effect.requiresAttackerKeyword,
     bearerOnly: effect.bearerOnly,
     effects: effect.effects,
@@ -173,6 +174,10 @@ export function isRuleApplicable(rule: ModifierRule, ctx: RuleVisibilityContext)
   if (rule.requiresTargetKeyword) {
     const defKwLower = ctx.defenderKeywords.map(k => k.toLowerCase())
     if (!defKwLower.includes(rule.requiresTargetKeyword.toLowerCase())) return false
+  }
+  if (rule.excludesTargetKeywords?.length) {
+    const defKwLower = ctx.defenderKeywords.map(k => k.toLowerCase())
+    if (rule.excludesTargetKeywords.some(k => defKwLower.includes(k.toLowerCase()))) return false
   }
   if (rule.requiresAttackerKeyword && !ctx.attackerKeywords.includes(rule.requiresAttackerKeyword.toLowerCase())) return false
   return true

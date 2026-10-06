@@ -309,6 +309,8 @@ Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean 
 photographed pages (Vertus Praetors, Gyrfalcon, Vigilators, Pallas, Coronus, both Caladius, Wardens, Blade
 Champion, Shield-Captain, Allarus, both Aquilon, Sentinel Guard). Fixed: Twin Corvae Las-pulser D `2` → `D3+2`;
 Stand Vigil text is "if **any** of the following apply" (was written as "and"); "Slayers" → "Slayer of Tyrants".
+Also set missing `isAssault`/Rapid Fire/Precision weapon flags, and Destructor Optics/Dread Foe/Impenetrable
+Defence/Stand Vigil/Dacatarai now use `excludesTargetKeywords` instead of an infantry-only approximation.
 **Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
 never photographed, so it exists nowhere in `armyRules` yet.
 
@@ -1080,6 +1082,11 @@ value look plausible."
     checked at all). The tell: does the escalation replace the same field's *value*, or add a
     *different* field on top? Replace → options. Add-on to a real but unrepresentable condition →
     drop the add-on, no split.
+- **"excluding MONSTER/VEHICLE units" on the target → `excludesTargetKeywords: ["monster", "vehicle"]`**
+  (`CombatEffect`/`ModifierRule`; the rule is hidden when the defender has ANY listed keyword). Never approximate it
+  with `requiresTargetKeyword: "infantry"` — that silently drops Mounted, Beasts, Swarms, etc. Only the *target*
+  side is supported: an exclusion on the *beneficiary* ("friendly units (excluding MONSTER/VEHICLE)", e.g.
+  Captain-General) is still unmodelled.
 - The schema's `requiresAttackerKeyword`/`requiresTargetKeyword`/`requiresAntiKeyword` are all
   **single-string only** — no AND/OR of two keywords anywhere in the dataset. If the text ORs two
   real keywords (**"MONSTER or VEHICLE"**, **"Infantry or Mounted"**, two named unit types that

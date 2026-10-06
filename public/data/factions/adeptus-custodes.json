@@ -13,7 +13,11 @@
             "effects": {
               "rerollHitsOf1": true
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "excludesTargetKeywords": [
+              "monster",
+              "vehicle"
+            ]
           }
         },
         {
@@ -110,7 +114,11 @@
         "effects": {
           "rerollHitsOf1": true
         },
-        "combatType": "melee"
+        "combatType": "melee",
+        "excludesTargetKeywords": [
+          "monster",
+          "vehicle"
+        ]
       },
       "group": "Ka’tah"
     },
@@ -1398,7 +1406,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -1431,7 +1443,11 @@
           "effect": {
             "effects": {
               "sustainedHitsBonus": 1
-            }
+            },
+            "excludesTargetKeywords": [
+              "monster",
+              "vehicle"
+            ]
           }
         },
         {
@@ -1604,7 +1620,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -1876,7 +1896,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -2114,7 +2138,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -2302,7 +2330,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -2501,7 +2533,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -2740,7 +2776,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -2952,7 +2992,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -3181,7 +3225,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -3431,7 +3479,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -3615,7 +3667,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -3798,7 +3854,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4008,7 +4068,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4178,7 +4242,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4357,7 +4425,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4521,7 +4593,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4555,7 +4631,11 @@
             "effects": {
               "apMod": 1
             },
-            "combatType": "melee"
+            "combatType": "melee",
+            "excludesTargetKeywords": [
+              "monster",
+              "vehicle"
+            ]
           }
         }
       ],
@@ -4704,7 +4784,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4875,7 +4959,11 @@
                 "effects": {
                   "rerollHitsOf1": true
                 },
-                "combatType": "melee"
+                "combatType": "melee",
+                "excludesTargetKeywords": [
+                  "monster",
+                  "vehicle"
+                ]
               }
             },
             {
@@ -4908,7 +4996,11 @@
           "effect": {
             "effects": {
               "lethalHitsBonus": true
-            }
+            },
+            "excludesTargetKeywords": [
+              "monster",
+              "vehicle"
+            ]
           }
         },
         {
@@ -5822,7 +5914,10 @@
               "apMod": 1
             },
             "combatType": "ranged",
-            "requiresTargetKeyword": "infantry"
+            "excludesTargetKeywords": [
+              "monster",
+              "vehicle"
+            ]
           }
         }
       ],

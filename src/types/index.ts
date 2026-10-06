@@ -137,6 +137,8 @@ export interface CombatEffect {
   target?: 'attacker' | 'defender'
   requiresAntiKeyword?: string
   requiresTargetKeyword?: string
+  /** Rule does not apply when the target has ANY of these keywords ("excluding MONSTER/VEHICLE units"). */
+  excludesTargetKeywords?: string[]
   requiresAttackerKeyword?: string
   bearerOnly?: boolean
   isStratagem?: boolean
