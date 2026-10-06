@@ -5492,7 +5492,7 @@
     },
     {
       "id": "vigilators",
-      "name": "Vigilators",
+      "name": "Vigilator Squad",
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
@@ -5612,7 +5612,7 @@
     },
     {
       "id": "witchseekers",
-      "name": "Witchseekers",
+      "name": "Witchseeker Squad",
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,

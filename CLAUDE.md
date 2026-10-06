@@ -1113,6 +1113,11 @@ value look plausible."
   with `requiresTargetKeyword: "infantry"` — that silently drops Mounted, Beasts, Swarms, etc. Only the *target*
   side is supported: an exclusion on the *beneficiary* ("friendly units (excluding MONSTER/VEHICLE)", e.g.
   Captain-General) is still unmodelled.
+- **A rule that addresses a unit by title ("VIGILATOR SQUAD unit", "TRUSTED SENTINEL") is matched against the
+  datasheet's *name* too**: Mathhammer's attacker/defender keyword lists include `selectedUnit.name`
+  (`MathhammerPage`, `UnitPanel`), so `requiresAttackerKeyword: "vigilator squad"` works without inventing a keyword the
+  book doesn't print. The datasheet name must therefore equal the book title (Custodes' Vigilators/Witchseekers were
+  renamed `Vigilator Squad`/`Witchseeker Squad`).
 - The schema's `requiresAttackerKeyword`/`requiresTargetKeyword`/`requiresAntiKeyword` are all
   **single-string only** — no AND/OR of two keywords anywhere in the dataset. If the text ORs two
   real keywords (**"MONSTER or VEHICLE"**, **"Infantry or Mounted"**, two named unit types that

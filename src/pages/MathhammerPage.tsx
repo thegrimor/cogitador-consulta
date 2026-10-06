@@ -125,11 +125,13 @@ export function MathhammerPage() {
   // types/targets it was never meant for. Computed up here (rather than just before the render)
   // so the restore-on-select logic below can also use `applicableRightRules` to seed FNP/Stealth
   // defaults for whichever rules are actually in scope for the selected defender.
+  // The datasheet's own name counts as a keyword: rules address units by title ("VIGILATOR SQUAD
+  // unit") without that title being in the keyword list.
   const defenderKeywords: string[] = rightPanel.selectedUnit
-    ? [...rightPanel.selectedUnit.keywords, ...rightPanel.selectedUnit.factionKeywords]
+    ? [...rightPanel.selectedUnit.keywords, ...rightPanel.selectedUnit.factionKeywords, rightPanel.selectedUnit.name]
     : []
   const attackerKeywords: string[] = leftPanel.selectedUnit
-    ? [...leftPanel.selectedUnit.keywords, ...leftPanel.selectedUnit.factionKeywords]
+    ? [...leftPanel.selectedUnit.keywords, ...leftPanel.selectedUnit.factionKeywords, leftPanel.selectedUnit.name]
     : []
   const selectedWeaponAntiKeywords: string[] = selectedWeapons.flatMap(w =>
     w.antiEntries.map(e => e.keyword)
