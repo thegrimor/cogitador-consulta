@@ -48,13 +48,7 @@
       "id": "aegis-of-the-emperor",
       "name": "Aegis of the Emperor",
       "type": "Faction",
-      "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-      "effect": {
-        "effects": {
-          "feelNoPainThreshold": 5
-        },
-        "target": "defender"
-      }
+      "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
     },
     {
       "id": "daughters-of-the-abyss",
@@ -1481,13 +1475,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -1695,13 +1683,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -1971,13 +1953,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -2213,13 +2189,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -2405,13 +2375,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -2608,13 +2572,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -2851,13 +2809,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -3067,13 +3019,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -3300,13 +3246,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -3554,13 +3494,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -3750,13 +3684,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -3937,13 +3865,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -4151,13 +4073,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -4326,13 +4242,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -4509,13 +4419,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -4677,13 +4581,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -4868,13 +4766,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -5044,13 +4936,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "martial-katah",
@@ -6008,13 +5894,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "destructor-optics",
@@ -6202,13 +6082,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "advanced-firepower",
@@ -6417,13 +6291,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "mobile-hunter",
@@ -6584,13 +6452,7 @@
           "id": "aegis-of-the-emperor",
           "name": "Aegis of the Emperor",
           "type": "Faction",
-          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
+          "description": "Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds."
         },
         {
           "id": "repulsor-suspensor-technology",
