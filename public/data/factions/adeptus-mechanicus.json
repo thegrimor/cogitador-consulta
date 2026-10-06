@@ -295,7 +295,8 @@
       "description": "<b>WHEN:</b> Your Command phase.<br><br><b>TARGET:</b> One LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE unit from your army.<br><br><b>EFFECT:</b> Until the start of your next Command phase, models in your unit have the Feel No Pain  6+ ability, which is improved to Feel No Pain 5+ against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 6
+          "feelNoPainThreshold": 6,
+          "feelNoPainMortalThreshold": 5
         },
         "target": "defender",
         "isStratagem": true,
@@ -388,7 +389,7 @@
       "description": "<b>WHEN:</b> Any phase, just after you allocate a mortal wound to a CULT MECHANICUS model from your army.<br><br><b>TARGET:</b> That <span class=\"kwb\">CULT</span> <span class=\"kwb\">MECHANICUS</span> model’s unit.<br><br><b>EFFECT:</b> Until the end of the phase, <span class=\"kwb\">CULT</span> <span class=\"kwb\">MECHANICUS</span> models in your unit have the Feel No Pain 4+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 4
+          "feelNoPainMortalThreshold": 4
         },
         "target": "defender",
         "isStratagem": true,

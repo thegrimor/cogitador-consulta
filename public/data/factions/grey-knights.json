@@ -558,7 +558,7 @@
       "description": "<b>WHEN:</b> Any phase, just after a Grey Knights Psyker Vehicle unit from your army suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">GREY</span> <span class=\"kwb\">KNIGHTS</span> <span class=\"kwb\">PSYKER</span> <span class=\"kwb\">VEHICLE</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 4+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 4
+          "feelNoPainMortalThreshold": 4
         },
         "target": "defender",
         "isStratagem": true,
@@ -709,7 +709,7 @@
       "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">PALADIN SQUAD</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">PALADIN SQUAD</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 4+ against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 4
+          "feelNoPainMortalThreshold": 4
         },
         "target": "defender",
         "requiresAttackerKeyword": "paladin squad",

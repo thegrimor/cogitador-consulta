@@ -170,7 +170,7 @@
       "description": "<b>WHEN:</b> Any phase, just after an <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit from your army suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit, or one friendly ADEPTA SORORITAS JUMP PACK unit within 3\" of it.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds. If you targeted an <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> <span class=\"kwb\">JUMP</span> <span class=\"kwb\">PACK</span> unit from your army with this Stratagem, then until the end of the phase, while a friendly <span class=\"kwb\">ADEPTA</span> <span class=\"kwb\">SORORITAS</span> unit is unit is within 3\" of your unit, models in that unit have the Feel No Pain 5+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "feelNoPainMortalThreshold": 5
         },
         "target": "defender",
         "isStratagem": true,
@@ -406,7 +406,7 @@
             "isStratagem": true,
             "cpCost": 1,
             "effects": {
-              "feelNoPainThreshold": 6
+              "feelNoPainMortalThreshold": 6
             }
           }
         },
@@ -417,7 +417,7 @@
             "isStratagem": true,
             "cpCost": 1,
             "effects": {
-              "feelNoPainThreshold": 5
+              "feelNoPainMortalThreshold": 5
             }
           }
         }
@@ -680,7 +680,7 @@
       "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">CELESTIAN SACRESANTS</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">CELESTIAN SACRESANTS</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 5+ against mortal wounds until the end of the phase.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "feelNoPainMortalThreshold": 5
         },
         "target": "defender",
         "isStratagem": true,
@@ -8731,7 +8731,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "feelNoPainThreshold": 4
+              "feelNoPainMortalThreshold": 4
             },
             "target": "defender"
           }

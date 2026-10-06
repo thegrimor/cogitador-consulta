@@ -1035,7 +1035,7 @@
       "description": "Legiones Daemonica Tzeentch model only. While a friendly Legiones Daemonica Tzeentch unit is within 6\" of the bearer, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks and mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 4
+          "feelNoPainMortalThreshold": 4
         },
         "target": "defender",
         "requiresAttackerKeyword": "tzeentch"
