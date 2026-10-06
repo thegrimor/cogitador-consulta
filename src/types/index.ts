@@ -124,6 +124,9 @@ export interface CombatModifiers {
   attacksMod: number
   damageMod: number
   damageReduction: number
+  /** "Re-roll one Damage roll" — one bounded re-roll of the lowest Damage roll among the
+   * attack's failed saves; see mathhammer.ts's rerollOneDamageBonus(). */
+  rerollOneDamage: boolean
   rerollDamageOf1: boolean
   rerollAllDamage: boolean
   feelNoPainThreshold: number | null

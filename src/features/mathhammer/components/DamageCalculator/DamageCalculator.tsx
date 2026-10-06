@@ -272,7 +272,7 @@ export function DamageCalculator({
       m.cleaveBonus !== 0 || m.devastatingWoundsBonus ||
       m.strengthMod !== 0 || m.rerollWoundsOf1 || m.rerollAllWounds || m.rerollOneWound ||
       m.woundMod !== 0 || m.apMod !== 0 || m.saveMod !== 0 ||
-      m.attacksMod !== 0 || m.rerollDamageOf1 || m.rerollAllDamage ||
+      m.attacksMod !== 0 || m.rerollOneDamage || m.rerollDamageOf1 || m.rerollAllDamage ||
       m.feelNoPainThreshold !== null
     )
   }
@@ -502,7 +502,7 @@ export function DamageCalculator({
             {meltaBonusDamage(weapons[0], meltaActiveKeys, leaderWeapons) > 0 && ` [Melta ½ dist. +${weapons[0].meltaValue}D]`}
             {rapidFireBonusAttacks(weapons[0], rapidFireActiveKeys, leaderWeapons) > 0 && ` [Rapid Fire ½ dist. +${weapons[0].rapidFireValue}A]`}
             {displayMods.attacksMod !== 0 && ` [+${displayMods.attacksMod}A]`}
-            {(displayMods.rerollDamageOf1 || displayMods.rerollAllDamage) && ' [RR Daño]'}
+            {(displayMods.rerollOneDamage || displayMods.rerollDamageOf1 || displayMods.rerollAllDamage) && ' [RR Daño]'}
             {overwatchActive && ' [Overwatch 6+]'}
           </p>
           )

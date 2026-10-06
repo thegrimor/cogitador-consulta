@@ -315,7 +315,7 @@ Defence/Stand Vigil/Dacatarai now use `excludesTargetKeywords` instead of an inf
 all 13 detachments, stratagems, enhancements).** Datasheet stats/weapons/keywords all matched except the items above.
 Detachment fixes: Moritoi Ancients (below Starting Strength is re-roll Hit rolls **of 1**, not all; now two `options`
 tiers); In Auramite Clad (×2) `apMod` was `+1` for a *defensive* "-1 AP" — defensive AP reduction is `apMod: -1`
-(`+1` is the attacker improving AP); Prime Target (dropped a bogus `rerollDamageOf1`, split into per-roll `options`);
+(`+1` is the attacker improving AP); Prime Target (dropped a bogus `rerollDamageOf1`, split into per-roll `options` incl. the new `rerollOneDamage`);
 Auriferous Orb is `ANTI-non-MONSTER/VEHICLE 2+` (was written `ANTI-INFANTRY/MONSTER/VEHICLE`); Bane of Abominations and
 Grim Responsibility split into per-keyword `options` (CHARACTER/MONSTER[/VEHICLE]); Magna Imperator split into
 one-hit/one-wound `options`; Flare Shields (4+ InSv vs ranged) now `feelNoPainThreshold: 4` per the invulnerable-save
@@ -1056,7 +1056,10 @@ value look plausible."
   `rerollHitsOf1` represents exactly, no new mechanic needed. The tell is the word "of": "one Hit
   roll" (no value named) → `rerollOneHit`/`rerollOneWound`; "a Hit roll **of 1**" (a value named)
   → `rerollHitsOf1`/`rerollWoundsOf1`.
-  There's no `rerollOneDamage` — only Hit and Wound are covered, since no audited ability needed it.
+  `rerollOneDamage` covers "re-roll one Damage roll" the same way (`rerollOneDamageBonus` in `mathhammer.ts`: the best
+  use re-rolls the *lowest* of the failed saves' damage rolls when below the mean, `E[max(E[D]−min,0)]` with
+  `P(min ≥ k) = P(D ≥ k)ⁿ`; zero for fixed Damage). Give it its own `options[]` entry like Hit/Wound. Its variance
+  contribution is not modelled (small), so the spread/percentiles ignore it.
   **Always split `rerollOneHit`/`rerollOneWound` into separate `options[]` entries, one per reroll
   type, even when the ability's own wording grants both simultaneously with "and" rather than
   offering a choice with "or".** This was tried the other way first (a single combined `effect`

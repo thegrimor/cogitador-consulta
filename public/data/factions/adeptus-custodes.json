@@ -1016,7 +1016,15 @@
           }
         },
         {
-          "name": "Re-roll one Damage roll"
+          "name": "Re-roll one Damage roll",
+          "effect": {
+            "effects": {
+              "rerollOneDamage": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "ranged"
+          }
         }
       ]
     },
@@ -6218,6 +6226,26 @@
               "effect": {
                 "effects": {
                   "rerollOneWound": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "vehicle"
+              }
+            },
+            {
+              "name": "Re-roll one Damage roll (vs Monster)",
+              "effect": {
+                "effects": {
+                  "rerollOneDamage": true
+                },
+                "combatType": "ranged",
+                "requiresTargetKeyword": "monster"
+              }
+            },
+            {
+              "name": "Re-roll one Damage roll (vs Vehicle)",
+              "effect": {
+                "effects": {
+                  "rerollOneDamage": true
                 },
                 "combatType": "ranged",
                 "requiresTargetKeyword": "vehicle"
