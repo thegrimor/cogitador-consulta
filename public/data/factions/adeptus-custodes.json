@@ -4295,7 +4295,8 @@
           "D": "1",
           "rules": {
             "sustainedHitsValue": 1,
-            "isAssault": true
+            "isAssault": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -5014,7 +5015,8 @@
           "AP": -1,
           "D": "2",
           "rules": {
-            "isAssault": true
+            "isAssault": true,
+            "isCloseQuarters": true
           }
         },
         {

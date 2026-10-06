@@ -309,6 +309,8 @@ keywords); `calculateDamage` only applies the ability when the defender satisfie
 weapons carry it (Galatus Warblade and Iliastus Accelerator Cannon `sustainedHits` noneOf monster/vehicle, Arachnus
 Blaze Carronade `lethalHits` anyOf monster/vehicle, Executioner Greatblade `devastatingWounds` anyOf psyker); other
 factions' conditional weapons are still stored unconditional (overstated) until someone adds the same field.
+`[CLOSE-QUARTERS]` weapons carry `rules.isCloseQuarters` (set from the weapon description for every faction: 106 weapons) and
+show a "Close-Quarters" badge; it is display-only, the damage calculator does not model close-quarters shooting.
 
 **Custodes datasheet audit against the codex photos (2026-10-06).** Re-checked 15 datasheets against the
 photographed pages (Vertus Praetors, Gyrfalcon, Vigilators, Pallas, Coronus, both Caladius, Wardens, Blade

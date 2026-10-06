@@ -1286,7 +1286,8 @@
           "AP": -1,
           "D": "1",
           "rules": {
-            "isTorrent": true
+            "isTorrent": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -2454,7 +2455,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isTorrent": true
+            "isTorrent": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -3031,7 +3033,8 @@
           "AP": -2,
           "D": "3",
           "rules": {
-            "isHazardous": true
+            "isHazardous": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -3590,7 +3593,8 @@
                 "threshold": 4
               }
             ],
-            "isDevastatingWounds": true
+            "isDevastatingWounds": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -4178,7 +4182,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -4584,7 +4589,8 @@
           "D": "1",
           "rules": {
             "isLethalHits": true,
-            "isPrecision": true
+            "isPrecision": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -4908,7 +4914,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -5373,7 +5380,9 @@
           "S": 3,
           "AP": 0,
           "D": "1",
-          "rules": {}
+          "rules": {
+            "isCloseQuarters": true
+          }
         },
         {
           "line": 2,
@@ -5528,7 +5537,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -5837,7 +5847,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -6145,7 +6156,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -6467,7 +6479,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isTorrent": true
+            "isTorrent": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -7074,7 +7087,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -7526,7 +7540,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -7766,7 +7781,9 @@
           "S": 10,
           "AP": -2,
           "D": "3",
-          "rules": {}
+          "rules": {
+            "isCloseQuarters": true
+          }
         },
         {
           "line": 2,
@@ -8286,7 +8303,9 @@
           "S": 10,
           "AP": -2,
           "D": "3",
-          "rules": {}
+          "rules": {
+            "isCloseQuarters": true
+          }
         },
         {
           "line": 4,
@@ -8992,7 +9011,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {
@@ -9614,7 +9634,8 @@
           "AP": 0,
           "D": "1",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "isCloseQuarters": true
           }
         },
         {

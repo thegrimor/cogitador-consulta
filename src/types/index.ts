@@ -89,6 +89,7 @@ export interface Weapon {
   isExtraAttacks: boolean
   isLance: boolean
   isConversion: boolean
+  isCloseQuarters: boolean
   rapidFireValue: string
   /** Target-keyword conditions on a conditional weapon ability, e.g. [SUSTAINED HITS 1: non-MONSTER/
    * VEHICLE] or [LETHAL HITS: MONSTER/VEHICLE]. The flag/value above is still set (so badges show it);

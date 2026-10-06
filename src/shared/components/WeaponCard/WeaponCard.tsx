@@ -18,7 +18,7 @@ export function WeaponCard({ weapon }: Props) {
     weapon.isMelta || weapon.antiEntries.length > 0 ||
     weapon.isAssault || weapon.rapidFireValue !== '' || weapon.isHazardous || weapon.isPistol ||
     weapon.isPsychic || weapon.isPrecision || weapon.isOneShot || weapon.isIndirectFire ||
-    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion
+    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion || weapon.isCloseQuarters
 
   return (
     <div className="w-full text-left p-2 border-b border-rim-bright">
@@ -62,6 +62,7 @@ export function WeaponCard({ weapon }: Props) {
           {weapon.isLance        && <Badge label="Lance" />}
           {weapon.cleaveValue > 0 && <Badge label={`Cleave ${weapon.cleaveValue}`} />}
           {weapon.isConversion   && <Badge label="Conversion" />}
+          {weapon.isCloseQuarters && <Badge label="Close-Quarters" />}
         </div>
       )}
 
