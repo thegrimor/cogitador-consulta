@@ -4119,7 +4119,7 @@
         {
           "line": 2,
           "name": "Tarsus Buckler",
-          "description": "sustained hits 1",
+          "description": "sustained hits 1, precision",
           "range": "Melee",
           "type": "Melee",
           "A": "5",
@@ -4128,7 +4128,8 @@
           "AP": -2,
           "D": "1",
           "rules": {
-            "sustainedHitsValue": 1
+            "sustainedHitsValue": 1,
+            "isPrecision": true
           }
         }
       ],
@@ -4304,7 +4305,8 @@
           "AP": -2,
           "D": "2",
           "rules": {
-            "isLance": true
+            "isLance": true,
+            "isPrecision": true
           }
         }
       ],
