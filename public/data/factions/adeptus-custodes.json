@@ -1922,8 +1922,7 @@
             "effects": {
               "damageReduction": 1
             },
-            "target": "defender",
-            "bearerOnly": true
+            "target": "defender"
           }
         }
       ],
@@ -4322,7 +4321,8 @@
           "AP": -2,
           "D": "2",
           "rules": {
-            "isLance": true
+            "isLance": true,
+            "isPrecision": true
           }
         }
       ],
