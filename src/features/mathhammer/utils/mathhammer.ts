@@ -1,4 +1,4 @@
-import type { Weapon, ModelProfile, Datasheet } from '@/types'
+import type { Weapon, ModelProfile, Datasheet, KeywordCondition } from '@/types'
 import type { DamageBreakdown, CombatModifiers, ModifierRule } from '../types'
 
 const FNP_ABILITY_RE = /^Feel No Pain\s*(\d)\+$/i
@@ -40,6 +40,43 @@ function normalCDF(z: number): number {
  * it can't double- or under-count the way reusing those fields for this mechanic would. */
 function rerollOneBonus(p: number, n: number): number {
   return n > 0 ? p * (1 - Math.pow(p, n)) : 0
+}
+
+/** Probability mass function of a Damage expression ("3", "D6", "D3+2", "2D6+1"), as
+ * [value, probability] pairs. Falls back to a fixed value for anything unparseable. */
+function damagePmf(expr: string): Array<[number, number]> {
+  const match = expr.trim().toUpperCase().match(/^(\d*)D(\d+)([+-]\d+)?$/)
+  if (!match) return [[parseDiceAverage(expr), 1]]
+  const coeff = match[1] ? parseInt(match[1]) : 1
+  const faces = parseInt(match[2])
+  const bonus = match[3] ? parseInt(match[3]) : 0
+  let pmf = new Map<number, number>([[0, 1]])
+  for (let i = 0; i < coeff; i++) {
+    const next = new Map<number, number>()
+    for (const [v, p] of pmf) for (let f = 1; f <= faces; f++) next.set(v + f, (next.get(v + f) ?? 0) + p / faces)
+    pmf = next
+  }
+  return [...pmf].map(([v, p]) => [v + bonus, p] as [number, number])
+}
+
+/** Expected extra damage per failed save from a single bounded re-roll ("you can re-roll one
+ * Damage roll") over a pool of `n` damage rolls: the best use is re-rolling the lowest roll, and
+ * only when it is below the mean (the re-roll is worth E[D]). With P(min ≥ k) = P(D ≥ k)ⁿ the
+ * gain is E[max(E[D] − min, 0)], which stays well defined for the fractional `n` (an expected
+ * count of failed saves) this engine works with. `outcome` maps a raw roll to the damage it ends
+ * up dealing (damageMod / damageReduction applied), so the gain is in final damage points. */
+function rerollOneDamageBonus(expr: string, n: number, outcome: (raw: number) => number): number {
+  if (n <= 0) return 0
+  const pmf = damagePmf(expr).map(([v, p]) => [outcome(v), p] as [number, number]).sort((a, b) => a[0] - b[0])
+  const mean = pmf.reduce((s, [v, p]) => s + v * p, 0)
+  let gain = 0
+  let tailAbove = 1 // P(D ≥ current value)
+  for (const [v, p] of pmf) {
+    const pMinIsV = Math.pow(tailAbove, n) - Math.pow(tailAbove - p, n)
+    gain += pMinIsV * Math.max(0, mean - v)
+    tailAbove -= p
+  }
+  return gain
 }
 
 /** P(deal ≥ `wounds` damage) for a Gaussian-approximated damage total, with continuity
@@ -213,6 +250,7 @@ export const DEFAULT_MODS: CombatModifiers = {
   attacksMod: 0,
   damageMod: 0,
   damageReduction: 0,
+  rerollOneDamage: false,
   rerollDamageOf1: false,
   rerollAllDamage: false,
   feelNoPainThreshold: null,
@@ -237,6 +275,7 @@ function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): voi
   if (e.rerollWoundsOf1)     result.rerollWoundsOf1      = true
   if (e.rerollAllWounds)     result.rerollAllWounds      = true
   if (e.rerollOneWound)      result.rerollOneWound       = true
+  if (e.rerollOneDamage)     result.rerollOneDamage      = true
   if (e.rerollDamageOf1)     result.rerollDamageOf1      = true
   if (e.rerollAllDamage)     result.rerollAllDamage      = true
   if (e.lethalHitsBonus)     result.lethalHitsBonus      = true
@@ -294,6 +333,7 @@ export function mergeMods(
     rerollWoundsOf1:    base.rerollWoundsOf1    || attackerRuleMods.rerollWoundsOf1,
     rerollAllWounds:    base.rerollAllWounds    || attackerRuleMods.rerollAllWounds,
     rerollOneWound:     base.rerollOneWound     || attackerRuleMods.rerollOneWound,
+    rerollOneDamage:    base.rerollOneDamage    || attackerRuleMods.rerollOneDamage,
     rerollDamageOf1:    base.rerollDamageOf1    || attackerRuleMods.rerollDamageOf1,
     rerollAllDamage:    base.rerollAllDamage    || attackerRuleMods.rerollAllDamage,
     lethalHitsBonus:    base.lethalHitsBonus    || attackerRuleMods.lethalHitsBonus,
@@ -356,8 +396,14 @@ export function calculateDamage(
     ? Math.max(mods.critThreshold, mods.overwatchThreshold)
     : mods.critThreshold
   const CRIT       = (7 - effectiveCritThreshold) / 6   // 1/6 normally, 2/6 when crits on 5+
-  const isLethal   = weapon.isLethalHits || mods.lethalHitsBonus
-  const sustainedX = weapon.sustainedHitsValue + mods.sustainedHitsBonus
+  // Conditional weapon abilities ([SUSTAINED HITS 1: non-MONSTER/VEHICLE], [LETHAL HITS: MONSTER/
+  // VEHICLE], [DEVASTATING WOUNDS: PSYKER]…) only count against a defender matching their condition.
+  const defKw = defenderKeywords.map(k => k.toLowerCase())
+  const conditionMet = (c?: KeywordCondition) =>
+    !c || ((!c.anyOf?.length || c.anyOf.some(k => defKw.includes(k))) && !(c.noneOf ?? []).some(k => defKw.includes(k)))
+  const cond = weapon.keywordConditions
+  const isLethal   = (weapon.isLethalHits && conditionMet(cond?.lethalHits)) || mods.lethalHitsBonus
+  const sustainedX = (conditionMet(cond?.sustainedHits) ? weapon.sustainedHitsValue : 0) + mods.sustainedHitsBonus
   const sustainedExtraHits = sustainedX > 0 ? avgAttacks * CRIT * sustainedX : 0
 
   // Determinar umbral efectivo de herida crítica ANTI:
@@ -366,7 +412,7 @@ export function calculateDamage(
   // Devastating Wounds (inherente o por regla) consume la herida crítica de reglamento: un 6
   // natural siempre es herida crítica, sea o no haya ANTI — sin esto, Devastating Wounds no hacía
   // nada en armas sin un ANTI-X coincidente con el defensor.
-  const hasDevastatingWounds = weapon.isDevastatingWounds || mods.devastatingWoundsBonus
+  const hasDevastatingWounds = (weapon.isDevastatingWounds && conditionMet(cond?.devastatingWounds)) || mods.devastatingWoundsBonus
   if (hasDevastatingWounds) {
     effectiveWoundCritThreshold = Math.min(effectiveWoundCritThreshold, 6)
   }
@@ -434,14 +480,21 @@ export function calculateDamage(
   const fnpP = mods.feelNoPainThreshold !== null
     ? Math.max(1 / 6, Math.min(5 / 6, (7 - mods.feelNoPainThreshold) / 6))
     : 0
-  const expectedTotalDamage = expectedFailedSaves * avgDmgPerWound * (1 - fnpP)
+  // "Re-roll one Damage roll": one bounded re-roll over the failed saves (see rerollOneDamageBonus).
+  const rerollOneDamageGain = mods.rerollOneDamage
+    ? rerollOneDamageBonus(weapon.D, expectedFailedSaves, raw => {
+        const dealt = raw + effectiveMods.damageMod
+        return mods.damageReduction > 0 ? Math.max(dealt - mods.damageReduction, 1) : dealt
+      })
+    : 0
+  const expectedTotalDamage = expectedFailedSaves * avgDmgPerWound * (1 - fnpP) + rerollOneDamageGain * (1 - fnpP)
   // Extra total damage attributable to a Damage-roll reroll (only non-zero for variable
   // damage like D3/D6 — a reroll on a fixed value changes nothing).
   const rawDmgNoReroll = parseDiceAverageWithReroll(weapon.D, false, false) + effectiveMods.damageMod
   const avgDmgPerWoundNoReroll = mods.damageReduction > 0
     ? Math.max(rawDmgNoReroll - mods.damageReduction, 1)
     : rawDmgNoReroll
-  const rerollExtraDamage = Math.max(0, expectedFailedSaves * (avgDmgPerWound - avgDmgPerWoundNoReroll) * (1 - fnpP))
+  const rerollExtraDamage = Math.max(0, expectedFailedSaves * (avgDmgPerWound - avgDmgPerWoundNoReroll) * (1 - fnpP)) + rerollOneDamageGain * (1 - fnpP)
 
   // ── Statistical spread (Gaussian approximation) ──────────────────────────────
   // Model: K failed saves ~ Binomial(avgAttacks, effectiveP), each dealing D damage.

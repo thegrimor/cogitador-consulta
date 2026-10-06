@@ -35,6 +35,7 @@ export function describeEffects(effects: Partial<CombatModifiers>, combatType?: 
   if (effects.attacksMod)          parts.push(`[${signed(effects.attacksMod)}A]`)
   if (effects.damageMod)           parts.push(`[${signed(effects.damageMod)}D]`)
   if (effects.damageReduction)     parts.push(`[-${effects.damageReduction}D recibido]`)
+  if (effects.rerollOneDamage)     parts.push('[RR un daño]')
   if (effects.rerollDamageOf1)     parts.push('[RR daño 1]')
   if (effects.rerollAllDamage)     parts.push('[RR daño]')
   if (effects.feelNoPainThreshold != null) parts.push(`[FNP ${effects.feelNoPainThreshold}+]`)

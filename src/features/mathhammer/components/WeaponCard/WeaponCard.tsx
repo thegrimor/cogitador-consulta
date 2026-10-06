@@ -32,7 +32,7 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
     weapon.isMelta || weapon.antiEntries.length > 0 ||
     weapon.isAssault || weapon.rapidFireValue !== '' || weapon.isHazardous || weapon.isPistol ||
     weapon.isPsychic || weapon.isPrecision || weapon.isOneShot || weapon.isIndirectFire ||
-    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion
+    weapon.isExtraAttacks || weapon.isLance || weapon.cleaveValue > 0 || weapon.isConversion || weapon.isCloseQuarters
 
   return (
     <button
@@ -94,6 +94,7 @@ export function WeaponCard({ weapon, isSelected, onSelect, heavyModActive, onHea
           {weapon.isLance        && <Badge label="Lance" />}
           {weapon.cleaveValue > 0 && <Badge label={`Cleave ${weapon.cleaveValue}`} />}
           {weapon.isConversion   && <Badge label="Conversion" />}
+          {weapon.isCloseQuarters && <Badge label="Close-Quarters" />}
           {weapon.isHeavy && onHeavyToggle && (
             // Not a <button>: this whole card is already a <button> (line 38), and a <button>
             // cannot contain another <button> per the HTML spec -- React logs a hydration

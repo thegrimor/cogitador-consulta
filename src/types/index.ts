@@ -89,7 +89,22 @@ export interface Weapon {
   isExtraAttacks: boolean
   isLance: boolean
   isConversion: boolean
+  isCloseQuarters: boolean
   rapidFireValue: string
+  /** Target-keyword conditions on a conditional weapon ability, e.g. [SUSTAINED HITS 1: non-MONSTER/
+   * VEHICLE] or [LETHAL HITS: MONSTER/VEHICLE]. The flag/value above is still set (so badges show it);
+   * the damage calculator only applies it when the defender satisfies the condition. */
+  keywordConditions?: {
+    lethalHits?: KeywordCondition
+    sustainedHits?: KeywordCondition
+    devastatingWounds?: KeywordCondition
+  }
+}
+
+/** Satisfied when the target has ANY of `anyOf` (if given) and NONE of `noneOf` (if given). Lowercase. */
+export interface KeywordCondition {
+  anyOf?: string[]
+  noneOf?: string[]
 }
 
 export type CombatType = 'ranged' | 'melee' | 'any'
@@ -124,6 +139,9 @@ export interface CombatModifiers {
   attacksMod: number
   damageMod: number
   damageReduction: number
+  /** "Re-roll one Damage roll" — one bounded re-roll of the lowest Damage roll among the
+   * attack's failed saves; see mathhammer.ts's rerollOneDamageBonus(). */
+  rerollOneDamage: boolean
   rerollDamageOf1: boolean
   rerollAllDamage: boolean
   feelNoPainThreshold: number | null
@@ -137,6 +155,8 @@ export interface CombatEffect {
   target?: 'attacker' | 'defender'
   requiresAntiKeyword?: string
   requiresTargetKeyword?: string
+  /** Rule does not apply when the target has ANY of these keywords ("excluding MONSTER/VEHICLE units"). */
+  excludesTargetKeywords?: string[]
   requiresAttackerKeyword?: string
   bearerOnly?: boolean
   isStratagem?: boolean

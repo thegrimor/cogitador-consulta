@@ -17435,6 +17435,15 @@
                 },
                 "combatType": "ranged"
               }
+            },
+            {
+              "name": "Re-roll one Damage roll",
+              "effect": {
+                "effects": {
+                  "rerollOneDamage": true
+                },
+                "combatType": "ranged"
+              }
             }
           ]
         },

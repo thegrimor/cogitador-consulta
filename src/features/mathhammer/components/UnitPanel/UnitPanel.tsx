@@ -153,7 +153,7 @@ export function UnitPanel({
 
   const attackerKeywords = useMemo(
     () => selectedUnit
-      ? [...selectedUnit.keywords, ...selectedUnit.factionKeywords].map(k => k.toLowerCase())
+      ? [...selectedUnit.keywords, ...selectedUnit.factionKeywords, selectedUnit.name].map(k => k.toLowerCase())
       : [],
     [selectedUnit],
   )

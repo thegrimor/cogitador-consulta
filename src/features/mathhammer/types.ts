@@ -31,6 +31,7 @@ export interface ModifierRule {
   effects: Partial<CombatModifiers>
   requiresAntiKeyword?: string      // regla solo aparece si el arma tiene ANTI-<keyword>
   requiresTargetKeyword?: string    // regla solo aparece si el defensor tiene esta keyword
+  excludesTargetKeywords?: string[] // regla NO aparece si el defensor tiene alguna de estas keywords
   requiresAttackerKeyword?: string  // regla solo aparece si la unidad atacante tiene esta keyword
 }
 

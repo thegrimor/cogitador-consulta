@@ -45,6 +45,7 @@ function weaponBadges(weapon: Weapon): string[] {
   if (weapon.isExtraAttacks)      badges.push('Extra Attacks')
   if (weapon.isLance)             badges.push('Lance')
   if (weapon.isConversion)        badges.push('Conversion')
+  if (weapon.isCloseQuarters)     badges.push('Close-Quarters')
   if (weapon.cleaveValue > 0)     badges.push(`Cleave ${weapon.cleaveValue}`)
   return badges
 }

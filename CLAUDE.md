@@ -303,7 +303,39 @@ capacity was 9 from the photo (smudged), later set to 8 by the points list below
 re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis of the Emperor, faction keyword
 `Anathema Psykana`; Knight-Centura is now Support, not Leader). Vertus Praetors, Gyrfalcon, Wardens, Blade
 Champion, Shield-Captain and Trajann already matched the photos.
-Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
+Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag (so the badge shows) **and** a
+`rules.keywordConditions` entry (`lethalHits`/`sustainedHits`/`devastatingWounds` → `{anyOf?, noneOf?}`, lowercase
+keywords); `calculateDamage` only applies the ability when the defender satisfies it. Custodes' four conditional
+weapons carry it (Galatus Warblade and Iliastus Accelerator Cannon `sustainedHits` noneOf monster/vehicle, Arachnus
+Blaze Carronade `lethalHits` anyOf monster/vehicle, Executioner Greatblade `devastatingWounds` anyOf psyker); other
+factions' conditional weapons are still stored unconditional (overstated) until someone adds the same field.
+`[CLOSE-QUARTERS]` weapons carry `rules.isCloseQuarters` (set from the weapon description for every faction: 106 weapons) and
+show a "Close-Quarters" badge; it is display-only, the damage calculator does not model close-quarters shooting.
+
+**Custodes datasheet audit against the codex photos (2026-10-06).** Re-checked 15 datasheets against the
+photographed pages (Vertus Praetors, Gyrfalcon, Vigilators, Pallas, Coronus, both Caladius, Wardens, Blade
+Champion, Shield-Captain, Allarus, both Aquilon, Sentinel Guard). Fixed: Twin Corvae Las-pulser D `2` → `D3+2`;
+Stand Vigil text is "if **any** of the following apply" (was written as "and"); "Slayers" → "Slayer of Tyrants".
+Also set missing `isAssault`/Rapid Fire/Precision weapon flags, and Destructor Optics/Dread Foe/Impenetrable
+Defence/Stand Vigil/Dacatarai now use `excludesTargetKeywords` instead of an infantry-only approximation.
+**Full re-audit against the complete 24-page codex PDF (2026-10-06, `11th_Custodes.pdf`, book pp. 92-115 — datasheets,
+all 13 detachments, stratagems, enhancements).** Datasheet stats/weapons/keywords all matched except the items above.
+Detachment fixes: Moritoi Ancients (below Starting Strength is re-roll Hit rolls **of 1**, not all; now two `options`
+tiers); In Auramite Clad (×2) `apMod` was `+1` for a *defensive* "-1 AP" — defensive AP reduction is `apMod: -1`
+(`+1` is the attacker improving AP); Prime Target (dropped a bogus `rerollDamageOf1`, split into per-roll `options` incl. the new `rerollOneDamage`);
+Auriferous Orb is `ANTI-non-MONSTER/VEHICLE 2+` (was written `ANTI-INFANTRY/MONSTER/VEHICLE`); Bane of Abominations and
+Grim Responsibility split into per-keyword `options` (CHARACTER/MONSTER[/VEHICLE]); Magna Imperator split into
+one-hit/one-wound `options`; Flare Shields (4+ InSv vs ranged) now `feelNoPainThreshold: 4` per the invulnerable-save
+convention. Dawneagle Shield-Captain has **no** Leader ability in the book, yet `vertus-praetors.canBeLedBy` lists it
+(probably via Aquila Commander) — left as is until that rule's text is available.
+**Witchseekers and the Anathema Psykana Rhino re-stated to the new book (2026-10-06, from a low-resolution photo).**
+Both were still previous-edition data: Witchseekers M 7"/Scouts 7", `Flamer [ANTI-PSYKER 4+, ASSAULT, BLAST 1, TORRENT]`
+S4 AP-1 D1, `Gun Stock`, 4-10 models, new Sanctified Flames, faction keyword `Anathema Psykana`, no Aegis of the
+Emperor; Rhino faction keyword `Anathema Psykana`, Hunter-killer Missile D3+3, Storm Bolter S5 AP-1, Assault Vehicle +
+Transport (12 ANATHEMA PSYKANA INFANTRY) replacing Self Repair/One Shot. **Unreadable in the photo, left as they were
+(old values, may be wrong): the Flamer's range, Attacks and BS column** (currently 12"/D6/N/A).
+**Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
+never photographed, so it exists nowhere in `armyRules` yet.
 
 **Custodes points and enhancement costs, user-supplied spreadsheet (2026-10-03), not the MFM.** Per explicit user
 instruction, a "Datasheet / First / Second / Third" spreadsheet (plus an Enhancement / Detachment / Points table)
@@ -1037,7 +1069,10 @@ value look plausible."
   `rerollHitsOf1` represents exactly, no new mechanic needed. The tell is the word "of": "one Hit
   roll" (no value named) → `rerollOneHit`/`rerollOneWound`; "a Hit roll **of 1**" (a value named)
   → `rerollHitsOf1`/`rerollWoundsOf1`.
-  There's no `rerollOneDamage` — only Hit and Wound are covered, since no audited ability needed it.
+  `rerollOneDamage` covers "re-roll one Damage roll" the same way (`rerollOneDamageBonus` in `mathhammer.ts`: the best
+  use re-rolls the *lowest* of the failed saves' damage rolls when below the mean, `E[max(E[D]−min,0)]` with
+  `P(min ≥ k) = P(D ≥ k)ⁿ`; zero for fixed Damage). Give it its own `options[]` entry like Hit/Wound. Its variance
+  contribution is not modelled (small), so the spread/percentiles ignore it.
   **Always split `rerollOneHit`/`rerollOneWound` into separate `options[]` entries, one per reroll
   type, even when the ability's own wording grants both simultaneously with "and" rather than
   offering a choice with "or".** This was tried the other way first (a single combined `effect`
@@ -1073,6 +1108,16 @@ value look plausible."
     checked at all). The tell: does the escalation replace the same field's *value*, or add a
     *different* field on top? Replace → options. Add-on to a real but unrepresentable condition →
     drop the add-on, no split.
+- **"excluding MONSTER/VEHICLE units" on the target → `excludesTargetKeywords: ["monster", "vehicle"]`**
+  (`CombatEffect`/`ModifierRule`; the rule is hidden when the defender has ANY listed keyword). Never approximate it
+  with `requiresTargetKeyword: "infantry"` — that silently drops Mounted, Beasts, Swarms, etc. Only the *target*
+  side is supported: an exclusion on the *beneficiary* ("friendly units (excluding MONSTER/VEHICLE)", e.g.
+  Captain-General) is still unmodelled.
+- **A rule that addresses a unit by title ("VIGILATOR SQUAD unit", "TRUSTED SENTINEL") is matched against the
+  datasheet's *name* too**: Mathhammer's attacker/defender keyword lists include `selectedUnit.name`
+  (`MathhammerPage`, `UnitPanel`), so `requiresAttackerKeyword: "vigilator squad"` works without inventing a keyword the
+  book doesn't print. The datasheet name must therefore equal the book title (Custodes' Vigilators/Witchseekers were
+  renamed `Vigilator Squad`/`Witchseeker Squad`).
 - The schema's `requiresAttackerKeyword`/`requiresTargetKeyword`/`requiresAntiKeyword` are all
   **single-string only** — no AND/OR of two keywords anywhere in the dataset. If the text ORs two
   real keywords (**"MONSTER or VEHICLE"**, **"Infantry or Mounted"**, two named unit types that
