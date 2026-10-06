@@ -39,6 +39,7 @@ export function describeEffects(effects: Partial<CombatModifiers>, combatType?: 
   if (effects.rerollDamageOf1)     parts.push('[RR daño 1]')
   if (effects.rerollAllDamage)     parts.push('[RR daño]')
   if (effects.feelNoPainThreshold != null) parts.push(`[FNP ${effects.feelNoPainThreshold}+]`)
+  if (effects.feelNoPainMortalThreshold != null) parts.push(`[FNP mortales ${effects.feelNoPainMortalThreshold}+]`)
   if (effects.woundCritThreshold !== undefined && effects.woundCritThreshold !== 6)
     parts.push(`[Crítico herir ${effects.woundCritThreshold}+]`)
 

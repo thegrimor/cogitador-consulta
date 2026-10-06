@@ -273,7 +273,7 @@ export function DamageCalculator({
       m.strengthMod !== 0 || m.rerollWoundsOf1 || m.rerollAllWounds || m.rerollOneWound ||
       m.woundMod !== 0 || m.apMod !== 0 || m.saveMod !== 0 ||
       m.attacksMod !== 0 || m.rerollOneDamage || m.rerollDamageOf1 || m.rerollAllDamage ||
-      m.feelNoPainThreshold !== null
+      m.feelNoPainThreshold !== null || m.feelNoPainMortalThreshold !== null
     )
   }
   const hasActiveMods = weapons.some(w => isActive(modsFor(w)))
@@ -513,6 +513,7 @@ export function DamageCalculator({
           {defenderModel.invSv && ` Inv:${defenderModel.invSv}`}
           {mods.saveMod < 0 && ' [Cobertura]'}
           {mods.feelNoPainThreshold !== null && ` FNP:${mods.feelNoPainThreshold}+`}
+          {mods.feelNoPainMortalThreshold !== null && ` FNP mortales:${mods.feelNoPainMortalThreshold}+`}
         </p>
         {defenderModel.invSv && (
           <p className="text-parchment-dim/60">* Se aplica la mejor salvación disponible.</p>

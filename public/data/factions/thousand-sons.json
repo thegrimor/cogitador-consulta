@@ -710,7 +710,7 @@
       "description": "<b>WHEN:</b> Any phase, when a friendly <span class=\"kwb\">INFANTRY/MOUNTED THOUSAND SONS PSYKER</span> unit suffers a mortal wound.<br><br><b>TARGET:</b> That <span class=\"kwb\">INFANTRY/MOUNTED THOUSAND SONS PSYKER</span> unit.<br><br><b>EFFECT:</b> Your unit has Feel No Pain 5+ against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "feelNoPainMortalThreshold": 5
         },
         "target": "defender",
         "requiresTargetKeyword": "psyker",

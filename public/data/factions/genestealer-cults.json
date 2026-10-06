@@ -9147,7 +9147,7 @@
           "type": "Datasheet",
           "effect": {
             "effects": {
-              "feelNoPainThreshold": 6
+              "feelNoPainMortalThreshold": 6
             },
             "target": "defender"
           }

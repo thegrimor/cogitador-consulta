@@ -409,7 +409,8 @@
       "description": "<b>WHEN:</b> Any phase, just after a mortal wound or attack is allocated to a model in an Emperor’s Children unit from your army.<br><br><b>TARGET:</b> That <span class=\"kwb\">EMPEROR’S</span> <span class=\"kwb\">CHILDREN</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 6+ ability, and the Feel No Pain 4+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 6
+          "feelNoPainThreshold": 6,
+          "feelNoPainMortalThreshold": 4
         },
         "target": "defender",
         "isStratagem": true,

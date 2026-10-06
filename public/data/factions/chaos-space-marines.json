@@ -547,7 +547,7 @@
       "description": "<b>WHEN:</b> Any phase, just after a Heretic Astartes unit from your army has a mortal wound allocated to it.<br><br><b>TARGET:</b> That <span class=\"kwb\">HERETIC</span> <span class=\"kwb\">ASTARTES</span> unit.<br><br><b>EFFECT:</b> Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds.",
       "effect": {
         "effects": {
-          "feelNoPainThreshold": 5
+          "feelNoPainMortalThreshold": 5
         },
         "target": "defender",
         "isStratagem": true,

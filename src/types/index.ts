@@ -145,6 +145,9 @@ export interface CombatModifiers {
   rerollDamageOf1: boolean
   rerollAllDamage: boolean
   feelNoPainThreshold: number | null
+  /** Feel No Pain that only applies to mortal wounds — in the calculator, the wounds Devastating
+   * Wounds turns into mortal wounds. Combined with `feelNoPainThreshold` (best one wins) there. */
+  feelNoPainMortalThreshold: number | null
   woundCritThreshold: number
   devastatingWoundsBonus: boolean
 }

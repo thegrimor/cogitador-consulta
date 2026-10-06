@@ -254,6 +254,7 @@ export const DEFAULT_MODS: CombatModifiers = {
   rerollDamageOf1: false,
   rerollAllDamage: false,
   feelNoPainThreshold: null,
+  feelNoPainMortalThreshold: null,
   woundCritThreshold: 7,
   devastatingWoundsBonus: false,
 }
@@ -289,6 +290,11 @@ function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): voi
     result.feelNoPainThreshold = result.feelNoPainThreshold === null
       ? e.feelNoPainThreshold
       : Math.min(result.feelNoPainThreshold, e.feelNoPainThreshold)
+  }
+  if (e.feelNoPainMortalThreshold != null) {
+    result.feelNoPainMortalThreshold = result.feelNoPainMortalThreshold === null
+      ? e.feelNoPainMortalThreshold
+      : Math.min(result.feelNoPainMortalThreshold, e.feelNoPainMortalThreshold)
   }
 }
 
@@ -346,6 +352,10 @@ export function mergeMods(
       defenderRuleMods.feelNoPainThreshold !== null
         ? defenderRuleMods.feelNoPainThreshold
         : base.feelNoPainThreshold,
+    feelNoPainMortalThreshold:
+      defenderRuleMods.feelNoPainMortalThreshold !== null
+        ? defenderRuleMods.feelNoPainMortalThreshold
+        : base.feelNoPainMortalThreshold,
   }
 }
 
@@ -487,7 +497,16 @@ export function calculateDamage(
         return mods.damageReduction > 0 ? Math.max(dealt - mods.damageReduction, 1) : dealt
       })
     : 0
-  const expectedTotalDamage = expectedFailedSaves * avgDmgPerWound * (1 - fnpP) + rerollOneDamageGain * (1 - fnpP)
+  // Devastating Wounds' failed saves are mortal wounds, which a mortal-wounds-only Feel No Pain
+  // (e.g. Aegis of the Emperor) also covers — best of the two applies to that share.
+  const mortalFnpP = mods.feelNoPainMortalThreshold !== null
+    ? Math.max(1 / 6, Math.min(5 / 6, (7 - mods.feelNoPainMortalThreshold) / 6))
+    : 0
+  const mortalShare = hasDevastatingWounds && hasWoundCrit ? Math.min(devastatingWoundsSaved, expectedFailedSaves) : 0
+  const mortalFnpEff = Math.max(fnpP, mortalFnpP)
+  const normalFailed = expectedFailedSaves - mortalShare
+  const expectedTotalDamage =
+    (normalFailed * (1 - fnpP) + mortalShare * (1 - mortalFnpEff)) * avgDmgPerWound + rerollOneDamageGain * (1 - fnpP)
   // Extra total damage attributable to a Damage-roll reroll (only non-zero for variable
   // damage like D3/D6 — a reroll on a fixed value changes nothing).
   const rawDmgNoReroll = parseDiceAverageWithReroll(weapon.D, false, false) + effectiveMods.damageMod
@@ -505,8 +524,10 @@ export function calculateDamage(
   const varBeforeFNP = expectedFailedSaves * dVar + varK * (avgDmgPerWound * avgDmgPerWound)
   // FNP applies Binomial thinning: each damage point independently negated with p = fnpP.
   // Var[T'] = E[T_raw]·fnpP·(1-fnpP) + Var[T_raw]·(1-fnpP)²
-  const damageBeforeFNP = fnpP > 0 ? expectedTotalDamage / (1 - fnpP) : expectedTotalDamage
-  const varFinal    = damageBeforeFNP * fnpP * (1 - fnpP) + varBeforeFNP * (1 - fnpP) * (1 - fnpP)
+  const damageBeforeFNP = expectedFailedSaves * avgDmgPerWound + rerollOneDamageGain
+  // Effective FNP over the whole damage pool (a blend when only the mortal share has FNP).
+  const fnpEff      = damageBeforeFNP > 0 ? 1 - expectedTotalDamage / damageBeforeFNP : fnpP
+  const varFinal    = damageBeforeFNP * fnpEff * (1 - fnpEff) + varBeforeFNP * (1 - fnpEff) * (1 - fnpEff)
   const standardDeviation = Math.sqrt(Math.max(0, varFinal))
 
   const percentile10 = Math.max(0, expectedTotalDamage - 1.2816 * standardDeviation)
@@ -536,7 +557,7 @@ export function calculateDamage(
     rerollExtraDamage,
     damageBeforeFNP,
     feelNoPainThreshold: mods.feelNoPainThreshold,
-    fnpProbability: fnpP,
+    fnpProbability: fnpEff,
     expectedTotalDamage,
     expectedKills: expectedTotalDamage / (defenderModel.W || 1),
     effectiveAP: effectiveAP,
