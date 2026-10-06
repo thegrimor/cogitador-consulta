@@ -210,13 +210,28 @@
         {
           "id": "moritoi-ancients",
           "name": "Moritoi Ancients",
-          "description": "While a friendly ADEPTUS CUSTODES DREADNOUGHT unit is at Starting Strength, that unit has +2 OC. While a friendly ADEPTUS CUSTODES DREADNOUGHT unit is below Starting Strength, that unit’s attacks can re-roll Hit rolls. While a friendly ADEPTUS CUSTODES DREADNOUGHT unit is below Half-strength, that unit’s attacks can re-roll Hit rolls of 1 and re-roll Wound rolls of 1.",
-          "effect": {
-            "effects": {
-              "rerollAllHits": true
+          "description": "While a friendly ADEPTUS CUSTODES DREADNOUGHT unit is at Starting Strength, that unit has +2 OC. While a friendly ADEPTUS CUSTODES DREADNOUGHT unit is below Starting Strength, that unit’s attacks can re-roll Hit rolls of 1. While a friendly ADEPTUS CUSTODES DREADNOUGHT unit is below Half-strength, that unit’s attacks can re-roll Hit rolls of 1 and re-roll Wound rolls of 1.",
+          "options": [
+            {
+              "name": "Por debajo de la Fuerza Inicial: repetir tiradas de impacto de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true
+                },
+                "requiresAttackerKeyword": "dreadnought"
+              }
             },
-            "requiresAttackerKeyword": "dreadnought"
-          }
+            {
+              "name": "Por debajo de la Mitad de Fuerza: repetir impacto y herida de 1",
+              "effect": {
+                "effects": {
+                  "rerollHitsOf1": true,
+                  "rerollWoundsOf1": true
+                },
+                "requiresAttackerKeyword": "dreadnought"
+              }
+            }
+          ]
         }
       ]
     },
@@ -314,12 +329,24 @@
           "id": "magna-imperator",
           "name": "Magna Imperator",
           "description": "When a friendly ADEPTUS CUSTODES unit is selected to attack, that unit’s attacks can re-roll one Hit roll and re-roll one Wound roll.",
-          "effect": {
-            "effects": {
-              "rerollOneHit": true,
-              "rerollOneWound": true
+          "options": [
+            {
+              "name": "Re-roll one Hit roll",
+              "effect": {
+                "effects": {
+                  "rerollOneHit": true
+                }
+              }
+            },
+            {
+              "name": "Re-roll one Wound roll",
+              "effect": {
+                "effects": {
+                  "rerollOneWound": true
+                }
+              }
             }
-          }
+          ]
         },
         {
           "id": "favoured-katah-rendax",
@@ -430,7 +457,7 @@
           "description": "Friendly GRAV-ASSAULT units have the 4+ invulnerable save characteristic against ranged attacks.",
           "effect": {
             "effects": {
-              "saveMod": 1
+              "feelNoPainThreshold": 4
             },
             "target": "defender",
             "combatType": "ranged",
@@ -709,15 +736,32 @@
       "turn": "Your turn",
       "phase": "Fight phase",
       "description": "<b>WHEN:</b> Fight phase, when a friendly ADEPTUS CUSTODES INFANTRY unit is selected to fight.<br><b>TARGET:</b> That unit.<br><b>EFFECT:</b> Your unit’s melee attacks have [LETHAL HITS: CHARACTER/MONSTER].",
-      "effect": {
-        "effects": {
-          "lethalHitsBonus": true
+      "options": [
+        {
+          "name": "Lethal Hits vs Character",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresTargetKeyword": "character"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1,
-        "combatType": "melee",
-        "requiresTargetKeyword": "character"
-      }
+        {
+          "name": "Lethal Hits vs Monster",
+          "effect": {
+            "effects": {
+              "lethalHitsBonus": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "melee",
+            "requiresTargetKeyword": "monster"
+          }
+        }
+      ]
     },
     {
       "id": "no-escape",
@@ -760,7 +804,7 @@
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly ADEPTUS CUSTODES unit (excluding CUSTODIAN WARDENS units).<br><b>TARGET:</b> That ADEPTUS CUSTODES unit.<br><b>EFFECT:</b> Attacks that target your unit have -1 AP until that enemy unit has attacked.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": -1
         },
         "isStratagem": true,
         "cpCost": 1,
@@ -948,16 +992,33 @@
       "turn": "Your turn",
       "phase": "Shooting phase",
       "description": "<b>WHEN:</b> Your Shooting phase, when a friendly ADEPTUS CUSTODES unit is selected to shoot.<br><b>TARGET:</b> That unit.<br><b>EFFECT:</b> Your unit’s ranged attacks can re-roll one Hit roll, re-roll one Wound roll and re-roll one Damage roll.",
-      "effect": {
-        "effects": {
-          "rerollOneHit": true,
-          "rerollOneWound": true,
-          "rerollDamageOf1": true
+      "options": [
+        {
+          "name": "Re-roll one Hit roll",
+          "effect": {
+            "effects": {
+              "rerollOneHit": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "ranged"
+          }
         },
-        "isStratagem": true,
-        "cpCost": 1,
-        "combatType": "ranged"
-      }
+        {
+          "name": "Re-roll one Wound roll",
+          "effect": {
+            "effects": {
+              "rerollOneWound": true
+            },
+            "isStratagem": true,
+            "cpCost": 1,
+            "combatType": "ranged"
+          }
+        },
+        {
+          "name": "Re-roll one Damage roll"
+        }
+      ]
     },
     {
       "id": "in-auramite-clad-guardians-of-the-throne",
@@ -970,7 +1031,7 @@
       "description": "<b>WHEN:</b> Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly ADEPTUS CUSTODES unit (excluding CUSTODIAN WARDENS units).<br><b>TARGET:</b> That ADEPTUS CUSTODES unit.<br><b>EFFECT:</b> Attacks that target your unit have -1 AP until that enemy unit has attacked.",
       "effect": {
         "effects": {
-          "apMod": 1
+          "apMod": -1
         },
         "isStratagem": true,
         "cpCost": 1,
@@ -1211,7 +1272,7 @@
       "cost": 20,
       "detachmentId": "emissaries-imperatus",
       "detachmentName": "Emissaries Imperatus",
-      "description": "ADEPTUS CUSTODES model only. This model has the following weapon: Auriferous Orb [ANTI-INFANTRY/MONSTER/VEHICLE 2+, BLINDING LIGHT, DEVASTATING WOUNDS] 12\" A3 BS2+ S1 AP0 D1. In your Shooting phase, when this unit has shot, select one enemy unit hit by this unit’s Auriferous Orb weapon; that enemy unit’s attacks have -1 to Hit rolls until the start of your next turn."
+      "description": "ADEPTUS CUSTODES model only. This model has the following weapon: Auriferous Orb [ANTI-non-MONSTER/VEHICLE 2+, BLINDING LIGHT, DEVASTATING WOUNDS] 12\" A3 BS2+ S1 AP0 D1. In your Shooting phase, when this unit has shot, select one enemy unit hit by this unit’s Auriferous Orb weapon; that enemy unit’s attacks have -1 to Hit rolls until the start of your next turn."
     },
     {
       "id": "edge-of-the-blade",
@@ -1288,12 +1349,38 @@
       "detachmentId": "guardians-of-the-throne",
       "detachmentName": "Guardians of the Throne",
       "description": "ADEPTUS CUSTODES model only. This model’s attacks that target an enemy CHARACTER/MONSTER/VEHICLE unit have +1 to Wound rolls.",
-      "effect": {
-        "effects": {
-          "woundMod": 1
+      "options": [
+        {
+          "name": "+1 Wound vs Character",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "requiresTargetKeyword": "character",
+            "bearerOnly": true
+          }
         },
-        "bearerOnly": true
-      }
+        {
+          "name": "+1 Wound vs Monster",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "requiresTargetKeyword": "monster",
+            "bearerOnly": true
+          }
+        },
+        {
+          "name": "+1 Wound vs Vehicle",
+          "effect": {
+            "effects": {
+              "woundMod": 1
+            },
+            "requiresTargetKeyword": "vehicle",
+            "bearerOnly": true
+          }
+        }
+      ]
     },
     {
       "id": "emperors-light",

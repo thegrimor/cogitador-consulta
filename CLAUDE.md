@@ -311,6 +311,16 @@ Champion, Shield-Captain, Allarus, both Aquilon, Sentinel Guard). Fixed: Twin Co
 Stand Vigil text is "if **any** of the following apply" (was written as "and"); "Slayers" → "Slayer of Tyrants".
 Also set missing `isAssault`/Rapid Fire/Precision weapon flags, and Destructor Optics/Dread Foe/Impenetrable
 Defence/Stand Vigil/Dacatarai now use `excludesTargetKeywords` instead of an infantry-only approximation.
+**Full re-audit against the complete 24-page codex PDF (2026-10-06, `11th_Custodes.pdf`, book pp. 92-115 — datasheets,
+all 13 detachments, stratagems, enhancements).** Datasheet stats/weapons/keywords all matched except the items above.
+Detachment fixes: Moritoi Ancients (below Starting Strength is re-roll Hit rolls **of 1**, not all; now two `options`
+tiers); In Auramite Clad (×2) `apMod` was `+1` for a *defensive* "-1 AP" — defensive AP reduction is `apMod: -1`
+(`+1` is the attacker improving AP); Prime Target (dropped a bogus `rerollDamageOf1`, split into per-roll `options`);
+Auriferous Orb is `ANTI-non-MONSTER/VEHICLE 2+` (was written `ANTI-INFANTRY/MONSTER/VEHICLE`); Bane of Abominations and
+Grim Responsibility split into per-keyword `options` (CHARACTER/MONSTER[/VEHICLE]); Magna Imperator split into
+one-hit/one-wound `options`; Flare Shields (4+ InSv vs ranged) now `feelNoPainThreshold: 4` per the invulnerable-save
+convention. Dawneagle Shield-Captain has **no** Leader ability in the book, yet `vertus-praetors.canBeLedBy` lists it
+(probably via Aquila Commander) — left as is until that rule's text is available.
 **Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
 never photographed, so it exists nowhere in `armyRules` yet.
 
