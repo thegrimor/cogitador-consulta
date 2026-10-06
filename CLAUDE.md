@@ -328,6 +328,12 @@ Grim Responsibility split into per-keyword `options` (CHARACTER/MONSTER[/VEHICLE
 one-hit/one-wound `options`; Flare Shields (4+ InSv vs ranged) now `feelNoPainThreshold: 4` per the invulnerable-save
 convention. Dawneagle Shield-Captain has **no** Leader ability in the book, yet `vertus-praetors.canBeLedBy` lists it
 (probably via Aquila Commander) — left as is until that rule's text is available.
+**Witchseekers and the Anathema Psykana Rhino re-stated to the new book (2026-10-06, from a low-resolution photo).**
+Both were still previous-edition data: Witchseekers M 7"/Scouts 7", `Flamer [ANTI-PSYKER 4+, ASSAULT, BLAST 1, TORRENT]`
+S4 AP-1 D1, `Gun Stock`, 4-10 models, new Sanctified Flames, faction keyword `Anathema Psykana`, no Aegis of the
+Emperor; Rhino faction keyword `Anathema Psykana`, Hunter-killer Missile D3+3, Storm Bolter S5 AP-1, Assault Vehicle +
+Transport (12 ANATHEMA PSYKANA INFANTRY) replacing Self Repair/One Shot. **Unreadable in the photo, left as they were
+(old values, may be wrong): the Flamer's range, Attacks and BS column** (currently 12"/D6/N/A).
 **Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
 never photographed, so it exists nowhere in `armyRules` yet.
 

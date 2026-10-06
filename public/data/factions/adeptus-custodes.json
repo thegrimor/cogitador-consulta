@@ -5616,14 +5616,14 @@
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
-      "loadout": "<b>Every model is equipped with:</b> Witchseeker flamer; close combat weapon.",
+      "loadout": "<b>Every model is equipped with:</b> 1 Flamer; 1 Gun Stock.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
         {
           "line": 1,
-          "name": "Witchseekers",
-          "M": "6\"",
+          "name": "Witchseeker",
+          "M": "7\"",
           "T": 3,
           "Sv": "3+",
           "invSv": "-",
@@ -5636,23 +5636,30 @@
       "weapons": [
         {
           "line": 1,
-          "name": "Witchseeker flamer",
-          "description": "ignores cover, torrent",
+          "name": "Flamer",
+          "description": "anti-psyker 4+, assault, blast 1, torrent",
           "range": "12",
           "type": "Ranged",
           "A": "D6",
           "bsWs": "N/A",
           "S": 4,
-          "AP": 0,
+          "AP": -1,
           "D": "1",
           "rules": {
             "isTorrent": true,
-            "isIgnoresCover": true
+            "isAssault": true,
+            "isBlast": true,
+            "antiEntries": [
+              {
+                "keyword": "psyker",
+                "threshold": 4
+              }
+            ]
           }
         },
         {
           "line": 2,
-          "name": "Close combat weapon",
+          "name": "Gun Stock",
           "description": "",
           "range": "Melee",
           "type": "Melee",
@@ -5666,8 +5673,8 @@
       ],
       "abilities": [
         {
-          "id": "scouts-6",
-          "name": "Scouts 6\"",
+          "id": "scouts-7",
+          "name": "Scouts 7\"",
           "description": "<div class=\"Corner33 abWrap BreakInsideAvoid\"><div class=\"abFlex\"><div class=\"abDiamondWrap\"><div class=\"abDiamond\"><div class=\"abIcon\"></div></div></div><div class=\"abLine\"></div><div class=\"abNameWrap\"><div class=\"abName\">SCOUTS</div></div></div>Some units have ‘Scouts x\"’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x\", with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model's Move characteristic, as long as it is not greater than x\".<br><br><span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> models can make use of any Scouts x\" ability listed in their abilities, or a Scouts x\" ability that a unit that starts the battle embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model has (provided only models with this ability are embarked within that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an <span class=\"tooltip00015\" data-tooltip-content=\"#tooltip_content00015\"><span class=\"tt kwbu\">attached</span></span> <span class=\"kwb\">CHARACTER</span>, etc.).<br><br>A unit that moves using this ability must end that move more than 9\" horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.<br><br><div class=\"redExample\"><b>Example:</b> A unit has the Scouts 6\" ability. At the start of the first battle round, the controlling player can make a Normal move with that unit of up to 6\".</div><br><div class=\"BreakInsideAvoid frameLight Corner14\" style=\"\"><ul class=\"redSquare\"><li><b>Scouts x\":</b> Unit can make a Normal move of up to x\" before the first turn begins.</li><li>If embarked in a <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span>, that <span class=\"kwb\">DEDICATED</span> <span class=\"kwb\">TRANSPORT</span> can make this move instead.</li><li>Must end this move more than 9\" horizontally away from all enemy models.</li></ul></div></div>",
           "type": "Core"
         },
@@ -5680,44 +5687,30 @@
         {
           "id": "sanctified-flames",
           "name": "Sanctified Flames",
-          "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test.",
+          "description": "In your Shooting phase, when this unit has shot, you can select one enemy unit hit by those attacks. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll if that enemy unit is a PSYKER unit.",
           "type": "Datasheet"
-        },
-        {
-          "id": "aegis-of-the-emperor",
-          "name": "Aegis of the Emperor",
-          "type": "Faction",
-          "description": "The Adeptus Custodes are the shield of the Emperor: indomitable and nigh unbreakable.<br><br>Friendly ADEPTUS CUSTODES units with this ability have Feel No Pain 5+ against mortal wounds.",
-          "effect": {
-            "effects": {
-              "feelNoPainThreshold": 5
-            },
-            "target": "defender"
-          }
         }
       ],
       "keywords": [
-        "Imperium",
-        "Witchseekers",
+        "Infantry",
         "Anathema Psykana",
-        "Infantry"
+        "Imperium"
       ],
       "factionKeywords": [
-        "Adeptus Custodes"
+        "Anathema Psykana"
       ],
       "unitComposition": [
-        "1 Witchseeker Sister Superior",
-        "3-9 Witchseekers"
+        "4-10 Witchseeker models"
       ],
       "modelCountMin": 4,
       "modelCountMax": 10,
       "defaultWeaponNames": [
         {
-          "name": "witchseeker flamer",
+          "name": "Flamer",
           "count": 1
         },
         {
-          "name": "close combat weapon",
+          "name": "Gun Stock",
           "count": 1
         }
       ],
@@ -5754,7 +5747,7 @@
       "role": "Dedicated Transports",
       "sourceId": "000000024",
       "isVirtual": false,
-      "loadout": "<b>This model is equipped with:</b> storm bolter; armoured tracks.",
+      "loadout": "<b>This model is equipped with:</b> 1 Armoured Tracks; 1 Storm Bolter.",
       "damagedW": 0,
       "damagedDescription": "",
       "models": [
@@ -5782,7 +5775,7 @@
           "bsWs": "2",
           "S": 14,
           "AP": -3,
-          "D": "D6",
+          "D": "D3+3",
           "rules": {
             "isOneShot": true
           }
@@ -5795,8 +5788,8 @@
           "type": "Ranged",
           "A": "2",
           "bsWs": "3",
-          "S": 4,
-          "AP": 0,
+          "S": 5,
+          "AP": -1,
           "D": "1",
           "rules": {
             "rapidFireValue": "2"
@@ -5836,30 +5829,29 @@
           "type": "Datasheet"
         },
         {
-          "id": "self-repair",
-          "name": "Self Repair",
-          "description": "At the start of your Command phase, this model regains 1 lost wound.",
-          "type": "Datasheet"
+          "id": "assault-vehicle",
+          "name": "Assault Vehicle",
+          "type": "Datasheet",
+          "description": "In your Movement phase, when this unit ends an Advance move, units embarked within this unit can make a Shock Disembark move."
         },
         {
-          "id": "one-shot",
-          "name": "One Shot",
-          "description": "The bearer can only shoot with this weapon once per battle.",
-          "type": "Datasheet"
+          "id": "transport",
+          "name": "Transport",
+          "type": "Datasheet",
+          "description": "This model has a transport capacity of 12 <span class=\"kwb\">ANATHEMA PSYKANA INFANTRY</span> models."
         }
       ],
       "keywords": [
+        "Vehicle",
         "Anathema Psykana",
         "Dedicated Transport",
+        "Frame",
         "Imperium",
         "Smoke",
-        "Transport",
-        "Rhino",
-        "Vehicle",
-        "Frame"
+        "Transport"
       ],
       "factionKeywords": [
-        "Adeptus Custodes"
+        "Anathema Psykana"
       ],
       "unitComposition": [
         "1 Anathema Psykana Rhino"
