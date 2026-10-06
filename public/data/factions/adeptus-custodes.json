@@ -3721,7 +3721,15 @@
           "D": "3",
           "rules": {
             "cleaveValue": 1,
-            "sustainedHitsValue": 1
+            "sustainedHitsValue": 1,
+            "keywordConditions": {
+              "sustainedHits": {
+                "noneOf": [
+                  "monster",
+                  "vehicle"
+                ]
+              }
+            }
           }
         }
       ],
@@ -5522,7 +5530,14 @@
                 "keyword": "psyker",
                 "threshold": 5
               }
-            ]
+            ],
+            "keywordConditions": {
+              "devastatingWounds": {
+                "anyOf": [
+                  "psyker"
+                ]
+              }
+            }
           }
         }
       ],
@@ -5918,7 +5933,15 @@
           "D": "3",
           "rules": {
             "rapidFireValue": "4",
-            "sustainedHitsValue": 1
+            "sustainedHitsValue": 1,
+            "keywordConditions": {
+              "sustainedHits": {
+                "noneOf": [
+                  "monster",
+                  "vehicle"
+                ]
+              }
+            }
           }
         },
         {
@@ -6104,7 +6127,15 @@
           "AP": -3,
           "D": "D6+2",
           "rules": {
-            "isLethalHits": true
+            "isLethalHits": true,
+            "keywordConditions": {
+              "lethalHits": {
+                "anyOf": [
+                  "monster",
+                  "vehicle"
+                ]
+              }
+            }
           }
         },
         {

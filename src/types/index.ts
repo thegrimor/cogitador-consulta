@@ -90,6 +90,20 @@ export interface Weapon {
   isLance: boolean
   isConversion: boolean
   rapidFireValue: string
+  /** Target-keyword conditions on a conditional weapon ability, e.g. [SUSTAINED HITS 1: non-MONSTER/
+   * VEHICLE] or [LETHAL HITS: MONSTER/VEHICLE]. The flag/value above is still set (so badges show it);
+   * the damage calculator only applies it when the defender satisfies the condition. */
+  keywordConditions?: {
+    lethalHits?: KeywordCondition
+    sustainedHits?: KeywordCondition
+    devastatingWounds?: KeywordCondition
+  }
+}
+
+/** Satisfied when the target has ANY of `anyOf` (if given) and NONE of `noneOf` (if given). Lowercase. */
+export interface KeywordCondition {
+  anyOf?: string[]
+  noneOf?: string[]
 }
 
 export type CombatType = 'ranged' | 'melee' | 'any'

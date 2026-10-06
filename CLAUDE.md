@@ -303,7 +303,12 @@ capacity was 9 from the photo (smudged), later set to 8 by the points list below
 re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis of the Emperor, faction keyword
 `Anathema Psykana`; Knight-Centura is now Support, not Leader). Vertus Praetors, Gyrfalcon, Wardens, Blade
 Champion, Shield-Captain and Trajann already matched the photos.
-Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
+Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag (so the badge shows) **and** a
+`rules.keywordConditions` entry (`lethalHits`/`sustainedHits`/`devastatingWounds` → `{anyOf?, noneOf?}`, lowercase
+keywords); `calculateDamage` only applies the ability when the defender satisfies it. Custodes' four conditional
+weapons carry it (Galatus Warblade and Iliastus Accelerator Cannon `sustainedHits` noneOf monster/vehicle, Arachnus
+Blaze Carronade `lethalHits` anyOf monster/vehicle, Executioner Greatblade `devastatingWounds` anyOf psyker); other
+factions' conditional weapons are still stored unconditional (overstated) until someone adds the same field.
 
 **Custodes datasheet audit against the codex photos (2026-10-06).** Re-checked 15 datasheets against the
 photographed pages (Vertus Praetors, Gyrfalcon, Vigilators, Pallas, Coronus, both Caladius, Wardens, Blade

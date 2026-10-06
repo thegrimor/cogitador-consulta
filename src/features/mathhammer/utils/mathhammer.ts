@@ -1,4 +1,4 @@
-import type { Weapon, ModelProfile, Datasheet } from '@/types'
+import type { Weapon, ModelProfile, Datasheet, KeywordCondition } from '@/types'
 import type { DamageBreakdown, CombatModifiers, ModifierRule } from '../types'
 
 const FNP_ABILITY_RE = /^Feel No Pain\s*(\d)\+$/i
@@ -396,8 +396,14 @@ export function calculateDamage(
     ? Math.max(mods.critThreshold, mods.overwatchThreshold)
     : mods.critThreshold
   const CRIT       = (7 - effectiveCritThreshold) / 6   // 1/6 normally, 2/6 when crits on 5+
-  const isLethal   = weapon.isLethalHits || mods.lethalHitsBonus
-  const sustainedX = weapon.sustainedHitsValue + mods.sustainedHitsBonus
+  // Conditional weapon abilities ([SUSTAINED HITS 1: non-MONSTER/VEHICLE], [LETHAL HITS: MONSTER/
+  // VEHICLE], [DEVASTATING WOUNDS: PSYKER]…) only count against a defender matching their condition.
+  const defKw = defenderKeywords.map(k => k.toLowerCase())
+  const conditionMet = (c?: KeywordCondition) =>
+    !c || ((!c.anyOf?.length || c.anyOf.some(k => defKw.includes(k))) && !(c.noneOf ?? []).some(k => defKw.includes(k)))
+  const cond = weapon.keywordConditions
+  const isLethal   = (weapon.isLethalHits && conditionMet(cond?.lethalHits)) || mods.lethalHitsBonus
+  const sustainedX = (conditionMet(cond?.sustainedHits) ? weapon.sustainedHitsValue : 0) + mods.sustainedHitsBonus
   const sustainedExtraHits = sustainedX > 0 ? avgAttacks * CRIT * sustainedX : 0
 
   // Determinar umbral efectivo de herida crítica ANTI:
@@ -406,7 +412,7 @@ export function calculateDamage(
   // Devastating Wounds (inherente o por regla) consume la herida crítica de reglamento: un 6
   // natural siempre es herida crítica, sea o no haya ANTI — sin esto, Devastating Wounds no hacía
   // nada en armas sin un ANTI-X coincidente con el defensor.
-  const hasDevastatingWounds = weapon.isDevastatingWounds || mods.devastatingWoundsBonus
+  const hasDevastatingWounds = (weapon.isDevastatingWounds && conditionMet(cond?.devastatingWounds)) || mods.devastatingWoundsBonus
   if (hasDevastatingWounds) {
     effectiveWoundCritThreshold = Math.min(effectiveWoundCritThreshold, 6)
   }
