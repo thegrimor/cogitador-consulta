@@ -2753,7 +2753,7 @@
         },
         {
           "id": "slayers-of-tyrants",
-          "name": "Slayers of Tyrants",
+          "name": "Slayer of Tyrants",
           "description": "This unit’s melee attacks that target a unit with a Toughness greater than this unit’s Toughness have +1 to Wound rolls.",
           "type": "Datasheet",
           "effect": {
@@ -3942,7 +3942,7 @@
           "bsWs": "2",
           "S": 10,
           "AP": -3,
-          "D": "2",
+          "D": "D3+2",
           "rules": {
             "isTwinLinked": true
           }
@@ -4883,7 +4883,7 @@
         {
           "id": "stand-vigil",
           "name": "Stand Vigil",
-          "description": "This unit’s attacks have [LETHAL HITS: non-MONSTER/VEHICLE] if this unit is within range of an objective and the target of those attacks is within range of an objective.",
+          "description": "This unit’s attacks have [LETHAL HITS: non-MONSTER/VEHICLE] if any of the following apply: this unit is within range of an objective; the target of those attacks is within range of an objective.",
           "type": "Datasheet",
           "effect": {
             "effects": {

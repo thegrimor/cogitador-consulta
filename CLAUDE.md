@@ -305,6 +305,13 @@ re-stated to the new book (M 7", Gun Stock, Anti-Psyker, 4-10 models, no Aegis o
 Champion, Shield-Captain and Trajann already matched the photos.
 Weapon conditionals like `[LETHAL HITS: MONSTER/VEHICLE]` set the plain boolean flag, as elsewhere in the data.
 
+**Custodes datasheet audit against the codex photos (2026-10-06).** Re-checked 15 datasheets against the
+photographed pages (Vertus Praetors, Gyrfalcon, Vigilators, Pallas, Coronus, both Caladius, Wardens, Blade
+Champion, Shield-Captain, Allarus, both Aquilon, Sentinel Guard). Fixed: Twin Corvae Las-pulser D `2` → `D3+2`;
+Stand Vigil text is "if **any** of the following apply" (was written as "and"); "Slayers" → "Slayer of Tyrants".
+**Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
+never photographed, so it exists nowhere in `armyRules` yet.
+
 **Custodes points and enhancement costs, user-supplied spreadsheet (2026-10-03), not the MFM.** Per explicit user
 instruction, a "Datasheet / First / Second / Third" spreadsheet (plus an Enhancement / Detachment / Points table)
 overrides the MFM-only rule and supersedes the two earlier user lists. Each datasheet's three columns became tiers:
