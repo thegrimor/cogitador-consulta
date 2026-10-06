@@ -1624,7 +1624,15 @@
           "id": "shroudpsalm-aura",
           "name": "Shroudpsalm (Aura)",
           "description": "While a friendly <span class=\"kwb\">ADEPTUS</span> <span class=\"kwb\">MECHANICUS</span> unit is within 6\" of this model, that unit has the Stealth ability.",
-          "type": "Datasheet"
+          "type": "Datasheet",
+          "effect": {
+            "effects": {
+              "hitMod": -1
+            },
+            "target": "defender",
+            "appliesToNearby": true,
+            "requiresAttackerKeyword": "adeptus mechanicus"
+          }
         }
       ],
       "keywords": [
