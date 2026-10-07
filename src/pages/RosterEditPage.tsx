@@ -26,6 +26,7 @@ import { RulesReference } from '@/shared/components/RulesReference'
 import { DetachmentSelectModal } from '@/shared/components/DetachmentSelectModal'
 import { RosterQrExportModal } from '@/shared/components/RosterQrModal'
 import { ROUTES } from '@/core/constants/routes'
+import { DECK_COLORS, dispositionDeckSlug, dispositionList } from '@/core/constants/missionDeckColors'
 import { forFaction, forFactionFromMap, datasheetsForFaction } from '@/core/constants/factionFamily'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { ALLY_FACTION_ID, canTakeImperialAgents } from '@/core/constants/allies'
@@ -93,6 +94,16 @@ export function RosterEditPage() {
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
+  // Force Dispositions the selected detachments offer, each with the detachments that grant it.
+  const availableDispositions = (() => {
+    const byName = new Map<string, string[]>()
+    for (const d of selectedDetachments) {
+      for (const name of dispositionList(d.disposition)) {
+        byName.set(name, [...(byName.get(name) ?? []), d.name])
+      }
+    }
+    return [...byName].map(([name, detachments]) => ({ name, detachments }))
+  })()
   const activeDetachmentAbilities = detachmentAbilities.filter(da => selectedDetachmentIds.has(da.detachmentId))
   // Some enhancements have no rows in Datasheets_enhancements.csv (a scrape gap, mostly
   // keyword-restricted enhancements like "TERMINATOR model only") — without a fallback
@@ -212,6 +223,34 @@ export function RosterEditPage() {
               {selectedDetachments.length === 0 ? 'Elegir' : 'Cambiar'}
             </button>
           </div>
+          {availableDispositions.length > 0 && (
+            <details className="group mt-0.5">
+              <summary className="cursor-pointer select-none text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment">
+                Disposiciones disponibles ({availableDispositions.length})
+              </summary>
+              <ul className="mt-1.5 flex flex-col gap-1">
+                {availableDispositions.map(({ name, detachments: from }) => {
+                  const colors = DECK_COLORS[dispositionDeckSlug(name)]
+                  return (
+                    <li key={name} className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                      <span
+                        className={`text-[10px] font-mono uppercase tracking-widest px-1.5 py-0.5 border ${
+                          colors ? `${colors.borderSoft} ${colors.text}` : 'border-rim-bright text-parchment-dim'
+                        }`}
+                      >
+                        {name}
+                      </span>
+                      {selectedDetachments.length > 1 && (
+                        <span className="text-[10px] font-mono text-parchment-dim/70 break-words">
+                          {from.join(', ')}
+                        </span>
+                      )}
+                    </li>
+                  )
+                })}
+              </ul>
+            </details>
+          )}
         </div>
         <div className="px-3 py-2.5 flex flex-col gap-1.5 shrink-0 border-t border-rim-bright sm:border-t-0 sm:border-l sm:border-rim-bright">
           <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">Límite</span>
