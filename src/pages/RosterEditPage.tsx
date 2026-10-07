@@ -7,6 +7,7 @@ import {
   renameRoster,
   setPointsLimit,
   setDetachments,
+  setDisposition,
   addEntry,
   updateEntry,
   removeEntry,
@@ -95,15 +96,18 @@ export function RosterEditPage() {
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
   // Force Dispositions the selected detachments offer, each with the detachments that grant it.
-  const availableDispositions = (() => {
+  const dispositionsOf = (dets: typeof selectedDetachments) => {
     const byName = new Map<string, string[]>()
-    for (const d of selectedDetachments) {
+    for (const d of dets) {
       for (const name of dispositionList(d.disposition)) {
         byName.set(name, [...(byName.get(name) ?? []), d.name])
       }
     }
     return [...byName].map(([name, detachments]) => ({ name, detachments }))
-  })()
+  }
+  const availableDispositions = dispositionsOf(selectedDetachments)
+  // A stored disposition only counts while a selected detachment still offers it.
+  const selectedDisposition = availableDispositions.find(x => x.name === roster.disposition)?.name
   const activeDetachmentAbilities = detachmentAbilities.filter(da => selectedDetachmentIds.has(da.detachmentId))
   // Some enhancements have no rows in Datasheets_enhancements.csv (a scrape gap, mostly
   // keyword-restricted enhancements like "TERMINATOR model only") — without a fallback
@@ -224,22 +228,31 @@ export function RosterEditPage() {
             </button>
           </div>
           {availableDispositions.length > 0 && (
-            <details className="group mt-0.5">
-              <summary className="cursor-pointer select-none text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment">
-                Disposiciones disponibles ({availableDispositions.length})
+            <details className="group mt-0.5" open={!selectedDisposition}>
+              <summary
+                className={`cursor-pointer select-none text-[10px] font-mono uppercase tracking-widest hover:text-parchment ${
+                  selectedDisposition ? 'text-parchment-dim' : 'text-gold'
+                }`}
+              >
+                {selectedDisposition ? `Disposición: ${selectedDisposition}` : 'Elige una disposición'}
               </summary>
               <ul className="mt-1.5 flex flex-col gap-1">
                 {availableDispositions.map(({ name, detachments: from }) => {
                   const colors = DECK_COLORS[dispositionDeckSlug(name)]
+                  const active = name === selectedDisposition
                   return (
                     <li key={name} className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                      <span
-                        className={`text-[10px] font-mono uppercase tracking-widest px-1.5 py-0.5 border ${
+                      <button
+                        type="button"
+                        aria-pressed={active}
+                        onClick={() => dispatch(setDisposition({ rosterId, disposition: name }))}
+                        className={`text-[10px] font-mono uppercase tracking-widest px-1.5 py-0.5 border transition-colors ${
                           colors ? `${colors.borderSoft} ${colors.text}` : 'border-rim-bright text-parchment-dim'
-                        }`}
+                        } ${active ? 'bg-crimson/20 font-bold' : 'opacity-70 hover:opacity-100'}`}
                       >
+                        {active ? '● ' : '○ '}
                         {name}
-                      </span>
+                      </button>
                       {selectedDetachments.length > 1 && (
                         <span className="text-[10px] font-mono text-parchment-dim/70 break-words">
                           {from.join(', ')}
@@ -445,7 +458,13 @@ export function RosterEditPage() {
           pointsLimit={roster.pointsLimit}
           onClose={() => setDetachmentModalOpen(false)}
           onConfirm={detachmentIds => {
-            dispatch(setDetachments({ rosterId, detachmentIds }))
+            // Keep the chosen disposition if the new detachments still offer it; a single
+            // possible one is picked for the player, several must be chosen by hand.
+            const offered = dispositionsOf(factionDetachments.filter(d => detachmentIds.includes(d.id))).map(x => x.name)
+            const disposition = roster.disposition && offered.includes(roster.disposition)
+              ? roster.disposition
+              : offered.length === 1 ? offered[0] : undefined
+            dispatch(setDetachments({ rosterId, detachmentIds, disposition }))
             setDetachmentModalOpen(false)
           }}
         />

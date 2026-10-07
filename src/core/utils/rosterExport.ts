@@ -8,6 +8,7 @@ import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { isNewRecruitText, parseNewRecruitText } from '@/core/utils/parseNewRecruit'
 import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily'
+import { matchDisposition, dispositionExportLabel } from '@/core/constants/missionDeckColors'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
 
@@ -123,6 +124,7 @@ export function exportRosterToText(
     .join(' + ')
   const detachmentPoints = sumDetachmentPoints(detachments, roster.detachmentIds)
   lines.push(`${detachmentNames || 'No Detachment'} (${detachmentPoints} Detachment Points)`)
+  if (roster.disposition) lines.push(dispositionExportLabel(roster.disposition))
 
   const battleSize = battleSizeLabel(roster.pointsLimit)
   const limitLabel = roster.pointsLimit !== null ? `${roster.pointsLimit} Points` : 'Open Play'
@@ -223,6 +225,7 @@ export interface ParsedRosterText {
   name: string
   factionName: string
   detachmentNames: string[]
+  disposition?: string
   pointsLimit: number | null
   units: ParsedUnit[]
 }
@@ -288,6 +291,7 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
   let pointsLimit: number | null = null
   const units: ParsedUnit[] = []
 
+  let disposition: string | undefined
   let seenDetachment = false
   let seenSection = false
   let currentAttachmentGroup = -1
@@ -324,6 +328,13 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
       const parts = detMatch[1].split(/\s+\+\s+|\s+y\s+/i).map(s => s.trim()).filter(Boolean)
       detachmentNames.push(...parts)
       seenDetachment = true
+      continue
+    }
+
+    // Force Disposition line right after the detachment: "Disruption"
+    const disp = seenDetachment ? matchDisposition(line) : undefined
+    if (disp) {
+      disposition = disp
       continue
     }
 
@@ -436,7 +447,7 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
     throw new Error('No se encontraron unidades ni destacamentos. Comprueba que el formato sea correcto.')
   }
 
-  return { name: armyName, factionName, detachmentNames, pointsLimit, units }
+  return { name: armyName, factionName, detachmentNames, disposition, pointsLimit, units }
 }
 
 // ── Resolve ────────────────────────────────────────────────────────────────────
@@ -781,6 +792,7 @@ export function resolveImportedRoster(
       name: parsed.name,
       factionId,
       detachmentIds,
+      disposition: parsed.disposition,
       entries,
       pointsLimit: parsed.pointsLimit,
     },

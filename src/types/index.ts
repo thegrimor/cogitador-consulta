@@ -313,6 +313,8 @@ export interface RosterList {
   name: string
   factionId: string
   detachmentIds: string[]
+  /** Force Disposition chosen among those the selected detachments offer (caps, as in the data). */
+  disposition?: string
   entries: RosterEntry[]
   pointsLimit: number | null
   createdAt: string

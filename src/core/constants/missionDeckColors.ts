@@ -23,3 +23,21 @@ export function dispositionDeckSlug(disposition: string): string {
 export function dispositionList(disposition: string | string[]): string[] {
   return Array.isArray(disposition) ? disposition : disposition ? [disposition] : []
 }
+
+const DISPOSITION_NAMES = ['TAKE AND HOLD', 'PURGE THE FOE', 'DISRUPTION', 'RECONNAISSANCE', 'PRIORITY ASSETS']
+
+/** Canonical (caps) Force Disposition for a free-text line such as an exported "Disruption",
+ * or `undefined` when the text isn't one of the five dispositions. */
+export function matchDisposition(text: string): string | undefined {
+  const slug = dispositionDeckSlug(text)
+  return DISPOSITION_NAMES.find(n => dispositionDeckSlug(n) === slug)
+}
+
+/** "TAKE AND HOLD" → "Take and Hold", the casing the GW app writes in its export. */
+export function dispositionExportLabel(disposition: string): string {
+  return disposition
+    .toLowerCase()
+    .split(/\s+/)
+    .map((w, i) => (i > 0 && (w === 'and' || w === 'the') ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(' ')
+}

@@ -930,6 +930,13 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   flag was permanently `false`, and the allied-Agents picker had never rendered for any faction at
   all. Same trap `factionColors.ts` already warns about — never match a `factionId` against
   anything in `themes.ts`.
+- **Force Disposition is chosen per roster (`RosterList.disposition`, caps like the data).** `RosterEditPage`'s
+  "Destacamento" block has a `<details>` listing the dispositions the selected detachments offer
+  (`dispositionList`); the player must pick one (`setDisposition`; the summary reads "Elige una disposición" until
+  then). `setDetachments` takes an optional `disposition`: the modal's `onConfirm` keeps the current one if still
+  offered, auto-picks a single possible one, else clears it. Export writes it on its own line after the detachment line
+  (`dispositionExportLabel` → "Take and Hold"), the text importer reads it back (`matchDisposition`, only right after a
+  detachment line), and the QR payload carries it as `s`. Not in `parseNewRecruit.ts` yet.
 - Export to Wahapedia-style plain text (`sectionHeader`, `battleSizeLabel`, etc.) is in `src/core/utils/rosterExport.ts`. Text import (`RosterListPage`'s "Importar Lista" box) goes through `parseRosterText`, which dispatches by format: `parseMunitorumRosterText` (same file) handles the GW-app export plus its close cousins (Listhammer, BattleScribe, and their Spanish translations — all share one line grammar, distinguished by regex variants); `parseNewRecruitText` (`src/core/utils/parseNewRecruit.ts`, picked via `isNewRecruitText`) handles newrecruit.eu's export, a genuinely different line grammar (a "+"-bordered ALL-CAPS metadata banner, inline `: weapon, weapon` tails instead of separate weapon-bullet lines) kept in its own module for that reason. Both parsers funnel into the same `ParsedRosterText`/`ParsedUnit` shape, so `resolveImportedRoster` (datasheet/detachment/enhancement matching, wargear/weapon-option resolution, leader attachment) is format-agnostic and lives once in `rosterExport.ts`. Adding another source format means adding another `parseXText` producing that same shape, not touching `resolveImportedRoster`.
 - QR import/export (`RosterQrExportModal`, `RosterQrScanModal`) round-trips a compact roster payload through `lz-string` compression + `qrcode.react` (render) / `qr-scanner` (scan) in `src/core/utils/rosterQrCode.ts`. There's also a BCP-list text importer (`src/features/mathhammer/utils/parseBcpList.ts`) that parses copy-pasted army lists.
 - Enhancement-to-unit attachment rules are in `src/core/constants/enhancementAttachments.ts`.

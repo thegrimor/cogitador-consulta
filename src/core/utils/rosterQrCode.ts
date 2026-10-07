@@ -19,6 +19,7 @@ interface QrRoster {
   n: string
   f: string
   t: string[]
+  s?: string
   l: number | null
   e: QrEntry[]
 }
@@ -51,6 +52,7 @@ export function encodeRosterForQr(roster: RosterList): string {
     n: roster.name,
     f: roster.factionId,
     t: roster.detachmentIds,
+    ...(roster.disposition ? { s: roster.disposition } : {}),
     l: roster.pointsLimit,
     e: roster.entries.map(entry => {
       const qrEntry: QrEntry = { d: entry.datasheetId, m: entry.modelCount }
@@ -94,6 +96,7 @@ export function decodeRosterFromQr(data: string): Omit<RosterList, 'id' | 'creat
       name: parsed.n,
       factionId: parsed.f,
       detachmentIds: parsed.t,
+      disposition: typeof parsed.s === 'string' ? parsed.s : undefined,
       entries,
       pointsLimit: parsed.l,
     }

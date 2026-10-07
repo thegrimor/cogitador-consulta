@@ -67,11 +67,22 @@ const rosterSlice = createSlice({
       touch(roster)
     },
 
-    setDetachments: (state, action: PayloadAction<{ rosterId: string; detachmentIds: string[] }>) => {
+    setDetachments: (
+      state,
+      action: PayloadAction<{ rosterId: string; detachmentIds: string[]; disposition?: string }>,
+    ) => {
       const roster = state.rosters.find(r => r.id === action.payload.rosterId)
       if (!roster) return
       roster.detachmentIds = action.payload.detachmentIds
+      roster.disposition = action.payload.disposition
       roster.entries.forEach(e => { e.enhancementId = undefined })
+      touch(roster)
+    },
+
+    setDisposition: (state, action: PayloadAction<{ rosterId: string; disposition?: string }>) => {
+      const roster = state.rosters.find(r => r.id === action.payload.rosterId)
+      if (!roster) return
+      roster.disposition = action.payload.disposition
       touch(roster)
     },
 
@@ -202,6 +213,7 @@ export const {
   renameRoster,
   setPointsLimit,
   setDetachments,
+  setDisposition,
   addEntry,
   updateEntry,
   removeEntry,
