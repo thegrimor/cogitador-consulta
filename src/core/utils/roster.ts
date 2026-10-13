@@ -74,6 +74,33 @@ export function attachmentKind(datasheet: Datasheet): AttachmentKind {
     : 'leader'
 }
 
+/** Datasheets whose own rules say "it must be your Warlord". */
+export function isMandatoryWarlord(datasheet: Datasheet): boolean {
+  return datasheet.abilities.some(a => /must be your warlord/i.test(a.description))
+}
+
+export interface WarlordState {
+  /** Entry that is the Warlord right now (forced, or the player's pick), if any. */
+  warlordId: string | null
+  /** Entries whose datasheet forces them to be the Warlord. */
+  mandatoryIds: string[]
+}
+
+/** The Warlord is the one character with the mandatory-Warlord rule. With none, it is the
+ *  player's pick; with two or more, the player picks between those only. */
+export function resolveWarlord(
+  entries: RosterEntry[],
+  datasheetById: Map<string, Datasheet>,
+): WarlordState {
+  const mandatoryIds = entries
+    .filter(e => { const d = datasheetById.get(e.datasheetId); return !!d && isMandatoryWarlord(d) })
+    .map(e => e.id)
+  if (mandatoryIds.length === 1) return { warlordId: mandatoryIds[0], mandatoryIds }
+  const pool = mandatoryIds.length > 1 ? entries.filter(e => mandatoryIds.includes(e.id)) : entries
+  const picked = pool.find(e => e.isWarlord)
+  return { warlordId: picked?.id ?? null, mandatoryIds }
+}
+
 /** Bodyguard datasheets whose own rules raise the one-leader cap. T'au Kroot Carnivores'
  * BODYGUARD ability: "If this unit has a Starting Strength of 20, you can attach up to two
  * Leader units to it instead of one, provided those Leaders are not duplicates". The support

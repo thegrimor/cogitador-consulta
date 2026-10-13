@@ -2,7 +2,7 @@ import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhanceme
 import {
   weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, resolveCostsForFactionContext, sortCostVariants,
   sumDetachmentPoints, ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
-  attachmentKind, isAttachmentSlotTaken, resolveWeaponQuantities,
+  attachmentKind, isAttachmentSlotTaken, resolveWeaponQuantities, resolveWarlord,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
@@ -66,8 +66,11 @@ function entryLines(
   return out
 }
 
-function entryBody(entry: RosterEntry, datasheet: Datasheet, enhancements: Enhancement[]): string[] {
+function entryBody(
+  entry: RosterEntry, datasheet: Datasheet, enhancements: Enhancement[], isWarlord: boolean,
+): string[] {
   const out: string[] = []
+  if (isWarlord) out.push('  • Warlord')
 
   if (entry.enhancementId) {
     const enh = enhancements.find(e => e.id === entry.enhancementId)
@@ -139,9 +142,10 @@ export function exportRosterToText(
     const costsForTier = resolveCostsForUnitIndex(contextCosts, unitIndex)
     const wargearCosts = wargearCostMap[entry.datasheetId] ?? []
     const [head] = entryLines(entry, datasheet, costsForTier, wargearCosts, enhancements)
-    return [head, ...entryBody(entry, datasheet, enhancements)]
+    return [head, ...entryBody(entry, datasheet, enhancements, entry.id === warlordId)]
   }
 
+  const { warlordId } = resolveWarlord(roster.entries, new Map(datasheets.map(d => [d.id, d])))
   const totalPoints = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
   lines.push(`${roster.name} (${totalPoints} points)`)
   lines.push('')
@@ -249,6 +253,7 @@ export interface ParsedUnit {
   enhancementName?: string
   attachedToUnitName?: string
   attachmentGroupId?: number    // from "Attached unit N" block
+  isWarlord?: boolean           // from the "• Warlord" line
   attachmentRole?: 'Leader' | 'Support' | 'Bodyguard'  // from "• Attached as: Leader/Support/Bodyguard"
 }
 
@@ -404,6 +409,11 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
         : raw === 'support' || raw === 'apoyo' ? 'Support'
         : 'Bodyguard'
       if (currentUnit) currentUnit.attachmentRole = role
+      continue
+    }
+
+    if (/^[•◦]\s*(?:Warlord|Se[ñn]or de la guerra)$/i.test(line)) {
+      if (currentUnit) currentUnit.isWarlord = true
       continue
     }
 
@@ -757,6 +767,7 @@ export function resolveImportedRoster(
       if (Object.keys(weaponOptionSelections).length > 0) {
         entry.weaponOptionSelections = weaponOptionSelections
       }
+      if (unit.isWarlord) entry.isWarlord = true
       if (unit.enhancementName) {
         const enh = enhancements.find(e => namesMatch(e.name, unit.enhancementName!))
         if (enh) {

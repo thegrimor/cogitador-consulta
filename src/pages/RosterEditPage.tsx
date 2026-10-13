@@ -11,6 +11,7 @@ import {
   updateEntry,
   removeEntry,
   setEntryEnhancement,
+  setEntryWarlord,
   setEntryAttachment,
   setEntryWeaponSelection,
   setEntryWargearSelections,
@@ -18,7 +19,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
-  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero, canBearUnmappedEnhancement,
+  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero, canBearUnmappedEnhancement, resolveWarlord,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -92,6 +93,7 @@ export function RosterEditPage() {
     ? datasheets.filter(d => d.factionId === ALLY_FACTION_ID && !d.isVirtual)
     : []
   const datasheetById = new Map(datasheets.map(d => [d.id, d]))
+  const warlordState = resolveWarlord(roster?.entries ?? [], datasheetById)
   const selectedDetachments = factionDetachments.filter(d => roster.detachmentIds.includes(d.id))
   const selectedDetachmentIds = new Set(roster.detachmentIds)
   // Force Dispositions the selected detachments offer, each with the detachments that grant it.
@@ -408,6 +410,15 @@ export function RosterEditPage() {
                           changes: { modelCount: resolveModelCount(cost, datasheet) },
                         }),
                       )
+                    }
+                    warlord={{
+                      isWarlord: warlordState.warlordId === entry.id,
+                      forced: warlordState.mandatoryIds.length === 1 && warlordState.mandatoryIds[0] === entry.id,
+                      // With a mandatory Warlord in the list, only those can be picked.
+                      allowed: warlordState.mandatoryIds.length === 0 || warlordState.mandatoryIds.includes(entry.id),
+                    }}
+                    onChangeWarlord={isWarlord =>
+                      dispatch(setEntryWarlord({ rosterId, entryId: entry.id, isWarlord }))
                     }
                     onChangeEnhancement={enhancementId =>
                       dispatch(setEntryEnhancement({ rosterId, entryId: entry.id, enhancementId }))

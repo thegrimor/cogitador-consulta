@@ -959,6 +959,11 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   model/unit only" clause names (`A/B`/`A or B` = either, `(excluding Y units)` honoured, every word covered by its keywords/name; "unit only" never goes to a character), or to any non-character if it names none. `RosterEntryRow` shows the "Mejora" picker when the
   unit is a character or has any available. "Character" (`isCharacterDatasheet`) is the CHARACTER keyword *or* role `Characters`, because the Space Marines PDF-migration characters (Kayvaan Shrike, Librarian in Terminator Armour…) lack the keyword. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
   Augury Uplink/Memento Moritoi.
+- **Warlord: `RosterEntry.isWarlord` + `resolveWarlord` (`roster.ts`).** Characters get a "Warlord" check in
+  `RosterEntryRow`; `setEntryWarlord` keeps one per army. A datasheet whose ability text says "it must be your
+  Warlord" (`isMandatoryWarlord`, 10 datasheets) overrides the pick: exactly one such unit in the list is the Warlord
+  (check shown locked, "obligatorio", nobody else can be picked); two or more means the player chooses between those
+  only. Export writes `• Warlord` under the unit's name line (after `Attached as`); the parser reads it back.
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
   return no enhancements for a datasheet with the `Epic Hero` keyword (`isEpicHero` in `roster.ts`). It has to
   be explicit: the "unmapped enhancement => unrestricted" fallback would otherwise offer every unmapped
