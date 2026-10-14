@@ -18,7 +18,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
-  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero, canBearUnmappedEnhancement,
+  DETACHMENT_POINTS_BUDGET, takenOnePerArmyEnhancementIds, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero, canBearUnmappedEnhancement,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -398,6 +398,7 @@ export function RosterEditPage() {
                     wargearCosts={wargearCostMap[datasheet.id] ?? []}
                     selectedDetachments={selectedDetachments}
                     availableEnhancements={availableEnhancements}
+                    takenEnhancementIds={takenOnePerArmyEnhancementIds(roster.entries, enhancements, entry.id)}
                     attachableEntries={attachableEntries}
                     leadingEntries={leadingEntries}
                     onChangeCost={cost =>

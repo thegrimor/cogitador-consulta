@@ -259,6 +259,20 @@ export function resolveEntryWargearSurcharge(entry: RosterEntry, wargearCosts: W
   }, 0)
 }
 
+/** Ids of `onePerArmy` enhancements already borne by a roster entry other than `exceptEntryId`. */
+export function takenOnePerArmyEnhancementIds(
+  entries: RosterEntry[],
+  enhancements: Enhancement[],
+  exceptEntryId: string,
+): Set<string> {
+  const onePerArmy = new Set(enhancements.filter(e => e.onePerArmy).map(e => e.id))
+  return new Set(
+    entries
+      .filter(e => e.id !== exceptEntryId && e.enhancementId && onePerArmy.has(e.enhancementId))
+      .map(e => e.enhancementId as string),
+  )
+}
+
 /** Points cost of `entry`'s enhancement (0 if none selected), resolved fresh from `enhancements`. */
 export function resolveEntryEnhancementCost(entry: RosterEntry, enhancements: Enhancement[]): number {
   if (!entry.enhancementId) return 0

@@ -345,6 +345,8 @@ export interface Enhancement {
   description: string
   /** GW's "Upgrade" enhancements go on non-character units; every other enhancement is for characters. */
   upgrade?: boolean
+  /** MFM "(one per army)": no two units in the same roster may bear this enhancement. */
+  onePerArmy?: boolean
   effect?: CombatEffect
   /** Mutually-exclusive variants (e.g. a different invulnerable save against ranged vs. melee
    * attacks) — same shape as Ability's `options`, for enhancements whose single `effect` can't

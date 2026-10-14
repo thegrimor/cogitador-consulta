@@ -29,6 +29,8 @@ interface Props {
   wargearCosts: WargearCost[]
   selectedDetachments: Detachment[]
   availableEnhancements: Enhancement[]
+  /** `onePerArmy` enhancements another unit in the roster already bears — shown but disabled. */
+  takenEnhancementIds?: Set<string>
   attachableEntries: AttachableEntry[]
   leadingEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
@@ -83,6 +85,7 @@ export function RosterEntryRow({
   wargearCosts,
   selectedDetachments,
   availableEnhancements,
+  takenEnhancementIds,
   attachableEntries,
   leadingEntries,
   onChangeCost,
@@ -215,15 +218,20 @@ export function RosterEntryRow({
                 <button onClick={() => onChangeEnhancement(null)} className={pillClass(!entry.enhancementId)}>
                   Ninguno
                 </button>
-                {availableEnhancements.map(e => (
-                  <button
-                    key={e.id}
-                    onClick={() => onChangeEnhancement(e.id)}
-                    className={pillClass(entry.enhancementId === e.id)}
-                  >
-                    {e.name} · {e.cost}pts
-                  </button>
-                ))}
+                {availableEnhancements.map(e => {
+                  const taken = takenEnhancementIds?.has(e.id) ?? false
+                  return (
+                    <button
+                      key={e.id}
+                      onClick={() => onChangeEnhancement(e.id)}
+                      disabled={taken}
+                      title={taken ? 'Solo una por ejército, ya la lleva otra unidad' : undefined}
+                      className={`${pillClass(entry.enhancementId === e.id)} ${taken ? 'opacity-40 cursor-not-allowed' : ''}`}
+                    >
+                      {e.name} · {e.cost}pts{e.onePerArmy && ' (1 por ejército)'}
+                    </button>
+                  )
+                })}
               </div>
               {selectedEnhancement && (
                 <p

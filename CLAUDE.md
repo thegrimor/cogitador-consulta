@@ -977,6 +977,12 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   model/unit only" clause names (`A/B`/`A or B` = either, `(excluding Y units)` honoured, every word covered by its keywords/name; "unit only" never goes to a character), or to any non-character if it names none. `RosterEntryRow` shows the "Mejora" picker when the
   unit is a character or has any available. "Character" (`isCharacterDatasheet`) is the CHARACTER keyword *or* role `Characters`, because the Space Marines PDF-migration characters (Kayvaan Shrike, Librarian in Terminator Armour…) lack the keyword. This is what lets Custodes Dreadnoughts take Might of the Moritoi's
   Augury Uplink/Memento Moritoi.
+- **One-per-army enhancements: `Enhancement.onePerArmy`.** The MFM tags some enhancements `(one per army)`
+  (Custodes' Augury Uplink and Memento Moritoi). The flag is authored in the faction JSON; `takenOnePerArmyEnhancementIds`
+  (`roster.ts`) returns the flagged ids another entry already bears, and `RosterEditPage` passes it to `RosterEntryRow`,
+  which shows those pills disabled ("1 por ejército"). Only `RosterEditPage` enforces it — `resolveImportedRoster` and the
+  QR import don't, so an imported list can still carry two. No other enhancement is flagged yet (sweep the MFM
+  `DETACHMENTS` sections for `(one per army)` on the next sync; `mfm-sync` doesn't read it).
 - **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
   return no enhancements for a datasheet with the `Epic Hero` keyword (`isEpicHero` in `roster.ts`). It has to
   be explicit: the "unmapped enhancement => unrestricted" fallback would otherwise offer every unmapped
