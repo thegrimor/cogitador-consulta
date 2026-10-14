@@ -42,9 +42,11 @@ function weaponLines(
 ): string[] {
   const out: string[] = []
   let first = true
-  for (const [key, n] of counts) {
-    if (n <= 0) continue
-    out.push(`${indent}${first ? '• ' : '  '}${n}x ${displayWeaponName(datasheet, key)}`)
+  const named = [...counts].filter(([, n]) => n > 0)
+    .map(([key, n]) => ({ name: displayWeaponName(datasheet, key), n }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+  for (const { name, n } of named) {
+    out.push(`${indent}${first ? '• ' : '  '}${n}x ${name}`)
     first = false
   }
   return out
@@ -93,9 +95,9 @@ function entryBody(
 
   const roleCounts = resolveRoleCounts(datasheet.unitSlots, entry.modelCount)
   const slots = datasheet.unitSlots.filter(s => (roleCounts[s.role] ?? 0) > 0)
-  const perRole = datasheet.defaultWeaponGroups.length > 0
-    && !Object.values(entry.weaponOptionSelections ?? {}).some(sel => sel.some(q => q > 0))
-    && slots.length > 0
+  // Per-role weapons are only derivable while no option rule changed the loadout.
+  const perRole = !Object.values(entry.weaponOptionSelections ?? {}).some(sel => sel.some(q => q > 0))
+    && slots.length > 1
 
   if (slots.length === 0) {
     out.push(`  • ${entry.modelCount}x ${datasheet.name}`)
@@ -105,10 +107,14 @@ function entryBody(
 
   for (const slot of slots) {
     const n = roleCounts[slot.role]
-    out.push(`  • ${n}x ${slot.role}`)
+    // "9x Khorne Berzerkers" reads as "9x Khorne Berzerker" in the GW list (role named like the unit).
+    const roleName = n > 1 && slot.role.toLowerCase() === datasheet.name.toLowerCase()
+      ? slot.role.replace(/s$/i, '') : slot.role
+    out.push(`  • ${n}x ${roleName}`)
     if (perRole) {
       const roleWeapons = new Map<string, number>()
-      for (const g of datasheet.defaultWeaponGroups) {
+      const grouped = datasheet.defaultWeaponGroups.length > 0
+      for (const g of grouped ? datasheet.defaultWeaponGroups : [{ role: slot.role, weapons: datasheet.defaultWeaponNames }]) {
         if (g.role !== slot.role) continue
         for (const { name, count } of g.weapons) {
           roleWeapons.set(weaponBaseName(name), (roleWeapons.get(weaponBaseName(name)) ?? 0) + count * n)
@@ -191,7 +197,7 @@ export function exportRosterToText(
     lines.push('Attached Units')
 
     attachmentGroups.forEach((group, idx) => {
-      lines.push('')
+      if (idx > 0) lines.push('')
       lines.push(`Attached Unit ${idx + 1}`)
 
       for (const entry of group) {
@@ -203,7 +209,7 @@ export function exportRosterToText(
         const role = bodyguardIds.has(entry.id)
           ? (datasheet.role === 'Battleline' ? 'Bodyguard (Battleline)' : 'Bodyguard')
           : attachmentKind(datasheet) === 'support' ? 'Support (Character)' : 'Leader (Character)'
-        lines.push(`  • Attached as: ${role}`)
+        lines.push(`• Attached as: ${role}`)
         lines.push(...rest)
       }
     })
