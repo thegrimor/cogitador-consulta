@@ -10850,7 +10850,11 @@
         "sanguinary-priest",
         "techmarine",
         "wardens-of-ultramar",
-        "marneus-calgar"
+        "marneus-calgar",
+        "inquisitor",
+        "inquisitor-coteaz",
+        "inquisitor-draxus",
+        "inquisitor-greyfax"
       ]
     },
     {
@@ -11110,7 +11114,11 @@
         "vulkan-hestan",
         "wardens-of-ultramar",
         "kaius-konorius",
-        "marneus-calgar"
+        "marneus-calgar",
+        "inquisitor",
+        "inquisitor-coteaz",
+        "inquisitor-draxus",
+        "inquisitor-greyfax"
       ]
     },
     {
@@ -11536,7 +11544,11 @@
         "captain-in-gravis-armour",
         "iron-father-feirros",
         "tor-garadon",
-        "marneus-calgar"
+        "marneus-calgar",
+        "inquisitor",
+        "inquisitor-coteaz",
+        "inquisitor-draxus",
+        "inquisitor-greyfax"
       ]
     },
     {

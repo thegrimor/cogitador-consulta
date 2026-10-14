@@ -384,7 +384,12 @@ full datasheets from the book before they can be added. The MFM also tags Aquila
 Imperatus, Emperor's Chosen, Shadowkeepers and Solar Watch `UNIQUE: SHIELD HOST`; Honoured Companions and
 Grav-Assault Force are **not** unique. Our data already matches exactly: those six carry
 `exclusivityTag: "UNIQUE SHIELD HOST"` (enforced by `DetachmentSelectModal`). The inquisitor ids in `custodian-guard`/
-`sentinel-guard-sodality` `canBeLedBy` are not on the Custodes MFM page (not audited).
+`sentinel-guard-sodality` `canBeLedBy` are **correct**: they come from the Imperial Agents MFM page, where Inquisitor,
+Coteaz, Draxus and Greyfax lead `BATTLELINE IMPERIUM INFANTRY` (both Custodes squads carry the Battleline + Imperium
+keywords). The same rule means the three `space-marines.json` datasheets with the Battleline keyword (Intercessor,
+Assault Intercessor, Heavy Intercessor Squad) were missing those four and now have them (2026-10-14); matching is by
+the keyword, not the `Battleline` role, so Victrix, Jump Pack Assault Intercessors and Hellblasters (role only) are not
+included. Other Imperium factions' Battleline units were already covered.
 
 No test suite yet.
 
