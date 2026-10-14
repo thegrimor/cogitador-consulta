@@ -382,7 +382,8 @@ player ticks the shield; `gyrfalcon-jetbike-sodality.canBeLedBy` gained the Dawn
 Sodality with Adrasite/Pyrithite Spears, Sagittarum Custodians Sodality (Shield-Captain/Trajann lead them) — need
 full datasheets from the book before they can be added. The MFM also tags Aquilan Shield, Dread Host, Emissaries
 Imperatus, Emperor's Chosen, Shadowkeepers and Solar Watch `UNIQUE: SHIELD HOST`; Honoured Companions and
-Grav-Assault Force are **not** unique. The data has no field for this. The inquisitor ids in `custodian-guard`/
+Grav-Assault Force are **not** unique. Our data already matches exactly: those six carry
+`exclusivityTag: "UNIQUE SHIELD HOST"` (enforced by `DetachmentSelectModal`). The inquisitor ids in `custodian-guard`/
 `sentinel-guard-sodality` `canBeLedBy` are not on the Custodes MFM page (not audited).
 
 No test suite yet.
