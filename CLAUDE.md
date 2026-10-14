@@ -326,8 +326,8 @@ tiers); In Auramite Clad (×2) `apMod` was `+1` for a *defensive* "-1 AP" — de
 Auriferous Orb is `ANTI-non-MONSTER/VEHICLE 2+` (was written `ANTI-INFANTRY/MONSTER/VEHICLE`); Bane of Abominations and
 Grim Responsibility split into per-keyword `options` (CHARACTER/MONSTER[/VEHICLE]); Magna Imperator split into
 one-hit/one-wound `options`; Flare Shields (4+ InSv vs ranged) now `feelNoPainThreshold: 4` per the invulnerable-save
-convention. Dawneagle Shield-Captain has **no** Leader ability in the book, yet `vertus-praetors.canBeLedBy` lists it
-(probably via Aquila Commander) — left as is until that rule's text is available.
+convention. Dawneagle Shield-Captain had **no** Leader ability in our data, yet `vertus-praetors.canBeLedBy` listed it —
+the MFM v1.6 tags it `LEADER` (Gyrfalcon Jetbike Sodality, Vertus Praetors), so the Core Leader ability was added (2026-10-14).
 **Witchseekers and the Anathema Psykana Rhino re-stated to the new book (2026-10-06, from a low-resolution photo).**
 Both were still previous-edition data: Witchseekers M 7"/Scouts 7", `Flamer [ANTI-PSYKER 4+, ASSAULT, BLAST 1, TORRENT]`
 S4 AP-1 D1, `Gun Stock`, 4-10 models, new Sanctified Flames, faction keyword `Anathema Psykana`, no Aegis of the
@@ -351,9 +351,8 @@ models); Venatari Kinetic 255/255/280, Lances 270/270/300; Telemon 280/310/310; 
 Pallas 135 flat; Coronus 225/225/245; Caladius 230/230/260; Caladius Annihilator 250/250/280; Knight-Centura
 55; Prosecutors 45/50/80/90 (4/5/9/10 models); Vigilators 50/55/90/100; Witchseekers 55/60/100/110;
 Anathema Psykana Rhino 70 (1st-3rd) / 80 (4th+). Coronus transport capacity is 8.
-**Not modeled**: the spreadsheet's plain "Shield-Captain" row (180/200/200, i.e. 25 pts cheaper than the shield
-version — presumably a Castellan Axe/Guardian Spear loadout without the shield; `wargearCosts` can't express a
-negative or per-loadout price). Spreadsheet notes "Shields"/"Spears"/"Pistols" next to the Sentinel/Custodian
+**Superseded for the Shield-Captain by the MFM v1.6 pass below** (base 180/200 + a paid `per Praesidium Shield`).
+Spreadsheet notes "Shields"/"Spears"/"Pistols" next to the Sentinel/Custodian
 Guard and Venatari rows are just loadout labels.
 Enhancement costs (same spreadsheet): Guardians of the Throne Bane of Abominations 20 / Eagle's Eye 30 /
 Castellan's Mark 25 / Emperor's Light 15; Aquilan Shield Not a Shell Wasted 10 / Pareldor's Caducatrix 30;
@@ -372,6 +371,19 @@ Detachments (user): every `dp` is 1 except `guardians-of-the-throne`, the one wi
 RECONNAISSANCE, Shadowkeepers/Auric Champions/Dread Host PURGE THE FOE, Lions of the Emperor and Null-Maiden Vigil
 DISRUPTION, Emperor's Chosen and Emissaries Imperatus PRIORITY ASSETS, Might of the Moritoi TAKE AND HOLD,
 Guardians of the Throne `["PRIORITY ASSETS","PURGE THE FOE"]`. Re-verify everything against the MFM once published.
+
+**Custodes checked against the MFM v1.6 (2026-10-14), which now carries the new codex** (`npm run mfm-sync`, Custodes
+dump). Everything from the user spreadsheet above already matched the MFM — all datasheet tiers, all 13 detachments'
+`dp`/`disposition` and all 29 enhancement costs/`upgrade` flags. Only differences, now applied: **Shield-Captain is
+180 (1st) / 200 (2nd+) with `per Praesidium Shield` 25 pts as paid wargear (`max: 1`)**, so the old 205/225 is
+base + shield. Note the roster UI treats paid wargear as opt-in, so a default Shield-Captain shows 180 until the
+player ticks the shield; `gyrfalcon-jetbike-sodality.canBeLedBy` gained the Dawneagle Shield-Captain.
+**Not in our data yet (MFM lists them)**: Ares Gunship (580/610), Orion Assault Dropship (690/740), Custodian Guard
+Sodality with Adrasite/Pyrithite Spears, Sagittarum Custodians Sodality (Shield-Captain/Trajann lead them) — need
+full datasheets from the book before they can be added. The MFM also tags Aquilan Shield, Dread Host, Emissaries
+Imperatus, Emperor's Chosen, Shadowkeepers and Solar Watch `UNIQUE: SHIELD HOST`; Honoured Companions and
+Grav-Assault Force are **not** unique. The data has no field for this. The inquisitor ids in `custodian-guard`/
+`sentinel-guard-sodality` `canBeLedBy` are not on the Custodes MFM page (not audited).
 
 No test suite yet.
 
