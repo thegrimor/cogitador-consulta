@@ -302,6 +302,8 @@ export interface RosterEntry {
   customName?: string
   enhancementId?: string
   attachedToEntryId?: string
+  /** Player-chosen Warlord (characters only); see `resolveWarlord` for the mandatory-Warlord override. */
+  isWarlord?: boolean
   /** Maps weapon-option rule id to per-choice quantities picked (index-aligned with the rule's `choices`). */
   weaponOptionSelections?: Record<string, number[]>
   /** Per-weapon surcharge selections: weapon name → number of models equipped with it. */

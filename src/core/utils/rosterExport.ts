@@ -2,11 +2,12 @@ import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhanceme
 import {
   weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, resolveCostsForFactionContext, sortCostVariants,
   sumDetachmentPoints, ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
-  attachmentKind, isAttachmentSlotTaken,
+  attachmentKind, isAttachmentSlotTaken, resolveWeaponQuantities, resolveWarlord,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import { isNewRecruitText, parseNewRecruitText } from '@/core/utils/parseNewRecruit'
+import { dispositionList } from '@/core/constants/missionDeckColors'
 import { forFaction, datasheetsForFaction } from '@/core/constants/factionFamily'
 
 // ── Export ─────────────────────────────────────────────────────────────────────
@@ -26,6 +27,32 @@ function sectionHeader(role: string): string {
   return 'OTHER DATASHEETS'
 }
 
+function capitalize(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+/** Weapon profiles can be named "Bolter – supercharge"; the GW list shows the plain name once. */
+function displayWeaponName(datasheet: Datasheet, key: string): string {
+  const w = datasheet.weapons.find(x => weaponBaseName(x.name) === key)
+  return w ? w.name.replace(/\s+[-–—]\s+\S.*$/, '').trim() : capitalize(key)
+}
+
+function weaponLines(
+  datasheet: Datasheet, counts: Map<string, number>, indent: string,
+): string[] {
+  const out: string[] = []
+  let first = true
+  const named = [...counts].filter(([, n]) => n > 0)
+    .map(([key, n]) => ({ name: displayWeaponName(datasheet, key), n }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+  for (const { name, n } of named) {
+    out.push(`${indent}${first ? '• ' : '  '}${n}x ${name}`)
+    first = false
+  }
+  return out
+}
+
+/** GW-app style body of one unit: composition (squads) with the weapons nested under it. */
 function entryLines(
   entry: RosterEntry,
   datasheet: Datasheet,
@@ -35,56 +62,68 @@ function entryLines(
 ): string[] {
   const out: string[] = []
   const displayName = entry.customName ?? datasheet.name
-  // Points cost as it should read in exported text: base cost plus any paid wargear and its
-  // enhancement, resolved fresh from current data — matching what RosterEditPage shows for
-  // the same unit rather than trusting anything cached on the entry.
+  // Resolved fresh from current data (base + paid wargear + enhancement), same as the editor.
   const displayPoints = resolveEntryTotalPoints(entry, datasheet, costsForTier, wargearCosts, enhancements)
-  out.push(`${displayName} (${displayPoints} Points)`)
+  out.push(`${displayName} (${displayPoints} points)`)
+  return out
+}
+
+function entryBody(
+  entry: RosterEntry, datasheet: Datasheet, enhancements: Enhancement[], isWarlord: boolean,
+): string[] {
+  const out: string[] = []
+  if (isWarlord) out.push('  • Warlord')
 
   if (entry.enhancementId) {
     const enh = enhancements.find(e => e.id === entry.enhancementId)
-    if (enh) out.push(`• Enhancement: ${enh.name}`)
+    if (enh) out.push(`  • Enhancement: ${enh.name}`)
   }
 
-  if (entry.modelCount > 1) {
-    out.push(`• ${entry.modelCount}x ${datasheet.name}`)
+  const counts = resolveWeaponQuantities(datasheet, entry)
+  // Costed wargear that isn't a weapon profile (relics, banners...) would otherwise vanish.
+  for (const [name, count] of Object.entries(entry.wargearSelections ?? {})) {
+    if (count <= 0) continue
+    const plain = name.replace(/^per\s+/i, '')
+    if (!counts.has(weaponBaseName(plain))) counts.set(weaponBaseName(plain), count)
   }
 
-  // A weapon can legitimately show up in both wargearSelections (it carries a per-model
-  // points surcharge) and weaponOptionSelections (it's also the pick for a free structural
-  // replacement rule) at once — e.g. a Knight Crusader's rapid-fire battle cannon. Track
-  // what's already been printed so that shared case gets one line instead of two: re-import
-  // would otherwise parse the same weapon twice and double the surcharge on a second round-trip.
-  const emittedBases = new Set<string>()
+  const isSquad = datasheet.modelCountMax > 1
+  if (!isSquad) {
+    out.push(...weaponLines(datasheet, counts, '  '))
+    return out
+  }
 
-  if (entry.wargearSelections) {
-    for (const [weaponName, count] of Object.entries(entry.wargearSelections)) {
-      // Per-instance costs are named "per <Weapon>" in the data (stripped for display in the
-      // UI) — keep the exported text consistent, and matching what resolveImportedRoster's
-      // wargear matcher expects on re-import (it strips "per " from the data side only).
-      if (count <= 0) continue
-      const displayWeaponName = weaponName.replace(/^per\s+/i, '')
-      out.push(`  ◦ ${count}x ${displayWeaponName}`)
-      emittedBases.add(weaponBaseName(displayWeaponName))
+  const roleCounts = resolveRoleCounts(datasheet.unitSlots, entry.modelCount)
+  const slots = datasheet.unitSlots.filter(s => (roleCounts[s.role] ?? 0) > 0)
+  // Per-role weapons are only derivable while no option rule changed the loadout.
+  const perRole = !Object.values(entry.weaponOptionSelections ?? {}).some(sel => sel.some(q => q > 0))
+    && slots.length > 1
+
+  if (slots.length === 0) {
+    out.push(`  • ${entry.modelCount}x ${datasheet.name}`)
+    out.push(...weaponLines(datasheet, counts, '    '))
+    return out
+  }
+
+  for (const slot of slots) {
+    const n = roleCounts[slot.role]
+    // "9x Khorne Berzerkers" reads as "9x Khorne Berzerker" in the GW list (role named like the unit).
+    const roleName = n > 1 && slot.role.toLowerCase() === datasheet.name.toLowerCase()
+      ? slot.role.replace(/s$/i, '') : slot.role
+    out.push(`  • ${n}x ${roleName}`)
+    if (perRole) {
+      const roleWeapons = new Map<string, number>()
+      const grouped = datasheet.defaultWeaponGroups.length > 0
+      for (const g of grouped ? datasheet.defaultWeaponGroups : [{ role: slot.role, weapons: datasheet.defaultWeaponNames }]) {
+        if (g.role !== slot.role) continue
+        for (const { name, count } of g.weapons) {
+          roleWeapons.set(weaponBaseName(name), (roleWeapons.get(weaponBaseName(name)) ?? 0) + count * n)
+        }
+      }
+      out.push(...weaponLines(datasheet, roleWeapons, '    '))
     }
   }
-
-  // Free (non-costed) weapon replace/add choices — otherwise a re-import of this text
-  // would fall back to the datasheet's plain default loadout and lose the customization.
-  if (entry.weaponOptionSelections) {
-    for (const [ruleId, selection] of Object.entries(entry.weaponOptionSelections)) {
-      const rule = datasheet.weaponOptionRules.find(r => r.id === ruleId)
-      if (!rule) continue
-      selection.forEach((qty, i) => {
-        if (qty <= 0) return
-        rule.choices[i]?.forEach(weaponName => {
-          if (emittedBases.has(weaponBaseName(weaponName))) return
-          out.push(`  ◦ ${qty}x ${weaponName}`)
-        })
-      })
-    }
-  }
-
+  if (!perRole) out.push(...weaponLines(datasheet, counts, '    '))
   return out
 }
 
@@ -108,24 +147,34 @@ export function exportRosterToText(
     )
     const costsForTier = resolveCostsForUnitIndex(contextCosts, unitIndex)
     const wargearCosts = wargearCostMap[entry.datasheetId] ?? []
-    return entryLines(entry, datasheet, costsForTier, wargearCosts, enhancements)
+    const [head] = entryLines(entry, datasheet, costsForTier, wargearCosts, enhancements)
+    return [head, ...entryBody(entry, datasheet, enhancements, entry.id === warlordId)]
   }
 
+  const { warlordId } = resolveWarlord(roster.entries, new Map(datasheets.map(d => [d.id, d])))
   const totalPoints = resolveRosterTotalPoints(roster, datasheets, pointsCostMap, wargearCostMap, enhancements)
-  lines.push(`${roster.name} (${totalPoints} Points)`)
+  lines.push(`${roster.name} (${totalPoints} points)`)
   lines.push('')
 
   const factionName = factions.find(f => f.id === roster.factionId)?.name ?? roster.factionId
   lines.push(factionName)
 
-  const detachmentNames = roster.detachmentIds
-    .map(id => detachments.find(d => d.id === id)?.name ?? id)
-    .join(' + ')
+  const selected = roster.detachmentIds
+    .map(id => detachments.find(d => d.id === id))
+    .filter((d): d is Detachment => !!d)
+  const detachmentNames = selected.length > 0
+    ? selected.map(d => d.name).join(' + ')
+    : roster.detachmentIds.join(' + ')
   const detachmentPoints = sumDetachmentPoints(detachments, roster.detachmentIds)
   lines.push(`${detachmentNames || 'No Detachment'} (${detachmentPoints} Detachment Points)`)
 
+  const dispositions = [...new Set(selected.flatMap(d => dispositionList(d.disposition)))]
+  if (dispositions.length > 0) {
+    lines.push(dispositions.map(d => d.toLowerCase().replace(/(^|\s)\S/g, c => c.toUpperCase()).replace(/ (The|And|Of) /g, m => m.toLowerCase())).join(' / '))
+  }
+
   const battleSize = battleSizeLabel(roster.pointsLimit)
-  const limitLabel = roster.pointsLimit !== null ? `${roster.pointsLimit} Points` : 'Open Play'
+  const limitLabel = roster.pointsLimit !== null ? `${roster.pointsLimit} points` : 'Open Play'
   lines.push(`${battleSize} (${limitLabel})`)
 
   // Attached leader/bodyguard groups — reproduced as "Attached Unit N" blocks (rather than
@@ -148,7 +197,7 @@ export function exportRosterToText(
     lines.push('Attached Units')
 
     attachmentGroups.forEach((group, idx) => {
-      lines.push('')
+      if (idx > 0) lines.push('')
       lines.push(`Attached Unit ${idx + 1}`)
 
       for (const entry of group) {
@@ -185,17 +234,11 @@ export function exportRosterToText(
 
     lines.push('')
     lines.push(sectionHeader(role))
-    lines.push('')
 
     for (const { entry, datasheet } of entries) {
+      lines.push('')
       lines.push(...linesFor(entry, datasheet))
     }
-  }
-
-  lines.push('')
-  lines.push(`Total Points: ${totalPoints}`)
-  if (roster.pointsLimit !== null) {
-    lines.push(`Points Limit: ${roster.pointsLimit}`)
   }
 
   return lines.join('\n')
@@ -216,6 +259,7 @@ export interface ParsedUnit {
   enhancementName?: string
   attachedToUnitName?: string
   attachmentGroupId?: number    // from "Attached unit N" block
+  isWarlord?: boolean           // from the "• Warlord" line
   attachmentRole?: 'Leader' | 'Support' | 'Bodyguard'  // from "• Attached as: Leader/Support/Bodyguard"
 }
 
@@ -371,6 +415,11 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
         : raw === 'support' || raw === 'apoyo' ? 'Support'
         : 'Bodyguard'
       if (currentUnit) currentUnit.attachmentRole = role
+      continue
+    }
+
+    if (/^[•◦]\s*(?:Warlord|Se[ñn]or de la guerra)$/i.test(line)) {
+      if (currentUnit) currentUnit.isWarlord = true
       continue
     }
 
@@ -724,6 +773,7 @@ export function resolveImportedRoster(
       if (Object.keys(weaponOptionSelections).length > 0) {
         entry.weaponOptionSelections = weaponOptionSelections
       }
+      if (unit.isWarlord) entry.isWarlord = true
       if (unit.enhancementName) {
         const enh = enhancements.find(e => namesMatch(e.name, unit.enhancementName!))
         if (enh) {
