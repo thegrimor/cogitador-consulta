@@ -5291,7 +5291,14 @@
                 "keyword": "psyker",
                 "threshold": 5
               }
-            ]
+            ],
+            "keywordConditions": {
+              "devastatingWounds": {
+                "anyOf": [
+                  "psyker"
+                ]
+              }
+            }
           }
         },
         {
@@ -5382,7 +5389,7 @@
     },
     {
       "id": "prosecutors",
-      "name": "Prosecutors",
+      "name": "Prosecutor Squad",
       "role": "Other",
       "sourceId": "000000024",
       "isVirtual": false,
