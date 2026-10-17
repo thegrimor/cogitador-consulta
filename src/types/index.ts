@@ -116,6 +116,11 @@ export interface CombatModifiers {
   hitMod: number
   bsMod: number
   wsMod: number
+  /** "Can ignore modifiers to BS/WS" — discards the attacker's *penalties* (positive bsMod/wsMod),
+   * keeps its own bonuses. Not a stat bonus: with no penalty in play it changes nothing. */
+  ignoreBsWsPenalties: boolean
+  /** Same, for penalties to the Hit roll (negative hitMod, e.g. Cover/Stealth). */
+  ignoreHitPenalties: boolean
   rerollHitsOf1: boolean
   rerollAllHits: boolean
   /** "You can re-roll one Hit roll" (no "of 1") — a single bounded re-roll of any one die in
@@ -127,6 +132,8 @@ export interface CombatModifiers {
   overwatchThreshold: number
   strengthMod: number
   woundMod: number
+  /** Same, for penalties to the Wound roll (negative woundMod). */
+  ignoreWoundPenalties: boolean
   rerollWoundsOf1: boolean
   rerollAllWounds: boolean
   /** Same idea as rerollOneHit, for the Wound roll. */

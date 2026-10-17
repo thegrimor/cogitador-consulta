@@ -335,6 +335,7 @@ Emperor; Rhino faction keyword `Anathema Psykana`, Hunter-killer Missile D3+3, S
 Transport (12 ANATHEMA PSYKANA INFANTRY) replacing Self Repair/One Shot. **Unreadable in the photo, left as they were
 (old values, may be wrong): the Flamer's range, Attacks and BS column** (currently 12"/D6/N/A).
 **Martial Ka'tah (2026-10-17)**: the army rule is now the Command-phase "readied" text only; the six ka'tah abilities (Rendax, Kaptaris, Dacatarai, Calistus, Salvus, Conservai) are their own `armyRules` entries (`group: "Ka’tah"`) and carry the effects. The old stance `options` on `martial-katah` (and its 18 datasheet copies) were removed — they duplicated Dacatarai/Rendax.
+**"Ignore modifiers" (Salvus Ka'tah)** uses `ignoreBsWsPenalties`/`ignoreHitPenalties`/`ignoreWoundPenalties` (CombatModifiers): they drop the attacker's penalties (e.g. Cover's `hitMod: -1`) and keep its bonuses, so they change nothing when no penalty applies. Do not model "ignore modifiers" as an opposite `hitMod`/`bsMod` bonus.
 **Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
 never photographed, so it exists nowhere in `armyRules` yet.
 
