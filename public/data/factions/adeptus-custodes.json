@@ -101,6 +101,7 @@
       "description": "<b>Ka’tah Ability</b><br><b>WHEN:</b> Your Shooting phase, when a friendly readied unit is selected to shoot.<br><b>TARGET:</b> That readied unit.<br><b>EFFECT:</b> Your unit can ignore modifiers to your unit’s:<br><ul><li>BS.</li><li>Hit rolls and wound rolls.</li></ul>",
       "effect": {
         "effects": {
+          "bsMod": -1,
           "hitMod": 1,
           "woundMod": 1
         },
