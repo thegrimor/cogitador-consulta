@@ -5,42 +5,7 @@
     {
       "id": "martial-katah",
       "name": "Martial Ka’tah",
-      "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks. Some Unique Shield Hosts grant access to a Favoured Ka’tah instead of Dacatarai/Rendax — see each Ka’tah’s own entry below.",
-      "options": [
-        {
-          "name": "Ka’tah Dacatarai",
-          "effect": {
-            "effects": {
-              "rerollHitsOf1": true
-            },
-            "combatType": "melee",
-            "excludesTargetKeywords": [
-              "monster",
-              "vehicle"
-            ]
-          }
-        },
-        {
-          "name": "Ka’tah Rendax (vs Monster)",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true
-            },
-            "combatType": "melee",
-            "requiresTargetKeyword": "monster"
-          }
-        },
-        {
-          "name": "Ka’tah Rendax (vs Vehicle)",
-          "effect": {
-            "effects": {
-              "lethalHitsBonus": true
-            },
-            "combatType": "melee",
-            "requiresTargetKeyword": "vehicle"
-          }
-        }
-      ],
+      "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it.",
       "type": "Faction",
       "group": "Ka’tah"
     },
@@ -136,8 +101,9 @@
       "description": "<b>Ka’tah Ability</b><br><b>WHEN:</b> Your Shooting phase, when a friendly readied unit is selected to shoot.<br><b>TARGET:</b> That readied unit.<br><b>EFFECT:</b> Your unit can ignore modifiers to your unit’s:<br><ul><li>BS.</li><li>Hit rolls and wound rolls.</li></ul>",
       "effect": {
         "effects": {
-          "hitMod": 1,
-          "woundMod": 1
+          "ignoreBsWsPenalties": true,
+          "ignoreHitPenalties": true,
+          "ignoreWoundPenalties": true
         },
         "combatType": "ranged"
       },
@@ -1493,42 +1459,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "impenetrable-defence",
@@ -1707,42 +1638,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "captain-general",
@@ -1983,42 +1879,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "master-of-katahs",
@@ -2231,42 +2092,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "master-of-katahs",
@@ -2429,42 +2255,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "master-of-katahs",
@@ -2632,42 +2423,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "living-fortress",
@@ -2875,42 +2631,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "slayers-of-tyrants",
@@ -3091,42 +2812,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "quicksilver-execution",
@@ -3324,42 +3010,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "unyielding-ancient",
@@ -3578,42 +3229,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "guardian-eternal",
@@ -3774,42 +3390,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "unyielding-ancient",
@@ -3961,42 +3542,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "swift-onslaught",
@@ -4175,42 +3721,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "death-blow",
@@ -4352,42 +3863,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "take-wing",
@@ -4535,42 +4011,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "take-wing",
@@ -4703,42 +4144,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "dread-foe",
@@ -4894,42 +4300,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "reap-a-terrible-tally",
@@ -5070,42 +4441,7 @@
           "id": "martial-katah",
           "name": "Martial Ka’tah",
           "type": "Faction",
-          "description": "Each time a unit from your army with this ability is selected to fight, select one readied unit (that unit is no longer readied) and one of the Ka’tah Stances below applies to it until it has finished making its attacks.<br><b>Dacatarai:</b> Your unit’s melee attacks that target an enemy unit (excluding MONSTER/VEHICLE units) can re-roll Hit rolls of 1.<br><b>Rendax:</b> Your unit’s melee attacks have [LETHAL HITS] against MONSTER/VEHICLE units.",
-          "options": [
-            {
-              "name": "Ka’tah Dacatarai",
-              "effect": {
-                "effects": {
-                  "rerollHitsOf1": true
-                },
-                "combatType": "melee",
-                "excludesTargetKeywords": [
-                  "monster",
-                  "vehicle"
-                ]
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Monster)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "monster"
-              }
-            },
-            {
-              "name": "Ka’tah Rendax (vs Vehicle)",
-              "effect": {
-                "effects": {
-                  "lethalHitsBonus": true
-                },
-                "combatType": "melee",
-                "requiresTargetKeyword": "vehicle"
-              }
-            }
-          ]
+          "description": "At the start of your Command phase, friendly ADEPTUS CUSTODES units with this ability are readied. While a friendly unit is readied, you can select one of the ka’tah abilities presented below for that unit to use. If you do, that unit is no longer readied.<br>Each ka’tah ability will tell you when that ka’tah ability can be used, and the effects that ka’tah ability has on the unit using it."
         },
         {
           "id": "stand-vigil",

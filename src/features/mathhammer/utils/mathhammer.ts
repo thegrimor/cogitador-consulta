@@ -180,8 +180,12 @@ export function hitProbabilityWithMods(bsWs: string, mods: CombatModifiers, isMe
   }
   // bsMod: característica BS ranged; wsMod: característica WS melee. Sin cap.
   // hitMod: modifica el dado, cap neto ±1.
-  const charMod = isMelee ? mods.wsMod : mods.bsMod
-  const cappedHitMod = Math.max(-1, Math.min(1, mods.hitMod))
+  // ignore*Penalties: the player drops the penalties (WS/BS worsen = positive; Hit roll = negative)
+  // and keeps whatever bonuses the attacker has.
+  const rawCharMod = isMelee ? mods.wsMod : mods.bsMod
+  const charMod = mods.ignoreBsWsPenalties ? Math.min(0, rawCharMod) : rawCharMod
+  const hitModNet = mods.ignoreHitPenalties ? Math.max(0, mods.hitMod) : mods.hitMod
+  const cappedHitMod = Math.max(-1, Math.min(1, hitModNet))
   const effectiveBs = val + charMod - cappedHitMod
   const baseP = Math.min(5 / 6, Math.max(1 / 6, (7 - effectiveBs) / 6))
   if (mods.rerollAllHits)  return baseP + (1 - baseP) * baseP
@@ -206,7 +210,8 @@ export function woundProbabilityWithMods(S: number, T: number, mods: CombatModif
   // modifier to the Wound roll itself, applied on top of that threshold with a capped ±1 net
   // (same rule as hitMod), since "+1 to the Wound roll" isn't the same mechanic as +1 Strength.
   const baseThreshold = woundThreshold(S + mods.strengthMod, T)
-  const cappedWoundMod = Math.max(-1, Math.min(1, mods.woundMod))
+  const woundModNet = mods.ignoreWoundPenalties ? Math.max(0, mods.woundMod) : mods.woundMod
+  const cappedWoundMod = Math.max(-1, Math.min(1, woundModNet))
   const effectiveThreshold = Math.min(6, Math.max(2, baseThreshold - cappedWoundMod))
   const baseP = Math.min(5 / 6, Math.max(1 / 6, (7 - effectiveThreshold) / 6))
   if (mods.rerollAllWounds)  return baseP + (1 - baseP) * baseP
@@ -231,6 +236,9 @@ export const DEFAULT_MODS: CombatModifiers = {
   hitMod: 0,
   bsMod: 0,
   wsMod: 0,
+  ignoreBsWsPenalties: false,
+  ignoreHitPenalties: false,
+  ignoreWoundPenalties: false,
   rerollHitsOf1: false,
   rerollAllHits: false,
   rerollOneHit: false,
@@ -270,6 +278,9 @@ function applyEffects(result: CombatModifiers, e: Partial<CombatModifiers>): voi
   if (e.attacksMod)          result.attacksMod          += e.attacksMod
   if (e.damageMod)           result.damageMod           += e.damageMod
   if (e.damageReduction)     result.damageReduction     += e.damageReduction
+  if (e.ignoreBsWsPenalties)  result.ignoreBsWsPenalties  = true
+  if (e.ignoreHitPenalties)   result.ignoreHitPenalties   = true
+  if (e.ignoreWoundPenalties) result.ignoreWoundPenalties = true
   if (e.rerollHitsOf1)       result.rerollHitsOf1        = true
   if (e.rerollAllHits)       result.rerollAllHits        = true
   if (e.rerollOneHit)        result.rerollOneHit         = true
@@ -331,6 +342,9 @@ export function mergeMods(
     attacksMod:         base.attacksMod         + attackerRuleMods.attacksMod,
     damageMod:          base.damageMod          + attackerRuleMods.damageMod          + defenderRuleMods.damageMod,
     damageReduction:    base.damageReduction    + attackerRuleMods.damageReduction    + defenderRuleMods.damageReduction,
+    ignoreBsWsPenalties:  base.ignoreBsWsPenalties  || attackerRuleMods.ignoreBsWsPenalties,
+    ignoreHitPenalties:   base.ignoreHitPenalties   || attackerRuleMods.ignoreHitPenalties,
+    ignoreWoundPenalties: base.ignoreWoundPenalties || attackerRuleMods.ignoreWoundPenalties,
     overwatchHit:       base.overwatchHit       || attackerRuleMods.overwatchHit,
     overwatchThreshold: Math.min(base.overwatchThreshold, attackerRuleMods.overwatchThreshold),
     rerollHitsOf1:      base.rerollHitsOf1      || attackerRuleMods.rerollHitsOf1,
