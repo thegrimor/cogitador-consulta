@@ -334,6 +334,7 @@ S4 AP-1 D1, `Gun Stock`, 4-10 models, new Sanctified Flames, faction keyword `An
 Emperor; Rhino faction keyword `Anathema Psykana`, Hunter-killer Missile D3+3, Storm Bolter S5 AP-1, Assault Vehicle +
 Transport (12 ANATHEMA PSYKANA INFANTRY) replacing Self Repair/One Shot. **Unreadable in the photo, left as they were
 (old values, may be wrong): the Flamer's range, Attacks and BS column** (currently 12"/D6/N/A).
+**Martial Ka'tah (2026-10-17)**: the army rule is now the Command-phase "readied" text only; the six ka'tah abilities (Rendax, Kaptaris, Dacatarai, Calistus, Salvus, Conservai) are their own `armyRules` entries (`group: "Ka’tah"`) and carry the effects. The old stance `options` on `martial-katah` (and its 18 datasheet copies) were removed — they duplicated Dacatarai/Rendax.
 **Known gap**: Shield-Captain and Trajann list the army rule **Aquila Commander** in the photos, but its text was
 never photographed, so it exists nowhere in `armyRules` yet.
 
