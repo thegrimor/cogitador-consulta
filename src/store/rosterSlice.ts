@@ -125,6 +125,19 @@ const rosterSlice = createSlice({
       touch(roster)
     },
 
+    setEntryWarlord: (
+      state,
+      action: PayloadAction<{ rosterId: string; entryId: string; isWarlord: boolean }>,
+    ) => {
+      const roster = state.rosters.find(r => r.id === action.payload.rosterId)
+      if (!roster) return
+      // One Warlord per army: choosing one clears the flag everywhere else.
+      roster.entries.forEach(e => {
+        e.isWarlord = e.id === action.payload.entryId ? action.payload.isWarlord || undefined : undefined
+      })
+      touch(roster)
+    },
+
     setEntryAttachment: (
       state,
       action: PayloadAction<{ rosterId: string; entryId: string; attachedToEntryId: string | null }>,
@@ -207,6 +220,7 @@ export const {
   removeEntry,
   setEntryEnhancement,
   setEntryAttachment,
+  setEntryWarlord,
   setEntryWeaponSelection,
   setEntryWargearSelections,
   importRosterFromData,

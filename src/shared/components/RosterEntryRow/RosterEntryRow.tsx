@@ -32,6 +32,8 @@ interface Props {
   attachableEntries: AttachableEntry[]
   leadingEntries: { entry: RosterEntry; datasheet: Datasheet }[]
   onChangeCost: (cost: PointsCost) => void
+  warlord: { isWarlord: boolean; forced: boolean; allowed: boolean }
+  onChangeWarlord: (isWarlord: boolean) => void
   onChangeEnhancement: (enhancementId: string | null) => void
   onChangeAttachment: (attachedToEntryId: string | null) => void
   onChangeWeaponSelection: (ruleId: string, selection: number[]) => void
@@ -86,6 +88,8 @@ export function RosterEntryRow({
   attachableEntries,
   leadingEntries,
   onChangeCost,
+  warlord,
+  onChangeWarlord,
   onChangeEnhancement,
   onChangeAttachment,
   onChangeWeaponSelection,
@@ -206,6 +210,18 @@ export function RosterEntryRow({
                 </div>
               )}
             </div>
+          )}
+
+          {isCharacter && warlord.allowed && (
+            <label className="flex items-center gap-2 text-[12px] font-mono uppercase tracking-widest text-parchment-dim cursor-pointer">
+              <input
+                type="checkbox"
+                checked={warlord.isWarlord}
+                disabled={warlord.forced}
+                onChange={e => onChangeWarlord(e.target.checked)}
+              />
+              Warlord{warlord.forced && ' (obligatorio)'}
+            </label>
           )}
 
           {(isCharacter || availableEnhancements.length > 0) && (
