@@ -4997,7 +4997,7 @@
           "description": "anti-psyker 4+, assault, blast 1, torrent",
           "range": "12",
           "type": "Ranged",
-          "A": "D6",
+          "A": "3",
           "bsWs": "N/A",
           "S": 4,
           "AP": -1,
