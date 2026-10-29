@@ -26,7 +26,7 @@ function WeaponStatBox({ label, value, dim }: { label: string; value: string | n
 function weaponBadges(weapon: Weapon): string[] {
   const badges: string[] = []
   if (weapon.isTorrent)           badges.push('Torrent')
-  if (weapon.isBlast)             badges.push('Blast')
+  if (weapon.isBlast)             badges.push(weapon.blastValue ? `Blast ${weapon.blastValue}` : 'Blast')
   if (weapon.isDevastatingWounds) badges.push('Dev. Wounds')
   if (weapon.isLethalHits)        badges.push('Lethal Hits')
   if (weapon.isHeavy)             badges.push('Heavy')

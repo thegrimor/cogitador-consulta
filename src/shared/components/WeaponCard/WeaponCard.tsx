@@ -40,7 +40,7 @@ export function WeaponCard({ weapon }: Props) {
       {hasBadges && (
         <div className="flex gap-1 mt-1 flex-wrap items-center">
           {weapon.isTorrent           && <Badge label="Torrent" />}
-          {weapon.isBlast             && <Badge label="Blast" />}
+          {weapon.isBlast             && <Badge label={weapon.blastValue ? `Blast ${weapon.blastValue}` : 'Blast'} />}
           {weapon.isDevastatingWounds && <Badge label="Dev. Wounds" />}
           {weapon.isLethalHits        && <Badge label="Lethal Hits" />}
           {weapon.isHeavy             && <Badge label="Heavy" />}

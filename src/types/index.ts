@@ -69,6 +69,8 @@ export interface Weapon {
   D: string
   isTorrent: boolean
   isBlast: boolean
+  /** N of "Blast N" (0 when the weapon has no number), derived from the description on load. */
+  blastValue: number
   isDevastatingWounds: boolean
   isLethalHits: boolean
   isHeavy: boolean

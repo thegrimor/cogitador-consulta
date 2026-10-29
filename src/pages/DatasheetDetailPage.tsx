@@ -73,7 +73,7 @@ function WeaponSpecialBadges({ weapon }: { weapon: Weapon }) {
   if (weapon.isHeavy) badges.push(<RuleBadge key="heavy" label="Heavy" />)
   if (weapon.isIndirectFire) badges.push(<RuleBadge key="indirect" label="Indirect Fire" />)
   if (weapon.isTorrent) badges.push(<RuleBadge key="torrent" label="Torrent" />)
-  if (weapon.isBlast) badges.push(<RuleBadge key="blast" label="Blast" />)
+  if (weapon.isBlast) badges.push(<RuleBadge key="blast" label={weapon.blastValue ? `Blast ${weapon.blastValue}` : 'Blast'} />)
   if (weapon.isIgnoresCover) badges.push(<RuleBadge key="ignores" label="Ignores Cover" />)
   if (weapon.isDevastatingWounds) badges.push(<RuleBadge key="dev" label="Devastating Wounds" />)
   if (weapon.isLethalHits) badges.push(<RuleBadge key="lethal" label="Lethal Hits" />)
