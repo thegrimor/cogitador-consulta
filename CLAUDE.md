@@ -309,7 +309,7 @@ keywords); `calculateDamage` only applies the ability when the defender satisfie
 weapons carry it (Galatus Warblade and Iliastus Accelerator Cannon `sustainedHits` noneOf monster/vehicle, Arachnus
 Blaze Carronade `lethalHits` anyOf monster/vehicle, Executioner Greatblade `devastatingWounds` anyOf psyker); other
 factions' conditional weapons are still stored unconditional (overstated) until someone adds the same field.
-`Weapon.blastValue` (N of "Blast N") is derived from the weapon description in `reconstructWeapon` (no JSON field) and only changes the badge ("Blast 2"); the damage calculator still adds `floor(models/5)` attacks for any Blast.
+`Weapon.blastValue` (N of "Blast N") is derived from the weapon description in `reconstructWeapon` (no JSON field) and drives the badge ("Blast 2") and the math: Blast N adds N attacks per 5 models in the target (`floor(models/5) × N`, N defaulting to 1).
 `[CLOSE-QUARTERS]` weapons carry `rules.isCloseQuarters` (set from the weapon description for every faction: 106 weapons) and
 show a "Close-Quarters" badge; it is display-only, the damage calculator does not model close-quarters shooting.
 
