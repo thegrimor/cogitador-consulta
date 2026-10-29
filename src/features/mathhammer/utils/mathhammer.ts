@@ -380,7 +380,7 @@ export function calculateDamage(
   defenderKeywords: string[] = [],
   blastTargetModels: number = 0,
 ): DamageBreakdown {
-  const blastBonus = weapon.isBlast ? getBlastBonusAttacks(blastTargetModels) : 0
+  const blastBonus = weapon.isBlast ? getBlastBonusAttacks(blastTargetModels) * (weapon.blastValue || 1) : 0
   const cleaveTotal = weapon.cleaveValue + mods.cleaveBonus
   const cleaveBonus = cleaveTotal > 0 ? cleaveTotal * getBlastBonusAttacks(blastTargetModels) : 0
   const avgAttacks = parseDiceAverage(weapon.A) + blastBonus + cleaveBonus + mods.attacksMod

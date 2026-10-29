@@ -12,7 +12,7 @@ type WeaponRulesJson = Partial<Omit<Weapon, 'line' | 'name' | 'description' | 'r
 
 /** Defaults for the weapon-rule flags trimmed off the JSON when falsy, to keep the payload small. */
 const WEAPON_RULE_DEFAULTS: Omit<Weapon, 'line' | 'name' | 'description' | 'range' | 'type' | 'A' | 'bsWs' | 'S' | 'AP' | 'D'> = {
-  isTorrent: false, isBlast: false, isDevastatingWounds: false, isLethalHits: false, isHeavy: false,
+  isTorrent: false, isBlast: false, blastValue: 0, isDevastatingWounds: false, isLethalHits: false, isHeavy: false,
   isTwinLinked: false, isMelta: false, meltaValue: 0, cleaveValue: 0, sustainedHitsValue: 0, antiEntries: [],
   isIgnoresCover: false, isHazardous: false, isAssault: false, isPistol: false, isPsychic: false,
   isPrecision: false, isOneShot: false, isIndirectFire: false, isExtraAttacks: false, isLance: false,
@@ -69,6 +69,7 @@ function reconstructWeapon(w: WeaponJson): Weapon {
     A: w.A, bsWs: w.bsWs, S: w.S, AP: w.AP, D: w.D,
     ...WEAPON_RULE_DEFAULTS,
     ...w.rules,
+    blastValue: parseInt(/\bblast\s+(\d+)/i.exec(w.description)?.[1] ?? '0', 10),
   }
 }
 
