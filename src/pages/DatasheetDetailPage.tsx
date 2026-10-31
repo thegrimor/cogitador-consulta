@@ -8,6 +8,7 @@ import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { factionColor } from '@/core/constants/factionColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 import { forFaction } from '@/core/constants/factionFamily'
+import { coreAbilityLabel } from '@/core/utils/abilityLabel'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -177,7 +178,7 @@ function CoreAbilityBadge({ ab }: { ab: Ability }) {
   return (
     <RuleTooltip name={ab.name} description={ab.description || rule?.description || ''} ruleId={rule?.id}>
       <span className="inline-block text-[11px] font-mono uppercase tracking-wide border border-gold/60 text-gold bg-surface-3 px-2 py-1 leading-none">
-        {ab.name}
+        {coreAbilityLabel(ab)}
       </span>
     </RuleTooltip>
   )

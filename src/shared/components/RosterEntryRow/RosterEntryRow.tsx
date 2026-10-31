@@ -4,6 +4,7 @@ import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, Detachme
 import {
   resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, attachmentKind, isCharacterDatasheet,
 } from '@/core/utils/roster'
+import { coreAbilityLabel } from '@/core/utils/abilityLabel'
 import { datasheetPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
@@ -60,7 +61,7 @@ function CoreAbilityBadges({ abilities }: { abilities: Ability[] }) {
         return (
           <RuleTooltip key={i} name={ab.name} description={ab.description || rule?.description || ''} ruleId={rule?.id}>
             <span className="inline-block text-[10px] font-mono uppercase tracking-wide border border-gold/60 text-gold bg-surface-2 px-2 py-1 leading-none">
-              {ab.name}
+              {coreAbilityLabel(ab)}
             </span>
           </RuleTooltip>
         )
