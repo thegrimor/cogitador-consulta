@@ -4,7 +4,7 @@ import type { Ability, Datasheet, RosterEntry, PointsCost, Enhancement, Detachme
 import {
   resolveModelCount, resolveWeaponQuantities, resolveEntryPoints, resolveEntryWargearSurcharge, attachmentKind, isCharacterDatasheet,
 } from '@/core/utils/roster'
-import { coreAbilityLabel } from '@/core/utils/abilityLabel'
+import { coreAbilityLabel, damagedRange } from '@/core/utils/abilityLabel'
 import { datasheetPath, mathhammerAttackerPath } from '@/core/constants/routes'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { CostVariantPicker } from '@/shared/components/CostVariantPicker'
@@ -48,9 +48,12 @@ const linkClass =
 // Core-type abilities (Feel No Pain, Sigilo, Despliegue Profundo, etc.) as tappable badges,
 // same treatment as DatasheetDetailPage's "Reglas Especiales" box — kept out of AbilityList's
 // collapsed "Habilidades Comunes" group so they're visible without opening the accordion.
-function CoreAbilityBadges({ abilities }: { abilities: Ability[] }) {
+function CoreAbilityBadges({ abilities, damaged }: { abilities: Ability[]; damaged?: { range: string; description: string } }) {
   const { coreRulesMap } = useGameDataContext()
-  const coreAbils = abilities.filter(a => a.type === 'Core')
+  const coreAbils: Ability[] = abilities.filter(a => a.type === 'Core')
+  if (damaged) {
+    coreAbils.push({ id: 'damaged', name: `Damaged ${damaged.range}`, description: damaged.description, type: 'Core' })
+  }
   if (coreAbils.length === 0) return null
 
   return (
@@ -276,7 +279,10 @@ export function RosterEntryRow({
 
           <StatsBar models={datasheet.models} />
 
-          <CoreAbilityBadges abilities={datasheet.abilities} />
+          <CoreAbilityBadges
+            abilities={datasheet.abilities}
+            damaged={damagedRange(datasheet) ? { range: damagedRange(datasheet)!, description: datasheet.damagedDescription } : undefined}
+          />
 
           <WeaponSelector weapons={datasheet.weapons} quantities={weaponQuantities} />
 

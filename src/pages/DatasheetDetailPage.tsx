@@ -8,7 +8,7 @@ import { stratagemTurnColors } from '@/core/constants/stratagemTurnColors'
 import { factionColor } from '@/core/constants/factionColors'
 import type { Weapon, ModelProfile, Ability } from '@/types'
 import { forFaction } from '@/core/constants/factionFamily'
-import { coreAbilityLabel } from '@/core/utils/abilityLabel'
+import { coreAbilityLabel, damagedRange } from '@/core/utils/abilityLabel'
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -184,14 +184,17 @@ function CoreAbilityBadge({ ab }: { ab: Ability }) {
   )
 }
 
-function CoreAbilitiesBox({ abilities }: { abilities: Ability[] }) {
+function CoreAbilitiesBox({ abilities, damaged }: { abilities: Ability[]; damaged?: { range: string; description: string } }) {
   const coreAbils = abilities.filter(a => a.type === 'Core')
-  if (coreAbils.length === 0) return null
+  if (coreAbils.length === 0 && !damaged) return null
   return (
     <div className="border border-rim-bright mb-3">
       <SectionHeader title="Reglas Especiales" />
       <div className="flex flex-wrap gap-1.5 px-3 py-2 bg-surface-2">
         {coreAbils.map((ab, i) => <CoreAbilityBadge key={i} ab={ab} />)}
+        {damaged && (
+          <CoreAbilityBadge ab={{ id: 'damaged', name: `Damaged ${damaged.range}`, description: damaged.description, type: 'Core' }} />
+        )}
       </div>
     </div>
   )
@@ -410,7 +413,7 @@ export function DatasheetDetailPage() {
       </div>
 
       {/* Reglas especiales (FNP, Sigilo, Despliegue Profundo, etc.) */}
-      <CoreAbilitiesBox abilities={ds.abilities} />
+      <CoreAbilitiesBox abilities={ds.abilities} damaged={damagedRange(ds) ? { range: damagedRange(ds)!, description: ds.damagedDescription } : undefined} />
 
       {/* Armas ranged */}
       {rangedWeapons.length > 0 && (
@@ -643,7 +646,7 @@ export function DatasheetDetailPage() {
       {/* Daño */}
       {ds.damagedW > 0 && (
         <div className="border border-rim-bright mb-3">
-          <SectionHeader title={`Dañado (${ds.damagedW}+ heridas)`} />
+          <SectionHeader title={`Dañado (${damagedRange(ds)} heridas)`} />
           <div className="px-3 py-2 bg-surface-2">
             <RuleHtml html={ds.damagedDescription} className="prose-copy" factionId={ds.factionId} />
           </div>

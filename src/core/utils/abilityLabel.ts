@@ -12,3 +12,13 @@ export function coreAbilityLabel(ab: Ability): string {
   }
   return ab.name
 }
+
+/**
+ * Wound range of a datasheet's damaged profile ("1-5"). `damagedW` only holds the lower bound
+ * (always 1 in the data), so the upper bound comes from the description text.
+ */
+export function damagedRange(ds: { damagedW: number; damagedDescription: string }): string | null {
+  if (!ds.damagedW) return null
+  const m = /(\d+\s*-\s*\d+)\s+wounds/i.exec(ds.damagedDescription)
+  return m ? m[1].replace(/\s/g, '') : `${ds.damagedW}+`
+}
