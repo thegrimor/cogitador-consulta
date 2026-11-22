@@ -197,6 +197,13 @@
   }
   .wh-html button.kw-list::after { content: ' ▾'; font-size: 0.8em; }
   .wh-html button.kw-list .kwb { color: inherit; }
+  /* Army/faction rule named in the text — tap to read the rule */
+  .wh-html button.rule-ref {
+    font: inherit; font-weight: 700; padding: 0; background: none; border: 0;
+    color: var(--color-crimson-bright);
+    text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer;
+  }
+  .wh-html button.rule-ref::after { content: ' ⓘ'; font-size: 0.8em; }
 
   /* Leftover markup from the scraped source (present in 16 of 24 faction files, e.g. Adeptus
      Mechanicus' "Rad-bombardment" detachment rule) for a "Battle Round ①" badge widget whose
