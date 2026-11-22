@@ -178,6 +178,43 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
   })
 }
 
+/** Keywords (e.g. DESTROYER CULT, CANOPTEK) that a faction's datasheets share, minus unit-type
+ * words and anything that is itself a datasheet name (those already link to the unit). Keyed
+ * uppercase. Used both to decorate the text and, in RuleHtml, to list the matching units. */
+export function listableKeywords(datasheets: Datasheet[], factionId: string): Set<string> {
+  const own = datasheets.filter(d => datasheetBelongsToFaction(d, factionId))
+  const names = new Set(own.map(d => d.name.trim().toUpperCase()))
+  const counts = new Map<string, number>()
+  for (const d of own) {
+    for (const k of new Set(d.keywords.map(x => x.trim().toUpperCase()))) {
+      if (!k || UNIT_TYPE_KEYWORDS.has(k) || names.has(k)) continue
+      counts.set(k, (counts.get(k) ?? 0) + 1)
+    }
+  }
+  return new Set([...counts].filter(([, n]) => n >= 2).map(([k]) => k))
+}
+
+// A shared datasheet keyword written in the rule text (all caps / kwb spans only, never plain
+// prose) becomes a button; RuleHtml opens an inline list of the units carrying it.
+function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: string | undefined): string {
+  if (!factionId) return html
+  const kws = [...listableKeywords(datasheets, factionId)].sort((a, b) => b.length - a.length)
+  if (kws.length === 0) return html
+  const colorClass = factionColor(factionId)?.text ?? ''
+  const patterns = kws.map(k =>
+    k.split(/\s+/).map(w => wordOrKwbSpan(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))).join('\\s*'))
+  const re = new RegExp(patterns.map(p => `(${p})`).join('|'), 'g')
+  // Only touch text outside already-generated links/badges.
+  return html.split(/(<a\b[^>]*>.*?<\/a>|<button\b[^>]*>.*?<\/button>|<span class="rule-badge"[^>]*>.*?<\/span>)/gs).map((seg, i) => {
+    if (i % 2 === 1) return seg
+    return seg.replace(re, (full, ...groups) => {
+      const idx = groups.findIndex((g, j) => g !== undefined && j < kws.length)
+      if (idx < 0) return full
+      return `<button type="button" class="kw-list ${colorClass}" data-kw="${escapeAttr(kws[idx])}">${full}</button>`
+    })
+  }).join('')
+}
+
 // The 5 Force Disposition / primary-mission-deck names — DECK_COLORS is keyed by slug
 // ("take-and-hold"), so this is the display-name side of that same table, colored (not
 // linked: there's no single natural page a bare mission-deck mention should point at, unlike
@@ -228,6 +265,7 @@ export function enrichRuleHtml(
   const withBadges = linkifyAbilityBrackets(html, coreRulesMap)
   const withFactionLinks = linkifyFactionKeywords(withBadges, factions)
   const withUnitLinks = linkifyUnitNames(withFactionLinks, datasheets, factionId)
-  const withDeckColors = colorizeMissionDecks(withUnitLinks)
+  const withKeywordLists = linkifyKeywordLists(withUnitLinks, datasheets, factionId)
+  const withDeckColors = colorizeMissionDecks(withKeywordLists)
   return classifyUnitKeywords(withDeckColors)
 }

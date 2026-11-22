@@ -1,7 +1,9 @@
-import { useMemo } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useMemo, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { enrichRuleHtml } from '@/core/utils/ruleHtml'
+import { datasheetPath } from '@/core/constants/routes'
+import { datasheetBelongsToFaction } from '@/core/constants/factionFamily'
 
 interface Props {
   html: string
@@ -31,7 +33,24 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
     [html, factions, coreRulesMap, datasheets, factionId],
   )
 
+  const [openKw, setOpenKw] = useState<string | null>(null)
+  const kwUnits = useMemo(
+    () => openKw && factionId
+      ? datasheets
+          .filter(d => datasheetBelongsToFaction(d, factionId) && d.keywords.some(k => k.trim().toUpperCase() === openKw))
+          .sort((a, b) => a.name.localeCompare(b.name))
+      : [],
+    [openKw, datasheets, factionId],
+  )
+
   function handleClick(e: React.MouseEvent) {
+    const kwBtn = (e.target as HTMLElement).closest('button[data-kw]')
+    if (kwBtn) {
+      e.preventDefault()
+      const kw = kwBtn.getAttribute('data-kw')!
+      setOpenKw(cur => (cur === kw ? null : kw))
+      return
+    }
     const link = (e.target as HTMLElement).closest('a[data-nav]')
     if (!link) return
     e.preventDefault()
@@ -40,10 +59,39 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
 
   const Tag = as
   return (
-    <Tag
-      className={`wh-html ${className}`}
-      onClick={handleClick}
-      dangerouslySetInnerHTML={{ __html: enriched }}
-    />
+    <>
+      <Tag
+        className={`wh-html ${className}`}
+        onClick={handleClick}
+        dangerouslySetInnerHTML={{ __html: enriched }}
+      />
+      {openKw && kwUnits.length > 0 && (
+        <span className="block my-2 border-l-2 border-l-crimson bg-surface-3 px-3 py-2">
+          <span className="flex items-center justify-between gap-2 mb-1">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim">
+              {openKw} · {kwUnits.length} unidades
+            </span>
+            <button
+              type="button"
+              onClick={() => setOpenKw(null)}
+              className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim hover:text-parchment"
+            >
+              ✕
+            </button>
+          </span>
+          <span className="flex flex-wrap gap-x-4 gap-y-1">
+            {kwUnits.map(d => (
+              <Link
+                key={d.id}
+                to={datasheetPath(d.id)}
+                className="text-[12px] font-mono text-parchment underline underline-offset-2 hover:text-crimson-bright"
+              >
+                {d.name}
+              </Link>
+            ))}
+          </span>
+        </span>
+      )}
+    </>
   )
 }
