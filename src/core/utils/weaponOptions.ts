@@ -41,6 +41,18 @@ function splitBundle(text: string): string[] {
     .filter(Boolean)
 }
 
+/** Leading quantity of each bundle entry ("4 death rays" → 4); 1 when none is written. */
+function bundleQuantities(text: string): number[] {
+  return text
+    .split(/,| and /i)
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(s => {
+      const m = s.match(/^(?:up to )?(\d+)\s+/i)
+      return m ? parseInt(m[1], 10) : 1
+    })
+}
+
 // ── Unit composition → slots ────────────────────────────────────────────────
 
 export function parseUnitSlots(compositionLines: string[]): UnitSlot[] {
@@ -298,8 +310,12 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
     if (replaceClause) {
       const { subjectRaw, fromText, tail } = replaceClause
       const { scope, roleName, fixedCount } = parseSubjectScope(subjectRaw, slots)
-      const fromWeapons = splitBundle(fromText.replace(/\beach\b/i, '').trim())
+      const fromClean = fromText.replace(/\beach\b/i, '').trim()
+      const fromWeapons = splitBundle(fromClean)
       const choices = list ? list.items.map(splitBundle) : [splitBundle(firstSentence(tail))]
+      const fromQty = bundleQuantities(fromClean)
+      const choiceQty = list ? list.items.map(bundleQuantities) : [bundleQuantities(firstSentence(tail))]
+      const hasQty = [...fromQty, ...choiceQty.flat()].some(q => q > 1)
       return makeRule({
         raw,
         scope,
@@ -308,6 +324,7 @@ export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[])
         kind: 'replace',
         fromWeapons,
         choices,
+        ...(hasQty ? { fromQty, choiceQty } : {}),
         exclusive: true,
         maxStack: 1,
         allowRepeatChoice: false,

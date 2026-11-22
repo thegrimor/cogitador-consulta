@@ -390,6 +390,11 @@ export interface WeaponOptionRule {
   fromWeapons: string[]
   /** Each entry is a bundle of weapon names granted together by picking that choice. */
   choices: string[][]
+  /** Only set when a clause names quantities > 1 ("its 4 gauss flux arcs replaced with 4 death rays"):
+   * instances removed per pick for each `fromWeapons` entry / granted per pick for each `choices` entry
+   * (same shape as `choices`). Absent = 1 each. */
+  fromQty?: number[]
+  choiceQty?: number[][]
   /** For a role/character upgrade phrased as "...equipped as <Name>, replacing <X> with <Y>"
    * (e.g. a squad model becoming a named character like a Chapter Champion): the captured
    * <Name>, shown in the UI instead of the auto-generated "<fromWeapons> → (N disponible)"
