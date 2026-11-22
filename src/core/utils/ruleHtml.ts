@@ -200,7 +200,6 @@ function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: s
   if (!factionId) return html
   const kws = [...listableKeywords(datasheets, factionId)].sort((a, b) => b.length - a.length)
   if (kws.length === 0) return html
-  const colorClass = factionColor(factionId)?.text ?? ''
   const patterns = kws.map(k =>
     k.split(/\s+/).map((w, i, arr) => wordOrKwbSpan(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (i === arr.length - 1 ? 'S?' : ''))).join('\\s*'))
   const re = new RegExp(patterns.map(p => `(${p})`).join('|'), 'g')
@@ -210,7 +209,7 @@ function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: s
     return seg.replace(re, (full, ...groups) => {
       const idx = groups.findIndex((g, j) => g !== undefined && j < kws.length)
       if (idx < 0) return full
-      return `<button type="button" class="kw-list ${colorClass}" data-kw="${escapeAttr(kws[idx])}">${full}</button>`
+      return `<button type="button" class="kw-list" data-kw="${escapeAttr(kws[idx])}">${full}</button>`
     })
   }).join('')
 }

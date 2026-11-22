@@ -192,6 +192,7 @@
   .wh-html a.kwb-link:hover { filter: brightness(1.3); }
   .wh-html button.kw-list {
     font: inherit; font-weight: 700; padding: 0; background: none; border: 0;
+    color: var(--color-gold); /* keywords (lists of units) — distinct from unit links, which use the faction colour */
     text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer;
   }
   .wh-html button.kw-list::after { content: ' ▾'; font-size: 0.8em; }
