@@ -95,7 +95,7 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
           <div className="fixed inset-0 z-[9998]" onClick={closePopup} />
           <div
             data-kw-popup
-            className="fixed z-[9999] w-[280px] max-h-[60vh] overflow-y-auto bg-surface-4 border border-rim-bright shadow-xl px-2.5 py-2"
+            className="fixed z-[9999] w-[280px] max-h-[60vh] overflow-y-auto overscroll-contain bg-surface-4 border border-rim-bright shadow-xl px-2.5 py-2"
             style={{ top: pos.top, left: pos.left }}
           >
             <div className="flex items-baseline justify-between gap-2 mb-1.5">
