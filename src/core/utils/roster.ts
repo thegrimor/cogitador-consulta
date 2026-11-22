@@ -486,9 +486,9 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
     if (total === 0) continue
 
     if (rule.kind === 'replace') {
-      rule.fromWeapons.forEach(w => {
+      rule.fromWeapons.forEach((w, wi) => {
         const key = canonicalKey(w)
-        const remaining = Math.max(0, (counts.get(key) ?? 0) - total)
+        const remaining = Math.max(0, (counts.get(key) ?? 0) - total * (rule.fromQty?.[wi] ?? 1))
         if (remaining === 0) counts.delete(key)
         else counts.set(key, remaining)
       })
@@ -496,9 +496,9 @@ export function resolveWeaponQuantities(datasheet: Datasheet, entry: RosterEntry
 
     selection.forEach((qty, i) => {
       if (qty <= 0) return
-      rule.choices[i].forEach(w => {
+      rule.choices[i].forEach((w, wi) => {
         const key = canonicalKey(w)
-        counts.set(key, (counts.get(key) ?? 0) + qty)
+        counts.set(key, (counts.get(key) ?? 0) + qty * (rule.choiceQty?.[i]?.[wi] ?? 1))
       })
     })
   }
