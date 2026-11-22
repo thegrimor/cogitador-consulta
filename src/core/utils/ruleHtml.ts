@@ -178,8 +178,8 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
   })
 }
 
-/** Keywords (e.g. DESTROYER CULT, CANOPTEK) that a faction's datasheets share, minus unit-type
- * words and anything that is itself a datasheet name (those already link to the unit). Keyed
+/** Keywords (e.g. DESTROYER CULT, CANOPTEK, INFANTRY, MOUNTED) that a faction's datasheets share, minus
+ * anything that is itself a datasheet name (those already link to the unit). Keyed
  * uppercase. Used both to decorate the text and, in RuleHtml, to list the matching units. */
 export function listableKeywords(datasheets: Datasheet[], factionId: string): Set<string> {
   const own = datasheets.filter(d => datasheetBelongsToFaction(d, factionId))
@@ -187,7 +187,7 @@ export function listableKeywords(datasheets: Datasheet[], factionId: string): Se
   const counts = new Map<string, number>()
   for (const d of own) {
     for (const k of new Set(d.keywords.map(x => x.trim().toUpperCase()))) {
-      if (!k || UNIT_TYPE_KEYWORDS.has(k) || names.has(k)) continue
+      if (!k || names.has(k)) continue
       counts.set(k, (counts.get(k) ?? 0) + 1)
     }
   }
@@ -202,7 +202,7 @@ function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: s
   if (kws.length === 0) return html
   const colorClass = factionColor(factionId)?.text ?? ''
   const patterns = kws.map(k =>
-    k.split(/\s+/).map(w => wordOrKwbSpan(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))).join('\\s*'))
+    k.split(/\s+/).map((w, i, arr) => wordOrKwbSpan(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (i === arr.length - 1 ? 'S?' : ''))).join('\\s*'))
   const re = new RegExp(patterns.map(p => `(${p})`).join('|'), 'g')
   // Only touch text outside already-generated links/badges.
   return html.split(/(<a\b[^>]*>.*?<\/a>|<button\b[^>]*>.*?<\/button>|<span class="rule-badge"[^>]*>.*?<\/span>)/gs).map((seg, i) => {

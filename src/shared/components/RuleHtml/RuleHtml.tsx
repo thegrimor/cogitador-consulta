@@ -55,7 +55,7 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
   const kwUnits = useMemo(
     () => openKw && factionId
       ? datasheets
-          .filter(d => datasheetBelongsToFaction(d, factionId) && d.keywords.some(k => k.trim().toUpperCase() === openKw))
+          .filter(d => datasheetBelongsToFaction(d, factionId) && (d.keywords.some(k => k.trim().toUpperCase() === openKw) || (openKw === 'CHARACTER' && d.role === 'Characters')))
           .sort((a, b) => a.name.localeCompare(b.name))
       : [],
     [openKw, datasheets, factionId],
