@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
-import { enrichRuleHtml } from '@/core/utils/ruleHtml'
+import { enrichRuleHtml, keywordStem } from '@/core/utils/ruleHtml'
 import { datasheetPath } from '@/core/constants/routes'
 import { datasheetBelongsToFaction } from '@/core/constants/factionFamily'
 
@@ -55,7 +55,7 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
   const kwUnits = useMemo(
     () => openKw && factionId
       ? datasheets
-          .filter(d => datasheetBelongsToFaction(d, factionId) && (d.keywords.some(k => k.trim().toUpperCase() === openKw) || (openKw === 'CHARACTER' && d.role === 'Characters')))
+          .filter(d => datasheetBelongsToFaction(d, factionId) && (d.keywords.some(k => keywordStem(k) === openKw) || (openKw === 'CHARACTER' && d.role === 'Characters')))
           .sort((a, b) => a.name.localeCompare(b.name))
       : [],
     [openKw, datasheets, factionId],

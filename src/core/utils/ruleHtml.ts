@@ -181,12 +181,19 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
 /** Keywords (e.g. DESTROYER CULT, CANOPTEK, INFANTRY, MOUNTED) that a faction's datasheets share, minus
  * anything that is itself a datasheet name (those already link to the unit). Keyed
  * uppercase. Used both to decorate the text and, in RuleHtml, to list the matching units. */
+/** Singular/plural-insensitive key for a keyword: upper-case, trailing "S" of the last word dropped
+ * (RANGERS → RANGER, VEHICLES → VEHICLE) except for -SS/-US/-IS/-OS endings (CHAOS, ASTRA). */
+export function keywordStem(k: string): string {
+  const u = k.trim().toUpperCase()
+  return u.length > 3 && /[^SUIO]S$/.test(u) ? u.slice(0, -1) : u
+}
+
 export function listableKeywords(datasheets: Datasheet[], factionId: string): Set<string> {
   const own = datasheets.filter(d => datasheetBelongsToFaction(d, factionId))
-  const names = new Set(own.map(d => d.name.trim().toUpperCase()))
+  const names = new Set(own.map(d => keywordStem(d.name)))
   const counts = new Map<string, number>()
   for (const d of own) {
-    for (const k of new Set(d.keywords.map(x => x.trim().toUpperCase()))) {
+    for (const k of new Set(d.keywords.map(keywordStem))) {
       if (!k || names.has(k)) continue
       counts.set(k, (counts.get(k) ?? 0) + 1)
     }
