@@ -245,6 +245,25 @@ function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: s
   }).join('')
 }
 
+const SKIP_SEGMENTS = /(<a\b[^>]*>.*?<\/a>|<button\b[^>]*>.*?<\/button>|<span class="rule-badge"[^>]*>.*?<\/span>)/gs
+
+/** A faction/army rule named in the text ("Reanimation Protocols", "Synapse") becomes a button that
+ * opens that rule's text in a popup. Exact name in Title Case or ALL CAPS only (never lowercase prose),
+ * and never inside an already-generated link/button. */
+function linkifyArmyRules(html: string, armyRules: { id: string; name: string }[]): string {
+  const rules = armyRules.filter(r => r.name.trim()).sort((a, b) => b.name.length - a.name.length)
+  if (rules.length === 0) return html
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const byName = new Map<string, string>()
+  for (const r of rules) { byName.set(r.name, r.id); byName.set(r.name.toUpperCase(), r.id) }
+  const re = new RegExp(`\\b(${[...byName.keys()].sort((a, b) => b.length - a.length).map(esc).join('|')})(?![\\w-])`, 'g')
+  return html.split(SKIP_SEGMENTS).map((seg, i) =>
+    i % 2 === 1 ? seg : seg.replace(re, (full: string) => {
+      const id = byName.get(full)
+      return id ? `<button type="button" class="rule-ref" data-rule="${escapeAttr(id)}">${full}</button>` : full
+    })).join('')
+}
+
 // The 5 Force Disposition / primary-mission-deck names — DECK_COLORS is keyed by slug
 // ("take-and-hold"), so this is the display-name side of that same table, colored (not
 // linked: there's no single natural page a bare mission-deck mention should point at, unlike
@@ -291,11 +310,13 @@ export function enrichRuleHtml(
   coreRulesMap: Record<string, CoreRule>,
   datasheets: Datasheet[] = [],
   factionId?: string,
+  armyRules: { id: string; name: string }[] = [],
 ): string {
   const withBadges = linkifyAbilityBrackets(html, coreRulesMap)
   const withFactionLinks = linkifyFactionKeywords(withBadges, factions)
   const withUnitLinks = linkifyUnitNames(withFactionLinks, datasheets, factionId)
   const withKeywordLists = linkifyKeywordLists(withUnitLinks, datasheets, factionId, factions)
-  const withDeckColors = colorizeMissionDecks(withKeywordLists)
+  const withRuleRefs = linkifyArmyRules(withKeywordLists, armyRules)
+  const withDeckColors = colorizeMissionDecks(withRuleRefs)
   return classifyUnitKeywords(withDeckColors)
 }

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useGameDataContext } from '@/infrastructure/data/GameDataContext'
 import { enrichRuleHtml, keywordStem, nativeDatasheets } from '@/core/utils/ruleHtml'
 import { datasheetPath } from '@/core/constants/routes'
+import { forFactionFromMap } from '@/core/constants/factionFamily'
 
 interface Props {
   html: string
@@ -25,20 +26,26 @@ interface Props {
  * can't render an actual `<Link>`.
  */
 export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
-  const { factions, coreRulesMap, datasheets } = useGameDataContext()
+  const { factions, coreRulesMap, datasheets, armyRulesByFaction } = useGameDataContext()
   const navigate = useNavigate()
 
+  const armyRules = useMemo(
+    () => (factionId ? forFactionFromMap(armyRulesByFaction, factionId) : []),
+    [armyRulesByFaction, factionId],
+  )
   const enriched = useMemo(
-    () => enrichRuleHtml(html, factions, coreRulesMap, datasheets, factionId),
-    [html, factions, coreRulesMap, datasheets, factionId],
+    () => enrichRuleHtml(html, factions, coreRulesMap, datasheets, factionId, armyRules),
+    [html, factions, coreRulesMap, datasheets, factionId, armyRules],
   )
 
   const [openKw, setOpenKw] = useState<string | null>(null)
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
-  const closePopup = () => { setOpenKw(null); setPos(null) }
+  const [openRule, setOpenRule] = useState<string | null>(null)
+  const closePopup = () => { setOpenKw(null); setOpenRule(null); setPos(null) }
+  const isOpen = openKw !== null || openRule !== null
 
   useEffect(() => {
-    if (!openKw) return
+    if (!isOpen) return
     const onKey = (ev: KeyboardEvent) => { if (ev.key === 'Escape') closePopup() }
     const onScroll = (ev: Event) => {
       if ((ev.target as HTMLElement | Document)?.nodeType === 1 && (ev.target as HTMLElement).closest?.('[data-kw-popup]')) return
@@ -50,7 +57,8 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('scroll', onScroll, true)
     }
-  }, [openKw])
+  }, [isOpen])
+  const ruleShown = useMemo(() => armyRules.find(r => r.id === openRule), [armyRules, openRule])
   const kwUnits = useMemo(
     () => openKw && factionId
       ? nativeDatasheets(datasheets, factionId, factions)
@@ -60,18 +68,30 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
     [openKw, datasheets, factions, factionId],
   )
 
+  function popupPos(btn: Element) {
+    const r = btn.getBoundingClientRect()
+    const W = 280
+    setPos({ top: r.bottom + 6, left: Math.max(8, Math.min(r.left, window.innerWidth - W - 8)) })
+  }
+
   function handleClick(e: React.MouseEvent) {
+    const ruleBtn = (e.target as HTMLElement).closest('button[data-rule]')
+    if (ruleBtn) {
+      e.preventDefault()
+      const id = ruleBtn.getAttribute('data-rule')!
+      if (openRule === id) { closePopup(); return }
+      popupPos(ruleBtn)
+      setOpenKw(null)
+      setOpenRule(id)
+      return
+    }
     const kwBtn = (e.target as HTMLElement).closest('button[data-kw]')
     if (kwBtn) {
       e.preventDefault()
       const kw = kwBtn.getAttribute('data-kw')!
       if (openKw === kw) { closePopup(); return }
-      const r = kwBtn.getBoundingClientRect()
-      const W = 280
-      setPos({
-        top: r.bottom + 6,
-        left: Math.max(8, Math.min(r.left, window.innerWidth - W - 8)),
-      })
+      popupPos(kwBtn)
+      setOpenRule(null)
       setOpenKw(kw)
       return
     }
@@ -89,6 +109,32 @@ export function RuleHtml({ html, className = '', as = 'p', factionId }: Props) {
         onClick={handleClick}
         dangerouslySetInnerHTML={{ __html: enriched }}
       />
+      {openRule && pos && ruleShown && createPortal(
+        <>
+          <div className="fixed inset-0 z-[9998]" onClick={closePopup} />
+          <div
+            data-kw-popup
+            className="fixed z-[9999] w-[280px] max-h-[60vh] overflow-y-auto overscroll-contain bg-surface-4 border border-rim-bright shadow-xl px-2.5 py-2"
+            style={{ top: pos.top, left: pos.left }}
+          >
+            <div className="flex items-baseline justify-between gap-2 mb-1.5">
+              <span className="text-[12px] font-display uppercase tracking-widest text-crimson-bright">
+                {ruleShown.name}
+              </span>
+              <button
+                type="button"
+                onClick={closePopup}
+                aria-label="Cerrar"
+                className="text-[11px] font-mono text-parchment-dim hover:text-parchment"
+              >
+                ✕
+              </button>
+            </div>
+            <RuleHtml html={ruleShown.description} className="prose-copy block" as="span" />
+          </div>
+        </>,
+        document.body,
+      )}
       {openKw && pos && kwUnits.length > 0 && createPortal(
         <>
           <div className="fixed inset-0 z-[9998]" onClick={closePopup} />
