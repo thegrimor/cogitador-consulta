@@ -2,7 +2,7 @@ import type { CoreRule, Datasheet, Faction } from '@/types'
 import { factionPath, datasheetPath } from '@/core/constants/routes'
 import { factionColor } from '@/core/constants/factionColors'
 import { DECK_COLORS } from '@/core/constants/missionDeckColors'
-import { datasheetBelongsToFaction } from '@/core/constants/factionFamily'
+import { datasheetBelongsToFaction, isSameFactionFamily } from '@/core/constants/factionFamily'
 
 /**
  * Post-processes the raw `wh-html` description strings (stratagems, abilities, rules,
@@ -181,27 +181,58 @@ function linkifyUnitNames(html: string, datasheets: Datasheet[], factionId: stri
 /** Keywords (e.g. DESTROYER CULT, CANOPTEK, INFANTRY, MOUNTED) that a faction's datasheets share, minus
  * anything that is itself a datasheet name (those already link to the unit). Keyed
  * uppercase. Used both to decorate the text and, in RuleHtml, to list the matching units. */
-export function listableKeywords(datasheets: Datasheet[], factionId: string): Set<string> {
-  const own = datasheets.filter(d => datasheetBelongsToFaction(d, factionId))
-  const names = new Set(own.map(d => d.name.trim().toUpperCase()))
+/** Singular/plural-insensitive key for a keyword: upper-case, trailing "S" of the last word dropped
+ * (RANGERS → RANGER, VEHICLES → VEHICLE) except for -SS/-US/-IS/-OS endings (CHAOS, ASTRA). */
+export function keywordStem(k: string): string {
+  const u = k.trim().toUpperCase()
+  return u.length > 3 && /[^SUIO]S$/.test(u) ? u.slice(0, -1) : u
+}
+
+const normName = (n: string) => n.replace(/[’‘]/g, "'").trim().toUpperCase()
+
+/** The datasheets that are really this faction's own: in its file/family AND without another
+ * faction's name among their faction keywords. A Genestealer Cults roster carries copies of
+ * Astra Militarum/Tyranids units (keywords "Astra Militarum"/"Genestealer Cults"); those are allies,
+ * not part of the faction, so they stay out of keyword lists. */
+export function nativeDatasheets(datasheets: Datasheet[], factionId: string, factions: Faction[]): Datasheet[] {
+  const others = new Set<string>()
+  const addName = (id: string, name: string) => { if (!isSameFactionFamily(id, factionId)) others.add(normName(name)) }
+  for (const f of factions) addName(f.id, f.name)
+  for (const a of FACTION_ALIASES) addName(a.factionId, a.name)
+  return datasheets.filter(d =>
+    datasheetBelongsToFaction(d, factionId) && !(d.factionKeywords ?? []).some(k => others.has(normName(k))))
+}
+
+export function listableKeywords(own: Datasheet[]): Set<string> {
+  const names = new Set(own.map(d => keywordStem(d.name)))
+  // Faction-wide keywords (CHAOS, NECRONS, IMPERIUM...) name the whole army, not a useful subset.
+  const factionWide = new Set(own.flatMap(d => (d.factionKeywords ?? []).map(keywordStem)))
   const counts = new Map<string, number>()
   for (const d of own) {
-    for (const k of new Set(d.keywords.map(x => x.trim().toUpperCase()))) {
-      if (!k || names.has(k)) continue
+    for (const k of new Set(d.keywords.map(keywordStem))) {
+      if (!k || names.has(k) || factionWide.has(k)) continue
       counts.set(k, (counts.get(k) ?? 0) + 1)
     }
   }
-  return new Set([...counts].filter(([, n]) => n >= 2).map(([k]) => k))
+  // Also drop keywords carried by nearly the whole army (IMPERIUM, CHAOS): not a useful subset.
+  const maxShare = Math.max(2, Math.floor(own.length * 0.8))
+  return new Set([...counts].filter(([, n]) => n >= 2 && (own.length < 10 || n <= maxShare)).map(([k]) => k))
 }
 
 // A shared datasheet keyword written in the rule text (all caps / kwb spans only, never plain
 // prose) becomes a button; RuleHtml opens an inline list of the units carrying it.
-function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: string | undefined): string {
+function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: string | undefined, factions: Faction[]): string {
   if (!factionId) return html
-  const kws = [...listableKeywords(datasheets, factionId)].sort((a, b) => b.length - a.length)
+  const kws = [...listableKeywords(nativeDatasheets(datasheets, factionId, factions))].sort((a, b) => b.length - a.length)
   if (kws.length === 0) return html
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  // ALL CAPS or Title Case ("Character", "Tech-Priest"), never lowercase prose.
+  const title = (w: string) => w.split('-').map(x => x.charAt(0) + x.slice(1).toLowerCase()).join('-')
   const patterns = kws.map(k =>
-    k.split(/\s+/).map((w, i, arr) => wordOrKwbSpan(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (i === arr.length - 1 ? 'S?' : ''))).join('\\s*'))
+    k.split(/\s+/).map((w, i, arr) => {
+      const plural = i === arr.length - 1 ? 'S?' : ''
+      return `(?:<span class="kwb">${esc(w)}${plural}</span>|\\b(?:${esc(w)}|${esc(title(w))})${plural && '[Ss]?'}\\b)`
+    }).join('\\s*'))
   const re = new RegExp(patterns.map(p => `(${p})`).join('|'), 'g')
   // Only touch text outside already-generated links/badges.
   return html.split(/(<a\b[^>]*>.*?<\/a>|<button\b[^>]*>.*?<\/button>|<span class="rule-badge"[^>]*>.*?<\/span>)/gs).map((seg, i) => {
@@ -264,7 +295,7 @@ export function enrichRuleHtml(
   const withBadges = linkifyAbilityBrackets(html, coreRulesMap)
   const withFactionLinks = linkifyFactionKeywords(withBadges, factions)
   const withUnitLinks = linkifyUnitNames(withFactionLinks, datasheets, factionId)
-  const withKeywordLists = linkifyKeywordLists(withUnitLinks, datasheets, factionId)
+  const withKeywordLists = linkifyKeywordLists(withUnitLinks, datasheets, factionId, factions)
   const withDeckColors = colorizeMissionDecks(withKeywordLists)
   return classifyUnitKeywords(withDeckColors)
 }
