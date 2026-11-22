@@ -191,14 +191,18 @@ export function keywordStem(k: string): string {
 export function listableKeywords(datasheets: Datasheet[], factionId: string): Set<string> {
   const own = datasheets.filter(d => datasheetBelongsToFaction(d, factionId))
   const names = new Set(own.map(d => keywordStem(d.name)))
+  // Faction-wide keywords (CHAOS, NECRONS, IMPERIUM...) name the whole army, not a useful subset.
+  const factionWide = new Set(own.flatMap(d => (d.factionKeywords ?? []).map(keywordStem)))
   const counts = new Map<string, number>()
   for (const d of own) {
     for (const k of new Set(d.keywords.map(keywordStem))) {
-      if (!k || names.has(k)) continue
+      if (!k || names.has(k) || factionWide.has(k)) continue
       counts.set(k, (counts.get(k) ?? 0) + 1)
     }
   }
-  return new Set([...counts].filter(([, n]) => n >= 2).map(([k]) => k))
+  // Also drop keywords carried by nearly the whole army (IMPERIUM, CHAOS): not a useful subset.
+  const maxShare = Math.max(2, Math.floor(own.length * 0.8))
+  return new Set([...counts].filter(([, n]) => n >= 2 && (own.length < 10 || n <= maxShare)).map(([k]) => k))
 }
 
 // A shared datasheet keyword written in the rule text (all caps / kwb spans only, never plain
