@@ -200,8 +200,14 @@ function linkifyKeywordLists(html: string, datasheets: Datasheet[], factionId: s
   if (!factionId) return html
   const kws = [...listableKeywords(datasheets, factionId)].sort((a, b) => b.length - a.length)
   if (kws.length === 0) return html
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  // ALL CAPS or Title Case ("Character", "Tech-Priest"), never lowercase prose.
+  const title = (w: string) => w.split('-').map(x => x.charAt(0) + x.slice(1).toLowerCase()).join('-')
   const patterns = kws.map(k =>
-    k.split(/\s+/).map((w, i, arr) => wordOrKwbSpan(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (i === arr.length - 1 ? 'S?' : ''))).join('\\s*'))
+    k.split(/\s+/).map((w, i, arr) => {
+      const plural = i === arr.length - 1 ? 'S?' : ''
+      return `(?:<span class="kwb">${esc(w)}${plural}</span>|\\b(?:${esc(w)}|${esc(title(w))})${plural && '[Ss]?'}\\b)`
+    }).join('\\s*'))
   const re = new RegExp(patterns.map(p => `(${p})`).join('|'), 'g')
   // Only touch text outside already-generated links/badges.
   return html.split(/(<a\b[^>]*>.*?<\/a>|<button\b[^>]*>.*?<\/button>|<span class="rule-badge"[^>]*>.*?<\/span>)/gs).map((seg, i) => {
