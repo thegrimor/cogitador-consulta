@@ -19,7 +19,7 @@ import {
 import {
   resolveModelCount, compareByRolePriority, sumDetachmentPoints, groupByRoleCategory,
   resolveCostsForUnitIndex, resolveCostsForFactionContext, unitIndexInRoster, resolveRosterTotalPoints,
-  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isEpicHero, canBearUnmappedEnhancement, resolveWarlord,
+  DETACHMENT_POINTS_BUDGET, isMultiDetachmentAllowed, isAttachmentSlotTaken, isBarredFromEnhancements, canBearUnmappedEnhancement, resolveWarlord,
 } from '@/core/utils/roster'
 import { RosterEntryRow } from '@/shared/components/RosterEntryRow'
 import { AddUnitModal } from '@/shared/components/AddUnitModal'
@@ -362,9 +362,9 @@ export function RosterEditPage() {
                 )
                 const costs = resolveCostsForUnitIndex(contextCosts, unitIndex)
                 const validEnhancementIds = new Set(datasheetEnhancements[entry.datasheetId] ?? [])
-                // Epic Heroes can never bear an Enhancement (the "unmapped => unrestricted"
+                // Epic Hero characters can never bear an Enhancement (the "unmapped => unrestricted"
                 // fallback below would otherwise offer them every unmapped one).
-                const availableEnhancements = isEpicHero(datasheet) ? [] : enhancements.filter(
+                const availableEnhancements = isBarredFromEnhancements(datasheet) ? [] : enhancements.filter(
                   e => selectedDetachmentIds.has(e.detachmentId) &&
                     (validEnhancementIds.has(e.id) ||
                       (!mappedEnhancementIds.has(e.id) && canBearUnmappedEnhancement(e, datasheet))),

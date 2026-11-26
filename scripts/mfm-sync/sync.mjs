@@ -253,7 +253,14 @@ for (const slug of targetSlugs) {
       const modelCount = modelCountFromLabel(p.description);
       if (modelCount === null) { unmatched.points.push(`${ds.id}: can't parse model count from "${p.description}"`); continue; }
       const candidates = dumpEntries.filter(e => e.modelCount === modelCount && e.tier === tier);
-      let match = candidates[0];
+      // Two dump entries can share tier and model count ("3 Headtakers" vs "3 Headtakers, 3 Hunting
+      // Wolves"): only the label tells them apart, so never fall back to the first one.
+      const label = norm(p.description.replace(/\s*\([^)]*\)/g, ''));
+      let match = candidates.find(c => norm(c.label) === label) ?? (candidates.length === 1 ? candidates[0] : undefined);
+      if (!match && candidates.length > 1) {
+        unmatched.points.push(`${ds.id}: several MFM prices fit "${p.description}" — check by hand`);
+        continue;
+      }
       if (!match && dumpEntries.length === 1 && ds.pointsCosts.length === 1) match = dumpEntries[0];
       if (!match) continue; // already reported as a structural mismatch above (or truly unmatched — rare)
       if (match.points !== p.points) {
@@ -290,7 +297,7 @@ for (const slug of targetSlugs) {
     }
 
     const detEnhancements = (data.enhancements ?? []).filter(e => e.detachmentId === det.id);
-    const stripParen = s => norm(s).replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').replace(/[-\s]+/g, ' ').trim();
+    const stripParen = s => norm(s).replace(/(\s*\([^)]*\))+\s*$/, '').replace(/\s+(UPGRADE|AURA)$/, '').replace(/[-\s]+/g, ' ').trim();
     for (const e of detEnhancements) {
       const de = dumpDet.enhancements.find(x => norm(x.name) === norm(e.name) || stripParen(x.name) === stripParen(e.name) || looseName(stripParen(x.name)) === looseName(stripParen(e.name)));
       if (!de) { unmatched.enhancementDetachments.push(`${det.id}/${e.id}: no MFM enhancement named "${e.name}"`); continue; }
