@@ -277,16 +277,53 @@ export function resolveEntryBaseCost(
   return (next ?? sorted[sorted.length - 1]).points
 }
 
-/** Points surcharge from `entry`'s paid wargear selections, resolved fresh against the
- * current `wargearCosts` rather than a stored total. A selection above its item's `max` (or
- * above `entry.modelCount`, for an unbounded item) is clamped rather than trusted verbatim, in
- * case a `max` was added/lowered after the selection was saved, or the model count since shrank. */
-export function resolveEntryWargearSurcharge(entry: RosterEntry, wargearCosts: WargearCost[]): number {
-  if (!entry.wargearSelections) return 0
-  const byName = new Map(wargearCosts.map(w => [w.name, w]))
-  return Object.entries(entry.wargearSelections).reduce((sum, [name, count]) => {
-    const wc = byName.get(name)
-    if (!wc) return sum
+/** Name of the weapon a `wargearCosts` item prices: no leading "per", no trailing "(...)"
+ * annotation, no firing-mode suffix, singular. */
+function wargearWeaponKey(name: string): string {
+  return weaponBaseName(name.replace(/^per\s+/i, '').replace(/\s*\([^)]*\)\s*$/, '')).replace(/s$/, '')
+}
+
+/** How many of the weapon `wc` prices are granted by `entry`'s weapon-option picks, plus whether
+ * any weapon-option rule can grant it at all. A paid weapon that a swap/add rule hands out is
+ * priced *from that pick* — there is no separate "equipped" control for it — so the cost and the
+ * loadout can never disagree. A `wargearCosts` item no rule grants (a named character upgrade
+ * like Chapter Ancient) is not covered and keeps its own selection in `wargearSelections`. */
+export function wargearRuleCoverage(
+  wc: WargearCost,
+  datasheet: Datasheet,
+  entry: RosterEntry,
+): { covered: boolean; count: number } {
+  const key = wargearWeaponKey(wc.name)
+  let covered = false
+  let count = 0
+  for (const rule of datasheet.weaponOptionRules) {
+    if (rule.scope === 'unparsed' || rule.choices.length === 0) continue
+    const selection = getRuleSelection(entry, rule)
+    rule.choices.forEach((choice, i) => {
+      choice.forEach((w, wi) => {
+        if (wargearWeaponKey(w) !== key) return
+        covered = true
+        count += selection[i] * (rule.choiceQty?.[i]?.[wi] ?? 1)
+      })
+    })
+  }
+  return { covered, count }
+}
+
+/** Points surcharge from `entry`'s paid wargear, resolved fresh against the current
+ * `wargearCosts` rather than a stored total. An item a weapon-option rule can grant is counted
+ * from that rule's pick (see `wargearRuleCoverage`); any other item comes from the entry's
+ * `wargearSelections`. A count above the item's `max` (or above `entry.modelCount`, for an
+ * unbounded item) is clamped rather than trusted verbatim, in case a `max` was added/lowered
+ * after the selection was saved, or the model count since shrank. */
+export function resolveEntryWargearSurcharge(
+  entry: RosterEntry,
+  datasheet: Datasheet,
+  wargearCosts: WargearCost[],
+): number {
+  return wargearCosts.reduce((sum, wc) => {
+    const { covered, count: ruleCount } = wargearRuleCoverage(wc, datasheet, entry)
+    const count = covered ? ruleCount : entry.wargearSelections?.[wc.name] ?? 0
     const effectiveMax = wc.max !== undefined ? Math.min(wc.max, entry.modelCount) : entry.modelCount
     return sum + wc.points * Math.min(count, effectiveMax)
   }, 0)
@@ -306,7 +343,7 @@ export function resolveEntryPoints(
   costsForTier: PointsCost[],
   wargearCosts: WargearCost[],
 ): number {
-  return resolveEntryBaseCost(entry, datasheet, costsForTier) + resolveEntryWargearSurcharge(entry, wargearCosts)
+  return resolveEntryBaseCost(entry, datasheet, costsForTier) + resolveEntryWargearSurcharge(entry, datasheet, wargearCosts)
 }
 
 /** Full points cost of `entry` — base + wargear + enhancement — for contexts (export text,

@@ -106,7 +106,7 @@ export function RosterEntryRow({
   const attachedTo = attachableEntries.find(a => a.entry.id === entry.attachedToEntryId)
   const kindLabel = attachmentKind(datasheet) === 'support' ? 'apoyo' : 'líder'
   const weaponQuantities = resolveWeaponQuantities(datasheet, entry)
-  const wargearSurcharge = resolveEntryWargearSurcharge(entry, wargearCosts)
+  const wargearSurcharge = resolveEntryWargearSurcharge(entry, datasheet, wargearCosts)
   const entryPoints = resolveEntryPoints(entry, datasheet, costs, wargearCosts)
 
   return (

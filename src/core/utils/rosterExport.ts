@@ -2,7 +2,7 @@ import type { RosterList, RosterEntry, Datasheet, Faction, Detachment, Enhanceme
 import {
   weaponBaseName, resolveModelCount, resolveCostsForUnitIndex, resolveCostsForFactionContext, sortCostVariants,
   sumDetachmentPoints, ruleSelectionCap, unitIndexInRoster, resolveEntryTotalPoints, resolveRosterTotalPoints,
-  attachmentKind, isAttachmentSlotTaken, resolveWeaponQuantities, resolveWarlord,
+  attachmentKind, isAttachmentSlotTaken, resolveWeaponQuantities, resolveWarlord, wargearRuleCoverage,
 } from '@/core/utils/roster'
 import { resolveRoleCounts } from '@/core/utils/weaponOptions'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
@@ -685,7 +685,10 @@ export function resolveImportedRoster(
       for (const pw of effectiveWeapons) {
         const pwBase = weaponBaseName(pw.name.replace(/^per\s+/i, ''))
         const wc = availableWargear.find(w => weaponBaseName(w.name.replace(/^per\s+/i, '')) === pwBase)
-        if (wc) wargearSelections[wc.name] = pw.count
+        // A weapon a rule can grant is priced from that rule's pick (step 2), not stored here.
+        if (wc && !wargearRuleCoverage(wc, datasheet, { weaponOptionSelections: {} } as RosterEntry).covered) {
+          wargearSelections[wc.name] = pw.count
+        }
       }
 
       // 2. Weapon option rules (free choices) — match each choice bundle against imported

@@ -6,6 +6,7 @@ import {
   ruleChoiceMax,
   ruleSelectionCap,
   ruleSelectionTotal,
+  wargearRuleCoverage,
 } from '@/core/utils/roster'
 
 interface Props {
@@ -24,12 +25,22 @@ function stepperButtonClass(disabled: boolean): string {
   }`
 }
 
+/** Points a pick of `choice` adds: the paid-wargear items (`wargearCosts`) whose weapon it grants. */
+function choicePrice(choice: string[], wargearCosts: WargearCost[]): number {
+  const probe = (name: string): boolean => choice.some(w => w.toLowerCase().replace(/s$/, '') === name)
+  return wargearCosts.reduce((sum, wc) => {
+    const core = wc.name.replace(/^per\s+/i, '').replace(/\s*\([^)]*\)\s*$/, '').toLowerCase().replace(/s$/, '')
+    return probe(core) ? sum + wc.points : sum
+  }, 0)
+}
+
 function RuleEditor({
   rule,
   allRules,
   roleCounts,
   modelCount,
   entry,
+  wargearCosts,
   onChange,
 }: {
   rule: WeaponOptionRule
@@ -37,6 +48,7 @@ function RuleEditor({
   roleCounts: Record<string, number>
   modelCount: number
   entry: RosterEntry
+  wargearCosts: WargearCost[]
   onChange: (selection: number[]) => void
 }) {
   const eligible = ruleEligibleCount(rule, roleCounts, modelCount)
@@ -82,7 +94,12 @@ function RuleEditor({
           const qty = selection[i]
           return (
             <div key={i} className="flex items-center justify-between gap-2">
-              <span className="text-[11px] font-mono text-parchment truncate">{choice.join(' + ')}</span>
+              <span className="text-[11px] font-mono text-parchment truncate">
+                {choice.join(' + ')}
+                {choicePrice(choice, wargearCosts) > 0 && (
+                  <span className="text-parchment-dim"> (+{choicePrice(choice, wargearCosts)}pts)</span>
+                )}
+              </span>
               <div className="flex items-center gap-1.5 shrink-0">
                 <button
                   type="button"
@@ -183,18 +200,21 @@ export function WeaponOptionsEditor({ datasheet, entry, wargearCosts, onChangeSe
     r => r.scope === 'unparsed' && !wargearCoreNames.some(name => stripHtml(r.raw).toLowerCase().includes(name)),
   )
   const wargearSelections = entry.wargearSelections ?? {}
+  // A paid weapon that a swap/add rule grants is priced by that rule's pick (see
+  // `wargearRuleCoverage`), so it gets no control of its own — only the rest do.
+  const standaloneWargear = wargearCosts.filter(wc => !wargearRuleCoverage(wc, datasheet, entry).covered)
 
-  if (parsedRules.length === 0 && unparsedRules.length === 0 && wargearCosts.length === 0) return null
+  if (parsedRules.length === 0 && unparsedRules.length === 0 && standaloneWargear.length === 0) return null
 
   return (
     <div className="space-y-2">
-      {(parsedRules.length > 0 || wargearCosts.length > 0) && (
+      {(parsedRules.length > 0 || standaloneWargear.length > 0) && (
         <div>
           <p className="text-[10px] font-mono uppercase tracking-widest text-parchment-dim mb-1">
             Opciones de Equipo
           </p>
           <div className="flex flex-col gap-1.5">
-            {wargearCosts.map(wc => (
+            {standaloneWargear.map(wc => (
               <WargearCostBox
                 key={wc.name}
                 wc={wc}
@@ -211,6 +231,7 @@ export function WeaponOptionsEditor({ datasheet, entry, wargearCosts, onChangeSe
                 roleCounts={roleCounts}
                 modelCount={entry.modelCount}
                 entry={entry}
+                wargearCosts={wargearCosts}
                 onChange={selection => onChangeSelection(rule.id, selection)}
               />
             ))}
