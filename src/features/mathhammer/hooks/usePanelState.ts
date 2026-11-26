@@ -4,7 +4,7 @@ import { useLocalStorage } from '@/shared/hooks/useLocalStorage'
 import { ENHANCEMENT_ATTACHMENTS } from '@/core/constants/enhancementAttachments'
 import type { PanelSelection } from '../types'
 import { forFaction, datasheetsForFaction, datasheetBelongsToFaction } from '@/core/constants/factionFamily'
-import { isEpicHero, canBearUnmappedEnhancement } from '@/core/utils/roster'
+import { isBarredFromEnhancements, canBearUnmappedEnhancement } from '@/core/utils/roster'
 
 const EMPTY_SELECTION: PanelSelection = {
   factionId: null, detachmentIds: [], datasheetId: null, characterId: null, enhancementId: null,
@@ -135,7 +135,7 @@ export function usePanelState(gameData: GameData, storageKey: string): PanelStat
       .filter((id): id is string => id != null)
       .filter(id => {
         const ds = gameData.datasheets.find(d => d.id === id)
-        return !(ds && isEpicHero(ds))
+        return !(ds && isBarredFromEnhancements(ds))
       })
     if (targetIds.length === 0) return []
     const validEnhancementIds = new Set(targetIds.flatMap(id => gameData.datasheetEnhancements[id] ?? []))

@@ -4718,11 +4718,11 @@
       "pointsCosts": [
         {
           "description": "1 model (1st-2nd units)",
-          "points": 180
+          "points": 175
         },
         {
           "description": "1 model (3rd+ unit)",
-          "points": 220
+          "points": 215
         }
       ],
       "wargearCosts": [],

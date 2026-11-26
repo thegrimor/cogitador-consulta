@@ -543,7 +543,7 @@ memory or an external lookup entirely.
 
 **Points values (`pointsCosts`/`wargearCosts`) must always be sourced from the official Munitorum
 Field Manual at https://mfm.warhammer-community.com/en** (GW's own canonical, actively-maintained
-points reference — v1.5 as of this writing, bumped from v1.4 on 2026-09-30) — never from a
+points reference — v1.6 as of this writing, every faction synced on 2026-11-26) — never from a
 third-party wiki (Wahapedia etc.) or
 from memory, and never trust one of those against the MFM without rechecking: doing exactly that
 during the Imperial Agents fix below (sourcing the "Assigned Agent" prices from Wahapedia instead
@@ -579,6 +579,15 @@ Space Marines leader relationships) for a manual or targeted-LLM follow-up. The 
 (2026-09-30) is what this tool was built for — 413 values corrected across all 29 factions in
 one run, versus dispatching ~30 separate LLM audits (the first attempt at that sync, before this
 tool existed, burned a large amount of tokens and hit rate limits well before finishing).
+
+**v1.6 sync (2026-11-26).** Changed `space-marines`, `black-templars`, `space-wolves` and `adepta-sororitas`.
+It **supersedes the community "Art of War" batch** above wherever the two differ. Two matcher bugs were fixed:
+enhancement names with two parentheticals ("(one per army) (Upgrade)") now match, and two prices sharing tier
+and model count are told apart by label (Wolf Guard Headtakers with/without Hunting Wolves had been given the
+same price) — if no label matches, the tool reports it instead of taking the first. Crusader Squad's 20-model
+price (305) was fixed by hand: the MFM lists its roles in a different order from our label. Known permanent
+"manual review" lines, checked and correct: Sir Hekhtur (no own price) and Tidewall Shieldline's
+"+ 1 Tidewall Defence Platform"; Crusader Squad is also reported, for the label order above.
 
 **A full `pointsCosts` audit against the MFM (every non-Legends faction page, all 23 factions in
 `catalog/factions.json`) was run once, catching real bugs beyond the two above.** The recurring
@@ -953,7 +962,7 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   flag was permanently `false`, and the allied-Agents picker had never rendered for any faction at
   all. Same trap `factionColors.ts` already warns about — never match a `factionId` against
   anything in `themes.ts`.
-- Export to the GW-app plain-text format (`sectionHeader`, `battleSizeLabel`, `entryBody`, etc.) is in `src/core/utils/rosterExport.ts`: lowercase `points`, disposition line after the detachment, no Total/Limit footer, and every unit lists its full resolved loadout (`resolveWeaponQuantities`; squads nest weapons under each model role via `unitSlots`/`defaultWeaponGroups`). Text import (`RosterListPage`'s "Importar Lista" box) goes through `parseRosterText`, which dispatches by format: `parseMunitorumRosterText` (same file) handles the GW-app export plus its close cousins (Listhammer, BattleScribe, and their Spanish translations — all share one line grammar, distinguished by regex variants); `parseNewRecruitText` (`src/core/utils/parseNewRecruit.ts`, picked via `isNewRecruitText`) handles newrecruit.eu's export, a genuinely different line grammar (a "+"-bordered ALL-CAPS metadata banner, inline `: weapon, weapon` tails instead of separate weapon-bullet lines) kept in its own module for that reason. Both parsers funnel into the same `ParsedRosterText`/`ParsedUnit` shape, so `resolveImportedRoster` (datasheet/detachment/enhancement matching, wargear/weapon-option resolution, leader attachment) is format-agnostic and lives once in `rosterExport.ts`. Adding another source format means adding another `parseXText` producing that same shape, not touching `resolveImportedRoster`.
+- Export to the GW-app plain-text format (`sectionHeader`, `battleSizeLabel`, `entryBody`, etc.) is in `src/core/utils/rosterExport.ts`: lowercase `points`, disposition line after the detachment, no Total/Limit footer, and every unit lists its full resolved loadout (`resolveWeaponQuantities`; squads nest weapons under each model role via `unitSlots`/`defaultWeaponGroups`). Text import (`RosterListPage`'s "Importar Lista" box) goes through `parseRosterText`, which dispatches by format: `parseMunitorumRosterText` (same file) handles the GW-app export plus its close cousins (Listhammer, BattleScribe, and their Spanish translations — all share one line grammar, distinguished by regex variants); `parseNewRecruitText` (`src/core/utils/parseNewRecruit.ts`, picked via `isNewRecruitText`) handles newrecruit.eu's export, a genuinely different line grammar (a "+"-bordered ALL-CAPS metadata banner, inline `: weapon, weapon` tails instead of separate weapon-bullet lines) kept in its own module for that reason. Both parsers funnel into the same `ParsedRosterText`/`ParsedUnit` shape, so `resolveImportedRoster` (datasheet/detachment/enhancement matching, wargear/weapon-option resolution, leader attachment) is format-agnostic and lives once in `rosterExport.ts`. Adding another source format means adding another `parseXText` producing that same shape, not touching `resolveImportedRoster`. The GW app joins several detachments as "A, B and C", so the detachment line is split on commas as well as "+"/"and"/"y". A bullet naming a priced wargear item (Banner of Macragge) is treated as wargear, never counted as a model. Imported points are ignored: totals are always recomputed from the data.
 - QR import/export (`RosterQrExportModal`, `RosterQrScanModal`) round-trips a compact roster payload through `lz-string` compression + `qrcode.react` (render) / `qr-scanner` (scan) in `src/core/utils/rosterQrCode.ts`. There's also a BCP-list text importer (`src/features/mathhammer/utils/parseBcpList.ts`) that parses copy-pasted army lists.
 - Enhancement-to-unit attachment rules are in `src/core/constants/enhancementAttachments.ts`.
 - **Detachment rules, army rules and stratagems live in one "Consulta de reglas" block at the bottom of
@@ -987,10 +996,12 @@ Everything else (catalog, core rules, missions, mathhammer) is local component s
   Warlord" (`isMandatoryWarlord`, 10 datasheets) overrides the pick: exactly one such unit in the list is the Warlord
   (check shown locked, "obligatorio", nobody else can be picked); two or more means the player chooses between those
   only. Export writes `• Warlord` under the unit's name line (after `Attached as`); the parser reads it back.
-- **Epic Heroes can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
-  return no enhancements for a datasheet with the `Epic Hero` keyword (`isEpicHero` in `roster.ts`). It has to
-  be explicit: the "unmapped enhancement => unrestricted" fallback would otherwise offer every unmapped
-  enhancement to them (seen with Trajann Valoris, who carries no `enhancementIds`).
+- **Epic Hero characters can never bear an Enhancement.** `RosterEditPage` and Mathhammer's `usePanelState` both
+  return no enhancements for a *character* with the `Epic Hero` keyword (`isBarredFromEnhancements` in
+  `roster.ts`). A non-character unit that merely carries the keyword (Victrix Honour Guard) can still take an
+  Upgrade. It has to be explicit: the "unmapped enhancement => unrestricted" fallback would otherwise offer every
+  unmapped enhancement to them (seen with Trajann Valoris, who carries no `enhancementIds`). Attached units do
+  not yet share keywords with their leader/support for enhancement eligibility.
 - **Attached units: one leader + one support per bodyguard unit** (rule text: `core-rules.json`
   `UA012`/`000008346`/`CO054`). A character's kind comes from
   `attachmentKind` in `roster.ts` (Core `Support` ability → support, anything else — Core `Leader`,

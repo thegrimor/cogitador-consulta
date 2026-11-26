@@ -365,7 +365,7 @@ function parseMunitorumRosterText(text: string): ParsedRosterText {
     // "Martillazo de los Tharanatoi y Shield Host (3 puntos de destacamento)"
     const detMatch = line.match(DETACHMENT_RE)
     if (detMatch) {
-      const parts = detMatch[1].split(/\s+\+\s+|\s+y\s+/i).map(s => s.trim()).filter(Boolean)
+      const parts = detMatch[1].split(/\s*,\s*|\s+\+\s+|\s+y\s+/i).map(s => s.trim()).filter(Boolean)
       detachmentNames.push(...parts)
       seenDetachment = true
       continue
@@ -580,7 +580,7 @@ export function resolveImportedRoster(
       detachmentIds.push(det.id)
     } else {
       // BattleScribe sometimes joins multiple detachments with " and "/" y " instead of " + "
-      const parts = detName.split(/\s+(?:and|y)\s+/i).map(s => s.trim()).filter(Boolean)
+      const parts = detName.split(/\s*,\s*|\s+(?:and|y)\s+/i).map(s => s.trim()).filter(Boolean)
       for (const part of parts.length > 1 ? parts : [detName]) {
         const d = detachments.find(d2 => d2.name.toLowerCase() === part.toLowerCase())
           ?? findByDistinctiveWord(part, factionDetachmentsForMatch)
@@ -629,7 +629,12 @@ export function resolveImportedRoster(
       // so datasheet ability names are excluded from the count the same way.
       const isSingleModelDatasheet = datasheet.modelCountMax <= 1
       const rawBulletItems = unit.bulletItems ?? []
-      const datasheetWeaponBases = new Set(datasheet.weapons.map(w => weaponBaseName(w.name)))
+      // A priced wargear item (Banner of Macragge) sits at the same bullet depth as a model
+      // line but is never a model — treat it like a weapon so it is priced, not counted.
+      const datasheetWeaponBases = new Set([
+        ...datasheet.weapons.map(w => weaponBaseName(w.name)),
+        ...(wargearCostMap[datasheet.id] ?? []).map(w => weaponBaseName(w.name.replace(/^per\s+/i, ''))),
+      ])
       const nonModelBulletBases = new Set([
         ...datasheetWeaponBases,
         ...datasheet.abilities.map(a => weaponBaseName(a.name)),

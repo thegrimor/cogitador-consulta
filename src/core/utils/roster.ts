@@ -25,6 +25,12 @@ export function isEpicHero(datasheet: Datasheet): boolean {
   return datasheet.keywords.some(k => k.toUpperCase() === 'EPIC HERO')
 }
 
+/** Epic Heroes can't bear Enhancements — but only characters: a squad that merely carries the
+ *  EPIC HERO keyword (Victrix Honour Guard) is a unit and can still take an Upgrade. */
+export function isBarredFromEnhancements(datasheet: Datasheet): boolean {
+  return isEpicHero(datasheet) && isCharacterDatasheet(datasheet)
+}
+
 /** Whether a datasheet is a character (enhancements go to characters, upgrades to everything else).
  *  Some datasheets (the Space Marines PDF migration) lack the CHARACTER keyword but sit in the
  *  `Characters` role, so either one counts. */
