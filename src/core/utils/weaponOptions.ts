@@ -33,18 +33,34 @@ function parseCount(s: string): number {
   return Number.isNaN(n) ? NUMBER_WORDS[s.toLowerCase()] ?? 0 : n
 }
 
-/** Splits "1 X and 1 Y" / "1 X, 1 Y and 1 Z" into ["X", "Y", "Z"], dropping leading quantities. */
-function splitBundle(text: string): string[] {
-  return text
+/** Splits `text` on commas/" and ", except inside a name in `known` (a real weapon profile whose
+ * own name contains " and " or a comma, e.g. "Transonic razor and chordclaw") — that stays whole,
+ * otherwise a swap of it would name two weapons the datasheet doesn't have. */
+function splitList(text: string, known: string[]): string[] {
+  const protectedNames = known.filter(k => /,| and /i.test(k)).sort((a, b) => b.length - a.length)
+  let work = text
+  const held: string[] = []
+  for (const name of protectedNames) {
+    const idx = work.toLowerCase().indexOf(name)
+    if (idx < 0) continue
+    held.push(work.slice(idx, idx + name.length))
+    work = `${work.slice(0, idx)}\uE000${held.length - 1}\uE001${work.slice(idx + name.length)}`
+  }
+  return work
     .split(/,| and /i)
+    .map(s => s.replace(/\uE000(\d+)\uE001/g, (_, i) => held[Number(i)]))
+}
+
+/** Splits "1 X and 1 Y" / "1 X, 1 Y and 1 Z" into ["X", "Y", "Z"], dropping leading quantities. */
+function splitBundleWith(text: string, known: string[]): string[] {
+  return splitList(text, known)
     .map(s => s.trim().replace(/^(?:up to )?\d+\s+/i, '').replace(/[.*]+$/, '').trim())
     .filter(Boolean)
 }
 
 /** Leading quantity of each bundle entry ("4 death rays" → 4); 1 when none is written. */
-function bundleQuantities(text: string): number[] {
-  return text
-    .split(/,| and /i)
+function bundleQuantitiesWith(text: string, known: string[]): number[] {
+  return splitList(text, known)
     .map(s => s.trim())
     .filter(Boolean)
     .map(s => {
@@ -224,7 +240,15 @@ function matchReplaceClause(text: string): ReplaceClause | null {
  * Anything it can't confidently parse comes back with scope 'unparsed' so
  * the UI can surface it as plain text instead of guessing at legality.
  */
-export function parseWeaponOptionRules(options: UnitOption[], slots: UnitSlot[]): WeaponOptionRule[] {
+export function parseWeaponOptionRules(
+  options: UnitOption[],
+  slots: UnitSlot[],
+  weaponNames: string[] = [],
+): WeaponOptionRule[] {
+  // Weapon profiles whose own name holds " and "/"," must not be split into two weapons.
+  const known = weaponNames.map(n => n.toLowerCase().replace(/\s+[-–—]\s+\S.*$/, ''))
+  const splitBundle = (text: string): string[] => splitBundleWith(text, known)
+  const bundleQuantities = (text: string): number[] => bundleQuantitiesWith(text, known)
   return options.map(opt => {
     const raw = opt.description ?? ''
     const list = extractListItems(raw)

@@ -157,7 +157,7 @@ export function useGameData(): GameData {
 
           for (const dsj of fj.datasheets) {
             const unitSlots = parseUnitSlots(dsj.unitComposition)
-            const weaponOptionRules = parseWeaponOptionRules(dsj.options, unitSlots)
+            const weaponOptionRules = parseWeaponOptionRules(dsj.options, unitSlots, dsj.weapons.map(w => w.name))
 
             datasheets.push({
               id: dsj.id,
